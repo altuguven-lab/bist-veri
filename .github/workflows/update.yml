@@ -1,0 +1,34 @@
+name: BIST Veri Guncelleme
+
+on:
+  schedule:
+    - cron: "*/15 7-15 * * 1-5"
+  workflow_dispatch: {}
+
+jobs:
+  guncelle:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Repoyu indir
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bagimliliklari kur
+        run: pip install -r requirements.txt
+
+      - name: BIST verisini cek
+        run: python fetch_bist.py
+
+      - name: Degisiklik varsa commit'le ve gonder
+        run: |
+          git config user.name "bist-veri-bot"
+          git config user.email "bist-veri-bot@users.noreply.github.com"
+          git add data/bist_quotes.json
+          git diff --staged --quiet || git commit -m "Otomatik veri guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
