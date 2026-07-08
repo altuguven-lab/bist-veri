@@ -1,0 +1,30 @@
+# SAGLIK KONTROLU - dead man's switch
+# Konum: .github/workflows/saglik_kontrol.yml
+# Hafta ici gunde 2 kez: 09:35 ve 14:35 TR (06:35 / 11:35 UTC).
+# Ariza bulursa GitHub Issue acar (e-posta bildirimi otomatik gelir)
+# ve kosum kirmizi biter (Actions listesinde de gorunur).
+name: Saglik Kontrolu
+
+on:
+  schedule:
+    - cron: "35 6,11 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  saglik:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Saglik kontrolu
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python saglik_kontrol.py
