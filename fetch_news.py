@@ -70,6 +70,10 @@ for _s in BIST_SEMBOLLER:
 DOSYA = "data/haber_akisi.json"
 MAX_HABER = 100
 MIN_PUAN = 2          # bu esigin altindaki haberler dosyaya yazilmaz
+MAX_YAYIN_YASI_GUN = 7  # yayin tarihi bundan eskiyse alinmaz (GN 'alakali' eskileri getirir)
+# Sablon/gurultu basliklari (gunluk uretilen kopya icerik) - dosyaya alinmaz
+GURULTU_KALIPLARI = ["gunluk teknik analiz", "günlük teknik analiz",
+                     "viop yorum", "vİop yorum", "opsiyonu fiz"]
 MAX_KAYIT_YASI_GUN = 3  # 3 gunden eski kayitlar dosyadan dusurulur
 
 
@@ -98,11 +102,21 @@ def kaynak_cek(isim, url, taban):
             print(f"UYARI: {isim} okunamadi ({feed.bozo_exception})", file=sys.stderr)
             return []
         kayitlar = []
+        simdi_ts = datetime.datetime.now(datetime.timezone.utc)
         for e in feed.entries[:25]:
             baslik = temizle(getattr(e, "title", ""))
             link = getattr(e, "link", "")
             if not baslik or not link:
                 continue
+            # Gurultu kalibi iceren basliklar elenir
+            if any(k in baslik.lower() for k in GURULTU_KALIPLARI):
+                continue
+            # Yayin tarihi cok eskiyse elenir (tarih yoksa gecer - resmi kaynaklar icin tolerans)
+            pp = getattr(e, "published_parsed", None) or getattr(e, "updated_parsed", None)
+            if pp is not None:
+                yas = (simdi_ts - datetime.datetime(*pp[:6], tzinfo=datetime.timezone.utc)).days
+                if yas > MAX_YAYIN_YASI_GUN:
+                    continue
             puan, semboller = puanla(baslik, taban)
             if puan < MIN_PUAN:
                 continue
@@ -137,12 +151,15 @@ def main():
             pass  # bozuk dosya -> sifirdan basla
 
     bilinen_linkler = {h["link"] for h in eski}
+    bilinen_basliklar = {h["baslik"].lower()[:80] for h in eski}
 
     yeniler = []
     for isim, url, taban in KAYNAKLAR:
         for kayit in kaynak_cek(isim, url, taban):
-            if kayit["link"] not in bilinen_linkler:
+            b_norm = kayit["baslik"].lower()[:80]
+            if kayit["link"] not in bilinen_linkler and b_norm not in bilinen_basliklar:
                 bilinen_linkler.add(kayit["link"])
+                bilinen_basliklar.add(b_norm)
                 yeniler.append(kayit)
 
     # Yeniler basa, eskiler arkaya; yas siniri + adet siniri uygula
