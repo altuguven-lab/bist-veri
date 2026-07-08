@@ -25,11 +25,11 @@ jobs:
       - name: BIST verisini cek
         run: python fetch_bist.py
 
-- name: Commit ve push
+      - name: Commit ve push
         run: |
           git config user.name "bist-veri-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/haber_akisi.json
-          git diff --staged --quiet || git commit -m "Otomatik haber guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git add data/bist_quotes.json
+          git diff --staged --quiet || git commit -m "Otomatik veri guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git pull --rebase origin main
           git push
