@@ -1,0 +1,38 @@
+# KANAL 3 - Haber akisi guncelleme
+# Konum: .github/workflows/haber_update.yml
+# Yarim saatte bir calisir (BIST seans saatleri disi da dahil - gece gelen
+# kuresel haberler sabah brifinginde hazir olsun diye kisitlanmadi).
+name: Haber Akisi Guncelle
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}   # elle tetikleme icin (Actions sekmesi -> Run workflow)
+
+permissions:
+  contents: write
+
+jobs:
+  haber:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bagimliliklar
+        run: pip install feedparser
+
+      - name: Haberleri cek
+        run: python fetch_news.py
+
+      - name: Commit ve push
+        run: |
+          git config user.name "bist-veri-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/haber_akisi.json
+          # Degisiklik yoksa commit deneme (bos commit hatasi engellenir)
+          git diff --staged --quiet || git commit -m "Otomatik haber guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
