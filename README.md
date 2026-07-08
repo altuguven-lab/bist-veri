@@ -1,73 +1,39 @@
-# BIST Veri Köprüsü — İki Kanal
-
-Bu repo, Claude'a BIST verisi aktarmak için **iki ayrı, birbirini tamamlayan**
-kanal içerir:
-
-| Kanal | Dosya | Ne içerir | Güncelleme sıklığı |
-|---|---|---|---|
-| **1. Yahoo Finance (çekme/pull)** | `data/bist_quotes.json` | 30 sembolün ham fiyat/hacim verisi | Hafta içi her 15 dakikada bir (GitHub Actions) |
-| **2. TradingView Webhook (itme/push)** | `data/tv_alerts_latest.json` | V151/V195'in kendi ürettiği sinyaller (ACTION, ACİL ÇIK, P1 AL vb.) | Alarm tetiklendiği an (saniyeler içinde) |
-
-## Kanal 1 — Yahoo Finance (zaten kurulu)
-
-`fetch_bist.py` + `.github/workflows/update.yml` — önceki kurulumla aynı,
-değişiklik yok. BIST işlem saatleri boyunca otomatik çalışır.
-
-## Kanal 2 — TradingView Webhook (yeni)
-
-### Nasıl çalışır
+BIST Veri Köprüsü — Üç Kanal
+Bu repo, Claude'a BIST verisi aktarmak için üç ayrı, birbirini tamamlayan kanal içerir:
+Kanal	Dosya	Ne içerir	Güncelleme sıklığı
+1. Fiyat (Yahoo Finance, çekme/pull)	`data/bist_quotes.json`	30 sembolün ham fiyat/hacim verisi	Hafta içi her 15 dakikada bir (GitHub Actions, `update.yml`)
+2. Sinyal (TradingView Webhook, itme/push)	`data/tv_alerts_latest.json`	V151/V195'in ürettiği sinyaller (P1_KALITELI_AL, ACIL_CIK vb.) — son 30 sinyal birikimli tutulur	Alarm tetiklendiği an (TradingView → Pipedream → GitHub)
+3. Haber (RSS, çekme/pull)	`data/haber_akisi.json`	KAP, TCMB, ajanslar ve sembol bazlı Google News akışından süzülmüş, puanlanmış haberler (son ~100)	Her 30 dakikada bir, 7/24 (GitHub Actions, `haber_update.yml`)
+Mimari
 ```
-TradingView Alarm (webhook) → Pipedream → GitHub'a dosya yazar → sen linki verirsin → Claude okur
+TradingView alarmı ──► Pipedream ──► data/tv_alerts_latest.json ┐
+Yahoo Finance ──► fetch_bist.py (Actions) ──► data/bist_quotes.json ├──► Claude (brifing / analiz)
+RSS kaynakları ──► fetch_news.py (Actions) ──► data/haber_akisi.json ┘
 ```
-
-### Kurulum
-
-1. **Pipedream workflow oluştur** (pipedream.com, ücretsiz):
-   - Tetikleyici: **"HTTP / Webhook" → "New Requests"**. Sana bir URL verir
-     (örn. `https://xxxxx.m.pipedream.net`) — bunu not al.
-   - İkinci adım: **"Run Node.js code"** ekle, bu repodaki
-     `pipedream_kod_adimi.js` dosyasının içeriğini oraya yapıştır.
-   - Üçüncü adım: **GitHub entegrasyonu** → "Create or Update File" action'ı.
-     GitHub hesabını bağla, repo/branch seç, dosya yolu olarak
-     `data/tv_alerts_latest.json` yaz, dosya içeriği olarak ikinci adımın
-     çıktısını (Pipedream arayüzü otomatik önerir, `steps.kod_adimi.$return_value`
-     benzeri bir değişken) seç.
-   - Workflow'u **"Deploy"** et.
-
-2. **TradingView'de alarm kur:**
-   - V151 IRE FOCUS grafiğinde Alarm oluştur, koşul olarak istediğin
-     `alertcondition`'ı seç (örn. "P1 KALİTELİ AL", "ACİL ÇIK").
-   - **Mesaj alanını JSON formatına çevir** (varsayılan düz metin yerine),
-     örnek:
-     ```json
-     {"symbol": "{{ticker}}", "signal": "P1_KALITELI_AL", "interval": "{{interval}}", "price": "{{close}}"}
-     ```
-     Bu, Pipedream'in `pipedream_kod_adimi.js`'teki ayrıştırmayı düzgün
-     yapabilmesi için önemli — düz metin de çalışır ama `ham_mesaj` alanına
-     düşer, yapılandırılmış alanlar (`sembol`, `sinyal`) boş kalır.
-   - **"Webhook URL"** kutucuğunu işaretle, Pipedream URL'ini yapıştır.
-   - Kaydet.
-
-3. **Test et:** Alarmı tetikle (ya da test amaçlı basit bir fiyat alarmı kur),
-   Pipedream'in "Event History" sekmesinde isteğin geldiğini, GitHub'da
-   `data/tv_alerts_latest.json` dosyasının güncellendiğini doğrula.
-
-## Claude'a Aktarma
-
-İki dosyanın da raw linki:
-```
-https://raw.githubusercontent.com/KULLANICI-ADIN/REPO-ADIN/main/data/bist_quotes.json
-https://raw.githubusercontent.com/KULLANICI-ADIN/REPO-ADIN/main/data/tv_alerts_latest.json
-```
-
-Bir sohbette ikisini de verip *"bu iki linkten güncel veriyi çek"* dersin,
-Claude her ikisini de `web_fetch` ile okur.
-
-## Sınırlamalar (dürüstçe)
-
-- **Kanal 1** birkaç dakika gecikmeli, gerçek anlık değil.
-- **Kanal 2** gerçekten anlık (saniyeler) ama SADECE alarm kurduğun koşullar
-  için çalışır — sistemin sürekli durumunu değil, sadece "olay" anlarını yakalar.
-- **`tv_alerts_latest.json` sadece EN SON alarmı tutar** — art arda birkaç
-  alarm gelirse aradakileri kaçırabilirsin. İstersen ileride bunu bir "son 50
-  alarm" listesine genişletebiliriz (Pipedream'de bir okuma-ekleme adımı gerekir).
+Dosyalar
+`fetch_bist.py` — Kanal 1 toplayıcısı. Sembol bazında hataya dayanıklı; kod/unvan
+geçişleri için eski-kod yedeği içerir (`ESKI_KOD_YEDEK`).
+`fetch_news.py` — Kanal 3 toplayıcısı. Haberleri evren sembolleri + makro anahtar
+kelimelere göre puanlar; eşik altı, 7 günden eski ve şablon/gürültü başlıkları elenir.
+`pipedream_kod_adimi.js` — Kanal 2'nin Pipedream code adımının yedeği. Gelen webhook'u
+okur, sinyal geçmişine ekler (son 30), GitHub'a commit eder.
+`.github/workflows/update.yml` — Kanal 1 zamanlayıcısı (hafta içi seans saatleri).
+`.github/workflows/haber_update.yml` — Kanal 3 zamanlayıcısı (7/24, 30 dk).
+Rutinler (Claude tarafında)
+"brifing" (her sabah): üç kanalın dosyaları + güncel aracı kurum/haber taraması → günlük plan.
+"evren denetimi" (Pazartesi): kurum listeleri 30'luk evrenle karşılaştırılır,
+yalnızca değişiklik önerileri raporlanır.
+Evren (30 sembol)
+AKBNK, YKBNK, GARAN, ISCTR, SAHOL, KCHOL, THYAO, TAVHL, EREGL, ASELS,
+ASTOR, MGROS, BIMAS, TUPRS, TOASO, FROTO, ENKAI, TTKOM, AEFES, PGSUS,
+HALKB, VAKBN, OTKAR, PETKM, SISE, EKGYO, TRMET, ALARK, ENJSA, ULKER
+> **Bakım kuralı:** Evren değiştiğinde ÜÇ yer birlikte güncellenir:
+> V195 (sembol inputları + fundTier), `fetch_bist.py` ve `fetch_news.py`.
+Revizyon geçmişi
+07.07.2026 — SASA, KOZAL, DOAS çıkarıldı; OTKAR, ENJSA, TRMET eklendi.
+08.07.2026 — Kanal 3 (haber akışı) devreye alındı; README üç kanala güncellendi.
+Notlar
+Yahoo Finance verisi birkaç dakika gecikmelidir; anlık (tick) veri değildir.
+Kanal 2 dosyası "en son sinyal + son 30 sinyal geçmişi" yapısındadır; her webhook
+dosyayı ezmez, geçmişe ekler.
+Tüm scriptler tek kaynak/sembol hatasında ÇÖKMEZ; sorunlu kalemi atlar ve loga uyarı yazar.
