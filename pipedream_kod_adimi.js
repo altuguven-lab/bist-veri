@@ -1,32 +1,85 @@
-// PIPEDREAM "Run Node.js code" ADIMI - bu kodu Pipedream workflow'unda
-// HTTP trigger'dan SONRAKI adima yapistir. Cikti, bir sonraki GitHub
-// adiminda dosya icerigi olarak kullanilacak.
+import { axios } from "@pipedream/platform";
 
 export default defineComponent({
+  props: {
+    github: { type: "app", app: "github" },
+  },
   async run({ steps, $ }) {
-    const rawBody = steps.trigger.event.body;
-    let parsed;
+    const OWNER = "altuguven-lab";
+    const REPO = "bist-veri";
+    const PATH = "data/tv_alerts_latest.json";
+    const MAX_SINYAL = 30;
 
-    // TradingView'in alert mesaji JSON formatindaysa (onerilen), onu ayristir.
-    // Degilse (duz metin), ham_mesaj alanina oldugu gibi koy.
-    try {
-      parsed = typeof rawBody === "string" ? JSON.parse(rawBody) : rawBody;
-    } catch (e) {
-      parsed = { ham_mesaj: String(rawBody) };
-    }
-
-    const sonuc = {
-      son_guncelleme_utc: new Date().toISOString(),
-      kaynak: "TradingView Webhook (Pipedream uzerinden)",
-      sembol: parsed.symbol || parsed.sembol || null,
-      sinyal: parsed.signal || parsed.sinyal || null,
-      interval: parsed.interval || null,
-      fiyat: parsed.price || parsed.fiyat || null,
-      ham_mesaj: parsed.ham_mesaj || rawBody,
+    // TradingView'den gelen govde
+    const body = steps.trigger.event.body || {};
+    const yeniSinyal = {
+      zaman_utc: new Date().toISOString(),
+      sembol: String(body.symbol ?? "?"),
+      sinyal: String(body.signal ?? "?"),
+      interval: String(body.interval ?? "?"),
+      fiyat: String(body.price ?? "?"),
     };
 
-    // Bu adimin ciktisi (JSON string), bir sonraki "GitHub: Create or Update
-    // File" adiminda dosya icerigi olarak kullanilacak (steps.kod_adi.$return_value).
-    return JSON.stringify(sonuc, null, 2);
+    const headers = {
+      Authorization: `Bearer ${this.github.$auth.oauth_access_token}`,
+      Accept: "application/vnd.github+json",
+      "User-Agent": "bist-veri-pipedream",
+    };
+
+    // Dosyayi oku, sinyali ekle, yaz. Sha cakismasinda (es zamanli sinyal)
+    // dosyayi TAZE halinden yeniden okuyup tekrar dener - sinyal kaybolmaz.
+    let sonHata = null;
+    for (let deneme = 1; deneme <= 3; deneme++) {
+      // 1) Guncel dosyayi oku (sha + gecmis)
+      let sha;
+      let gecmis = [];
+      try {
+        const mevcut = await axios($, {
+          url: `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}?ref=main`,
+          headers,
+        });
+        sha = mevcut.sha;
+        const icerik = JSON.parse(
+          Buffer.from(mevcut.content, "base64").toString("utf8")
+        );
+        if (Array.isArray(icerik.sinyal_gecmisi)) {
+          gecmis = icerik.sinyal_gecmisi;
+        }
+      } catch (e) {
+        // Dosya yoksa veya eski formattaysa sifirdan basla
+      }
+
+      // 2) Yeni sinyal en basa, son MAX_SINYAL kadari kalir
+      gecmis.unshift(yeniSinyal);
+      gecmis = gecmis.slice(0, MAX_SINYAL);
+
+      const dosya = {
+        son_guncelleme_utc: yeniSinyal.zaman_utc,
+        kaynak: "TradingView Webhook (Pipedream uzerinden)",
+        sinyal_sayisi: gecmis.length,
+        son_sinyal: yeniSinyal,
+        sinyal_gecmisi: gecmis,
+      };
+
+      // 3) Yaz - cakisirsa dongu basa doner ve TAZE sha/gecmisle tekrar dener
+      try {
+        await axios($, {
+          method: "PUT",
+          url: `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`,
+          headers,
+          data: {
+            message: `TV sinyal: ${yeniSinyal.sembol} ${yeniSinyal.sinyal}`,
+            content: Buffer.from(JSON.stringify(dosya, null, 2)).toString("base64"),
+            sha,
+            branch: "main",
+          },
+        });
+        return dosya; // basarili
+      } catch (e) {
+        sonHata = e;
+        await new Promise((r) => setTimeout(r, 400 * deneme)); // kisa bekleme
+      }
+    }
+    throw sonHata; // 3 denemede de yazilamadi
   },
 });
