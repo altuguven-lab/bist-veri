@@ -43,7 +43,13 @@ def fetch_one(sembol):
                 print(f"UYARI: {sembol} icin {ticker_id} bos donuyor", file=sys.stderr)
                 continue
             son = hist.iloc[-1]
+            seri = [
+                {"t": str(ix), "a": round(float(r["Open"]), 4), "y": round(float(r["High"]), 4),
+                 "d": round(float(r["Low"]), 4), "k": round(float(r["Close"]), 4), "h": int(r["Volume"])}
+                for ix, r in hist.iterrows()
+            ]
             return {
+                "_gun_ici_seri": seri,
                 "sembol": sembol,
                 "son_fiyat": round(float(son["Close"]), 4),
                 "acilis": round(float(son["Open"]), 4),
@@ -60,9 +66,11 @@ def fetch_one(sembol):
 
 def main():
     sonuclar = []
+    gun_ici = {}
     for sembol in BIST_SEMBOLLER:
         veri = fetch_one(sembol)
         if veri is not None:
+            gun_ici[sembol] = veri.pop("_gun_ici_seri", [])
             sonuclar.append(veri)
 
     cikti = {
@@ -75,6 +83,14 @@ def main():
 
     with open("data/bist_quotes.json", "w", encoding="utf-8") as f:
         json.dump(cikti, f, ensure_ascii=False, indent=2)
+
+    # Gun ici 15dk serisi (Claude'un gun ici analizi icin; her kosumda yeniden yazilir)
+    with open("data/bist_intraday.json", "w", encoding="utf-8") as f:
+        json.dump({
+            "guncelleme_zamani_utc": cikti["guncelleme_zamani_utc"],
+            "aciklama": "Bugunun 15dk barlari. a=acilis y=yuksek d=dusuk k=kapanis h=hacim",
+            "seriler": gun_ici,
+        }, f, ensure_ascii=False, indent=2)
 
     print(f"Tamamlandi: {len(sonuclar)}/{len(BIST_SEMBOLLER)} sembol basariyla cekildi.")
 
