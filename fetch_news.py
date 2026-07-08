@@ -154,8 +154,11 @@ def main():
     bilinen_basliklar = {h["baslik"].lower()[:80] for h in eski}
 
     yeniler = []
+    kaynak_sagligi = {}
     for isim, url, taban in KAYNAKLAR:
-        for kayit in kaynak_cek(isim, url, taban):
+        kaynak_kayitlari = kaynak_cek(isim, url, taban)
+        kaynak_sagligi[isim] = len(kaynak_kayitlari)
+        for kayit in kaynak_kayitlari:
             b_norm = kayit["baslik"].lower()[:80]
             if kayit["link"] not in bilinen_linkler and b_norm not in bilinen_basliklar:
                 bilinen_linkler.add(kayit["link"])
@@ -177,6 +180,7 @@ def main():
         "guncelleme_zamani_utc": simdi.isoformat(),
         "kaynak_sayisi": len(KAYNAKLAR),
         "yeni_haber": len(yeniler),
+        "kaynak_sagligi": kaynak_sagligi,
         "toplam_haber": len(hepsi),
         "haberler": hepsi,
     }
