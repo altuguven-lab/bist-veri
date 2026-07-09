@@ -50,11 +50,11 @@ def google_news_rss(sorgu):
             "&hl=tr&gl=TR&ceid=TR:tr")
 
 KAYNAKLAR = [
-    # Birincil / resmi
-    ("KAP",          "https://www.kap.org.tr/tr/rss/bildirim", 3),
-    ("TCMB",         "https://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+page+site+area/duyurular/rss", 3),
-    # Ajanslar (Google News uzerinden site filtresi)
-    ("Reuters",      google_news_rss("site:reuters.com Turkey OR borsa OR lira"), 2),
+    # Birincil / resmi (dogrudan RSS adresleri guvenilir degil/engelli cikti;
+    # Google News uzerinden site filtresiyle cekilir - 09.07.2026 revizyonu)
+    ("KAP",          google_news_rss("site:kap.org.tr"), 3),
+    ("TCMB",         google_news_rss("TCMB faiz OR duyuru"), 3),
+    ("Reuters",      google_news_rss("site:reuters.com turkey"), 2),
     ("BloombergHT",  "https://www.bloomberght.com/rss", 2),
     ("AA Ekonomi",   "https://www.aa.com.tr/tr/rss/default?cat=ekonomi", 2),
     # Yerli finans
