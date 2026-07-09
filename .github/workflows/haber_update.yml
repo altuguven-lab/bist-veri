@@ -2,7 +2,7 @@ name: Haber Akisi Guncelle
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "7,37 * * * *"
   workflow_dispatch: {}
 
 permissions:
