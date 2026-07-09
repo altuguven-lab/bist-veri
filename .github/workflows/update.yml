@@ -2,7 +2,7 @@ name: BIST Veri Guncelleme
 
 on:
   schedule:
-    - cron: "*/15 7-15 * * 1-5"
+    - cron: "4,19,34,49 7-15 * * 1-5"
   workflow_dispatch: {}
 
 jobs:
