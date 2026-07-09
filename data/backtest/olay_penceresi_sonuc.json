@@ -1,0 +1,380 @@
+{
+  "calisma": "IP-1 Olay Penceresi",
+  "uretim_zamani_utc": "2026-07-09T11:46:53.542597+00:00",
+  "durustluk_notu": "Bu sonuclar 15dk sistemin GUNLUK YAKLASIK KOPYASINA aittir; getiri iddiasi degil, rejim-davranis haritasidir. Parametreler bu calisma icin ayarlanmamistir.",
+  "evren": [
+    "AKBNK",
+    "GARAN",
+    "YKBNK",
+    "ISCTR",
+    "THYAO",
+    "TUPRS",
+    "ASELS",
+    "BIMAS",
+    "EREGL",
+    "SISE"
+  ],
+  "veri_kapsami": {
+    "AKBNK": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "GARAN": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "YKBNK": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "ISCTR": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "THYAO": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "TUPRS": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "ASELS": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "BIMAS": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "EREGL": [
+      "2022-10-03",
+      "2026-07-08"
+    ],
+    "SISE": [
+      "2022-10-03",
+      "2026-07-08"
+    ]
+  },
+  "epizotlar": [
+    {
+      "kod": "E1",
+      "ad": "Secim + Simsek/faiz soku",
+      "baglam": "28 Mayis secim, 4 Haziran Simsek atamasi, TL devaluasyonu, TCMB'nin ilk buyuk artirimi",
+      "pencere": "2023-05-01 / 2023-07-31",
+      "endeks_zirve": {
+        "tarih": "2023-07-31",
+        "deger": 7217.0
+      },
+      "endeks_dip": {
+        "tarih": "2023-05-05",
+        "deger": 4400.8
+      },
+      "pencere_max_drawdown_pct": -39.02,
+      "rejim_donusleri": [
+        {
+          "tarih": "2023-05-31",
+          "yeni_durum": "ON",
+          "endeks": 4886.9
+        }
+      ],
+      "strateji_vekili": {
+        "aciklama": "ON=endeks long, OFF=nakit, 1 gun gecikmeli",
+        "strateji_getiri_pct": 47.68,
+        "al_tut_getiri_pct": 60.16,
+        "strateji_maxdd_pct": -7.81,
+        "al_tut_maxdd_pct": -8.73
+      },
+      "acil_cik_vekil_gunleri": {
+        "AKBNK": [
+          "2023-05-16",
+          "2023-05-18"
+        ],
+        "GARAN": [
+          "2023-05-16",
+          "2023-05-17"
+        ],
+        "YKBNK": [
+          "2023-05-16",
+          "2023-07-26"
+        ],
+        "ISCTR": [
+          "2023-05-16"
+        ],
+        "THYAO": [
+          "2023-05-15"
+        ],
+        "TUPRS": [
+          "2023-05-04",
+          "2023-05-15"
+        ],
+        "BIMAS": [
+          "2023-05-15",
+          "2023-05-16",
+          "2023-05-17"
+        ],
+        "EREGL": [
+          "2023-07-25"
+        ],
+        "SISE": [
+          "2023-05-09",
+          "2023-05-10",
+          "2023-05-15"
+        ]
+      }
+    },
+    {
+      "kod": "E2",
+      "ad": "2023 yaz rallisi ve Ekim duzeltmesi",
+      "baglam": "Rasyonellesme rallisi + ilk sert duzeltme",
+      "pencere": "2023-07-01 / 2023-10-31",
+      "endeks_zirve": {
+        "tarih": "2023-10-03",
+        "deger": 8513.5
+      },
+      "endeks_dip": {
+        "tarih": "2023-07-04",
+        "deger": 6003.9
+      },
+      "pencere_max_drawdown_pct": -29.48,
+      "rejim_donusleri": [
+        {
+          "tarih": "2023-10-18",
+          "yeni_durum": "OFF",
+          "endeks": 7842.7
+        }
+      ],
+      "strateji_vekili": {
+        "aciklama": "ON=endeks long, OFF=nakit, 1 gun gecikmeli",
+        "strateji_getiri_pct": 30.38,
+        "al_tut_getiri_pct": 24.92,
+        "strateji_maxdd_pct": -7.88,
+        "al_tut_maxdd_pct": -12.79
+      },
+      "acil_cik_vekil_gunleri": {
+        "YKBNK": [
+          "2023-07-26"
+        ],
+        "THYAO": [
+          "2023-09-26"
+        ],
+        "BIMAS": [
+          "2023-10-26"
+        ],
+        "EREGL": [
+          "2023-07-25"
+        ],
+        "SISE": [
+          "2023-08-24"
+        ]
+      }
+    },
+    {
+      "kod": "E3",
+      "ad": "Mart 2024 yerel secim penceresi",
+      "baglam": "31 Mart yerel secimi oncesi/sonrasi; secim sonrasi banka rallisi",
+      "pencere": "2024-02-15 / 2024-05-15",
+      "endeks_zirve": {
+        "tarih": "2024-05-07",
+        "deger": 10336.4
+      },
+      "endeks_dip": {
+        "tarih": "2024-03-18",
+        "deger": 8718.1
+      },
+      "pencere_max_drawdown_pct": -15.66,
+      "rejim_donusleri": [
+        {
+          "tarih": "2024-03-06",
+          "yeni_durum": "OFF",
+          "endeks": 8744.6
+        },
+        {
+          "tarih": "2024-03-07",
+          "yeni_durum": "ON",
+          "endeks": 9054.2
+        },
+        {
+          "tarih": "2024-03-15",
+          "yeni_durum": "OFF",
+          "endeks": 8828.7
+        },
+        {
+          "tarih": "2024-03-22",
+          "yeni_durum": "ON",
+          "endeks": 9111.5
+        },
+        {
+          "tarih": "2024-03-26",
+          "yeni_durum": "OFF",
+          "endeks": 8807.4
+        },
+        {
+          "tarih": "2024-03-29",
+          "yeni_durum": "ON",
+          "endeks": 9142.4
+        }
+      ],
+      "strateji_vekili": {
+        "aciklama": "ON=endeks long, OFF=nakit, 1 gun gecikmeli",
+        "strateji_getiri_pct": -0.91,
+        "al_tut_getiri_pct": 9.92,
+        "strateji_maxdd_pct": -13.97,
+        "al_tut_maxdd_pct": -7.0
+      },
+      "acil_cik_vekil_gunleri": {
+        "YKBNK": [
+          "2024-03-13"
+        ],
+        "BIMAS": [
+          "2024-03-22",
+          "2024-03-25"
+        ],
+        "EREGL": [
+          "2024-02-29"
+        ],
+        "SISE": [
+          "2024-03-05"
+        ]
+      }
+    },
+    {
+      "kod": "E4",
+      "ad": "Mart 2025 ic siyaset soku",
+      "baglam": "19 Mart 2025 soku, devre kesiciler, sonrasi toparlanma denemesi",
+      "pencere": "2025-02-15 / 2025-05-15",
+      "endeks_zirve": {
+        "tarih": "2025-03-17",
+        "deger": 10862.0
+      },
+      "endeks_dip": {
+        "tarih": "2025-03-21",
+        "deger": 9044.6
+      },
+      "pencere_max_drawdown_pct": -16.73,
+      "rejim_donusleri": [
+        {
+          "tarih": "2025-03-05",
+          "yeni_durum": "ON",
+          "endeks": 10188.8
+        },
+        {
+          "tarih": "2025-03-19",
+          "yeni_durum": "OFF",
+          "endeks": 9860.2
+        },
+        {
+          "tarih": "2025-05-13",
+          "yeni_durum": "ON",
+          "endeks": 9700.1
+        }
+      ],
+      "strateji_vekili": {
+        "aciklama": "ON=endeks long, OFF=nakit, 1 gun gecikmeli",
+        "strateji_getiri_pct": -4.81,
+        "al_tut_getiri_pct": -3.0,
+        "strateji_maxdd_pct": -10.71,
+        "al_tut_maxdd_pct": -16.73
+      },
+      "acil_cik_vekil_gunleri": {
+        "AKBNK": [
+          "2025-03-20",
+          "2025-03-21"
+        ],
+        "GARAN": [
+          "2025-03-19",
+          "2025-03-20",
+          "2025-03-21"
+        ],
+        "YKBNK": [
+          "2025-03-19",
+          "2025-03-20",
+          "2025-03-21"
+        ],
+        "ISCTR": [
+          "2025-03-20"
+        ],
+        "THYAO": [
+          "2025-02-28",
+          "2025-03-19",
+          "2025-03-21",
+          "2025-04-30"
+        ],
+        "TUPRS": [
+          "2025-02-18",
+          "2025-02-19",
+          "2025-03-19",
+          "2025-05-06"
+        ],
+        "BIMAS": [
+          "2025-02-20",
+          "2025-03-10",
+          "2025-03-19",
+          "2025-03-21"
+        ],
+        "SISE": [
+          "2025-02-28",
+          "2025-03-19",
+          "2025-03-21"
+        ]
+      }
+    },
+    {
+      "kod": "E5",
+      "ad": "Haziran 2025 Israil-Iran savasi",
+      "baglam": "12 gun savasi (13-24 Haziran 2025), petrol soku, Hurmuz riski",
+      "pencere": "2025-05-15 / 2025-07-31",
+      "endeks_zirve": {
+        "tarih": "2025-07-31",
+        "deger": 10743.1
+      },
+      "endeks_dip": {
+        "tarih": "2025-06-02",
+        "deger": 9008.9
+      },
+      "pencere_max_drawdown_pct": -16.14,
+      "rejim_donusleri": [
+        {
+          "tarih": "2025-05-23",
+          "yeni_durum": "OFF",
+          "endeks": 9356.0
+        },
+        {
+          "tarih": "2025-06-10",
+          "yeni_durum": "ON",
+          "endeks": 9659.2
+        },
+        {
+          "tarih": "2025-06-18",
+          "yeni_durum": "OFF",
+          "endeks": 9196.1
+        },
+        {
+          "tarih": "2025-06-30",
+          "yeni_durum": "ON",
+          "endeks": 9948.4
+        }
+      ],
+      "strateji_vekili": {
+        "aciklama": "ON=endeks long, OFF=nakit, 1 gun gecikmeli",
+        "strateji_getiri_pct": 0.81,
+        "al_tut_getiri_pct": 12.6,
+        "strateji_maxdd_pct": -7.87,
+        "al_tut_maxdd_pct": -6.82
+      },
+      "acil_cik_vekil_gunleri": {
+        "GARAN": [
+          "2025-05-30"
+        ],
+        "THYAO": [
+          "2025-05-21",
+          "2025-06-12",
+          "2025-06-13"
+        ],
+        "BIMAS": [
+          "2025-05-20"
+        ]
+      }
+    }
+  ]
+}
