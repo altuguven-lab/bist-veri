@@ -1,0 +1,31 @@
+STATE GECIS TABLOSU (G3.4) - Madde 9
+Tarih: 10.07.2026 | Koddan cikarilmistir; oncelik = degerlendirme sirasi.
+Durumlar ve skor carpanlari (satir 196)
+Durum	Carpan	Not
+BUY + HOLD STRONG	1.12	en yuksek guven
+BUY	1.08	
+HOLD + STRONG	1.07	
+HOLD	1.00	taban
+PREP	0.95	hazirlik
+HOLD WEAK	0.92	zayiflayan tutus
+WATCH	0.85	izleme
+NEUTRAL	0.72	
+SELL	0.58	en dusuk
+Nihai aksiyon onceligi (satir 373 _final zinciri)
+Pozisyon ACIK + cikis riski -> CIK (her seyi ezer)
+Pozisyon ACIK -> HOLD ailesi (TASIMA/AZALT alt karari exitScore'dan)
+Pozisyon YOK -> giris merdiveni (asagida)
+Alarm/giris merdiveni (satir 415, 469)
+P1 KALITELI AL > P1 > P2 ailesi (ADAY/DIP/RELOAD/ERKEN) > P3 (RADAR/
+HACIM BEKLE) > P4 HAZIRLIK > PAS. Ust basamak dolarsa altlar bastirilir
+(satir 469'daki `not _p1 and not _p2` deseni) - Madde 9'un istedigi
+"ayni bar iki sinyal" cakismasi bu desenle engellenmis. UYUMLU.
+Kapi esikleri (ozet, satir referanslari SKOR_ENVANTERI ile ortak)
+P1Q: entryScore>=85 + KGS>=75 + sektor lideri + health STRONG (362)
+P1: entryScore>=75 + KGS>=70 + lider + health!=CRITICAL (364)
+ERKEN: entryScore 65-80 bandi + KGS>75 (371)
+Ortak veto: _lateEntry (KOVALAMA) tum giris kapilarinda kesici (287,345)
+Derinlik notu
+Tam gecis grafigi (her durumdan her duruma ok + kosul) bu tabloya ek
+olarak G3-DERIN oturumunda cizilebilir; mevcut tablo oncelik/carpan/kapi
+katmanini kapsar.
