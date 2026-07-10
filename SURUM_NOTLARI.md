@@ -21,3 +21,4 @@ Tarih	Katman	Degisiklik	Alarm
 08.07.2026	Yeni	saglik_kontrol.py/yml (dead man's switch), bist_intraday.json, kaynak_sagligi alani	-
 08.07.2026	Belgeler	RISK_KURALLARI.md, FELAKET_RUNBOOK.md, portfoy.json, islem_gunlugu.json sablonlari	-
 > Bekleyen: 08.07 aksami alarm Duzenle->Kaydet turu (07.07 hacim yamalari icin).
+10.07 | fetch_news | G2 kalibrasyonu: kaynak tavanı 5 + kalıp/alan filtreleri | -
