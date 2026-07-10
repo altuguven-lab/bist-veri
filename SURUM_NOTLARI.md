@@ -22,3 +22,4 @@ Tarih	Katman	Degisiklik	Alarm
 08.07.2026	Belgeler	RISK_KURALLARI.md, FELAKET_RUNBOOK.md, portfoy.json, islem_gunlugu.json sablonlari	-
 > Bekleyen: 08.07 aksami alarm Duzenle->Kaydet turu (07.07 hacim yamalari icin).
 10.07 | fetch_news | G2 kalibrasyonu: kaynak tavanı 5 + kalıp/alan filtreleri | -
+10.07 | Denetim | G3 raporları + G4 birikim (S1 çifte-eşik bulgusu B1'e kanıtla işlendi) | -
