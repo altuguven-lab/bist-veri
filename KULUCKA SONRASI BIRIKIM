@@ -1,0 +1,11 @@
+KULUCKA SONRASI BIRIKIM (G4)
+Uygulama tarihi: 18.08.2026 sonrasi. Oncelik hukum gunu verilir.
+Her madde: dayanak + beklenen etki + test plani.
+#	Baslik	Dayanak	Beklenen etki	Test plani
+B1	Skor mukerrerlik/cifte-esik kalibrasyonu	Madde 11/13; SKOR_ENVANTERI S1 (satir 362 kaniti), S2, S3	Sinyal darligi azalir, secicilik korunur	Bilesen korelasyon matrisi (gunluk iskelet verisiyle) -> agirlik revizyonu -> IP-2 tekrar kosumu kiyasi
+B2	Sektor-goreli RS	Madde 14	Banka/GYO sinyallerinde endeks yaniltmasi azalir	XBANK/XUSIN referansli RS ile 2024 banka rallisi geriye-donuk kiyas
+B3	KOVALAMA yumusatma (yasak->WATCH/yari boyut)	Madde 21; 10.07 TRMET KACIRDI vakasi	Guclu acilislarda firsat kaybi azalir, FOMO korumasi surer	M5 verisiyle: KACIRDI vakalarinin T+3 sonuclari >%55 pozitifse gecis
+B4	WR donem ayrimi	Madde 10; 08.07 hacim tabani degisimi	WR metrikleri yorumlanabilir olur	Era etiketli cift sayac; eski donem arsivlenir
+B5	Nominal boga rejim yamasi	IP-2 K5	2021/22 tipi kosuda OFF maliyeti azalir	ADX/genislik kosullu OFF-direnci; IP-2 tekrar kosumu 2021-22 kiyasi
+B6	Rejim ON 2-bar teyidi	IP-1 K2 (E3 testere)	Flip sayisi duser	IP-1 E3 penceresi tekrar kosumu; flip/getiri kiyasi
+N1	V195 lookahead acik yazimi	DENETIM_REPAINT A/V195	Davranis-notr netlik	Diff'te yalniz parametre eklemesi kaniti
