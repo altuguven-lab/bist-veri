@@ -73,7 +73,13 @@ MIN_PUAN = 2          # bu esigin altindaki haberler dosyaya yazilmaz
 MAX_YAYIN_YASI_GUN = 7  # yayin tarihi bundan eskiyse alinmaz (GN 'alakali' eskileri getirir)
 # Sablon/gurultu basliklari (gunluk uretilen kopya icerik) - dosyaya alinmaz
 GURULTU_KALIPLARI = ["gunluk teknik analiz", "günlük teknik analiz",
-                     "viop yorum", "vİop yorum", "opsiyonu fiz"]
+                     "viop yorum", "vİop yorum", "opsiyonu fiz",
+                     "ne zaman", "toplanti tarihi", "toplantı tarihi",
+                     "hisse senedi -", "hisse yorumları", "hisse yorumlari",
+                     "varant"]
+# Alaka disi/SEO kaynak alan adlari - linki bu alanlari iceren kayit alinmaz
+SPAM_ALANLAR = ["mshale.com"]
+KAYNAK_TAVANI = 5  # tek kosumda ayni kaynaktan dosyaya girebilecek azami kayit
 MAX_KAYIT_YASI_GUN = 3  # 3 gunden eski kayitlar dosyadan dusurulur
 
 
@@ -111,6 +117,8 @@ def kaynak_cek(isim, url, taban):
             # Gurultu kalibi iceren basliklar elenir
             if any(k in baslik.lower() for k in GURULTU_KALIPLARI):
                 continue
+            if any(a in link.lower() for a in SPAM_ALANLAR):
+                continue
             # Yayin tarihi cok eskiyse elenir (tarih yoksa gecer - resmi kaynaklar icin tolerans)
             pp = getattr(e, "published_parsed", None) or getattr(e, "updated_parsed", None)
             if pp is not None:
@@ -134,7 +142,8 @@ def kaynak_cek(isim, url, taban):
                 "puan": puan,
                 "semboller": semboller,
             })
-        return kayitlar
+        # Klon seli korumasi: ayni kaynaktan tek kosumda en iyi N kayit
+        return sorted(kayitlar, key=lambda k: -k["puan"])[:KAYNAK_TAVANI]
     except Exception as e:
         print(f"HATA: {isim} -> {e}", file=sys.stderr)
         return []
