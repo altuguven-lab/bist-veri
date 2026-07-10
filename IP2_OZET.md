@@ -10,15 +10,15 @@ Iskelette ADX/KGS/seans-ici katmanlar YOK -> sonuclar gercek sistemin
 alt siniri sayilmali. Ornek: 4.047 giris (istatistiksel olarak anlamli).
 Yillik karne (vekil: ON=endeks, OFF=nakit, 1 gun gecikmeli)
 Yil	ON%	Flip	Vekil%	Al-tut%	MaxDD V/BH
-2018	33	21	-24.0	-22.3	-26.1 / -27.9
-2019	62	13	+26.5	+28.8	-9.7 / -20.4
-2020	63	13	+43.9	+27.4	-9.0 / -31.8
-2021	58	15	+9.1	+24.2	-21.2 / -20.8
-2022	85	9	+109.8	+185.9	-18.1 / -13.8
-2023	61	11	+10.3	+32.0	-28.4 / -22.3
-2024	55	13	+14.6	+28.9	-13.3 / -22.9
-2025	45	18	-8.7	+13.1	-16.6 / -17.1
-2026*	55	7	+11.1	+23.4	-10.9 / -13.0
+2018	33.2	21	-24.0	-22.3	-26.1 / -27.9
+2019	61.7	9	+26.5	+28.8	-9.7 / -20.4
+2020	66.5	10	+43.9	+27.4	-9.0 / -31.8
+2021	60.5	13	+9.1	+24.2	-21.2 / -20.8
+2022	84.5	13	+109.8	+185.9	-18.1 / -13.8
+2023	58.9	11	+10.3	+32.0	-28.4 / -22.3
+2024	62.7	15	+14.6	+28.9	-13.3 / -22.9
+2025	53.2	18	-8.7	+13.1	-16.6 / -17.1
+2026*	64.6	7	+11.1	+23.4	-10.9 / -13.0
 (*Temmuz'a kadar)					
 P1-vekili islem istatistigi (4.047 giris)
 T+3: isabet %54.0, ortalama +%0.79
@@ -31,9 +31,13 @@ kapilariyla >%55 esigi ZORLAYICI AMA ADIL. Esik degistirilmedi.
 Karakter bulgulari (IP-1 ile capraz)
 COKUS SIGORTASI YILLIK OLCEKTE TEYIT: 2020 vitrin yili (+43.9 vs +27.4,
 MaxDD -9 vs -32); 2019/2024'te dusus yariya indi. [IP-1 Bulgu 2 teyidi]
-TESTERE = BIRINCIL DUSMAN, SAYISALLASTI: en kotu 3 goreli yil (2018,
-2023, 2025) = en yuksek flip yillari (21/11/18). [IP-1 Bulgu 3 teyidi;
-K1 kirmizi metrik secimi cifte kanitli]
+TESTERE = BIRINCIL DUSMAN (nuansli): en kotu iki goreli yil (2018,
+2025) ayni zamanda en yuksek iki flip yili (21/18) - uclarda korelasyon
+guclu. NUANS: 2023 yalnizca 11 fliple de kotu goreli yil oldu (MaxDD
+V>BH); orada maliyet flip SAYISI degil, flip ZAMANLAMASI (ralli
+yeniden-girislerinin gecikmesi). M4 (flip sayisi) ve M5 (yeniden-giris
+gecikmesi) metriklerinin AYRI AYRI izlenmesi bu nuansla dogrulandi.
+[IP-1 Bulgu 3 teyidi; K1 secimi kanitli]
 YENI BULGU - NOMINAL BOGA MALIYETI: 2021-22 enflasyonist cosku
 donemlerinde oynaklik OFF uretirken fiyat yukari gitti; her OFF gunu
 saf maliyet oldu (2022: +110 vs +186). Turkiye'ye ozgu tekrarlayan
@@ -47,3 +51,9 @@ K5. Nominal-boga zaafi kulucka-sonrasi gelistirme birikiminin 1 numarasi.
 K6. K3 yeniden teyit: 9 yil bilesiginde al-tut ham getiride onde -
 sigorta urununden beklenen sonuc; sistemin sattigi sey getiri degil,
 HAYATTA KALINABILIR getiridir.
+Revizyon kaydi
+R1 (10.07.2026): Yillik tablodaki ON%/Flip kolonlarinda ilk surumde kaynak
+dogrulamasi yapilmadan hafizadan yazilan hatali hucreler duzeltildi (getiri/
+MaxDD kolonlari ilk surumde de dogruydu). Bulgu 2, dogru fliplerle yeniden
+degerlendirildi ve nuanslandi; diger bulgular ve kararlar degismedi.
+SUREC DERSI: Komite kayitlari kaynak dosya ACIKKEN yazilir, hafizadan degil.
