@@ -1,0 +1,30 @@
+SKOR ENVANTERI (G3.3) - Madde 11/12/13 denetimi
+Tarih: 10.07.2026 | KALIBRASYON YAPILMAMISTIR - yalniz analiz/supheler.
+Skor katmanlari (tespit)
+KGS (kalite kapisi): state kapilarinda esik olarak (60/70/75/82
+kademeleri; satir 182-371 araligi yogun kullanim).
+entryScore: _base = KGS0.38 + volumeQuality0.12 + accel*0.10 + ...
+(satir 318) - KGS'yi ICEREN birlesik giris skoru.
+tradeScore (satir 1613+): 8 bilesen - htfAlign(0-2), RS(0-2),
+scoreSmoothed(0-2), breakout/pullback(0-2), volumeSpike(1),
+obvTrend(1), trendFresh(1), majorTrend(1). RR notuna (A+/A/B/C/D) esler.
+exitScore (satir 1622+): giristen AYRI cikis skoru - Madde 12'nin
+istedigi giris/cikis ayrimi MEVCUT ve UYUMLU.
+SUPHELER (kanitli, kulucka-sonrasi kalibrasyon adaylari)
+S1 - CIFTE AVANTAJ (Madde 13) DOGRULANDI: satir 362
+`_scoreAlGate = _entryScore >= 85 and _kgs >= 75 ...`
+KGS hem entryScore icinde (%38 agirlik) hem AYNI kapida bagimsiz esik.
+Sonuc: KGS'si yuksek hisse ayni ozellikten iki kez odul aliyor; KGS'si
+sinirda ama diger bilesenleri guclu hisse ise cifte cezali. Etki yonu:
+sinyal DARALTICI (asiri secicilik) - kulucka sinyal kitliginin olasi
+katkicilarindan. BIRIKIM B1'e kanit olarak islendi.
+S2 - TREND MUKERRERLIGI SUPHESI (Madde 11): tradeScore'da trend bilgisi
+en az 4 kanaldan sayiliyor (htfAlign, trendFresh, majorTrend,
+scoreSmoothed ici trend bileseni). Korelasyon olcumu yapilmadan agirlik
+yorumu YAPILMAZ; olcum plani B1'de.
+S3 - Sektor cift dokunusu: sektor gucu hem skor girdisi hem esik/mod
+secici (sektor DNA modlari). Kasitli tasarim olabilir; B1 olcumune dahil.
+Uyumlu bulunanlar
+Giris/cikis skor ayrimi (Madde 12) OK. exitScore panik/dagitim agirlikli
+asimetrik tasarimi Madde 19 ruhuyla tutarli.
+State carpani tek noktada (_stateMult, satir 196) - dagitik carpan yok.
