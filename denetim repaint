@@ -1,0 +1,40 @@
+DENETIM RAPORU: REPAINT + VAR-RESET (G3.1-G3.2)
+Tarih: 10.07.2026 | Taban: V151_WEBHOOK (3.278 satir), V195_EVREN_070726
+Derinlik: satir-referansli kod okumasi (calisma-zamani bar izleme DAHIL DEGIL)
+A. REPAINT DENETIMI (Madde 8)
+V151 - TEMIZ (5 kanit)
+lookahead disiplini: 13 request.security cagrisinin TAMAMI acik
+lookahead_off; lookahead_on = 0. [satir 649-839]
+HTF cizgisi DOGRU desen: close[1] + lookahead_off (satir 798, 801) -
+Madde 8'in onerdigi teyitli-bar referansi birebir uygulanmis.
+Bar-ici projeksiyon (_barFrac, satir 777): timenow kullanir AMA carpan
+kapanista 1'e yakinsar; alarm/karar zinciri "her cubuk kapanisinda"
+degerlendigi icin karar butunlugu korunur. Etkisi yalniz CANLI GORUNUM.
+ETIKET: TEMIZ (tasarim geregi, belgelendi).
+Saat-ayarli hacim tabani: array.set yalniz barstate.isconfirmed altinda
+(satir 772) - kendi barini kirletme yok.
+ta.valuewhen(timeframe.change("D"), close[1], 0) deseni (gunluk %):
+onceki gun KAPANISI referansi - repaint-siz.
+V195 - TEMIZ + 1 NETLESTIRME NOTU
+20 request cagri noktasinin 3'unde lookahead ACIKCA yazili; kalanlar v5
+varsayilanina (lookahead_off) yaslaniyor. DAVRANIS DOGRU; ancak Madde 8
+"acikca belirt" der. ETIKET: BIRIKIM-N1 (davranis-notr netlestirme;
+minimum-degisiklik ilkesi geregi kulucka icinde dokunulmaz).
+Tablo/hesap ayrimi: durum guncellemeleri global scope'ta, render
+barstate.islast altinda (satir 405-407 V180 duzeltme yorumu + 1486).
+Madde 29 UYUMLU.
+B. VAR-RESET DENETIMI (Madde 10)
+Envanter: V151'de 103, V195'te 78 adet var bildirimi.
+Bu oturumda ORNEKLEM denetimi yapildi; tam reset matrisi ayri derin
+oturum isi olarak actadir (asagida).
+Kritik kalici aileler ve durumlari
+Aile	Ornek satir	Reset	Etiket
+WR sayaclari (60x, V195)	-	YOK (tasarim: kumulatif)	BIRIKIM B4: donem ayrimi (08.07 hacim tabani oncesi/sonrasi karisiyor)
+S/R seviyeleri (_srRes/_srSup)	944-949	pivot yenilenince	ORNEKLEMDE TEMIZ
+trendStartBar/trendAge	1089-90	trend kirilinca	ORNEKLEMDE TEMIZ
+_weakCount / _prep5*	1131,1453+	kosul bazli	TAM MATRIS BEKLIYOR
+WATCH 50-bar reset	(V107 kaydi)	VAR	TEMIZ (bilinen)
+_todSlotVol (hacim tabani)	769	resetsiz EMA (tasarim)	TEMIZ
+Acik is
+G3-DERIN: 103+78 var icin tam "bildirim -> reset kosulu -> resetsizse
+gerekce" matrisi. Kod degisikligi gerektirmez; kulucka-serbest, ayri oturum.
