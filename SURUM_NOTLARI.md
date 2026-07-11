@@ -23,3 +23,4 @@ Tarih	Katman	Degisiklik	Alarm
 > Bekleyen: 08.07 aksami alarm Duzenle->Kaydet turu (07.07 hacim yamalari icin).
 10.07 | fetch_news | G2 kalibrasyonu: kaynak tavanı 5 + kalıp/alan filtreleri | -
 10.07 | Denetim | G3 raporları + G4 birikim (S1 çifte-eşik bulgusu B1'e kanıtla işlendi) | -
+12.07 | V151+Pipedream | G1 alarm zenginleştirme (5 gizli plot, 9 alanlı webhook) — kozmetik/operasyonel, sinyal mantığı değişmedi | EVET (yapıldı)
