@@ -84,6 +84,8 @@ export default defineComponent({
 
       // 3) Yeni sinyali ekle, sayaci ilerlet
       gecmis.unshift(yeniSinyal);
+      // Es zamanli gelislerde isleme sirasi karisabilir -> zamana gore sirala
+      gecmis.sort((a, b) => String(b.zaman_utc).localeCompare(String(a.zaman_utc)));
       gecmis = gecmis.slice(0, MAX_SINYAL);
       sayac.adet += 1;
 
