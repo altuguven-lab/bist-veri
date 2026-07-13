@@ -1,24 +1,36 @@
 {
-  "son_guncelleme_utc": "2026-07-11T13:09:18.728Z",
+  "son_guncelleme_utc": "2026-07-13T09:00:05.763Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
-  "sinyal_sayisi": 11,
+  "sinyal_sayisi": 12,
   "ay_sayac": {
     "ay": "2026-07",
-    "adet": 6
+    "adet": 7
   },
   "son_sinyal": {
-    "zaman_utc": "2026-07-11T13:09:18.728Z",
-    "sembol": "THYAO",
-    "sinyal": "P1_KALITELI_AL",
+    "zaman_utc": "2026-07-13T09:00:05.763Z",
+    "sembol": "BIMAS",
+    "sinyal": "POZ_AZALT",
     "interval": "15",
-    "fiyat": "348.50",
-    "skor": "?",
-    "kgs": "?",
-    "stop": "?",
-    "rejim": "?",
-    "relvol": "?"
+    "fiyat": "373.00",
+    "skor": "{{plot_38}}",
+    "kgs": "{{plot_39}}",
+    "stop": "{{plot_40}}",
+    "rejim": "{{plot_41}}",
+    "relvol": "{{plot_42}}"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-07-13T09:00:05.763Z",
+      "sembol": "BIMAS",
+      "sinyal": "POZ_AZALT",
+      "interval": "15",
+      "fiyat": "373.00",
+      "skor": "{{plot_38}}",
+      "kgs": "{{plot_39}}",
+      "stop": "{{plot_40}}",
+      "rejim": "{{plot_41}}",
+      "relvol": "{{plot_42}}"
+    },
     {
       "zaman_utc": "2026-07-11T13:09:18.728Z",
       "sembol": "THYAO",
