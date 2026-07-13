@@ -1,5 +1,6 @@
 # FAZ V0 - VIOP veri kesfi (TEK SEFERLIK, elle tetiklenir)
 # Konum: .github/workflows/kesif_viop.yml
+# Tur 3: XLS indeksini okumak icin pandas/xlrd bagimliliklari eklendi.
 name: VIOP Veri Kesfi
 
 on:
@@ -18,6 +19,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Bagimliliklar
+        run: pip install pandas xlrd openpyxl
+
       - name: Kesfi kostur
         run: python kesif_viop.py
 
@@ -26,8 +30,6 @@ jobs:
           git config user.name "bist-veri-bot"
           git config user.email "bot@users.noreply.github.com"
           git add data/kesif/
-          git diff --staged --quiet || git commit -m "V0 VIOP kesif ciktilari"
+          git diff --staged --quiet || git commit -m "V0 VIOP kesif tur 3"
           git pull --rebase origin main
           git push
-- name: Bagimliliklar
-        run: pip install pandas xlrd openpyxl
