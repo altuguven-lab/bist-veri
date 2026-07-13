@@ -1,0 +1,31 @@
+# FAZ V0 - VIOP veri kesfi (TEK SEFERLIK, elle tetiklenir)
+# Konum: .github/workflows/kesif_viop.yml
+name: VIOP Veri Kesfi
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  kesif:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Kesfi kostur
+        run: python kesif_viop.py
+
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "bist-veri-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/kesif/
+          git diff --staged --quiet || git commit -m "V0 VIOP kesif ciktilari"
+          git pull --rebase origin main
+          git push
