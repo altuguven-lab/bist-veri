@@ -25,3 +25,4 @@ Tarih	Katman	Degisiklik	Alarm
 10.07 | Denetim | G3 raporları + G4 birikim (S1 çifte-eşik bulgusu B1'e kanıtla işlendi) | -
 12.07 | V151+Pipedream | G1 alarm zenginleştirme (5 gizli plot, 9 alanlı webhook) — kozmetik/operasyonel, sinyal mantığı değişmedi | EVET (yapıldı)
 11.07 | V151+Pipedream | G1 tamamlandı ve uçtan uca doğrulandı | EVET (yapıldı)
+13.07 | V151+Pipedream | G1 düzeltme: taşıyıcı plotlar (indeks 1-5) + kronolojik sıralama | EVET (mesaj tazeleme turu
