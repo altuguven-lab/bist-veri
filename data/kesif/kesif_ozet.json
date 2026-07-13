@@ -1,61 +1,29 @@
 {
-  "kesif_zamani_utc": "2026-07-13T11:28:18.010038+00:00",
-  "sayfalar": [
+  "kesif_zamani_utc": "2026-07-13T16:11:43.448381+00:00",
+  "tur": 2,
+  "sonuclar": [
     {
-      "ad": "viop_ana",
-      "url": "https://borsaistanbul.com/tr/sayfa/1021",
-      "hata": "Remote end closed connection without response"
-    },
-    {
-      "ad": "viop_sayfa48",
-      "url": "https://www.borsaistanbul.com/tr/sayfa/48/vadeli-islem-ve-opsiyon-piyasasi",
-      "hata": "<urlopen error timed out>"
-    },
-    {
-      "ad": "veri_turev_en",
-      "url": "https://www.borsaistanbul.com/en/data/derivatives-market-data",
+      "ad": "datafilepaths_zip",
+      "url": "https://www.borsaistanbul.com/files/datafilepaths_viop.zip",
       "durum": 200,
-      "icerik_tipi": "text/html; charset=UTF-8",
-      "boyut": 84109,
-      "ilgili_baglanti_sayisi": 17,
-      "ilgili_baglantilar": [
-        "/en/data/daily-bulletin",
-        "/en/data/debt-securities-market-data/bulletin-data",
-        "/en/data/derivatives-market-data",
-        "/en/data/derivatives-market-data/bulletin-and-market-data",
-        "/en/data/precious-metals-and-diamond-markets/bulletin-data",
-        "/en/investment-guide/markets/derivatives-market-viop",
-        "/en/markets/viop",
-        "/en/markets/viop/contract-specifications",
-        "/en/markets/viop/education",
-        "/en/markets/viop/futures",
-        "/en/markets/viop/market-functioning",
-        "/en/markets/viop/options",
-        "/en/markets/viop/settlement-and-risk-management",
-        "/files/datafilepaths_viop.zip",
-        "/veriler/vadeli-islem-ve-opsiyon-piyasasi-verileri",
-        "http://www.borsaistanbul.com/en/data/derivatives-market-data",
-        "http://www.borsaistanbul.com/veriler/vadeli-islem-ve-opsiyon-piyasasi-verileri"
-      ]
+      "icerik_tipi": "application/zip",
+      "boyut": 9207,
+      "zip_icerigi": [
+        "verilerdosyaisimleri_viop.xls"
+      ],
+      "cikarilan": true
     },
     {
-      "ad": "veri_turev_tr",
-      "url": "https://www.borsaistanbul.com/tr/veriler/vadeli-islem-ve-opsiyon-piyasasi-verileri",
-      "hata": "<urlopen error timed out>"
-    },
-    {
-      "ad": "bultenler",
-      "url": "https://www.borsaistanbul.com/tr/sayfa/3622/gunluk-bultenler",
-      "hata": "Remote end closed connection without response"
-    },
-    {
-      "ad": "datastore",
-      "url": "https://datastore.borsaistanbul.com/",
+      "ad": "bulten_ve_piyasa",
+      "url": "https://www.borsaistanbul.com/en/data/derivatives-market-data/bulletin-and-market-data",
       "durum": 200,
-      "icerik_tipi": "text/html; charset=UTF-8",
-      "boyut": 1847,
-      "ilgili_baglanti_sayisi": 0,
-      "ilgili_baglantilar": []
+      "boyut": 83411
+    },
+    {
+      "ad": "gunluk_bulten",
+      "url": "https://www.borsaistanbul.com/en/data/daily-bulletin",
+      "durum": 200,
+      "boyut": 74706
     }
   ]
 }
