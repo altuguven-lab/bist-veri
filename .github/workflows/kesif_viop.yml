@@ -29,3 +29,5 @@ jobs:
           git diff --staged --quiet || git commit -m "V0 VIOP kesif ciktilari"
           git pull --rebase origin main
           git push
+- name: Bagimliliklar
+        run: pip install pandas xlrd openpyxl
