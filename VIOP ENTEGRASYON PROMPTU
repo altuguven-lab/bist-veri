@@ -1,0 +1,59 @@
+VIOP ENTEGRASYON PROMPTU (Kanal 4 - Sikisma Radari) - 13.07.2026
+Amac: Hisse vadelilerindeki sort birikimi / sikisma kurulumunu gunluk
+kamu verisiyle (baz + acik pozisyon + hacim) olcen SQZ parametresi ve
+bunu brifing/denetim katmanina baglayan boru hatti.
+KIRMIZI CIZGI: 18.08.2026'ya kadar Pine/sinyal mantigina ENTEGRE EDILMEZ;
+bu prompt yalniz VERI + ANALIZ katmani kurar. Calisma bicimi:
+SENIOR_ENGINEER_AGENT.md (varsayimlar -> kanit -> minimum degisiklik -> test).
+FAZ V0 - VERI KESFI (kanit once; kod yazmadan)
+BIST VIOP veri sayfalari ve gunluk bulten formatlari dogrulanir:
+hangi URL, hangi format (HTML/CSV/XLSX), hangi alanlar (sozlesme kodu,
+uzlasma fiyati, hacim, ACIK POZISYON, degisim), yayin saati.
+Kesif Actions uzerinde tek seferlik "kesif workflow" ile yapilir
+(Claude sandbox'i BIST'e erisemez; kesif ciktisi repoya yazilir,
+Claude linkten okur).
+Evren eslesmesi: 30 sembolden hangilerinin SSF'si likit (gunluk OI ve
+hacim esigi belirle; olu kontratlar analiz disi).
+TLREF/faiz vekili karari: teorik baz icin kullanilacak oran kaynagi
+(sabit parametre + haftalik elle guncelleme kabul edilebilir baslangic).
+KABUL: KESIF_VIOP.md repoda - alan haritasi + ornek ham kayit + likit liste.
+FAZ V1 - fetch_viop.py + workflow
+Gunluk kosum (hafta ici ~18:45 TR, cron ofsetli): likit SSF'ler icin
+yakin + sonraki vade verisi cekilir; sembol bazinda birlestirilir
+(rollover kirilmasina karsi OI = yakin+sonraki toplami).
+data/viop_analiz.json: sembol basina {spot, vadeli, baz, teorik_baz,
+baz_z (60g), OI, dOI, dOI_5g, hacim_orani, kadran, sqz_skoru, vade}.
+Gecmis: son 90 gunluk seri ayri dosyada (viop_seri.json) - z-skor ve
+yuzdelik hesaplari icin.
+Hataya dayaniklilik: tek kontrat/sembol hatasi scripti dusurmez;
+kaynak_sagligi alani; saglik_kontrol.py'ye VIOP tazelik denetimi eklenir
+(hafta ici 20:00'de 1 saatten eskiyse ARIZA).
+KABUL: 3 ardil gun temiz kosum; ornek dosya linkle dogrulanir.
+FAZ V2 - SQZ SKORU (parametre tanimi; katsayilar ILAN edilir, sonra
+sonuca bakip oynatilmaz - kulucka disiplininin aynisi)
+SQZ (0-100) = 30 x iskonto_derinligi (baz_z negatif bolge, kirpilmis)
++ 25 x OI_yuzdeligi (90g pencere)
++ 20 x kadran_puani (fiyat-yatay/OI-artan = tam puan;
+fiyat-dusen/OI-artan = yarim; digerleri 0)
++ 15 x spot_guc (Kanal 1 verisinden: 20g goreli guc yuzdeligi;
+ILERIDE V151 KGS'siyle degistirilebilir - B8)
++ 10 x tetik (spot hacimli yukari gun + dOI negatif = kapatma
+basladi isareti)
+Esikler (ilan): SQZ >= 65 "SIKISMA ADAYI", >= 80 "KURULU". Gunluk en cok
+3 aday raporlanir (gurultu tavani).
+KABUL: Sentetik senaryo testleri (duvara-sort, long-tasfiye, notr) dogru
+siniflanir; gercek veride ilk hafta yalniz GOZLEM.
+FAZ V3 - RUTIN ENTEGRASYONU
+"brifing": viop_analiz.json okunur; SIKISMA ADAYI varsa ayri satirda,
+sistemin spot okumasiyla (WATCH/AL BOLGE/KACIRDI) yan yana verilir.
+Kural: SQZ tek basina islem gerekcesi DEGILDIR (RISK_KURALLARI'na not).
+"hafta kapanisi": SQZ >= 65 vakalarinin T+3/T+5 sonuclari izlenir -
+parametrenin KENDI kulucka karnesi (2 hafta gozlem, sonra degerlendirme).
+FELAKET_RUNBOOK'a Senaryo G: VIOP kaynagi/format degisirse adimlar.
+KABUL: Iki ardil brifingde VIOP blogu; hafta kapanisinda ilk SQZ karnesi.
+FAZ V4 - BIRIKIM (18.08 sonrasi, ayri onay)
+B8: SQZ'nin spot_guc bileseninin V151 KGS ile beslenmesi + V195'e SQZ
+kolonu (BUTCE: V195'te yeni request YASAK - veri Pine'a input.source
+koprusu ya da yalniz dashboard-disi kullanilir; mimari karari o gun).
+B9: SQZ >= 80 + sistem WATCH cakismasinda ozel sinyal ("SIKISMA_IZLE") -
+ancak SQZ'nin V3 karnesi >%55 isabetle gecerse.
