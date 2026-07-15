@@ -1,5 +1,5 @@
 """
-SAGLIK KONTROLU - Dead man's switch
+SAGLIK KONTROLU - Dead man's switch (v2.1)
 Uc veri kanalinin canliligini denetler; ariza durumunda GitHub Issue acar
 (Issue acilinca GitHub otomatik e-posta bildirimi gonderir).
 
@@ -8,7 +8,10 @@ Denetimler:
 2. haber_akisi.json  : 2 saatten eskiyse ARIZA (7/24 kanal)
 3. tv_alerts_latest  : okunabilir/gecerli JSON mu (sinyal yoklugu ariza DEGIL)
 4. kaynak_sagligi    : haber kaynagi 0 haber veriyorsa bilgi notu
-5. Pipedream sayaci  : aylik cagri adedi esigi asarsa uyari
+5. Pipedream sayaci  : aylik cagri adedi esigi asarsa ARIZA;
+   ay sonu PROJEKSIYONU esigin %80'ini asarsa erken bilgi notu
+6. portfoy.json + islem_gunlugu.json : varlik + gecerli JSON + zorunlu
+   alan denetimi (tazelik denetimi YOK - elle guncellenen dosyalar)
 
 Ayni baslikta ACIK Issue varsa yenisi ACILMAZ (tekrar onleme).
 GitHub Actions icinde GITHUB_TOKEN ve GITHUB_REPOSITORY ortam
@@ -29,6 +32,15 @@ HABER_ESIK_SAAT = 2      # haber dosyasi azami yasi
 PIPEDREAM_AYLIK_ESIK = 2500  # uyari esigi (ucretsiz plan tamponuyla)
 
 SEANS_BAS, SEANS_SON = 7, 15   # UTC (10:00-18:00 TR)
+
+# BIST tam gun kapali resmi tatiller (v2.1). Her yil basinda guncelle;
+# yarim gunler (or. 28 Ekim ogleden sonra) listede DEGIL - gerekirse ekle.
+TATIL_GUNLERI = {
+    "2026-07-15",  # Demokrasi ve Milli Birlik Gunu
+    "2026-08-30",  # Zafer Bayrami
+    "2026-10-29",  # Cumhuriyet Bayrami
+    "2027-01-01",  # Yilbasi
+}
 
 
 def simdi_utc():
@@ -55,6 +67,8 @@ def yas_dakika(iso_zaman):
 
 def seans_acik_mi():
     s = simdi_utc()
+    if s.strftime("%Y-%m-%d") in TATIL_GUNLERI:
+        return False
     return s.weekday() < 5 and SEANS_BAS <= s.hour < SEANS_SON
 
 
@@ -136,6 +150,39 @@ def main():
         if sayac.get("adet", 0) > PIPEDREAM_AYLIK_ESIK:
             arizalar.append(("SAGLIK: SINYAL kanali (kota)",
                              f"Pipedream aylik cagri {sayac.get('adet')} - esik {PIPEDREAM_AYLIK_ESIK} asildi, plan limitini kontrol et."))
+
+        # Ay sonu projeksiyonu (K2): dogrusal tahmin esigin %80'ini asarsa erken uyari
+        gun = simdi_utc().day
+        adet = sayac.get("adet", 0)
+        if gun >= 3 and adet > 0:
+            ay_uzunluk = 31
+            projeksiyon = adet / gun * ay_uzunluk
+            if projeksiyon > PIPEDREAM_AYLIK_ESIK * 0.8 and adet <= PIPEDREAM_AYLIK_ESIK:
+                bilgiler.append(
+                    f"Pipedream projeksiyon: ay sonu ~{round(projeksiyon)} cagri "
+                    f"(mevcut {adet}, esik {PIPEDREAM_AYLIK_ESIK}) - egime dikkat.")
+
+    # 4) Portfoy ve islem gunlugu (K2): varlik + gecerlilik + zorunlu alanlar
+    dosya_kurallari = [
+        ("data/portfoy.json", "PORTFOY",
+         [("acik_pozisyonlar", list), ("baslangic_sermaye_tl", (int, float)),
+          ("nakit_tl", (int, float))]),
+        ("data/islem_gunlugu.json", "ISLEM GUNLUGU",
+         [("islemler", list)]),
+    ]
+    for yol, kanal, alanlar in dosya_kurallari:
+        d = oku(yol)
+        if "_okuma_hatasi" in d:
+            arizalar.append((f"SAGLIK: {kanal} dosyasi",
+                             f"{yol} okunamadi veya gecersiz JSON: {d['_okuma_hatasi']}\n"
+                             f"Risk denetimi bu dosya olmadan kosulamaz."))
+            continue
+        eksik = [ad for ad, tip in alanlar
+                 if ad not in d or not isinstance(d.get(ad), tip)]
+        if eksik:
+            arizalar.append((f"SAGLIK: {kanal} semasi",
+                             f"{yol} icinde eksik/yanlis tipte alan: {', '.join(eksik)} "
+                             f"(sema v2 sozlesmesi - RISK_KURALLARI.md Bolum 7)."))
 
     # Raporla / Issue ac
     print(f"Saglik kontrolu {bugun} | ariza: {len(arizalar)} | bilgi: {len(bilgiler)}")
