@@ -12,6 +12,17 @@ import json
 import datetime
 import sys
 
+# v2 (16.07.2026): (a) BIST tatil gunlerinde cekim yapilmaz (bos veri
+# uretmemek icin), (b) BOS SONUC KORUMASI - hic sembol cekilemezse mevcut
+# dosyalarin UZERINE YAZILMAZ (15.07 vakasi: tatil kosusu 0/30 donup
+# Pazartesi kapanis setini sildi). Liste saglik_kontrol.py ile es tutulur.
+TATIL_GUNLERI = {
+    "2026-07-15",  # Demokrasi ve Milli Birlik Gunu
+    "2026-08-30",  # Zafer Bayrami
+    "2026-10-29",  # Cumhuriyet Bayrami
+    "2027-01-01",  # Yilbasi
+}
+
 # V195 CTRL KURUMSAL'daki 30 sembol listesiyle birebir ayni - istersen
 # kendi listeni buraya uyarlayabilirsin. Yahoo Finance'de BIST hisseleri
 # ".IS" sonekiyle yazilir (orn. AKBNK -> AKBNK.IS).
@@ -65,6 +76,11 @@ def fetch_one(sembol):
 
 
 def main():
+    bugun = datetime.datetime.utcnow().strftime("%Y-%m-%d")
+    if bugun in TATIL_GUNLERI:
+        print(f"BIST tatili ({bugun}) - cekim atlandi, dosyalara dokunulmadi.")
+        return
+
     sonuclar = []
     gun_ici = {}
     for sembol in BIST_SEMBOLLER:
@@ -72,6 +88,13 @@ def main():
         if veri is not None:
             gun_ici[sembol] = veri.pop("_gun_ici_seri", [])
             sonuclar.append(veri)
+
+    if not sonuclar:
+        # BOS SONUC KORUMASI: son saglam veri setini ezme, kosuyu kirmizi bitir
+        # (saglik_kontrol seans icinde bayatlamayi zaten yakalar).
+        print("HATA: 0 sembol cekildi - mevcut dosyalar KORUNDU, yazilmadi.",
+              file=sys.stderr)
+        sys.exit(1)
 
     cikti = {
         "guncelleme_zamani_utc": datetime.datetime.utcnow().isoformat() + "Z",
