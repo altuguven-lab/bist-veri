@@ -1,7 +1,11 @@
 """
-HAFTA KAPANISI DENETIMI (K1) - Kulucka metrik betigi - v1.1
+HAFTA KAPANISI DENETIMI (K1) - Kulucka metrik betigi - v1.2
 v1.1 (14.07): parmak izi tarih kilidi (<=13.07); GERCEK_TEST oneki
 standardi; O2 kullanilabilirlik metrikleri bolumu eklendi.
+v1.2 (16.07): KACAN FIRSAT bolumu (EREGL vakasi) - giris sinyalsiz
++3%/T+3 hareketler ve POZ_AZALT-sonrasi-ralli (erken savunma) vakalari.
+Amac: hukum gununde "disiplinin onledigi zarar" (M1) ile "disiplinin
+kacirdigi kar" YAN YANA okunsun; tek basina karar gerekcesi DEGILDIR.
 Kaynak: KULUCKA_PROTOKOLU.md M1-M6 | Tuzuk: KOMITE_TUZUGU.md
 Calistirma: python hafta_denetim.py   (repo kokunde)
 Cikti: data/denetim/hafta_<yil>-W<hafta>.md + .json
@@ -37,6 +41,8 @@ TRADE_SINYALLERI_M1 = ("ACIL_CIK",)
 TRADE_SINYALLERI_M2_ONEK = ("P1",)          # P1_AL, P1_KALITELI_AL, P1Q...
 YENIDEN_GIRIS_ONEK = ("P1", "P2")           # M5 icin
 M1_ESIK, M2_ESIK, M3_ESIK, M3_RAGMEN_AZAMI = 0.60, 0.55, 0.80, 2
+KACAN_ESIK = 0.03           # T -> T+3 getiri esigi (kacan firsat tanimi)
+GIRIS_ONEK = ("P1", "P2")   # "giris sinyali" sayilanlar
 
 
 # ----------------------------------------------------------- veri okuma
@@ -264,6 +270,54 @@ def o2_kullanilabilirlik(sinyaller):
             "sembol_dagilimi": dict(sorted(sembol.items(), key=lambda x: -x[1]))}
 
 
+def kacan_firsatlar(sinyaller, fs):
+    """Disiplinin maliyeti: (a) evrende giris sinyalsiz +KACAN_ESIK/T+3
+    hareketler, (b) POZ_AZALT sonrasi T+3'te +KACAN_ESIK ralli (erken
+    savunma). Evren = bist_quotes.json'daki semboller."""
+    if not fs.aktif:
+        return {"durum": "HESAPLANAMADI (fiyat kaynagi yok)"}
+    q = _json_oku("data/bist_quotes.json") or {}
+    semboller = [v.get("sembol") for v in q.get("veriler", []) if v.get("sembol")]
+    if not semboller:
+        semboller = sorted({s["sembol"] for s in sinyaller})
+
+    giris_gunleri = {}
+    for s in sinyaller:
+        if str(s.get("sinyal", "")).startswith(GIRIS_ONEK):
+            giris_gunleri.setdefault(s["sembol"], []).append(s["_tarih"])
+
+    kacan = []
+    for sem in semboller:
+        seri = fs.seri(sem) or []
+        seri = [(t, c) for t, c in seri if t >= KULUCKA_BASI]
+        en_iyi = None
+        for i in range(len(seri) - 3):
+            getiri = seri[i + 3][1] / seri[i][1] - 1
+            if getiri < KACAN_ESIK:
+                continue
+            gun = seri[i][0]
+            kapsandi = any(abs((g - gun).days) <= 1
+                           for g in giris_gunleri.get(sem, []))
+            if not kapsandi and (en_iyi is None or getiri > en_iyi[1]):
+                en_iyi = (gun, getiri, seri[i][1], seri[i + 3][1])
+        if en_iyi:
+            kacan.append((sem, str(en_iyi[0]), round(en_iyi[1] * 100, 1),
+                          en_iyi[2], en_iyi[3]))
+    kacan.sort(key=lambda x: -x[2])
+
+    erken_savunma = []
+    for s in sinyaller:
+        if s.get("sinyal") != "POZ_AZALT" or s["_fiyat"] is None:
+            continue
+        t3 = fs.t_arti_n_kapanis(s["sembol"], s["_tarih"], 3)
+        if t3 and t3 / s["_fiyat"] - 1 >= KACAN_ESIK:
+            erken_savunma.append((s["sembol"], str(s["_tarih"]), s["_fiyat"],
+                                  round(t3, 2),
+                                  round((t3 / s["_fiyat"] - 1) * 100, 1)))
+    return {"kacan": kacan, "erken_savunma": erken_savunma,
+            "esik_yuzde": KACAN_ESIK * 100}
+
+
 # ----------------------------------------------------------- rapor
 def esik_satiri(ad, oran, esik, ters=False):
     if oran is None:
@@ -283,6 +337,7 @@ def main():
     M5 = m5_yeniden_giris(sinyaller)
     M6 = m6_haber_kesisim(sinyaller, fs)
     O2 = o2_kullanilabilirlik(sinyaller)
+    KF = kacan_firsatlar(sinyaller, fs)
 
     bozuk = sum(1 for s in sinyaller if not s["_skor_ok"])
     gun = (bugun - KULUCKA_BASI).days + 1
@@ -324,6 +379,20 @@ def main():
               f"Sembol dagilimi: {O2['sembol_dagilimi']}")
     md.append("- Manuel girdi (Icra Trader doldurur): kacan/gec gorulen "
               "alarm sayisi, panelde en cok bloklayan neden")
+    md.append("\n## Kacan Firsat (disiplinin maliyeti - tek basina karar gerekcesi DEGIL)\n")
+    if KF.get("durum"):
+        md.append(f"- {KF['durum']}")
+    else:
+        md.append(f"- Tanim: T->T+3 >= +{KF['esik_yuzde']:.0f}%, +-1 gun icinde giris sinyali yok")
+        for sem, gun, yuzde, p0, p3 in KF["kacan"][:10]:
+            md.append(f"- KACAN: {sem} | {gun} | {p0:.2f} -> {p3:.2f} | +{yuzde}%")
+        if not KF["kacan"]:
+            md.append("- KACAN: yok")
+        for sem, gun, p0, p3, yuzde in KF["erken_savunma"]:
+            md.append(f"- ERKEN SAVUNMA: {sem} | {gun} POZ_AZALT {p0} -> T+3 {p3} | +{yuzde}%")
+        if not KF["erken_savunma"]:
+            md.append("- ERKEN SAVUNMA: yok")
+        md.append("- Okuma kurali: bu bolum M1 (onlenen zarar) ile YAN YANA okunur; hukum gunu bilancosunun iki sutunu.")
     md.append("\n## M1/M2 vaka dokumu\n")
     for etiket, M in (("M1", M1), ("M2", M2)):
         for satir in M["detay"]:
@@ -343,7 +412,7 @@ def main():
                    "kulucka_gunu": gun,
                    "M1": {k: v for k, v in M1.items() if k != "detay"},
                    "M2": {k: v for k, v in M2.items() if k != "detay"},
-                   "M3": M3, "M4": M4, "M5": M5, "M6": M6, "O2": O2},
+                   "M3": M3, "M4": M4, "M5": M5, "M6": M6, "O2": O2, "KF": KF},
                   f, ensure_ascii=False, indent=2)
     print("\n".join(md))
     print(f"\nYAZILDI: {kok}.md / .json")
