@@ -1,0 +1,23 @@
+# GOLGE KALIBRASYON (KAL-2) - yalnizca elle kosum
+# Konum: .github/workflows/golge_kalibrasyon.yml
+name: Golge Kalibrasyon
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  golge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66
+      - run: python golge_kalibrasyon.py
+      - run: |
+          git config user.name "golge-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/denetim/
+          git diff --staged --quiet || git commit -m "Golge kalibrasyon $(date -u +%Y-%m-%d)"
+          git push
