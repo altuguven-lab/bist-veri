@@ -12,6 +12,10 @@ import json
 import datetime
 import sys
 
+# v3 (16.07.2026 ogleden sonra): 15dk intraday ucu bosalirsa GUNLUK uca
+# dusen yedek mod eklendi (16.07 vakasi: ayni ortamda gunluk uc calisirken
+# 15m ucu 0/30 dondu - kirilan yfinance degil Yahoo intraday ucuydu).
+# Kayitlarda "kaynak_tip": "15m" | "gunluk-yedek" alani eklendi.
 # v2 (16.07.2026): (a) BIST tatil gunlerinde cekim yapilmaz (bos veri
 # uretmemek icin), (b) BOS SONUC KORUMASI - hic sembol cekilemezse mevcut
 # dosyalarin UZERINE YAZILMAZ (15.07 vakasi: tatil kosusu 0/30 donup
@@ -42,23 +46,40 @@ ESKI_KOD_YEDEK = {
 
 
 def fetch_one(sembol):
-    """Tek bir sembolun son fiyat/hacim verisini ceker. Hata olursa None doner
+    """Tek sembolun verisini ceker. v3: once 15dk gun ici denenir; Yahoo
+    intraday ucu bos/ariza donerse GUNLUK uca duser (son fiyat + gun OHLC
+    gunlukten gelir, 15dk serisi o kosuda bos kalir). Hata olursa None doner
     (script tamamini durdurmaz, tek sembolu atlar)."""
     denenecekler = [sembol] + ([ESKI_KOD_YEDEK[sembol]] if sembol in ESKI_KOD_YEDEK else [])
     for kod in denenecekler:
         ticker_id = f"{kod}.IS"
         try:
             t = yf.Ticker(ticker_id)
-            hist = t.history(period="1d", interval="15m")
-            if hist.empty:
-                print(f"UYARI: {sembol} icin {ticker_id} bos donuyor", file=sys.stderr)
-                continue
+            # 1) Tercih: 15dk gun ici
+            hist, kaynak_tip = None, "15m"
+            try:
+                h15 = t.history(period="1d", interval="15m")
+                if not h15.empty:
+                    hist = h15
+            except Exception as e:
+                print(f"UYARI: {sembol} 15m ucu hata verdi ({e}), gunluge dusuluyor",
+                      file=sys.stderr)
+            # 2) Yedek: gunluk uc (son 5 gun, en taze satir)
+            if hist is None:
+                hg = t.history(period="5d", interval="1d")
+                if hg.empty:
+                    print(f"UYARI: {sembol} icin {ticker_id} iki ucta da bos",
+                          file=sys.stderr)
+                    continue
+                hist, kaynak_tip = hg, "gunluk-yedek"
             son = hist.iloc[-1]
-            seri = [
-                {"t": str(ix), "a": round(float(r["Open"]), 4), "y": round(float(r["High"]), 4),
-                 "d": round(float(r["Low"]), 4), "k": round(float(r["Close"]), 4), "h": int(r["Volume"])}
-                for ix, r in hist.iterrows()
-            ]
+            seri = []
+            if kaynak_tip == "15m":
+                seri = [
+                    {"t": str(ix), "a": round(float(r["Open"]), 4), "y": round(float(r["High"]), 4),
+                     "d": round(float(r["Low"]), 4), "k": round(float(r["Close"]), 4), "h": int(r["Volume"])}
+                    for ix, r in hist.iterrows()
+                ]
             return {
                 "_gun_ici_seri": seri,
                 "sembol": sembol,
@@ -69,6 +90,7 @@ def fetch_one(sembol):
                 "hacim": int(son["Volume"]),
                 "bar_zamani": str(hist.index[-1]),
                 "veri_kodu": kod,
+                "kaynak_tip": kaynak_tip,
             }
         except Exception as e:
             print(f"HATA: {sembol} ({ticker_id}) cekilemedi -> {e}", file=sys.stderr)
