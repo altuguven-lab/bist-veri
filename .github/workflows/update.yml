@@ -29,7 +29,7 @@ jobs:
         run: |
           git config user.name "bist-veri-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/bist_quotes.json
+          git add data/bist_quotes.json data/bist_intraday.json
           git diff --staged --quiet || git commit -m "Otomatik veri guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git pull --rebase origin main
           git push
