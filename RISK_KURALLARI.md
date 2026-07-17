@@ -69,3 +69,40 @@ islem_gunlugu.json islem kaydina eklenecek alanlar:
 "kovalama": true/false, "stop_seviye_girisde": float
 Hesaplanamayan kural = olmayan kural: yeni kural eklerken hangi
 dosyadan hangi alanla denetlenecegi bu bolume islenir.
+## 8. GECICI BOLUM - Miras Pozisyonlar (17.07.2026 milati)
+Bu bolum, sistemin devreye girisinden ONCE acilmis pozisyonlarin
+anayasaya gecis rejimini tanimlar. Kalici degildir; hedef tarihte
+kendiliginden yururlukten kalkar ve dosyadan silinir.
+
+8.1 TANIM: "MIRAS" etiketi, 17.07.2026 milatinda devralinan ve
+    sinyal_etiketi=MIRAS olan pozisyonlari kapsar (AKBNK, KCHOL,
+    TAVHL, YKBNK). Yeni pozisyon MIRAS etiketi ALAMAZ.
+
+8.2 MUAF OLANLAR (yalnizca miras pozisyonlar icin):
+    - Bolum 1 tek pozisyon tavani (%10)
+    - Bolum 2 konsantrasyon tavanlari (sektor ve banka+holding)
+    - Bolum 4 gecmis sinyal uyumu (milat oncesi sinyaller sorgulanmaz;
+      islem gunlugune geriye donuk kayit girilmez, M3 etkilenmez)
+
+8.3 MUAF OLMAYANLAR (milat aninda yururlukte):
+    - STOP ZORUNLULUGU: her miras pozisyona [TARIH-A]'ya kadar
+      stop_seviye tanimlanir. Stop tanimlanmamis pozisyon [TARIH-A]
+      sonrasi dogrudan IHLAL olarak raporlanir.
+    - MILAT SONRASI SINYALLER: bu tarihten itibaren gelen ACIL_CIK /
+      POZ_AZALT sinyalleri miras pozisyonlar icin de Bolum 4 tepki
+      kurallarina tabidir.
+    - Gunluk/haftalik fren hesaplari (Bolum 3) milat ozkaynagi
+      (2.857.000 TL) uzerinden tum portfoye uygulanir.
+    - MIRAS pozisyona EKLEME yapilamaz (boyut buyutme = yeni giris
+      sayilir ve tum kurallara tabidir).
+
+8.4 UYUM TAKVIMI (Baskan doldurur; denetim bu takvime karsi raporlar):
+    - [TARIH-A]: tum miras pozisyonlarda stop tanimli
+    - [TARIH-B]: banka+holding birlesik agirlik <= [%X] ara hedefi
+    - [TARIH-C]: tam uyum (Bolum 1-2 tavanlari) veya bu bolumun
+      gozden gecirilmis takvimle yeniden commit'i
+    Denetim, ihlal yerine "MIRAS-UYUM" basligi altinda takvime gore
+    ilerlemeyi raporlar; takvim asimi IHLAL'e doner.
+
+8.5 SONA ERME: [TARIH-C]'de bu bolum yururlukten kalkar; kalan
+    uyumsuzluk o gunden itibaren standart IHLAL olarak raporlanir.
