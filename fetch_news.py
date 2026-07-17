@@ -11,6 +11,10 @@ Tasarim ilkeleri (Kanal 1 ile ayni):
 - Sembol listesi BIST_SEMBOLLER ile fetch_bist.py'dekiyle birebir aynidir;
   evren degisiminde IKI dosya birlikte guncellenmelidir.
 
+v2 (17.07.2026, K6): (a) kaynak_sagligi artik HAM cekim adedini sayar
+(0 = gercekten olu); suzulen adet "kaynak_detay"da. (b) Kaynak basina
+YEDEKLI URL listesi - ilk dolu donen kazanir (Reuters/Dunya kirilganligi).
+(c) GN istekleri arasi 0.6s gecikme + tarayici User-Agent (hiz siniri).
 NOT: Reuters/Bloomberg dogrudan RSS vermez; Google News RSS uzerinden
 site filtresiyle cekilir (dakikalar mertebesinde gecikme - bar-kapanisli
 karar sistemi icin yeterli).
@@ -23,6 +27,7 @@ import html
 import os
 import re
 import sys
+import time
 from urllib.parse import quote
 
 # --- EVREN (fetch_bist.py ile birebir ayni tutulmali) --------------------
@@ -54,11 +59,14 @@ KAYNAKLAR = [
     # Google News uzerinden site filtresiyle cekilir - 09.07.2026 revizyonu)
     ("KAP",          google_news_rss("site:kap.org.tr"), 3),
     ("TCMB",         google_news_rss("TCMB faiz OR duyuru"), 3),
-    ("Reuters",      google_news_rss("site:reuters.com turkey"), 2),
+    ("Reuters",      [google_news_rss("Reuters Turkiye ekonomi when:7d"),
+                      google_news_rss("site:reuters.com turkey")], 2),
     ("BloombergHT",  "https://www.bloomberght.com/rss", 2),
     ("AA Ekonomi",   "https://www.aa.com.tr/tr/rss/default?cat=ekonomi", 2),
     # Yerli finans
-    ("Dunya",        "https://www.dunya.com/rss?dunya", 1),
+    ("Dunya",        ["https://www.dunya.com/rss",
+                      "https://www.dunya.com/rss?dunya",
+                      google_news_rss("dunya.com ekonomi when:7d")], 1),
     ("Foreks",       google_news_rss("site:foreks.com borsa"), 1),
 ]
 
@@ -100,13 +108,25 @@ def puanla(baslik, taban):
     return puan, semboller
 
 
-def kaynak_cek(isim, url, taban):
-    """Tek kaynagi ceker; hata durumunda bos liste doner (script surer)."""
-    try:
-        feed = feedparser.parse(url)
-        if feed.bozo and not feed.entries:
-            print(f"UYARI: {isim} okunamadi ({feed.bozo_exception})", file=sys.stderr)
-            return []
+def kaynak_cek(isim, url_veya_liste, taban):
+    """Tek kaynagi ceker. v2: url listesi verilirse sirayla dener, ilk
+    HAM kayit getiren kazanir. Donus: (suzulen_kayitlar, ham_adet, hata)."""
+    urller = url_veya_liste if isinstance(url_veya_liste, list) else [url_veya_liste]
+    hata = None
+    for url in urller:
+        try:
+            time.sleep(0.6)  # GN hiz siniri nezaketi
+            feed = feedparser.parse(url, agent="Mozilla/5.0 (bist-veri haber botu)")
+            if feed.bozo and not feed.entries:
+                hata = str(getattr(feed, "bozo_exception", "bos"))
+                continue
+            if not feed.entries:
+                hata = "0 kayit"
+                continue
+        except Exception as e:
+            hata = str(e)
+            continue
+        ham_adet = len(feed.entries)
         kayitlar = []
         simdi_ts = datetime.datetime.now(datetime.timezone.utc)
         for e in feed.entries[:25]:
@@ -114,12 +134,10 @@ def kaynak_cek(isim, url, taban):
             link = getattr(e, "link", "")
             if not baslik or not link:
                 continue
-            # Gurultu kalibi iceren basliklar elenir
             if any(k in baslik.lower() for k in GURULTU_KALIPLARI):
                 continue
             if any(a in link.lower() for a in SPAM_ALANLAR):
                 continue
-            # Yayin tarihi cok eskiyse elenir (tarih yoksa gecer - resmi kaynaklar icin tolerans)
             pp = getattr(e, "published_parsed", None) or getattr(e, "updated_parsed", None)
             if pp is not None:
                 yas = (simdi_ts - datetime.datetime(*pp[:6], tzinfo=datetime.timezone.utc)).days
@@ -140,13 +158,11 @@ def kaynak_cek(isim, url, taban):
                 "baslik": baslik,
                 "link": link,
                 "puan": puan,
-                "semboller": semboller,
+                "ilgili_semboller": semboller,
             })
-        # Klon seli korumasi: ayni kaynaktan tek kosumda en iyi N kayit
-        return sorted(kayitlar, key=lambda k: -k["puan"])[:KAYNAK_TAVANI]
-    except Exception as e:
-        print(f"HATA: {isim} -> {e}", file=sys.stderr)
-        return []
+        return kayitlar, ham_adet, None
+    print(f"UYARI: {isim} tum URL'lerde basarisiz ({hata})", file=sys.stderr)
+    return [], 0, hata
 
 
 def main():
@@ -163,10 +179,12 @@ def main():
     bilinen_basliklar = {h["baslik"].lower()[:80] for h in eski}
 
     yeniler = []
-    kaynak_sagligi = {}
+    kaynak_sagligi, kaynak_detay = {}, {}
     for isim, url, taban in KAYNAKLAR:
-        kaynak_kayitlari = kaynak_cek(isim, url, taban)
-        kaynak_sagligi[isim] = len(kaynak_kayitlari)
+        kaynak_kayitlari, ham_adet, hata = kaynak_cek(isim, url, taban)
+        kaynak_sagligi[isim] = ham_adet
+        kaynak_detay[isim] = {"ham": ham_adet, "suzulen": len(kaynak_kayitlari),
+                              "hata": hata}
         for kayit in kaynak_kayitlari:
             b_norm = kayit["baslik"].lower()[:80]
             if kayit["link"] not in bilinen_linkler and b_norm not in bilinen_basliklar:
@@ -190,6 +208,7 @@ def main():
         "kaynak_sayisi": len(KAYNAKLAR),
         "yeni_haber": len(yeniler),
         "kaynak_sagligi": kaynak_sagligi,
+        "kaynak_detay": kaynak_detay,
         "toplam_haber": len(hepsi),
         "haberler": hepsi,
     }
