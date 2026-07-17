@@ -1,10 +1,10 @@
 {
-  "olusturma_utc": "2026-07-16T06:30:21.426314+00:00",
-  "kulucka_gunu": 10,
+  "olusturma_utc": "2026-07-17T19:43:07.996413+00:00",
+  "kulucka_gunu": "2026-07-10",
   "M1": {
     "hit": 2,
     "miss": 0,
-    "beklemede": 1,
+    "beklemede": 2,
     "hesaplanamadi": 0,
     "oran": 1.0
   },
@@ -20,8 +20,23 @@
     "toplam": 0
   },
   "M4": {
-    "sembol_flip": {},
-    "gozlem": 5,
+    "sembol_flip": {
+      "KCHOL": 2,
+      "PETKM": 2,
+      "ASELS": 2,
+      "ASTOR": 1,
+      "GARAN": 1,
+      "EREGL": 1,
+      "DMLKT": 1,
+      "THYAO": 1,
+      "BIMAS": 1,
+      "MGROS": 1,
+      "TUPRS": 1,
+      "YKBNK": 1,
+      "AKBNK": 1,
+      "TRALT": 1
+    },
+    "gozlem": 33,
     "not": "veri yalnizca gecerli GUNLUK_OZET kayitlarindan; seri kisa ise anlamsizdir"
   },
   "M5": {
@@ -30,28 +45,163 @@
     "not": "takvim gunu bazli; seans bazina fiyat serisi girince gecilecek"
   },
   "M6": {
-    "trade_sinyal": 3,
+    "trade_sinyal": 4,
     "haberli": 0,
     "not": "haber_akisi son ~77 kaydi tutar; tarihsel eslesme sinirlidir - arsivlenmis haber olmadan M6 kismi kalir"
   },
   "O2": {
-    "islem_sinyali_toplam": 12,
-    "gun_ortalama": 2.4,
+    "islem_sinyali_toplam": 15,
+    "gun_ortalama": 2.5,
     "en_yogun_gun": 4,
     "tip_dagilimi": {
-      "POZ_AZALT": 9,
-      "ACIL_CIK": 3
+      "POZ_AZALT": 11,
+      "ACIL_CIK": 4
     },
-    "yogun_saat_utc": 14,
+    "yogun_saat_utc": 11,
     "sembol_dagilimi": {
-      "PETKM": 3,
+      "PETKM": 4,
       "TUPRS": 2,
       "EREGL": 2,
+      "ASTOR": 1,
+      "KCHOL": 1,
       "MGROS": 1,
       "TOASO": 1,
       "BIMAS": 1,
       "AKBNK": 1,
       "YKBNK": 1
     }
+  },
+  "KF": {
+    "kacan": [
+      [
+        "EREGL",
+        "2026-07-10",
+        9.1,
+        40.400001525878906,
+        44.060001373291016
+      ],
+      [
+        "TUPRS",
+        "2026-07-13",
+        7.8,
+        268.25,
+        289.25
+      ],
+      [
+        "ASTOR",
+        "2026-07-09",
+        6.6,
+        304.75,
+        325.0
+      ],
+      [
+        "PETKM",
+        "2026-07-10",
+        6.6,
+        19.34000015258789,
+        20.6200008392334
+      ],
+      [
+        "BIMAS",
+        "2026-07-10",
+        6.4,
+        372.5,
+        396.25
+      ],
+      [
+        "ALARK",
+        "2026-07-13",
+        5.7,
+        99.0,
+        104.5999984741211
+      ],
+      [
+        "KCHOL",
+        "2026-07-08",
+        4.1,
+        184.0,
+        191.5
+      ],
+      [
+        "TRMET",
+        "2026-07-07",
+        4.0,
+        121.0,
+        125.80000305175781
+      ],
+      [
+        "SISE",
+        "2026-07-08",
+        3.7,
+        41.619998931884766,
+        43.13999938964844
+      ],
+      [
+        "AEFES",
+        "2026-07-13",
+        3.6,
+        20.079999923706055,
+        20.799999237060547
+      ],
+      [
+        "FROTO",
+        "2026-07-10",
+        3.2,
+        81.80000305175781,
+        84.4000015258789
+      ],
+      [
+        "EKGYO",
+        "2026-07-09",
+        3.2,
+        20.360000610351562,
+        21.020000457763672
+      ]
+    ],
+    "erken_savunma": [
+      [
+        "PETKM",
+        "2026-07-13",
+        19.52,
+        20.94,
+        7.3
+      ],
+      [
+        "TUPRS",
+        "2026-07-13",
+        268.75,
+        289.25,
+        7.6
+      ],
+      [
+        "BIMAS",
+        "2026-07-13",
+        373.0,
+        386.0,
+        3.5
+      ],
+      [
+        "TUPRS",
+        "2026-07-10",
+        267.0,
+        286.25,
+        7.2
+      ],
+      [
+        "EREGL",
+        "2026-07-10",
+        40.48,
+        44.06,
+        8.8
+      ],
+      [
+        "EREGL",
+        "2026-07-10",
+        40.5,
+        44.06,
+        8.8
+      ]
+    ],
+    "esik_yuzde": 3.0
   }
 }
