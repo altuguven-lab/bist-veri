@@ -85,8 +85,8 @@ kendiliginden yururlukten kalkar ve dosyadan silinir.
       islem gunlugune geriye donuk kayit girilmez, M3 etkilenmez)
 
 8.3 MUAF OLMAYANLAR (milat aninda yururlukte):
-    - STOP ZORUNLULUGU: her miras pozisyona [TARIH-A]'ya kadar
-      stop_seviye tanimlanir. Stop tanimlanmamis pozisyon [TARIH-A]
+    - STOP ZORUNLULUGU: her miras pozisyona 31.07.2026'ya kadar
+      stop_seviye tanimlanir. Stop tanimlanmamis pozisyon 31.07.2026
       sonrasi dogrudan IHLAL olarak raporlanir.
     - MILAT SONRASI SINYALLER: bu tarihten itibaren gelen ACIL_CIK /
       POZ_AZALT sinyalleri miras pozisyonlar icin de Bolum 4 tepki
@@ -97,12 +97,12 @@ kendiliginden yururlukten kalkar ve dosyadan silinir.
       sayilir ve tum kurallara tabidir).
 
 8.4 UYUM TAKVIMI (Baskan doldurur; denetim bu takvime karsi raporlar):
-    - [TARIH-A]: tum miras pozisyonlarda stop tanimli
-    - [TARIH-B]: banka+holding birlesik agirlik <= [%X] ara hedefi
-    - [TARIH-C]: tam uyum (Bolum 1-2 tavanlari) veya bu bolumun
+    - 31.07.2026: tum miras pozisyonlarda stop tanimli
+    - 24.07.2026: banka+holding birlesik agirlik <= % 50 ara hedefi
+    - 07.08.2026: tam uyum (Bolum 1-2 tavanlari) veya bu bolumun
       gozden gecirilmis takvimle yeniden commit'i
     Denetim, ihlal yerine "MIRAS-UYUM" basligi altinda takvime gore
     ilerlemeyi raporlar; takvim asimi IHLAL'e doner.
 
-8.5 SONA ERME: [TARIH-C]'de bu bolum yururlukten kalkar; kalan
+8.5 SONA ERME: 07.08.2026'de bu bolum yururlukten kalkar; kalan
     uyumsuzluk o gunden itibaren standart IHLAL olarak raporlanir.
