@@ -106,3 +106,16 @@ kendiliginden yururlukten kalkar ve dosyadan silinir.
 
 8.5 SONA ERME: 07.08.2026'de bu bolum yururlukten kalkar; kalan
     uyumsuzluk o gunden itibaren standart IHLAL olarak raporlanir.
+
+8.6 GECIS PENCERESI - Stop Kalibrasyonu (17.07 - 24.07.2026)
+    Gerekce: milat stoplari 17.07'de tek seansta belirlendi; seviye
+    kalitesi dogrulanmadi. Bu pencere SEVIYELERI olgunlastirmak icindir,
+    stop DISIPLININI askiya almak icin degildir.
+    - Stop revizyonu yalnizca KIRILMADAN ONCE yapilabilir; her revizyon
+      commit + tek satir gerekce ister.
+    - Kirilan stop TASINAMAZ: kirilma anindaki yururlukteki seviye
+      baglar, Bolum 3 ayni-gun kapanis hukmu istisnasiz uygulanir.
+    - 24.07.2026 kapanisinda pencere biter; o gunku seviyeler kalici
+      sayilir, sonraki degisiklikler standart surece tabidir.
+    - Kayit: 17.07 YKBNK vakasi IHLAL-1 olarak tutanakta KALIR; bu
+      madde geriye yururlu af degildir.
