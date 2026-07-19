@@ -1,10 +1,10 @@
-# Retro Firsat Envanteri (2026-06-01 -> 2026-07-16)
-Evren: 30 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 77 (haftada ort. 12.0)
+# Retro Firsat Envanteri (2026-06-01 -> 2026-07-19)
+Evren: 30 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 81 (haftada ort. 11.8)
 
 ## Donem karsilastirmasi (taban orani)
 - Kulucka ONCESI (5 hafta): 68 firsat | kova: {'5-8%': 27, '8%+': 7, '3-5%': 34}
-- KULUCKA donemi: 9 firsat | kova: {'3-5%': 7, '5-8%': 2}
-- Kuluckada SINYALSIZ kacan: 9 / 9
+- KULUCKA donemi: 13 firsat | kova: {'3-5%': 10, '5-8%': 3}
+- Kuluckada SINYALSIZ kacan: 13 / 13
 
 ## Haftalik dagilim
 - 2026-W23: 17 firsat
@@ -12,16 +12,21 @@ Evren: 30 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 77 (haftada ort. 12.0)
 - 2026-W25: 7 firsat
 - 2026-W26: 6 firsat
 - 2026-W27: 11 firsat
-- 2026-W28: 9 firsat
+- 2026-W28: 11 firsat
+- 2026-W29: 2 firsat
 
 ## Kuluckada kacan pencereler (buyukten kucuge)
+- TUPRS | 2026-07-13 | +7.8%
 - ASTOR | 2026-07-09 | +6.6%
 - BIMAS | 2026-07-09 | +5.3%
 - EREGL | 2026-07-09 | +4.5%
 - KCHOL | 2026-07-08 | +4.1%
 - TRMET | 2026-07-07 | +4.0%
+- ALARK | 2026-07-10 | +3.8%
 - SISE | 2026-07-08 | +3.7%
+- AEFES | 2026-07-13 | +3.6%
 - TUPRS | 2026-07-07 | +3.5%
+- FROTO | 2026-07-10 | +3.2%
 - EKGYO | 2026-07-09 | +3.2%
 - PETKM | 2026-07-08 | +3.0%
 
@@ -33,9 +38,9 @@ Evren: 30 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 77 (haftada ort. 12.0)
 - ASTOR | 2026-06-29 | +8.5% | ONCESI
 - AKBNK | 2026-06-09 | +8.1% | ONCESI
 - TRMET | 2026-06-29 | +8.0% | ONCESI
+- TUPRS | 2026-07-13 | +7.8% | KULUCKA
 - HALKB | 2026-06-10 | +7.7% | ONCESI
 - ASELS | 2026-06-29 | +7.6% | ONCESI
-- VAKBN | 2026-06-10 | +7.6% | ONCESI
 
 ---
 Okuma kurali: taban orani, P1 uretimiyle YAN YANA okunur;
