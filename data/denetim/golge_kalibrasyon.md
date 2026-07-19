@@ -3,7 +3,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ## Katman B - IP-2 vekili (EMA dizilim gecisi + hacim + rejim)
 - Toplam vekil-P1: 5 | T+3 isabet: 1/5 (20.0%) | IP-2 taban cizgisi: %54
-- Kulucka donemi vekil-P1: 0 (canli V151: 0) | firsat penceresi yakalama: 0/9
+- Kulucka donemi vekil-P1: 0 (canli V151: 0) | firsat penceresi yakalama: 0/13
   - 2026-W25: 4 vekil sinyal
   - 2026-W28: 1 vekil sinyal
 
@@ -54,6 +54,30 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ASELS | 2026-07-16 | skor 12.1 | T+3 beklemede
 - ASTOR | 2026-07-16 | skor 12.0 | T+3 beklemede
 - ASTOR | 2026-07-17 | skor 11.3 | T+3 beklemede
+
+## Katman C - P3_DEVAM vekili (IP-4 D1 kapisi)
+D1 esigi: kulucka penceresi yakalama >= %50 VE T+3 isabet >= %55
+| kalicilik | temas | hacim | toplam | kulucka | isabet% | yakalama |
+|---|---|---|---|---|---|---|
+| 5 | 0.5% | 1.1 | 7 | 0 | 14.3 | 0/13 |
+| 5 | 0.5% | 1.2 | 5 | 0 | 20.0 | 0/13 |
+| 5 | 0.5% | 1.3 | 4 | 0 | 25.0 | 0/13 |
+| 5 | 1.0% | 1.1 | 8 | 0 | 12.5 | 0/13 |
+| 5 | 1.0% | 1.2 | 6 | 0 | 16.7 | 0/13 |
+| 5 | 1.0% | 1.3 | 5 | 0 | 20.0 | 0/13 |
+| 8 | 0.5% | 1.1 | 6 | 0 | 16.7 | 0/13 |
+| 8 | 0.5% | 1.2 | 5 | 0 | 20.0 | 0/13 |
+| 8 | 0.5% | 1.3 | 4 | 0 | 25.0 | 0/13 |
+| 8 | 1.0% | 1.1 | 7 | 0 | 14.3 | 0/13 |
+| 8 | 1.0% | 1.2 | 6 | 0 | 16.7 | 0/13 |
+| 8 | 1.0% | 1.3 | 5 | 0 | 20.0 | 0/13 |
+
+### Varsayilan konfig (8 / 0.5% / 1.2) vaka dokumu
+- SAHOL | 2026-07-01 | 98.1 -> T+3 93.6 | MISS | ONCESI
+- EREGL | 2026-06-15 | 40.2 -> T+3 40.0 | MISS | ONCESI
+- EREGL | 2026-07-02 | 40.8 -> T+3 41.26 | HIT | ONCESI
+- EREGL | 2026-07-06 | 41.52 -> T+3 40.06 | MISS | ONCESI
+- MGROS | 2026-06-02 | 676.0 -> T+3 662.0 | MISS | ONCESI
 
 ---
 Okuma: Katman B kuluckada bol uretip isabeti koruyorsa sorun
