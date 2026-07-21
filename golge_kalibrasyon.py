@@ -21,7 +21,7 @@ Gunluk vekil 15dk gercekliginin kaba golgesidir: soguma/kovalama
 bekcileri gunlukte uygulanamaz, isabet oranlari iyimser sapabilir.
 Cikti: data/denetim/golge_kalibrasyon.md + .json
 """
-import json, datetime, os, sys
+import json, datetime, os, sys, math
 from collections import defaultdict
 
 PENCERE_BASI = datetime.date(2026, 6, 1)
@@ -43,8 +43,16 @@ def ema(degerler, n):
 
 def gunluk_seri(yf, kod, bas):
     df = yf.Ticker(kod).history(start=str(bas), auto_adjust=False)
-    return [(ix.date(), float(r["Close"]), float(r["Volume"]), float(r["Low"]))
-            for ix, r in df.iterrows()]
+    cikti = []
+    for ix, r in df.iterrows():
+        try:
+            kap, hac, dus = float(r["Close"]), float(r["Volume"]), float(r["Low"])
+        except (TypeError, ValueError):
+            continue
+        if math.isnan(kap) or math.isnan(hac) or math.isnan(dus):
+            continue  # v2.2: NaN bar (tatil/eksik veri) - sessizce atla, ileri tasima
+        cikti.append((ix.date(), kap, hac, dus))
+    return cikti
 
 def main():
     try:
@@ -67,7 +75,7 @@ def main():
 
     def kapanis_sonrasi(sem, tarih, n):
         s = seriler.get(sem) or []
-        sonra = [c for t, c, *_ in s if t > tarih]
+        sonra = [c for t, c, *_ in s if t > tarih and not math.isnan(c)]
         return sonra[n-1] if len(sonra) >= n else None
 
     # ---- rejim vekili: XU100 > EMA50
