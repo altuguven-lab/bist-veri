@@ -13,12 +13,12 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - Gecerli kayit: 47
 | Esik | Kayit>=E | T+3 sonuclu | Pozitif | Isabet% |
 |---|---|---|---|---|
-| 15 | 38 | 4 | 0 | 0.0 |
-| 20 | 28 | 4 | 0 | 0.0 |
-| 25 | 20 | 3 | 0 | 0.0 |
-| 30 | 14 | 1 | 0 | 0.0 |
-| 35 | 12 | 1 | 0 | 0.0 |
-| 40 | 11 | 1 | 0 | 0.0 |
+| 15 | 38 | 0 | 0 | - |
+| 20 | 28 | 0 | 0 | - |
+| 25 | 20 | 0 | 0 | - |
+| 30 | 14 | 0 | 0 | - |
+| 35 | 12 | 0 | 0 | - |
+| 40 | 11 | 0 | 0 | - |
 
 ### Skor-getiri dokumu
 - PETKM | 2026-07-20 | skor 97.2 | T+3 beklemede
@@ -27,7 +27,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - PETKM | 2026-07-16 | skor 91.6 | T+3 beklemede
 - TUPRS | 2026-07-17 | skor 68.5 | T+3 beklemede
 - KCHOL | 2026-07-16 | skor 58.6 | T+3 beklemede
-- KCHOL | 2026-07-14 | skor 50.6 | T+3 +nan%
+- KCHOL | 2026-07-14 | skor 50.6 | T+3 beklemede
 - EREGL | 2026-07-20 | skor 47.4 | T+3 beklemede
 - MGROS | 2026-07-20 | skor 46.3 | T+3 beklemede
 - TUPRS | 2026-07-20 | skor 42.8 | T+3 beklemede
@@ -37,15 +37,15 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - PETKM | 2026-07-17 | skor 30.1 | T+3 beklemede
 - MGROS | 2026-07-17 | skor 28.6 | T+3 beklemede
 - YKBNK | 2026-07-16 | skor 27.0 | T+3 beklemede
-- EREGL | 2026-07-14 | skor 26.6 | T+3 +nan%
+- EREGL | 2026-07-14 | skor 26.6 | T+3 beklemede
 - DMLKT | 2026-07-20 | skor 26.2 | T+3 beklemede
-- ASELS | 2026-07-14 | skor 25.8 | T+3 +nan%
+- ASELS | 2026-07-14 | skor 25.8 | T+3 beklemede
 - TRALT | 2026-07-20 | skor 25.6 | T+3 beklemede
 - THYAO | 2026-07-16 | skor 24.4 | T+3 beklemede
 - ASELS | 2026-07-20 | skor 23.8 | T+3 beklemede
 - ASELS | 2026-07-17 | skor 22.2 | T+3 beklemede
 - KCHOL | 2026-07-17 | skor 22.1 | T+3 beklemede
-- THYAO | 2026-07-14 | skor 21.8 | T+3 +nan%
+- THYAO | 2026-07-14 | skor 21.8 | T+3 beklemede
 - BIMAS | 2026-07-16 | skor 21.6 | T+3 beklemede
 - ASTOR | 2026-07-20 | skor 21.2 | T+3 beklemede
 - TRALT | 2026-07-16 | skor 20.9 | T+3 beklemede
@@ -61,7 +61,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - GARAN | 2026-07-17 | skor 15.0 | T+3 beklemede
 - AKBNK | 2026-07-17 | skor 14.4 | T+3 beklemede
 - MGROS | 2026-07-16 | skor 12.6 | T+3 beklemede
-- PETKM | 2026-07-14 | skor 12.5 | T+3 +nan%
+- PETKM | 2026-07-14 | skor 12.5 | T+3 beklemede
 - EREGL | 2026-07-17 | skor 12.2 | T+3 beklemede
 - ASELS | 2026-07-16 | skor 12.1 | T+3 beklemede
 - YKBNK | 2026-07-20 | skor 12.0 | T+3 beklemede
