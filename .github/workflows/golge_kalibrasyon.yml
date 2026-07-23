@@ -1,7 +1,9 @@
-# GOLGE KALIBRASYON (KAL-2) - yalnizca elle kosum
+# GOLGE KALIBRASYON (KAL-2) - v2 (23.07): gunluk otomatik + elle kosum
 # Konum: .github/workflows/golge_kalibrasyon.yml
 name: Golge Kalibrasyon
 on:
+  schedule:
+    - cron: "20 15 * * 1-5"  # kapanis + GUNLUK_OZET yazim payi (15:11 UTC)
   workflow_dispatch: {}
 permissions:
   contents: write
