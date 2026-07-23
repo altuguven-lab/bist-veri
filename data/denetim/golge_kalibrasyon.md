@@ -1,4 +1,4 @@
-# Golge Kalibrasyon (2026-07-21)
+# Golge Kalibrasyon (2026-07-23)
 SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ## Katman B - IP-2 vekili (EMA dizilim gecisi + hacim + rejim)
@@ -10,45 +10,49 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 ### Kulucka donemi vekil dokumu
 
 ## Katman A - gercek skor bandi (bir bar gecikmeli, gunde tek ornek)
-- Gecerli kayit: 47
+- Gecerli kayit: 51
 | Esik | Kayit>=E | T+3 sonuclu | Pozitif | Isabet% |
 |---|---|---|---|---|
-| 15 | 38 | 0 | 0 | - |
-| 20 | 28 | 0 | 0 | - |
-| 25 | 20 | 0 | 0 | - |
-| 30 | 14 | 0 | 0 | - |
-| 35 | 12 | 0 | 0 | - |
-| 40 | 11 | 0 | 0 | - |
+| 15 | 42 | 13 | 7 | 53.8 |
+| 20 | 32 | 13 | 7 | 53.8 |
+| 25 | 21 | 10 | 6 | 60.0 |
+| 30 | 15 | 7 | 4 | 57.1 |
+| 35 | 13 | 6 | 4 | 66.7 |
+| 40 | 12 | 5 | 4 | 80.0 |
 
 ### Skor-getiri dokumu
 - PETKM | 2026-07-20 | skor 97.2 | T+3 beklemede
-- TUPRS | 2026-07-16 | skor 97.2 | T+3 beklemede
+- TUPRS | 2026-07-16 | skor 97.2 | T+3 +8.12%
 - BIMAS | 2026-07-20 | skor 96.6 | T+3 beklemede
-- PETKM | 2026-07-16 | skor 91.6 | T+3 beklemede
+- PETKM | 2026-07-16 | skor 91.6 | T+3 +3.39%
 - TUPRS | 2026-07-17 | skor 68.5 | T+3 beklemede
-- KCHOL | 2026-07-16 | skor 58.6 | T+3 beklemede
-- KCHOL | 2026-07-14 | skor 50.6 | T+3 beklemede
+- KCHOL | 2026-07-16 | skor 58.6 | T+3 +2.28%
+- KCHOL | 2026-07-14 | skor 50.6 | T+3 +4.55%
 - EREGL | 2026-07-20 | skor 47.4 | T+3 beklemede
 - MGROS | 2026-07-20 | skor 46.3 | T+3 beklemede
+- KCHOL | 2026-07-21 | skor 44.4 | T+3 beklemede
 - TUPRS | 2026-07-20 | skor 42.8 | T+3 beklemede
-- AKBNK | 2026-07-16 | skor 42.4 | T+3 beklemede
-- EREGL | 2026-07-16 | skor 36.1 | T+3 beklemede
-- GARAN | 2026-07-16 | skor 34.8 | T+3 beklemede
+- AKBNK | 2026-07-16 | skor 42.4 | T+3 -2.77%
+- EREGL | 2026-07-16 | skor 36.1 | T+3 -3.99%
+- GARAN | 2026-07-16 | skor 34.8 | T+3 -3.50%
 - PETKM | 2026-07-17 | skor 30.1 | T+3 beklemede
 - MGROS | 2026-07-17 | skor 28.6 | T+3 beklemede
-- YKBNK | 2026-07-16 | skor 27.0 | T+3 beklemede
-- EREGL | 2026-07-14 | skor 26.6 | T+3 beklemede
+- YKBNK | 2026-07-16 | skor 27.0 | T+3 -1.97%
+- EREGL | 2026-07-14 | skor 26.6 | T+3 +4.11%
 - DMLKT | 2026-07-20 | skor 26.2 | T+3 beklemede
-- ASELS | 2026-07-14 | skor 25.8 | T+3 beklemede
+- ASELS | 2026-07-14 | skor 25.8 | T+3 +1.72%
 - TRALT | 2026-07-20 | skor 25.6 | T+3 beklemede
-- THYAO | 2026-07-16 | skor 24.4 | T+3 beklemede
+- THYAO | 2026-07-16 | skor 24.4 | T+3 -3.79%
+- TRALT | 2026-07-21 | skor 24.0 | T+3 beklemede
 - ASELS | 2026-07-20 | skor 23.8 | T+3 beklemede
 - ASELS | 2026-07-17 | skor 22.2 | T+3 beklemede
 - KCHOL | 2026-07-17 | skor 22.1 | T+3 beklemede
-- THYAO | 2026-07-14 | skor 21.8 | T+3 beklemede
-- BIMAS | 2026-07-16 | skor 21.6 | T+3 beklemede
+- THYAO | 2026-07-14 | skor 21.8 | T+3 +0.61%
+- BIMAS | 2026-07-16 | skor 21.6 | T+3 -0.82%
 - ASTOR | 2026-07-20 | skor 21.2 | T+3 beklemede
 - TRALT | 2026-07-16 | skor 20.9 | T+3 beklemede
+- TUPRS | 2026-07-21 | skor 20.7 | T+3 beklemede
+- YKBNK | 2026-07-21 | skor 20.3 | T+3 beklemede
 - THYAO | 2026-07-17 | skor 18.8 | T+3 beklemede
 - KCHOL | 2026-07-20 | skor 18.3 | T+3 beklemede
 - TRALT | 2026-07-17 | skor 18.3 | T+3 beklemede
@@ -60,13 +64,13 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - YKBNK | 2026-07-17 | skor 15.2 | T+3 beklemede
 - GARAN | 2026-07-17 | skor 15.0 | T+3 beklemede
 - AKBNK | 2026-07-17 | skor 14.4 | T+3 beklemede
-- MGROS | 2026-07-16 | skor 12.6 | T+3 beklemede
-- PETKM | 2026-07-14 | skor 12.5 | T+3 beklemede
+- MGROS | 2026-07-16 | skor 12.6 | T+3 +1.44%
+- PETKM | 2026-07-14 | skor 12.5 | T+3 +15.82%
 - EREGL | 2026-07-17 | skor 12.2 | T+3 beklemede
-- ASELS | 2026-07-16 | skor 12.1 | T+3 beklemede
+- ASELS | 2026-07-16 | skor 12.1 | T+3 +2.13%
 - YKBNK | 2026-07-20 | skor 12.0 | T+3 beklemede
 - GARAN | 2026-07-20 | skor 12.0 | T+3 beklemede
-- ASTOR | 2026-07-16 | skor 12.0 | T+3 beklemede
+- ASTOR | 2026-07-16 | skor 12.0 | T+3 -4.00%
 - ASTOR | 2026-07-17 | skor 11.3 | T+3 beklemede
 
 ## Katman C - P3_DEVAM vekili (IP-4 D1 kapisi)
