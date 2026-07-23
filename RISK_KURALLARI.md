@@ -119,3 +119,22 @@ kendiliginden yururlukten kalkar ve dosyadan silinir.
       sayilir, sonraki degisiklikler standart surece tabidir.
     - Kayit: 17.07 YKBNK vakasi IHLAL-1 olarak tutanakta KALIR; bu
       madde geriye yururlu af degildir.
+## 9. P3_SKOR OLGUNLASMA DONEMI (deploy sonrasi, 27.07'den itibaren)
+9.1 GEREKCE: P3_SKOR yeni bir sinyal SINIFI; canlida hic ateslenmedi,
+    yalniz 2 geriye-donuk vekil vakasiyla (KCHOL, TUPRS) dogrulandi.
+    Kulucka v2'nin kendi yari-boyut carpani (Bolum 1) otomatik
+    uygulanir; bu bolum ONUN USTUNE ek bir olgunlasma katmani ekler.
+
+9.2 KURAL: P3_SKOR_AL sinyaliyle acilan ilk 5 canli pozisyon, standart
+    kulucka-yari boyutunun YARISIYLA (yani normal boyutun ceyregiyle)
+    acilir. 5. pozisyon kapandiktan sonra standart kulucka-yari boyutuna
+    gecilir.
+
+9.3 SAYAC: P3_OLGUNLASMA_SAYAC, islem_gunlugu.json'da sinyal_etiketi=
+    "P3_SKOR_AL" olan kapanmis islem sayisidir; 5'e ulasinca bu bolum
+    o an itibariyla yururlukten kalkar (kendiliginden, yeniden commit
+    gerekmez).
+
+9.4 ISTISNA YOK: olgunlasma sayaci P3_SKOR'un kendi kulucka v2
+    penceresine bagli degildir - deploy tarihinden itibaren, sinyal
+    sayisina gore isler.
