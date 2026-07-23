@@ -1,7 +1,9 @@
-# RETRO FIRSAT ENVANTERI - yalnizca elle kosum
+# RETRO FIRSAT ENVANTERI - v2 (23.07): haftalik otomatik + elle kosum
 # Konum: .github/workflows/retro_firsat.yml
 name: Retro Firsat
 on:
+  schedule:
+    - cron: "30 15 * * 5"  # hafta kapanisi, hafta_denetim'den 15dk once
   workflow_dispatch: {}
 permissions:
   contents: write
