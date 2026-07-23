@@ -34,9 +34,12 @@ import statistics
 
 KULUCKA_BASI = datetime.date(2026, 7, 7)
 TEST_FIYAT_PARMAK_IZI = ("THYAO", 348.50)
-PARMAK_IZI_SON_TARIH = datetime.date(2026, 7, 13)  # sonrasi icin GERCEK_TEST oneki ZORUNLU
-# 14.07 dersi: ASELS gercek kapanisi 348.50 basti - fiyat parmak izi
-# gercek fiyat bolgesinde yasar, tarihsiz guvenilmez.
+# v1.2 (23.07) DUZELTME: tarih kilidi KALDIRILDI. Kanit: TradingView'de
+# silinmemis, sabit fiyatli bir test alarmi bu parmak izini 07-22 Temmuz
+# arasinda 6 kez tekrar uretti (tarih kilidi varken 22.07 kaydi denetimden
+# KACIYORDU - M2 istatistigini kirletme riski). 14.07'de ASELS'in gercek
+# kapanisinin bir kez 348.50 basmasi ihtimali kabul edilebilir bir bedel;
+# THYAO'nun ayni kurusta alti kez "AL" basmasindan cok daha az zararli.
 TRADE_SINYALLERI_M1 = ("ACIL_CIK",)
 TRADE_SINYALLERI_M2_ONEK = ("P1",)          # P1_AL, P1_KALITELI_AL, P1Q...
 YENIDEN_GIRIS_ONEK = ("P1", "P2")           # M5 icin
@@ -92,8 +95,7 @@ def zenginlestir(kayitlar):
             continue
         fiyat = _f(s.get("fiyat"))
         test_mi = (
-            ((s.get("sembol"), fiyat) == TEST_FIYAT_PARMAK_IZI
-             and t.date() <= PARMAK_IZI_SON_TARIH)
+            (s.get("sembol"), fiyat) == TEST_FIYAT_PARMAK_IZI  # tarih sartsiz
             or "TEST" in str(s.get("sinyal", "")).upper()
         )
         bozuk = any("{{" in str(s.get(k, "")) or str(s.get(k, "")).strip() == "?"
