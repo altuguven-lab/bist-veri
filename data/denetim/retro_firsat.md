@@ -1,5 +1,5 @@
-# Retro Firsat Envanteri (2026-06-01 -> 2026-07-24)
-Evren: 30 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 92 (haftada ort. 12.2)
+# Retro Firsat Envanteri (2026-06-01 -> 2026-07-25)
+Evren: 30 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 92 (haftada ort. 11.9)
 
 ## Donem karsilastirmasi (taban orani)
 - Kulucka ONCESI (5 hafta): 68 firsat | kova: {'5-8%': 27, '8%+': 7, '3-5%': 34}
