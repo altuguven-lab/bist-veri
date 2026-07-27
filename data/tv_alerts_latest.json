@@ -1,24 +1,36 @@
 {
-  "son_guncelleme_utc": "2026-07-27T07:15:16.194Z",
+  "son_guncelleme_utc": "2026-07-27T11:50:08.661Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-07",
-    "adet": 103
+    "adet": 104
   },
   "son_sinyal": {
-    "zaman_utc": "2026-07-27T07:15:14.254Z",
-    "sembol": "AKBNK",
-    "sinyal": "P3_SKOR_AL",
+    "zaman_utc": "2026-07-27T11:50:07.478Z",
+    "sembol": "THYAO",
+    "sinyal": "POZ_AZALT",
     "interval": "15",
-    "fiyat": "69.15",
-    "skor": "?",
-    "kgs": "?",
-    "stop": "?",
-    "rejim": "?",
-    "relvol": "?"
+    "fiyat": "323.75",
+    "skor": "24.806386686954614",
+    "kgs": "61",
+    "stop": "322.7753839416392",
+    "rejim": "0",
+    "relvol": "0.7833942083303811"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-07-27T11:50:07.478Z",
+      "sembol": "THYAO",
+      "sinyal": "POZ_AZALT",
+      "interval": "15",
+      "fiyat": "323.75",
+      "skor": "24.806386686954614",
+      "kgs": "61",
+      "stop": "322.7753839416392",
+      "rejim": "0",
+      "relvol": "0.7833942083303811"
+    },
     {
       "zaman_utc": "2026-07-27T07:15:14.254Z",
       "sembol": "AKBNK",
@@ -1191,13 +1203,6 @@
       "sinyal": "POZ_AZALT",
       "interval": "15",
       "fiyat": "40.50"
-    },
-    {
-      "zaman_utc": "2026-07-09T10:45:11.631Z",
-      "sembol": "PETKM",
-      "sinyal": "POZ_AZALT",
-      "interval": "15",
-      "fiyat": "19.36"
     }
   ]
 }
