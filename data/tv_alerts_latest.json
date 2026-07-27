@@ -1,24 +1,36 @@
 {
-  "son_guncelleme_utc": "2026-07-27T15:11:11.850Z",
+  "son_guncelleme_utc": "2026-07-27T15:11:12.651Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-07",
-    "adet": 112
+    "adet": 113
   },
   "son_sinyal": {
-    "zaman_utc": "2026-07-27T15:11:06.856Z",
-    "sembol": "GARAN",
+    "zaman_utc": "2026-07-27T15:11:08.436Z",
+    "sembol": "PETKM",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "127.1",
-    "skor": "37.171582963561875",
-    "kgs": "22",
-    "stop": "126.40656834040894",
+    "fiyat": "20.16",
+    "skor": "10.000000000000004",
+    "kgs": "17",
+    "stop": "20.032474370964316",
     "rejim": "0",
-    "relvol": "0.7492580636951961"
+    "relvol": "0.44175147356477"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-07-27T15:11:08.436Z",
+      "sembol": "PETKM",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "20.16",
+      "skor": "10.000000000000004",
+      "kgs": "17",
+      "stop": "20.032474370964316",
+      "rejim": "0",
+      "relvol": "0.44175147356477"
+    },
     {
       "zaman_utc": "2026-07-27T15:11:06.856Z",
       "sembol": "GARAN",
@@ -1201,18 +1213,6 @@
       "sinyal": "GUNLUK_OZET",
       "interval": "15",
       "fiyat": "352.50",
-      "skor": "{{plot_38}}",
-      "kgs": "{{plot_39}}",
-      "stop": "{{plot_40}}",
-      "rejim": "{{plot_41}}",
-      "relvol": "{{plot_42}}"
-    },
-    {
-      "zaman_utc": "2026-07-13T15:11:03.100Z",
-      "sembol": "ASTOR",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "318.00",
       "skor": "{{plot_38}}",
       "kgs": "{{plot_39}}",
       "stop": "{{plot_40}}",
