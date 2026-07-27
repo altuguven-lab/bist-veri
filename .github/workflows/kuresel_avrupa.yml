@@ -1,0 +1,26 @@
+# KURESEL GOSTERGE - AVRUPA bolumu (27.07.2026, ALTYAPI)
+# Konum: .github/workflows/kuresel_avrupa.yml
+# Hafta ici her gun 11:15 TSI (08:15 UTC) - Avrupa acilisindan ~1-1.5sa sonra.
+name: Kuresel Gosterge - Avrupa
+on:
+  schedule:
+    - cron: "15 8 * * 1-5"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  avrupa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66
+      - run: python fetch_kuresel.py avrupa
+      - run: |
+          git config user.name "kuresel-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/kuresel_gosterge.json
+          git diff --staged --quiet || git commit -m "Kuresel gosterge (avrupa) $(date -u +%Y-%m-%d)"
+          git push
