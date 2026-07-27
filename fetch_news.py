@@ -68,6 +68,13 @@ KAYNAKLAR = [
                       "https://www.dunya.com/rss?dunya",
                       google_news_rss("dunya.com ekonomi when:7d")], 1),
     ("Foreks",       google_news_rss("site:foreks.com borsa"), 1),
+    # MAKRO/KURESEL (27.07 eki): sembole bagli olmayan genel baglam - Asya
+    # borsalari, jeopolitik (Iran-ABD, Hurmuz), Fed/TCMB genel - THYAO gibi
+    # sembol-disi hareketlerin ardindaki haberi yakalamak icin. taban=0:
+    # sembol puanlamasina karismaz, ayri okunur.
+    ("Makro-Asya",   google_news_rss("Asya borsalari OR Nikkei OR Kospi bugun"), 0),
+    ("Makro-Jeopolitik", google_news_rss("Iran ABD gorusmeler OR Hurmuz petrol"), 0),
+    ("Makro-Fed",    google_news_rss("Fed faiz OR FOMC when:3d"), 0),
 ]
 
 # Evrendeki her sembol icin hedefli Google News sorgusu (dusuk frekansli
