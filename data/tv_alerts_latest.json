@@ -1,24 +1,36 @@
 {
-  "son_guncelleme_utc": "2026-07-24T15:11:23.324Z",
+  "son_guncelleme_utc": "2026-07-27T07:00:13.191Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-07",
-    "adet": 100
+    "adet": 101
   },
   "son_sinyal": {
-    "zaman_utc": "2026-07-24T15:11:07.672Z",
-    "sembol": "GARAN",
-    "sinyal": "GUNLUK_OZET",
+    "zaman_utc": "2026-07-27T07:00:11.845Z",
+    "sembol": "YKBNK",
+    "sinyal": "P3_SKOR_AL",
     "interval": "15",
-    "fiyat": "126.0",
-    "skor": "22.107127965865416",
-    "kgs": "44",
-    "stop": "125.31485570540511",
-    "rejim": "0",
-    "relvol": "1.3529687852717494"
+    "fiyat": "34.00",
+    "skor": "?",
+    "kgs": "?",
+    "stop": "?",
+    "rejim": "?",
+    "relvol": "?"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-07-27T07:00:11.845Z",
+      "sembol": "YKBNK",
+      "sinyal": "P3_SKOR_AL",
+      "interval": "15",
+      "fiyat": "34.00",
+      "skor": "?",
+      "kgs": "?",
+      "stop": "?",
+      "rejim": "?",
+      "relvol": "?"
+    },
     {
       "zaman_utc": "2026-07-24T15:11:07.672Z",
       "sembol": "GARAN",
@@ -1176,13 +1188,6 @@
       "sinyal": "P1_KALITELI_AL",
       "interval": "15",
       "fiyat": "348.50"
-    },
-    {
-      "zaman_utc": "2026-07-08T08:30:15.384Z",
-      "sembol": "AKBNK",
-      "sinyal": "ACIL_CIK",
-      "interval": "15",
-      "fiyat": "71.35"
     }
   ]
 }
