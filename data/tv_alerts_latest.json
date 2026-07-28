@@ -1,24 +1,36 @@
 {
-  "son_guncelleme_utc": "2026-07-28T10:45:15.031Z",
+  "son_guncelleme_utc": "2026-07-28T11:15:19.649Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-07",
-    "adet": 121
+    "adet": 122
   },
   "son_sinyal": {
-    "zaman_utc": "2026-07-28T10:45:11.847Z",
-    "sembol": "GARAN",
+    "zaman_utc": "2026-07-28T11:15:16.706Z",
+    "sembol": "MGROS",
     "sinyal": "POZ_AZALT",
     "interval": "15",
-    "fiyat": "127.4",
-    "skor": "23.29164205495659",
-    "kgs": "34",
-    "stop": "126.77333976696067",
+    "fiyat": "630.5",
+    "skor": "31.11101251195485",
+    "kgs": "67",
+    "stop": "630.729799604728",
     "rejim": "0",
-    "relvol": "0.5974079654937445"
+    "relvol": "0.257180158684204"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-07-28T11:15:16.706Z",
+      "sembol": "MGROS",
+      "sinyal": "POZ_AZALT",
+      "interval": "15",
+      "fiyat": "630.5",
+      "skor": "31.11101251195485",
+      "kgs": "67",
+      "stop": "630.729799604728",
+      "rejim": "0",
+      "relvol": "0.257180158684204"
+    },
     {
       "zaman_utc": "2026-07-28T10:45:11.847Z",
       "sembol": "GARAN",
@@ -1206,18 +1218,6 @@
       "stop": "189.94628934445083",
       "rejim": "1",
       "relvol": "0.6122116513368275"
-    },
-    {
-      "zaman_utc": "2026-07-14T14:30:18.946Z",
-      "sembol": "MGROS",
-      "sinyal": "ACIL_CIK",
-      "interval": "15",
-      "fiyat": "599.0",
-      "skor": "12",
-      "kgs": "13",
-      "stop": "609.373561975007",
-      "rejim": "2",
-      "relvol": "10.455292947552492"
     }
   ]
 }
