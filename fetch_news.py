@@ -75,6 +75,7 @@ KAYNAKLAR = [
     ("Makro-Asya",   google_news_rss("Asya borsalari OR Nikkei OR Kospi bugun"), 0),
     ("Makro-Jeopolitik", google_news_rss("Iran ABD gorusmeler OR Hurmuz petrol"), 0),
     ("Makro-Fed",    google_news_rss("Fed faiz OR FOMC when:3d"), 0),
+    ("Makro-TUIK",   google_news_rss("TUIK enflasyon OR TUFE aciklandi when:5d"), 0),
 ]
 
 # Evrendeki her sembol icin hedefli Google News sorgusu (dusuk frekansli
