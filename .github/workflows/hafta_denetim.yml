@@ -24,5 +24,21 @@ jobs:
           git config user.name "hafta-denetim-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/denetim/
-          git diff --staged --quiet || git commit -m "Hafta denetimi $(date -u +%Y-%m-%d)"
-          git push
+          git diff --staged --quiet && exit 0
+          git commit -m "Hafta denetimi $(date -u +%Y-%m-%d)"
+          # 03.08 DUZELTME: "main -> main (fetch first)" carpismasi -
+          # ayni akscam baska bir workflow (golge/retro/GUNLUK_OZET)
+          # push etmisse bu commit reddediliyordu. Simdi jitter'li
+          # pull --rebase + yeniden deneme (Pipedream'deki suru kirici
+          # deseniyle ayni mantik).
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz - hata olarak isaretleniyor"
+          exit 1
