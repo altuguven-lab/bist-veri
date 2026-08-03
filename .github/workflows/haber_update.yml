@@ -2,7 +2,13 @@ name: Haber Akisi Guncelle
 
 on:
   schedule:
-    - cron: "7,37 * * * *"
+    # 03.08 DUZELTME: 30dk'da bir (gunde 48 kez) GitHub'in kendi
+    # belgeledigi "yuksek yukte sessizce atlanabilir" riskine cok
+    # aciktir - 8+ saatlik sessiz bosluklar yasandi (script hatasi
+    # degil, GitHub'in zamanlayici guvenilirligi). Saatte bire
+    # dusuruldu - haber akisi icin zaten yeterli, GitHub'in onerdigi
+    # "15 dakikadan sik olmasin" esiginin rahat altinda.
+    - cron: "13 * * * *"
   workflow_dispatch: {}
 
 permissions:
