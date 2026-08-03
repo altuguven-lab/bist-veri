@@ -22,4 +22,18 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data/denetim/
           git diff --staged --quiet || git commit -m "Golge kalibrasyon $(date -u +%Y-%m-%d)"
-          git push
+          # 03.08 DUZELTME (tum git-yazan workflow'lara uygulandi): "fetch
+          # first" carpismasi - ayni saatlerde baska bir workflow push etmisse
+          # bu commit reddediliyordu. Simdi jitter'li pull --rebase + 5 deneme
+          # (Pipedream'deki suru kirici deseniyle ayni mantik).
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
