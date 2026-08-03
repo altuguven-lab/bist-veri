@@ -1,10 +1,41 @@
 {
   "kaynak": "TCMB: tcmb.gov.tr/Takvim | Fed: federalreserve.gov/monetarypolicy/fomccalendars.htm",
   "dogrulama_tarihi": "2026-07-16",
-  "tcmb_ppk_karar": ["2026-07-23", "2026-09-10", "2026-10-22", "2026-12-10"],
-  "tcmb_ppk_ozet": ["2026-07-30", "2026-09-17", "2026-10-30", "2026-12-17"],
-  "tcmb_enflasyon_raporu": ["2026-08-13", "2026-11-12"],
-  "tcmb_finansal_istikrar_raporu": ["2026-11-27"],
-  "fed_fomc_karar": ["2026-07-29", "2026-09-16", "2026-10-28", "2026-12-09"],
-  "not": "TCMB karari 14:00 TSI (seans ici - Anayasa B5 penceresi uygulanir). Fed karari 21:00 TSI (seans disi - pencere uretmez, bilgi amacli). ECB/BoJ bilinclii olarak dahil edilmedi (16.07 karari)."
+  "tcmb_ppk_karar": [
+    "2026-07-23",
+    "2026-09-10",
+    "2026-10-22",
+    "2026-12-10"
+  ],
+  "tcmb_ppk_ozet": [
+    "2026-07-30",
+    "2026-09-17",
+    "2026-10-30",
+    "2026-12-17"
+  ],
+  "tcmb_enflasyon_raporu": [
+    "2026-08-13",
+    "2026-11-12"
+  ],
+  "tcmb_finansal_istikrar_raporu": [
+    "2026-11-27"
+  ],
+  "fed_fomc_karar": [
+    "2026-07-29",
+    "2026-09-16",
+    "2026-10-28",
+    "2026-12-09"
+  ],
+  "not": "TCMB karari 14:00 TSI (seans ici - Anayasa B5 penceresi uygulanir). Fed karari 21:00 TSI (seans disi - pencere uretmez, bilgi amacli). ECB/BoJ bilinclii olarak dahil edilmedi (16.07 karari).",
+  "tuik_enflasyon": [
+    "2026-07-03",
+    "2026-08-03"
+  ],
+  "tuik_enflasyon_tahmini": [
+    "2026-09-03",
+    "2026-10-03",
+    "2026-11-03",
+    "2026-12-03"
+  ],
+  "tuik_not": "Kural: takip eden ayin normalde 3'u, saat 10:00 TSI - ama hafta sonu/resmi tatile denk gelirse ilk uygun is gunune kayar (ornek: Mayis verisi 3'u degil 5 Haziran'da acikladi). tuik_enflasyon_tahmini listesi bu yuzden KESIN degil - her ay yaklasirken TUIK'in resmi 'Ulusal Veri Yayimlama Takvimi' ile teyit edilmeli."
 }
