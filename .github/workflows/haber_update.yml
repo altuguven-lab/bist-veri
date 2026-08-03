@@ -29,6 +29,19 @@ jobs:
           git config user.name "bist-veri-bot"
           git config user.email "bot@users.noreply.github.com"
           git add data/haber_akisi.json
-          git diff --staged --quiet || git commit -m "Otomatik haber guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git pull --rebase origin main
-          git push
+          git diff --staged --quiet && exit 0
+          git commit -m "Otomatik haber guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          # 03.08 DUZELTME: diger 9 workflow'la ayni "fetch first" carpismasi
+          # riski - gunde 48 kez calistigi icin en yuksek carpisma ihtimaline
+          # sahip workflow. 5 denemeli jitter'li pull --rebase + push.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
