@@ -248,10 +248,33 @@ def main():
            "| Esik | Kayit>=E | T+3 sonuclu | Pozitif | Isabet% |", "|---|---|---|---|---|"]
     for E, n, u, h, o in esik_tablo:
         md.append(f"| {E} | {n} | {u} | {h} | {o if o is not None else '-'} |")
+    # 04.08 EKI: haftalik kirilim - P3_SKOR deploy kosulunun ("iki ardisik
+    # hafta >=%50 isabet") takip edilebilmesi icin. Mevcut birikimli
+    # esik_tablo'ya DOKUNMUYOR, yanina ekleniyor.
+    hafta_grup = defaultdict(list)
+    for k in kayitlar:
+        t = datetime.date.fromisoformat(k["tarih"])
+        y, w, _ = t.isocalendar()
+        hafta_grup[f"{y}-W{w:02d}"].append(k)
+
+    md_hafta = ["", "## Katman A - Haftalik Kirilim (P3_SKOR deploy kosulu icin)",
+                "Kosul: en az iki ARDISIK haftada isabet >= %50 (herhangi bir esikte).",
+                "| Hafta | Esik | Kayit>=E, sonuclu | Isabet% |", "|---|---|---|---|"]
+    for hafta_anahtari in sorted(hafta_grup):
+        grup = hafta_grup[hafta_anahtari]
+        for E in SKOR_ESIKLERI:
+            u = [k for k in grup if k["skor"] >= E and k["getiri3"] is not None]
+            if not u:
+                continue
+            h = sum(1 for k in u if k["getiri3"] > 0)
+            oran = round(100 * h / len(u), 1)
+            md_hafta.append(f"| {hafta_anahtari} | {E} | {len(u)} | {oran} |")
+
     md += ["", "### Skor-getiri dokumu"]
     for k in sorted(kayitlar, key=lambda x: -x["skor"]):
         md.append(f"- {k['sembol']} | {k['tarih']} | skor {k['skor']} | T+3 "
                   f"{'%+.2f%%' % k['getiri3'] if k['getiri3'] is not None else 'beklemede'}")
+    md += md_hafta
     md += md_c
     md += ["", "---", "Okuma: Katman B kuluckada bol uretip isabeti koruyorsa sorun",
            "V151'in EK katmanlarindadir (taban/esik); o da uretmiyorsa piyasa gercekten kurak."]
