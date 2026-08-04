@@ -311,7 +311,10 @@ def main():
     sektor_gunluk = {}
     for endeks_kod in SEKTOR_ENDEKS:
         try:
-            seri = gunluk_seri(yf, endeks_kod, kayitlar[0]["tarih"] if kayitlar else "2026-07-07")
+            # DUZELTME: kayitlar[0] en eski kayit OLMAYABILIR (liste zaman
+            # sirali degil) - gercek min tarihi kullan.
+            en_erken = min((k["tarih"] for k in kayitlar), default="2026-07-07")
+            seri = gunluk_seri(yf, endeks_kod, en_erken)
             for i in range(1, len(seri)):
                 gun, kap = seri[i][0], seri[i][1]
                 onceki_kap = seri[i-1][1]
