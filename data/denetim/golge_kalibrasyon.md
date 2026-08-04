@@ -45,7 +45,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - THYAO | 2026-07-31 | skor 28.9 | T+3 beklemede
 - PETKM | 2026-07-28 | skor 27.6 | T+3 -5.63%
 - EREGL | 2026-07-31 | skor 27.4 | T+3 beklemede
-- MGROS | 2026-07-29 | skor 26.9 | T+3 -1.67%
+- MGROS | 2026-07-29 | skor 26.9 | T+3 -1.19%
 - PETKM | 2026-08-03 | skor 26.2 | T+3 beklemede
 - SAHOL | 2026-07-31 | skor 25.7 | T+3 beklemede
 - TRALT | 2026-07-30 | skor 25.7 | T+3 beklemede
@@ -56,7 +56,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ASELS | 2026-08-03 | skor 24.2 | T+3 beklemede
 - THYAO | 2026-08-03 | skor 24.2 | T+3 beklemede
 - TUPRS | 2026-07-27 | skor 23.4 | T+3 -1.45%
-- ASTOR | 2026-07-29 | skor 23.3 | T+3 +5.94%
+- ASTOR | 2026-07-29 | skor 23.3 | T+3 +6.74%
 - DMLKT | 2026-07-29 | skor 23.1 | T+3 beklemede
 - THYAO | 2026-07-24 | skor 22.6 | T+3 +0.40%
 - GARAN | 2026-07-24 | skor 22.1 | T+3 +0.24%
@@ -69,14 +69,14 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - BIMAS | 2026-07-28 | skor 20.5 | T+3 +0.19%
 - DMLKT | 2026-07-27 | skor 20.4 | T+3 beklemede
 - KCHOL | 2026-07-27 | skor 20.4 | T+3 -2.64%
-- GARAN | 2026-07-29 | skor 20.1 | T+3 +1.11%
-- PETKM | 2026-07-29 | skor 18.8 | T+3 -1.65%
-- TUPRS | 2026-07-29 | skor 18.7 | T+3 -3.78%
+- GARAN | 2026-07-29 | skor 20.1 | T+3 +4.20%
+- PETKM | 2026-07-29 | skor 18.8 | T+3 -1.95%
+- TUPRS | 2026-07-29 | skor 18.7 | T+3 -4.53%
 - KCHOL | 2026-07-28 | skor 18.7 | T+3 +0.97%
 - MGROS | 2026-07-27 | skor 18.7 | T+3 -0.32%
 - BIMAS | 2026-07-27 | skor 18.3 | T+3 -0.07%
 - KCHOL | 2026-07-30 | skor 18.0 | T+3 beklemede
-- KCHOL | 2026-07-29 | skor 18.0 | T+3 +0.88%
+- KCHOL | 2026-07-29 | skor 18.0 | T+3 +1.39%
 - ASTOR | 2026-07-28 | skor 18.0 | T+3 +6.49%
 - SAHOL | 2026-07-27 | skor 18.0 | T+3 -5.51%
 - DMLKT | 2026-07-31 | skor 17.8 | T+3 beklemede
@@ -85,28 +85,28 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TRALT | 2026-07-28 | skor 15.6 | T+3 beklemede
 - ASELS | 2026-07-27 | skor 15.5 | T+3 -6.38%
 - BIMAS | 2026-07-31 | skor 15.3 | T+3 beklemede
-- THYAO | 2026-07-29 | skor 15.1 | T+3 +2.08%
+- THYAO | 2026-07-29 | skor 15.1 | T+3 +2.23%
 - AKBNK | 2026-07-28 | skor 15.1 | T+3 -3.65%
 - TRALT | 2026-07-31 | skor 15.0 | T+3 beklemede
 - DMLKT | 2026-08-03 | skor 14.8 | T+3 beklemede
 - BIMAS | 2026-08-03 | skor 14.6 | T+3 beklemede
 - GARAN | 2026-07-30 | skor 14.0 | T+3 beklemede
 - SAHOL | 2026-07-30 | skor 14.0 | T+3 beklemede
-- SAHOL | 2026-07-29 | skor 14.0 | T+3 +2.12%
-- ASELS | 2026-07-29 | skor 13.9 | T+3 -2.40%
+- SAHOL | 2026-07-29 | skor 14.0 | T+3 +3.07%
+- ASELS | 2026-07-29 | skor 13.9 | T+3 -2.26%
 - AKBNK | 2026-07-27 | skor 13.7 | T+3 -7.30%
 - YKBNK | 2026-07-27 | skor 13.7 | T+3 -5.78%
 - TUPRS | 2026-07-31 | skor 13.6 | T+3 beklemede
 - ASELS | 2026-07-31 | skor 13.1 | T+3 beklemede
 - MGROS | 2026-08-03 | skor 12.8 | T+3 beklemede
 - MGROS | 2026-07-30 | skor 12.7 | T+3 beklemede
-- BIMAS | 2026-07-29 | skor 12.7 | T+3 -1.55%
+- BIMAS | 2026-07-29 | skor 12.7 | T+3 -1.29%
 - ASELS | 2026-07-28 | skor 12.7 | T+3 -4.40%
 - TRALT | 2026-07-24 | skor 12.7 | T+3 beklemede
 - MGROS | 2026-07-31 | skor 12.4 | T+3 beklemede
 - EREGL | 2026-07-30 | skor 12.2 | T+3 beklemede
 - YKBNK | 2026-07-30 | skor 12.0 | T+3 beklemede
-- EREGL | 2026-07-29 | skor 11.9 | T+3 -4.26%
+- EREGL | 2026-07-29 | skor 11.9 | T+3 -3.80%
 - ASELS | 2026-07-30 | skor 10.9 | T+3 beklemede
 - TUPRS | 2026-07-30 | skor 10.9 | T+3 beklemede
 - THYAO | 2026-07-27 | skor 10.8 | T+3 -3.07%
@@ -114,8 +114,8 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - EREGL | 2026-08-03 | skor 10.6 | T+3 beklemede
 - AKBNK | 2026-07-30 | skor 10.4 | T+3 beklemede
 - PETKM | 2026-07-30 | skor 10.0 | T+3 beklemede
-- YKBNK | 2026-07-29 | skor 10.0 | T+3 +6.97%
-- AKBNK | 2026-07-29 | skor 10.0 | T+3 +4.42%
+- YKBNK | 2026-07-29 | skor 10.0 | T+3 +9.99%
+- AKBNK | 2026-07-29 | skor 10.0 | T+3 +7.19%
 - TRALT | 2026-07-29 | skor 10.0 | T+3 beklemede
 - PETKM | 2026-07-27 | skor 10.0 | T+3 -5.70%
 
@@ -135,6 +135,11 @@ Kosul: en az iki ARDISIK haftada isabet >= %50 (herhangi bir esikte).
 | 2026-W31 | 30 | 5 | 0.0 |
 | 2026-W31 | 35 | 2 | 0.0 |
 | 2026-W31 | 40 | 1 | 0.0 |
+
+## Katman A - Sektor Baglamli Kirilim (kurul hipotezi: 04.08)
+Hipotez: sektoru o gun negatifken isabet dusuyor mu? Yalniz Bankacilik+Sinai kapsiyor (calisan iki endeks).
+| Sektor durumu | Esik | Kayit>=E, sonuclu | Isabet% |
+|---|---|---|---|
 
 ## Katman C - P3_DEVAM vekili (IP-4 D1 kapisi)
 D1 esigi: kulucka penceresi yakalama >= %50 VE T+3 isabet >= %55
