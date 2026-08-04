@@ -294,11 +294,56 @@ def main():
             oran = round(100 * h / len(u), 1)
             md_hafta.append(f"| {hafta_anahtari} | {E} | {len(u)} | {oran} |")
 
+
+    # 04.08 EKI: Sektor baglami - kurul hipotezi testi. P3_SKOR'un
+    # sembol-bazli teknik gorunumu guclu olsa bile, sektoru o gun
+    # dusuyorsa isabet dusuyor mu? Pine'a HIC dokunmuyor - salt olcum.
+    # Kapsam BILINCLI DAR: yalniz calisan iki endeksimiz (XBANK, XUSIN)
+    # - digerleri (Holding/Ulastirma/Iletisim) 04.08 karariyla ertelendi.
+    SEKTOR_ENDEKS = {"XBANK.IS": "Bankacilik", "XUSIN.IS": "Sinai"}
+    SEMBOL_SEKTOR = {
+        "AKBNK": "XBANK.IS", "YKBNK": "XBANK.IS", "GARAN": "XBANK.IS",
+        "ISCTR": "XBANK.IS", "HALKB": "XBANK.IS", "VAKBN": "XBANK.IS",
+        "EREGL": "XUSIN.IS", "ASELS": "XUSIN.IS", "ASTOR": "XUSIN.IS",
+        "TOASO": "XUSIN.IS", "FROTO": "XUSIN.IS", "OTKAR": "XUSIN.IS",
+        "PETKM": "XUSIN.IS", "SISE": "XUSIN.IS", "ULKER": "XUSIN.IS",
+    }
+    sektor_gunluk = {}
+    for endeks_kod in SEKTOR_ENDEKS:
+        try:
+            seri = gunluk_seri(yf, endeks_kod, kayitlar[0]["tarih"] if kayitlar else "2026-07-07")
+            for i in range(1, len(seri)):
+                gun, kap = seri[i][0], seri[i][1]
+                onceki_kap = seri[i-1][1]
+                sektor_gunluk[(endeks_kod, str(gun))] = (kap / onceki_kap - 1) * 100
+        except Exception as e:
+            print(f"UYARI: sektor serisi cekilemedi {endeks_kod}: {e}", file=sys.stderr)
+
+    for k in kayitlar:
+        endeks_kod = SEMBOL_SEKTOR.get(k["sembol"])
+        k["sektor_degisim"] = sektor_gunluk.get((endeks_kod, k["tarih"])) if endeks_kod else None
+
+    md_sektor = ["", "## Katman A - Sektor Baglamli Kirilim (kurul hipotezi: 04.08)",
+                 "Hipotez: sektoru o gun negatifken isabet dusuyor mu? Yalniz "
+                 "Bankacilik+Sinai kapsiyor (calisan iki endeks).",
+                 "| Sektor durumu | Esik | Kayit>=E, sonuclu | Isabet% |", "|---|---|---|---|"]
+    for durum, kosul in (("POZITIF", lambda x: x is not None and x > 0),
+                          ("NEGATIF", lambda x: x is not None and x <= 0)):
+        alt_kume = [k for k in kayitlar if kosul(k.get("sektor_degisim"))]
+        for E in SKOR_ESIKLERI:
+            u = [k for k in alt_kume if k["skor"] >= E and k["getiri3"] is not None]
+            if not u:
+                continue
+            h = sum(1 for k in u if k["getiri3"] > 0)
+            oran = round(100 * h / len(u), 1)
+            md_sektor.append(f"| {durum} | {E} | {len(u)} | {oran} |")
+
     md += ["", "### Skor-getiri dokumu"]
     for k in sorted(kayitlar, key=lambda x: -x["skor"]):
         md.append(f"- {k['sembol']} | {k['tarih']} | skor {k['skor']} | T+3 "
                   f"{'%+.2f%%' % k['getiri3'] if k['getiri3'] is not None else 'beklemede'}")
     md += md_hafta
+    md += md_sektor
     md += md_c
     md += ["", "---", "Okuma: Katman B kuluckada bol uretip isabeti koruyorsa sorun",
            "V151'in EK katmanlarindadir (taban/esik); o da uretmiyorsa piyasa gercekten kurak."]
