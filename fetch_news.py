@@ -78,10 +78,35 @@ KAYNAKLAR = [
     ("Makro-TUIK",   google_news_rss("TUIK enflasyon OR TUFE aciklandi when:5d"), 0),
 ]
 
+
+# 04.08 DUZELTME: sembol kodu tek basina gercek haber basliklarini
+# kacirabiliyor - orn. "ISCTR hisse" sorgusu "Is Bankasi bilanco" gibi
+# sirket-adi-tabanli haberleri iyi eslestirmedi (100 ham kayittan 1
+# suzuldu, o da ilgisiz). Sirket adini da sorguya ekleyerek iki adlandirma
+# bicimini de yakalamayi deniyoruz. Emin olunmayan/belirsiz adli
+# semboller (orn. TRMET) listeye dahil edilmedi - yanlis eslesme riski.
+SIRKET_ADLARI = {
+    "AKBNK": "Akbank", "YKBNK": "Yapi Kredi", "GARAN": "Garanti BBVA",
+    "ISCTR": "Is Bankasi", "SAHOL": "Sabanci Holding", "KCHOL": "Koc Holding",
+    "THYAO": "Turk Hava Yollari", "TAVHL": "TAV Havalimanlari",
+    "EREGL": "Erdemir", "ASELS": "Aselsan", "ASTOR": "Astor Enerji",
+    "MGROS": "Migros", "BIMAS": "BIM", "TUPRS": "Tupras", "TOASO": "Tofas",
+    "FROTO": "Ford Otosan", "ENKAI": "Enka Insaat", "TTKOM": "Turk Telekom",
+    "AEFES": "Anadolu Efes", "PGSUS": "Pegasus", "HALKB": "Halkbank",
+    "VAKBN": "VakifBank", "OTKAR": "Otokar", "PETKM": "Petkim",
+    "SISE": "Sisecam", "EKGYO": "Emlak Konut", "ALARK": "Alarko Holding",
+    "ENJSA": "Enerjisa", "ULKER": "Ulker",
+}
+
 # Evrendeki her sembol icin hedefli Google News sorgusu (dusuk frekansli
-# calismada bile sembol haberi kacmasin diye)
+# calismada bile sembol haberi kacmasin diye) - sirket adi biliniyorsa
+# sorguya eklenir (iki adlandirmayi da yakalamak icin).
 for _s in BIST_SEMBOLLER:
-    KAYNAKLAR.append((f"GN:{_s}", google_news_rss(f"{_s} hisse"), 1))
+    if _s in SIRKET_ADLARI:
+        _sorgu = f"{_s} OR \"{SIRKET_ADLARI[_s]}\" hisse"
+    else:
+        _sorgu = f"{_s} hisse"
+    KAYNAKLAR.append((f"GN:{_s}", google_news_rss(_sorgu), 1))
 
 DOSYA = "data/haber_akisi.json"
 MAX_HABER = 100
