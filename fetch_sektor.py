@@ -30,13 +30,20 @@ DOSYA = "data/sektor_gosterge.json"
 
 def kapanmis_hesap(kod):
     """fetch_kuresel.py ile ayni NaN-guvenli desen: onceki iki gunluk
-    kapanisi kiyaslar."""
-    df = yf.Ticker(kod).history(period="5d")
-    kapanislar = [float(c) for c in df["Close"] if not math.isnan(float(c))]
-    if len(kapanislar) < 2:
-        return None, None, "yetersiz veri (NaN bar/tatil)"
-    son, onceki = kapanislar[-1], kapanislar[-2]
-    return round((son / onceki - 1) * 100, 2), round(son, 2), None
+    kapanisi kiyaslar. 04.08 TANI EKI: 5 gunluk pencere bazi az likit
+    BIST alt-sektor endekslerinde yetersiz kalabiliyor (XHOLD/XULAS/XILTM
+    ilk denemede basarisiz oldu) - once 5d ile dener, yetmezse 15d'ye
+    genisler, ham satir/NaN sayilarini hata mesajina gomer (korlemeden
+    duzeltmek yerine once teshis)."""
+    for pencere in ("5d", "15d"):
+        df = yf.Ticker(kod).history(period=pencere)
+        toplam_satir = len(df)
+        kapanislar = [float(c) for c in df["Close"] if not math.isnan(float(c))]
+        if len(kapanislar) >= 2:
+            son, onceki = kapanislar[-1], kapanislar[-2]
+            return round((son / onceki - 1) * 100, 2), round(son, 2), None
+    return None, None, (f"yetersiz veri: {pencere} penceresinde {toplam_satir} "
+                         f"ham satir, yalniz {len(kapanislar)} gecerli (NaN olmayan)")
 
 
 def main():
