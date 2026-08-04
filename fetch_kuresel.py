@@ -12,7 +12,7 @@ Asya icin "onceki kapanis" anlamli (kendi seansi bitti); Avrupa/ABD
 icin "onceki kapanis" YANLIS olur (BIST'in tum gunu boyunca hareket
 etmis olabilirler) - o yuzden ikisi FARKLI hesap yontemi kullanir.
 """
-import json, datetime, sys, os
+import json, datetime, sys, os, math
 import yfinance as yf
 
 ASYA_ENDEKSLER = [
@@ -34,20 +34,26 @@ AMERIKA_ENDEKSLER = [
 DOSYA = "data/kuresel_gosterge.json"
 
 def kapanmis_hesap(kod):
-    """Asya tipi: onceki iki GUNLUK kapanisi kiyaslar (kendi seansi bitmis)."""
+    """Asya tipi: onceki iki GUNLUK kapanisi kiyaslar (kendi seansi bitmis).
+    04.08 DUZELTME: NaN barlar (eksik/tatil verisi) artik "hata" olarak
+    isaretleniyor, sessizce ozet ortalamasina karisip 'nan%' uretmiyor -
+    golge_kalibrasyon.py'deki ayni NaN dersinin tekrari."""
     df = yf.Ticker(kod).history(period="5d")
-    if len(df) < 2:
-        return None, "yetersiz veri"
-    son, onceki = float(df["Close"].iloc[-1]), float(df["Close"].iloc[-2])
+    # NaN barlari at, gecerli kapanislari sondan geriye dogru al
+    kapanislar = [float(c) for c in df["Close"] if not math.isnan(float(c))]
+    if len(kapanislar) < 2:
+        return None, "yetersiz veri (NaN bar/tatil)"
+    son, onceki = kapanislar[-1], kapanislar[-2]
     return round((son / onceki - 1) * 100, 2), None
 
 def canli_hesap(kod):
     """Avrupa/ABD tipi: BUGUNKU ilk 5dk bar vs en son bar (kendi acilisina
-    gore) - onceki gunun kapanisiyla degil, kendi gun-ici hareketiyle olcer."""
+    gore). Ayni NaN korumasi burada da uygulanir."""
     df = yf.Ticker(kod).history(period="1d", interval="5m")
-    if len(df) < 2:
-        return None, "henuz veri yok (seans acilmamis olabilir)"
-    ilk, son = float(df["Close"].iloc[0]), float(df["Close"].iloc[-1])
+    barlar = [float(c) for c in df["Close"] if not math.isnan(float(c))]
+    if len(barlar) < 2:
+        return None, "henuz veri yok / NaN bar (seans acilmamis olabilir)"
+    ilk, son = barlar[0], barlar[-1]
     return round((son / ilk - 1) * 100, 2), None
 
 def bolum_isle(liste, hesap_fn):
