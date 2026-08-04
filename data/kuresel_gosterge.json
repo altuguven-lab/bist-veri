@@ -1,83 +1,33 @@
 {
   "asya": {
-    "guncelleme_zamani_utc": "2026-08-04T06:27:48.444585+00:00",
+    "guncelleme_zamani_utc": "2026-08-04T13:15:35.774662+00:00",
     "endeksler": [
       {
         "isim": "Nikkei 225",
         "kod": "^N225",
         "bolge": "Japonya",
-        "degisim_yuzde": -0.54
+        "degisim_yuzde": 0.32
       },
       {
         "isim": "Kospi",
         "kod": "^KS11",
         "bolge": "G.Kore",
-        "degisim_yuzde": -4.25
+        "degisim_yuzde": 1.62
       },
       {
         "isim": "Sanghay Bilesik",
         "kod": "000001.SS",
         "bolge": "Cin",
-        "degisim_yuzde": -0.06
+        "degisim_yuzde": 0.33
       },
       {
         "isim": "Hang Seng",
         "kod": "^HSI",
         "bolge": "H.Kong",
-        "degisim_yuzde": -0.35
-      }
-    ],
-    "ozet_yon": "RISK-OFF",
-    "ozet_ortalama_yuzde": -1.3
-  },
-  "amerika": {
-    "guncelleme_zamani_utc": "2026-08-04T06:28:47.573486+00:00",
-    "endeksler": [
-      {
-        "isim": "S&P 500",
-        "kod": "^GSPC",
-        "bolge": "ABD",
-        "degisim_yuzde": 0.91
-      },
-      {
-        "isim": "Dow Jones",
-        "kod": "^DJI",
-        "bolge": "ABD",
-        "degisim_yuzde": 0.18
-      },
-      {
-        "isim": "Nasdaq",
-        "kod": "^IXIC",
-        "bolge": "ABD",
-        "degisim_yuzde": 1.67
+        "degisim_yuzde": -0.6
       }
     ],
     "ozet_yon": "RISK-ON",
-    "ozet_ortalama_yuzde": 0.92
-  },
-  "avrupa": {
-    "guncelleme_zamani_utc": "2026-08-04T06:29:40.138966+00:00",
-    "endeksler": [
-      {
-        "isim": "DAX",
-        "kod": "^GDAXI",
-        "bolge": "Almanya",
-        "hata": "Too Many Requests. Rate limited. Try after a while."
-      },
-      {
-        "isim": "CAC 40",
-        "kod": "^FCHI",
-        "bolge": "Fransa",
-        "degisim_yuzde": 0.5
-      },
-      {
-        "isim": "FTSE 100",
-        "kod": "^FTSE",
-        "bolge": "Ingiltere",
-        "degisim_yuzde": -0.56
-      }
-    ],
-    "ozet_yon": "NOTR",
-    "ozet_ortalama_yuzde": -0.03
+    "ozet_ortalama_yuzde": 0.42
   }
 }
