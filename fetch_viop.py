@@ -113,7 +113,15 @@ def main():
                 "acik_pozisyon": satir.get("ACIK POZISYON"),
                 "acik_pozisyon_degisim": satir.get("ACIK POZISYON DEGISIMI"),
             }
-            if uzlasma and sem in spot:
+            # 04.08 DUZELTME: "uzlasma - spot" formulu yalniz GERCEK
+            # VADELI (futures/SSF) sozlesmeler icin anlamli. Opsiyon
+            # primini (kod O_/TM_O_ ile baslar) ayni formulle spot'tan
+            # cikarmak kavramsal olarak yanlis - anlamsiz buyuk negatif
+            # yuzdeler uretiyordu (orn. -%97). Yalniz "F_" onekli (saf
+            # futures) sozlesmelerde baz hesaplanir.
+            sozlesme_kodu = str(satir.get("SOZLESME KODU", ""))
+            kayit["sozlesme_turu"] = "FUTURES" if sozlesme_kodu.startswith("F_") else "OPSIYON"
+            if uzlasma and sem in spot and kayit["sozlesme_turu"] == "FUTURES":
                 kayit["spot_fiyat"] = spot[sem]
                 kayit["baz_ham"] = round(uzlasma - spot[sem], 4)
                 kayit["baz_yuzde_ham"] = round((uzlasma / spot[sem] - 1) * 100, 3)
