@@ -1,11 +1,11 @@
 {
-  "guncelleme_zamani_utc": "2026-08-04T07:59:37.714786+00:00",
+  "guncelleme_zamani_utc": "2026-08-04T16:24:04.614203+00:00",
   "kaynak_sayisi": 41,
-  "yeni_haber": 72,
+  "yeni_haber": 94,
   "kaynak_sagligi": {
     "KAP": 100,
     "TCMB": 100,
-    "Reuters": 7,
+    "Reuters": 8,
     "BloombergHT": 20,
     "AA Ekonomi": 30,
     "Dunya": 25,
@@ -35,14 +35,14 @@
     "GN:AEFES": 100,
     "GN:PGSUS": 100,
     "GN:HALKB": 100,
-    "GN:VAKBN": 78,
+    "GN:VAKBN": 77,
     "GN:OTKAR": 71,
     "GN:PETKM": 100,
     "GN:SISE": 100,
     "GN:EKGYO": 100,
-    "GN:TRMET": 56,
+    "GN:TRMET": 54,
     "GN:ALARK": 100,
-    "GN:ENJSA": 74,
+    "GN:ENJSA": 73,
     "GN:ULKER": 100
   },
   "kaynak_detay": {
@@ -53,12 +53,12 @@
     },
     "TCMB": {
       "ham": 100,
-      "suzulen": 5,
+      "suzulen": 4,
       "hata": null
     },
     "Reuters": {
-      "ham": 7,
-      "suzulen": 7,
+      "ham": 8,
+      "suzulen": 8,
       "hata": null
     },
     "BloombergHT": {
@@ -73,12 +73,12 @@
     },
     "Dunya": {
       "ham": 25,
-      "suzulen": 4,
+      "suzulen": 2,
       "hata": null
     },
     "Foreks": {
       "ham": 100,
-      "suzulen": 1,
+      "suzulen": 3,
       "hata": null
     },
     "Makro-Asya": {
@@ -88,12 +88,12 @@
     },
     "Makro-Jeopolitik": {
       "ham": 100,
-      "suzulen": 18,
+      "suzulen": 17,
       "hata": null
     },
     "Makro-Fed": {
       "ham": 100,
-      "suzulen": 22,
+      "suzulen": 24,
       "hata": null
     },
     "Makro-TUIK": {
@@ -207,7 +207,7 @@
       "hata": null
     },
     "GN:VAKBN": {
-      "ham": 78,
+      "ham": 77,
       "suzulen": 0,
       "hata": null
     },
@@ -232,17 +232,17 @@
       "hata": null
     },
     "GN:TRMET": {
-      "ham": 56,
+      "ham": 54,
       "suzulen": 0,
       "hata": null
     },
     "GN:ALARK": {
       "ham": 100,
-      "suzulen": 7,
+      "suzulen": 8,
       "hata": null
     },
     "GN:ENJSA": {
-      "ham": 74,
+      "ham": 73,
       "suzulen": 0,
       "hata": null
     },
@@ -254,6 +254,890 @@
   },
   "toplam_haber": 100,
   "haberler": [
+    {
+      "zaman_utc": "2026-08-04T16:23:20.182999+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 11:30:04 GMT",
+      "kaynak": "TCMB",
+      "baslik": "TCMB'NİN 10.AĞUSTOS.2026 VADELİ DEPO ALIM İHALESİNDE EN DÜŞÜK FAİZ %40,11, ORTALAMA FAİZ %40,12, EN YÜKSEK FAİZ %40,13 [FNC-NEWS] - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxOMnBwYllLZ2w0dkc4Wk5sVWsxaUEteWhOUTZpamt0UjRubWxONU84dmphUlhrdWpfVDl5bDdZRm90V2dFcFVfTDZLOUN5MmxRVjkzUmhGNC1yN0VuVGVMVUVLSWZMV0U4Mkxnbzh6VDJZX2xUMDE0dm50c1ZXTU9fWnRIZ2ZENlpQYlllZTlyV3kwSmdOSnIzaXRJNmdJMjdfQjY5MW1LZTVkUk1XbC01aHRoeXJmcXFwbUZ4RmdJQWltZzl3cV8wV0cxQUdtc1hnQS1xSTVVSlU3NVRxYVZ3b3RyMzAzMWp2U3FZX2E5VFdOU2x2cm9tODdTQ0Yzc2hvR3VaSWhEV2dIbVhCa2hkNXY0RQ?oc=5",
+      "puan": 5,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:21.075082+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 13:15:14 GMT",
+      "kaynak": "Reuters",
+      "baslik": "Rusya'nın petrol ihracatı temmuzda sert geriledi - Nefes Gazetesi",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZmVvVDVmbG52bnk2Tl8wcXA4OU5ZMXV3c2tvNWtHWVNHbUwtek41REplMVlwM1NnSGpacTM1NTBScUV3ZVBTSlJXNHBzZXpCMFVfZnBrRDdHRDlaT0pPUkhtSzU1YmROaENNUjMtT0FBdHFfYzgtVTZYbjJZUjIzRUQ2SzVNZ9IBiwFBVV95cUxOUzhlNG15SmRwV3V3VTEyaUtNQVJIR3BwYTVZRllKMVF2LW83TGFrSThpaUl2eG1jTnBES3JQcEhqZ1VZZWRJc1VqOWlTTjB3M2UyM3djaTVkQk8zNTZYS1lMb0w4YjdwRWRuY0RTcmZsT0JHRzctNzZ1NTJIbV9Id0NIWVlnNlY1T0Rn?oc=5",
+      "puan": 4,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789113+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 16:59:23 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Petrol fiyatları, diplomatik çabaların etkisiyle yüzde 4'ten fazla geriledi",
+      "link": "https://www.aa.com.tr/tr/ekonomi/petrol-fiyatlari-diplomatik-cabalarin-etkisiyle-yuzde-4ten-fazla-geriledi/4018267",
+      "puan": 4,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789163+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 16:40:00 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "TMSF, bu ay düzenleyeceği ihalelerde 106 aracı satışa sunacak",
+      "link": "https://www.aa.com.tr/tr/ekonomi/tmsf-bu-ay-duzenleyecegi-ihalelerde-106-araci-satisa-sunacak/4018223",
+      "puan": 4,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789330+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 14:02:55 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Fitch Ratings: Türkiye'nin borç sermaye piyasası büyüklüğü yıl sonunda 550 milyar dolara ulaşabilir",
+      "link": "https://www.aa.com.tr/tr/ekonomi/fitch-ratings-turkiyenin-borc-sermaye-piyasasi-buyuklugu-yil-sonunda-550-milyar-dolara-ulasabilir/4018004",
+      "puan": 4,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789495+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:23:04 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Ticaret Bakanlığının e-ihale sistemi yılın ilk yarısında 2,7 milyar lira gelir sağladı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/ticaret-bakanliginin-e-ihale-sistemi-yilin-ilk-yarisinda-2-7-milyar-lira-gelir-sagladi-/4017781",
+      "puan": 4,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:19.100079+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 07:00:00 GMT",
+      "kaynak": "KAP",
+      "baslik": "KAP - kap.org.tr",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE80VnlpRXFGUHJJclhTRVdabHpaSUpWa0ktVno2U2gzdzhlLXFSODVPTFc5WTZWSDkwZmNjd0FmSkswek5pZVBkNmxPREY2UFE?oc=5",
+      "puan": 3,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:26.645864+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 18:39:00 +0300",
+      "kaynak": "Dunya",
+      "baslik": "TCMB Başkanı Karahan: Dezenflasyon süreci sıkı para politikasıyla güçlenecek",
+      "link": "https://www.dunya.com/ekonomi/tcmb-baskani-karahan-dezenflasyon-sureci-siki-para-politikasiyla-guclenecek-haberi-834942",
+      "puan": 3,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:26.646010+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 17:30:00 +0300",
+      "kaynak": "Dunya",
+      "baslik": "Hürmüz umudu petrol fiyatlarını yüzde 4,5 geriletti",
+      "link": "https://www.dunya.com/ekonomi/hurmuz-umudu-petrol-fiyatlarini-yuzde-45-geriletti-haberi-834925",
+      "puan": 3,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:27.818763+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 15:04:12 GMT",
+      "kaynak": "Foreks",
+      "baslik": "TCMB/Karahan: Enflasyon görünümünde belirgin ve kalıcı bir bozulma olması durumunda para politikası duruşusıkılaştırılacak - Foreks.com",
+      "link": "https://news.google.com/rss/articles/CBMimgNBVV95cUxPZHFLSWcxM0owcVJSYWwtRGRaNkJVMWJCeHpDalAzSFVmZHExeXVZdjRkQ1VjSGFIUk1NMmtCNjhYS2VoZzNKMGNFcmhsMHBOSWptek1FNGx3cXVYaXF3X2U1c3FPYk9pWDJzaUpDU1RGSDNHREduS05BNGw3WXVnU0F1d1FCRnhza01KWHNxMjJ3bkltUFFrNXNvS3pqbGVEVGJLcUtxZFJnYl90SmRFeUw5azVzMWs2NnVBRTZSSkJsRWx4WWNCNVlYZG5nZURlQ1ROTUJiVnZza0lNZFJxeHFpeU9DNEk0NTlTdkJoUG44ZkpwRGF6a1ByR2luWWIwSHpIVU1DSXJQT3BkUXZ5NGRpVC1laDBrTFl1ZmhOZ0JvZ2piUjJVbFhMcFNNaWtISTZra2I4NlFUTHgyTUVKeDlZTUtlX1NzMnBoX1kwdG1KblpWUWdXb2tfZ1lVZDExXy1IQzlCVmlTN2tCMXVrRTJTOF9KYjV3NUpEM0VaYlRURFJKQ1BFUlhvU29UbWtmMk81czJqMDNfQQ?oc=5",
+      "puan": 3,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:27.819198+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 09:01:28 GMT",
+      "kaynak": "Foreks",
+      "baslik": "Petrol fiyatları Hürmüz belirsizliğiyle yeniden yükseldi - Foreks.com",
+      "link": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxPVGZiSmx0SzVsTE9KdDZ1Y2N3b01vWW9ZN0NTMTkzZkFaT3h1Ul9Lb01fMUhNY0ZnZ0ZfbkRBQXJ0OUNCbHQxdTYxamN5MUduU01mYWIxZ09oclBrak4zV2tqcEprX2lCaGZiaGFjSl9TNkNMdkpHSWFJZmpsVFdPRERSSTlVQ2JEcURLSFVzd2tGR0JjQncyS3k4Ql9VSzg0RXV4YmNpOWp0YkhjMldGZTRrX2cxalZmYXFrVTJJOER0UC1sMDBEaGkxVEpyQmJMUEV1TUYxemhKX013c3Z6bnJmdzNjRk1sQTh1bl9DQ1B3d2RRNXMtV1lNYjVkMVBxN0FhR2xhTVFiTnFXU1NnS3B6OVFSMF9mZWNONnNfbHRPY00zX0o3b2JUc3dYSU1aVWRiQnl5TERLQ3BxNDQ4NDRBTQ?oc=5",
+      "puan": 3,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:33.426026+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 12:06:03 GMT",
+      "kaynak": "GN:AKBNK",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Vakıf Yatırım, AKBNK için hedef fiyatını 107,9 TL'den 97,0 TL'ye güncelledi, kısa vadeli - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi8gJBVV95cUxQb00zLW5pNG1ucTVNZkdfWVF1OUpWem8tY0luLW9lcnB3ZF95UzdvRktTeWFVOFJ0bVJXTVBndkRCUTFmbWNKMHFWNUYtSC02OG5KNTloZVB2NGZuSW9NN3N2bmxpSmhJdkp3V2xqb3I1QTNkWFdwNTZzZkVNSUl6SWVDSVZQYWxvWWNYTENfYU9nY0ZNNDBHYkNHMHM3QjZlUVlKMGF0VFhhTjc5V2tscU03NDFxVTM4SnVkOVZ6Ylp1WG9uNVJWNjVOdW9WaUtnQm5tY2ZYbEVBRVllVGw2ZGpVT3h4OGdEYnB4ZzY3V3o1T0tuZS1XZERBRVVtNFUyMm5RXzFKZEhPNXAzVUh3QnJmQjBMVWtBTTQ3RWZjVzM0ZXA4ZTFLYW5jVVRQRFNrODgzUFF2ZHNnUy1sSDZjblVSMGFhaTIxRWFUTUdnM2FfZ3BoQ25lOFZVV3NNZml1cUZpMjg0VTFPdzI3Q0dSSDV3?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "AKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:33.426201+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 07:01:14 GMT",
+      "kaynak": "GN:AKBNK",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- İş Yatırım, AKBNK için hedef fiyatını 93 TL'ye revize etti, tavsiyesini - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOVDh1NWZsTENNY01mc3QxRzFBT09CcE1EQmJOODlocVVPSjVscWg2YWN0aUdZZnRLWEFfRjhYSVoyMzFpLVlLS1dsRk1iT2RrVmgta0FzNmlaTmZvRmwwU2JWLWJVR0pSdElETnJHZW1ncG02NmdCNENzcUlwT19tcDhwamRiNEQ1cFEtOHFoNkRoMWoyQXYzZ0xwdm04QUhjVjZFN3JMZ3p2NFJDVVVaSkM3MDlkYVNJb1U3MXBUU3YxOGNnaHJLbkNlX2FESFJld194ZHZoOHVFMkg4cTlVZDZ2cmZRR1FKbTI4NHBtQkc1RnBOd3o2VFlFNFZuNGRqa1NhZXh5cmVpczB4UUE?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "AKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:33.426261+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 05:40:08 GMT",
+      "kaynak": "GN:AKBNK",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Şeker Yatırım, AKBNK için 96,80 TL hedef fiyat ile `AL` tavsiyesini korudu [FNC-NEWS] - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPWHFRd0FheGlCWjYzclZ6cXhNREU0RThfdmpISTJkY1FEZFZBelhsZ0docnMwUGhKdFdxRUhtX3lYVUZ3dkRxV3NpRDR3Vi1UWFIxQ2lyUGlEUTdibFNRcFlMNjcyd2g4YXdVRDVPLXAwODZ3SWJMS2E5Ui1pTEM5WWdONzI4bW9VWWJsdkE3T21OMmp2WXNyUEpPczJLWVYwelhkQTZELWtZdlNPNlg0R1hocFU1azV3Y3Rnb0VSU3dOT0RMSFE1b0dmV0liQVNROE9nRFMtNUdsZHZRdEJFVmNTZHZkcWNDbkJBb29OSXlIdkNQSjVHWVNn?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "AKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:33.426312+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 05:15:37 GMT",
+      "kaynak": "GN:AKBNK",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Pusula Yatırım, AKBNK için 99,00 TL hedef fiyat ile - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxObDVLUzBJVU5WT3JEMV9Gb29kN1p0emdtODlORjFYdVdvbzRPT2FMVFpyU0Vxd1BxNWxNclY4ZGpoQW1kSl84SkNXdkRRXzJWSmZWanI0WEVpNjNTZ0Z0QUNPbVZnaGlkRmV2ZEMyRHc5THA1QUFmNUc5RTdTZWJYbTFLS0lzaW1UUXZySWVEWjNSdU0zMmtfWGFBYUxNZjFfMFU0emRJbUxHWXdkNG5LZ2had0ozX1MxbjNQMEdjMHF4bFBUcy03MUxWYTV4XzRuRFIyRUlwTFpiTDlzWk9IYVJsUF9pNi1saFBUYnRrcm04UXZWQlEwQldiT1BSV3M?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "AKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:34.444783+00:00",
+      "yayin_zamani": "Fri, 31 Jul 2026 13:26:49 GMT",
+      "kaynak": "GN:YKBNK",
+      "baslik": "***YKBNK*** (HİSSE DEĞERLENDİRMESİ- GCM Yatırım, YKBNK için hedef fiyatını 58,50 TL olarak belirledi) - Bigpara",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQd3RMVFBHd05idUdTUlY5cDg3ZDhGNXhEMmx0YVcxSmZXRXJaSFptNzZ0cmg2N19GdnF2dnItOVdBTFNxMGM4UDhMbzd5V1VWSU5oeHdjNVhQWmxSUnJDUUM0bndEMEM0c3NVTTAta2Q4U1pTLU1yREZKY2VlSFFCVnFnZmVjZXhxeU9lZVRmaXJGSS1Relg0OVBkSVdWX2xhRDF2bEdMM05EdmNVYTd2bHBfV0w?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "YKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:34.444919+00:00",
+      "yayin_zamani": "Fri, 31 Jul 2026 08:37:34 GMT",
+      "kaynak": "GN:YKBNK",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Şeker Yatırım, YKBNK için hedef fiyatını 58,30 TL'den 51,10 TL'ye revize etti, tavsiyesini - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMipgJBVV95cUxPSnZqZVdqZjdQeVU5S2dZdk14OXBZNXVwYTZzc2hzNDgySlplNlZHc1dVTlo2LV95N0tCSWpQWmNjNzlNX3VKRzNVRTJSOXJJU1RtQlpscnpFOTJ2d09oa09ER0JzN29jVDNPclBWWU9SQVNnbEIxdUpJdVI3OF8yU2I4cFk1WUtEYld6Z0ZPTUhEV2xEMllfX2xHV0YtdWhjMTBqVklLbExMN3phWHFPZzdTcDR0RVFRamdNblh2VzVUX2NhRjFUczJGWjM2ZDluQUtZVmtwVk5wZEE5My05Y3RIMnZSQmhndkMzdzYwNUVkZklwT0QtWWdMeHdPck9jMTkxZXktM1ZRYXl3Wk5ZcEtXd25vdUdKamVVU2FzRmdrOVY3T2c?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "YKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:34.444985+00:00",
+      "yayin_zamani": "Fri, 31 Jul 2026 08:21:30 GMT",
+      "kaynak": "GN:YKBNK",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Tera Yatırım, YKBNK için 49,37 TL hedef fiyat ile - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQTjdIUmsxYkZ2TWF6TnV2bFZyNE41cmhMZF9wWjh4VlhIYlp2SXZnTXZuT2JBbmFoNWpNZ0F1N1dwM01CcUFkME9KRGhqb1ZVUkxXNm5FanNfQzAya0dZdll2bWFlUUY4YktMZGJBQWMxanBuYUR0ODNSYTdOY1hrbVRUT0ZvTVJjd1pPcGRIU2ZfeDN1VGxCQTFHZnNNaFowT1NOR2pxZjQ1NUhDNlJEeDdja3lSSkJHM0VPNENCdTdOQXlTcVBkOWduTVZWVUs4MGlBemY0b20yMkFBQm13dmdMaHJoT056RDhLT2pLTFZGem1SV3BHTHA1WmlQcS1adl9GeGtqX0pnRWdMSmc?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "YKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:35.534681+00:00",
+      "yayin_zamani": "Thu, 30 Jul 2026 05:15:00 GMT",
+      "kaynak": "GN:GARAN",
+      "baslik": "Garanti Bankası 2026 yılı 2. çeyrek bilançosunu açıkladı - borsagundem.com.tr",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNWjkxdzV3QThTZkh4X21KNEhmSjBYLXZxLUxHVDZPUUlidW9DWmxuU3pXV0cxRzRGSk80OHRlbEVEMXFuMFM2RWh5WGNuODJ4Z0RfQ3JjRGFGRXU5anl1NE1XX3VtckI4TXllRzVRdXB2WWg1RGlmTktuai1kMjZOUWRVaGhRa2Vob0szM1Q2VQ?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "GARAN"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:35.534771+00:00",
+      "yayin_zamani": "Fri, 31 Jul 2026 08:28:26 GMT",
+      "kaynak": "GN:GARAN",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Deniz Yatırım, GARAN için 205,73 TL hedef fiyat ile `AL` tavsiyesini korudu [FNC-NEWS] - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOSURWbHRJbnNyMEV6VXBXTzVBWjJ2aERrYTRUZFUyYUtRTmpJWlVmR3I0azlFVXlTbnRMY3NfVVllUVoxUTJNZEZ4aDlfTU9CV2Nrak9YbmxwRDZBQnhpVHF1d2lxMktodjNTNDczcTNBcFV1cG9oUUVaRy1seS1mc1VVV3ZyNUlDZUZMcVg0c1ZNQUQ3NzBiTjd6Z2stMVVEVk5aazFULVFHSnZHLUxIM3l0Wnd3eVNPcTdGckFCanYzeGFjblNUQzY4V0FfZWhfLWxacHBnZzJ5STJHV25xcXJyLWdWYjZOdmFfVnBrT0ZCbE5nVmRUQzZGMU0?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "GARAN"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:35.534812+00:00",
+      "yayin_zamani": "Fri, 31 Jul 2026 07:04:54 GMT",
+      "kaynak": "GN:GARAN",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Halk Yatırım, GARAN için hedef fiyatını 208,37 TL'den 187,17 TL'ye revize etti, tavsiyesini - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMipwJBVV95cUxPLXdjd0JFSnh3aHZsS2FyVE1EY1RUNVNDMGhXalBEOEFNSW1fYjJ2R3hDUzZrbllTM2s1aUdlX3V5MWZmS3FnVURPS0ZGWkxuVEJaS25zSXJvanRMeUZBbmZiZ1JWdF82MmxiZEpJZ0hseElPSGN0cElud2lTaFUxRHlKbmRCNXhFWGRJd1lnTnpnd1dJVGVqWU4wbDNvZmxPRmdJT0NpWjFxY05Fb0g2OVVKN2FaZzQ1ZWtCSDVFRERhRFB5ODVveHM1WjN0eDNTRjl5bERBXzFobHRtWUFhd2ZGTldUckt5WDhlMm9DMTEtZVkydVJQSG1sT284RndIdUZFTFhTQXhFd3Q2Vm1GZjBlTGdrbjJuS0ttRE9jRDZpdlhYNXp3?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "GARAN"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:35.534851+00:00",
+      "yayin_zamani": "Thu, 30 Jul 2026 11:22:42 GMT",
+      "kaynak": "GN:GARAN",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Şeker Yatırım, GARAN için hedef fiyatını 200,02 TL'den 182,99 TL'ye revize etti, tavsiyesini - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxQemw2UGQ0WFRyOW5CeXFEN2hrZGYtYmVEeURmVndpZVE4MFd2V1hta2Nwa1dKdjk3dWg1cWZUbk9nM1NIZEZIZE9DVE9kNWVZek00cWRzUmo0RmZxRVVNdC1MWjlKRi1sS25wdWNOaXR2ZHpiRC14UWJxenJmLW9EcTVOdTZnMlJhMWVPeUtSX3FBcGc3U1lvSDVrQ1JNRHptZzhlWVlaNUlHWHp5bHE1dTE3LVh6X0lkeXpodWxEQlBwUTRXVUc1SlNHcHVSU3N3VU1KZEdUaDQxWTN5SV9rSno3LUZwOEo3QjVuWnZmbXlrMjdkVjNkdDlVN1U3bGp3Y2lXWWRodmNob2tSSVozUGRKNTMwXzMwMnQ3N1k1SWlCWGx0Z1UwSlBKQQ?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "GARAN"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:40.987946+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 05:42:16 GMT",
+      "kaynak": "GN:TAVHL",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- GCM Yatırım, TAVHL için hedef fiyatını 420 hesapladı [FNC-NEWS] - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOS2VWUU0tMVdOZTVLdDYzblI3UDVSRlVSN181WnJ1MXJoTGhpM1hKMzN6RHBBMm5uTVlQRG1RRDZlU0Q3SEtoeUpWSF9PdFIwMmx1alcxaTFrSkwwZnJXeVF1ekpnRDFDQ05DY0s0M0hyNk1HZVRPSzdPbWk4SlNTazU3X3h2WHU3ZFIxdjkwX1Vwak1RY1VRSWpjT012RnRBVHZySHp1YnpBNG1DN2NFTGNPc0s2cEs4TGRjcXRwVEY4OUJ1R2N3VTFpRUpwYkJJdlJMcl83X0J0SnZwVzhr?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "TAVHL"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:40.988002+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 04:54:04 GMT",
+      "kaynak": "GN:TAVHL",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- İnfo Yatırım, TAVHL için 421,90 TL hedef fiyatını korudu, - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxNSGtzcjhBalZHcURkLTJfaS0zVEFiQ3dGUTZBOVYyMUN1RHZtT3IzYmlCaWN6bm11aTlCdDlOWEFWVm5yQ3RFNlAzQ1hYSURfQWVQVF9RR050dW9Md3k3dDhRZHdaNXNFUGg5dG5Bd05TUFB4d3d5c2VYX0hfM056LVZTODF1SGFkQ3JPY1Z5LWRGcDJZbjZSaVV3SWRHM2x1VlNfY1BBQTFRODdkVURSejFZUno1SXZ6N1A4c0tMX2IybVJNV042NDZkWHhTLTc5TlNWMjZoQklJR1JIVWZVdmIzelMyaHhnOWxfd2d4Z0ZMaVBqZFk5Mk5wMFNHaG8yaVNEbi05RmJqMG04ejNLMHgyXzhtbnVXcFNRVG9lOWxoUlU?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "TAVHL"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:40.988054+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 05:55:24 GMT",
+      "kaynak": "GN:TAVHL",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- İş Yatırım., TAVHL için tavsiyesini `AL` olarak korudu [FNC-NEWS] - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPenlHYjFZN3ZzMVZHMkNKRzhXczNTQzhYZnlRMGswSVpERF9xay1BeHFNaVBHYjRWUFRWMnRSVDgxQWhUczlTWkVLVHlXU0U2RW1jQzZMS0RNdGU3Tnl4X2hLVVROTlpoZWx5cFNuaHhXcU1IMzhlNFNTUTkwRHZQYnFxX1lZZUJ2c3ZTOTNmQlNqLThuNV9xT185TEowa1BsWXdxNG0yNGJUNWMzQS0zbXo0aUNsajZHUHZKbk5fTk90bDZ1cUQ2SGczU2NvNjRLYUZQUFhsY3pjNEc0WFBB?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "TAVHL"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:46.443551+00:00",
+      "yayin_zamani": "Thu, 30 Jul 2026 17:11:00 GMT",
+      "kaynak": "GN:BIMAS",
+      "baslik": "KAP *** BİM BİRLEŞİK MAĞAZALAR A.Ş. *** BIMAS *** Payların Geri Alınmasına İlişkin Bildirim - GZT",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOUnZ3NExDMURFZDFZak90ODdUSFNrcmZrd1ZYRkd2aV9aQmVaY20zajdpR2RaelZ3aTlDTVpJdEFLd3BLR21kVVo5bmIzUzVEbG4tZE5tcHJZVmpocHZLeVlya0Q0dkxJZjNaSWRQdTNCOWxZV3RjZzFDV241N2VvMm5oMzBCSkVFdUtkaXFkQWE0MkJIUzhqYy02NEh4eWpfa1ZpVjljR1dNX3VuTjlna1g1RDJxc19UMTNFZU1qS2E5Z1ozUXc?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "BIMAS"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:48.538734+00:00",
+      "yayin_zamani": "Thu, 30 Jul 2026 05:56:59 GMT",
+      "kaynak": "GN:TOASO",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- GCM Yatırım, TOASO için hedef fiyatını 370 TL olarak belirledi [FNC-NEWS] - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQdWVSWmVoRlBXa20tNVlHUWVwR0FST2VYbW9LWWRzbjBWQ1RqakRqY3dseW1zWE5aLURoRlZpRU8tMU9HeU1zX1BzTUJUV3BNUFYxbWtOajgzMEJaSWJCX3NveGJzNDFRaWlNcEFLUzlHM2ZReWp5YUo2MTQwN3gxeTJUeTVtd3B1c0pJcVVJQ09KYURrRHVkaUVQSllaeThnOWZKRkxIYnlPOU1oUG5xemN3VUdWSjVOOWV2WXpqN2RqOFJCa1ZyMHRGYmVUOTczTWtSbnYyekJXaXZOWUl1MDRnNU91YXVMOU9mRg?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "TOASO"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:48.538858+00:00",
+      "yayin_zamani": "Thu, 30 Jul 2026 06:00:29 GMT",
+      "kaynak": "GN:TOASO",
+      "baslik": "HİSSE DEĞERLENDİRMESİ- Deniz Yatırım, TOASO için hedef fiyatını 451,00 TL'den 400,00 TL'ye güncelledi, tavsiyesini - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxOSzAxcTNVWDBwR0wzc21BaGhIdXhsNFdiZHNHR1lnZ29PTVRZSjR5dkMzbDNXMDlJVTMxWDc3bENTekw4NmpiZFpaaE1wX1FkZ2ZDTEs3VlBsYnZNZzNhYVJSYkZha2ZycnpNaVZQdF9naTREbkNMa0F6WXJodFRTb3FGRzdmM014R0ZYQ0FfcUlQVHlSS0o4bDNsNDAxTmVjT3A3TXltRFdvQ1BWNFB2T3dpTXVkMldsUnJSeEpCXzNGZzEtNkF0czBVYjFHSkJIaUxFLTJzaXZzOUZ1SGtzRy04TmhDNkVRdEhZYVZmd0NKVkI5N05WdjIwelA5OGxQNWFoWUJSYkQtYi1iOTJwVDNrSkZ2ZW82akxhWE5PRTZwNGo1dk5KWA?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "TOASO"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:57.059629+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 12:22:00 GMT",
+      "kaynak": "GN:OTKAR",
+      "baslik": "Otokar (OTKAR) hissesi için bilanço sonrası hedef fiyat ve tavsiyeler - borsagundem.com.tr",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaXlDSHp6WWdYdWdIVml0THBHbzFjY1pNMnR0NTB4NFF1SGFNel9uOXhvU2JCNGZLNnJmZHIxTXlIb29DOWJOVmdzRXZ1dklObmhOdTg4RXpuaFhqcHZ6MWdESEFqRXBTUUlvSWxVTVVURGN3WG1PNnpKUGx3ZzVuNGFQemt2X1Bod3BVX2QtU3lhazVETEdlSXIwVlRiYjg?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "OTKAR"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:24:02.597903+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 12:15:12 GMT",
+      "kaynak": "GN:ALARK",
+      "baslik": "Alarko Holding, Fair Value sinyalinden sonra %42 getiri sağladı - Investing.com Türkiye",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaGw1b0VfN0c2cXlTRXRRTmJDOW9iVkxRbFBYUkdZMkozX2xCTUNpdDVFWEFnS1NRazhLbmNLcVE0UzNDaDRxNU1NX01HZmxiNnRLbld3dkdERkluM1hWdlZwS3VTeE5yVHVRN3k3aWZoU3RzbkotaG1VTDlOSVFmckNjUGdMQUlhRDF6d1FCSHhvbnFadk4xVDlhZ1RYeU9yNkViR1l4SElfb1phWlVQeEI0bE95MFJFZEc0Xw?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "ALARK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:21.074951+00:00",
+      "yayin_zamani": "Wed, 29 Jul 2026 14:10:45 GMT",
+      "kaynak": "Reuters",
+      "baslik": "Reuters: Husiler Kızıldeniz'den geçen gemilerden ücret alacak - Bloomberght",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOWlZqNUpubVJMTWRoWHJyZkszRkRfVG1PS3lwOVhtTFc1c01IVWdzOG00bW41OU5za3hKNGZtMEx2bWg3ZmxvMHFsdzdKVjlwZ0dId3hydDFVRm5RMXBCY0JUc2pMc2VrdElMYjA1SUpldm5TN1hWOHVHU04tSkQ2RFh2R2FvS3dsazFKUmpBcEJuNnFXNXE1cFZnTWU?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:21.075111+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 10:38:22 GMT",
+      "kaynak": "Reuters",
+      "baslik": "ABD, Çin menşeli veri merkezi bileşenlerine yönelik yasak hazırlığında - Bloomberght",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdUJiQ3EweHdjcmVHTVFtcDlqV3ZxX3F0LTNYeGZRWG0zNW44bW0ySEo1SndYOGgxS0VmeGp3M3N1MExuTjR2bDBVZVFNQk91Q2VIczl2WXg4Q1RJWHVGdkpyM1p0UjBHTWlUcVRtRGpWdmZQZEV4T3RmcXBEWHM1M2cwVUFVVGR1ZkZBcHhOUHBKalpQQ3ZKdDMyTHB2NlBtSFFQTXg3U1g?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:21.075139+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 12:04:00 GMT",
+      "kaynak": "Reuters",
+      "baslik": "BP'de yeniden yapılanma: Almanya'daki rafinerisini sattı - Gazete Oksijen",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPMEpOZndkX3d5aDVPYS0yeXp1UE9TZGRzall3eXZVUVZzZkNqT242Q25iYkQ2UEY5YlV1cWpheXBROTFVRGxuc25pVFFjM3FYS0tRa2twX1lyWHVFSkQ0RmZTNUhsRDJHd1pUbUtNTDE5VUxadlhiUW9JS2FDM1JVN0RUVUNuVWtoT01ONktISDdybnJzRUhXNjVn?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:21.075164+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 08:05:37 GMT",
+      "kaynak": "Reuters",
+      "baslik": "Ermenistan’da yeni dönem! Paşinyan’ın kabinesi onaylandı - Takvim",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQT1kzVXU5V1ZjTWVpN1VVbFFmZ0h4cFM2RW1fOHM2T0dnWkZfal9wdTBVZ3BGUGM2ZGFxaG15cTdkQzBBZlE0TTUyVGJCZEFGLTQweHBBZHYwUFEwOHRHT01MUTl5enJ0SnJqeGhOQ0xDRjFMcldCbjlFYU5hYjVrUHBwUDFZTmJ6X1lPVEdqNHczb3Y1RU0wUg?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.788990+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 18:43:52 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Borsa günü yükselişle tamamladı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/borsa-gunu-yukselisle-tamamladi/4018362",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789028+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 18:20:37 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Yerel İklim Değişikliği Eylem Planlarına ilişkin yönetmelik yürürlüğe girdi",
+      "link": "https://www.aa.com.tr/tr/ekonomi/yerel-iklim-degisikligi-eylem-planlarina-iliskin-yonetmelik-resmi-gazetede/4018345",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789059+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 17:05:49 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Dünya Gıda Programı, Afganistan'da çocukların beslenme krizi için acil fon arayışında",
+      "link": "https://www.aa.com.tr/tr/ekonomi/dunya-gida-programi-afganistanda-cocuklarin-beslenme-krizi-icin-acil-fon-arayisinda/4018283",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789084+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 16:02:27 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "60 saniyede ekonomide bugün (4 Ağustos 2026)",
+      "link": "https://www.aa.com.tr/tr/ekonomi/60-saniyede-ekonomide-bugun-4-agustos-2026/4018163",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789139+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 16:50:22 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Putin, dış ticarette kripto para kullanımına izin verdi",
+      "link": "https://www.aa.com.tr/tr/ekonomi/putin-dis-ticarette-kripto-para-kullanimina-izin-verdi/4018249",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789192+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 16:30:15 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Mevsim etkilerinden arındırılmış özel kapsamlı TÜFE temmuzda aylık yüzde 1,93 arttı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/mevsim-etkilerinden-arindirilmis-ozel-kapsamli-tufe-temmuzda-aylik-yuzde-1-93-artti/4018211",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789215+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 16:19:47 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "ABD'nin dış ticaret açığı haziranda azaldı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/abdnin-dis-ticaret-acigi-haziranda-azaldi/4018202",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789247+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 16:08:19 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Dünya Bankası: Yapay zeka zayıf büyüme döneminde gelişmekte olan ekonomilere can simidi sunuyor",
+      "link": "https://www.aa.com.tr/tr/ekonomi/dunya-bankasi-yapay-zeka-zayif-buyume-doneminde-gelismekte-olan-ekonomilere-can-simidi-sunuyor/4018175",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789296+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 16:04:20 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Dünya Bankası gelişmekte olan ülkelere yapay zeka konusunda iyimser olmalarını tavsiye etti",
+      "link": "https://www.aa.com.tr/tr/ekonomi/dunya-bankasi-gelismekte-olan-ulkelere-yapay-zeka-konusunda-iyimser-olmalarini-tavsiye-etti/4018167",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789362+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 13:29:05 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Türkiye'nin fındık ihracatının yüzde 34,76'sı Trabzon'dan yapıldı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/turkiyenin-findik-ihracatinin-yuzde-34-76si-trabzondan-yapildi/4017955",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789388+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 12:56:12 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "İzmir Limanı'nın Türkiye Varlık Fonu'na devri tamamlandı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/izmir-limaninin-turkiye-varlik-fonuna-devri-tamamlandi/4017912",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789413+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:17:26 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Marmarabirlik ihracatta rotayı Orta Doğu'ya çevirdi",
+      "link": "https://www.aa.com.tr/tr/ekonomi/marmarabirlik-ihracatta-rotayi-orta-doguya-cevirdi/4017771",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789437+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:25:32 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Başkentten 7 ayda 10,8 milyar dolarla rekor ihracat",
+      "link": "https://www.aa.com.tr/tr/ekonomi/baskentten-7-ayda-10-8-milyar-dolarla-rekor-ihracat/4017785",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789467+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:26:03 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Enerji şirketi bp'nin yılın ikinci çeyreğindeki karı yüzde 150 artışla 5,7 milyar dolar oldu",
+      "link": "https://www.aa.com.tr/tr/ekonomi/enerji-sirketi-bpnin-yilin-ikinci-ceyregindeki-kari-yuzde-150-artisla-5-7-milyar-dolar-oldu/4017788",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789519+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:22:30 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Tarım emtia piyasasında geçen ay buğday rüzgarı esti",
+      "link": "https://www.aa.com.tr/tr/ekonomi/tarim-emtia-piyasasinda-gecen-ay-bugday-ruzgari-esti/4017779",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789545+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:14:23 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "BTM girişimleri yılın ilk yarısında 11 milyon dolarlık yatırım çekti",
+      "link": "https://www.aa.com.tr/tr/ekonomi/btm-girisimleri-yilin-ilk-yarisinda-11-milyon-dolarlik-yatirim-cekti/4017768",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789574+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:08:54 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "TKYB Genel Müdürü Öztop: Gelecek ikinci yarıda kaynak teminimizde herhangi bir sıkıntı görmüyoruz",
+      "link": "https://www.aa.com.tr/tr/ekonomi/tkyb-genel-muduru-oztop-gelecek-ikinci-yarida-kaynak-teminimizde-herhangi-bir-sikinti-gormuyoruz/4017755",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789600+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:08:11 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Türk boğazlarından yılın ilk yarısında 40 binden fazla gemi geçti",
+      "link": "https://www.aa.com.tr/tr/ekonomi/turk-bogazlarindan-yilin-ilk-yarisinda-40-binden-fazla-gemi-gecti/4017754",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:25.789628+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 10:56:01 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "İçme ve kullanma suyu havzalarının korunmasına ilişkin yönetmelikte değişiklik",
+      "link": "https://www.aa.com.tr/tr/ekonomi/icme-ve-kullanma-suyu-havzalarinin-korunmasina-iliskin-yonetmelikte-degisiklik/4017734",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:29.994334+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 14:27:14 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "Petrol fiyatları yüzde 4'ten fazla geriledi - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQc2wzQm1aOXFUbTJlQVZTWjJMWTVpTmp5RERQeG94TUl3LXpZbVNqNUpiU1VYdnFyQ05oS3Nia1ZQWVBlQnZQbllKWHNmenBiZmlaaFJIaDNTMGxERTFnZkViUEV5UGhwOXB5ZFJEaG1lX1FIYi1YNW5sNFh2dndwYTg5aXQ3aTlkRnJVMU51bWFiTTI0c19kS3FB?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:29.994400+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 09:09:32 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "Hürmüz Boğazı bilmecesi petrol fiyatlarını yukarı çekti - Doviz.com",
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMTl5Q09yM082cEJ2a2NlRHNTY1B2N19neXNiU09jXzBtUElmV0FtdEdVcEhmTHZVaGNOYS1TRWx5WTdpY1pnaTBDRUNZNEFkQ2dnTWxablNxZVRGdjhJNkJuRVFCaF81ZC1xTE1nMVBaRDE2SDZQS0RlNTdVWnRFZjZhbHdjQ1EyY0l4WmZIMHBWcGVHRHpBeXhIVlZCcS1jOEV5d3JqTk5RUHFK0gGsAUFVX3lxTE4xOXlDT3IzTzZwQnZrY2VEc1NjUHY3X2d5c2JTT2NfMG1QSWZXQW10R1VwSGZMdlVoY05hLVNFbHlZN2ljWmdpMENFQ1k0QWRDZ2dNbFpuU3FlVEZ2OEk2Qm5FUUJoXzVkLXFMTWcxUFpEMTZINlBLRGU1N1VadEVmNmFsd2NDUTJjSXhaZkgwcFZwZUdEekF5eEhWVkJxLWM4RXl3cmpOTlFQcUo?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:29.994426+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 04:28:35 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "Petroldeki düşüş durdu - NTV Haber",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBPdGtUVkRtakZSWFhiVHo2RWZsQ0xNZ1ctejNlTzlYNm9qLV9MU180TkdJSnlTbTNPdUY1VGxtQWFmTXg0WGI5cWE3N2lWQmRzZ3NYV3ZoRGprNDl5Ni1PMUM3YVFpV1VfSWhmQjRB?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:29.994506+00:00",
+      "yayin_zamani": "Sat, 01 Aug 2026 09:38:36 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "Hürmüz Boğazı yakınlarında petrol tankerlerine yönelik iki saldırı bildirildi - Euronews.com",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQbDNrcUJmOUFTbnp5cl9JSXVMdV9YMFV3YXBKajdrWWt4M19DVEdHQUM3MUU2RWl0RExzQ1ZoV05sVkcwNjRjT2RJSXo5UmFYRUJxcFJlTjZXc1VYdGV3ay1OSGFwN0I3anhRM2E1QjB0LTNSdk9rcXo3MWZqd3FrTzY5VWUxbW9NeFBOZEV3OFVBVFNadkgwMnhpZVMxTnUyU2xWaUdNajZmZld3dXZ4bXpn?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:29.994535+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 05:32:00 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "ABD-İran görüşmeleri etkili oldu: Petrol fiyatlarında büyük düşüş - birgun.net",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQclRDNFhYUWtrLS1fRFp4YTdYUFFXY3VEa3VMd3VxUGlmVmpNdFROOGdjSEVlTXV4LVQxMFNHYWZPbEdtM3dzdXpVVU92N0c5LWxESVd4alNWaUx3eUZEWG4ycmJaM3czRGF6aFYwNnJaZDRDcjNrbTdPd0Z6WXJiTWEyRVRKSVpXdWZ1MWx5aU4xdUNfMGRlc1F6UGs4N3d6cmc?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:29.994634+00:00",
+      "yayin_zamani": "Thu, 30 Jul 2026 12:13:47 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "ABD-İran Arasında Devam Eden Hürmüz Savaşı Nedeniyle Arap Ülkeleri Petrol İhracatı İçin Yeni Yollara Hız Verdi - Stratejik Düşünce Enstitüsü",
+      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPNjVweHZDdFg5a3pMb2dPZWxJNXhLMkJISWNlczlKcWdmMGg5X1k3eTl6emVYZmJ5ZHZMSEZEci11ckd1SERXNW4yRjJqU2t5MlUtalNPQVFnc1M4RlJzYVcwUHBSMG81MWVvWUdLRkVyczE2ODJOQnRwcWxNS1VrWlRIaFBDRXZtV3QtY0tsdDg3ekU0cnlFdXJ2Sm9GQklYZi1ZLXlONzdHN01hZHpVSmpaVkNnNmZGWF9vaHRWVWNsWkJVV1Q0ZElBN0RTdEh3MElXUjdDVlpiMDZ0VjNpcUpvSjVTLTg?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:29.994755+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 02:28:53 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "Dünya Piyasaları: İran iyimserliği Wall Street'i zirveye taşıdı, petrol ve altın geriledi - Para Analiz",
+      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOM3dPTzBPTTBoNW1YRlVSVHEzeXl5RlM5cmR6akY4RTJqZjk2TV9kcURzMWFJUERVWGdlaEtUQU83UjczM1RZSEFSUFRpOFE1YzJMT3RDX0ZUdWFIMEh0V1k3UTM1amk3NTAxUDJBTzl2QTNaRy1iSEhhT2lZclBFNzZLWUZibTJMc09kMndmcXRoTVJyajdVbloyb0YyWUNCazItVHBfVzhWTXhTdk5rbTR1S3ZGR1lJQTRV?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:29.994829+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 04:32:27 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "Petrol yüzde 5'in üzerinde çöktü! Trump'ın İran mesajı fiyatları sert düşürdü - CNBC-e",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQ0ZFQ2xyMmYwTV9LUVlFRzlqeWcyUTZYbm96RUQwOHcxVmlEWnhtNXFVUFpROUpXUkVHX3R2dDl0ZjBSR0Q4dTFwd082MUtxVWpqN2Zka2JwWjNCbDA3Q1N4d1d2YUZoRzdOdTI5X3RPTEhoMjBQc3VGN0xIdzFka3pHZmFOclZ5b2ppSlRtRUhGMzh0bk9pdzVpdG8zWmxfRjBGcFZmTndxWk1zWjlN?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.098786+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 09:43:03 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "BofA, Fed faiz artırımları öncesi seçici döviz oynaklığı önerdi - Investing.com Türkiye",
+      "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQbXJsLXJpY3NWY3Z2YzliX0h2NFFwZnc2RXZkYThyRTJiS3N3RGZrMEZONlRITkdRUXd4U1NDbWZ5cGNkVXVRXzljRmdwTzhlMVYyVGt4SmdjMDgzVDNVbVdaOWtuNFpDSGJLMm5Sb2ZSX0tjRndTY0dvbXFJazFvbmFBX0lIdUZMT3JjSm5Qc3FjeHBHMUQ1UlNFSW9hNkxBRHlFNjhkai1iakhZUUl2MEE4R2pGUFVGWXc?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.098834+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 14:19:38 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "FED/Paulson: Faiz patikası enflasyona göre şekillenecek - Paratic Haber",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQOVpSVDZjRF9YeFhydjRmdUJqbTduSEtDOTdpbzNTVFVCa3FIWTlHZnlJNVU3WHRkY3hyemJqYkdnUDdLa29lVmhUWWYzSUN6Sk9NWG1hb3p3U3RZQ2wtZEFHNTlwRm84cTFDZzRnTDlCd21tUUJZbVVnS0ZXOUJFMg?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.098866+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 08:17:40 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "OANDA:XAUUSD için Samiraa_ tarafından Fed Politikasıyla XAUUSD Okumak İçin Basit Bir Strateji - TradingView",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE4zLTJvbE5DcE5IaXVSQmJGVmFSaVh0S3JVMEJRYWQyVXRGX3FlU1FwRElYR1lCR3lLSU9pTFJselRLc2R5dGx0QkR2YTZaR3RBeV84YVhsZ3VDOHl0VVE?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.098892+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 13:31:00 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Fed'den faiz politikası açıklaması: Tüm senaryolar masada - Ekonomim",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPLUNwT1RPQk45b3NpQmlWLWhXSnJ6MXdMT0lOV1FrX0tBNk9SUzlmdjV6RTBZenB4dHRmVjZ4Q0puSjV6UkNMb3ZKOExHNDRERllkOGc0d2RuRi1VMUEtX0ZjNnJCWkFiZGhqdnRqMG03QmNPSGtXVnk3RDNEeVFNbms4SFA3NjlmRTZvSlVaazVMSFU4SW00QkhWUlIwOWVjVlV3OTgyQjlQLUpsMGhF0gG0AUFVX3lxTFBqVEZ0cjVtdEw5eklldVpYNDAyNGlud3FlWXNBaFZpbUZSX2tJR3g4dmNaaS1HVndmZ2NVVW01b1pUYnEtblFvLXg2eWtrSG9rOE1UVEp2OEdia0FvdXBiUWdvd1RLVDdTQm85ckJ6S1FDdG52T1VUeXB5clVnSWw1YjVMWm5wTWhXaW83RUhZYVJ1N2V1OUlldzM4TWtFRllDTmVZZ3FPRE9md1VoSi1sdklUTg?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.098918+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 09:54:11 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Piyasalar bu kelimeye takıldı: Fed Başkanı tam 10 kez dile getirdi - CNBC-e",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNbS1QeEsydUR5QWIzelBDMHduQzdaeEN5T1ZBRjdyZ0Vtc3VpWHM2Yy16OHI2aWRITFFEQk85Rk5wRlBfOEJFVWtLVnBKVmQ3dlZFbU5EcTZTaG9iY0pFLTNjV2taZVJkdkZVc0s5ODB4NGR1YV9PanNYRkNWeDZFcHZFNkUxdnRhWDdlQWVwLVJ0R0l2eTlVOV9tcG5ER1pmSkpSQmZ3?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.098945+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 13:12:29 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Gram altında fırtına öncesi sessizlik - A Para",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNWGhtZkt2RmFIOGY0NEF5YnRzVDlKRFg5VXZsTVB2UWQxNTRocGpULWQwcUMxVFhvWk05ZnRleVNZV0VpekpXdkFSQlN3REFQRWtWdHhDVklXcFdWcGdIOEJtdF9CREhrRWxZV3RQVldaRDI2OVlMMnM2YWxnNmM4VHhwREd5UlZ3?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.098971+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 05:55:00 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Altında temkinli yükseliş: FED'in faiz sinyalleri bekleniyor - bagimsiz.com",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOZFZzUTlpckQtLVNQck9GQ0VVTWFnQ2w2b2lpN0pORnFOd1hKNk85MmFzbndxS25tbWdFQjh1ckNUaE9qbFpya0RGVER2RmtOUktkeHh1a29BSzc2SF91NWNTUk82SEhCenpjTU1IQkEzYm1KWmlFODFXY19ZWkRwMFl5QzdzQkJtd1pn0gGQAUFVX3lxTE83amtzQlI3RmZfbGs0dDlpWW42ZGUzSW1MMVQ1UW5ubUgtN1lFWENKM0hwelg4M3pjTlBfU1Y4OWQ3Z09ISEoxYWU1Z2NpVHRHaE9sRzAzWFQwd0g2M245b0NtcXpBdUppbGlwOFRIbTBSM0VWNVZtcXhaOVFja3dnSkExVGphUjZxNFFmX2tMUQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099002+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:23:23 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Altın, ABD-İran görüşmeleri ve Fed görünümünü değerlendiren yatırımcılar arasında yatay seyrediyor - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOLVVOWnRsd3FsejNnSWdvYklDdjhmRU9EMUZ6amRLOWYwdVNuR1NWTlVhajRuRkNqWmtPckdMZEJBSGl6SXRlWmxYOTYxUEZtdVUtbTNpYUZhMDVYdjFxYTlHbVBFMDVnLVJWZWhCckVDRkFtVU04WnpaRWE4UFNTS3R3c0FzVjNlYlBxUGJXcXNOSmg0R052WHVpNHNKV2VTclhxekFDbWd2aTdINi1GLTRoUTViOXRWSWs1SXpwZ1hhMHNoeUJZbmdickNOOE1YVmJMMzVwUVdSRl9OZ0JpbtIB4AFBVV95cUxOLVVOWnRsd3FsejNnSWdvYklDdjhmRU9EMUZ6amRLOWYwdVNuR1NWTlVhajRuRkNqWmtPckdMZEJBSGl6SXRlWmxYOTYxUEZtdVUtbTNpYUZhMDVYdjFxYTlHbVBFMDVnLVJWZWhCckVDRkFtVU04WnpaRWE4UFNTS3R3c0FzVjNlYlBxUGJXcXNOSmg0R052WHVpNHNKV2VTclhxekFDbWd2aTdINi1GLTRoUTViOXRWSWs1SXpwZ1hhMHNoeUJZbmdickNOOE1YVmJMMzVwUVdSRl9OZ0Jpbg?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099057+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 06:04:54 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "ABD Merkez Bankası'nın belirlediği faiz oranları Vietnamlı işletmeler üzerinde baskı oluşturuyor. - Vietnam.vn",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBud1YtcUVlU3FXaWVRYklXYVdRUWxuRU9XQUtPdlJuOUpzRWFreUphbWNLSGtZUEhyZlRGamM1Qkp5YnFLWm9XdThjbXdYX21xdlNMVmNZZHY2NHhxaW1rQ19lRmt6WDRndTI5TlpnMzJKUDdWSFJnWHhfcw?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099089+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 10:29:49 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Altın yatırımcılarının beklediği tahmin geldi! İki dev bankadan dikkat çeken öngörü haberi - Borsanın Gündemi",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQV1N4SEpVRzZGMWxyNkc2Q2JPWm9BTkZfZUVsREx6bVk1czc0UThVSXZRT2RRU1dUTDNSX25PRzhVendaOE9PbEtYc2JnQUEzaUY4Ulp6UUMxbjEzRk5WNkJ6YkVJTnNZOGRZWVZSakdnOTNQLXY5NTMtU3F1a2lvUF9vaEk0c2xTWmtuUi1JeFNyWE5VS3pYdHE5OWg1eWF3VVk2X3JqbjFPSGQ5N2ZJV2EtSGttdWlzSU9WLXpibUdnU01PSjNF?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099138+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 10:11:00 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Fed'in faiz politikası doları nasıl şekillendirecek? - Ekonomim",
+      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNUEN5SncwQ1lJekJpR2JUTDFCWUJYbkhHSmY4RzZKVGNZaFB5QlJZeXhFUkN0cklXWFh6Yjg3NWxIMXhlLWxqN3c4bm0zeG5wOUtKY2J1ZzZVTWNETmR4bExlVXlSeUhJMkd4X3JheGFzTFhBUVpKX01fUHplbUMyYl9PcVdrWkVCeERaQ3B5RHNaN0ZnTG1IX2JlZGhaSVB0cEJXN0NfNTMybTAxS1BJdUlxQl9xMEYtbnF4dTZaa3k1MWZ1UDJXZFo3el9wMkFsbndYUkIwVWZSNVHSAeABQVVfeXFMTXpaN0NsekY3aWQtSjVkN2dBX2VqaENUUmFpMWw2TnF4Wk8yQkJlVlJHMXlKOTJmeFM2QnRtMXFoZ2doZUgtMmIxS0d3Njc0N1MwTGkyVzcydE56aGF3bEk1SEs3YlBjaDNvVVFUSWJUR3hZSEx1RDNFV3pZdmNiWl9jRkRiMWZfWE83OEYzbVNHcVRVcmhCaWw2X3VodFJHUVBaYUYxLVkySDhfLUNMTW8tcUJ1OVhqbGJKVDRscnVCR1NNbmZfbDhNTFRNT2h0eW9Ia09xNzJJcU16cEtNZzk?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099226+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 13:03:03 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Philadelphia Fed Başkanı Paulson faiz konusunda açık fikirli - Investing.com Türkiye",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZ1l4emNjRlYyal9BYV96dWxSQWU2Q2JmMGk2cm9uZy1YUEVLUHRpbW5GS3VRX19INThFd1JXb056bWVRbXRPLWRkaExtMXRkeVdDSnQ5S2ducFBQQnpxdmFTRi1ubUlXcTZNMFE2OFd1SnBvME1obEd6U1ZmSFNMeFFabzlaVHV2VWlLLXl3dmIzY1E1UGREZVJPd2U1OVRnVGtHLUxYeWRaVDd4RWtYbVBlMko?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099298+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 12:47:54 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "ABD Doları: FOMC sonrası gelişmeler USD üzerinde baskı oluşturuyor – MUFG - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTFFHX3V0S0FCU3pjSWtLaFBjeXdsOFJseUliOEFmejkwQ2lOMUZtbzhxWm0tZjBYNTF0bHFxU0tiQXRra1E3Tk5zaFNfOWZSOFF2SlJMR2FzblNTMUNKUVhTdURlSlRyWGZraXZhLVJJWEp2Q0daSXhrUVRrWTM0QW93MzlMVzgzdGRGY3o0VG8tTHR2NW4tbTFKc0Z5MkY3NC1WOWt5QVZQc0tXMEVZbWhpLUw2ejIzczBsX9IBvAFBVV95cUxOTFFHX3V0S0FCU3pjSWtLaFBjeXdsOFJseUliOEFmejkwQ2lOMUZtbzhxWm0tZjBYNTF0bHFxU0tiQXRra1E3Tk5zaFNfOWZSOFF2SlJMR2FzblNTMUNKUVhTdURlSlRyWGZraXZhLVJJWEp2Q0daSXhrUVRrWTM0QW93MzlMVzgzdGRGY3o0VG8tTHR2NW4tbTFKc0Z5MkY3NC1WOWt5QVZQc0tXMEVZbWhpLUw2ejIzczBsXw?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099350+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 14:26:15 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "Fed Faiz Artırırsa Bitcoin Ne Olur? Son 5 Yılın Verileri - Coin Mühendisi",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQWUpUckpXNzNvWnFEbFRVa2xWVkc3ZXBZcDVOYS1GRk12cC1IZFNBanN5SGY2ZlozcjUxa2V3bzEtZkhLUmVzOTlMcGtob2N2bWI0bVl3REwzcjNNblJGVkVwTnZ2dlpxTjdYQUIzbkxSR3BlVi15SmdBeFVHbklRQXJ3YURqZXdDNXVFWXg2cTI?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099381+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 08:01:00 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "ABD Doları, Orta Doğu’daki belirsizlik ve Fed’in sıkılaşmacı olasılıkları arasında kazançlarını koruyor - FXStreet",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPT0N6RHplY0o3Si1HMHB4ZXBFcnlIR3h1UlZZOVVrYlRqakpnOFJnWDYwRUNLX0VWblpUTGY2WlFFUFhOM2JncVV0ck9hbkwzckRzeUNTTzI2SGR3cWFJQTVkc1RtTjRjbU12dXBzNjBxMGlZQmFkeTlhc3FfOWZQSWdZZ0lFaWhyd1pMWlY5bHhZenlSTDBLOU1WUlNGb0tubF9LR2xISlJ4M1ViNUZRVVVJSS0zYkdlVUxtYlZhdXBoY2p1VnowN1pweWRDWXFqVks3eV9ockphNmVhUFNQX2JuRzjSAeQBQVVfeXFMT09DekR6ZWNKN0otRzBweGVwRXJ5SEd4dVJWWTlVa2JUampKZzhSZ1g2MEVDS19FVm5aVExmNlpRRVBYTjNiZ3FVdHJPYW5MM3JEc3lDU08yNkhkd3FhSUE1ZHNUbU40Y21NdnVwczYwcTBpWUJhZHk5YXNxXzlmUElnWWdJRWlocndaTFpWOWx4WXp5UkwwSzlNVlJTRm9LbmxfS0dsSEpSeDNVYjVGUVVVSUktM2JHZVVMbWJWYXVwaGNqdVZ6MDdacHlkQ1lxalZLN3lfaHJKYTZlYVBTUF9ibkc4?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:31.099461+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 11:57:19 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "4 Ağustos öğleden sonra altın fiyatları: SJC altını yön değiştirerek yükseldi, piyasa Fed'den sinyaller bekliyor. - Vietnam.vn",
+      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQS1hEdEpPVzJ6SFM1R3NtN2hQRUt2cmVtME0xLW1OQ193RWpVazZVeGtWcGdySFJoRmVuakhfQ2phN25NTG1tNzlGcXlYY3Y0VzAzdkpXSzlrdDlqNkZVcHJTNDJaOHVoSE5zMzF2R2ZpUkNJekVoaEhua09fXzI1dV9nV2VFS0VPbk43azBlTmZlV0lpM0RSMUNxZEg?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271425+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 21:10:33 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "TEMMUZ AYI ENFLASYON RAKAMLARI! TÜİK Temmuz ayı enflasyon rakamları ne oldu? İşte açıklanan Temmuz ayı enflasyon verileri... - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxQZWpvUTBZVUN5OHFTa1lLdmU2T244U2F3SExJakU1b3prZERxeks0elpUTmZpemNwU05rd1NRcUVheHNMemdSRmJ4U05wQ1R0TG5oUmVfa3Jaa3QtTnYzcmZybE5OUU42NkdmZTl4RXZiMEE2VGFHV3V1bGNIYkpfeV9SVURCVENvSklRejFRTEtmOEloTV95NW1BekJ3ZTRoVTlaTk1lVnBaZnFGWDBqbzJyX3l4aFdmd2lrSGNuSlNlejB4cTV5Zmt3NTlyXzh4N0lZXzlmM0NiOGRhc0oyakE1NVdUWmlXaFprcEZfdzI0dkMxMFVxWEN2aElMQ0tLT0FSN3I0MkFwbmw4NF9GVW93?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271458+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 10:10:29 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Enflasyon rakamları açıklandı - Anadolu Ajansı",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB0ODE4TlBhZjEzVXdaa1NzZUFrRkp1R2FpMmRYLTByZGg2Y2FvVlJ2c0ZMdkFhLUtIdWx0Znl1OGpzSTF6bDNtUF9DNzBWNHIzUWI5S0lCVzk1eVp4Q3lQTk5RZDlJejM2a0twdlJpdUF3c19iUDg0WW1R?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271485+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 07:37:40 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "TÜİK temmuz enflasyonunu %31,75; ENAG %50,49 olarak açıkladı - BBC",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1Ga2NuZWlTOWU4dE5DbjNHZGRNNFZyMHF3SmMzOHRtdVFmdldhRFIzLXhHRlJDQXZVUGxjb2tpM3pzY2R6WmpjUnlkWFNNM3FlRTVPT3d4QjZoQ0tY0gFiQVVfeXFMTWJsNFgyRWVPOHhRcHFGS21TcTN2cy13bXhnUnpjbC14Y2hiT2w1TGZ0dm1OcHNYbWVzc2V1Nnd2TnB4Ym1DLXZBYmJDelFCdXZobGF1WkQzMW9PR0xrNFJuZ2c?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271507+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 07:00:00 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Temmuz enflasyonu açıklandı - TRT Haber",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQVjJTWDROQ3ZCM2R2RnZZQUZrY0g1VmdIWmJvN205bW9mX3hOOTV1VGJXcThfT2dsRFo2NVBMQ0kySUw1cjBqTE9jLTBCNm5XZHlveWpWUFVwUE9sTjFxQUhJMGxxR0lWVU9TOGVqUFpiNnc4WlRLcmFFbW1VU3M5OUY0VDA?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271535+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 05:40:33 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Enflasyon verileri ne oldu, yüzde kaç? 2026 TÜİK temmuz ayı TÜFE kararı açıklandı - NTV Haber",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPZUJrOFRSUVl3RFlBYjRTSFlKTC1obFphX19wcGJMekxVQ3FQRGI4VHRYdzdCZ1VXY1hLRmtud0dyNG9GMEZQVEpsaVJva0FYMENVNmxWQkJ5UVVLd2NQVTNhMkJRXzlmeERrWWZkNEF6TWc2SU9qVFEwY3dLT19yWkZQTy05eEJSa2g5QW1RQms3RXA5VjRsNGpWNW1ObG5PSzVxc01PTHQzX3pYUXRuNDRBMXNkcTladGtCMnhPb2VIdk0?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271651+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 07:01:54 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Temmuz ayı enflasyon oranı açıklandı: TÜİK milyonların beklediği rakamı duyurdu - Yeni Şafak",
+      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNR2U1cEIzaGdEZTIzc2M1NDZpZk9rVS1xQ25aYWpqMTZBcWladEZNcmxCRXBISi1yUTNsUTd3Mm1iX1VkSWNybXBLZjRBRXk2enRQamkwNlRYdWwyQU5KMWpLTUxsMHJ1R0xlaFh3eUJ4alZOS25vTVJLdXRYSnpRWFhQdkFPemNiNWV3VHo3TjhzMnl5ZFlibGxLOV9TM2JBMGpUOFlka1QweGZ0TXpHZmZ2SUQ1WG16dXdwdVNqLUtFSHlkMVE?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271710+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 07:01:00 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "TÜİK açıkladı: Zam ayı geçti enflasyon yükseldi ama yine düşük kaldı - Halk TV",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNQ0F2NElkUHFQRWFIYS1GTmJ4azZET3RiZThyY2pDM2RESFd4SXlmckxsRkxZNXlBRHltbjRoWW5iU0wtZURhQjRKQU05RUVJNVktZ2Q2dVpia0tQa2hWRlYzYmFhT2liazZEWUlqMTdUcml0R0p5S283TlhnOUFGbE1MMWZWb2tiUU82ZkFmeURTQQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271732+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 07:02:00 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Enflasyon rakamları açıklandı - Haber 7",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQRUpENjZRdnZGaFZWa3huTVpJQ2x1c3FvSThnVXVCMDkyYkVlaExZeEw3aUw1OTJPQktsdl9GNS1jMGV1QnFoaFdwdE9ES0YxdFdwMlk0cVVUZWVNWXp6ckV4RXBmbmxBRC1VNnRaV1dqeEhwc2VZNjQzZE51UDFqTUFrT0LSAYcBQVVfeXFMTnpBZ05yc181SkFGczZlektxLVZnRE04ZDRkRDJIblNYWl8wUlFFTjNuSGl0QXhHcm1iZHA1djlrUkdoTmdGemtON2JYNWdCSWZ6NkhOT0dUbXVERVZ1cWo1dE1HdTJET2xHWUxRRjdYUTZjN3dVNGExTk1GYjFQVVFmN3lDaEFr?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271759+00:00",
+      "yayin_zamani": "Tue, 04 Aug 2026 07:59:29 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "\"Enflasyon Düşüyor\" Açıklamasına Çanakkale'den Sert Çıkış! - canakkalekalem.com",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPOU5nZWplTDRDaV81NjROQlNYNW0xODNxRDZSWVQwMEM0cDdIeEI1MktJcWZ1aUhVMDBxOWh6SHk1bElHV05PUzFmMzdRZ3VXODduS19DWjEybmF2WEtCZ2Q1ZnJ1U2h2a3gxcDNXV0UwV0M1NlFQZXp4T21sbGNzMVlrQ2g1Xzg0dmlBZEROSGNQWXMwdEVv?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271790+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 05:59:50 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Son dakika: Temmuz ayı enflasyon oranları açıklandı! TÜİK 2026 Temmuz ayı enflasyon artış oranı yüzde kaç? - Habertürk",
+      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPY3hTdjlYVHpZM1F1VmhXYnBYWlZQWktZajBJUDFuTFJ5MnZ2bXNoX01OVVAteE5VM3dmVFVwU0l4THYxQ0o4VzZSX2hSaHRNd1k1aEhrZFN0b0dCbmQ5bE5temdxSzQ2eDlzdFNuUFN1SFUzSG95ZXJYTWkweExMUGJTZEtla1lxSWlCdENvNEpiX1FXNXZwcHVDcTl0NFliZFNqYWNMR0t3V2c2aWtLa0t4Z1NIdzB3UlNqRk5zRHBtTmt2aDZyNWF3LW9WbEhnYWVlX19lS1BOV3BU?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271817+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 06:27:02 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Son dakika... Temmuz ayı enflasyon rakamları açıklandı! Bakan Şimşek'ten ilk yorum - Bigpara",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcFhDbVJFM0NOM2FkRU13NmNwcktsQUZXQzZSV3lCSWN6VWtGZ2EyVXRlQlVnUlBrcUtBbWRzUWljOWZMR3lKUzdsWGdfLUZ6ZkZDWlBCM2NBakFhUFFNOHVVVmZnVVMyLXNoZjlTY0dydDZEcVFLQkZuR1RpWlY2WmhHZHBwVW9kZjBJOFZvNks4R3NEQXRNbHg4N3JpeG9RdFRXcVZjcmxTRzdDWEgtWlR3?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271874+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 08:30:10 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Türkiye İstatistik Kurumu (TÜİK) temmuz ayı enflasyon verilerini açıkladı. Buna göre, Tüketici fiyat endeksi (TÜFE) aylık yüzde 1,78 oranında artış gösterirken, yıllık enflasyon yüzde 31,75 oldu. 🔗 https://www.fortuneturkey.com/temmuz-ayi-enflasyon-verileri-acikl - instagram.com",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBDUTJMWHRrd3pWc0ZTUUpfLUhxY1ZEY3RQenBtaVBON0FIN2ZpSUUtYk1lSEhvLWhxV0lZWUhKcy13OWpacU5uQXUxdFNST3k0M2c?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.271941+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 04:04:29 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "TEMMUZ 2026 ENFLASYON RAKAMLARI BUGÜN AÇIKLANIYOR! TÜİK TÜFE ve ÜFE Verileri Saat Kaçta Duyurulacak? - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxObE10Q0FNTHBpREd0aXhuUVZLWjYxMkFKWTVwY3hxbmM2cXNsYTk5OUt2LXZmME5EeElDNXVqYWpOSjYyN1NvZDJoSWl6LWFFLVAxdURhZVNwUmtUY04wN2p3NjV3Z3pfd0hDZU9vOExObW9vNDA2THhRdnUxMEhOblVxNWtSN1NQb0g5OGRaUHF6WThMcG5MQlk5c24waFBuRkJkSFFva256eHBSclp2OE43S3lIem4yb3dkREE4SW1MdmtWY0tiaWtfSWlrV1pIdmdZT2o1TWhjNk5PTEFHMnh1bGE?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.272000+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 08:19:00 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Temmuz ayı enflasyon rakamları açıklandı - TÜİK: %31,75 - ENAG: %50.49 - Yeni Asya",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNYlZiSmRlTW9TM25Pc0FxamZHaEhoYWduRV9iM09ndF9ZXy1WUU54RXhSVGlFSVRfN0lHaHFkQU5weVd1Q3lGVTJwZEpOOWFCYVRudzh2RDFlWkpoSElZS3VYT0MzM0lzZmZtOXVhcWEtWDM1TGVKaFlYeUgyajJaV1QyYnQ4UjNhSzZxZVJqVjdSazZjT3RPaUIzbkliaVZoOEtmRm9QeHc?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.272026+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 07:34:05 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Enflasyon rakamları açıklandı: ENAG’a göre yüzde 50, TÜİK’e göre yüzde 31 - İlke TV",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQWlBRTHFLa3lTOU53UzRvcjlXTkVCZEFOZHFFbms3TEstekVNUHRsc1F5Q3c4NjY4bTFqNjBaXy1XSlFHMjQxcU01ckhWMjJ2VWtqQklEYnVVb291MVNCV3FFRll3eVNRVXE3QWJXNXRxYU1lWTF1M2dmYThJYnV4ZlZ3LWIxRFUwSDdWc3Z3eTFPV2cwQTRF?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.272059+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 07:01:00 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "TÜİK temmuz ayı enflasyonunu açıkladı - Cumhuriyet",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOazlMTjExOFlMaUM5SkJfZGFuZVBpRjY4bHZjdTBHMEpUTHgyaElQd0N4dFJRdmxVQTVoeUdmYi14V244X2YyU0MwMTYtc1p6LTZwa0lzeWY2MHBpam1ha3RPZ3R4M2tkNEluandqTG11QjBHQm5VV295Tkc5NURYNEdUeUg0ckV0T3Mw?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-04T16:23:32.272080+00:00",
+      "yayin_zamani": "Mon, 03 Aug 2026 07:00:57 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Temmuz ayı enflasyon rakamları belli oldu - NTV Haber",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaWVzclNvQXd5VlM0amxqRkxwb3pjM2M4UUtFTzVoSnRPLXpPRndaS2ZXRWxnckEtYUtLMjRGVHNFemRzOTIwT3gyel95TXM1V21IY1pscHNRNC0wVjlaTTJlZVhWeVBRTlJBbUF3Z2xNd1VPTzVzc0tZLVpWQTJtREVOOFU2TXNaUHlUTWFoWnQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
     {
       "zaman_utc": "2026-08-04T07:58:54.677851+00:00",
       "yayin_zamani": "Tue, 04 Aug 2026 06:34:30 GMT",
@@ -308,891 +1192,6 @@
       "baslik": "Altını sollayan gümüşte yeni dalga kapıda: Kritik seviyeler açıklandı",
       "link": "https://www.dunya.com/foto-galeri/ekonomi/altini-sollayan-gumuste-yeni-dalga-kapida-kritik-seviyeler-aciklandi-galeri-834857",
       "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:00.525152+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 09:35:00 +0300",
-      "kaynak": "Dunya",
-      "baslik": "Savaş Aramco'ya yaradı: Petrol devi beklentileri aştı",
-      "link": "https://www.dunya.com/enerji/savas-aramcoya-yaradi-petrol-devi-beklentileri-asti-haberi-834851",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:00.525189+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 09:18:00 +0300",
-      "kaynak": "Dunya",
-      "baslik": "Citi'den altın için yeni tahmin: Önce duraklayacak, sonra…",
-      "link": "https://www.dunya.com/foto-galeri/ekonomi/citiden-altin-icin-yeni-tahmin-once-duraklayacak-sonra-galeri-834847",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:00.525283+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 08:46:00 +0300",
-      "kaynak": "Dunya",
-      "baslik": "Devletin e-ihalelerinden 2,7 milyar TL'lik gelir",
-      "link": "https://www.dunya.com/ekonomi/devletin-e-ihalelerinden-27-milyar-tllik-gelir-haberi-834845",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:01.599945+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 19:26:12 GMT",
-      "kaynak": "Foreks",
-      "baslik": "*MAALT-Marmaris Altınyunus 2026 yılı 6 aylık konsolide olmayan net dönem zararı -19.336.293 TL (Önceki 15.111.145 TL) - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMitAJBVV95cUxNSmV2eUZ0T1F2Q19Wd1YtRjFQNzVQUDREWVRHcGNKc1N2NGhFMjFOTmhQU0w2Zjk2QXptQkp2TktrWC1YV1NhU0Jnc05kdmRhZHEtaTJQbFdZcGJxWWxLNGdhc2FnR2JmYVNaUk5UY2JROGM4dEtFSVNzbmNIaDRtVTEyN0hCbUM3Z2ZRWFNZSFc3OFgycEJEQ2ZESDVCVTRTa1VHQ3Q2cVpWMUlqaWtOSFNxcVlWVDl6UlVYR1VvY2R5MU1LbWxLSm5oNFdhQjZvQ0dnRkR5MkE1dGljOVBGNjNRWk5RWGVFWTNOQmUxQjRMb05MeU92b0hlbUVWbkRwSTN3NmdCMFYzX280alYzbm9qY29Kc1o5amlWenlacjl0M0wzTkE3NVl3WVg3SEk4WXhGaQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:08.481320+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 07:48:32 GMT",
-      "kaynak": "GN:YKBNK",
-      "baslik": "HİSSE DEĞERLENDİRMESİ-Ak Yatırım, YKBNK-Yapı Kredi için hedef fiyatını 50 TL'den 46 TL'ye düşürdü, tavsiyesini - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMitwJBVV95cUxPTVBTOVVvdVNNeEp3dUxzeWFKVXR4dE1UNjZhLUJNTHFnZi1aUU1uWFlZb2hNVjBNb2FneWh5QWVBb0swV3l6RE1kaGhyRDBUbkFXQmlibi1jRFlPS19FYXMxeDF5ZC1MWXBvX2d6ZGZGdlBNUFZURFg4b0JnUUFDMm03TjFkRTlFLUlHSW00STQ2YnA5Mjc5NXNuLVB3b3pHbE1TWmtTYWtTLXpBSWN4WjNBY2xIUE9lYnZyYlpnSzBzRjhySEZMZXBBblBaU3d1d3czQlItcHdPdk1kQ29JWnc4UFE2bWdpV3QwN2EycTVwd1FpaE5VdGJRVXlFS1lBSUJIbC1PcVZuVGtLVjMzbE1hNlE1aEZLSUtXalNlWnlLM0UzN1hobWJTZUQzUmUzdmoyVzJtVQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "YKBNK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:09.542675+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 06:01:49 GMT",
-      "kaynak": "GN:GARAN",
-      "baslik": "HİSSE DEĞERLENDİRMESİ- GCM Yatırım, GARAN için 186 TL hedef fiyat belirledi [FNC-NEWS] - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPWG9KWHFDbmFLZFZSZ0U5R3hVbVlvcjhFZEU1UGlZc2hhVkFrR1drMkJPWDBUaTlWd2VMemF0YzRXeG9ReFhJbVVjR0hlTkJsd1BCaHhzamZiWnN6NWFZOXdHQ0dESnpRYXZEaDR2R09PeF9wRmwta1BXejN0My1nV0ZFY3dMWUREUk1JMk55aXJ0VVJHZG42OURjQ0FkVE1vU1RmUVVtclRRaWhGcXhxcGlZekFCTGoybHU1NTlKb2NKSVdraVpOVU5meWdmMUgwdFJZR1BKdkZkRVVFdDYw?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "GARAN"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:09.542734+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 07:08:59 GMT",
-      "kaynak": "GN:GARAN",
-      "baslik": "Garanti BBVA'nın ikinci çeyrek karı beklentileri aştı, 'AL' tavsiyesi korundu - hibya.com",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNeHl1YjJhMklHTHZtUktic04xVW1aLVBNZ1I0N1I0VGRJd0E0aVdGSm9HWi1ZZVcwenJuVWRSVXB2MV9zN1hPcXNyWHB2YzZudzl4dGhydFA0eW5ub2VPSnNEX0RzZ0JSVUVQMmVySVVPMm1HcDg2TExmd281OVVYakRGN1hpLVNuTDJKQlpWS3JpdE9wNzB5d0p4cDl4ajA?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "GARAN"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:09.542800+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 06:48:37 GMT",
-      "kaynak": "GN:GARAN",
-      "baslik": "HİSSE DEĞERLENDİRMESİ- Garanti BBVA Yatırım, AKGRT için 11,0 TL hedef fiyatını ve - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMiogJBVV95cUxOVHNIRXJ1REYxdVFheU05VVB4Rk1GQkd4YTl5YVFLcXhZR014M0dYWURDenVwUGNiTVY4dEJfTE9yUlpnSXI1SnF3b2U0U2J6SnJ1S2dLSWVoeS0wclVyWFhZSkI4eEZZQnQ2eHc0b3dBQTlKU3pjTkhxdV9UTFBQZzU3bkRaMVdNMi00SXFPM0NGRWNHaGhVZUxCaTBKM0FsdEtSZGJObjFQR1JpdFh5OHF5bU1xdHNoYnRaQmNPOHJ1SUtLckRJOGlwOUJXbmV3UVJ6c29HNFlSZERBT2kwWXBubnlfMHVJblh5cmJkNHdwUnQtQXRUWTl4NHZaeFhIWnl4NFJ2ZHU1c3BTbFBxblQxUGhNdWhDd2xPcFhEd2FRUQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "GARAN"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:09.542981+00:00",
-      "yayin_zamani": "Thu, 30 Jul 2026 09:50:30 GMT",
-      "kaynak": "GN:GARAN",
-      "baslik": "HİSSE DEĞERLENDİRMESİ- Alnus Yatırım, GARAN için hedef fiyatını 213,82 TL'den 206,96 TL'ye revize etti, tavsiyesini - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMiqwJBVV95cUxQU19qVG13OGxZMzFaMThrZk5fUk5IM2ZETWFBYjNwZkpjUFBtbHF4QmQzbE5YSjhkOHBtejNEZEpYYjdBN3JETU1DaVRmTVVNWGhNSE10VlhQT2Jxbi02S01SRkg1TUtyWmpodV85Q0FtaVRTVlhicGgzamxGam52UmptUnVHbWcwTWQ5bXJfdi1idlpBRUVZRkZhNUVNSEthbXNpUDhoek9ZTDItM09VQWVOVjhucGk5Y1NYUW1YcHpqclR0TFVRZ2t1eWRSeHhTTlVhb0NKbTR4LUtzb1RHVnNVNldnQk9WZ25yWEVVV0QtYmhPTDlINHZyWUhBZ19iSThTcDU5Q3ZhMU90XzhIUWNTcXEtNWh0N2JkcHR5TS1paldjVG92SWd2OA?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "GARAN"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:10.595618+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 07:04:28 GMT",
-      "kaynak": "GN:ISCTR",
-      "baslik": "HİSSE DEĞERLENDİRMESİ- Halk Yatırım, ISCTR. için hedef fiyatını 25,09 TL'den 19,15 TL'ye revize etti, tavsiyesini - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMipgJBVV95cUxPVmVQQmI4b1pYQTVLcWFELWszalYzeFUwZHV3cTM4Vmtycml2RnI5TjhPU2JBVkpyZVpaZWd1TTZ3dlM3R1gzcWNUTjN0V1ptWkVUQkE5OHhvSkdNSzQ2SDlXV2QzUV9vaUtsTnM1N1JPc01mX1JmYTdYN1lnNktwNUx2dzExVXhCcHE3cC1pM3VJZmZFdHdpTFloZmhPTU4tbVU0YlVsMzRmRTRGSU5wcVplRmF4TlRlanpjM1pHeGU3aWNFZ1BrQVpsSmhfNkVlYWFNQ3kwQjBWQVFOc1NYeTlhOFNBb2pqeEhxNS1NQ0k2QjFxUHNNVW85NGpvQ2dlMnpkLXZEblBEMk0xM2ZNRjJ4dkVhVnZ1cUNkSXUzRlBCZ2pZdnc?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ISCTR"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:12.684855+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 15:09:59 GMT",
-      "kaynak": "GN:KCHOL",
-      "baslik": "Koc Holding AS (KCHOL) Finans Oranları - Investing.com Türkiye",
-      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE55Wk1NWTZtYW9HVzBrWHNZQ0JXT0pKZzBLajhyT0xyU042bmFIS1N5eklVemQySVJreS1qREtRdTBjNHVhdGdVR1p3ZXNzN09PYXZXQXpUM0FPR0FtT2loR05R?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "KCHOL"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:16.930797+00:00",
-      "yayin_zamani": "Thu, 30 Jul 2026 12:56:39 GMT",
-      "kaynak": "GN:ASELS",
-      "baslik": "ASELS Teknik Analizi / A1 Capital – (30.07.2026) - Para & Borsa",
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5WWkIzcjh3WEZnblMyVmZkOW10V25BRUlhSjBfdEFuUUtydTFsQ2ZSV2lfNHJwRXRhbGtYZjVzb0lnOVB5ZXJQdWpIRHczWXdqS2RlbmdzLXlERTBSY242ay1zeVVjemlRR3c4c3Z6WHV1WExhZHlZX0VERQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ASELS"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:20.163820+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 04:08:00 GMT",
-      "kaynak": "GN:BIMAS",
-      "baslik": "BİM, 1 milyar liralık hisse geri alım programını tamamladı - TradingView",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9wN0FIajF3UFB1ZWowNkRwUEtzaU5WcHlBUTJlVlFodlJsWDdXRW5WdlRELUh5RnM3UDVvWVAxZHlac1NZbTBzNHBqQWRZdTJMNGxNSy1WeTg5MjFnUGFQUTdWbl81UmZtblFKbEtCelo4R3RNODJiYQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:28.641254+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 08:10:00 GMT",
-      "kaynak": "GN:HALKB",
-      "baslik": "KAP *** ZİRAAT PORTFÖY HALKBANK SÜRDÜRÜLEBİLİRLİK 30 ŞİRKETLERİ HİSSE SENEDİ FONU (HİSSE SENEDİ YOĞUN FON) *** ZPY *** Performans - GZT",
-      "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPV1I5M081YS03RVlCYWpoQm91MHZtc2ZyaERRWnBLdGhZNDJma19mSGhmTFAtS0M4eW90VUh3Xy1tMVo4S2VMUU1XTlh2WDJ1cjloYmw5X2xHcWF3c1VsU01IazNRZFNIZlllUjBDRnUtYWtWZVMzYUxLbTBCXzdDQ2oxbHcyai1RTGJxVjZISUJxaVVYMFZ4eE80UkdYUW5ET3daMTRLZDR4WXhBZXFwZGcxVEVlM0gybHpkUnBsM2hPTFgxSnA0OTRsSzh5NnloUFpNQ1hLTGp0MGFVSU43VWhfdVNsYVlqTDYtTGNPUlp3LXRrNDZJdQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "HALKB"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:35.709818+00:00",
-      "yayin_zamani": "Sat, 01 Aug 2026 23:27:23 GMT",
-      "kaynak": "GN:ALARK",
-      "baslik": "Alarko Holding Detaylı Analizi -Teknik Görünüm - Alark Hisse Analizi ليفربول ضد تشيلسي (43xRc3qp5m) - Mshale",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1HblNrZ2RxR2psTE85TW11NmhXSlg5Y0hUa3phSzJvRFliLWs4aXlaWjhjZGJzZkRIdFVKMUNkQTAxZlVaRmtKY2s2cGtHaVh0aEU1N1ZBd2FmbEU?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ALARK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:35.709885+00:00",
-      "yayin_zamani": "Sun, 02 Aug 2026 01:51:33 GMT",
-      "kaynak": "GN:ALARK",
-      "baslik": "#Alark Alarko Holding Yatırımcı İlişkileri Direktörü Özgür Kalyoncu Yil Sonu Bilanço Beklentisi... Chace Crawford (2YbHv1IQTK) - Mshale",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5WQXV6TjZDX1VyR3JORTVyVWt4eGZvQVROQUZVSW1neTdDbnZEMklfMmxZbWl6QWxfTExnal9BNmluMFR3R0ZPSXNfeFViYlMtUk51R012SVB5dEk4cHFnMg?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ALARK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:35.709938+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 12:33:38 GMT",
-      "kaynak": "GN:ALARK",
-      "baslik": "SORUNLARI TARTIŞIYORUZ ❗️ ALARKO HOLDİNG ( ALARK ) HİSSE YORUM - TEMEL ANALİZ - TEKNİK ANALİZ 💸💰 Subnautica 2 (KTMRHvm1XB) - Mshale",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBNNEhGS0tJNVp3WFdmdEJfU1MxQ3BIblh5ZFVaVUtvQjhRSzJSMmRENkhsb3pqaWU4a242dG5RMndRSmpuS216azNlckhlcURDeXpweWstckNnTms?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ALARK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:35.709966+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 20:51:03 GMT",
-      "kaynak": "GN:ALARK",
-      "baslik": "ALARKO HOLDING #ALARK HISSE ANALIZ Scottish Premiership Table (xp4FAMQI1j) - Mshale",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9tNFc4RUFNN3dpYTMtdzdKOFpnOEZBZE5ZcG5jTDNyaF9zNUhfcVZ1ZXV3ckZkdUtDeF9RUXpIMFRKTmhMM1ZWMUlUZUxXQjZLbmNWLUFxTlRqS0E?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ALARK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:55.561223+00:00",
-      "yayin_zamani": "Tue, 28 Jul 2026 10:48:00 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Irak Başbakanı Zeydi, resmi ziyaret kapsamında Ankara'ya geldi - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQm92WktGdEt4blZFa01ZNF9oWHpiaTNxVmVxdGk3Y0ZxdXR6QlJCYWlTN1Z3QXg4bmw4dW1iRnFveUhwdzFWLWhsU3ZzUE5JOXBkQmNPQjFrS2IxNjhHQ0xxSDE3VE1FNXhwM295NElOUnNIWmlacnh2M2ROcnFSTjExQ183NEpqV1FTWHRxQlplb002U2QyR0pORnR3eldtZmhnc1YxbWl2UdIBrwFBVV95cUxObUQtaHhBUVZFSTdIVm5CUnRudzVmQ0JTc0NCS2hpR0FzMTlsYVRkWnoteXFnZ1k3MmlDeVVzb3J4SDdJTlBKQ2NyZHdyS2RaY2dnMUg0UFJfYzZXMVFOeGZqSFREbExtYWtXUWUybllhUnU4ZzRfTS1sQ2lUREc0R3dqdm5SYWlnZGZIR0tveUNHV1N0MUw3dVlCOGQzdnNWZXdwN0w3TFVTUlAyX0FB?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:55.561255+00:00",
-      "yayin_zamani": "Wed, 29 Jul 2026 08:21:00 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Bloomberg: Özelleştirilmesi planlanan boğaz köprülerine Fransa'dan talip var - Gazete Oksijen",
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPMjZUTERoTW1QNHViZ2FJeXVoZlJFWTFNVHJfLWZ3anUxNnlSOFRHcWdDcF9ZbHNDOGFmNldPVjlBOWNySmNzWGtxekF4aGY3WVdHUkNBMmtQLUN5dnRFaG1IVF9ZbHpHR1VnSGpORHFlLUxzcUdhbTdzRGtaWm5LUGZ5dkpGQnYwSzkzR2NraGZ0LTJBdnAtZEZCWTI0LXdZS204SXQ1OXhSSndtdFlTdjExd0lmUQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:55.561311+00:00",
-      "yayin_zamani": "Tue, 28 Jul 2026 10:41:00 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Hamas heyeti ateşkes görüşmeleri için Kahire'de - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPLWN4dlRkU3AzTEEtYVRFU0ZGRjRWdWxrbUxHT3BFRWdBSlprTjRTcFRjbDFTT1VCTU1xWEczUlNOa2V6TjcydVFNc3dNY0RJal91bGFSX1F3WWRCdjdzcWJQQnljTnl0d3JHaUJ3OWpBU1lkeHl2eUgxdXFVUzhzYnZwcXk4SC1CVW84OUtSdlBqTTJ6S1HSAZsBQVVfeXFMT2xiOTlsYUpCMUd1VGhmcjVRdm1vbGhIcVdXUG8tZERWb0JxLVpvbkw5OFNKUjFJNS14WENEOTdhb05MNk9TX0lxQUt6UG8zeDZwbUhyTm81ZHlVZTB2REZvODktNDhCVkx1X3Q0bDQzZHFnaFFQV3ZvY0lKRUI3ZU95UnBxeFJETFllN1VENEljSlRSTExGMHVWWXM?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.842757+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 10:44:56 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Sakarya, ocak-temmuz döneminde yaklaşık 3,2 milyar dolarlık ihracat yaptı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/sakarya-ocak-temmuz-doneminde-yaklasik-3-2-milyar-dolarlik-ihracat-yapti/4017717",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.842803+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 10:35:36 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Trakya'dan geçen ay 243 milyon dolar ihracat gerçekleştirildi",
-      "link": "https://www.aa.com.tr/tr/ekonomi/trakyadan-gecen-ay-243-milyon-dolar-ihracat-gerceklestirildi/4017699",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.842833+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 10:16:24 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Egeli ihracatçılar haziranın ardından temmuzda da aylık ihracat rekoru kırdı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/egeli-ihracatcilar-haziranin-ardindan-temmuzda-da-aylik-ihracat-rekoru-kirdi/4017676",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.842855+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 10:01:20 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Borsa güne düşüşle başladı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/borsa-gune-dususle-basladi/4017653",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.842883+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 09:41:09 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Otomobil ve hafif ticari araç pazarı ocak-temmuz döneminde yüzde 10,72 daraldı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/otomobil-ve-hafif-ticari-arac-pazari-ocak-temmuz-doneminde-yuzde-10-72-daraldi/4017635",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.842912+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 09:09:09 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Tarım arazilerinin korunması ve kullanılmasına ilişkin yönetmelikte düzenleme yapıldı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/tarim-arazilerinin-korunmasi-ve-kullanilmasina-iliskin-yonetmelikte-duzenleme-yapildi/4017614",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.842938+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 09:04:16 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Küresel piyasalarda Orta Doğu bilinmezliği risk iştahını sınırlıyor",
-      "link": "https://www.aa.com.tr/tr/ekonomi/kuresel-piyasalarda-orta-dogu-bilinmezligi-risk-istahini-sinirliyor/4017609",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.842987+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 18:22:45 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Borsa günü düşüşle tamamladı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/borsa-gunu-dususle-tamamladi/4017316",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843010+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 16:08:37 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "60 saniyede ekonomide bugün (03 Ağustos 2026)",
-      "link": "https://www.aa.com.tr/tr/ekonomi/60-saniyede-ekonomide-bugun-03-agustos-2026/4017169",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843037+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 16:41:12 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Doğu Karadeniz'den 7 ayda 124 ülkeye 1 milyar doları aşan ihracat yapıldı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/dogu-karadenizden-7-ayda-124-ulkeye-1-milyar-dolari-asan-ihracat-yapildi/4017216",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843061+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 16:18:10 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Rusya'da yeni otomobil satışları yüzde 10 arttı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/rusyada-yeni-otomobil-satislari-yuzde-10-artti/4017182",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843087+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 16:00:00 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Ren Nehri'nde su seviyesinin düşmesi Almanya ekonomisini tehdit ediyor",
-      "link": "https://www.aa.com.tr/tr/ekonomi/ren-nehrinde-su-seviyesinin-dusmesi-almanya-ekonomisini-tehdit-ediyor/4017158",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843110+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 14:47:17 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "THY'den tüm zamanların yolcu ve uçuş rekoru",
-      "link": "https://www.aa.com.tr/tr/ekonomi/thyden-tum-zamanlarin-yolcu-ve-ucus-rekoru/4017075",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843133+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 14:13:08 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Güneydoğu'nun temmuz ihracatı yüzde 19,3 arttı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/guneydogunun-temmuz-ihracati-yuzde-19-3-artti/4017025",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843164+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 14:09:35 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Bakan Kacır: Türkiye, üretim ve ihracat odaklı kalkınma yolculuğunda kararlılıkla ilerliyor",
-      "link": "https://www.aa.com.tr/tr/ekonomi/bakan-kacir-turkiye-uretim-ve-ihracat-odakli-kalkinma-yolculugunda-kararlilikla-ilerliyor/4017023",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843190+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 14:05:50 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Savunma ve havacılık sanayisinden temmuzda 1,12 milyar dolarlık ihracat",
-      "link": "https://www.aa.com.tr/tr/ekonomi/savunma-ve-havacilik-sanayisinden-temmuzda-1-12-milyar-dolarlik-ihracat/4017015",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843217+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 14:04:27 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Cumhurbaşkanı Yardımcısı Yılmaz, temmuz ayı dış ticaret verilerini değerlendirdi",
-      "link": "https://www.aa.com.tr/tr/ekonomi/cumhurbaskani-yardimcisi-yilmaz-temmuz-ayi-dis-ticaret-verilerini-degerlendirdi/4017011",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:58:59.843246+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 13:50:00 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Otomotiv endüstrisi temmuzda yaklaşık 3,6 milyar dolarlık ihracatla ilk sırada yer aldı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/otomotiv-endustrisi-temmuzda-yaklasik-3-6-milyar-dolarlik-ihracatla-ilk-sirada-yer-aldi/4016997",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:04.035270+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 16:15:00 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "Trump'ın İran kararı petrol fiyatlarına yansıdı: Piyasada hareketli saatler - Haber 7",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNQzlUTGZoUllrd28zZ0dnVW1VV1BUcjhPOFcyWVBnSHpCdEN1OVhPRjhUbXJEcVpVMDc1dVFJOXRTeGlNSmtnSFR1YnNXcXdiMGJLRXF6aWRxeWhoN2dFV25weUNLbExSMS15OHo5bUd5RDlNdklnWDRpZGhCMmRLTTZ2LVhqUE5lMHpnbl9VTnQybThpU0Q1SHpOV1FzcG5fMW1Pd2RIbkU3V2ZuTGphZmV3c3pZUWlhTU03REExWdIBwgFBVV95cUxQZjBLaTAwY2JGM1VWbkxPR3BLdU9KRC1YamtZRlpiLThxUEVpdDdQRFFGTTc1ajlSV25sLU5QS1FmTkI0MWRhUG9qYk1fVzRQYlZMZU4yaWNSb1lPN1dFOXNubVFBalduVmhaekZnWW9wcUM5S3QyUDVMNnZtSjNMeG5Rc0p5VnFpNWo5R3ljak44Y1k1bWlTeGh2OVRpRFBoYlNJLVY2VG9iQk5uTXA2UlZVSXVFRzExa1RXTVdRdXNZUQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:04.035302+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 12:42:56 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "Brent petrol, ABD-İran görüşme beklentisi ve OPEC+ üretim artışıyla yüzde 7,4 geriledi - getmidas.com",
-      "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcDZpZHAzREcybXBkSXowazFMZ0F6bW9jZG9ONmpXRThCTnhZcmoxcHlYb0RuTlFkQzB3VWpsNm9BcUVFUXN0M2pFRFR0Rk1hOWxSTjI1c0FZb2ZYTVNVOGMwSTRMRHdTcGR3eDJweHo1VnRkMDRCWGUzZ09meElBOEtyZFBRNkVWeEFGNmVZc2xnaGc5Vk1neGZENHRvVG1tSy1ZZjVyMXdpd3BKdnhscE9FWXdzejBWaU5HRzlaWEFvYnE4ZlpadkZCQTBqcWRS?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:04.035331+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 22:55:03 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "Trump saldırı planını durdurdu, petrol fiyatları çakıldı haberi - Borsanın Gündemi",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOQVBuOFhEclZBUHlXdFlSeHVwRF9BbkF4dzBaeHV1aHFVLXFONG9yMlpndXRZQm5ZRDE1d2VwMkpUMTNJcnJFa0ZURTZreGdnbU56X2hnTHFUTEZxTlV5N1hKQlc4R01HZjZ4TzdCTzdETkh6NlFNX0k3MjBXZGdHOGNKbnZIVUVVRjE0bERoN0U2VHZSd09hOWhreGl3WXNJSHFF?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:04.035423+00:00",
-      "yayin_zamani": "Sat, 01 Aug 2026 05:58:49 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "ABD'nin koruma altında olduğu petrol tankerine Hürmüz Boğazı'nda İran tarafından saldırı düzenlendi. - Vietnam.vn",
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQOFZ0Q254Y0N3dTlWVUJjUVVFNURCUGNTOS1uR0traGl2U0g3LWswbXVPamswenAySHZXNFkzc090WTEwU2lOcmFUVncwcGVYTnJRVmNySjh6WHpWZDF1N0UyazBkNU9jWG9uVVNkYVhvejU1VG5kZkZkSTNQMW5QQ3ZoYkFhOTdSdEFzdmlFdWo?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:04.035515+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 03:20:05 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "Altın yükseldi, petrol İran umutlarıyla sert geriledi; Hürmüz belirsizliği sürüyor - Para Analiz",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOeUhHNXBIbTVzdlc3TE05Q2FyUnFLd3pfdnpLb0RFb1BmTUNqdTZzOUxRS3doOWV0WWl6R0NYbUt3MUZyT1B2QVdsd2gyVVc1cEZqaEFYdTJMSkVvYzIyclhUaDFic0h6dC03RVh6QmlLXzkzWlJ4MGxiNWtxQmJaWDNreWVZSGFFSGFza1dHNHUyRXhwd3lZQXlORVVLU09iRjRRQXl6MDlHOW1HX1dkRXRR?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:04.035680+00:00",
-      "yayin_zamani": "Sat, 01 Aug 2026 20:12:21 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "Hürmüz Boğazı ve Körfez bölgesindeki petrol ve doğalgaz akışlarının geleceğine dair iki senaryo. - Vietnam.vn",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQWGFfMnF6MVRSTmYyNVZXVG41WThBbjhBME9RVmNzTGZxMG1RUmU3aE1iQmRZRXE3eFpub19tS1hsSEEwa29kR1RVcEozbkRBUVhQWWw3eUkwenItV01KZE1wZ1Q4NlR6OW80RnFOS296b2VGT2o0ZU92UE1UYW1MbldHZWRkS0ZGWnFrREY2OEdNaTNuSmpfczF4WF8?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:04.035773+00:00",
-      "yayin_zamani": "Sat, 01 Aug 2026 00:55:55 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "İran, Hürmüz Boğazı'nda ABD'nin koruma altındaki petrol tankerine saldırdı. - Vietnam.vn",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNb3oyZHd1Mmdaa2VfQ2kyUEdhZDBlU2p1dDJ4M2VrTmowbnlCTE41a3YtYkE0bTJmd2dVOWxQamhjRk1YZTFKNmI1U1NoZ05rdWJMX0MyV2FEeUlOLThiNHNfaXBEdF92aVQ2V2NXMDFaVzFPLU5jZEVTemhSb3VxMmtMdmlkVzRpUDVobg?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187542+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 04:32:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Altında temkinli yükseliş: FED'in faiz sinyalleri bekleniyor - Kıbrıs Postası",
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQbWNIWHcxOE50UUdKTWYwWVpYcm1lR3BkMGw4OUNZRkhPZnF2ZEhWQmtmUjBEN2VOSVhvMndGeGx2X1NzMXpTWlZZc1RCNGRmZWpVSTlRaHhpZHA3T0FRd043OU9uQWNwWkd6NWVRN3RqMnFtU05UZUpISUVQSkR5dnFuUjhDWkMxR1JZcHV0V01oQ0RQbVhkLUYwMTlubExnbHktWDhrOGxBX3Jo?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187578+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 06:32:16 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Williams’ın uyarısı: Enflasyon gerilemezse Fed faiz artırır - Investing.com Türkiye",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPdU5BTWxQVTZmR3dCLTJfb2JLQjlDRDVqbkFxTFhDTE53QzdUX1NlcWtTWGZ6bm9rTm1UTGJvT3NHTHo4UzJUTnd1bzNQUEtXQkROcDBpLWpRT1BHTlQ2cjF5aW56aURxcURJVjktRzlHSF9rblptQ1YwSG9ZaFNtMTREaW1RUXlGaVRGc21sOXFHNjVaYTBuSkd4WEtiUVRmVWlHdHAzVExoTVZCUVRWWmdTdGlzRnFLME9mWUI2TQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187611+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 00:02:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed'den Warsh, düzenli FOMC toplantılarının sayısının yılda sekizden altıya indirilmesini değerlendiriyor - TradingView",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBnS3VPdHR3WGVWTmZJZzRxMGV6ckxOTVZyMUZwQ2dBR0hqaVFkeWxWTjdzNUV4Nm9iZmtsa0lSZDhJeFdYdDhNMWg5QVZBM0pTVGJUUGFfVEdmem56eEMtUGF0VzRxa09W?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187638+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 18:34:59 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed ve ABD verileri emtia piyasalarında oynaklığı artırdı - Anadolu Ajansı",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE16ZDdlcHpHT3pJejQ4SVBpZUFuck95STJJMmxsTWI2VGZUWlNYWTNiS0NxTTNPR0lFZ0hKdzZZeXNKR3pQZUVWZEdUN2gyR2dTOWhCX3dkU1VLUQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187662+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 14:14:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "JPMorgan, Fed faiz artışı beklentisini aralık ayına çekti - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNeVNfVzhUN1AxMmZZZkhsQVN0SkQxcmtYdzdZaFJfaDlTLUdHeTZ5UmJQVjEteU9SNllLcXdiMkpWOTlxX1U3R2F0MHI2b3hLZGtBRlpLWEpXUlpuU3g2eldqaVZJcDFSM0dZRElKRWEtZC01YU92dHJzNzEyN3ZHaUpfNWoxenpnUUxhZjdwSmlZMlRiaEU2ZGpRQ2lDVWlpTXo4Z01Idm5CUktFSHVsS9IBtgFBVV95cUxORHBQT2JWbHNUeUxsaEx4b3owaVBaZGJ4OUlvdEdzOGY1M293NEt4bEY3UmFCRkpjWlV0VXpNRk9TQ2FtRklpNGhfRkVkSUtuX2x0TTNraWtNTFJPWXZHU3A3aFZEVTBnc1N4UURWeWpZeXF6MnhEaEVMOUY1WG9Qd3VvSUplZVlxX2tOQlNpeTJOQzNUd2djbl9sdEZMbnBlM2Ffc21DeU5ZeEdFNTlwNnMwQ3p2QQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187694+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 04:38:08 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Altın, Fed beklentileri ve İran risklerinin USD'yi desteklemesiyle 4.050 doların üzerinde yatay seyrediyor - FXStreet",
-      "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNbS1HWGc0TDc4em9Hd01NN1VwZllHNlVCbG9mbkVUTUI4VlQzVHBQaXN3RnZLNTRCNTRSUkxidEFuRU05VVF2MzYwaE5XUWhmYXpUQmtCZExtdGpmLXM1LUJwSlU0UWE2eTVjLUtxa3h3VkVGZFRVMkMzSG55Wkc3RkFPTFBHc2wwN1BhRzlxT3hzXzVUR1FWb1ZPSFcxeFJURnF2cHJ2TlhjV2JOOUtkNDlsdHJ2SDl2eUhyT0xhUUJYYU8xZXZ4RDVaX1ExTGduVGppMFNOLXF5SVI2WkJicE8xSloxRHB5OWdRdGI3MldHVno3SjBuUjloZFpLY1BsWTFz0gGIAkFVX3lxTE9kR0doRE9pYUxCZ1lfdk5JRk9OTFprQk5yRkFjY3plWkhvZjZidll3RHY4b1NOZ2lMVUtuMzllNHNGMUQzTkZMNnFEXzJ0d1pJYVJaSWVUSTdGR0lKd3JuaUdBRmVvTkg2SFE2UndRRlJyWkZpZE1SYklXQkhncDQ1eXU4Z0xvcnpEMVFUX3M4VF9mNk5mSmRnSTdrcnROX1RZbDA1bWYtRkhXZ1lxRHJfQXl0ZDZwMmUxZHpqbU1QOGI4Vmc1dkYyOXBSeFJYSW41cE8well0Y295d254Uzh5b1F2eTI4SE9qUjFEQXRzVnFsSGxaVXFqUnoyVTZUODlNcHg0cXdBUQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187740+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 04:24:56 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Piyasalarda Ortadoğu ve Fed çıkmazı. Altın ne kadar? - NTV Haber",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPRnZuek13SHBfQk1uSHdTZjJIX19EcmFlOVNlOFM3X2tDWnZuVkp0SndmdkVjbDU1SHVMQzVxR2NOT21HYmRHMmlhOUJPM2tmdW8wXzJmUlpQaFN5MkNjbVdLMGtUWU5lb1FPeXp2RXdYdTF4blpiak9PNjFsd2Zmd0VTcGM5dUxubVpQaEtSdzRyNkhtQjd5Uk1WWWRDRG9YbktMaw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187766+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 10:31:57 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed'den faiz artışı beklentisi dolardaki düşüşü sınırlıyor - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOZTg3ckU3R2hxdWh6Rk85WFpnaWptdXBOdEdXRERSdVE3dUZNZm9YZTRuVXpreURVdTRsLU4tRXkzYUFEZmxNZ1c5eUV6dm5uNU4zSnhGZzdrZ2d2SXM5V1RvR2Z6UEhaUDM0REg5SG9kS2NqZGY5RDhYa0p2RWJxNlRLUVJfUHplb2dOV205VV9ZcE5HYVJjTEVKaVhaS3Fqd1BPTnFvQnhwbXdESW9semg1OE1YdW1nZVFtY3d2MXp1RG5IZU9STFlUZjgzZnlTekt1UkpxNlZPYkM4MVRRdnREb0lqUUowZmptc3AzNzJOOVB2ZUE?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187820+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 10:53:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed üyesi Williams’tan enflasyon mesajı: Gerekirse faiz artırırız - CNBC-e",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbFVUdjdnUlZxNUhqMnZURFlJUlhpTlI5bmVvbDRhOTFjV2RJUjIxMW8xVlFTYTQ2eWxRUkstRWNFbjdzZDZvN3ZPcE5zbkdiYzBaUHRrWjJQZ1lZSUZqcGlVejRscWU5U0tDSXFlajBUcVZEQXVnRndDZTBLYVpPdTdDanl4eGhkSVZrVHkzMjVpSHF6UU5nTzlwMTVIWXh4WkFV?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187846+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 04:15:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "İran mesajları ve Fed beklentisi altını hareketlendirdi - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPYTloNkpHdHB5ZUJzMVVZd0c4VEpkcHBxN2t2UmhHRGFTRGN3enFZcEd3ZUl4V21NQjF3aUw3TFJRVG1jUE9YdFRIN2VtMk5fWmZHU1hiWjJYOUQ5Q2ljWGwzSG9tM2YxSXlHOWk3VTRHMUZfM2hKMmVZeEhmLTRGbUVsejhlaW96R3Q4TXJjR1l6THZpY1ktcTY3WnQydEZsRjZCVjNhUVdyMDNRVzhEa2hMQjMtak14cWtFT3BBSEEtcHZZbFBWZDVMNGpuZXdnTjRvVWVWaHZLd9IB3wFBVV95cUxNRjhla3hadmZoUlduZU5sNnE0MU9ELW5JNk5YUUJyOXpkZ2RRZ2gtOWFIUm00ZmNLNDVmcGdKZHNKaUVPdWZpNEtfWnRMYlFUMEY1czRIYzVHeV81VVZEMzV5NEZkR0VzV1hLbHF2UWZMQXE5MjdVOG1FNnRNTEdUM21iQUJ0MzgyeWpaQUhDSHBXNVFzMlI1OTBtM3psTjdaVy1JNmRHUlZiWlNtc3Z1Z3JrcnlMN3JLd2JxWi1WVlp1Nnlzb3dmd1l2MkI2d1NxMld1OFdDYjZNd1RZeDVJ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187873+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 10:21:48 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed’in Williams’ı enflasyon sürdüğü takdirde faiz artırımı olabileceğini söyledi - Investing.com Türkiye",
-      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOWUJmODZTS2J3NXQ3Mk1qNU5rdDVQNXA4RFNjVEl0MDVVN1hoN2NZSXVWbkdlYXk2MVBLS1ROMWUyNXFNbEVWTTlJWHlIVUVncVduMGVWRnJuT2l3RnByZ00zYUtrbDh5ZmUzT3Q3b0MzN1I0UjhJejc1WkdpcC1vcEl3bU5sODd4eEJyT1FvRFE3UkVHZ3gtalhjdkwzcWNFQ3NsWmlsS1VLZkQ4SFg1bGVOSUh2WVoxN2MxZVdsNUUxVUE?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.187975+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:28:58 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "FED/Williams: Enflasyon inmezse faiz artacak - Paratic Haber",
-      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1fWHdXVW40YmNmUlc1akRBWFZRUFo5VTE3MDN6WHMxaGxWRUMtSmNlTGdjbzVaZjBYb1F4V0NkdU9lX2FwaWFyNWttLVdPRlhabkJ5bTNJSERNREFBb1RBRTN1NlhSMkNZNUpyM3kxc1FPZw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.188000+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 05:10:37 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "40 trilyon dolarlık soru: Piyasayı Fed mi, kamu borcu mu yönetiyor? - Para Analiz",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQbHpod3RMSlYyQ0IwTG45eHota3lmeVdjOTUxRDdEM2drU2hFODdiVzZrcGw5ZXoxb0FTMkdaTG90LXRGOVNiNHhyUWtCd01DSHRDMjk5TllMWnI1NFRGVnlfVmlXenlpSVZmbVBzblhNM1RmUXpvVnJUcy1JVDhVMk42TGp0ZFV1Zk9FMENQRjhjTWFkQW9OYmdOeFlGQmJWN3c?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.188057+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 06:01:11 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed anketi: Ticari kredi standartları sabit kaldı - Ekonomi Dünya",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVXhzNzZkOUxmNkp3RE5TTDA3UGZZYTNhYmlaQm9fOEhRel9GLVM1RmFrbFJrZnRuRlNLalo2SE9yTDVkaXRXYzZrWXRYMkFodWFkVV91dGl1eHQxSDM4YUlNemU1TEhaNXhtSnlVS29kZkFmb0xGdGVielh6ck8tX0RYZUdmNU9WQmRxXw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.188079+00:00",
-      "yayin_zamani": "Sun, 02 Aug 2026 19:46:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed'deki üç isim neden faiz artışı istiyor? - Gazete Oksijen",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPRl84anlLZmdmRjZXTm8wYmo3SFM1ZjE1R2F6UjU1N2dscmw3Z1A1aU53UGg4UFV3UGRleXV4dnNkTTlBeUhTd29qLVJLQksycjRHdEFKUHhBVmpyTzNJTTdYNGpueHFsd3h3enhkNWs3WnNoYU1NOGduWm93NDZ5WHZwcGNHZlJvZnc?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.188104+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 21:44:53 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed: Büyük ve orta ölçekli şirketlerin kredi talebi güçlendi haberi - Borsanın Gündemi",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxON216YU9rTjhPaWh2Y3FDRkNQaXNnd256SkY5SVhBSDgzc196amZQbmpZU1VlVWJWV1dYMGljZFJvNDlCZklYcTlQYUpoMk9PNXpKeUdweHJpUjhsTzBseTdEak5BT0lEeE1lVVV3V0hTX05TZmotZXpmcDZkbW9namZIa2hRNnZBV2paOXFRZEdCVVk4cDl5WUV3OWNhXzhrMkdXMXRYa1M?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:05.188131+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:30:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "New York Fed Başkanı Williams: Mevcut faiz politikası enflasyonla mücadele için yeterli - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOdTE2RS00ZXdDb0VJMkhHbGE4YkxYQ1BoR2tHZDkwMFZJN3QxLVdCZ3o2RWVOZS1pSjMtalNrYnJCYkZickkwS3phNTRQdmNxUVYzbm9xYTVkRFlBbkpRMFlHakhBckdYZlZTYTYxUlBhM1RNal9ya2Z5a2ZwTUQyZ2JzWTd0U2hoRFFIUmFGWkJhVGhjcGEzR2hwdUppUG95aGgwd3FDbE5yb0JCZ3JNZG9SY05hbHVGRmRxS3NSN18zMk5qMUJaOHUyMm8xeXdBN29GZnJSeFPSAd4BQVVfeXFMUEo4TUFWbHdfSF9FSWg5ZzZFM3VWeFdEY2NwZ2ZlNVYzNGlRd2thZk9ySWJvRzhFN0RvNzZSUE80T2JoOTB0LWItQWRSSkNsNEphZHBnbnhSXzhwY2Q0VVYyVWt3ZWloSXRFY1FFaEFjNFhNNGx1LXZ5Q2lveHVpVEdBa0ZiTlZGXzRLdlBmNndveGwteEw5N0FxSGpNdjNSNGZqeUoxMXR0ZjZEWWQyNkF1TUU3ckhpTDRZQVZsT0ZwWDZDd2JUNDgxSXY1U3U3WHJ6eXBoRlNWcHJ6M0xB?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:06.391500+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 07:35:00 GMT",
-      "kaynak": "Makro-TUIK",
-      "baslik": "TÜİK Temmuz ayı enflasyon verisini 1,78 olarak açıkladı. Ağustos ayı kira artış oranı 31,90 oldu. Temmuz ayı enflasyonunun açıklanmasıyla birlikte ev ve iş yerlerine yapılacak kira artış oranı belirlendi. Türkiye İstatistik Kurumu, Temmuz ayına ilişkin enflasyon o - instagram.com",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBYaExCakxhQWVmYTBjZ1pEcW55M09uV0F1MTBBVW9PLU81MU5sZ3RiRjg4ZnJzTkI4VkFGd1pzVVU5V05KUlVjVVNjSG5raXd3VWc?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:06.391641+00:00",
-      "yayin_zamani": "Sun, 02 Aug 2026 17:04:09 GMT",
-      "kaynak": "Makro-TUIK",
-      "baslik": "TEMMUZ AYI ENFLASYON VERİSİ 2026 SON DAKİKA AÇIKLANDI 🔴 || Temmuz ayı enflasyon oranı ne kadar oldu? TÜFE-Yİ-ÜFE ne oldu, enflasyon yüzde kaç? Gözler TÜİK'te... - Bigpara",
-      "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxQcEtJdXNnN3ROcThWeHdtNURSYk1SYUJiM1o1OVlib1hsOGZZbExkNmc2d29Xa2xRc0VWU1E3SDhMd1VUMkJDQmxGaHdiQnR0ZGhWelJTREloYkxINUI1OV83N19aQXBsTkl6QjZZSTE5S0Zfa092MTczNUpaaGV1UXdIY0NLNDdaNml6WXZLVXZDVFFfcTVFWDBNWXUzdDRTc2M2RXFyYWlVbXJUVHhkY01kVnRQeXJNTXpQLV9RNmIwQmVmdWIxZmJwUEY5aVI2bDhDMmptcFpfbEpWV1c2azVBak50M3laNDhfTk9yNUNIZ0FRYU84anFRVzcxdUdscGZnWDBzSjA5OW5hNU1jVkVvSHk?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-04T07:59:06.391884+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 07:45:41 GMT",
-      "kaynak": "Makro-TUIK",
-      "baslik": "Mustafa Durmuş: Temmuz Ayı Enflasyonu Artarken, Ücretlerdeki Erime Sürüyor! - Politika Haber",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOLTVOZDlZRERfN3Etd2NSRkczNXc1cjcwbWtnSnl4SmJTaU5aZWdYZTl6X0V3aGkyRkR0NzBoZkpTMjQtcm9FRUItU1UtZ19HTFNxVHB4OFlyX1lfUmYtZFl5X2VwVndMZkxoVGJXeU93Z0JhSWhIVHowMW5KTjNoS3FfR1lHRWpMZGZIOEhGeUk0UHIxd3BjSEdub21oZXZL?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:23.448134+00:00",
-      "yayin_zamani": "Thu, 30 Jul 2026 06:53:37 GMT",
-      "kaynak": "GN:ISCTR",
-      "baslik": "***XU100* *TOASO* *TUPRS* *TAVHL* *TRALT* *ISCTR* *SASA*** (ANALİZ- Günlük Hisse Senedi Piyasası Görünümü (Akbank)) - Bigpara",
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOM1lJXzNCQzQwYjJQSHJIWFV1VDdKMVlWR1I4NU1VSmx1VkJlbGNRNWNEOUo1eGpiWW5iUU1zQ1gySDVpNTRDZTQ2ajFXQzB1aF83Nm5fYUcySGJSRFFIeXhrWVhMbEg0ZU1OUFFLSUVFVWxUeXJKUEtnQldXdkZFZVFBMHFNTEx2VXcwaWgzanM0SzZNbkp4WjJjclRzUHZpNmQ2amlrcm9oUzFTQmtF?oc=5",
-      "puan": 9,
-      "ilgili_semboller": [
-        "ISCTR",
-        "TAVHL",
-        "TUPRS",
-        "TOASO"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:06.611542+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 19:21:00 GMT",
-      "kaynak": "TCMB",
-      "baslik": "TÜFE-TCMB faiz makası 5 ayın en yükseğinde - Bloomberght",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNaGJuVFhwRVd3SUpKdVhvN3ZTWk14c3lXWXFsMDNPQWgwX2JweUpDVmZZMUNqMl9fbUdLZEExRXhjbUtjYS05enl5QmhaM0JfaFUteWp0ZHpRMm9oY3dMbWZTSFpwdmV2c1NmQWhNbEthRHdhd1RhMzJObDhrS09RcmY3MUpMdzVIb19tQ3FsZ2ctT1N4QVRR?oc=5",
-      "puan": 5,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:12.605324+00:00",
-      "yayin_zamani": "Tue, 04 Aug 2026 00:00:00 +0300",
-      "kaynak": "Dunya",
-      "baslik": "İmalatçı sektörlerde enflasyon zayıfladı",
-      "link": "https://www.dunya.com/ekonomi/imalatci-sektorlerde-enflasyon-zayifladi-haberi-834793",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:12.605545+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 22:21:00 +0300",
-      "kaynak": "Dunya",
-      "baslik": "Tahir Sarıkaya gözaltına alındı",
-      "link": "https://www.dunya.com/gundem/tahir-sarikaya-gozaltina-alindi-haberi-834816",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:13.727654+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 12:19:30 GMT",
-      "kaynak": "Foreks",
-      "baslik": "Strategy, temettü ödemesi ve STRC geri alımları için 1.638 Bitcoin sattı - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOT01vNmJPSmdObmN5SEIzVjBDM2U3QTlkU0k1TlhHbGNXNGlRb1oxMHdiM3VMNGhxdnpja0tNaTBfblVVQ0tVVmw2SDRkdXZ2MkNOS2JxMnFVR0hidU5VQ0ZUY2FJZjJ1aFJrekR4cjVOTE0yV1NSMUFMZ2RpTTQ3VW1OcDJmSHFKdW1xLW9feEVXeG04UkVUaW1FY1VvWnB3N2ZIYklhbS1WWmZvY05qNzl3RERwUkYxeGYza0hkREgwLWhkTEZlOGRUc0Z3RWNnbVNGbVhSUUR5U2h6Mk9qZ0lMQl9ObHd5U0syOW5TUHBNQ0tHR3pnUXp5ZC1HR3hFRFdSeA?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:49.130811+00:00",
-      "yayin_zamani": "Wed, 29 Jul 2026 05:57:52 GMT",
-      "kaynak": "GN:EKGYO",
-      "baslik": "HİSSE DEĞERLENDİRMESİ- Şeker Yatırım, EKGYO için 32,84 TL hedef fiyat belirledi, - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxPREdDbndLMzNTc2J4Z0NzaVozXzhHSVJ1aEItRjFnaXRuYWh4ME1ORkRIS2xaX0JSMGloblRDdUpJdkpzVUlaY0owVGUxRXdKOF82YndfMWtnSU13Z0RWaXZjcVVJNUtqbUxnaHpXT1cwZzF1Q1ZLZzFfNktmWVZ2QXM5d3FZRWZhcTFwWkw4VmtnbV8zNzAxVEhzZWFaSWV0UFFlZHNLeGhjV3p1UmdhUUNobTdLNkNabF91SVlzd0dTQUNyc2w2TFFZczdsT0ZVNC1kTkZiQnhQRDBqemxoMGV0RkdrR2M4ZENwRWNuTTNyQ1JZWWRpdUtkY3hOdnhab0h1Nk8xdmRMUnRfVUpLVTk3bzg1bXF1?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "EKGYO"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:52.247572+00:00",
-      "yayin_zamani": "Thu, 30 Jul 2026 12:44:10 GMT",
-      "kaynak": "GN:ALARK",
-      "baslik": "ALARKO HOLDİNG GRAFİK İNCELEMESİ. #ALARK #borsa #HİSSE #alark #alarko Weimar (9N9tnCT8hV) - mshale.com",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5RcFphdzZueDZPcHhlWjJOWGdMd2ZxSmU5Y0llU1RYTUlONWZOTkNQTThsRkFZQkYtbV9LTWJmNFhwcG43bFdHaVNZR2pHcDMxY01CSFJIYndjTnByaXdJXw?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ALARK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:52.247615+00:00",
-      "yayin_zamani": "Wed, 29 Jul 2026 11:01:35 GMT",
-      "kaynak": "GN:ALARK",
-      "baslik": "ALARKO HOLDİNG FİNANSALLARI #alark #hisse #borsa #yorum #analiz #alarkyorum #ALARK #alarkoholding Weather Warning (i1GxPzruOo) - mshale.com",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5oMEdpWmlsZklMWkhrQk56VVlzVzAxdnJFQ3FLRG5LWGxFa04yelV2aE5tdFU1Vk9iUm5LNTJFZUNQb1hscXpRcWxFSlpaa0pSd3kwYU5TTkVLYV9SeDN1VQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ALARK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:52.247661+00:00",
-      "yayin_zamani": "Wed, 29 Jul 2026 12:30:23 GMT",
-      "kaynak": "GN:ALARK",
-      "baslik": "Yükseliş? Yeni ALARK Hisse Yorumu - Alarko Holding Hisse Teknik Analiz Hedef La Galaxy Vs Atlanta United (x6kzNJfWa9) - mshale.com",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAzTmRyYVN5Nk9YbzRQN05SUGxtODQ3UU5uLWNYNTJlTFJnbEdwQlJxc0NoVmtHa0lrcEtTNU16MWNEemxFMzhKY2J5bU1HZExYeUx4b1lJU2FwN0U?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ALARK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:07.594161+00:00",
-      "yayin_zamani": "Wed, 29 Jul 2026 08:33:00 GMT",
-      "kaynak": "Reuters",
-      "baslik": "İran'dan Hürmüz Boğazı için kritik karar: Ortak yönetim teklifini reddetti - ekonomim.com",
-      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQbE9lRlFzUkxDdWJWRjh5YlNWaHRNMk5zdEdOYUgtclRITktja3NQNk5GS0FLYmRGVjZaeVhLazlpVDhad3l6MXJySmlrSHNIN2lNWmJoRTNEejJRSEdKWlpDTUVHX1o5SkhHeW5ORnE5c0E1SjJmVW9yUnQ1Qmczb2Nhc1p1N3FJLXc4dHVFeDJ0S1FENThZcjYzUW5ZQ0ppM2JYTWNkc2JvUUxlQ0FBWGFJVDlfWWNq0gG-AUFVX3lxTFBtTDUwY1oycHZBWW1BcExSNGRTNWVWUUN6a3NDQUVmSGZUQXJma1MtR0h5MGdMcnBFbDVtRWdsRlZ0YV9rZEdMc2FpNlJfay05Snl4dnJjSGVhcE9zRy1acmZBbGdnWkh5blpQQ0FrUlh0SHY4TWdNQ0hMNktPT3d1S21RWk9oNEZ0OS1EXzNiYnc2bVQydTl5NFcyZnEycTJLOXVDZWt5Qi00TlREM0dGT0R5WGFKemU3ZHUtaEE?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.747750+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 21:02:51 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Visa, siber güvenlik şirketi BioCatch'i 2,4 milyar dolarlık anlaşmayla satın alacak",
-      "link": "https://www.aa.com.tr/tr/ekonomi/visa-siber-guvenlik-sirketi-biocatchi-2-4-milyar-dolarlik-anlasmayla-satin-alacak/4017425",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748075+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 13:34:10 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Cumhurbaşkanlığı Yatırım ve Finans Ofisi Başkanı Dağlıoğlu TercihFest'26'da aday öğrencilerle buluştu",
-      "link": "https://www.aa.com.tr/tr/ekonomi/cumhurbaskanligi-yatirim-ve-finans-ofisi-baskani-daglioglu-tercihfest26da-aday-ogrencilerle-bulustu/4016968",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748102+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:06:13 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "ABD'nin Iowa eyaleti Türk yatırımcılar için işbirliği fırsatları sunuyor",
-      "link": "https://www.aa.com.tr/tr/ekonomi/abdnin-iowa-eyaleti-turk-yatirimcilar-icin-isbirligi-firsatlari-sunuyor/4016774",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748165+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 12:49:06 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Cumhurbaşkanı Yardımcısı Yılmaz: Yapısal adımlarımız sayesinde ekonomimiz dışsal şoklara karşı direncini korumaktadır",
-      "link": "https://www.aa.com.tr/tr/ekonomi/cumhurbaskani-yardimcisi-yilmaz-yapisal-adimlarimiz-sayesinde-ekonomimiz-dissal-soklara-karsi-direncini-korumaktadir/4016897",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748195+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 12:35:25 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Bakan Uraloğlu, Türkiye'nin ilk yerli ve milli lokomotifinin Afrika'ya ihraç edildiğini bildirdi",
-      "link": "https://www.aa.com.tr/tr/ekonomi/bakan-uraloglu-turkiyenin-ilk-yerli-ve-milli-lokomotifinin-afrikaya-ihrac-edildigini-bildirdi/4016888",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748225+00:00",
-      "yayin_zamani": "Fri, 31 Jul 2026 15:08:19 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Kardemir Çelik halka arz gelirini işletme sermayesi ve ham madde tedarikinde kullanacak",
-      "link": "https://www.aa.com.tr/tr/ekonomi/kardemir-celik-halka-arz-gelirini-isletme-sermayesi-ve-ham-madde-tedarikinde-kullanacak/4014960",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748251+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:40:40 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Enerji bursunda kontenjan 500'e, desteklenen bölüm sayısı 38'e çıktı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/enerji-bursunda-kontenjan-500e-desteklenen-bolum-sayisi-38e-cikti/4016822",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748277+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:05:33 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "YEKA kapsamında ilk yüzer GES önlisansı Manisa'daki projeye verildi",
-      "link": "https://www.aa.com.tr/tr/ekonomi/yeka-kapsaminda-ilk-yuzer-ges-onlisansi-manisadaki-projeye-verildi/4016771",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748319+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:05:28 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "TPAO yurt dışında büyüme stratejisi kapsamında sınır ötesi ortaklıklarını güçlendiriyor",
-      "link": "https://www.aa.com.tr/tr/ekonomi/tpao-yurt-disinda-buyume-stratejisi-kapsaminda-sinir-otesi-ortakliklarini-guclendiriyor/4016770",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748348+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:05:24 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Hakkari'nin güneşini değerlendirmek için 10 megavat kapasiteli GES kurulumuna başlandı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/hakkarinin-gunesini-degerlendirmek-icin-10-megavat-kapasiteli-ges-kurulumuna-baslandi/4016768",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748375+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:16:42 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Shell, Avrupa'daki yenilenebilir enerji portföyünü TotalEnergies'e satıyor",
-      "link": "https://www.aa.com.tr/tr/ekonomi/shell-avrupadaki-yenilenebilir-enerji-portfoyunu-totalenergiese-satiyor/4016792",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748404+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:13:24 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Elektrik santrallerine haziranda 1,01 milyar liralık kapasite mekanizması desteği",
-      "link": "https://www.aa.com.tr/tr/ekonomi/elektrik-santrallerine-haziranda-1-01-milyar-liralik-kapasite-mekanizmasi-destegi/4016788",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:11.748430+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 11:05:18 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Düzenli yağış ve doğru tohum tercihi bozkırda verimi yüzde 100 artırdı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/duzenli-yagis-ve-dogru-tohum-tercihi-bozkirda-verimi-yuzde-100-artirdi/4016766",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:14.845258+00:00",
-      "yayin_zamani": "Tue, 28 Jul 2026 09:12:45 GMT",
-      "kaynak": "Makro-Asya",
-      "baslik": "Bugünkü borsa, 28 Temmuz: Avrupa, lüks, otomotiv ve savunma hisseleri sayesinde Asya çip piyasasının çöküşüne direniyor. Saipem hisseleri Milano'da satış baskısı altında - CANLI - firstonline.info",
-      "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOaEg4X0kwbDFnME9WQ1k5N3daTV9MREJZWXFGR1VFLUQ5MDNzdnd3cWJxRy02cEU5VGp4dko5NDdXMXpST1pqVDdEWDg3UHI1U1FQUmFZWEhFcjQweWotd3hpcUpUQy16dk02NXNGY09Gak0yUEpsM1JFTEJScmI2bUt6NUZPclN6VFQtS3NmSktqMmZfR2FydDN2eGRWT3M0cE9wdG5nUFd2N201eEhwc0RvZ3lJNl9kYWdDZlFjeXFMT2RpUF82blhrQ0lWTVp4Qk93a0ZEVEpzY3EwYmhQcDl1ZWV5S0psNnVXU3hQNW96c2R0?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:14.845462+00:00",
-      "yayin_zamani": "Mon, 27 Jul 2026 06:58:40 GMT",
-      "kaynak": "Makro-Asya",
-      "baslik": "Ortadoğu'da gerginliğin azalması işaretleri ve petrol fiyatlarındaki düşüş, bugün borsaları yukarı yönlü hareketlendiriyor. Yapay zekâya olan ilgi geri dönüyor. Çin fenomenini takip edin. - firstonline.info",
-      "link": "https://news.google.com/rss/articles/CBMi9AJBVV95cUxNYUMzQVhSVUE1aU5ldVpOUmtTT0hRZzh3azZ5Qm9DLXNWOG9pWE5YblpqdElqX1luTEpyWWJwb09VX3NOQW5UdU51MUQ3Uk14SmtLMjFyeTJPNnpPWFg5VHBYQTlqbERqd2ZDekNkbzRPSC1VY21UMUZteHJ4YUpSRmZyNmh1VU5kWkxkWFJudG9Ec0JVS0ozY3JrVGZRNzBtNlVFRmVYSVkzcG9aSGJOcDI2Ym5xcEpubzNrckxkdXUtcFhqMlhFOFVmZF9Wei1UREctZnRWdDdsQmE1QzNPQUhsSmxscExzRk5PREQxRTlKQmJrUWc0MUZXdHJhekZ2d1dkVGN1cDZqaXpzYVNGa0tNb0VUUE16ZWUzQ2lvYnJRdTQxTmZqckN5SzVfQUVnUHJQNnV2VFJFbFN5eTlqVHdQU01RRXQxWk45a21yeGIwVWJLOHlBV0ZGSTBPY0tOWTNDc0gzWWZSV0NsYWRJQ3d0MlI?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:16.023658+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 15:22:30 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "İran görüşmeleri petrol fiyatlarını düşürdü, tahvil faizleri geriledi - Investing.com Türkiye",
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbm51SGVzVmxubF9BVGU5MGlWb01kQ3dReDZUUG96U1ZSOTdfdW9yRXpFZVhmYTktdFAyQl9HSkh5RzdQTlFXR2JhU19lVDc1V2dHMGl1REN5clF2R1BndHpxeHc5a0U0bmNRWW9LX1JiY2NUSl9YN3hkOS1qWEU2U2cwWjZDWjJYNGl5TXVvb2d6OHRmNUxFNDZvZ0F1MmttZlFQbmZlZVlQQ2NRY2VkQWpuVFVKb3h6U09sM3J6UQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:16.023697+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 07:29:00 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "ABD-İran diplomasisinden petrol fiyatlarına darbe - Bigpara",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVTJqWkpqR0FPVm5yZDFSWlo4SkRmdFBtV3kzZmdBbGEzX0NGRlFUQlh6ZWQyR2N6S3k5dDN5WDI2TlAxQ0p6VFZheld3c0tPWXp3WUlWMHhvS2d3dlBnejRzNnZwWktRRU1ndkp6ZGJkcldmdE03aW9zNXp5MGpQUFpPRV92N0ZRS3MwRlhKQk52VGFkQzlnS0hMUQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-03T21:54:16.023766+00:00",
-      "yayin_zamani": "Mon, 03 Aug 2026 15:59:47 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "WTI Ham Petrol, piyasaların ABD-İran geriliminin azalacağına dair bahisleriyle 79$'ın altına geriledi - FXStreet",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOR2htRHB1WERjWGpKTVFOSm1Tb2Zmdjc4c1d2YVNXY3Fxc3NJYy1MZlhubTlQT3RRRWR5SEpHUzV0NG85dXY1dlVpUFVGZ29pVm54VDBnbDcwNWt1V1F0cWxvazRzajY4aWVOUDdXdXBoWV81dzQ1M2o0SlNONmE2X3pNdWN6aUdZb3FCZ0JjNmdPalY1YlloMEtoTk8zaWxJVF9jMFZ4WmpONDd1RU9aVTMzcVV0NDV0QXVlelEtMjBOX1NBbEZj0gHMAUFVX3lxTE9YcUVlblFuVW40dmcxdjQ2U2RrQjBqRjltVmFnV3lDTkxSQlVkalZDVzcySXZxWDhhMWctbGRQNzhZVnp1S0xLVUR5MW9pMWpUSDhpVVRRR1UteHFGOU9EdllGcDJOLVV2Z3ppbXBYUjBTTGVnN0ZFSWx4VDJEVDJjdGNuMWszVmdRMDJxT1l4enJwd2NxMTJiNUhCQUpscDFsNTdtRk96SEVTbnUwcXVZVjNOdlNzUWZ2anpmQ3VWVXNhWVExeGE2VUQ0dA?oc=5",
-      "puan": 2,
       "ilgili_semboller": []
     }
   ]
