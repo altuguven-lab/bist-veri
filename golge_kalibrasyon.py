@@ -72,7 +72,10 @@ def main():
     tum_sinyaller = list(a.get("sinyal_gecmisi", []))
     for arsiv_yolu in sorted(glob.glob("data/arsiv/tv_alerts_*.json")):
         arsiv = _oku(arsiv_yolu) or {}
-        tum_sinyaller += arsiv.get("sinyal_gecmisi", [])
+        # 04.08 DUZELTME 2: arsiv dosyalari "sinyaller" anahtarini
+        # kullaniyor, guncel dosyanin "sinyal_gecmisi"'nden FARKLI -
+        # ilk denemede bu yuzden 0 kayit eklenmisti. Ikisini de dene.
+        tum_sinyaller += arsiv.get("sinyaller", arsiv.get("sinyal_gecmisi", []))
     # tekrar eden kayit olmasin (zaman+sembol+sinyal birlesimi essiz kabul edilir)
     gorulen = set()
     a["sinyal_gecmisi"] = []
