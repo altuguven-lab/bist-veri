@@ -17,14 +17,19 @@ Portfoyumuzun kapsadigi sektorler:
 import json, datetime, math, os, sys
 import yfinance as yf
 
+# 04.08 KARAR (a secenegi): Holding/Ulastirma/Iletisim yfinance'te
+# neredeyse hic gecmis veri barindirmiyor (15 gunluk pencerede 1 satir).
+# BIST DataStore'da (datastore.borsaistanbul.com) ucretsiz ama AYLIK
+# toplu dosya + hesap girisi/sepet akisi gerektiriyor - orantisiz
+# buyuk bir is, simdilik ERTELENDI. Yalniz calisan ikisiyle devam:
 ENDEKSLER = [
     ("Bankacilik", "XBANK.IS", "AKBNK, YKBNK"),
-    ("Holding",    "XHOLD.IS", "KCHOL"),
-    ("Ulastirma",  "XULAS.IS", "TAVHL"),
     ("Sinai",      "XUSIN.IS", "ASTOR (en yakin)"),
-    ("Iletisim",   "XILTM.IS", "pozisyon yok - genel baglam"),
     ("XU100",      "XU100.IS", "genel referans"),
 ]
+# ERTELENDI: Holding (XHOLD, KCHOL), Ulastirma (XULAS, TAVHL),
+# Iletisim (XILTM, pozisyon yok) - DataStore hesap/oturum entegrasyonu
+# ayri bir proje olarak degerlendirilebilir.
 DOSYA = "data/sektor_gosterge.json"
 
 
