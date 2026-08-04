@@ -1,4 +1,4 @@
-# Golge Kalibrasyon (2026-08-03)
+# Golge Kalibrasyon (2026-08-04)
 SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ## Katman B - IP-2 vekili (EMA dizilim gecisi + hacim + rejim)
@@ -36,6 +36,11 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - MGROS | 2026-08-03 | skor 12.8 | T+3 beklemede
 - TUPRS | 2026-08-03 | skor 10.6 | T+3 beklemede
 - EREGL | 2026-08-03 | skor 10.6 | T+3 beklemede
+
+## Katman A - Haftalik Kirilim (P3_SKOR deploy kosulu icin)
+Kosul: en az iki ARDISIK haftada isabet >= %50 (herhangi bir esikte).
+| Hafta | Esik | Kayit>=E, sonuclu | Isabet% |
+|---|---|---|---|
 
 ## Katman C - P3_DEVAM vekili (IP-4 D1 kapisi)
 D1 esigi: kulucka penceresi yakalama >= %50 VE T+3 isabet >= %55
