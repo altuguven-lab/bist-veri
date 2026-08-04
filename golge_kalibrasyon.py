@@ -21,7 +21,7 @@ Gunluk vekil 15dk gercekliginin kaba golgesidir: soguma/kovalama
 bekcileri gunlukte uygulanamaz, isabet oranlari iyimser sapabilir.
 Cikti: data/denetim/golge_kalibrasyon.md + .json
 """
-import json, datetime, os, sys, math
+import json, datetime, os, sys, math, glob
 from collections import defaultdict
 
 PENCERE_BASI = datetime.date(2026, 6, 1)
@@ -62,7 +62,28 @@ def main():
 
     q = _oku("data/bist_quotes.json") or {}
     semboller = [v["sembol"] for v in q.get("veriler", []) if v.get("sembol")]
+    # 04.08 KRITIK DUZELTME: ay-donumu arsivlemesi (Pipedream kodu)
+    # gecmis aylarin sinyal_gecmisi'ni data/arsiv/tv_alerts_YYYY_MM.json'a
+    # tasiyip guncel dosyayi sifirliyor. Bu satir eskiden SADECE guncel
+    # dosyayi okuyordu - 01.08 sonrasi Katman A'nin ucte iki haftalik
+    # verisi (82 kayit -> 15 kayit) sessizce "gorunmez" olmustu. Simdi
+    # tum arsiv dosyalari + guncel dosya birlestirilir.
     a = _oku("data/tv_alerts_latest.json") or {}
+    tum_sinyaller = list(a.get("sinyal_gecmisi", []))
+    for arsiv_yolu in sorted(glob.glob("data/arsiv/tv_alerts_*.json")):
+        arsiv = _oku(arsiv_yolu) or {}
+        tum_sinyaller += arsiv.get("sinyal_gecmisi", [])
+    # tekrar eden kayit olmasin (zaman+sembol+sinyal birlesimi essiz kabul edilir)
+    gorulen = set()
+    a["sinyal_gecmisi"] = []
+    for s in tum_sinyaller:
+        anahtar = (s.get("zaman_utc"), s.get("sembol"), s.get("sinyal"))
+        if anahtar in gorulen:
+            continue
+        gorulen.add(anahtar)
+        a["sinyal_gecmisi"].append(s)
+    print(f"birlestirilmis sinyal sayisi: {len(a['sinyal_gecmisi'])} "
+          f"({len(glob.glob('data/arsiv/tv_alerts_*.json'))} arsiv dosyasi dahil)")
 
     # ---- fiyat/hacim serileri (EMA50 isinma payi: -120 gun)
     seriler = {}
