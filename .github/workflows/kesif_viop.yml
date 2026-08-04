@@ -1,6 +1,8 @@
 # FAZ V0 - VIOP veri kesfi (TEK SEFERLIK, elle tetiklenir)
 # Konum: .github/workflows/kesif_viop.yml
 # Tur 3: XLS indeksini okumak icin pandas/xlrd bagimliliklari eklendi.
+# Tur 4 (04.08): gercek gunluk bulten/pozisyon/sozlesme CSV'lerini
+# indirip alan haritasi + bizim 5 pozisyonun sozlesme eslesmesini cikarir.
 name: VIOP Veri Kesfi
 
 on:
@@ -22,15 +24,23 @@ jobs:
       - name: Bagimliliklar
         run: pip install pandas xlrd openpyxl
 
-      - name: Kesfi kostur
+      - name: Kesfi kostur (tur 3 - dosya yolu haritasi)
         run: python kesif_viop.py
+
+      - name: Kesfi kostur (tur 4 - gercek CSV indirme + alan haritasi)
+        run: python kesif_viop_tur4.py
+        continue-on-error: true
+        # continue-on-error: tur 4 gercek borsaistanbul.com URL tahminine
+        # dayaniyor - tahmin tutmazsa (404/format degisikligi) is akisi
+        # kesilmesin, tur 3'un ciktisi yine de commit'lensin. Basarisizlik
+        # kendi JSON ciktisindaki "hata" alanlarinda zaten gorunur.
 
       - name: Sonuclari commit'le
         run: |
           git config user.name "bist-veri-bot"
           git config user.email "bot@users.noreply.github.com"
           git add data/kesif/
-          git diff --staged --quiet || git commit -m "V0 VIOP kesif tur 3"
+          git diff --staged --quiet || git commit -m "V0 VIOP kesif tur 3+4"
           # 03.08 DUZELTME (tum git-yazan workflow'lara uygulandi): "fetch
           # first" carpismasi - ayni saatlerde baska bir workflow push etmisse
           # bu commit reddediliyordu. Simdi jitter'li pull --rebase + 5 deneme
