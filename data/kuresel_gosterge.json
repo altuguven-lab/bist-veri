@@ -54,5 +54,30 @@
     ],
     "ozet_yon": "RISK-ON",
     "ozet_ortalama_yuzde": 0.92
+  },
+  "avrupa": {
+    "guncelleme_zamani_utc": "2026-08-04T06:29:40.138966+00:00",
+    "endeksler": [
+      {
+        "isim": "DAX",
+        "kod": "^GDAXI",
+        "bolge": "Almanya",
+        "hata": "Too Many Requests. Rate limited. Try after a while."
+      },
+      {
+        "isim": "CAC 40",
+        "kod": "^FCHI",
+        "bolge": "Fransa",
+        "degisim_yuzde": 0.5
+      },
+      {
+        "isim": "FTSE 100",
+        "kod": "^FTSE",
+        "bolge": "Ingiltere",
+        "degisim_yuzde": -0.56
+      }
+    ],
+    "ozet_yon": "NOTR",
+    "ozet_ortalama_yuzde": -0.03
   }
 }
