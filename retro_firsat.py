@@ -72,6 +72,35 @@ def main():
     kul = [p for p in pencereler if p["donem"] == "KULUCKA"]
     kacan = [p for p in kul if p["sinyalli"] is False]
 
+
+    # ----------------------------------------- bilanco-kesisim analizi
+    # 05.08 EKI (kurul karari, TUPRS vakasi sonrasi): kacan firsatlarin
+    # kaci OLAY-TABANLI (bilanco/haber) kaynakli, kaci GERCEK teknik
+    # "trend dogumu" kacirmasi - bu ayrimi yapmadan "kuraklik" sebebini
+    # tam bilmiyorduk.
+    bt = _oku("data/bilanco_takvimi.json") or {}
+    bilanco_tarihleri = defaultdict(list)  # sembol -> [tarih, ...]
+    for b in bt.get("bilancolar", []):
+        if b.get("tarih"):
+            bilanco_tarihleri[b["sembol"]].append(
+                datetime.date.fromisoformat(b["tarih"]))
+
+    OLAY_TOLERANS_GUN = 3  # bilanco tarihinden +/- kac gun "iliskili" sayilir
+
+    def bilancoya_yakin_mi(sembol, gun_str):
+        gun = datetime.date.fromisoformat(gun_str)
+        for bt_tarih in bilanco_tarihleri.get(sembol, []):
+            if abs((gun - bt_tarih).days) <= OLAY_TOLERANS_GUN:
+                return (bt_tarih - gun).days
+        return None
+
+    for p in kacan:
+        fark = bilancoya_yakin_mi(p["sembol"], p["baslangic"])
+        p["bilanco_fark_gun"] = fark  # None = iliskisiz, sayi = bilancoya kac gun mesafede
+
+    olay_tabanli = [p for p in kacan if p["bilanco_fark_gun"] is not None]
+    teknik_kacan = [p for p in kacan if p["bilanco_fark_gun"] is None]
+
     hafta_adet = max(1, (datetime.date.today() - PENCERE_BASI).days / 7)
     md = [f"# Retro Firsat Envanteri ({PENCERE_BASI} -> {datetime.date.today()})",
           f"Evren: {len(semboller)} sembol | Esik: T->T+3 >= +{ESIK*100:.0f}% | "
@@ -82,9 +111,17 @@ def main():
           f"- Kuluckada SINYALSIZ kacan: {len(kacan)} / {len(kul)}",
           "", "## Haftalik dagilim"]
     for h in sorted(hafta_sayim): md.append(f"- {h}: {hafta_sayim[h]} firsat")
-    md += ["", "## Kuluckada kacan pencereler (buyukten kucuge)"]
+    md += ["", "## Kaçan Fırsat: Olay-Tabanlı (bilanço) vs Teknik ayrımı (05.08 EKI)"]
+    if kacan:
+        md.append(f"- Toplam kacan: {len(kacan)} | Bilancoya yakin (+/-{OLAY_TOLERANS_GUN} gun): "
+                  f"{len(olay_tabanli)} (%{round(100*len(olay_tabanli)/len(kacan),1)}) | "
+                  f"Teknik/aciklanamayan: {len(teknik_kacan)} (%{round(100*len(teknik_kacan)/len(kacan),1)})")
+    else:
+        md.append("- Kacan firsat yok.")
+    md += ["", "## Kuluckada kacan pencereler (buyukten kucuge, [BILANCO] etiketli olanlar bilancoya yakin)"]
     for p in sorted(kacan, key=lambda x: -x["yuzde"])[:20]:
-        md.append(f"- {p['sembol']} | {p['baslangic']} | +{p['yuzde']}%")
+        etiket = f" [BILANCO, {p['bilanco_fark_gun']:+d} gun]" if p["bilanco_fark_gun"] is not None else ""
+        md.append(f"- {p['sembol']} | {p['baslangic']} | +{p['yuzde']}%{etiket}")
     md += ["", "## En buyuk 10 pencere (tum donem)"]
     for p in sorted(pencereler, key=lambda x: -x["yuzde"])[:10]:
         md.append(f"- {p['sembol']} | {p['baslangic']} | +{p['yuzde']}% | {p['donem']}")
@@ -93,7 +130,9 @@ def main():
 
     os.makedirs("data/denetim", exist_ok=True)
     open("data/denetim/retro_firsat.md", "w", encoding="utf-8").write("\n".join(md)+"\n")
-    json.dump({"olusturma": str(datetime.date.today()), "pencereler": pencereler},
+    json.dump({"olusturma": str(datetime.date.today()), "pencereler": pencereler,
+               "kacan_olay_tabanli_sayisi": len(olay_tabanli),
+               "kacan_teknik_sayisi": len(teknik_kacan)},
               open("data/denetim/retro_firsat.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
     print("\n".join(md))
