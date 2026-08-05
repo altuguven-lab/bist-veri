@@ -107,6 +107,43 @@ def zenginlestir(kayitlar):
             if s["_tarih"] >= KULUCKA_BASI and not s["_test"]]
 
 
+
+
+# ----------------------------------------------------- fiyat saglama kontrolu
+SUPHELI_SAPMA_ESIK_PCT = 7.0  # GUNLUK_OZET referansindan bu yuzdeden fazla
+                              # sapan trade-sinyali "supheli" isaretlenir.
+
+def supheli_fiyat_taramasi(sinyaller):
+    """05.08 EKI: THYAO-348.50 vakasi (sabit TEST_FIYAT_PARMAK_IZI disinda,
+    GENEL bir anomali) - herhangi bir sinyalin fiyati, o sembolun en son
+    (sinyalden ONCEKI) GUNLUK_OZET fiyatindan asiri sapiyorsa isaretler.
+    OTOMATIK DISLAMAZ (gercek buyuk bir hareket de olabilir) - yalniz
+    rapora "INCELE" diye ekler, insan karar versin."""
+    ozet_gecmisi = {}  # sembol -> [(zaman, fiyat), ...] artan sirali
+    for s in sorted(sinyaller, key=lambda x: x["_t"]):
+        if s.get("sinyal") == "GUNLUK_OZET" and s["_fiyat"] is not None:
+            ozet_gecmisi.setdefault(s["sembol"], []).append((s["_t"], s["_fiyat"]))
+
+    supheliler = []
+    for s in sinyaller:
+        if s.get("sinyal") == "GUNLUK_OZET" or s["_fiyat"] is None:
+            continue
+        gecmis = ozet_gecmisi.get(s["sembol"], [])
+        onceki = [f for (t, f) in gecmis if t < s["_t"]]
+        if not onceki:
+            continue
+        referans = onceki[-1]
+        if referans <= 0:
+            continue
+        sapma = abs(s["_fiyat"] / referans - 1) * 100
+        if sapma > SUPHELI_SAPMA_ESIK_PCT:
+            supheliler.append({"zaman_utc": str(s["_t"]), "sembol": s["sembol"],
+                                "sinyal": s.get("sinyal"), "fiyat": s["_fiyat"],
+                                "referans_ozet_fiyat": referans,
+                                "sapma_pct": round(sapma, 1)})
+    return supheliler
+
+
 # ----------------------------------------------------------- fiyat servisi
 class FiyatServisi:
     """Sembol basina gunluk kapanis serisi (yfinance). Yoksa None doner."""
@@ -340,6 +377,7 @@ def main():
     M6 = m6_haber_kesisim(sinyaller, fs)
     O2 = o2_kullanilabilirlik(sinyaller)
     KF = kacan_firsatlar(sinyaller, fs)
+    SUPHELI = supheli_fiyat_taramasi(sinyaller)
 
     bozuk = sum(1 for s in sinyaller if not s["_skor_ok"])
     gun = (bugun - KULUCKA_BASI).days + 1
@@ -373,6 +411,17 @@ def main():
               f"vakalar: {M5['vakalar'] or 'yok'}")
     md.append(f"- M6 haberli sinyal: {M6['haberli']}/{M6['trade_sinyal']} "
               f"({M6['not']})")
+    md.append("\n## Fiyat Saglama Kontrolu (05.08 EKI - THYAO-348.50 vakasi sonrasi)\n")
+    if SUPHELI:
+        md.append(f"UYARI: {len(SUPHELI)} kayit, GUNLUK_OZET referansindan "
+                  f">%{SUPHELI_SAPMA_ESIK_PCT} sapiyor - INCELE (otomatik "
+                  "dislanmadi, M1/M2 hesabinda hala var):")
+        for x in SUPHELI:
+            md.append(f"  - {x['zaman_utc'][:16]} {x['sembol']} {x['sinyal']} "
+                      f"fiyat={x['fiyat']} (referans {x['referans_ozet_fiyat']}, "
+                      f"sapma %{x['sapma_pct']})")
+    else:
+        md.append("Supheli kayit yok.")
     md.append("\n## Kullanilabilirlik (O2 - Icra Trader raporu girdisi)\n")
     md.append(f"- Islem sinyali: toplam {O2['islem_sinyali_toplam']}, "
               f"gun ort. {O2['gun_ortalama']}, en yogun gun {O2['en_yogun_gun']}")
