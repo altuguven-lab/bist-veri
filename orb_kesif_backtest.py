@@ -35,6 +35,10 @@ def orb_simule(df, sembol):
 
     for gun, grup in df.groupby("gun"):
         grup = grup.sort_index()
+        # 05.08 DUZELTME: 09:45 bari acik artirma (call auction) tek-fiyat
+        # ani olabilir (O=H=L=C, aralik=0) - BIST surekli seansi 10:00'da
+        # baslar, acilis araligini ORADAN itibaren al.
+        grup = grup[grup.index.time >= datetime.time(10, 0)]
         if len(grup) < 3:
             continue
         acilis_bar = grup.iloc[0]
@@ -88,9 +92,11 @@ def main():
                 continue
             # 05.08 TANI EKI: 0 islem cikinca korlemeden once veri yapisina bak
             gun_sayilari = df.groupby(df.index.date).size()
-            print(f"  {sembol} TANI: toplam bar={len(df)}, gun sayisi={df.index.date.__len__() and len(set(df.index.date))}, "
-                  f"gun basi ort bar={gun_sayilari.mean():.1f}, ilk 3 zaman damgasi={list(df.index[:3])}, "
-                  f"index tz={df.index.tz}")
+            ilk_bar = df.iloc[0]
+            print(f"  {sembol} TANI: toplam bar={len(df)}, gun sayisi={len(set(df.index.date))}, "
+                  f"gun basi ort bar={gun_sayilari.mean():.1f}, ilk bar zamani={df.index[0]}, "
+                  f"ilk bar OHLC=O{ilk_bar['Open']:.2f}/H{ilk_bar['High']:.2f}/"
+                  f"L{ilk_bar['Low']:.2f}/C{ilk_bar['Close']:.2f}")
             islemler = orb_simule(df, sembol)
             tum_islemler += islemler
             print(f"{sembol}: {len(islemler)} islem simule edildi")
