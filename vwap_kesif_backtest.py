@@ -21,9 +21,17 @@ import yfinance as yf
 
 SEMBOLLER = ["AKBNK.IS", "KCHOL.IS", "THYAO.IS", "GARAN.IS"]
 MALIYET_YUZDE = 0.25
-CIKTI = "data/backtest/vwap_kesif_sonuc.json"
+CIKTI = "data/backtest/vwap_kesif_v2_sonuc.json"
 STD_PENCERE_MIN = 5   # en az bu kadar bar biriktikten sonra bant hesabi baslar
 K_STD = 2.0            # arastirmadaki "±2 standart sapma" varsayilani
+
+# 05.08 EKI (v2): giris anindaki VWAP hedefi bazen giris fiyatina COK
+# YAKIN (hatta yanlis tarafta) cikiyordu - "HEDEF" cikan islemlerin
+# ortalamasi bile negatifti (maliyeti karsilamiyordu). Artik giris
+# ONCESI, VWAP'a olan projekte mesafe kontrol ediliyor - MIN_HEDEF_PCT'i
+# gecmezse islem hic acilmiyor.
+MIN_HEDEF_PCT = 0.75   # MALIYET_YUZDE'nin (0.25) 3 kati - kucuk/anlamsiz
+                       # hedefli islemleri elemek icin.
 
 
 def gunluk_vwap_ve_std(grup):
@@ -70,13 +78,19 @@ def vwap_reversion_simule(df, sembol, k_std=K_STD):
                         disarda = ("ALT", float(bar["Low"]))
                 else:
                     yon_disi, uc_deger = disarda
+                    hedef_aday = vwap.iloc[i]
+                    # v2: hedefe olan mesafe (%) minimum esigi gecmiyorsa
+                    # islem HIC ACILMASIN - "hedefe ulasti ama maliyeti bile
+                    # karsilamadi" sorununun kok cozumu.
                     if yon_disi == "UST" and kapanis < ust_bant:
-                        # ustten iceri dondu -> SHORT, hedef VWAP
-                        pozisyon = ("SHORT", kapanis, vwap.iloc[i], uc_deger)
+                        mesafe_pct = (kapanis - hedef_aday) / kapanis * 100
+                        if mesafe_pct >= MIN_HEDEF_PCT:
+                            pozisyon = ("SHORT", kapanis, hedef_aday, uc_deger)
                         disarda = None
                     elif yon_disi == "ALT" and kapanis > alt_bant:
-                        # alttan iceri dondu -> LONG, hedef VWAP
-                        pozisyon = ("LONG", kapanis, vwap.iloc[i], uc_deger)
+                        mesafe_pct = (hedef_aday - kapanis) / kapanis * 100
+                        if mesafe_pct >= MIN_HEDEF_PCT:
+                            pozisyon = ("LONG", kapanis, hedef_aday, uc_deger)
                         disarda = None
                     else:
                         # hala disarida, daha ucta yeni bir nokta olabilir
