@@ -21,7 +21,7 @@ jobs:
         run: |
           git config user.name "vwap-kesif-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/backtest/vwap_kesif_sonuc.json
+          git add data/backtest/vwap_kesif_v2_sonuc.json
           git diff --staged --quiet && exit 0
           git commit -m "VWAP kesif-backtest $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5; do
