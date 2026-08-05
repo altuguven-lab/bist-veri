@@ -27,7 +27,9 @@ import urllib.request
 REPO = os.environ.get("GITHUB_REPOSITORY", "altuguven-lab/bist-veri")
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
-QUOTES_ESIK_DK = 30      # seans icinde fiyat dosyasi azami yasi
+QUOTES_ESIK_DK = 40      # seans icinde fiyat dosyasi azami yasi
+                         # (05.08: update.yml sikligi saatte 4->2'ye
+                         # dusurulunce esik de 30->40 dk'ya genisletildi)
 HABER_ESIK_SAAT = 2      # haber dosyasi azami yasi
 PIPEDREAM_AYLIK_ESIK = 2500  # uyari esigi (ucretsiz plan tamponuyla)
 
