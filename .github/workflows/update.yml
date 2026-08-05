@@ -1,8 +1,12 @@
 name: BIST Veri Guncelleme
 
+# 05.08 DUZELTME: saatte 4 kez (her 15dk) GitHub'in kendi belgeledigi
+# 'yuksek yukte sessizce atlanabilir' esigindeydi - saglik_kontrol.py
+# GERCEK bir arizayi (69 dk gecikme) haftalardir dogru bildiriyordu,
+# biz Actions kirmizisini gormezden gelmisiz. Saatte 2'ye dusuruldu.
 on:
   schedule:
-    - cron: "4,19,34,49 7-15 * * 1-5"
+    - cron: "4,34 7-15 * * 1-5"
   workflow_dispatch: {}
 
 jobs:
