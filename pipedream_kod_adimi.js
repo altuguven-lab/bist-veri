@@ -41,6 +41,12 @@ export default defineComponent({
       stop: String(body.stop ?? "?"),
       rejim: String(body.rejim ?? "?"),
       relvol: String(body.relvol ?? "?"),
+      // 04.08 EKI: sadece GUNLUK_OZET tasir - V151'in kendi _v112Total/_v112Wr
+      // sayacini disari aktarir (kurul: "gercek sistem tarihte kac kez
+      // giris verdi" sorusunu zamanla izlemek icin). Diger 17 alarmda
+      // bu alanlar "?" gelir - mesaj sablonlarina eklenmedi, bilincli.
+      v112n: String(body.v112n ?? "?"),
+      v112wr: String(body.v112wr ?? "?"),
     };
     const buAy = yeniSinyal.zaman_utc.slice(0, 7);
 
@@ -145,4 +151,3 @@ export default defineComponent({
     }
   },
 });
-
