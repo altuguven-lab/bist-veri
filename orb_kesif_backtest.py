@@ -86,6 +86,11 @@ def main():
             if df.empty:
                 print(f"UYARI: {sembol} icin veri yok", file=sys.stderr)
                 continue
+            # 05.08 TANI EKI: 0 islem cikinca korlemeden once veri yapisina bak
+            gun_sayilari = df.groupby(df.index.date).size()
+            print(f"  {sembol} TANI: toplam bar={len(df)}, gun sayisi={df.index.date.__len__() and len(set(df.index.date))}, "
+                  f"gun basi ort bar={gun_sayilari.mean():.1f}, ilk 3 zaman damgasi={list(df.index[:3])}, "
+                  f"index tz={df.index.tz}")
             islemler = orb_simule(df, sembol)
             tum_islemler += islemler
             print(f"{sembol}: {len(islemler)} islem simule edildi")
