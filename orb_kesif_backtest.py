@@ -20,19 +20,20 @@ import json, datetime, os, sys
 import pandas as pd
 import yfinance as yf
 
-SEMBOLLER = ["AKBNK.IS", "KCHOL.IS", "THYAO.IS", "GARAN.IS"]
+# 05.08 EKI (v3) - kurul karari: AKBNK/KCHOL v2'de neredeyse basabas
+# cikti (THYAO/GARAN hala kotu) - onlara odaklanip parametre TARAMASI
+# yapiyoruz (tek deneme yerine, tek kosumda cok kombinasyon).
+SEMBOLLER = ["AKBNK.IS", "KCHOL.IS"]
 ACILIS_DAKIKA = 15  # ilk 15 dakika = acilis araligi
 MALIYET_YUZDE = 0.25  # Borsamix gercekci varsayimi, gidis-donus
-CIKTI = "data/backtest/orb_kesif_v2_sonuc.json"
-
-# 05.08 EKI (v2) - uc iyilestirme, kurulun onerisiyle:
-HACIM_KATSAYI = 1.3     # kirilim barinin hacmi, onceki N barin ortalamasinin
-                        # kacini gecmeli (acik kaynak referanslarindaki
-                        # "yuksek hacim" filtresi)
+CIKTI = "data/backtest/orb_kesif_v3_grid_sonuc.json"
 HACIM_PENCERE = 5       # ortalama hacim icin kac onceki bar kullanilsin
-RTR = 2.0               # Risk:Odul orani (umerdawood23 varsayilani "2:1")
-                        # hedef = giris +/- (aralik * RTR), stop degismedi
-                        # (aralik disinda) - yalniz hedef genisletildi.
+
+# GRID: her kombinasyon ayri simule edilir, sonuclar karsilastirilir.
+HACIM_KATSAYI_LISTE = [1.0, 1.3, 1.8]
+RTR_LISTE = [1.5, 2.0, 3.0]
+STOP_ORAN_LISTE = [0.5, 1.0]  # 1.0 = v2 ile ayni (aralik kadar stop),
+                              # 0.5 = daha siki stop (aralik yarisi)
 
 
 def gunluk_vwap(grup):
@@ -43,10 +44,10 @@ def gunluk_vwap(grup):
     return kum_pv / kum_v
 
 
-def orb_simule(df, sembol):
+def orb_simule(df, sembol, hacim_katsayi, rtr, stop_oran):
     """Gunluk bazda ORB: ilk bar (10:00-10:15) araligini kirilinca gir,
     T1'de ya da gun sonunda kapat. df: DatetimeIndex'li 15dk OHLC.
-    v2: hacim teyidi + VWAP filtresi + 2:1 hedef/risk orani."""
+    v3: hacim teyidi + VWAP filtresi + parametrik hedef/stop orani."""
     df = df.copy()
     df["gun"] = df.index.date
     islemler = []
@@ -76,7 +77,7 @@ def orb_simule(df, sembol):
                 pencere_bas = max(0, i - HACIM_PENCERE)
                 ort_hacim = grup["Volume"].iloc[pencere_bas:i].mean()
                 hacim_teyit = (ort_hacim > 0 and
-                               float(bar["Volume"]) >= HACIM_KATSAYI * ort_hacim)
+                               float(bar["Volume"]) >= hacim_katsayi * ort_hacim)
                 # VWAP FILTRESI: LONG icin fiyat VWAP ustunde, SHORT icin altinda.
                 vwap_deger = vwap_serisi.iloc[i]
                 vwap_gecerli = not pd.isna(vwap_deger)
@@ -87,9 +88,11 @@ def orb_simule(df, sembol):
                     pozisyon = ("SHORT", kapanis, i)
             else:
                 yon, giris, giris_i = pozisyon
-                # v2: hedef artik RTR kati genisletildi (2:1), stop degismedi.
-                hedef = giris + aralik * RTR if yon == "LONG" else giris - aralik * RTR
-                stop = alt if yon == "LONG" else ust
+                # v3: hedef VE stop artik parametrik. stop_oran=1.0 -> v2 ile
+                # ayni (tam aralik disi), 0.5 -> stop mesafesi yariya iner.
+                hedef = giris + aralik * rtr if yon == "LONG" else giris - aralik * rtr
+                stop = (giris - aralik * stop_oran if yon == "LONG"
+                        else giris + aralik * stop_oran)
                 cikis, sebep = None, None
                 if yon == "LONG" and (bar["High"] >= hedef):
                     cikis, sebep = hedef, "HEDEF"
@@ -113,66 +116,67 @@ def orb_simule(df, sembol):
 
 
 def main():
-    tum_islemler = []
+    # Veriyi HER SEMBOL icin BIR KEZ cek (grid taramasinda tekrar tekrar
+    # yfinance cagirmamak icin - performans).
+    veriler = {}
     for sembol in SEMBOLLER:
         try:
             df = yf.Ticker(sembol).history(period="60d", interval="15m")
             if df.empty:
                 print(f"UYARI: {sembol} icin veri yok", file=sys.stderr)
                 continue
-            # 05.08 TANI EKI: 0 islem cikinca korlemeden once veri yapisina bak
-            gun_sayilari = df.groupby(df.index.date).size()
-            ilk_bar = df.iloc[0]
-            print(f"  {sembol} TANI: toplam bar={len(df)}, gun sayisi={len(set(df.index.date))}, "
-                  f"gun basi ort bar={gun_sayilari.mean():.1f}, ilk bar zamani={df.index[0]}, "
-                  f"ilk bar OHLC=O{ilk_bar['Open']:.2f}/H{ilk_bar['High']:.2f}/"
-                  f"L{ilk_bar['Low']:.2f}/C{ilk_bar['Close']:.2f}")
-            islemler = orb_simule(df, sembol)
-            tum_islemler += islemler
-            print(f"{sembol}: {len(islemler)} islem simule edildi")
+            veriler[sembol] = df
+            print(f"{sembol}: {len(df)} bar cekildi")
         except Exception as e:
             print(f"HATA: {sembol} -> {e}", file=sys.stderr)
 
-    ozet = {}
-    for sembol in SEMBOLLER:
-        alt_kume = [t for t in tum_islemler if t["sembol"] == sembol]
-        if not alt_kume:
-            continue
-        kazanan = [t for t in alt_kume if t["net_getiri_pct"] > 0]
-        ozet[sembol] = {
-            "islem_sayisi": len(alt_kume),
-            "isabet_pct": round(100 * len(kazanan) / len(alt_kume), 1),
-            "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in alt_kume) / len(alt_kume), 3),
-            "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in alt_kume), 2),
-        }
+    grid_sonuclari = []
+    for hacim_katsayi in HACIM_KATSAYI_LISTE:
+        for rtr in RTR_LISTE:
+            for stop_oran in STOP_ORAN_LISTE:
+                tum_islemler = []
+                for sembol, df in veriler.items():
+                    islemler = orb_simule(df, sembol, hacim_katsayi, rtr, stop_oran)
+                    tum_islemler += islemler
+                if not tum_islemler:
+                    continue
+                kazanan = [t for t in tum_islemler if t["net_getiri_pct"] > 0]
+                grid_sonuclari.append({
+                    "hacim_katsayi": hacim_katsayi, "rtr": rtr, "stop_oran": stop_oran,
+                    "islem_sayisi": len(tum_islemler),
+                    "isabet_pct": round(100 * len(kazanan) / len(tum_islemler), 1),
+                    "ort_net_getiri_pct": round(
+                        sum(t["net_getiri_pct"] for t in tum_islemler) / len(tum_islemler), 3),
+                    "toplam_net_getiri_pct": round(
+                        sum(t["net_getiri_pct"] for t in tum_islemler), 2),
+                })
+                print(f"  hacim={hacim_katsayi} rtr={rtr} stop_oran={stop_oran} -> "
+                      f"{len(tum_islemler)} islem, ort net %{grid_sonuclari[-1]['ort_net_getiri_pct']}")
 
-    genel = None
-    if tum_islemler:
-        kazanan = [t for t in tum_islemler if t["net_getiri_pct"] > 0]
-        genel = {
-            "toplam_islem": len(tum_islemler),
-            "genel_isabet_pct": round(100 * len(kazanan) / len(tum_islemler), 1),
-            "genel_ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in tum_islemler) / len(tum_islemler), 3),
-        }
+    # en iyi ortalama net getiriye gore sirala
+    grid_sonuclari.sort(key=lambda x: x["ort_net_getiri_pct"], reverse=True)
 
     sonuc = {
         "kesif_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        "not": ("Faz V0 kesif-backtest v2 - SALT OLCUM, gercek islem/sinyal degil. "
+        "not": ("Faz V0 kesif-backtest v3 - SALT OLCUM, gercek islem/sinyal degil. "
                 "yfinance 60 gunluk 15dk pencereyle sinirli - uzun donemli kanit degil. "
-                "v1'den fark: hacim teyidi + VWAP filtresi + 2:1 hedef/risk orani."),
+                "Yalniz AKBNK+KCHOL (v2'de en iyi ikisi). Parametre taramasi: "
+                f"{len(HACIM_KATSAYI_LISTE)}x{len(RTR_LISTE)}x{len(STOP_ORAN_LISTE)} "
+                "kombinasyon, en iyi ortalama net getiriye gore siralandi."),
         "maliyet_varsayimi_pct": MALIYET_YUZDE,
-        "hacim_katsayi": HACIM_KATSAYI, "hacim_pencere": HACIM_PENCERE, "rtr": RTR,
-        "sembol_bazli": ozet,
-        "genel": genel,
-        "islem_detaylari": tum_islemler,
+        "semboller": SEMBOLLER,
+        "grid_sonuclari": grid_sonuclari,
+        "en_iyi_3": grid_sonuclari[:3],
     }
     os.makedirs("data/backtest", exist_ok=True)
     with open(CIKTI, "w", encoding="utf-8") as f:
         json.dump(sonuc, f, ensure_ascii=False, indent=2)
     print(f"\nYazildi: {CIKTI}")
-    if genel:
-        print(f"GENEL: {genel['toplam_islem']} islem, isabet %{genel['genel_isabet_pct']}, "
-              f"ort net getiri %{genel['genel_ort_net_getiri_pct']}")
+    if grid_sonuclari:
+        en_iyi = grid_sonuclari[0]
+        print(f"EN IYI: hacim={en_iyi['hacim_katsayi']} rtr={en_iyi['rtr']} "
+              f"stop_oran={en_iyi['stop_oran']} -> ort net getiri %{en_iyi['ort_net_getiri_pct']}, "
+              f"isabet %{en_iyi['isabet_pct']}, {en_iyi['islem_sayisi']} islem")
 
 
 if __name__ == "__main__":
