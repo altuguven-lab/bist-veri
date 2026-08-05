@@ -23,12 +23,30 @@ import yfinance as yf
 SEMBOLLER = ["AKBNK.IS", "KCHOL.IS", "THYAO.IS", "GARAN.IS"]
 ACILIS_DAKIKA = 15  # ilk 15 dakika = acilis araligi
 MALIYET_YUZDE = 0.25  # Borsamix gercekci varsayimi, gidis-donus
-CIKTI = "data/backtest/orb_kesif_sonuc.json"
+CIKTI = "data/backtest/orb_kesif_v2_sonuc.json"
+
+# 05.08 EKI (v2) - uc iyilestirme, kurulun onerisiyle:
+HACIM_KATSAYI = 1.3     # kirilim barinin hacmi, onceki N barin ortalamasinin
+                        # kacini gecmeli (acik kaynak referanslarindaki
+                        # "yuksek hacim" filtresi)
+HACIM_PENCERE = 5       # ortalama hacim icin kac onceki bar kullanilsin
+RTR = 2.0               # Risk:Odul orani (umerdawood23 varsayilani "2:1")
+                        # hedef = giris +/- (aralik * RTR), stop degismedi
+                        # (aralik disinda) - yalniz hedef genisletildi.
+
+
+def gunluk_vwap(grup):
+    """Gun icinde biriken VWAP serisi (tipik fiyat x hacim / hacim)."""
+    tipik = (grup["High"] + grup["Low"] + grup["Close"]) / 3.0
+    kum_pv = (tipik * grup["Volume"]).cumsum()
+    kum_v = grup["Volume"].cumsum().replace(0, pd.NA)
+    return kum_pv / kum_v
 
 
 def orb_simule(df, sembol):
     """Gunluk bazda ORB: ilk bar (10:00-10:15) araligini kirilinca gir,
-    T1'de ya da gun sonunda kapat. df: DatetimeIndex'li 15dk OHLC."""
+    T1'de ya da gun sonunda kapat. df: DatetimeIndex'li 15dk OHLC.
+    v2: hacim teyidi + VWAP filtresi + 2:1 hedef/risk orani."""
     df = df.copy()
     df["gun"] = df.index.date
     islemler = []
@@ -46,19 +64,31 @@ def orb_simule(df, sembol):
         aralik = ust - alt
         if aralik <= 0:
             continue
+        vwap_serisi = gunluk_vwap(grup)
 
         pozisyon = None  # ("LONG"/"SHORT", giris_fiyat)
         for i in range(1, len(grup)):
             bar = grup.iloc[i]
             kapanis = float(bar["Close"])
             if pozisyon is None:
-                if kapanis > ust:
+                # HACIM TEYIDI: kirilim barinin hacmi, onceki HACIM_PENCERE
+                # barin ortalamasinin HACIM_KATSAYI kati kadar olmali.
+                pencere_bas = max(0, i - HACIM_PENCERE)
+                ort_hacim = grup["Volume"].iloc[pencere_bas:i].mean()
+                hacim_teyit = (ort_hacim > 0 and
+                               float(bar["Volume"]) >= HACIM_KATSAYI * ort_hacim)
+                # VWAP FILTRESI: LONG icin fiyat VWAP ustunde, SHORT icin altinda.
+                vwap_deger = vwap_serisi.iloc[i]
+                vwap_gecerli = not pd.isna(vwap_deger)
+
+                if kapanis > ust and hacim_teyit and vwap_gecerli and kapanis > vwap_deger:
                     pozisyon = ("LONG", kapanis, i)
-                elif kapanis < alt:
+                elif kapanis < alt and hacim_teyit and vwap_gecerli and kapanis < vwap_deger:
                     pozisyon = ("SHORT", kapanis, i)
             else:
                 yon, giris, giris_i = pozisyon
-                hedef = giris + aralik if yon == "LONG" else giris - aralik
+                # v2: hedef artik RTR kati genisletildi (2:1), stop degismedi.
+                hedef = giris + aralik * RTR if yon == "LONG" else giris - aralik * RTR
                 stop = alt if yon == "LONG" else ust
                 cikis, sebep = None, None
                 if yon == "LONG" and (bar["High"] >= hedef):
@@ -127,9 +157,11 @@ def main():
 
     sonuc = {
         "kesif_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        "not": ("Faz V0 kesif-backtest - SALT OLCUM, gercek islem/sinyal degil. "
-                "yfinance 60 gunluk 15dk pencereyle sinirli - uzun donemli kanit degil."),
+        "not": ("Faz V0 kesif-backtest v2 - SALT OLCUM, gercek islem/sinyal degil. "
+                "yfinance 60 gunluk 15dk pencereyle sinirli - uzun donemli kanit degil. "
+                "v1'den fark: hacim teyidi + VWAP filtresi + 2:1 hedef/risk orani."),
         "maliyet_varsayimi_pct": MALIYET_YUZDE,
+        "hacim_katsayi": HACIM_KATSAYI, "hacim_pencere": HACIM_PENCERE, "rtr": RTR,
         "sembol_bazli": ozet,
         "genel": genel,
         "islem_detaylari": tum_islemler,
