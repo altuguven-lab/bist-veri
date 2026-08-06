@@ -28,6 +28,12 @@ TAKIP_YOL = "data/portfoy_risk_takip.json"
 
 GUNLUK_ESIK_YUZDE = -3.0
 HAFTALIK_ESIK_YUZDE = -5.0
+# 06.08 EKI: KCHOL vakasi (bilanco sonrasi -%4.85, HICBIR uyari
+# gelmedi) - portfoy-geneli esikler (yukarida) TEK bir pozisyonun
+# BUYUK ama portfoyun kucuk payini olusturan hareketini YAKALAMIYOR.
+# Bu, TEK HISSE bazinda ayri bir kontrol.
+TEK_HISSE_ESIK_YUZDE = -3.5
+SINYAL_YOL = "data/tv_alerts_latest.json"
 
 
 def _oku(yol):
@@ -49,6 +55,31 @@ def guncel_ozkaynak(portfoy, fiyatlar):
             continue
         toplam += p["adet"] * f
     return toplam, eksik_fiyat
+
+
+def onceki_kapanis_fiyatlari(portfoy, bugun):
+    """Her acik pozisyon sembolu icin, BUGUNDEN ONCEKI en son
+    GUNLUK_OZET kapanis fiyatini dondurur (sembol -> fiyat dict).
+    Bugunun kendi GUNLUK_OZET'i varsa bile SAYILMAZ (kendisiyle
+    karsilastirma anlamsiz olur) - yalniz gecmis referans alinir."""
+    veri = _oku(SINYAL_YOL)
+    if not veri:
+        return {}
+    semboller = {p["sembol"] for p in portfoy.get("acik_pozisyonlar", [])}
+    sonuc = {}
+    for s in veri.get("sinyal_gecmisi", []):
+        if s.get("sinyal") != "GUNLUK_OZET" or s.get("sembol") not in semboller:
+            continue
+        tarih = str(s.get("zaman_utc", ""))[:10]
+        if not tarih or tarih >= str(bugun):
+            continue  # bugunun kendisi ya da tarihsiz kayit - atla
+        onceki = sonuc.get(s["sembol"])
+        if onceki is None or tarih > onceki[0]:
+            try:
+                sonuc[s["sembol"]] = (tarih, float(s["fiyat"]))
+            except (TypeError, ValueError):
+                continue
+    return {sembol: fiyat for sembol, (_, fiyat) in sonuc.items()}
 
 
 def github_api(yol, method="GET", veri=None):
@@ -150,6 +181,29 @@ def main():
             "islem karari degildir.")
         github_issue_ac_veya_guncelle(
             "🔴 PORTFOY RISK ESIGI ASILDI", govde, "risk-esigi")
+
+    # 06.08 EKI: TEK HISSE bazinda kontrol (KCHOL vakasi sonrasi) -
+    # portfoy-geneli esikler yukarida TETIKLENMESE bile, TEK bir
+    # pozisyon buyuk hareket ettiyse ayri uyari verir.
+    fiyat_map = {v["sembol"]: v["son_fiyat"] for v in fiyatlar.get("veriler", [])}
+    onceki_fiyatlar = onceki_kapanis_fiyatlari(portfoy, bugun)
+    for p in portfoy.get("acik_pozisyonlar", []):
+        sembol = p["sembol"]
+        onceki = onceki_fiyatlar.get(sembol)
+        simdi = fiyat_map.get(sembol)
+        if onceki is None or simdi is None or onceki <= 0:
+            continue
+        degisim = (simdi / onceki - 1) * 100
+        print(f"  {sembol}: onceki kapanis {onceki} -> simdi {simdi} (%{degisim:.2f})")
+        if degisim <= TEK_HISSE_ESIK_YUZDE:
+            govde = (f"{sembol} onceki kapanistan (₺{onceki:,.2f}) simdiye "
+                     f"(₺{simdi:,.2f}) kadar %{degisim:.2f} degisti "
+                     f"(esik %{TEK_HISSE_ESIK_YUZDE}).\n\n"
+                     "Portfoy-geneli esikler asilmamis olabilir (bu pozisyon "
+                     "portfoyun kucuk payi olabilir) - bu, TEK HISSE bazinda "
+                     "ayri bir erken-uyaridir, islem karari degildir.")
+            github_issue_ac_veya_guncelle(
+                f"🟠 TEK HISSE HAREKETI: {sembol} - {bugun}", govde, "risk-esigi")
 
     os.makedirs("data", exist_ok=True)
     with open(TAKIP_YOL, "w", encoding="utf-8") as f:
