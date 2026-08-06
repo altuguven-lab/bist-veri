@@ -1,0 +1,532 @@
+{
+  "kesif_zamani_utc": "2026-08-06T14:30:33.719623+00:00",
+  "not": "Faz V0 SWING - Supertrend+ADX, GUNLUK barlar, 5 yillik gecmis. GUCLU vs ZAYIF anlati grup karsilastirmasi. SALT OLCUM. Hipotez: cok-gunlu ufukta, ayni teknik motor anlati gucune gore FARKLI performans gosterir mi?",
+  "parametreler": {
+    "atr_periyot": 10,
+    "st_carpan": 3.0,
+    "adx_periyot": 14,
+    "adx_esik": 25,
+    "maks_tutma_gun": 90
+  },
+  "maliyet_varsayimi_pct": 0.25,
+  "sembol_bazli": {
+    "ASTOR.IS": {
+      "islem_sayisi": 6,
+      "isabet_pct": 16.7,
+      "ort_net_getiri_pct": -6.123,
+      "toplam_net_getiri_pct": -36.74
+    },
+    "KCHOL.IS": {
+      "islem_sayisi": 12,
+      "isabet_pct": 33.3,
+      "ort_net_getiri_pct": -3.848,
+      "toplam_net_getiri_pct": -46.18
+    },
+    "AKBNK.IS": {
+      "islem_sayisi": 10,
+      "isabet_pct": 40.0,
+      "ort_net_getiri_pct": -1.97,
+      "toplam_net_getiri_pct": -19.7
+    },
+    "YKBNK.IS": {
+      "islem_sayisi": 11,
+      "isabet_pct": 36.4,
+      "ort_net_getiri_pct": -2.625,
+      "toplam_net_getiri_pct": -28.88
+    }
+  },
+  "grup_karsilastirma": {
+    "GUCLU_ANLATI": {
+      "islem_sayisi": 18,
+      "isabet_pct": 27.8,
+      "ort_net_getiri_pct": -4.607,
+      "toplam_net_getiri_pct": -82.92
+    },
+    "ZAYIF_ANLATI": {
+      "islem_sayisi": 21,
+      "isabet_pct": 38.1,
+      "ort_net_getiri_pct": -2.313,
+      "toplam_net_getiri_pct": -48.58
+    }
+  },
+  "genel": {
+    "toplam_islem": 39,
+    "genel_isabet_pct": 33.3,
+    "genel_ort_net_getiri_pct": -3.372
+  },
+  "cikis_sebebi_dagilimi": {
+    "ST_FLIP": 33,
+    "VERI_SONU": 3,
+    "MAKS_TUTMA_ASILDI": 3
+  },
+  "islem_detaylari": [
+    {
+      "sembol": "ASTOR.IS",
+      "giris_tarih": "2023-04-03",
+      "cikis_tarih": "2023-05-29",
+      "tutma_gun": 56,
+      "yon": "SHORT",
+      "giris": 47.42467498779297,
+      "cikis": 51.67251968383789,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -8.957,
+      "net_getiri_pct": -9.207
+    },
+    {
+      "sembol": "ASTOR.IS",
+      "giris_tarih": "2024-01-02",
+      "cikis_tarih": "2024-03-05",
+      "tutma_gun": 63,
+      "yon": "LONG",
+      "giris": 100.91224670410156,
+      "cikis": 111.51922607421875,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 10.511,
+      "net_getiri_pct": 10.261
+    },
+    {
+      "sembol": "ASTOR.IS",
+      "giris_tarih": "2024-09-06",
+      "cikis_tarih": "2024-10-01",
+      "tutma_gun": 25,
+      "yon": "LONG",
+      "giris": 81.19284057617188,
+      "cikis": 72.6592025756836,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -10.51,
+      "net_getiri_pct": -10.76
+    },
+    {
+      "sembol": "ASTOR.IS",
+      "giris_tarih": "2025-01-31",
+      "cikis_tarih": "2025-03-17",
+      "tutma_gun": 45,
+      "yon": "SHORT",
+      "giris": 116.01795196533203,
+      "cikis": 120.2601089477539,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -3.656,
+      "net_getiri_pct": -3.906
+    },
+    {
+      "sembol": "ASTOR.IS",
+      "giris_tarih": "2026-03-04",
+      "cikis_tarih": "2026-03-12",
+      "tutma_gun": 8,
+      "yon": "SHORT",
+      "giris": 167.0,
+      "cikis": 199.5,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -19.461,
+      "net_getiri_pct": -19.711
+    },
+    {
+      "sembol": "ASTOR.IS",
+      "giris_tarih": "2026-06-08",
+      "cikis_tarih": "2026-08-06",
+      "tutma_gun": 59,
+      "yon": "SHORT",
+      "giris": 308.0,
+      "cikis": 317.75,
+      "sebep": "VERI_SONU",
+      "ham_getiri_pct": -3.166,
+      "net_getiri_pct": -3.416
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2021-12-21",
+      "cikis_tarih": "2022-02-11",
+      "tutma_gun": 52,
+      "yon": "SHORT",
+      "giris": 25.448455810546875,
+      "cikis": 28.65282440185547,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -12.592,
+      "net_getiri_pct": -12.842
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2022-05-17",
+      "cikis_tarih": "2022-06-06",
+      "tutma_gun": 20,
+      "yon": "SHORT",
+      "giris": 33.0989990234375,
+      "cikis": 36.56849670410156,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -10.482,
+      "net_getiri_pct": -10.732
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2022-09-28",
+      "cikis_tarih": "2022-10-06",
+      "tutma_gun": 8,
+      "yon": "SHORT",
+      "giris": 40.263511657714844,
+      "cikis": 45.1901969909668,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -12.236,
+      "net_getiri_pct": -12.486
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2023-01-09",
+      "cikis_tarih": "2023-01-20",
+      "tutma_gun": 11,
+      "yon": "SHORT",
+      "giris": 65.92044830322266,
+      "cikis": 71.73184967041016,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -8.816,
+      "net_getiri_pct": -9.066
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2023-10-20",
+      "cikis_tarih": "2024-01-11",
+      "tutma_gun": 83,
+      "yon": "SHORT",
+      "giris": 122.65359497070312,
+      "cikis": 135.86790466308594,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -10.774,
+      "net_getiri_pct": -11.024
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2024-06-03",
+      "cikis_tarih": "2024-09-02",
+      "tutma_gun": 91,
+      "yon": "SHORT",
+      "giris": 213.85072326660156,
+      "cikis": 177.47215270996094,
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "ham_getiri_pct": 17.011,
+      "net_getiri_pct": 16.761
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2024-09-24",
+      "cikis_tarih": "2024-10-03",
+      "tutma_gun": 9,
+      "yon": "LONG",
+      "giris": 175.53811645507812,
+      "cikis": 157.94744873046875,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -10.021,
+      "net_getiri_pct": -10.271
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2024-12-19",
+      "cikis_tarih": "2025-03-06",
+      "tutma_gun": 77,
+      "yon": "SHORT",
+      "giris": 170.10433959960938,
+      "cikis": 155.9213104248047,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 8.338,
+      "net_getiri_pct": 8.088
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2025-03-19",
+      "cikis_tarih": "2025-05-12",
+      "tutma_gun": 54,
+      "yon": "SHORT",
+      "giris": 152.6057891845703,
+      "cikis": 148.44949340820312,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 2.724,
+      "net_getiri_pct": 2.474
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2025-09-02",
+      "cikis_tarih": "2025-09-16",
+      "tutma_gun": 14,
+      "yon": "SHORT",
+      "giris": 166.08993530273438,
+      "cikis": 174.6691436767578,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -5.165,
+      "net_getiri_pct": -5.415
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2026-02-25",
+      "cikis_tarih": "2026-04-08",
+      "tutma_gun": 42,
+      "yon": "SHORT",
+      "giris": 197.22576904296875,
+      "cikis": 201.39999389648438,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -2.116,
+      "net_getiri_pct": -2.366
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "giris_tarih": "2026-06-16",
+      "cikis_tarih": "2026-08-06",
+      "tutma_gun": 51,
+      "yon": "LONG",
+      "giris": 200.10000610351562,
+      "cikis": 202.0,
+      "sebep": "VERI_SONU",
+      "ham_getiri_pct": 0.95,
+      "net_getiri_pct": 0.7
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2021-09-15",
+      "cikis_tarih": "2021-10-22",
+      "tutma_gun": 37,
+      "yon": "SHORT",
+      "giris": 4.436210632324219,
+      "cikis": 4.348443984985352,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 1.978,
+      "net_getiri_pct": 1.728
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2021-11-30",
+      "cikis_tarih": "2021-12-08",
+      "tutma_gun": 8,
+      "yon": "SHORT",
+      "giris": 5.202175140380859,
+      "cikis": 5.912288665771484,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -13.65,
+      "net_getiri_pct": -13.9
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2021-12-31",
+      "cikis_tarih": "2022-03-31",
+      "tutma_gun": 90,
+      "yon": "SHORT",
+      "giris": 5.7447333335876465,
+      "cikis": 5.98251485824585,
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "ham_getiri_pct": -4.139,
+      "net_getiri_pct": -4.389
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2022-05-06",
+      "cikis_tarih": "2022-06-02",
+      "tutma_gun": 27,
+      "yon": "SHORT",
+      "giris": 7.185610294342041,
+      "cikis": 7.276254177093506,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -1.261,
+      "net_getiri_pct": -1.511
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2022-09-15",
+      "cikis_tarih": "2022-10-17",
+      "tutma_gun": 32,
+      "yon": "SHORT",
+      "giris": 10.531203269958496,
+      "cikis": 12.23696231842041,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -16.197,
+      "net_getiri_pct": -16.447
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2023-01-10",
+      "cikis_tarih": "2023-02-27",
+      "tutma_gun": 48,
+      "yon": "SHORT",
+      "giris": 14.033366203308105,
+      "cikis": 14.272335052490234,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -1.703,
+      "net_getiri_pct": -1.953
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2024-06-07",
+      "cikis_tarih": "2024-07-16",
+      "tutma_gun": 39,
+      "yon": "SHORT",
+      "giris": 56.204612731933594,
+      "cikis": 64.73482513427734,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -15.177,
+      "net_getiri_pct": -15.427
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2024-11-12",
+      "cikis_tarih": "2025-02-10",
+      "tutma_gun": 90,
+      "yon": "LONG",
+      "giris": 50.233463287353516,
+      "cikis": 59.4271354675293,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 18.302,
+      "net_getiri_pct": 18.052
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2025-03-19",
+      "cikis_tarih": "2025-06-03",
+      "tutma_gun": 76,
+      "yon": "SHORT",
+      "giris": 62.507484436035156,
+      "cikis": 53.92178726196289,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 13.735,
+      "net_getiri_pct": 13.485
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "giris_tarih": "2026-03-03",
+      "cikis_tarih": "2026-04-08",
+      "tutma_gun": 36,
+      "yon": "SHORT",
+      "giris": 76.44976043701172,
+      "cikis": 75.75,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 0.915,
+      "net_getiri_pct": 0.665
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2021-12-21",
+      "cikis_tarih": "2022-01-17",
+      "tutma_gun": 27,
+      "yon": "SHORT",
+      "giris": 2.8846359252929688,
+      "cikis": 3.459846258163452,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -19.94,
+      "net_getiri_pct": -20.19
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2022-05-11",
+      "cikis_tarih": "2022-06-02",
+      "tutma_gun": 22,
+      "yon": "SHORT",
+      "giris": 4.129430294036865,
+      "cikis": 4.261220932006836,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -3.191,
+      "net_getiri_pct": -3.441
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2022-09-15",
+      "cikis_tarih": "2022-10-14",
+      "tutma_gun": 29,
+      "yon": "SHORT",
+      "giris": 6.220503330230713,
+      "cikis": 7.758058071136475,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -24.718,
+      "net_getiri_pct": -24.968
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2023-01-09",
+      "cikis_tarih": "2023-02-27",
+      "tutma_gun": 49,
+      "yon": "SHORT",
+      "giris": 8.891454696655273,
+      "cikis": 8.663017272949219,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 2.569,
+      "net_getiri_pct": 2.319
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2023-12-27",
+      "cikis_tarih": "2024-01-08",
+      "tutma_gun": 12,
+      "yon": "SHORT",
+      "giris": 18.362674713134766,
+      "cikis": 21.084491729736328,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -14.823,
+      "net_getiri_pct": -15.073
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2024-05-31",
+      "cikis_tarih": "2024-08-22",
+      "tutma_gun": 83,
+      "yon": "SHORT",
+      "giris": 32.31999969482422,
+      "cikis": 31.139999389648438,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 3.651,
+      "net_getiri_pct": 3.401
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2024-11-11",
+      "cikis_tarih": "2024-12-20",
+      "tutma_gun": 39,
+      "yon": "LONG",
+      "giris": 26.34000015258789,
+      "cikis": 28.600000381469727,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": 8.58,
+      "net_getiri_pct": 8.33
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2025-03-03",
+      "cikis_tarih": "2025-03-19",
+      "tutma_gun": 16,
+      "yon": "LONG",
+      "giris": 31.15999984741211,
+      "cikis": 29.700000762939453,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -4.685,
+      "net_getiri_pct": -4.935
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2025-05-14",
+      "cikis_tarih": "2025-08-12",
+      "tutma_gun": 90,
+      "yon": "LONG",
+      "giris": 25.6200008392334,
+      "cikis": 33.119998931884766,
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "ham_getiri_pct": 29.274,
+      "net_getiri_pct": 29.024
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2026-03-03",
+      "cikis_tarih": "2026-04-08",
+      "tutma_gun": 36,
+      "yon": "SHORT",
+      "giris": 37.08000183105469,
+      "cikis": 37.540000915527344,
+      "sebep": "ST_FLIP",
+      "ham_getiri_pct": -1.241,
+      "net_getiri_pct": -1.491
+    },
+    {
+      "sembol": "YKBNK.IS",
+      "giris_tarih": "2026-08-04",
+      "cikis_tarih": "2026-08-06",
+      "tutma_gun": 2,
+      "yon": "LONG",
+      "giris": 34.86000061035156,
+      "cikis": 34.29999923706055,
+      "sebep": "VERI_SONU",
+      "ham_getiri_pct": -1.606,
+      "net_getiri_pct": -1.856
+    }
+  ]
+}
