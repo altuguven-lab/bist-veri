@@ -1,5 +1,5 @@
 {
-  "olusturma_zamani_utc": "2026-08-06T09:02:42.344607+00:00",
+  "olusturma_zamani_utc": "2026-08-06T10:24:00.641389+00:00",
   "not": "Faz V0 - P1/P2 gercek sinyal gecmisi x anlati gucu capraz referansi. SALT OLCUM. FiyatServisi hatasi: yok",
   "anlati_pencere_gun": 90,
   "ufuklar": [
@@ -9,37 +9,47 @@
   ],
   "grup_ozet": {
     "GUCLU_ANLATI": {
-      "toplam_sinyal": 9,
+      "toplam_sinyal": 15,
       "t3": {
         "hesaplanan_sayisi": 2,
         "isabet_pct": 100.0,
-        "ort_getiri_pct": 6.18
+        "ort_getiri_pct": 5.76
       }
     },
     "ZAYIF_ANLATI": {
-      "toplam_sinyal": 7,
+      "toplam_sinyal": 10,
       "t3": {
-        "hesaplanan_sayisi": 2,
+        "hesaplanan_sayisi": 3,
         "isabet_pct": 100.0,
-        "ort_getiri_pct": 5.57
+        "ort_getiri_pct": 4.917
       }
     },
     "BILINMIYOR": {
-      "toplam_sinyal": 26,
+      "toplam_sinyal": 18,
       "t3": {
-        "hesaplanan_sayisi": 9,
-        "isabet_pct": 44.4,
-        "ort_getiri_pct": -1.579
+        "hesaplanan_sayisi": 8,
+        "isabet_pct": 37.5,
+        "ort_getiri_pct": -2.489
       }
     }
   },
   "detaylar": [
     {
+      "sembol": "ASELS",
+      "sinyal": "P3_SKOR_AL",
+      "tarih": "2026-08-06",
+      "fiyat": 353.75,
+      "anlati_durumu": "GUCLU_ANLATI",
+      "t3_getiri_pct": null,
+      "t10_getiri_pct": null,
+      "t20_getiri_pct": null
+    },
+    {
       "sembol": "GARAN",
       "sinyal": "P3_SKOR_AL",
       "tarih": "2026-08-06",
       "fiyat": 130.4,
-      "anlati_durumu": "BILINMIYOR",
+      "anlati_durumu": "ZAYIF_ANLATI",
       "t3_getiri_pct": null,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
@@ -89,7 +99,7 @@
       "sinyal": "P3_SKOR_AL",
       "tarih": "2026-08-06",
       "fiyat": 42.18,
-      "anlati_durumu": "BILINMIYOR",
+      "anlati_durumu": "GUCLU_ANLATI",
       "t3_getiri_pct": null,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
@@ -119,7 +129,7 @@
       "sinyal": "P3_SKOR_AL",
       "tarih": "2026-08-05",
       "fiyat": 41.96,
-      "anlati_durumu": "BILINMIYOR",
+      "anlati_durumu": "GUCLU_ANLATI",
       "t3_getiri_pct": null,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
@@ -179,7 +189,7 @@
       "sinyal": "P3_SKOR_AL",
       "tarih": "2026-08-05",
       "fiyat": 19.97,
-      "anlati_durumu": "BILINMIYOR",
+      "anlati_durumu": "GUCLU_ANLATI",
       "t3_getiri_pct": null,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
@@ -209,7 +219,7 @@
       "sinyal": "P3_SKOR_AL",
       "tarih": "2026-08-04",
       "fiyat": 41.92,
-      "anlati_durumu": "BILINMIYOR",
+      "anlati_durumu": "GUCLU_ANLATI",
       "t3_getiri_pct": null,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
@@ -279,7 +289,7 @@
       "sinyal": "P3_SKOR_AL",
       "tarih": "2026-08-04",
       "fiyat": 19.86,
-      "anlati_durumu": "BILINMIYOR",
+      "anlati_durumu": "GUCLU_ANLATI",
       "t3_getiri_pct": null,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
@@ -289,7 +299,7 @@
       "sinyal": "P3_SKOR_AL",
       "tarih": "2026-08-04",
       "fiyat": 128.3,
-      "anlati_durumu": "BILINMIYOR",
+      "anlati_durumu": "ZAYIF_ANLATI",
       "t3_getiri_pct": null,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
@@ -330,7 +340,7 @@
       "tarih": "2026-08-03",
       "fiyat": 85.8,
       "anlati_durumu": "BILINMIYOR",
-      "t3_getiri_pct": 4.02,
+      "t3_getiri_pct": 3.85,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
     },
@@ -340,7 +350,7 @@
       "tarih": "2026-08-03",
       "fiyat": 393.0,
       "anlati_durumu": "BILINMIYOR",
-      "t3_getiri_pct": -2.93,
+      "t3_getiri_pct": -3.24,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
     },
@@ -350,7 +360,7 @@
       "tarih": "2026-08-03",
       "fiyat": 64.2,
       "anlati_durumu": "ZAYIF_ANLATI",
-      "t3_getiri_pct": 6.31,
+      "t3_getiri_pct": 5.92,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
     },
@@ -359,8 +369,8 @@
       "sinyal": "P3_SKOR_AL",
       "tarih": "2026-08-03",
       "fiyat": 125.0,
-      "anlati_durumu": "BILINMIYOR",
-      "t3_getiri_pct": 4.16,
+      "anlati_durumu": "ZAYIF_ANLATI",
+      "t3_getiri_pct": 4.0,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
     },
@@ -370,7 +380,7 @@
       "tarih": "2026-08-03",
       "fiyat": 299.0,
       "anlati_durumu": "GUCLU_ANLATI",
-      "t3_getiri_pct": 7.11,
+      "t3_getiri_pct": 6.27,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
     },
@@ -380,7 +390,7 @@
       "tarih": "2026-08-03",
       "fiyat": 198.5,
       "anlati_durumu": "BILINMIYOR",
-      "t3_getiri_pct": 1.46,
+      "t3_getiri_pct": 0.4,
       "t10_getiri_pct": null,
       "t20_getiri_pct": null
     },
