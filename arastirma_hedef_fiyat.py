@@ -78,6 +78,27 @@ def sembol_ozet(ay_sayisi=6):
     return ozet
 
 
+
+
+def makro_not_ekle(tarih, konu, metin, ilgili_semboller):
+    """06.08 EKI: bazi gelismeler (TCMB faiz patikasi gibi) TEK bir
+    sembolun hedef fiyat revizyonu DEGIL - coklu sembolu etkileyen
+    MAKRO/tematik bir gelisme. Bunu sahte bir eski/yeni hedef ciftine
+    ZORLAMAK (uydurma rakam) yerine, AYRI bir "makro_notlar" listesinde
+    tutuyoruz - kayitlar listesiyle KARISTIRILMAZ."""
+    veri = _oku()
+    veri.setdefault("makro_notlar", [])
+    for n in veri["makro_notlar"]:
+        if (n["tarih"], n["konu"]) == (tarih, konu):
+            return n  # zaten var, tekrar ekleme
+    not_kaydi = {"tarih": tarih, "konu": konu, "metin": metin,
+                 "ilgili_semboller": ilgili_semboller,
+                 "eklenme_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()}
+    veri["makro_notlar"].append(not_kaydi)
+    _yaz(veri)
+    return not_kaydi
+
+
 if __name__ == "__main__":
     # 05.08.2026 arastirmasindan dogrulanan gercek revizyonlar (kaynak:
     # is Yatirim, Tera Yatirim raporlari - web_search ile dogrulandi)
@@ -144,5 +165,12 @@ if __name__ == "__main__":
                "2C26 bilancosu sonrasi - 3 kurumdan (Garanti BBVA/"
                "Vakif/Alnus) TUTARLI asagi revizyon deseni - AKBNK "
                "ile AYNI banka-sektoru-geneli zayiflama temasi.")
+    makro_not_ekle("2026-08-06", "TCMB faiz patikasi yumusama sinyali",
+                   "BBVA: Eylul'de faiz koridorunda normallesme sinyali "
+                   "bekleniyor. TCMB Baskani: faiz indirimleri enflasyon "
+                   "kontrol altinda. 'Yil sonuna dogru TCMB'nin faiz "
+                   "indirimi icin alani olabilir' yorumu. 05.08'deki "
+                   "'faiz indirimi otelendi' temasinin HAFIF yumusamasi - kesin donus DEGIL, izlenmeye deger.",
+                   ["AKBNK", "YKBNK", "GARAN", "HALKB", "VAKBN"])
     print("Ornek kayitlar eklendi.")
     print(json.dumps(sembol_ozet(), ensure_ascii=False, indent=2))
