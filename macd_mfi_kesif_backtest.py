@@ -70,56 +70,65 @@ def mfi_hesapla(df, periyot):
 
 
 def macd_mfi_simule(df, sembol):
-    df = df.copy()
+    """06.08 DUZELTME: MACD(12,26,9) 38 bar isinma gerektiriyor ama tek
+    bir gunluk oturum yalniz ~32 bar tasiyor - GUN GUN sifirlanan eski
+    tasarim HICBIR gunun isinmasina izin vermiyordu (0 islem sonucunun
+    kok nedeni). Simdi gostergeler TUM seri uzerinde (gunler arasi
+    KESINTISIZ) hesaplaniyor - yalniz GIRISLER hala saat>=10:00'a VE
+    ACIK POZISYONLAR hala gun sonunda zorla kapatmaya kisitli (gecelik
+    pozisyon disiplini aynen koruniyor, yalniz gosterge isinmasi
+    artik gun sinirina takilmiyor)."""
+    df = df.copy().sort_index()
     df["gun"] = df.index.date
     tum_islemler = []
 
-    for gun, grup in df.groupby("gun"):
-        grup = grup.sort_index()
-        grup = grup[grup.index.time >= datetime.time(10, 0)]
-        if len(grup) < MACD_YAVAS + MACD_SINYAL + 3:
+    _, _, hist = macd_hesapla(df, MACD_HIZLI, MACD_YAVAS, MACD_SINYAL)
+    mfi = mfi_hesapla(df, MFI_PERIYOT)
+    atr = atr_hesapla(df, ATR_PERIYOT)
+    gun_son_index = df.groupby("gun").apply(lambda g: g.index[-1])
+
+    pozisyon = None  # (yon, giris, stop)
+    onceki_hist_isaret = None
+    for i in range(len(df)):
+        bar = df.iloc[i]
+        bugun = bar["gun"]
+        acilis_sonrasi = bar.name.time() >= datetime.time(10, 0)
+        gunun_son_bari = bar.name == gun_son_index[bugun]
+
+        if pd.isna(hist.iloc[i]):
             continue
-        _, _, hist = macd_hesapla(grup, MACD_HIZLI, MACD_YAVAS, MACD_SINYAL)
-        mfi = mfi_hesapla(grup, MFI_PERIYOT)
-        atr = atr_hesapla(grup, ATR_PERIYOT)
+        kapanis = float(bar["Close"])
+        isaret = "POZ" if hist.iloc[i] > 0 else "NEG"
+        kesisim = onceki_hist_isaret is not None and isaret != onceki_hist_isaret
+        onceki_hist_isaret = isaret
 
-        pozisyon = None  # (yon, giris, stop)
-        onceki_hist_isaret = None
-        for i in range(len(grup)):
-            if pd.isna(hist.iloc[i]):
-                continue
-            bar = grup.iloc[i]
-            kapanis = float(bar["Close"])
-            isaret = "POZ" if hist.iloc[i] > 0 else "NEG"
-            kesisim = onceki_hist_isaret is not None and isaret != onceki_hist_isaret
-            onceki_hist_isaret = isaret
-
-            if pozisyon is None:
-                if kesisim and not pd.isna(mfi.iloc[i]) and not pd.isna(atr.iloc[i]):
-                    if isaret == "POZ" and mfi.iloc[i] < MFI_UST_ESIK:
-                        stop = kapanis - ATR_STOP_CARPAN * atr.iloc[i]
-                        pozisyon = ("LONG", kapanis, stop)
-                    elif isaret == "NEG" and mfi.iloc[i] > MFI_ALT_ESIK:
-                        stop = kapanis + ATR_STOP_CARPAN * atr.iloc[i]
-                        pozisyon = ("SHORT", kapanis, stop)
-            else:
-                yon, giris, stop = pozisyon
-                cikis, sebep = None, None
-                if yon == "LONG" and float(bar["Low"]) <= stop:
-                    cikis, sebep = stop, "ATR_STOP"
-                elif yon == "SHORT" and float(bar["High"]) >= stop:
-                    cikis, sebep = stop, "ATR_STOP"
-                elif kesisim:
-                    cikis, sebep = kapanis, "MACD_KARSIT"
-                elif i == len(grup) - 1:
-                    cikis, sebep = kapanis, "GUN_SONU"
-                if cikis is not None:
-                    ham = (cikis / giris - 1) * 100 * (1 if yon == "LONG" else -1)
-                    net = ham - MALIYET_YUZDE
-                    tum_islemler.append({"sembol": sembol, "gun": str(gun), "yon": yon,
-                                          "giris": giris, "cikis": cikis, "sebep": sebep,
-                                          "ham_getiri_pct": round(ham, 3), "net_getiri_pct": round(net, 3)})
-                    pozisyon = None
+        if pozisyon is None:
+            if (acilis_sonrasi and not gunun_son_bari and kesisim
+                    and not pd.isna(mfi.iloc[i]) and not pd.isna(atr.iloc[i])):
+                if isaret == "POZ" and mfi.iloc[i] < MFI_UST_ESIK:
+                    stop = kapanis - ATR_STOP_CARPAN * atr.iloc[i]
+                    pozisyon = ("LONG", kapanis, stop)
+                elif isaret == "NEG" and mfi.iloc[i] > MFI_ALT_ESIK:
+                    stop = kapanis + ATR_STOP_CARPAN * atr.iloc[i]
+                    pozisyon = ("SHORT", kapanis, stop)
+        else:
+            yon, giris, stop = pozisyon
+            cikis, sebep = None, None
+            if yon == "LONG" and float(bar["Low"]) <= stop:
+                cikis, sebep = stop, "ATR_STOP"
+            elif yon == "SHORT" and float(bar["High"]) >= stop:
+                cikis, sebep = stop, "ATR_STOP"
+            elif kesisim:
+                cikis, sebep = kapanis, "MACD_KARSIT"
+            elif gunun_son_bari:
+                cikis, sebep = kapanis, "GUN_SONU"
+            if cikis is not None:
+                ham = (cikis / giris - 1) * 100 * (1 if yon == "LONG" else -1)
+                net = ham - MALIYET_YUZDE
+                tum_islemler.append({"sembol": sembol, "gun": str(bugun), "yon": yon,
+                                      "giris": giris, "cikis": cikis, "sebep": sebep,
+                                      "ham_getiri_pct": round(ham, 3), "net_getiri_pct": round(net, 3)})
+                pozisyon = None
     return tum_islemler
 
 
