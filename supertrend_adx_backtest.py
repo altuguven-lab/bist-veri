@@ -22,9 +22,19 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 
-SEMBOLLER = ["AKBNK.IS", "KCHOL.IS", "THYAO.IS", "GARAN.IS"]
+# 06.08 EKI: Kurul karari - bugunku tema-hizalanmasi bulgusunu (ASTOR/
+# KCHOL guclu anlati, AKBNK/YKBNK zayiflayan anlati - arastirma_hedef_
+# fiyat.json'da kayitli) AYNI teknik motorla (Supertrend+ADX, ayni
+# matematik) TEST ediyoruz: anlati gucu, teknik sinyal kalitesini
+# GERCEKTEN etkiliyor mu?
+GRUP_SEMBOLLER = {
+    "GUCLU_ANLATI": ["ASTOR.IS", "KCHOL.IS"],   # 06.08: 4 kurumdan yukari/kar surprizi
+    "ZAYIF_ANLATI": ["AKBNK.IS", "YKBNK.IS"],   # 06.08: 4+3 kurumdan tutarli asagi revizyon
+}
+SEMBOLLER = [s for grup in GRUP_SEMBOLLER.values() for s in grup]
+SEMBOL_GRUP = {s: g for g, semboller in GRUP_SEMBOLLER.items() for s in semboller}
 MALIYET_YUZDE = 0.25
-CIKTI = "data/backtest/supertrend_adx_kesif_sonuc.json"
+CIKTI = "data/backtest/supertrend_adx_tema_karsilastirma_sonuc.json"
 ATR_PERIYOT = 10
 ST_CARPAN = 3.0
 ADX_PERIYOT = 14
@@ -172,6 +182,20 @@ def main():
                          "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in alt) / len(alt), 3),
                          "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in alt), 2)}
 
+    # GRUP BAZLI karsilastirma - asil test edilen hipotez burada
+    grup_ozet = {}
+    for grup_adi, grup_semboller in GRUP_SEMBOLLER.items():
+        grup_islemler = [t for t in tum_islemler if t["sembol"] in grup_semboller]
+        if not grup_islemler:
+            continue
+        kazanan = [t for t in grup_islemler if t["net_getiri_pct"] > 0]
+        grup_ozet[grup_adi] = {
+            "islem_sayisi": len(grup_islemler),
+            "isabet_pct": round(100 * len(kazanan) / len(grup_islemler), 1),
+            "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in grup_islemler) / len(grup_islemler), 3),
+            "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in grup_islemler), 2),
+        }
+
     genel = None
     if tum_islemler:
         kazanan = [t for t in tum_islemler if t["net_getiri_pct"] > 0]
@@ -184,17 +208,22 @@ def main():
 
     sonuc = {
         "kesif_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        "not": "Faz V0 - Supertrend+ADX, SALT OLCUM. yfinance 60 gunluk 15dk pencere.",
+        "not": ("Faz V0 - Supertrend+ADX, GUCLU vs ZAYIF anlati grup "
+                "karsilastirmasi. SALT OLCUM. Hipotez: ayni teknik motor, "
+                "anlati gucune gore FARKLI performans gosterir mi?"),
         "parametreler": {"atr_periyot": ATR_PERIYOT, "st_carpan": ST_CARPAN,
                           "adx_periyot": ADX_PERIYOT, "adx_esik": ADX_ESIK},
         "maliyet_varsayimi_pct": MALIYET_YUZDE,
-        "sembol_bazli": ozet, "genel": genel, "cikis_sebebi_dagilimi": sebepler,
-        "islem_detaylari": tum_islemler,
+        "sembol_bazli": ozet, "grup_karsilastirma": grup_ozet, "genel": genel,
+        "cikis_sebebi_dagilimi": sebepler, "islem_detaylari": tum_islemler,
     }
     os.makedirs("data/backtest", exist_ok=True)
     with open(CIKTI, "w", encoding="utf-8") as f:
         json.dump(sonuc, f, ensure_ascii=False, indent=2)
     print(f"\nYazildi: {CIKTI}")
+    for grup_adi, v in grup_ozet.items():
+        print(f"{grup_adi}: {v['islem_sayisi']} islem, isabet %{v['isabet_pct']}, "
+              f"ort net getiri %{v['ort_net_getiri_pct']}")
     if genel:
         print(f"GENEL: {genel['toplam_islem']} islem, isabet %{genel['genel_isabet_pct']}, "
               f"ort net getiri %{genel['genel_ort_net_getiri_pct']}")
