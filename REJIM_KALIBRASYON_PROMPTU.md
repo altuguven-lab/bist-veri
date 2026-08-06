@@ -228,6 +228,28 @@ ALINMIS durumda kaliyor. Anlati+teknik sentezi fikri ise CANLI ve
 bir sonraki adayin bu olmasi onerilir - ama COK-GUNLU ufuk ile,
 gun-ici degil.
 
+ANLATI-TEKNIK CAPRAZ REFERANS (06.08, YENI arac) - anlati_teknik_
+capraz_referans.py: sentetik backtest yerine, P1/P2'nin GERCEK
+tarihsel sinyallerini (tv_alerts_latest+arsiv) arastirma_hedef_
+fiyat.json'daki anlati gucuyle (90 gunluk pencere) capraz referanslar.
+T+3/T+10/T+20 ufuklarinda olcer (PEAD/revizyon etkisi haftalar surer).
+Mimari: Pine'a HIC dokunmuyor, sentez tamamen Python/GitHub
+katmaninda - yeni bir Pine script'i GEREKMEDI.
+
+ILK KOSUM SONUCU (06.08) - orneklem HENUZ cok kucuk, KESIN DEGIL:
+  GUCLU_ANLATI: 9 sinyal, T+3 hesaplanan yalniz 2 (isabet %100, +%6.18)
+  ZAYIF_ANLATI: 7 sinyal, T+3 hesaplanan yalniz 2 (isabet %100, +%5.57)
+  BILINMIYOR:  26 sinyal, T+3 hesaplanan 9 (isabet %44.4, -%1.579)
+DIKKAT: ZAYIF_ANLATI'nin da %100 isabetli cikmasi, Supertrend+ADX'in
+tema-karsilastirma bulgusuyla (ZAYIF -%0.358) CELISIYOR gibi
+gorunuyor - ama 2'ser hesaplanan sinyalle bu bir CELISKI DEGIL,
+gurultu. T+10/T+20 hic gorunmedi (kulucka ~1 ay, cogu sinyal icin
+henuz dolmadi - beklenen). BILINMIYOR grubunun buyuklugu (%62),
+arastirma_hedef_fiyat.json'un HENUZ dar kapsamli oldugunu gosteriyor.
+SONUC: bu, TEK SEFERLIK bir kanit degil - ZAMANLA (T+10/T+20 dolup,
+arastirma_hedef_fiyat.json genisledikce) guclenecek bir olcum
+sistemi. Her hafta kapanisinda tekrar kosulup takip edilmeli.
+
 6) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
@@ -245,3 +267,6 @@ gun-ici degil.
 8. YENI: Supertrend+ADX tema-karsilastirma orneklemi genisletildi mi
    (13 islemden daha buyuk bir orneklem icin GUCLU/ZAYIF anlati
    ciftleri coğaltilip tekrar test edildi mi)?
+9. YENI: anlati_teknik_capraz_referans.py tekrar kosuldu mu - T+10/
+   T+20 doldu mu, BILINMIYOR grubu kuculdu mu (arastirma_hedef_fiyat.
+   json genisledikce), GUCLU/ZAYIF orneklem buyudu mu?
