@@ -250,7 +250,41 @@ SONUC: bu, TEK SEFERLIK bir kanit degil - ZAMANLA (T+10/T+20 dolup,
 arastirma_hedef_fiyat.json genisledikce) guclenecek bir olcum
 sistemi. Her hafta kapanisinda tekrar kosulup takip edilmeli.
 
-6) Bir sonraki oturum icin kontrol listesi
+7) BIST-ROS entegrasyonu (06.08, oglenden sonra) - parca parca kabul
+
+ChatGPT'nin hazirladigi "BIST-ROS Master Blueprint" paketi (PDF +
+sprint01-foundation.zip) incelendi. KARAR: paket OLDUGU GIBI
+uygulanmadi (asiri genis kapsam, "additionalProperties: False" gibi
+kirilgan semalar, ayni anda cok fazla sistemi degistirme riski -
+bugunku "tek degisiklik, izole test" dersimize aykiri). Bunun yerine
+FIKIRLER tek tek, test edilerek benimsendi:
+- json_atomik_yaz.py (atomik JSON yazma - fsync+os.replace) -
+  arastirma_hedef_fiyat.py'ye entegre edildi, 4 senaryoda test edildi.
+- config/market_calendar.yml + piyasa_takvimi.py - BIST 2026 tatil
+  takvimi 4->15 gune genisletildi (Ramazan/Kurban dahil, 3 kaynaktan
+  capraz dogrulandi). saglik_kontrol.py'nin kendi sabit-kodlanmis
+  (ayni sekilde eksik) TATIL_GUNLERI listesi buna baglandi - dosya/
+  modul bulunamazsa SESSIZCE eski listeye doner (cokme yok).
+  saglik_kontrol.yml'e `pip install pyyaml` eklendi (once eksikti,
+  "No module named yaml" hatasi verdi, duzeltildi).
+- REDDEDILEN/ERTELENEN parcalar: fetch_bist.py'nin tam yeniden yazimi,
+  update.yml'in degistirilmesi, additionalProperties:False semasi -
+  hicbiri canliya alinmadi, cok riskli/erken bulundu.
+
+YAN BULGU: 16:15 duz-bar deseni (cozulmedi, IZLENIYOR)
+06.08 13:30 UTC kosumunda, TRMET disindaki TUM sembollerin en son
+bari (16:15) DUZ gorundu (acilis=yuksek=dusuk=kapanis, hacim=0) -
+TRMET ise bir onceki (16:00) barda GERCEK degerler tasidi. Muhtemel
+aciklama: Yahoo'nun en taze bari henuz "olgunlasmamis" olmasi (fetch,
+tam o bar YENI basladigi anda calismis olabilir). ORB/Supertrend gibi
+GECMISE-DONUK analizler (ayri 60-gunluk cagriyla calisiyorlar) muhtemelen
+ETKILENMIYOR - yalniz ANLIK brifing/stop-kontrolu birkac dakikalik
+gecikme tasiyabilir. DUZELTME YAPILMADI - once TEKRARLANIYOR MU
+(her kosumda mi, nadiren mi) izlenmeli, sistemikse o zaman (orn.
+"en yeni bar duzse bir onceki barı kullan" mantigi) duzeltme
+dusunulmeli.
+
+8) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
 3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
