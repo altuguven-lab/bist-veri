@@ -16,7 +16,7 @@ jobs:
           python-version: "3.11"
       - run: pip install yfinance==0.2.66 pandas numpy
       - name: MACD+MFI kesif-backtest calistir
-        run: python macd_mfi_backtest.py
+        run: python macd_mfi_kesif_backtest.py
       - name: Sonuclari commit'le
         run: |
           git config user.name "macd-mfi-bot"
