@@ -14,6 +14,7 @@ KIRMIZI CIZGI: bu veri Pine'a HIC baglanmiyor, salt arastirma/baglam
 kaydidir - otomatik bir sinyal/filtre uretmez.
 """
 import json, datetime, os
+from json_atomik_yaz import atomik_json_yaz
 
 DOSYA = "data/arastirma_hedef_fiyat.json"
 
@@ -27,9 +28,10 @@ def _oku():
 
 
 def _yaz(veri):
-    os.makedirs(os.path.dirname(DOSYA), exist_ok=True)
-    with open(DOSYA, "w", encoding="utf-8") as f:
-        json.dump(veri, f, ensure_ascii=False, indent=2)
+    # 06.08 EKI: BIST-ROS paketinden benimsenen ilk parca - atomik yazma.
+    # Kesinti (Actions runner cokmesi/timeout) sirasinda yarim/bozuk
+    # dosya kalmasini onler - eskisi ya da yenisi, ASLA yarim kalmaz.
+    atomik_json_yaz(DOSYA, veri)
 
 
 def kayit_ekle(sembol, tarih, kurum, eski_hedef, yeni_hedef, kaynak_not):
