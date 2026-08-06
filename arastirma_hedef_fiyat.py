@@ -109,5 +109,40 @@ if __name__ == "__main__":
                "Bakiye siparis 20.7mlr USD'den 23.2mlr USD'ye yukseldi. "
                "(deger hedef fiyat DEGIL, milyar TL net kar - piyasa "
                "beklentisi vs gerceklesen kullanildi).")
+    kayit_ekle("AKBNK", "2026-07-29", "Is Yatirim", 107, 93,
+               "2C26 bilancosu sonrasi - net faiz marji ve ozkaynak "
+               "karliligi beklentileri asagi revize edildi, 'Al' "
+               "tavsiyesi korundu.")
+    kayit_ekle("AKBNK", "2026-07-29", "Vakif Yatirim", 107.9, 97.0,
+               "2C26 bilancosu sonrasi - karlilik beklentilerindeki "
+               "asagi revizyon nedeniyle, tavsiye degismedi.")
+    kayit_ekle("AKBNK", "2026-07-29", "Seker Yatirim", 108.10, 96.76,
+               "2C26 bilancosu sonrasi - tavsiye 'Al' olarak korundu.")
+    kayit_ekle("AKBNK", "2026-07-29", "GCM Yatirim", 116.80, 92.00,
+               "2C26 bilancosu sonrasi - 4 kurumdan TUTARLI asagi "
+               "revizyon deseni (Is/Vakif/Seker/GCM hepsi asagi).")
+    kayit_ekle("TAVHL", "2026-02-26", "Deniz Yatirim", 436.60, 454.40,
+               "Bilanco sonrasi guncelleme - Tiflis Havalimani "
+               "degerlemesi 149->166mn Euro yukseldi (net etki pozitif), "
+               "ama ciro/FAVOK beklentileri asagi revize edildi - "
+               "KARISIK sinyal, tarih 1C26'ya ait olabilir (2C26 "
+               "DEGIL, daha eski).")
+    kayit_ekle("KCHOL", "2026-08-05", "Piyasa Konsensusu", 13.6, 19.7,
+               "2C26 net kari 19.7mlr TL, piyasa beklentisi 13.6mlr "
+               "TL'nin cok uzerinde (%93 yillik artis, onceki "
+               "ceyrekten -558mn TL'den sert sicrama). (deger hedef "
+               "fiyat DEGIL, milyar TL net kar - konsensus vs "
+               "gerceklesen kullanildi, TUPRS/ASELS Ziraat kaydiyla "
+               "ayni desen).")
+    kayit_ekle("YKBNK", "2026-07-31", "Garanti BBVA Yatirim", 53.40, 51.00,
+               "2C26 bilancosu sonrasi, 'endeks ustu getiri' tavsiyesi "
+               "korundu.")
+    kayit_ekle("YKBNK", "2026-07-31", "Vakif Yatirim", 52.60, 48.40,
+               "2C26 net donem kari ceyreksel bazda geriledi, "
+               "beklentilere paralel. 'AL' tavsiyesi korundu.")
+    kayit_ekle("YKBNK", "2026-07-31", "Alnus Yatirim", 55.32, 44.30,
+               "2C26 bilancosu sonrasi - 3 kurumdan (Garanti BBVA/"
+               "Vakif/Alnus) TUTARLI asagi revizyon deseni - AKBNK "
+               "ile AYNI banka-sektoru-geneli zayiflama temasi.")
     print("Ornek kayitlar eklendi.")
     print(json.dumps(sembol_ozet(), ensure_ascii=False, indent=2))
