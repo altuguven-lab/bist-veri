@@ -166,18 +166,82 @@ gun), 36'si (%92.3) teknik/aciklanamayan. SINIRLAMA: bilanco_takvimi.
 json yalniz 20.07'den itibaren + dar kapsamli - gercek oran
 muhtemelen biraz yuksek ama BUYUK RESIMDE kuraklik ANA OLARAK
 teknik/kalibrasyon kaynakli gorunuyor.
-Gun-ici alim-satim (ORB/VWAP) - KARAR: ASKIYA ALINDI
-5 deneme (ORB v1/v2/v3-grid, VWAP v1/v2), hicbiri pozitife gecmedi.
-En iyi: ORB v3, AKBNK/KCHOL, hacim=1.8/rtr=3.0/stop_oran=1.0,
-ort net getiri %-0.076 (hala eksi). Proje suresiz ASKIYA ALINDI.
+Gun-ici alim-satim (ORB/VWAP/Supertrend+ADX/MACD+MFI) - 05-06.08
+KONSOLIDE DURUM
+
+05.08: 5 deneme (ORB v1/v2/v3-grid, VWAP v1/v2), hicbiri pozitife
+gecmedi. En iyi: ORB v3, AKBNK/KCHOL, ort net getiri %-0.076.
+
+06.08: 2 YENI gosterge ailesi test edildi:
+- Supertrend+ADX (genel, 4 sembol filtresiz): 11 islem, isabet
+  %36.4, ort net %-0.246 - yine negatif, YETERSIZ orneklem.
+- MACD+MFI (4 sembol filtresiz): 287 islem, isabet %26.5 (bugune
+  kadarki EN DUSUK), ort net %-0.256.
+
+KRITIK BULGU (06.08): Supertrend+ADX'i GUCLU_ANLATI (ASTOR+KCHOL)
+vs ZAYIF_ANLATI (AKBNK+YKBNK) gruplarina ayirinca (bkz. Bolum 3):
+  GUCLU_ANLATI: 8 islem, isabet %62.5, ort net getiri +%0.863 (POZITIF!)
+  ZAYIF_ANLATI: 5 islem, isabet %40.0, ort net getiri -%0.358
+Bu, 6 denemenin (ORB v1-3, VWAP v1-2, Supertrend genel) ILK KEZ
+pozitif cikan alt-kumesi. Orneklem KUCUK (13 islem toplam) - kesin
+kanit degil, ama yon net.
+
+ARASTIRMA RAPORU (06.08, launch_extended_search_task ile, Turkce
+ceviri repo'da BIST_Arastirma_Raporu_TR.md olarak mevcut - repo
+disinda, yalniz kullanicinin masaustunde) - ANA SONUC:
+- Teknik gostergelerin tek basina kaybetmesi ANOMALI DEGIL, beklenen
+  sonuc (Sullivan-Timmermann-White 1999; McLean & Pontiff 2016 -
+  yayinlanmis stratejiler yayin-sonrasi %58 daha az kazandiriyor).
+  Kalabalik piyasada herkesin bildigi gostergeler kalabalıklastıkça
+  kar penceresi kapaniyor.
+- Supertrend+ADX'in anlati-gucune gore ters isaret vermesi TESADUF
+  DEGIL: PEAD (bilanco-sonrasi fiyat surklenmesi) ve kazanc/analist-
+  revizyon momentumu literatürü (Chan-Jegadeesh-Lakonishok 1996;
+  Bernard-Thomas 1989) TAM bu deseni ongoruyor - piyasa temel habere
+  KADEMELI tepki veriyor, teknik trend sinyali bu surklenmenin erken
+  fazini yakaliyor (gercek katalizoru olan hissede), katalizorsuz
+  hissede ise gurultu.
+- BIST'e ozgu kanit ELVERISLI: PEAD Turkiye'de dogrudan belgelendi
+  (Ahlatcioglu & Okay 2021, Borsa Istanbul Review - bilanco sonrasi
+  60 gunde %2.9 kumulatif anormal getiri farki). Turk piyasasi
+  perakende-akis-baskin (TSPB: yerli yatirimcilar 2025 sonu itibariyle
+  portfoyun %63.7'sini elinde tutuyor) - bu, eksik-tepki/asiri-tepki
+  paternlerinin (PEAD + kisa-vadeli tersine donus, Bildik & Gulay 2007)
+  GUCLU oldugu tam ortam.
+
+STRATEJIK YON DEGISIKLIGI ONERISI (arastirmadan, HENUZ KARAR
+ALINMADI - kullaniciyla konusulacak):
+Gun-ici (15dk bar, scalping) yaklasimini BIRAKIP, projeyi COK-GUNLU
+(5-60 gun) KATALIZOR-GUDUMLU SWING sistemine donusturmek - temel/
+anlati sinyali (arastirma_hedef_fiyat.py) hisseyi/yonu secsin, teknik
+sinyal (Supertrend/ORB) yalniz GIRIS ZAMANLAMASI+STOP icin kullanilsin.
+4 asamali yol haritasi: (1) ufku 5-60 gune uzat, (2) anlati gucunu
+OLCULEBILIR degiskenlere don (SUE, analist revizyon genisligi) -
+zaten arastirma_hedef_fiyat.py bunun cekirdegi, (3) istatistikleri
+duzelt (BIST-100 tam evren, 5-10 yil, anlamlilik testi - 13 islem
+YETERSIZ), (4) orta/kucuk-cap'lere yonel (PEAD en guclu, kurumsal
+arbitraj en zayif, ama spread/maliyet daha yuksek - gercekci
+modellenmeli).
+
+KARAR: Gun-ici proje (dar anlamda, 15dk scalping) suresiz ASKIYA
+ALINMIS durumda kaliyor. Anlati+teknik sentezi fikri ise CANLI ve
+bir sonraki adayin bu olmasi onerilir - ama COK-GUNLU ufuk ile,
+gun-ici degil.
+
 6) Bir sonraki oturum icin kontrol listesi
-Haftalik Kirilim - W32 esik durumu ne?
-Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
-arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
-ile P1/P2 PF/WR karsilastirmasi anlamli bir sey gosteriyor mu?
-hafta_denetim.py'nin "supheli fiyat" bolumu - yeni bir anomali
-yakaladi mi?
-v112n'i TEKRAR denemek istenirse: TEK BASINA, izole test - baska
-hicbir Pine degisikligiyle BIRLESTIRMEDEN.
-Bilanco takvimini genisletmek hala dusuk oncelikli (olay-tabanli
-payin kucuk cikmasi nedeniyle).
+1. Haftalik Kirilim - W32 esik durumu ne?
+2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
+3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
+   ile P1/P2 PF/WR karsilastirmasi anlamli bir sey gosteriyor mu?
+4. hafta_denetim.py'nin "supheli fiyat" bolumu - yeni bir anomali
+   yakaladi mi?
+5. v112n'i TEKRAR denemek istenirse: TEK BASINA, izole test - baska
+   hicbir Pine degisikligiyle BIRLESTIRMEDEN.
+6. Bilanco takvimini genisletmek hala dusuk oncelikli (olay-tabanli
+   payin kucuk cikmasi nedeniyle).
+7. YENI: kullaniciyla "cok-gunlu katalizor-gudumlu swing" yon
+   degisikligi konusuldu mu, karar verildi mi? Verildiyse, Faz 1
+   (ufku 5-60 gune uzatma) baslatildi mi?
+8. YENI: Supertrend+ADX tema-karsilastirma orneklemi genisletildi mi
+   (13 islemden daha buyuk bir orneklem icin GUCLU/ZAYIF anlati
+   ciftleri coğaltilip tekrar test edildi mi)?
