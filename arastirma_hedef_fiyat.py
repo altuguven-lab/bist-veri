@@ -172,5 +172,22 @@ if __name__ == "__main__":
                    "indirimi icin alani olabilir' yorumu. 05.08'deki "
                    "'faiz indirimi otelendi' temasinin HAFIF yumusamasi - kesin donus DEGIL, izlenmeye deger.",
                    ["AKBNK", "YKBNK", "GARAN", "HALKB", "VAKBN"])
+    kayit_ekle("GARAN", "2026-07-30", "Halk Yatirim", 208.37, 187.17,
+               "2C26 bilancosu sonrasi - net kar beklentinin uzerinde "
+               "olsa da, AKBNK/YKBNK ile AYNI banka-sektoru-geneli "
+               "asagi revizyon deseni. 'AL' tavsiyesi korundu.")
+    kayit_ekle("GARAN", "2026-07-30", "Yapi Kredi Yatirim", 182, 180,
+               "2C26 bilancosu sonrasi - kucuk asagi revizyon, 'TUT' "
+               "tavsiyesi korundu.")
+    kayit_ekle("EREGL", "2026-02-23", "Is Yatirim", 30, 35,
+               "FAVOK/ton tahmini (75->85 dolar) ve satis hacmi "
+               "(8.1->8.3mn ton) yukari revize edildi.")
+    kayit_ekle("EREGL", "2026-06-23", "TEB Yatirim", 41, 53,
+               "'Endeks ustu getiri' tavsiyesiyle guclu yukari "
+               "revizyon.")
+    kayit_ekle("PETKM", "2026-05-07", "Alnus Yatirim", 19.86, 25.90,
+               "Bilancoya en dikkat cekici tepki - digerlerinden "
+               "(Deniz Yatirim sabit 21 TL) cok daha guclu yukari "
+               "revizyon.")
     print("Ornek kayitlar eklendi.")
     print(json.dumps(sembol_ozet(), ensure_ascii=False, indent=2))
