@@ -1,5 +1,5 @@
 {
-  "kesif_zamani_utc": "2026-08-06T07:57:18.919455+00:00",
+  "kesif_zamani_utc": "2026-08-06T08:06:55.135476+00:00",
   "not": "Faz V0 - MACD+MFI, SALT OLCUM. yfinance 60 gunluk 15dk pencere.",
   "parametreler": {
     "macd": [
@@ -16,8 +16,2912 @@
     "atr_stop_carpan": 2.0
   },
   "maliyet_varsayimi_pct": 0.25,
-  "sembol_bazli": {},
-  "genel": null,
-  "cikis_sebebi_dagilimi": {},
-  "islem_detaylari": []
+  "sembol_bazli": {
+    "AKBNK.IS": {
+      "islem_sayisi": 68,
+      "isabet_pct": 23.5,
+      "ort_net_getiri_pct": -0.239,
+      "toplam_net_getiri_pct": -16.27
+    },
+    "KCHOL.IS": {
+      "islem_sayisi": 75,
+      "isabet_pct": 29.3,
+      "ort_net_getiri_pct": -0.203,
+      "toplam_net_getiri_pct": -15.22
+    },
+    "THYAO.IS": {
+      "islem_sayisi": 64,
+      "isabet_pct": 29.7,
+      "ort_net_getiri_pct": -0.268,
+      "toplam_net_getiri_pct": -17.15
+    },
+    "GARAN.IS": {
+      "islem_sayisi": 80,
+      "isabet_pct": 23.8,
+      "ort_net_getiri_pct": -0.309,
+      "toplam_net_getiri_pct": -24.75
+    }
+  },
+  "genel": {
+    "toplam_islem": 287,
+    "genel_isabet_pct": 26.5,
+    "genel_ort_net_getiri_pct": -0.256
+  },
+  "cikis_sebebi_dagilimi": {
+    "MACD_KARSIT": 138,
+    "GUN_SONU": 104,
+    "ATR_STOP": 45
+  },
+  "islem_detaylari": [
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-05-18",
+      "yon": "SHORT",
+      "giris": 69.44999694824219,
+      "cikis": 69.6500015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.288,
+      "net_getiri_pct": -0.538
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-05-20",
+      "yon": "LONG",
+      "giris": 69.25,
+      "cikis": 69.05000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.289,
+      "net_getiri_pct": -0.539
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-05-20",
+      "yon": "LONG",
+      "giris": 69.1500015258789,
+      "cikis": 68.8499984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.434,
+      "net_getiri_pct": -0.684
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-05-20",
+      "yon": "LONG",
+      "giris": 69.19999694824219,
+      "cikis": 69.30000305175781,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.145,
+      "net_getiri_pct": -0.105
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-05-21",
+      "yon": "SHORT",
+      "giris": 68.30000305175781,
+      "cikis": 68.05000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.366,
+      "net_getiri_pct": 0.116
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-05-25",
+      "yon": "SHORT",
+      "giris": 63.900001525878906,
+      "cikis": 64.0999984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.313,
+      "net_getiri_pct": -0.563
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-05-26",
+      "yon": "SHORT",
+      "giris": 64.75,
+      "cikis": 64.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.158,
+      "net_getiri_pct": 0.908
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-01",
+      "yon": "LONG",
+      "giris": 64.75,
+      "cikis": 64.69999694824219,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.077,
+      "net_getiri_pct": -0.327
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-02",
+      "yon": "LONG",
+      "giris": 65.30000305175781,
+      "cikis": 65.80000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.766,
+      "net_getiri_pct": 0.516
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-02",
+      "yon": "SHORT",
+      "giris": 66.0999984741211,
+      "cikis": 65.94999694824219,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.227,
+      "net_getiri_pct": -0.023
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-03",
+      "yon": "LONG",
+      "giris": 66.1500015258789,
+      "cikis": 66.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.227,
+      "net_getiri_pct": -0.477
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-04",
+      "yon": "LONG",
+      "giris": 65.94999694824219,
+      "cikis": 65.1500015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -1.213,
+      "net_getiri_pct": -1.463
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-04",
+      "yon": "LONG",
+      "giris": 65.5,
+      "cikis": 66.5999984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 1.679,
+      "net_getiri_pct": 1.429
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-05",
+      "yon": "SHORT",
+      "giris": 65.55000305175781,
+      "cikis": 64.44999694824219,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.678,
+      "net_getiri_pct": 1.428
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-08",
+      "yon": "LONG",
+      "giris": 64.5999984741211,
+      "cikis": 66.94999694824219,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 3.638,
+      "net_getiri_pct": 3.388
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-09",
+      "yon": "SHORT",
+      "giris": 67.6500015258789,
+      "cikis": 67.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.591,
+      "net_getiri_pct": 0.341
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-10",
+      "yon": "LONG",
+      "giris": 66.80000305175781,
+      "cikis": 66.14358614332704,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.983,
+      "net_getiri_pct": -1.233
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-10",
+      "yon": "SHORT",
+      "giris": 66.05000305175781,
+      "cikis": 66.44999694824219,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.606,
+      "net_getiri_pct": -0.856
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-11",
+      "yon": "SHORT",
+      "giris": 66.4000015258789,
+      "cikis": 66.69999694824219,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.452,
+      "net_getiri_pct": -0.702
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-11",
+      "yon": "SHORT",
+      "giris": 65.6500015258789,
+      "cikis": 66.54817843683084,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.368,
+      "net_getiri_pct": -1.618
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-12",
+      "yon": "SHORT",
+      "giris": 72.1500015258789,
+      "cikis": 72.1500015258789,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.0,
+      "net_getiri_pct": -0.25
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-15",
+      "yon": "SHORT",
+      "giris": 77.6500015258789,
+      "cikis": 77.6500015258789,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.0,
+      "net_getiri_pct": -0.25
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-16",
+      "yon": "LONG",
+      "giris": 76.9000015258789,
+      "cikis": 76.5999984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.39,
+      "net_getiri_pct": -0.64
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-17",
+      "yon": "SHORT",
+      "giris": 77.25,
+      "cikis": 77.87424667169726,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.808,
+      "net_getiri_pct": -1.058
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-18",
+      "yon": "SHORT",
+      "giris": 80.05000305175781,
+      "cikis": 80.9099436058972,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.074,
+      "net_getiri_pct": -1.324
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-19",
+      "yon": "LONG",
+      "giris": 81.6500015258789,
+      "cikis": 81.5999984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.061,
+      "net_getiri_pct": -0.311
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-22",
+      "yon": "SHORT",
+      "giris": 82.25,
+      "cikis": 81.8499984741211,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.486,
+      "net_getiri_pct": 0.236
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-23",
+      "yon": "LONG",
+      "giris": 80.94999694824219,
+      "cikis": 80.18213512456792,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.949,
+      "net_getiri_pct": -1.199
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-23",
+      "yon": "SHORT",
+      "giris": 80.25,
+      "cikis": 80.1500015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.125,
+      "net_getiri_pct": -0.125
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-24",
+      "yon": "SHORT",
+      "giris": 79.94999694824219,
+      "cikis": 80.3499984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.5,
+      "net_getiri_pct": -0.75
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-24",
+      "yon": "SHORT",
+      "giris": 79.9000015258789,
+      "cikis": 80.4000015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.626,
+      "net_getiri_pct": -0.876
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-25",
+      "yon": "SHORT",
+      "giris": 81.5,
+      "cikis": 77.1500015258789,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 5.337,
+      "net_getiri_pct": 5.087
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-26",
+      "yon": "LONG",
+      "giris": 77.75,
+      "cikis": 76.84358279157244,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.166,
+      "net_getiri_pct": -1.416
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-26",
+      "yon": "SHORT",
+      "giris": 76.5999984741211,
+      "cikis": 76.8499984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.326,
+      "net_getiri_pct": -0.576
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-29",
+      "yon": "SHORT",
+      "giris": 77.3499984741211,
+      "cikis": 76.9000015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.582,
+      "net_getiri_pct": 0.332
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-06-30",
+      "yon": "SHORT",
+      "giris": 76.94999694824219,
+      "cikis": 77.05000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.13,
+      "net_getiri_pct": -0.38
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-01",
+      "yon": "LONG",
+      "giris": 76.75,
+      "cikis": 77.69999694824219,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 1.238,
+      "net_getiri_pct": 0.988
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-02",
+      "yon": "LONG",
+      "giris": 78.25,
+      "cikis": 78.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.319,
+      "net_getiri_pct": -0.569
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-03",
+      "yon": "LONG",
+      "giris": 74.8499984741211,
+      "cikis": 74.02917672569932,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.097,
+      "net_getiri_pct": -1.347
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-06",
+      "yon": "LONG",
+      "giris": 73.75,
+      "cikis": 73.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.339,
+      "net_getiri_pct": -0.589
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-07",
+      "yon": "SHORT",
+      "giris": 74.30000305175781,
+      "cikis": 73.69999694824219,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.808,
+      "net_getiri_pct": 0.558
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-08",
+      "yon": "LONG",
+      "giris": 71.3499984741211,
+      "cikis": 70.80000305175781,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.771,
+      "net_getiri_pct": -1.021
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-09",
+      "yon": "LONG",
+      "giris": 70.8499984741211,
+      "cikis": 70.4000015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.635,
+      "net_getiri_pct": -0.885
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-09",
+      "yon": "LONG",
+      "giris": 70.3499984741211,
+      "cikis": 70.1500015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.284,
+      "net_getiri_pct": -0.534
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-09",
+      "yon": "LONG",
+      "giris": 70.4000015258789,
+      "cikis": 70.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.213,
+      "net_getiri_pct": -0.463
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-10",
+      "yon": "SHORT",
+      "giris": 70.1500015258789,
+      "cikis": 69.30000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 1.212,
+      "net_getiri_pct": 0.962
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-13",
+      "yon": "LONG",
+      "giris": 67.5,
+      "cikis": 67.5999984741211,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.148,
+      "net_getiri_pct": -0.102
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-14",
+      "yon": "SHORT",
+      "giris": 68.5,
+      "cikis": 69.08819776091423,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.859,
+      "net_getiri_pct": -1.109
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-14",
+      "yon": "LONG",
+      "giris": 69.05000305175781,
+      "cikis": 69.19999694824219,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.217,
+      "net_getiri_pct": -0.033
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-16",
+      "yon": "SHORT",
+      "giris": 68.94999694824219,
+      "cikis": 67.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 2.103,
+      "net_getiri_pct": 1.853
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-17",
+      "yon": "SHORT",
+      "giris": 66.94999694824219,
+      "cikis": 66.8499984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.149,
+      "net_getiri_pct": -0.101
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-20",
+      "yon": "LONG",
+      "giris": 67.05000305175781,
+      "cikis": 67.1500015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.149,
+      "net_getiri_pct": -0.101
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-21",
+      "yon": "LONG",
+      "giris": 67.44999694824219,
+      "cikis": 67.05000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.593,
+      "net_getiri_pct": -0.843
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-21",
+      "yon": "LONG",
+      "giris": 67.19999694824219,
+      "cikis": 66.70147193912126,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.742,
+      "net_getiri_pct": -0.992
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-22",
+      "yon": "SHORT",
+      "giris": 66.4000015258789,
+      "cikis": 66.55000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.226,
+      "net_getiri_pct": -0.476
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-23",
+      "yon": "SHORT",
+      "giris": 66.5,
+      "cikis": 66.75,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.376,
+      "net_getiri_pct": -0.626
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-23",
+      "yon": "SHORT",
+      "giris": 66.5,
+      "cikis": 66.6500015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.226,
+      "net_getiri_pct": -0.476
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-24",
+      "yon": "SHORT",
+      "giris": 67.5,
+      "cikis": 67.80000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.444,
+      "net_getiri_pct": -0.694
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-27",
+      "yon": "SHORT",
+      "giris": 68.44999694824219,
+      "cikis": 66.6500015258789,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 2.63,
+      "net_getiri_pct": 2.38
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-28",
+      "yon": "LONG",
+      "giris": 66.75,
+      "cikis": 66.01930219985302,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.095,
+      "net_getiri_pct": -1.345
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-29",
+      "yon": "LONG",
+      "giris": 66.05000305175781,
+      "cikis": 65.36655192102508,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.035,
+      "net_getiri_pct": -1.285
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-29",
+      "yon": "LONG",
+      "giris": 64.6500015258789,
+      "cikis": 63.9655249599634,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.059,
+      "net_getiri_pct": -1.309
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-30",
+      "yon": "LONG",
+      "giris": 63.20000076293945,
+      "cikis": 62.39884747050379,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.268,
+      "net_getiri_pct": -1.518
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-07-31",
+      "yon": "LONG",
+      "giris": 62.45000076293945,
+      "cikis": 61.44172470974699,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.615,
+      "net_getiri_pct": -1.865
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-08-03",
+      "yon": "SHORT",
+      "giris": 66.0999984741211,
+      "cikis": 66.1500015258789,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.076,
+      "net_getiri_pct": -0.326
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-08-04",
+      "yon": "LONG",
+      "giris": 66.8499984741211,
+      "cikis": 66.0641924535482,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.175,
+      "net_getiri_pct": -1.425
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-08-04",
+      "yon": "LONG",
+      "giris": 66.6500015258789,
+      "cikis": 67.9000015258789,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.875,
+      "net_getiri_pct": 1.625
+    },
+    {
+      "sembol": "AKBNK.IS",
+      "gun": "2026-08-05",
+      "yon": "LONG",
+      "giris": 67.44999694824219,
+      "cikis": 67.55000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.148,
+      "net_getiri_pct": -0.102
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-05-18",
+      "yon": "LONG",
+      "giris": 195.60000610351562,
+      "cikis": 195.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.051,
+      "net_getiri_pct": -0.301
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-05-20",
+      "yon": "LONG",
+      "giris": 195.6999969482422,
+      "cikis": 195.89999389648438,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.102,
+      "net_getiri_pct": -0.148
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-05-20",
+      "yon": "LONG",
+      "giris": 196.60000610351562,
+      "cikis": 195.6999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.458,
+      "net_getiri_pct": -0.708
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-05-20",
+      "yon": "LONG",
+      "giris": 196.39999389648438,
+      "cikis": 196.1999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.102,
+      "net_getiri_pct": -0.352
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-05-21",
+      "yon": "LONG",
+      "giris": 190.1999969482422,
+      "cikis": 188.42290910776939,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.934,
+      "net_getiri_pct": -1.184
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-05-22",
+      "yon": "LONG",
+      "giris": 184.5,
+      "cikis": 190.8000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 3.415,
+      "net_getiri_pct": 3.165
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-05-25",
+      "yon": "SHORT",
+      "giris": 190.5,
+      "cikis": 190.89999389648438,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.21,
+      "net_getiri_pct": -0.46
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-05-26",
+      "yon": "SHORT",
+      "giris": 190.0,
+      "cikis": 189.10000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.474,
+      "net_getiri_pct": 0.224
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-01",
+      "yon": "LONG",
+      "giris": 193.39999389648438,
+      "cikis": 191.04896755536964,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.216,
+      "net_getiri_pct": -1.466
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-01",
+      "yon": "SHORT",
+      "giris": 190.0,
+      "cikis": 190.60000610351562,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.316,
+      "net_getiri_pct": -0.566
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-01",
+      "yon": "SHORT",
+      "giris": 190.3000030517578,
+      "cikis": 190.8000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.263,
+      "net_getiri_pct": -0.513
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-01",
+      "yon": "SHORT",
+      "giris": 186.89999389648438,
+      "cikis": 186.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.214,
+      "net_getiri_pct": -0.036
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-02",
+      "yon": "LONG",
+      "giris": 189.89999389648438,
+      "cikis": 193.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.896,
+      "net_getiri_pct": 1.646
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-03",
+      "yon": "SHORT",
+      "giris": 192.1999969482422,
+      "cikis": 188.6999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.821,
+      "net_getiri_pct": 1.571
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-04",
+      "yon": "LONG",
+      "giris": 192.39999389648438,
+      "cikis": 190.23101633204618,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.127,
+      "net_getiri_pct": -1.377
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-04",
+      "yon": "SHORT",
+      "giris": 189.60000610351562,
+      "cikis": 191.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.738,
+      "net_getiri_pct": -0.988
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-05",
+      "yon": "SHORT",
+      "giris": 190.8000030517578,
+      "cikis": 191.8000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.524,
+      "net_getiri_pct": -0.774
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-05",
+      "yon": "SHORT",
+      "giris": 190.60000610351562,
+      "cikis": 189.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.839,
+      "net_getiri_pct": 0.589
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-08",
+      "yon": "LONG",
+      "giris": 188.89999389648438,
+      "cikis": 187.8000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.582,
+      "net_getiri_pct": -0.832
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-08",
+      "yon": "LONG",
+      "giris": 187.3000030517578,
+      "cikis": 191.10000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 2.029,
+      "net_getiri_pct": 1.779
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-09",
+      "yon": "SHORT",
+      "giris": 190.5,
+      "cikis": 186.8000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.942,
+      "net_getiri_pct": 1.692
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-10",
+      "yon": "LONG",
+      "giris": 187.39999389648438,
+      "cikis": 185.82084366901123,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.843,
+      "net_getiri_pct": -1.093
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-10",
+      "yon": "SHORT",
+      "giris": 185.5,
+      "cikis": 185.8000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.162,
+      "net_getiri_pct": -0.412
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-10",
+      "yon": "SHORT",
+      "giris": 184.0,
+      "cikis": 184.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.163,
+      "net_getiri_pct": -0.413
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-11",
+      "yon": "SHORT",
+      "giris": 185.10000610351562,
+      "cikis": 186.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.648,
+      "net_getiri_pct": -0.898
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-11",
+      "yon": "SHORT",
+      "giris": 184.60000610351562,
+      "cikis": 184.10000610351562,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.271,
+      "net_getiri_pct": 0.021
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-12",
+      "yon": "SHORT",
+      "giris": 191.1999969482422,
+      "cikis": 187.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.935,
+      "net_getiri_pct": 1.685
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-15",
+      "yon": "SHORT",
+      "giris": 196.89999389648438,
+      "cikis": 197.89999389648438,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.508,
+      "net_getiri_pct": -0.758
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-16",
+      "yon": "SHORT",
+      "giris": 199.8000030517578,
+      "cikis": 199.6999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.05,
+      "net_getiri_pct": -0.2
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-17",
+      "yon": "LONG",
+      "giris": 196.10000610351562,
+      "cikis": 195.60000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.255,
+      "net_getiri_pct": -0.505
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-18",
+      "yon": "SHORT",
+      "giris": 197.5,
+      "cikis": 198.1999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.354,
+      "net_getiri_pct": -0.604
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-19",
+      "yon": "SHORT",
+      "giris": 196.89999389648438,
+      "cikis": 197.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.203,
+      "net_getiri_pct": -0.453
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-22",
+      "yon": "SHORT",
+      "giris": 198.1999969482422,
+      "cikis": 197.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.353,
+      "net_getiri_pct": 0.103
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-23",
+      "yon": "LONG",
+      "giris": 194.10000610351562,
+      "cikis": 192.66281452786149,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.74,
+      "net_getiri_pct": -0.99
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-23",
+      "yon": "LONG",
+      "giris": 192.89999389648438,
+      "cikis": 191.49647775344417,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.728,
+      "net_getiri_pct": -0.978
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-24",
+      "yon": "SHORT",
+      "giris": 191.3000030517578,
+      "cikis": 191.6999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.209,
+      "net_getiri_pct": -0.459
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-25",
+      "yon": "SHORT",
+      "giris": 196.8000030517578,
+      "cikis": 194.89999389648438,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.965,
+      "net_getiri_pct": 0.715
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-26",
+      "yon": "LONG",
+      "giris": 198.5,
+      "cikis": 197.39999389648438,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.554,
+      "net_getiri_pct": -0.804
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-29",
+      "yon": "SHORT",
+      "giris": 196.3000030517578,
+      "cikis": 195.89999389648438,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.204,
+      "net_getiri_pct": -0.046
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-30",
+      "yon": "SHORT",
+      "giris": 194.5,
+      "cikis": 193.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.771,
+      "net_getiri_pct": 0.521
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-06-30",
+      "yon": "LONG",
+      "giris": 192.8000030517578,
+      "cikis": 193.60000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.415,
+      "net_getiri_pct": 0.165
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-01",
+      "yon": "SHORT",
+      "giris": 191.6999969482422,
+      "cikis": 193.33455271283665,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.853,
+      "net_getiri_pct": -1.103
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-01",
+      "yon": "SHORT",
+      "giris": 194.6999969482422,
+      "cikis": 194.60000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.051,
+      "net_getiri_pct": -0.199
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-02",
+      "yon": "LONG",
+      "giris": 196.6999969482422,
+      "cikis": 195.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.61,
+      "net_getiri_pct": -0.86
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-03",
+      "yon": "SHORT",
+      "giris": 191.10000610351562,
+      "cikis": 191.1999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.052,
+      "net_getiri_pct": -0.302
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-03",
+      "yon": "LONG",
+      "giris": 191.0,
+      "cikis": 190.10000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.471,
+      "net_getiri_pct": -0.721
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-06",
+      "yon": "SHORT",
+      "giris": 190.6999969482422,
+      "cikis": 188.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 1.259,
+      "net_getiri_pct": 1.009
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-07",
+      "yon": "SHORT",
+      "giris": 189.8000030517578,
+      "cikis": 189.1999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.316,
+      "net_getiri_pct": 0.066
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-08",
+      "yon": "LONG",
+      "giris": 185.3000030517578,
+      "cikis": 184.1999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.594,
+      "net_getiri_pct": -0.844
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-09",
+      "yon": "LONG",
+      "giris": 182.8000030517578,
+      "cikis": 185.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.203,
+      "net_getiri_pct": 0.953
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-10",
+      "yon": "SHORT",
+      "giris": 190.6999969482422,
+      "cikis": 192.2740063520402,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.825,
+      "net_getiri_pct": -1.075
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-10",
+      "yon": "SHORT",
+      "giris": 192.60000610351562,
+      "cikis": 192.8000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.104,
+      "net_getiri_pct": -0.354
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-13",
+      "yon": "LONG",
+      "giris": 192.0,
+      "cikis": 191.8000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.104,
+      "net_getiri_pct": -0.354
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-14",
+      "yon": "LONG",
+      "giris": 190.39999389648438,
+      "cikis": 191.10000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.368,
+      "net_getiri_pct": 0.118
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-16",
+      "yon": "SHORT",
+      "giris": 195.3000030517578,
+      "cikis": 196.6006651297926,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.666,
+      "net_getiri_pct": -0.916
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-16",
+      "yon": "SHORT",
+      "giris": 196.89999389648438,
+      "cikis": 197.3000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.203,
+      "net_getiri_pct": -0.453
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-17",
+      "yon": "SHORT",
+      "giris": 197.39999389648438,
+      "cikis": 198.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.557,
+      "net_getiri_pct": -0.807
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-20",
+      "yon": "SHORT",
+      "giris": 201.0,
+      "cikis": 199.60000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.697,
+      "net_getiri_pct": 0.447
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-21",
+      "yon": "LONG",
+      "giris": 201.60000610351562,
+      "cikis": 200.60000610351562,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.496,
+      "net_getiri_pct": -0.746
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-21",
+      "yon": "LONG",
+      "giris": 201.60000610351562,
+      "cikis": 201.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.05,
+      "net_getiri_pct": -0.3
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-22",
+      "yon": "SHORT",
+      "giris": 204.60000610351562,
+      "cikis": 204.3000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.147,
+      "net_getiri_pct": -0.103
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-23",
+      "yon": "LONG",
+      "giris": 204.6999969482422,
+      "cikis": 203.39999389648438,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.635,
+      "net_getiri_pct": -0.885
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-23",
+      "yon": "LONG",
+      "giris": 204.6999969482422,
+      "cikis": 204.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.195,
+      "net_getiri_pct": -0.445
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-24",
+      "yon": "LONG",
+      "giris": 196.60000610351562,
+      "cikis": 197.3000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.356,
+      "net_getiri_pct": 0.106
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-27",
+      "yon": "SHORT",
+      "giris": 198.8000030517578,
+      "cikis": 196.39999389648438,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.207,
+      "net_getiri_pct": 0.957
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-28",
+      "yon": "LONG",
+      "giris": 197.3000030517578,
+      "cikis": 197.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.101,
+      "net_getiri_pct": -0.149
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-29",
+      "yon": "LONG",
+      "giris": 199.60000610351562,
+      "cikis": 197.2425617315061,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.181,
+      "net_getiri_pct": -1.431
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-29",
+      "yon": "SHORT",
+      "giris": 196.3000030517578,
+      "cikis": 193.6999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.325,
+      "net_getiri_pct": 1.075
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-30",
+      "yon": "LONG",
+      "giris": 194.3000030517578,
+      "cikis": 194.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.154,
+      "net_getiri_pct": -0.404
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-07-31",
+      "yon": "LONG",
+      "giris": 193.5,
+      "cikis": 195.3000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.93,
+      "net_getiri_pct": 0.68
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-08-03",
+      "yon": "SHORT",
+      "giris": 194.6999969482422,
+      "cikis": 195.8000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.565,
+      "net_getiri_pct": -0.815
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-08-03",
+      "yon": "SHORT",
+      "giris": 195.10000610351562,
+      "cikis": 196.1999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.564,
+      "net_getiri_pct": -0.814
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-08-04",
+      "yon": "SHORT",
+      "giris": 194.5,
+      "cikis": 195.60000610351562,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.566,
+      "net_getiri_pct": -0.816
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-08-05",
+      "yon": "SHORT",
+      "giris": 202.89999389648438,
+      "cikis": 204.89677344161728,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.984,
+      "net_getiri_pct": -1.234
+    },
+    {
+      "sembol": "KCHOL.IS",
+      "gun": "2026-08-05",
+      "yon": "LONG",
+      "giris": 205.8000030517578,
+      "cikis": 206.1999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.194,
+      "net_getiri_pct": -0.056
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-05-18",
+      "yon": "LONG",
+      "giris": 297.75,
+      "cikis": 297.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.252,
+      "net_getiri_pct": -0.502
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-05-18",
+      "yon": "SHORT",
+      "giris": 296.75,
+      "cikis": 295.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.505,
+      "net_getiri_pct": 0.255
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-05-20",
+      "yon": "LONG",
+      "giris": 296.0,
+      "cikis": 293.75,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.76,
+      "net_getiri_pct": -1.01
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-05-20",
+      "yon": "LONG",
+      "giris": 297.75,
+      "cikis": 294.75,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -1.008,
+      "net_getiri_pct": -1.258
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-05-21",
+      "yon": "SHORT",
+      "giris": 288.75,
+      "cikis": 288.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.26,
+      "net_getiri_pct": 0.01
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-05-21",
+      "yon": "LONG",
+      "giris": 287.0,
+      "cikis": 284.37663350738023,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.914,
+      "net_getiri_pct": -1.164
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-05-22",
+      "yon": "LONG",
+      "giris": 281.75,
+      "cikis": 288.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 2.307,
+      "net_getiri_pct": 2.057
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-05-25",
+      "yon": "SHORT",
+      "giris": 297.75,
+      "cikis": 297.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.084,
+      "net_getiri_pct": -0.166
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-01",
+      "yon": "LONG",
+      "giris": 299.5,
+      "cikis": 297.75,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.584,
+      "net_getiri_pct": -0.834
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-02",
+      "yon": "LONG",
+      "giris": 296.25,
+      "cikis": 298.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.591,
+      "net_getiri_pct": 0.341
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-03",
+      "yon": "LONG",
+      "giris": 301.0,
+      "cikis": 299.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.664,
+      "net_getiri_pct": -0.914
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-04",
+      "yon": "LONG",
+      "giris": 300.75,
+      "cikis": 298.2548160910641,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.83,
+      "net_getiri_pct": -1.08
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-04",
+      "yon": "SHORT",
+      "giris": 298.25,
+      "cikis": 299.25,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.335,
+      "net_getiri_pct": -0.585
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-04",
+      "yon": "SHORT",
+      "giris": 298.25,
+      "cikis": 298.75,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.168,
+      "net_getiri_pct": -0.418
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-05",
+      "yon": "LONG",
+      "giris": 297.75,
+      "cikis": 297.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.252,
+      "net_getiri_pct": -0.502
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-08",
+      "yon": "SHORT",
+      "giris": 294.75,
+      "cikis": 296.25,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.509,
+      "net_getiri_pct": -0.759
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-09",
+      "yon": "SHORT",
+      "giris": 297.75,
+      "cikis": 299.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.42,
+      "net_getiri_pct": -0.67
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-09",
+      "yon": "SHORT",
+      "giris": 298.75,
+      "cikis": 297.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.418,
+      "net_getiri_pct": 0.168
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-10",
+      "yon": "LONG",
+      "giris": 297.5,
+      "cikis": 296.25,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.42,
+      "net_getiri_pct": -0.67
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-10",
+      "yon": "LONG",
+      "giris": 297.0,
+      "cikis": 295.25,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.589,
+      "net_getiri_pct": -0.839
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-10",
+      "yon": "LONG",
+      "giris": 296.0,
+      "cikis": 295.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.338,
+      "net_getiri_pct": -0.588
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-11",
+      "yon": "SHORT",
+      "giris": 296.0,
+      "cikis": 296.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.169,
+      "net_getiri_pct": -0.419
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-11",
+      "yon": "SHORT",
+      "giris": 296.25,
+      "cikis": 297.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.253,
+      "net_getiri_pct": -0.503
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-11",
+      "yon": "SHORT",
+      "giris": 296.25,
+      "cikis": 293.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.097,
+      "net_getiri_pct": 0.847
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-12",
+      "yon": "SHORT",
+      "giris": 309.0,
+      "cikis": 307.75,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.405,
+      "net_getiri_pct": 0.155
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-15",
+      "yon": "SHORT",
+      "giris": 327.25,
+      "cikis": 326.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.306,
+      "net_getiri_pct": 0.056
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-16",
+      "yon": "LONG",
+      "giris": 327.0,
+      "cikis": 325.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.459,
+      "net_getiri_pct": -0.709
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-17",
+      "yon": "SHORT",
+      "giris": 324.75,
+      "cikis": 326.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.539,
+      "net_getiri_pct": -0.789
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-18",
+      "yon": "LONG",
+      "giris": 326.0,
+      "cikis": 325.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.307,
+      "net_getiri_pct": -0.557
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-18",
+      "yon": "LONG",
+      "giris": 327.25,
+      "cikis": 328.75,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.458,
+      "net_getiri_pct": 0.208
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-19",
+      "yon": "LONG",
+      "giris": 327.75,
+      "cikis": 326.75,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.305,
+      "net_getiri_pct": -0.555
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-23",
+      "yon": "LONG",
+      "giris": 324.75,
+      "cikis": 323.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.385,
+      "net_getiri_pct": -0.635
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-24",
+      "yon": "SHORT",
+      "giris": 324.25,
+      "cikis": 325.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.386,
+      "net_getiri_pct": -0.636
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-25",
+      "yon": "SHORT",
+      "giris": 330.0,
+      "cikis": 329.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.152,
+      "net_getiri_pct": -0.098
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-26",
+      "yon": "LONG",
+      "giris": 330.25,
+      "cikis": 329.75,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.151,
+      "net_getiri_pct": -0.401
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-29",
+      "yon": "SHORT",
+      "giris": 328.0,
+      "cikis": 327.25,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.229,
+      "net_getiri_pct": -0.021
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-06-30",
+      "yon": "LONG",
+      "giris": 325.75,
+      "cikis": 326.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.153,
+      "net_getiri_pct": -0.097
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-01",
+      "yon": "SHORT",
+      "giris": 329.75,
+      "cikis": 328.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.379,
+      "net_getiri_pct": 0.129
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-02",
+      "yon": "LONG",
+      "giris": 334.25,
+      "cikis": 334.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.075,
+      "net_getiri_pct": -0.175
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-03",
+      "yon": "LONG",
+      "giris": 332.5,
+      "cikis": 331.75,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.226,
+      "net_getiri_pct": -0.476
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-03",
+      "yon": "LONG",
+      "giris": 332.25,
+      "cikis": 334.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.677,
+      "net_getiri_pct": 0.427
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-06",
+      "yon": "SHORT",
+      "giris": 347.5,
+      "cikis": 351.24326883974334,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.077,
+      "net_getiri_pct": -1.327
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-07",
+      "yon": "SHORT",
+      "giris": 351.75,
+      "cikis": 347.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.279,
+      "net_getiri_pct": 1.029
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-08",
+      "yon": "LONG",
+      "giris": 335.0,
+      "cikis": 331.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -1.194,
+      "net_getiri_pct": -1.444
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-10",
+      "yon": "SHORT",
+      "giris": 340.5,
+      "cikis": 342.25,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.514,
+      "net_getiri_pct": -0.764
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-10",
+      "yon": "SHORT",
+      "giris": 341.0,
+      "cikis": 344.8291852114705,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.123,
+      "net_getiri_pct": -1.373
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-13",
+      "yon": "LONG",
+      "giris": 334.0,
+      "cikis": 331.6756021031952,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.696,
+      "net_getiri_pct": -0.946
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-14",
+      "yon": "LONG",
+      "giris": 325.0,
+      "cikis": 326.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.385,
+      "net_getiri_pct": 0.135
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-16",
+      "yon": "SHORT",
+      "giris": 331.5,
+      "cikis": 330.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.452,
+      "net_getiri_pct": 0.202
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-17",
+      "yon": "LONG",
+      "giris": 328.5,
+      "cikis": 328.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.076,
+      "net_getiri_pct": -0.326
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-20",
+      "yon": "LONG",
+      "giris": 325.5,
+      "cikis": 327.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.461,
+      "net_getiri_pct": 0.211
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-21",
+      "yon": "SHORT",
+      "giris": 328.0,
+      "cikis": 318.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 2.973,
+      "net_getiri_pct": 2.723
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-22",
+      "yon": "LONG",
+      "giris": 318.5,
+      "cikis": 315.4621981693943,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.954,
+      "net_getiri_pct": -1.204
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-23",
+      "yon": "SHORT",
+      "giris": 315.5,
+      "cikis": 315.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.0,
+      "net_getiri_pct": -0.25
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-23",
+      "yon": "SHORT",
+      "giris": 313.0,
+      "cikis": 313.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.16,
+      "net_getiri_pct": -0.41
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-24",
+      "yon": "LONG",
+      "giris": 315.0,
+      "cikis": 312.77354480394035,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.707,
+      "net_getiri_pct": -0.957
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-24",
+      "yon": "SHORT",
+      "giris": 312.75,
+      "cikis": 313.25,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.16,
+      "net_getiri_pct": -0.41
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-27",
+      "yon": "SHORT",
+      "giris": 326.0,
+      "cikis": 318.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 2.301,
+      "net_getiri_pct": 2.051
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-28",
+      "yon": "LONG",
+      "giris": 324.75,
+      "cikis": 323.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.539,
+      "net_getiri_pct": -0.789
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-29",
+      "yon": "LONG",
+      "giris": 317.75,
+      "cikis": 314.86122758535555,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.909,
+      "net_getiri_pct": -1.159
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-29",
+      "yon": "LONG",
+      "giris": 314.5,
+      "cikis": 311.54293005171843,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.94,
+      "net_getiri_pct": -1.19
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-07-30",
+      "yon": "SHORT",
+      "giris": 311.5,
+      "cikis": 307.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.284,
+      "net_getiri_pct": 1.034
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-08-04",
+      "yon": "LONG",
+      "giris": 317.75,
+      "cikis": 323.25,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.731,
+      "net_getiri_pct": 1.481
+    },
+    {
+      "sembol": "THYAO.IS",
+      "gun": "2026-08-05",
+      "yon": "LONG",
+      "giris": 313.25,
+      "cikis": 313.75,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.16,
+      "net_getiri_pct": -0.09
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-05-18",
+      "yon": "SHORT",
+      "giris": 128.10000610351562,
+      "cikis": 128.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.156,
+      "net_getiri_pct": -0.406
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-05-20",
+      "yon": "SHORT",
+      "giris": 129.39999389648438,
+      "cikis": 129.89999389648438,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.386,
+      "net_getiri_pct": -0.636
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-05-20",
+      "yon": "SHORT",
+      "giris": 129.60000610351562,
+      "cikis": 130.9128579008594,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.013,
+      "net_getiri_pct": -1.263
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-05-21",
+      "yon": "SHORT",
+      "giris": 129.0,
+      "cikis": 130.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.775,
+      "net_getiri_pct": -1.025
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-05-21",
+      "yon": "SHORT",
+      "giris": 129.10000610351562,
+      "cikis": 129.39999389648438,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.232,
+      "net_getiri_pct": -0.482
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-05-21",
+      "yon": "SHORT",
+      "giris": 128.0,
+      "cikis": 129.23927606296644,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.968,
+      "net_getiri_pct": -1.218
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-05-22",
+      "yon": "LONG",
+      "giris": 122.30000305175781,
+      "cikis": 122.5999984741211,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.245,
+      "net_getiri_pct": -0.005
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-05-26",
+      "yon": "SHORT",
+      "giris": 124.69999694824219,
+      "cikis": 122.9000015258789,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.443,
+      "net_getiri_pct": 1.193
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-01",
+      "yon": "LONG",
+      "giris": 125.69999694824219,
+      "cikis": 123.86271286652917,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.462,
+      "net_getiri_pct": -1.712
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-01",
+      "yon": "LONG",
+      "giris": 125.30000305175781,
+      "cikis": 124.80000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.399,
+      "net_getiri_pct": -0.649
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-01",
+      "yon": "LONG",
+      "giris": 125.4000015258789,
+      "cikis": 124.80000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.478,
+      "net_getiri_pct": -0.728
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-01",
+      "yon": "SHORT",
+      "giris": 124.19999694824219,
+      "cikis": 123.0999984741211,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.886,
+      "net_getiri_pct": 0.636
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-02",
+      "yon": "LONG",
+      "giris": 125.9000015258789,
+      "cikis": 128.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 1.668,
+      "net_getiri_pct": 1.418
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-02",
+      "yon": "SHORT",
+      "giris": 128.6999969482422,
+      "cikis": 128.8000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.078,
+      "net_getiri_pct": -0.328
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-03",
+      "yon": "LONG",
+      "giris": 128.5,
+      "cikis": 128.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.389,
+      "net_getiri_pct": -0.639
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-04",
+      "yon": "LONG",
+      "giris": 125.9000015258789,
+      "cikis": 129.10000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 2.542,
+      "net_getiri_pct": 2.292
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-05",
+      "yon": "SHORT",
+      "giris": 126.0,
+      "cikis": 125.0999984741211,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.714,
+      "net_getiri_pct": 0.464
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-08",
+      "yon": "LONG",
+      "giris": 126.19999694824219,
+      "cikis": 129.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 2.615,
+      "net_getiri_pct": 2.365
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-09",
+      "yon": "SHORT",
+      "giris": 129.5,
+      "cikis": 131.24134671422573,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.345,
+      "net_getiri_pct": -1.595
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-09",
+      "yon": "SHORT",
+      "giris": 130.6999969482422,
+      "cikis": 130.39999389648438,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.23,
+      "net_getiri_pct": -0.02
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-10",
+      "yon": "LONG",
+      "giris": 130.60000610351562,
+      "cikis": 129.8000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.613,
+      "net_getiri_pct": -0.863
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-10",
+      "yon": "LONG",
+      "giris": 128.60000610351562,
+      "cikis": 128.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.078,
+      "net_getiri_pct": -0.328
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-11",
+      "yon": "SHORT",
+      "giris": 128.89999389648438,
+      "cikis": 129.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.465,
+      "net_getiri_pct": -0.715
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-11",
+      "yon": "LONG",
+      "giris": 130.3000030517578,
+      "cikis": 129.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.998,
+      "net_getiri_pct": -1.248
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-12",
+      "yon": "SHORT",
+      "giris": 137.3000030517578,
+      "cikis": 136.1999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.801,
+      "net_getiri_pct": 0.551
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-16",
+      "yon": "LONG",
+      "giris": 141.60000610351562,
+      "cikis": 141.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.212,
+      "net_getiri_pct": -0.462
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-16",
+      "yon": "LONG",
+      "giris": 140.89999389648438,
+      "cikis": 140.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.426,
+      "net_getiri_pct": -0.676
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-17",
+      "yon": "SHORT",
+      "giris": 141.0,
+      "cikis": 141.10000610351562,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.071,
+      "net_getiri_pct": -0.321
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-18",
+      "yon": "SHORT",
+      "giris": 143.3000030517578,
+      "cikis": 143.60000610351562,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.209,
+      "net_getiri_pct": -0.459
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-19",
+      "yon": "LONG",
+      "giris": 143.1999969482422,
+      "cikis": 143.6999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.349,
+      "net_getiri_pct": 0.099
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-22",
+      "yon": "SHORT",
+      "giris": 143.10000610351562,
+      "cikis": 144.1999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.769,
+      "net_getiri_pct": -1.019
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-22",
+      "yon": "SHORT",
+      "giris": 143.8000030517578,
+      "cikis": 144.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.487,
+      "net_getiri_pct": -0.737
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-22",
+      "yon": "SHORT",
+      "giris": 143.89999389648438,
+      "cikis": 143.8000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.069,
+      "net_getiri_pct": -0.181
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-23",
+      "yon": "LONG",
+      "giris": 142.3000030517578,
+      "cikis": 141.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.703,
+      "net_getiri_pct": -0.953
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-23",
+      "yon": "LONG",
+      "giris": 140.8000030517578,
+      "cikis": 140.60000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.142,
+      "net_getiri_pct": -0.392
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-24",
+      "yon": "SHORT",
+      "giris": 139.6999969482422,
+      "cikis": 139.3000030517578,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.286,
+      "net_getiri_pct": 0.036
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-25",
+      "yon": "SHORT",
+      "giris": 140.10000610351562,
+      "cikis": 137.39999389648438,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.927,
+      "net_getiri_pct": 1.677
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-26",
+      "yon": "LONG",
+      "giris": 138.0,
+      "cikis": 138.3000030517578,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.217,
+      "net_getiri_pct": -0.033
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-29",
+      "yon": "SHORT",
+      "giris": 137.0,
+      "cikis": 137.1999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.146,
+      "net_getiri_pct": -0.396
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-06-30",
+      "yon": "SHORT",
+      "giris": 137.6999969482422,
+      "cikis": 137.60000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.073,
+      "net_getiri_pct": -0.177
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-01",
+      "yon": "SHORT",
+      "giris": 136.60000610351562,
+      "cikis": 137.70224440758068,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.807,
+      "net_getiri_pct": -1.057
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-01",
+      "yon": "SHORT",
+      "giris": 137.1999969482422,
+      "cikis": 137.89999389648438,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.51,
+      "net_getiri_pct": -0.76
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-01",
+      "yon": "SHORT",
+      "giris": 138.60000610351562,
+      "cikis": 138.39999389648438,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.144,
+      "net_getiri_pct": -0.106
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-02",
+      "yon": "LONG",
+      "giris": 140.39999389648438,
+      "cikis": 139.11807662354437,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.913,
+      "net_getiri_pct": -1.163
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-02",
+      "yon": "SHORT",
+      "giris": 139.10000610351562,
+      "cikis": 138.60000610351562,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.359,
+      "net_getiri_pct": 0.109
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-03",
+      "yon": "LONG",
+      "giris": 136.10000610351562,
+      "cikis": 135.10000610351562,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.735,
+      "net_getiri_pct": -0.985
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-03",
+      "yon": "LONG",
+      "giris": 134.10000610351562,
+      "cikis": 133.89999389648438,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.149,
+      "net_getiri_pct": -0.399
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-06",
+      "yon": "SHORT",
+      "giris": 134.10000610351562,
+      "cikis": 133.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.447,
+      "net_getiri_pct": 0.197
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-07",
+      "yon": "LONG",
+      "giris": 134.8000030517578,
+      "cikis": 135.1999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.297,
+      "net_getiri_pct": 0.047
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-08",
+      "yon": "LONG",
+      "giris": 130.60000610351562,
+      "cikis": 130.39999389648438,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.153,
+      "net_getiri_pct": -0.403
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-09",
+      "yon": "SHORT",
+      "giris": 129.89999389648438,
+      "cikis": 129.6999969482422,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.154,
+      "net_getiri_pct": -0.096
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-10",
+      "yon": "SHORT",
+      "giris": 129.5,
+      "cikis": 128.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.772,
+      "net_getiri_pct": 0.522
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-13",
+      "yon": "LONG",
+      "giris": 128.3000030517578,
+      "cikis": 126.8645151813856,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.119,
+      "net_getiri_pct": -1.369
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-13",
+      "yon": "SHORT",
+      "giris": 127.0999984741211,
+      "cikis": 127.4000015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.236,
+      "net_getiri_pct": -0.486
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-13",
+      "yon": "LONG",
+      "giris": 126.0999984741211,
+      "cikis": 126.30000305175781,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.159,
+      "net_getiri_pct": -0.091
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-14",
+      "yon": "SHORT",
+      "giris": 127.5,
+      "cikis": 128.46262769964662,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.755,
+      "net_getiri_pct": -1.005
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-14",
+      "yon": "LONG",
+      "giris": 128.5,
+      "cikis": 128.6999969482422,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.156,
+      "net_getiri_pct": -0.094
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-16",
+      "yon": "SHORT",
+      "giris": 127.9000015258789,
+      "cikis": 127.5999984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.235,
+      "net_getiri_pct": -0.015
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-17",
+      "yon": "SHORT",
+      "giris": 126.69999694824219,
+      "cikis": 126.30000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.316,
+      "net_getiri_pct": 0.066
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-20",
+      "yon": "SHORT",
+      "giris": 126.0,
+      "cikis": 125.80000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.159,
+      "net_getiri_pct": -0.091
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-20",
+      "yon": "SHORT",
+      "giris": 125.19999694824219,
+      "cikis": 124.19999694824219,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.799,
+      "net_getiri_pct": 0.549
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-21",
+      "yon": "LONG",
+      "giris": 125.4000015258789,
+      "cikis": 124.5,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.718,
+      "net_getiri_pct": -0.968
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-22",
+      "yon": "SHORT",
+      "giris": 125.0,
+      "cikis": 125.5999984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.48,
+      "net_getiri_pct": -0.73
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-23",
+      "yon": "SHORT",
+      "giris": 125.5999984741211,
+      "cikis": 126.4000015258789,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.637,
+      "net_getiri_pct": -0.887
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-23",
+      "yon": "SHORT",
+      "giris": 125.5,
+      "cikis": 125.30000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 0.159,
+      "net_getiri_pct": -0.091
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-24",
+      "yon": "SHORT",
+      "giris": 125.5,
+      "cikis": 126.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.398,
+      "net_getiri_pct": -0.648
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-27",
+      "yon": "SHORT",
+      "giris": 128.10000610351562,
+      "cikis": 127.0999984741211,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.781,
+      "net_getiri_pct": 0.531
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-28",
+      "yon": "LONG",
+      "giris": 128.60000610351562,
+      "cikis": 127.5999984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.778,
+      "net_getiri_pct": -1.028
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-28",
+      "yon": "LONG",
+      "giris": 127.9000015258789,
+      "cikis": 126.7006832264328,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -0.938,
+      "net_getiri_pct": -1.188
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-29",
+      "yon": "SHORT",
+      "giris": 126.5,
+      "cikis": 127.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.395,
+      "net_getiri_pct": -0.645
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-29",
+      "yon": "SHORT",
+      "giris": 125.80000305175781,
+      "cikis": 125.5,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 0.238,
+      "net_getiri_pct": -0.012
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-30",
+      "yon": "LONG",
+      "giris": 126.0,
+      "cikis": 124.64524807659498,
+      "sebep": "ATR_STOP",
+      "ham_getiri_pct": -1.075,
+      "net_getiri_pct": -1.325
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-30",
+      "yon": "LONG",
+      "giris": 125.80000305175781,
+      "cikis": 124.69999694824219,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.874,
+      "net_getiri_pct": -1.124
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-30",
+      "yon": "LONG",
+      "giris": 124.4000015258789,
+      "cikis": 123.30000305175781,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.884,
+      "net_getiri_pct": -1.134
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-31",
+      "yon": "LONG",
+      "giris": 124.0,
+      "cikis": 123.19999694824219,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.645,
+      "net_getiri_pct": -0.895
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-07-31",
+      "yon": "LONG",
+      "giris": 120.9000015258789,
+      "cikis": 123.0,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": 1.737,
+      "net_getiri_pct": 1.487
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-08-03",
+      "yon": "SHORT",
+      "giris": 127.69999694824219,
+      "cikis": 127.80000305175781,
+      "sebep": "GUN_SONU",
+      "ham_getiri_pct": -0.078,
+      "net_getiri_pct": -0.328
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-08-04",
+      "yon": "LONG",
+      "giris": 128.39999389648438,
+      "cikis": 127.5999984741211,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.623,
+      "net_getiri_pct": -0.873
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-08-04",
+      "yon": "LONG",
+      "giris": 128.6999969482422,
+      "cikis": 131.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": 1.787,
+      "net_getiri_pct": 1.537
+    },
+    {
+      "sembol": "GARAN.IS",
+      "gun": "2026-08-05",
+      "yon": "LONG",
+      "giris": 129.8000030517578,
+      "cikis": 129.0,
+      "sebep": "MACD_KARSIT",
+      "ham_getiri_pct": -0.616,
+      "net_getiri_pct": -0.866
+    }
+  ]
 }
