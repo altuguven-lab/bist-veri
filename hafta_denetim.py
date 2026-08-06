@@ -26,6 +26,7 @@ YONTEM NOTLARI (K5 karari dahil):
   olarak isaretlenir; betik asla sessizce eksik veriyle oran basmaz.
 """
 
+from json_atomik_yaz import atomik_json_yaz
 import json
 import os
 import glob
@@ -457,14 +458,16 @@ def main():
     kok = f"data/denetim/hafta_{yil}-W{hafta:02d}"
     with open(kok + ".md", "w", encoding="utf-8") as f:
         f.write("\n".join(md) + "\n")
-    with open(kok + ".json", "w", encoding="utf-8") as f:
-        json.dump({"olusturma_utc": datetime.datetime.now(
-                       datetime.timezone.utc).isoformat(),
-                   "kulucka_gunu": gun,
-                   "M1": {k: v for k, v in M1.items() if k != "detay"},
-                   "M2": {k: v for k, v in M2.items() if k != "detay"},
-                   "M3": M3, "M4": M4, "M5": M5, "M6": M6, "O2": O2, "KF": KF},
-                  f, ensure_ascii=False, indent=2)
+    # 06.08 EKI: atomik yazma (BIST-ROS paketinden benimsenen parca,
+    # arastirma_hedef_fiyat.py'de test edildi) - kesinti sirasinda
+    # yarim/bozuk JSON kalmasini onler.
+    json_veri = {"olusturma_utc": datetime.datetime.now(
+                     datetime.timezone.utc).isoformat(),
+                 "kulucka_gunu": gun,
+                 "M1": {k: v for k, v in M1.items() if k != "detay"},
+                 "M2": {k: v for k, v in M2.items() if k != "detay"},
+                 "M3": M3, "M4": M4, "M5": M5, "M6": M6, "O2": O2, "KF": KF}
+    atomik_json_yaz(kok + ".json", json_veri)
     print("\n".join(md))
     print(f"\nYAZILDI: {kok}.md / .json")
 
