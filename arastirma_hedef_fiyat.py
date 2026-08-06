@@ -97,5 +97,17 @@ if __name__ == "__main__":
                "Mayis 2026 - 1. ceyrek degerlendirmesi, tavsiye TUT "
                "(digerlerinden daha temkinli)")
 
+    kayit_ekle("TUPRS", "2026-08-06", "Ziraat Yatirim", 6.5, 14,
+               "Sabah Stratejisi - 2C26 net kar 45.9mlr TL (piyasa "
+               "beklentisi 30.7mlr TL'nin ~%50 uzerinde). Net rafineri "
+               "marji rehberi 6-7$'dan 13-15$/varile yukseltildi "
+               "(deger hedef fiyat DEGIL, $/varil marj rehberi - "
+               "orta nokta kullanildi).")
+    kayit_ekle("ASELS", "2026-08-06", "Ziraat Yatirim", 6.9, 8.5,
+               "Sabah Stratejisi - 2C26 net kar 8.5mlr TL, piyasa "
+               "beklentisi 6.9mlr TL'nin uzerinde (%61.3 yillik artis). "
+               "Bakiye siparis 20.7mlr USD'den 23.2mlr USD'ye yukseldi. "
+               "(deger hedef fiyat DEGIL, milyar TL net kar - piyasa "
+               "beklentisi vs gerceklesen kullanildi).")
     print("Ornek kayitlar eklendi.")
     print(json.dumps(sembol_ozet(), ensure_ascii=False, indent=2))
