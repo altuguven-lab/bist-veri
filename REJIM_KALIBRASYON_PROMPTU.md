@@ -83,7 +83,27 @@ kaynak_not}. TEKRAR ONLEME var (ayni kayit iki kez eklenmez).
 sembol_ozet(ay_sayisi=6): son N ayda sembol basina kac YUKARI/ASAGI
 revizyon oldugunu ozetler - P1/P2'nin PF/WR degerleriyle yan yana
 okunmak icin tasarlandi.
-ILK 5 kayit (05.08) zaten iceride: ASELS, ASTOR(x2), TRALT.
+06.08 itibariyle 16 kayit, 5 acik pozisyonun TAMAMI kapsaniyor
+(AKBNK, KCHOL, TAVHL, YKBNK, ASTOR) + ASELS/TRALT/TUPRS.
+
+### KRITIK BULGU (06.08): AKBNK/YKBNK vs ASTOR/KCHOL karsitligi -
+   tema-hizalanmasi hipotezinin ilk GERCEK izlenebilir test cifti
+- AKBNK: 4 kurumdan (Is/Vakif/Seker/GCM) TUTARLI ASAGI hedef fiyat
+  revizyonu (29.07, net faiz marji/ROE beklentisi asagi cekildi).
+- YKBNK: 3 kurumdan (Garanti BBVA/Vakif/Alnus) TUTARLI ASAGI revizyon
+  (31.07, ayni banka-sektoru-geneli zayiflama temasi).
+- KCHOL: 2C26 net kari 19.7mlr TL, piyasa beklentisi 13.6mlr TL'nin
+  COK uzerinde (05.08, %93 yillik artis) - GUCLU pozitif.
+- ASTOR: zaten guclu yukari (bkz. Bolum 3).
+- 06.08 sabahi haber akisi teyidi: "TUFE-TCMB faiz makasi 5 ayin en
+  yuksegi" - bankacilik temasinin zayifladigi tezini destekliyor.
+- TEST EDILECEK HIPOTEZ: bu anlati karsitligi (bankacilik zayif,
+  ASTOR/KCHOL guclu) onumuzdeki haftalarda P1/P2'nin PF/WR
+  degerlerinde AKBNK/YKBNK'de dusus, ASTOR/KCHOL'de istikrar/artis
+  olarak GORULECEK Mİ? Panelden N/WR/PF/DD tekrar okunup (birkac
+  hafta sonra) bugunku degerlerle (Bolum 1d) KARSILASTIRILMALI. Bu,
+  tema-hizalanmasi hipotezinin ilk somut, onceden-belirlenmis test
+  senaryosu.
 Arastirma yontemi - AGGREGATOR kaynaklar once
 Bireysel araci kurum siteleri (Is Yatirim, Ziraat, Ak Yatirim, YK
 Yatirim, Garanti BBVA arastirma sayfalari) TEST EDILDI - basliklar/
