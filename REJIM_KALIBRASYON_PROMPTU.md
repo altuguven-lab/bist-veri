@@ -284,7 +284,39 @@ gecikme tasiyabilir. DUZELTME YAPILMADI - once TEKRARLANIYOR MU
 "en yeni bar duzse bir onceki barı kullan" mantigi) duzeltme
 dusunulmeli.
 
-8) Bir sonraki oturum icin kontrol listesi
+8) KCHOL vakasi (06.08, oglenden sonra) - tek-hisse uyari boslugu
+KAPATILDI
+
+Bilanco beklentiyi asmasina (19.7mlr TL net kar, arastirma_hedef_
+fiyat.json'da GUCLU_ANLATI kaydi) RAGMEN KCHOL gun icinde -%4.85
+dustu. Portfoy-geneli gunluk esik (-%3) TETIKLENMEDI (KCHOL portfoyun
+kucuk payi), stop (190 TL) henuz KIRILMADI (fiyat 196) - HICBIR
+otomatik uyari gelmedi. Kullanici fark etti, sorguladi.
+
+KOK NEDEN: sistemde TEK BIR hissenin gun icinde buyuk (ama henuz
+stop'u kirmayan, portfoy-geneli esigi de asmayan) hareketini
+yakalayan bir kontrol HIC yoktu - yalniz portfoy-geneli (toplam
+deger) ve mutlak-stop-seviyesi katmanlari vardi, ikisi de bu
+senaryoyu KACIRACAK sekilde tasarlanmisti.
+
+DUZELTME (ayni gun, test edilip DOGRULANDI): portfoy_risk_kontrol.py'ye
+TEK_HISSE_ESIK_YUZDE=-3.5 kontrolu eklendi - her acik pozisyon icin,
+onceki GUNLUK_OZET kapanisindan (tv_alerts_latest.json) bugunku
+anlik fiyata (bist_quotes.json) gore degisim hesaplanir, esik asilirsa
+ayri bir GitHub Issue acilir (saglik_kontrol.py'nin kanitlanmis
+mekanizmasiyla). AYNI GUN gercek KCHOL vakasinda TEST EDILDI:
+"ISSUE ACILDI: TEK HISSE HAREKETI: KCHOL" - dogru calisti, digerleri
+(AKBNK -1.11%, YKBNK -0.82%, ASTOR +2.25%) dogru sekilde SESSIZ
+kaldi (esigi asmadilar).
+
+DERS: uc ayri koruma katmani (stop-seviyesi, portfoy-geneli esik,
+GUNLUK_OZET) birbirini TAMAMLIYOR sanilirken, aralarinda GERCEK bir
+bosluk varmis - kullanicinin "hicbir uyari gelmedi" gozlemi olmasaydi
+fark edilmeyebilirdi. Benzer bosluklar baska katmanlarda da olabilir -
+periyodik olarak "hangi senaryo hicbir mekanizmayi tetiklemez"
+sorusu soruta sorulmali.
+
+9) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
 3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
