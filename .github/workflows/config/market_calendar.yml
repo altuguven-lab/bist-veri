@@ -1,0 +1,47 @@
+schema_version: "1.0"
+timezone: Europe/Istanbul
+session:
+  open: "10:00"
+  close: "18:00"
+# 06.08 GENISLETME: BIST-ROS paketindeki ilk halde yalniz 4 tatil vardi,
+# dini bayramlar (Ramazan/Kurban) HIC yoktu - bu, yanlis "bugun tatil
+# degil" kararlarina yol acabilirdi. Takvim.com + CottGroup + Vakif
+# Katilim kaynaklarindan CAPRAZ DOGRULANDI (06.08.2026).
+#
+# BILINEN SINIRLAMA: bu liste yalniz TAM GUN tatilleri iceriyor. Arife
+# gunleri (19 Mart, 26 Mayis, 28 Ekim) YARIM GUN (13:00'e kadar acik) -
+# suanki sema bunu desteklemiyor (full_day_holidays / yarim-gun ayrimi
+# yok). Bu gunlerde script hala "normal is günü" sayacak, seans
+# ogleden sonraki kismini YANLIS degerlendirebilir. Gelecekte
+# half_day_holidays alani eklenmeli.
+full_day_holidays:
+  - date: "2026-01-01"
+    name: Yilbasi
+  - date: "2026-03-20"
+    name: Ramazan Bayrami 1. Gun
+  - date: "2026-03-21"
+    name: Ramazan Bayrami 2. Gun
+  - date: "2026-03-22"
+    name: Ramazan Bayrami 3. Gun
+  - date: "2026-04-23"
+    name: Ulusal Egemenlik ve Cocuk Bayrami
+  - date: "2026-05-01"
+    name: Emek ve Dayanisma Gunu
+  - date: "2026-05-19"
+    name: Ataturk'u Anma Genclik ve Spor Bayrami
+  - date: "2026-05-27"
+    name: Kurban Bayrami 1. Gun
+  - date: "2026-05-28"
+    name: Kurban Bayrami 2. Gun
+  - date: "2026-05-29"
+    name: Kurban Bayrami 3. Gun
+  - date: "2026-05-30"
+    name: Kurban Bayrami 4. Gun
+  - date: "2026-07-15"
+    name: Demokrasi ve Milli Birlik Gunu
+  - date: "2026-08-30"
+    name: Zafer Bayrami
+  - date: "2026-10-29"
+    name: Cumhuriyet Bayrami
+  - date: "2027-01-01"
+    name: Yilbasi
