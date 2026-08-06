@@ -37,12 +37,24 @@ SEANS_BAS, SEANS_SON = 7, 15   # UTC (10:00-18:00 TR)
 
 # BIST tam gun kapali resmi tatiller (v2.1). Her yil basinda guncelle;
 # yarim gunler (or. 28 Ekim ogleden sonra) listede DEGIL - gerekirse ekle.
-TATIL_GUNLERI = {
-    "2026-07-15",  # Demokrasi ve Milli Birlik Gunu
-    "2026-08-30",  # Zafer Bayrami
-    "2026-10-29",  # Cumhuriyet Bayrami
-    "2027-01-01",  # Yilbasi
-}
+# 06.08 DUZELTME: sabit-kodlanmis 4 tatilli liste (dini bayramlar
+# EKSIKTI - Ramazan/Kurban) merkezi config/market_calendar.yml'e
+# tasindi (piyasa_takvimi.py araciligiyla, BIST-ROS paketinden
+# benimsenen parca). Dosya/fonksiyon bulunamazsa (henuz commit
+# edilmemisse) ESKI 4 tatilli listeye SESSIZCE geri duser - script
+# hicbir kosulda cokmez, en kotu ihtimalle eski (eksik) davranisa doner.
+try:
+    from piyasa_takvimi import tatil_gunleri_yukle
+    TATIL_GUNLERI = {t.isoformat() for t in tatil_gunleri_yukle()}
+except Exception as e:
+    print(f"UYARI: merkezi takvim yuklenemedi ({e}), eski sabit listeye "
+          "donuluyor", file=sys.stderr)
+    TATIL_GUNLERI = {
+        "2026-07-15",  # Demokrasi ve Milli Birlik Gunu
+        "2026-08-30",  # Zafer Bayrami
+        "2026-10-29",  # Cumhuriyet Bayrami
+        "2027-01-01",  # Yilbasi
+    }
 
 
 def simdi_utc():
