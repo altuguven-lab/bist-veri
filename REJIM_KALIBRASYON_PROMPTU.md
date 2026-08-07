@@ -353,7 +353,34 @@ DIKKAT: 51 islem HALA kesin kanit degil - istatistiksel anlamlilik
 testi (arastirma raporu Asama 3) HENUZ yapilmadi. Bir sonraki adim
 bu.
 
-11) Bir sonraki oturum icin kontrol listesi
+12) CAPRAZ-DOGRULAMA SONUCU (07.08) - momentum hipotezi TERK EDILDI,
+ama RSI kendi basina umut verici cikti
+
+Iki paralel test yapildi: (a) Supertrend swing 5y->10y genisletme,
+(b) RSI(14) asiri-satim tersine-donus (RSI<30'dan yukari kesisim,
+RSI>=70'te kar-al, 90 gun maks tutma) - AYNI momentum-grup ayrimiyla.
+
+BULGULAR:
+- Supertrend 10y (544 islem): ZAYIF_MOMENTUM hala GUCLU_MOMENTUM'dan
+  iyi (+1.434 vs -2.366) AMA etki 5y'deki +4.545'ten ZAYIFLADI -
+  orneklem buyuyunce sinyal kuculdu, bu once-kanitin sansa dayali
+  olabilecegi endisesini GUCLENDIRIYOR.
+- RSI (276 islem): momentum iliskisi TERSINE cikti (GUCLU_MOMENTUM
+  +8.709, ZAYIF_MOMENTUM +5.214 - Supertrend'in TAM TERSI). CAPRAZ-
+  DOGRULAMA BASARISIZ - iki bagimsiz gosterge TUTARSIZ sonuc verdi.
+
+KARAR: "anlati/momentum gucu, teknik sinyal kalitesini etkiler"
+hipotezini ARTIK AKTIF TAKIP ETMIYORUZ - yeterince test edildi,
+tutarli cikmadi. BIST-ROS/arastirma raporu baglaminda BASLATILAN bu
+hat, bugun itibariyle KAPATILDI (gelecekte yeni kanit cikarsa yeniden
+acilabilir).
+
+AMA: RSI stratejisinin KENDISI (momentum filtresinden BAGIMSIZ,
+TUM 276 islem) cok guclu: isabet %52.2, ort net getiri +%6.718.
+Bu, bugunun EN TEMIZ, ayri bir bulgusu - istatistiksel anlamliligi
+AYRICA test ediliyor (bkz. asagi).
+
+13) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
 3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
