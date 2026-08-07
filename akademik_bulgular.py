@@ -34,10 +34,18 @@ def _oku():
 
 def makale_ekle(baslik, yazarlar, yil, dergi_veya_kaynak, url, ana_bulgu,
                  sistemimize_ilgisi, ilgili_semboller=None):
-    """Tek bir akademik kaynak kaydi. Tekrar onleme: (baslik, yil) ciftiyle."""
+    """Tek bir akademik kaynak kaydi. (baslik, yil) esleseni VARSA
+    GUNCELLENIR (07.08 EKI - Kahya&Ekinci vakasinda oldugu gibi, ozet
+    okumasi TAM METINLE duzeltilebilmeli), yoksa YENI eklenir."""
     veri = _oku()
     for m in veri["makaleler"]:
         if (m["baslik"], m["yil"]) == (baslik, yil):
+            m.update({"yazarlar": yazarlar, "dergi_veya_kaynak": dergi_veya_kaynak,
+                       "url": url, "ana_bulgu": ana_bulgu,
+                       "sistemimize_ilgisi": sistemimize_ilgisi,
+                       "ilgili_semboller": ilgili_semboller or [],
+                       "son_guncelleme_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()})
+            atomik_json_yaz(DOSYA, veri)
             return m
     kayit = {
         "baslik": baslik, "yazarlar": yazarlar, "yil": yil,
@@ -84,14 +92,20 @@ if __name__ == "__main__":
         "know about type, size and trading frequency?",
         "Kahya, E.H., Ekinci, C.", 2022, "Journal of Behavioral and Experimental Finance, Vol 35, 100682",
         "https://www.sciencedirect.com/science/article/pii/S2214635022000351",
-        "BIST yatirimcilarinin (turlere gore) 'disposition bias' "
-        "(kaybedeni elde tutma, kazananı erken satma) egilimini olcuyor.",
-        "COK ONEMLI - bu, bugunku RSI asiri-satim tersine-donus "
-        "bulgumuzun (p=0.032 anlamli, 9/9 parametre saglam) OLASI "
-        "DAVRANISSAL ACIKLAMASI olabilir: eger yatirimcilar kaybeden "
-        "hisseleri INATLA elde tutuyorsa, bu satis baskisini YAVAS "
-        "TUKETIR (kademeli dusus), tukenince SERT toparlanma (bizim "
-        "yakaladigimiz sicrama) olusabilir. Test edilmeli.",
+        "07.08 TAM OZET okundu, DUZELTILDI: 283,913 yatirimci analiz "
+        "edilmis. TUM yatirimci turleri (buyuk/kurumsal/sik-islem-"
+        "yapanlar DAHIL) disposition bias gosteriyor - ama tuzel "
+        "kisiler, buyuk yatirimcilar ve sik islem yapanlar DAHA AZ "
+        "gosteriyor. ISLEM SIKLIGI, BUYUKLUKTEN daha belirleyici faktor.",
+        "07.08 TEST 1 SONUCU + DUZELTME: 'ortalama hacim' vekiliyle "
+        "test edildi (YUKSEK_HACIM isabet %53.9/+%7.89 vs DUSUK_HACIM "
+        "%49.6/+%5.49 - hipotezin TERSI). Simdi ANLASILDI: yanlis "
+        "vekildi - asil belirleyici 'islem SIKLIGI' (yatirimci-duzeyi "
+        "ozellik), sembol 'BUYUKLUGU' DEGIL. Sembol-duzeyinde dogru "
+        "vekil YOK (yatirimci-turu kompozisyon verisi bizde yok). "
+        "HAT KAPATILDI - veri eksikligi nedeniyle daha fazla test "
+        "edilemez. YUKSEK_HACIM bulgusu kendi basina (likidite-"
+        "guvenilirlik ihtimali) ayri, acik bir gozlem olarak kaldi.",
         [],
     )
     makale_ekle(
