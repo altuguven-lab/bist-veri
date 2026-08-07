@@ -380,7 +380,24 @@ TUM 276 islem) cok guclu: isabet %52.2, ort net getiri +%6.718.
 Bu, bugunun EN TEMIZ, ayri bir bulgusu - istatistiksel anlamliligi
 AYRICA test ediliyor (bkz. asagi).
 
-13) Bir sonraki oturum icin kontrol listesi
+14) RSI ISTATISTIKSEL ANLAMLILIK - GECTI, bugunun en guclu sonucu
+
+rsi_anlamlilik.py: RSI(14) asiri-satim stratejisinin GENEL +%6.718
+ortalama net getirisi (276 islem) test edildi: t=7.694, p~0 (istatistiksel
+hassasiyetin altinda) - KESINLIKLE anlamli, finansal backtest
+standartlarinda ISTISNAI derecede guclu (t>3 zaten "guclu" sayilir).
+
+Bugunku 8-9 denemenin (ORB, VWAP, MACD+MFI, Supertrend gun-ici/swing,
+tema/momentum-etiketli) icinde ISTATISTIKSEL OLARAK ANLAMLI cikan ILK
+ve TEK strateji. Momentum-grup hipotezinden BAGIMSIZ - RSI'in KENDISI
+(basit, 30/70 esikleri, 90 gun maks tutma) yeterli.
+
+DIKKAT/SINIRLAMA: TEK bir parametre seti (periyot=14, esikler=30/70,
+maks_tutma=90) test edildi - asiri-optimize edilmis tek bir kombinasyon
+olabilir mi, HENUZ bilinmiyor. Sonraki adim: parametre-saglamlik
+kontrolu (farkli periyot/esik kombinasyonlarinda sonuc bozuluyor mu).
+
+15) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
 3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
