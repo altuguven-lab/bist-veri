@@ -433,7 +433,23 @@ en iyi aday ama "kanitlanmis edge" degil, "hafif umut verici,
 temkinli izlenmesi gereken bir sinyal" statusunde. Sonraki adim:
 GERCEK PARA OLMADAN gozlem/kagit-uzerinde-takip modu.
 
-19) Bir sonraki oturum icin kontrol listesi
+20) RSI GOZLEM MODU KURULDU (07.08) - gercek para OLMADAN canli izleme
+
+rsi_gozlem.py + rsi_gozlem.yml: RSI(14,30,70,90gun) stratejisinin
+CANLI performansini SANAL pozisyonlarla izler. GUNLUK calisir (hafta
+ici 18:30 TSI, seans kapanisi sonrasi). Backtest'teki AYNI mantik
+(giris: RSI 30 yukari kesisim, cikis: RSI tekrar 30 alti/RSI>=70/90
+gun) ama artik GECMISE DONUK degil, ILERIYE DOGRU. Defter:
+data/rsi_gozlem_defteri.json (acik_pozisyonlar + kapanan_pozisyonlar +
+ozet). Hicbir gercek islem/webhook/uyari URETMEZ.
+
+NEDEN BU ADIM: RSI vs XU100 kiyaslamasi (Bolum 18) bulguyu
+MUTEVAZILESTIRDI (%43.8 ustunluk orani, yazi-turadan dusuk) - Pine'a
+GECMEDEN once, GERCEK zamanli performansin GECMIS backtest'le tutarli
+olup olmadigini gormek gerekiyordu. Birkac hafta/ay sonra defter
+tekrar okunup degerlendirilmeli.
+
+21) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
 3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
