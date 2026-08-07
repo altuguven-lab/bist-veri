@@ -1,12 +1,20 @@
 """
-SUPERTREND + ADX SWING KESIF-BACKTEST (06.08.2026) - Faz V0
-Arastirma raporunun onerisiyle uyumlu: gun-ici (15dk) yerine COK-GUNLU
-(5-60/90 gun) ufka gecis. Ayni Supertrend+ADX matematigi (bugun sabah
-test edilip dogrulandi), ama artik GUNLUK barlarla, YILLARCA geriye
-giden gercek veriyle (yfinance intraday 60-gun sinirindan BAGIMSIZ).
+SUPERTREND + ADX SWING KESIF-BACKTEST v2 - MOMENTUM VEKILI (06.08.2026)
+06.08 ilk swing kosumu (statik ASTOR/KCHOL=GUCLU, AKBNK/YKBNK=ZAYIF
+etiketiyle) BEKLENMEDIK/TERS sonuc verdi - kok neden: anlati etiketi
+yalniz BUGUNU yansitiyordu, 5 yila SABIT uygulanmasi metodolojik
+hataydi (o donemlerde hangi hissenin "guclu anlati" tasidigini
+bilmiyoruz, arastirmadik).
 
-KIRMIZI CIZGI: SALT OLCUM, Pine'a hic dokunmuyor. GRUP karsilastirmasi
-(GUCLU/ZAYIF anlati) aynen koruyor - asil test edilen hipotez bu.
+COZUM (kurul karari): "anlati gucu"nu ELLE arastirmak yerine, SAF
+FIYATTAN tureyen, HER DONEM icin OTOMATIK hesaplanan bir VEKIL
+kullan - sinyalin tetiklendigi ANDAKI son 6 aylik (126 is gunu)
+getiri. Pozitifse GUCLU_MOMENTUM, negatifse ZAYIF_MOMENTUM. Bu,
+finans literaturunde en cok tekrarlanan anomalilerden biri (momentum)
+- SIFIR bakis-oncesi yanlilik (lookahead bias), TUM 5 yil boyunca
+gecerli, TUM 30 sembollük evrende (yalniz 4 degil) test edilebilir.
+
+KIRMIZI CIZGI: SALT OLCUM, Pine'a hic dokunmuyor.
 
 Yontem:
   - Supertrend+ADX AYNI parametrelerle (carpim=3, ATR=10, ADX=14,
@@ -25,19 +33,13 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 
-# 06.08 EKI: Kurul karari - bugunku tema-hizalanmasi bulgusunu (ASTOR/
-# KCHOL guclu anlati, AKBNK/YKBNK zayiflayan anlati - arastirma_hedef_
-# fiyat.json'da kayitli) AYNI teknik motorla (Supertrend+ADX, ayni
-# matematik) TEST ediyoruz: anlati gucu, teknik sinyal kalitesini
-# GERCEKTEN etkiliyor mu?
-GRUP_SEMBOLLER = {
-    "GUCLU_ANLATI": ["ASTOR.IS", "KCHOL.IS"],   # 06.08: 4 kurumdan yukari/kar surprizi
-    "ZAYIF_ANLATI": ["AKBNK.IS", "YKBNK.IS"],   # 06.08: 4+3 kurumdan tutarli asagi revizyon
-}
-SEMBOLLER = [s for grup in GRUP_SEMBOLLER.values() for s in grup]
-SEMBOL_GRUP = {s: g for g, semboller in GRUP_SEMBOLLER.items() for s in semboller}
+from konfig_yukle import sembol_evreni_yukle
+
+_ciplak_semboller, _sonek, _ = sembol_evreni_yukle()
+SEMBOLLER = [f"{s}{_sonek}" for s in _ciplak_semboller]  # TAM 30 sembol
+MOMENTUM_PENCERE_GUN = 126  # ~6 ay (is gunu bazinda)
 MALIYET_YUZDE = 0.25
-CIKTI = "data/backtest/supertrend_adx_swing_sonuc.json"
+CIKTI = "data/backtest/supertrend_adx_swing_momentum_sonuc.json"
 ATR_PERIYOT = 10
 ST_CARPAN = 3.0
 ADX_PERIYOT = 14
@@ -116,11 +118,14 @@ def adx_hesapla(df, periyot):
 def supertrend_adx_swing_simule(df, sembol):
     """SWING versiyonu: gunluk gruplama YOK, tek surekli seri. Pozisyon
     ST_FLIP'e (dogal) kadar VEYA MAKS_TUTMA_GUN asilirsa acik kalir -
-    haftalarca/aylarca surebilir."""
+    haftalarca/aylarca surebilir. Her girise, o ANDAKI 6-aylik trailing
+    momentum vekili (bakis-oncesi yanlilik YOK - yalniz GECMIS veriden
+    hesaplanir) etiketlenir."""
     df = df.copy().sort_index()
     atr = atr_hesapla(df, ATR_PERIYOT)
     st_cizgi, st_yon = supertrend_hesapla(df, atr, ST_CARPAN)
     adx = adx_hesapla(df, ADX_PERIYOT)
+    momentum = df["Close"].pct_change(periods=MOMENTUM_PENCERE_GUN) * 100
     tum_islemler = []
 
     pozisyon = None  # (yon, giris_fiyat, giris_tarih)
@@ -129,6 +134,9 @@ def supertrend_adx_swing_simule(df, sembol):
         if pd.isna(st_yon.iloc[i]) or pd.isna(adx.iloc[i]):
             continue
         bar = df.iloc[i]
+        if pd.isna(bar["Close"]):
+            continue  # 07.08 DUZELTME: son bar (gun tamamlanmadan cekilirse)
+                      # NaN olabilir - GERCEK veri degil, atla.
         tarih = bar.name.date() if hasattr(bar.name, "date") else bar.name
         kapanis = float(bar["Close"])
         flip_oldu = onceki_st_yon is not None and not pd.isna(onceki_st_yon) and st_yon.iloc[i] != onceki_st_yon
@@ -137,9 +145,10 @@ def supertrend_adx_swing_simule(df, sembol):
         if pozisyon is None:
             if flip_oldu and adx.iloc[i] >= ADX_ESIK:
                 yeni_yon = "LONG" if st_yon.iloc[i] == "YUKARI" else "SHORT"
-                pozisyon = (yeni_yon, kapanis, tarih)
+                giris_momentum = momentum.iloc[i]
+                pozisyon = (yeni_yon, kapanis, tarih, giris_momentum)
         else:
-            yon, giris, giris_tarih = pozisyon
+            yon, giris, giris_tarih, giris_momentum = pozisyon
             gun_sayisi = (tarih - giris_tarih).days
             cikis, sebep = None, None
             if yon == "LONG" and kapanis < st_cizgi.iloc[i]:
@@ -153,12 +162,36 @@ def supertrend_adx_swing_simule(df, sembol):
             if cikis is not None:
                 ham = (cikis / giris - 1) * 100 * (1 if yon == "LONG" else -1)
                 net = ham - MALIYET_YUZDE
+                if pd.isna(giris_momentum):
+                    momentum_durumu = "BILINMIYOR"  # ilk 126 is gunu icinde, veri yok
+                else:
+                    momentum_durumu = "GUCLU_MOMENTUM" if giris_momentum > 0 else "ZAYIF_MOMENTUM"
                 tum_islemler.append({"sembol": sembol, "giris_tarih": str(giris_tarih),
                                       "cikis_tarih": str(tarih), "tutma_gun": gun_sayisi,
                                       "yon": yon, "giris": giris, "cikis": cikis, "sebep": sebep,
+                                      "giris_ani_6ay_momentum_pct": (None if pd.isna(giris_momentum)
+                                                                      else round(float(giris_momentum), 2)),
+                                      "momentum_durumu": momentum_durumu,
                                       "ham_getiri_pct": round(ham, 3), "net_getiri_pct": round(net, 3)})
                 pozisyon = None
     return tum_islemler
+
+
+def _ozet_hesapla(islem_listesi):
+    """NaN net_getiri_pct'e karsi DAYANIKLI ozet hesabi - TEK bir bozuk
+    kayit (orn. veri kaynagindan NaN sizmasi) TUM istatistigi bozmasin
+    diye, once NaN'lari FILTRELER, sonra hesaplar."""
+    gecerli = [t for t in islem_listesi if not (
+        t["net_getiri_pct"] is None or
+        (isinstance(t["net_getiri_pct"], float) and t["net_getiri_pct"] != t["net_getiri_pct"]))]
+    if not gecerli:
+        return None
+    kazanan = [t for t in gecerli if t["net_getiri_pct"] > 0]
+    return {"islem_sayisi": len(gecerli),
+            "gecersiz_atlanan": len(islem_listesi) - len(gecerli),
+            "isabet_pct": round(100 * len(kazanan) / len(gecerli), 1),
+            "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in gecerli) / len(gecerli), 3),
+            "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in gecerli), 2)}
 
 
 def main():
@@ -180,42 +213,38 @@ def main():
         alt = [t for t in tum_islemler if t["sembol"] == sembol]
         if not alt:
             continue
-        kazanan = [t for t in alt if t["net_getiri_pct"] > 0]
-        ozet[sembol] = {"islem_sayisi": len(alt),
-                         "isabet_pct": round(100 * len(kazanan) / len(alt), 1),
-                         "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in alt) / len(alt), 3),
-                         "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in alt), 2)}
+        sonuc = _ozet_hesapla(alt)
+        if sonuc:
+            ozet[sembol] = sonuc
 
-    # GRUP BAZLI karsilastirma - asil test edilen hipotez burada
+    # GRUP BAZLI karsilastirma - artik DINAMIK (her girisin KENDI ANINDAKI
+    # momentum durumuna gore), statik sembol listesi DEGIL
     grup_ozet = {}
-    for grup_adi, grup_semboller in GRUP_SEMBOLLER.items():
-        grup_islemler = [t for t in tum_islemler if t["sembol"] in grup_semboller]
+    for grup_adi in ("GUCLU_MOMENTUM", "ZAYIF_MOMENTUM", "BILINMIYOR"):
+        grup_islemler = [t for t in tum_islemler if t["momentum_durumu"] == grup_adi]
         if not grup_islemler:
             continue
-        kazanan = [t for t in grup_islemler if t["net_getiri_pct"] > 0]
-        grup_ozet[grup_adi] = {
-            "islem_sayisi": len(grup_islemler),
-            "isabet_pct": round(100 * len(kazanan) / len(grup_islemler), 1),
-            "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in grup_islemler) / len(grup_islemler), 3),
-            "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in grup_islemler), 2),
-        }
+        sonuc = _ozet_hesapla(grup_islemler)
+        if sonuc:
+            grup_ozet[grup_adi] = sonuc
 
-    genel = None
-    if tum_islemler:
-        kazanan = [t for t in tum_islemler if t["net_getiri_pct"] > 0]
-        genel = {"toplam_islem": len(tum_islemler),
-                 "genel_isabet_pct": round(100 * len(kazanan) / len(tum_islemler), 1),
-                 "genel_ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in tum_islemler) / len(tum_islemler), 3)}
+    genel = _ozet_hesapla(tum_islemler)
+    if genel:
+        genel = {"toplam_islem": genel["islem_sayisi"], "gecersiz_atlanan": genel["gecersiz_atlanan"],
+                 "genel_isabet_pct": genel["isabet_pct"],
+                 "genel_ort_net_getiri_pct": genel["ort_net_getiri_pct"]}
 
     from collections import Counter
     sebepler = dict(Counter(t["sebep"] for t in tum_islemler))
 
     sonuc = {
         "kesif_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        "not": ("Faz V0 SWING - Supertrend+ADX, GUNLUK barlar, 5 yillik "
-                "gecmis. GUCLU vs ZAYIF anlati grup karsilastirmasi. "
-                "SALT OLCUM. Hipotez: cok-gunlu ufukta, ayni teknik "
-                "motor anlati gucune gore FARKLI performans gosterir mi?"),
+        "not": ("Faz V0 SWING v2 - Supertrend+ADX, GUNLUK barlar, 5 yillik "
+                "gecmis, TUM 30 sembollük evren. Momentum VEKILI (6 aylik "
+                "trailing getiri, sinyal ANINDA) ile dinamik grup "
+                "karsilastirmasi - statik anlati etiketinin metodolojik "
+                "hatasini (sadece bugunu yansitip 5 yila sabit "
+                "uygulanmasi) DUZELTIR. SALT OLCUM."),
         "parametreler": {"atr_periyot": ATR_PERIYOT, "st_carpan": ST_CARPAN,
                           "adx_periyot": ADX_PERIYOT, "adx_esik": ADX_ESIK,
                           "maks_tutma_gun": MAKS_TUTMA_GUN},
