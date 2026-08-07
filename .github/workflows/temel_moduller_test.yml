@@ -1,0 +1,19 @@
+# TEMEL MODUL TESTLERI - CI (07.08.2026) - Faz V0
+# Konum: .github/workflows/temel_moduller_test.yml
+# ELLE tetiklenir (henuz otomatik degil - kurul karari: once guvenip
+# guvenmedigimizi gorelim). data/'ya HICBIR SEY YAZMAZ, hicbir uretim
+# etkisi yok - yalniz test sonucu (gecti/gecmedi) Actions loguna duser.
+name: Temel Moduller Test
+on:
+  workflow_dispatch: {}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pytest pyyaml
+      - name: Testleri calistir
+        run: pytest tests/test_temel_moduller.py -v
