@@ -397,7 +397,22 @@ maks_tutma=90) test edildi - asiri-optimize edilmis tek bir kombinasyon
 olabilir mi, HENUZ bilinmiyor. Sonraki adim: parametre-saglamlik
 kontrolu (farkli periyot/esik kombinasyonlarinda sonuc bozuluyor mu).
 
-15) Bir sonraki oturum icin kontrol listesi
+16) RSI PARAMETRE-SAGLAMLIK KONTROLU - GECTI, bugunun EN SAGLAM sonucu
+
+9 kombinasyon (RSI periyot 10/14/21 x esikler 25-75/30-70/35-65),
+TUM 30 sembol, 5 yil. SONUC: 9/9 kombinasyon POZITIF (hicbiri negatif
+degil). Ayrica MANTIKLI bir ic tutarlilik var - sikilik arttikca
+kalite artiyor (RSI21_25-75: 4 islem, isabet %75, ort net +%13.35;
+RSI10_35-65: 1146 islem, isabet %37.2, ort net +%1.32 - hala pozitif
+ama zayif). Bu, sinyal kalitesi/miktari odunlesmesi - RASTGELE
+gurultunun degil, GERCEK bir piyasa fenomeninin imzasi.
+
+DURUM: RSI asiri-satim tersine-donus (14/30/70, 90 gun maks tutma),
+bugunku 9-10 denemenin ICINDE Pine'a gecmeyi dusunebilecegimiz ILK
+GERCEK aday statusune ulasti - hem istatistiksel anlamli (t=7.69,
+p~0) hem parametre-saglam (9/9 pozitif).
+
+17) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
 3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
