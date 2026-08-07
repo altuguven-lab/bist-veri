@@ -534,3 +534,26 @@ DUSUK_HACIM'den DAHA IYI cikmasi (isabet %53.9/+%7.89 vs %49.6/+%5.49)
 - disposition-bias'la ILGISIZ ama KENDI BASINA ilginc, muhtemelen
 likidite/guvenilirlik kaynakli. Ayri bir hat olarak GELECEKTE
 degerlendirilebilir (simdi aktif takip EDILMIYOR).
+
+25) BAGIMSIZ DENETIM + YOL HARITASI (07.08) - Madde 2 SONUCLANDI
+
+Kullanicinin talebiyle bagimsiz denetim yapildi: sistem "kavram
+kanitlandi, SISTEM kanitlanmadi" notuyla degerlendirildi (sifir canli
+dogrulama, pozisyon buyuklugu/sektor limiti yok, P1/P2 iliskisi
+tanimsiz, stop-loss yok, sagkalim yanliligi kontrol edilmedi, yururtme
+mekanizmasi yok). Kurul 4 maddelik yol haritasi olusturdu:
+  Madde 3 (KARAR VERILDI): RSI-swing sistemi, miras P1/P2 portfoyunden
+    TAMAMEN IZOLE, kendi sermayesi/limitleriyle calisacak.
+  Madde 4 (SIRADA): pozisyon buyuklugu (%10-15/pozisyon), esizamanli
+    limit (4-5 pozisyon), SEKTOR limiti (ayni sektorden max 1-2).
+  Madde 2 (TAMAMLANDI): stop-loss grid testi, 4 seviye (stopsuz/-5/-8/-12).
+  Madde 5: gercek sermaye kapisi - 4-8 hafta gozlem + Madde 2/3/4
+    TAMAMLANMADAN acilmaz.
+
+MADDE 2 SONUCU: STOPSUZ (isabet %52.2/+%6.746/en kotu -18.1) vs
+STOP_%5 (%34.4/+%3.844/-5.2) vs STOP_%8 (%45.3/+%5.693/-8.2) vs
+STOP_%12 (%50.4/+%6.439/-12.2). KARAR: -%12 SECILDI - edge'in
+neredeyse tamamini koruyor (isabet -1.8pp, ort getiri -0.3pp) ama en
+kotu senaryoyu %33 azaltiyor (-18.1->-12.2). Dar stoplar (-5/-8) edge'i
+COK fazla yiyor - bu bir TERSINE-DONUS stratejisi, dar stop erken
+cikarip iyilesecek pozisyonlari kesiyor.
