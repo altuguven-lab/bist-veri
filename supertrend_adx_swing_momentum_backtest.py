@@ -134,6 +134,9 @@ def supertrend_adx_swing_simule(df, sembol):
         if pd.isna(st_yon.iloc[i]) or pd.isna(adx.iloc[i]):
             continue
         bar = df.iloc[i]
+        if pd.isna(bar["Close"]):
+            continue  # 07.08 DUZELTME: son bar (gun tamamlanmadan cekilirse)
+                      # NaN olabilir - GERCEK veri degil, atla.
         tarih = bar.name.date() if hasattr(bar.name, "date") else bar.name
         kapanis = float(bar["Close"])
         flip_oldu = onceki_st_yon is not None and not pd.isna(onceki_st_yon) and st_yon.iloc[i] != onceki_st_yon
@@ -174,6 +177,23 @@ def supertrend_adx_swing_simule(df, sembol):
     return tum_islemler
 
 
+def _ozet_hesapla(islem_listesi):
+    """NaN net_getiri_pct'e karsi DAYANIKLI ozet hesabi - TEK bir bozuk
+    kayit (orn. veri kaynagindan NaN sizmasi) TUM istatistigi bozmasin
+    diye, once NaN'lari FILTRELER, sonra hesaplar."""
+    gecerli = [t for t in islem_listesi if not (
+        t["net_getiri_pct"] is None or
+        (isinstance(t["net_getiri_pct"], float) and t["net_getiri_pct"] != t["net_getiri_pct"]))]
+    if not gecerli:
+        return None
+    kazanan = [t for t in gecerli if t["net_getiri_pct"] > 0]
+    return {"islem_sayisi": len(gecerli),
+            "gecersiz_atlanan": len(islem_listesi) - len(gecerli),
+            "isabet_pct": round(100 * len(kazanan) / len(gecerli), 1),
+            "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in gecerli) / len(gecerli), 3),
+            "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in gecerli), 2)}
+
+
 def main():
     tum_islemler = []
     for sembol in SEMBOLLER:
@@ -193,11 +213,9 @@ def main():
         alt = [t for t in tum_islemler if t["sembol"] == sembol]
         if not alt:
             continue
-        kazanan = [t for t in alt if t["net_getiri_pct"] > 0]
-        ozet[sembol] = {"islem_sayisi": len(alt),
-                         "isabet_pct": round(100 * len(kazanan) / len(alt), 1),
-                         "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in alt) / len(alt), 3),
-                         "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in alt), 2)}
+        sonuc = _ozet_hesapla(alt)
+        if sonuc:
+            ozet[sembol] = sonuc
 
     # GRUP BAZLI karsilastirma - artik DINAMIK (her girisin KENDI ANINDAKI
     # momentum durumuna gore), statik sembol listesi DEGIL
@@ -206,20 +224,15 @@ def main():
         grup_islemler = [t for t in tum_islemler if t["momentum_durumu"] == grup_adi]
         if not grup_islemler:
             continue
-        kazanan = [t for t in grup_islemler if t["net_getiri_pct"] > 0]
-        grup_ozet[grup_adi] = {
-            "islem_sayisi": len(grup_islemler),
-            "isabet_pct": round(100 * len(kazanan) / len(grup_islemler), 1),
-            "ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in grup_islemler) / len(grup_islemler), 3),
-            "toplam_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in grup_islemler), 2),
-        }
+        sonuc = _ozet_hesapla(grup_islemler)
+        if sonuc:
+            grup_ozet[grup_adi] = sonuc
 
-    genel = None
-    if tum_islemler:
-        kazanan = [t for t in tum_islemler if t["net_getiri_pct"] > 0]
-        genel = {"toplam_islem": len(tum_islemler),
-                 "genel_isabet_pct": round(100 * len(kazanan) / len(tum_islemler), 1),
-                 "genel_ort_net_getiri_pct": round(sum(t["net_getiri_pct"] for t in tum_islemler) / len(tum_islemler), 3)}
+    genel = _ozet_hesapla(tum_islemler)
+    if genel:
+        genel = {"toplam_islem": genel["islem_sayisi"], "gecersiz_atlanan": genel["gecersiz_atlanan"],
+                 "genel_isabet_pct": genel["isabet_pct"],
+                 "genel_ort_net_getiri_pct": genel["ort_net_getiri_pct"]}
 
     from collections import Counter
     sebepler = dict(Counter(t["sebep"] for t in tum_islemler))
