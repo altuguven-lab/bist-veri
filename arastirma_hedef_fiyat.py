@@ -191,5 +191,18 @@ if __name__ == "__main__":
                "Bilancoya en dikkat cekici tepki - digerlerinden "
                "(Deniz Yatirim sabit 21 TL) cok daha guclu yukari "
                "revizyon.")
+    makro_not_ekle("2026-08-07", "AllianceBernstein Book 2026 - kuresel makro cerceve",
+                   "Kurumsal, stratejik (5-10 yil) rapor - Turkiye/BIST'e "
+                   "dogrudan deginmiyor (yalniz 'EM ex China: Notr, Trump "
+                   "riski' notu var). Uc dolayli-yararli nokta: (1) ALTIN "
+                   "icin stratejik POZITIF tez (merkez bankalari aliyor, "
+                   "dolar korelasyonu dusuyor) - TRALT'in anlatisini "
+                   "destekliyor. (2) KURESEL jeopolitik risk (Iran savasi "
+                   "vurgusu) - ASELS/ASTOR savunma temasiyla tutarli. "
+                   "(3) KURESEL enflasyon/faiz ortaminin YUKARI egilimli "
+                   "gorulmesi - TCMB'nin kendi faiz kararlari icin "
+                   "arka plan (bkz. 06.08 TCMB notu). Aksiyon alinabilir "
+                   "Turkiye-ozel veri DEGIL, yalniz arka plan baglami.",
+                   ["TRALT", "ASELS", "ASTOR", "AKBNK", "YKBNK"])
     print("Ornek kayitlar eklendi.")
     print(json.dumps(sembol_ozet(), ensure_ascii=False, indent=2))
