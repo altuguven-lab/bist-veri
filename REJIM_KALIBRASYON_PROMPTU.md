@@ -487,3 +487,32 @@ arastirma_hedef_fiyat.json'a makro not olarak eklendi.
 BIST-ROS'un KALAN parcalari (Knowledge Graph, Feature Store, paket
 yapisi/pyproject.toml, Decision/Intelligence Platform) HALA reddedildi
 - erken/gereksiz karari DEGISMEDI.
+
+23) AKADEMIK LITERATUR TAKIBI KURULDU + ILK TEST (07.08)
+
+akademik_bulgular.py: BIST'e ozel akademik literatur icin yapilandirilmis
+takip sistemi (arastirma_hedef_fiyat.py ile ayni disiplin). Ilk 5 kayit:
+Ersan&Ekinci(2016, HFT/algo BIST'te ~%6 pay), Olgun ve ark.(2024, Turk
+vadeli islem HFT vekilleri), Kahya&Ekinci(2022, disposition bias),
+Dalgic ve ark.(2021, suru davranisi), Ekinci&Bulut(2021, Google arama-
+getiri iliskisi). CAPA KAYNAK: Cumhur Ekinci (ITU) - sites.google.com/
+view/cumhurekinci/research, kendi kendini guncelleyen zengin bir
+yayin listesi.
+
+TEST 1 (disposition-bias hipotezi, ORTALAMA HACIM vekili ile):
+rsi_hacim_grup_backtest.py - RSI asiri-satim stratejisini YUKSEK_HACIM
+(buyuk-cap vekili) vs DUSUK_HACIM (kucuk-cap vekili) gruplarina ayirdi.
+SONUC: hipotezin TERSI cikti - YUKSEK_HACIM 141 islem/isabet %53.9/
+ort net +%7.889, DUSUK_HACIM 135 islem/isabet %49.6/ort net +%5.486.
+
+YORUM: hipotez CURUTULMEDI, ama VEKIL (ortalama hacim) yanlis secilmis
+olabilir - ya yuksek-hacim=yuksek-bireysel-ilgi (varsayimin TERSI), ya
+da dusuk-hacimde likidite-kaynakli GURULTU sinyali bozuyor (disposition
+bias'la ilgisiz alternatif aciklama). SONRAKI ADIM: Kahya&Ekinci
+makalesinin TAM METNI okunup GERCEK bir vekil (hangi sektor/piyasa
+degeri araligi icin bias en guclu olculmus) cikarilmali - tahminle
+vekil secmek YETERSIZ oldu, bu turun ana dersi.
+
+YENI, KENDI BASINA ilginc bulgu: YUKSEK_HACIM grubunun DAHA IYI
+cikmasi - belki gelecekte "likidite filtresi" (yuksek hacim = daha
+guvenilir RSI sinyali) olarak ayri bir hat halinde degerlendirilebilir.
