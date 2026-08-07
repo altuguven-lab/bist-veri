@@ -469,3 +469,21 @@ tekrar okunup degerlendirilmeli.
 9. YENI: anlati_teknik_capraz_referans.py tekrar kosuldu mu - T+10/
    T+20 doldu mu, BILINMIYOR grubu kuculdu mu (arastirma_hedef_fiyat.
    json genisledikce), GUCLU/ZAYIF orneklem buyudu mu?
+
+22) BIST-ROS - kalici test paketi eklendi (07.08)
+
+tests/test_temel_moduller.py + .github/workflows/temel_moduller_test.yml:
+json_atomik_yaz/konfig_yukle/piyasa_takvimi icin 11 pytest testi -
+06-07.08 konusma icinde manuel calistirilan senaryolarin KALICI hali.
+ELLE tetikleniyor (henuz otomatik degil). Bilerek sokulan bir mantik
+hatasi (piyasa_takvimi.py'de >= yerine >) testler tarafindan DOGRU
+YAKALANDI - koruma gercek.
+
+AllianceBernstein "Book 2026" raporu degerlendirildi - Turkiye/BIST'e
+dogrudan deginmiyor, kurumsal/stratejik ufuklu. Uc dolayli-yararli
+nokta (altin/TRALT, jeopolitik/ASELS-ASTOR, kuresel faiz ortami/TCMB)
+arastirma_hedef_fiyat.json'a makro not olarak eklendi.
+
+BIST-ROS'un KALAN parcalari (Knowledge Graph, Feature Store, paket
+yapisi/pyproject.toml, Decision/Intelligence Platform) HALA reddedildi
+- erken/gereksiz karari DEGISMEDI.
