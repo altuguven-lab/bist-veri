@@ -412,7 +412,28 @@ bugunku 9-10 denemenin ICINDE Pine'a gecmeyi dusunebilecegimiz ILK
 GERCEK aday statusune ulasti - hem istatistiksel anlamli (t=7.69,
 p~0) hem parametre-saglam (9/9 pozitif).
 
-17) Bir sonraki oturum icin kontrol listesi
+18) RSI vs XU100 BENCHMARK - onemli DUZELTME, bulgu MUTEVAZILASTI
+
+rsi_vs_xu100_kiyas.py: HER RSI isleminin giris->cikis tarih araliginda
+XU100'un (basit al-tut) ne kazandiracagi hesaplanip, ISLEM-BAZLI
+eslestirilerek kiyaslandi (276 eslesme).
+
+SONUC: RSI ort +%6.718, XU100 (AYNI donemler) ort +%4.862 - fark
+yalniz +%1.856. RSI, islemlerin YALNIZCA %43.8'inde (121/276) XU100'u
+GECTI - COGUNLUKTA (%56.2) basit al-tut DAHA IYI performans gosterdi.
+
+YORUM: onceki "t=7.69, cok guclu" bulgunun BUYUK KISMI (yaklasik %72'si,
+4.862/6.718) aslinda GENEL PIYASA YUKSELISINDEN (son 5 yilda BIST
+zaten yukseldi) geliyormus. GERCEK strateji-ozgu katki (alpha) cok
+daha MUTEVAZI (+1.86 puan ort, %43.8 ustunluk orani - yazi-turadan
+bile dusuk).
+
+KARAR: bu, Pine'a gecmek icin HENUZ yeterli guven vermiyor. RSI hala
+en iyi aday ama "kanitlanmis edge" degil, "hafif umut verici,
+temkinli izlenmesi gereken bir sinyal" statusunde. Sonraki adim:
+GERCEK PARA OLMADAN gozlem/kagit-uzerinde-takip modu.
+
+19) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
 3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
