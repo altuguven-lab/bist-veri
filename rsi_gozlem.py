@@ -1,5 +1,19 @@
 """
-RSI GOZLEM DEFTERI + KURUMSAL TEYIT KATMANI (07.08.2026) - Faz V0
+RSI GOZLEM DEFTERI + KURUMSAL TEYIT + RISK CERCEVESI (07.08.2026) - Faz V0
+07.08 EKI (Denetim Madde 2+4): bagimsiz denetim sonrasi eklenen risk
+katmanlari:
+  - STOP-LOSS (-%12, grid testiyle secildi - bkz. rsi_stop_loss_grid.py):
+    giris fiyatindan %12 dususte GUN ICI DUSUK fiyatiyla kontrol edilip
+    cikilir - RSI kosullarindan ONCE kontrol edilir (oncelikli).
+  - POZISYON/SEKTOR LIMITLERI: RSI-swing sistemi, miras P1/P2
+    portfoyunden IZOLE, kendi SOYUT "kova"siyla (100 birim = kova
+    tamami) calisir - gercek TL tutari SAKLANMAZ, ORANSAL sistem.
+    Pozisyon basina kovanin %12'si, en fazla 5 esizamanli pozisyon,
+    ayni sektorden en fazla 2 pozisyon. LIMIT asilirsa sinyal
+    REDDEDILIR (sessizce atlanmaz - "reddedilen_sinyaller" listesine
+    KAYDEDILIR, seffaflik icin).
+
+ORIJINAL (07.08.2026) - Faz V0
 07.08 EKI (Katman 2): her YENI sanal giris acildiginda, o sembolun
 yabanci_takas_takip.json'daki EN SON kaydinin yonu (ARTIS/AZALIS)
 "kurumsal_teyit" olarak etiketlenir - islem MANTIGINI degistirmez
@@ -34,6 +48,36 @@ RSI_UST_ESIK = 70
 MAKS_TUTMA_GUN = 90
 MALIYET_YUZDE = 0.25
 GECMIS_PENCERE = "90d"  # RSI(14) isinmasi icin fazlasiyla yeterli
+
+# 07.08 EKI - Denetim Madde 2: stop-loss grid testiyle secildi
+STOP_LOSS_YUZDE = 12
+
+# 07.08 EKI - Denetim Madde 4: risk cercevesi (SOYUT birim, gercek TL YOK)
+KOVA_TOPLAM_BIRIM = 100.0
+POZISYON_BASINA_YUZDE = 12.0
+MAKS_ESZAMANLI_POZISYON = 5
+SEKTOR_BASINA_MAKS_POZISYON = 2
+
+# Yaklasik, elle siniflandirilmis sektor haritasi (kesin BIST resmi
+# siniflandirmasi degil, risk-cesitlendirme amacli kaba gruplama)
+SEKTOR_HARITASI = {
+    "AKBNK": "Bankacilik", "YKBNK": "Bankacilik", "GARAN": "Bankacilik",
+    "ISCTR": "Bankacilik", "HALKB": "Bankacilik", "VAKBN": "Bankacilik",
+    "KCHOL": "Holding", "SAHOL": "Holding", "ALARK": "Holding",
+    "THYAO": "Havacilik", "PGSUS": "Havacilik", "TAVHL": "Havacilik-Altyapi",
+    "EREGL": "Demir-Celik", "SISE": "Sanayi-Cam",
+    "ASELS": "Savunma", "ASTOR": "Enerji-Ekipman", "ENJSA": "Enerji-Elektrik",
+    "MGROS": "Perakende", "BIMAS": "Perakende",
+    "TUPRS": "Petrokimya", "PETKM": "Petrokimya",
+    "TOASO": "Otomotiv", "FROTO": "Otomotiv", "OTKAR": "Otomotiv",
+    "ENKAI": "Insaat", "TTKOM": "Telekom",
+    "AEFES": "Gida-Icecek", "ULKER": "Gida-Icecek",
+    "EKGYO": "GYO", "TRMET": "Madencilik", "TRALT": "Madencilik",
+}
+
+
+def sektor_bul(sembol):
+    return SEKTOR_HARITASI.get(sembol, "DIGER")
 
 
 def rsi_hesapla(kapanislar, periyot):
@@ -74,8 +118,14 @@ def _oku_defter():
 def main():
     semboller, sonek, _ = sembol_evreni_yukle()
     defter = _oku_defter()
+    defter.setdefault("reddedilen_sinyaller", [])
     bugun_utc = datetime.datetime.now(datetime.timezone.utc)
 
+    giris_adaylari = []  # [(sembol, son_kapanis, son_rsi), ...]
+
+    # ASAMA 1: TUM semboller icin veri/RSI hesapla, ACIK pozisyonlarda
+    # CIKIS kontrolu (stop-loss DAHIL) yap - LIMIT kisitlamasi YOK,
+    # mevcut pozisyonu kapatmak HICBIR ZAMAN engellenmez.
     for sembol in semboller:
         ticker_id = f"{sembol}{sonek}"
         try:
@@ -95,6 +145,9 @@ def main():
 
         son_kapanis = float(kapanislar.iloc[-1])
         son_tarih = kapanislar.index[-1].date()
+        son_dusuk = (float(df["Low"].iloc[-1])
+                     if "Low" in df.columns and not pd.isna(df["Low"].iloc[-1])
+                     else son_kapanis)
         onceki_rsi = float(rsi.iloc[-2])
         son_rsi = float(rsi.iloc[-1])
         onceki_alti_30 = onceki_rsi < RSI_ALT_ESIK
@@ -106,18 +159,15 @@ def main():
         acik = defter["acik_pozisyonlar"].get(sembol)
         if acik is None:
             if yukari_kesisim:
-                kurumsal = kurumsal_teyit_bul(sembol)
-                defter["acik_pozisyonlar"][sembol] = {
-                    "giris_tarih": str(son_tarih), "giris_fiyat": son_kapanis,
-                    "giris_rsi": round(son_rsi, 1), "kurumsal_teyit": kurumsal,
-                }
-                print(f"{sembol}: YENI SANAL GIRIS @ {son_kapanis} (RSI {son_rsi:.1f}, "
-                      f"kurumsal_teyit={kurumsal})")
+                giris_adaylari.append((sembol, son_kapanis, son_rsi))
         else:
             giris_tarih = datetime.date.fromisoformat(acik["giris_tarih"])
             gun_sayisi = (son_tarih - giris_tarih).days
+            stop_seviyesi = acik["giris_fiyat"] * (1 - STOP_LOSS_YUZDE / 100)
             cikis, sebep = None, None
-            if simdi_alti_30:
+            if son_dusuk <= stop_seviyesi:
+                cikis, sebep = stop_seviyesi, "SABIT_STOP_LOSS"
+            elif simdi_alti_30:
                 cikis, sebep = son_kapanis, "BASARISIZ_SICRAMA"
             elif son_rsi >= RSI_UST_ESIK:
                 cikis, sebep = son_kapanis, "KAR_AL_ASIRI_ALIM"
@@ -132,9 +182,42 @@ def main():
                     "giris_fiyat": acik["giris_fiyat"], "cikis_fiyat": cikis,
                     "sebep": sebep, "net_getiri_pct": net,
                     "kurumsal_teyit": acik.get("kurumsal_teyit", "BILINMIYOR"),
+                    "sektor": acik.get("sektor", sektor_bul(sembol)),
                 })
                 del defter["acik_pozisyonlar"][sembol]
-                print(f"{sembol}: SANAL CIKIS @ {cikis} ({sebep}), net %{net}")
+                print(f"{sembol}: SANAL CIKIS @ {round(cikis,2)} ({sebep}), net %{net}")
+
+    # ASAMA 2: giris ADAYLARINI kova/pozisyon/sektor LIMITINE gore isle.
+    # Cikislar YUKARIDA zaten islendigi icin, bugun kapanan bir pozisyonun
+    # yeri, ayni kosumda YENI bir girise acik olabilir.
+    for sembol, son_kapanis, son_rsi in giris_adaylari:
+        sektor = sektor_bul(sembol)
+        acik_sayisi = len(defter["acik_pozisyonlar"])
+        sektor_sayisi = sum(1 for s in defter["acik_pozisyonlar"] if sektor_bul(s) == sektor)
+
+        if acik_sayisi >= MAKS_ESZAMANLI_POZISYON:
+            defter["reddedilen_sinyaller"].append({
+                "sembol": sembol, "tarih": str(bugun_utc.date()),
+                "sebep": "ESZAMANLI_POZISYON_LIMITI",
+                "not": f"{acik_sayisi}/{MAKS_ESZAMANLI_POZISYON} pozisyon zaten acik"})
+            print(f"{sembol}: REDDEDILDI (esizamanli limit {acik_sayisi}/{MAKS_ESZAMANLI_POZISYON})")
+            continue
+        if sektor_sayisi >= SEKTOR_BASINA_MAKS_POZISYON:
+            defter["reddedilen_sinyaller"].append({
+                "sembol": sembol, "tarih": str(bugun_utc.date()),
+                "sebep": "SEKTOR_LIMITI",
+                "not": f"{sektor}: {sektor_sayisi}/{SEKTOR_BASINA_MAKS_POZISYON} pozisyon zaten acik"})
+            print(f"{sembol}: REDDEDILDI (sektor limiti - {sektor})")
+            continue
+
+        kurumsal = kurumsal_teyit_bul(sembol)
+        defter["acik_pozisyonlar"][sembol] = {
+            "giris_tarih": str(bugun_utc.date()), "giris_fiyat": son_kapanis,
+            "giris_rsi": round(son_rsi, 1), "kurumsal_teyit": kurumsal,
+            "sektor": sektor, "pozisyon_birim_yuzde": POZISYON_BASINA_YUZDE,
+        }
+        print(f"{sembol}: YENI SANAL GIRIS @ {son_kapanis} (RSI {son_rsi:.1f}, "
+              f"sektor={sektor}, kurumsal_teyit={kurumsal})")
 
     defter["son_guncelleme_utc"] = bugun_utc.isoformat()
     kapananlar = defter["kapanan_pozisyonlar"]
