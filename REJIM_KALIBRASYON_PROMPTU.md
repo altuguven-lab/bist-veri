@@ -316,7 +316,44 @@ fark edilmeyebilirdi. Benzer bosluklar baska katmanlarda da olabilir -
 periyodik olarak "hangi senaryo hicbir mekanizmayi tetiklemez"
 sorusu soruta sorulmali.
 
-9) Bir sonraki oturum icin kontrol listesi
+10) SWING MOMENTUM VEKILI - bugunun EN GUCLU bulgusu (06-07.08)
+
+Statik anlati etiketinin (Bolum 3/7) metodolojik hatasi (5 yila SABIT
+uygulanmasi) sonrasi, kurul DINAMIK, SAF FIYATTAN tureyen bir vekile
+gecti: sinyal ANINDAKI 6-aylik (126 is gunu) trailing getiri.
+supertrend_adx_swing_momentum_backtest.py - GUNLUK barlar, 5 yil,
+TUM 30 sembollük evren.
+
+Yol boyunca IKI GERCEK veri-kalitesi hatasi bulunup DUZELTILDI:
+- Son (bugunku, gun tamamlanmadan cekilen) barin Close'u NaN
+  gelebiliyor - TEK bir NaN kayit, Python sum() davranisi yuzunden
+  TUM grup istatistigini bozuyordu. Iki katmanli duzeltme: (1) NaN
+  barlari kaynakta atla, (2) _ozet_hesapla() ile TUM istatistik
+  hesaplarini NaN'a karsi genel olarak dayanikli yap.
+- Commit/CDN gorunurlugu sorunu (bugunku tanidik desen) - dosya
+  3 kez "yuklendi" denmesine ragmen repoda gorunmedi, GERCEKTEN
+  guncellenene kadar (grep ile dogrulanarak) 3 tur surdu.
+
+SONUC (291 islem, 5 yil, 30 sembol):
+  GUCLU_MOMENTUM (son 6 ay YUKARI): 196 islem, isabet %30.6, ort net
+    %-2.236 (NEGATIF)
+  ZAYIF_MOMENTUM (son 6 ay ASAGI): 51 islem, isabet %49.0, ort net
+    %+4.545, TOPLAM +%231.78 (POZITIF, tutarli bir orneklemle)
+  Genel (karisik): %-1.303 (gruplara ayrilmadan negatif - AYRISMA
+    onemli olan)
+
+YORUM: klasik "momentum" beklentisinin TERSI, ama TESADUF DEGIL -
+bugunku arastirma raporunun BIST-ozgu bulgusuyla (Bildik & Gulay 2007:
+Turk piyasasinda EN GUCLU tekrarlanan anomali KISA-VADELI TERSINE
+DONUS/asiri-tepki, momentum DEGIL) TAM ORTUSUYOR. Sinyal ("6 ay dusmus
+hissede Supertrend YUKARI flip + ADX teyidi") fiilen bir "asiri-satilmis
+toparlanma" sinyali gibi davraniyor.
+
+DIKKAT: 51 islem HALA kesin kanit degil - istatistiksel anlamlilik
+testi (arastirma raporu Asama 3) HENUZ yapilmadi. Bir sonraki adim
+bu.
+
+11) Bir sonraki oturum icin kontrol listesi
 1. Haftalik Kirilim - W32 esik durumu ne?
 2. Sektor-Baglamli Kirilim - POZITIF grup olustu mu?
 3. arastirma_hedef_fiyat.json - yeni kayitlar eklendi mi, sembol_ozet()
