@@ -516,3 +516,21 @@ vekil secmek YETERSIZ oldu, bu turun ana dersi.
 YENI, KENDI BASINA ilginc bulgu: YUKSEK_HACIM grubunun DAHA IYI
 cikmasi - belki gelecekte "likidite filtresi" (yuksek hacim = daha
 guvenilir RSI sinyali) olarak ayri bir hat halinde degerlendirilebilir.
+
+24) DISPOSITION-BIAS HATTI KAPATILDI (07.08) - dogru vekil bulunamadi
+
+Kahya&Ekinci(2022) TAM METNI okundu (283,913 yatirimci): bias TUM
+turlerde var (yalniz kucuk yatirimcida DEGIL), ama tuzel kisi/buyuk/
+sik-islem-yapanlarda DAHA AZ. ASIL BELIRLEYICI: ISLEM SIKLIGI, sembol
+BUYUKLUGU DEGIL. Bu, YATIRIMCI-duzeyi bir ozellik - sembol-duzeyinde
+DOGRU bir vekilimiz YOK (yatirimci-turu kompozisyon verisi bizde yok).
+
+KARAR: hat KAPATILDI - veri eksikligi nedeniyle daha fazla test
+edilemez. akademik_bulgular.py'deki kayit DUZELTILDI (upsert
+mekanizmasi eklendi - ilk kez bir kayit GUNCELLENDI, yalniz eklenmedi).
+
+ACIK KALAN, AYRI bir gozlem: RSI stratejisinde YUKSEK_HACIM grubunun
+DUSUK_HACIM'den DAHA IYI cikmasi (isabet %53.9/+%7.89 vs %49.6/+%5.49)
+- disposition-bias'la ILGISIZ ama KENDI BASINA ilginc, muhtemelen
+likidite/guvenilirlik kaynakli. Ayri bir hat olarak GELECEKTE
+degerlendirilebilir (simdi aktif takip EDILMIYOR).
