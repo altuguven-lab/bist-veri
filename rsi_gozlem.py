@@ -1,5 +1,13 @@
 """
-RSI GOZLEM DEFTERI (07.08.2026) - Faz V0
+RSI GOZLEM DEFTERI + KURUMSAL TEYIT KATMANI (07.08.2026) - Faz V0
+07.08 EKI (Katman 2): her YENI sanal giris acildiginda, o sembolun
+yabanci_takas_takip.json'daki EN SON kaydinin yonu (ARTIS/AZALIS)
+"kurumsal_teyit" olarak etiketlenir - islem MANTIGINI degistirmez
+(hicbir sinyal FILTRELENMIYOR), yalniz GOZLEM icin ek bilgi ekler.
+Amac: zamanla "kurumsal_teyit=ARTIS olan sinyaller, AZALIS olanlardan
+DAHA IYI mi performans gosteriyor" sorusuna CEVAP biriktirmek.
+
+ORIJINAL (07.08.2026) - Faz V0
 RSI(14,30,70) asiri-satim stratejisinin CANLI performansini, GERCEK
 PARA RISKE ATMADAN izler. Her gun calisir (cron ile): yeni giris
 sinyali olan sembolerde SANAL pozisyon acar, acik sanal pozisyonlarda
@@ -38,6 +46,21 @@ def rsi_hesapla(kapanislar, periyot):
     rsi = 100 - (100 / (1 + rs))
     rsi = rsi.where(~(ort_kayip == 0), 100.0)
     return rsi
+
+
+def kurumsal_teyit_bul(sembol):
+    """yabanci_takas_takip.json'dan sembolun EN SON kaydinin yonunu
+    dondurur. Dosya/kayit yoksa 'BILINMIYOR' - script COKMEZ."""
+    try:
+        with open("data/yabanci_takas_takip.json", encoding="utf-8") as f:
+            veri = json.load(f)
+    except Exception:
+        return "BILINMIYOR"
+    kayitlar = [k for k in veri.get("kayitlar", []) if k["sembol"] == sembol]
+    if not kayitlar:
+        return "BILINMIYOR"
+    en_son = max(kayitlar, key=lambda k: k["tarih"])
+    return en_son["yon"]  # "ARTIS" / "AZALIS" / "SABIT"
 
 
 def _oku_defter():
@@ -83,11 +106,13 @@ def main():
         acik = defter["acik_pozisyonlar"].get(sembol)
         if acik is None:
             if yukari_kesisim:
+                kurumsal = kurumsal_teyit_bul(sembol)
                 defter["acik_pozisyonlar"][sembol] = {
                     "giris_tarih": str(son_tarih), "giris_fiyat": son_kapanis,
-                    "giris_rsi": round(son_rsi, 1),
+                    "giris_rsi": round(son_rsi, 1), "kurumsal_teyit": kurumsal,
                 }
-                print(f"{sembol}: YENI SANAL GIRIS @ {son_kapanis} (RSI {son_rsi:.1f})")
+                print(f"{sembol}: YENI SANAL GIRIS @ {son_kapanis} (RSI {son_rsi:.1f}, "
+                      f"kurumsal_teyit={kurumsal})")
         else:
             giris_tarih = datetime.date.fromisoformat(acik["giris_tarih"])
             gun_sayisi = (son_tarih - giris_tarih).days
@@ -106,6 +131,7 @@ def main():
                     "cikis_tarih": str(son_tarih), "tutma_gun": gun_sayisi,
                     "giris_fiyat": acik["giris_fiyat"], "cikis_fiyat": cikis,
                     "sebep": sebep, "net_getiri_pct": net,
+                    "kurumsal_teyit": acik.get("kurumsal_teyit", "BILINMIYOR"),
                 })
                 del defter["acik_pozisyonlar"][sembol]
                 print(f"{sembol}: SANAL CIKIS @ {cikis} ({sebep}), net %{net}")
