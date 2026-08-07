@@ -1,0 +1,105 @@
+{
+  "kesif_zamani_utc": "2026-08-07T11:29:15.893712+00:00",
+  "not": "Faz V0 - Denetim Madde 2: sabit stop-loss grid testi. Mevcut RSI cikis mantigina (RSI<30 tekrar/RSI>=70/90 gun) SABIT YUZDE stop EKLENMESI edge'i (isabet/ort getiri) koruyup EN KOTU islemleri sinirliyor mu test eder. Stop kontrolu GUN ICI DUSUK (Low) fiyatiyla, GERCEKCI. SALT OLCUM.",
+  "parametreler": {
+    "rsi_periyot": 14,
+    "rsi_alt_esik": 30,
+    "rsi_ust_esik": 70,
+    "maks_tutma_gun": 90
+  },
+  "maliyet_varsayimi_pct": 0.25,
+  "sembol_sayisi": 30,
+  "izgara_sonuclari": [
+    {
+      "stop_etiketi": "STOPSUZ",
+      "stop_yuzde": null,
+      "islem_sayisi": 276,
+      "gecersiz_atlanan": 0,
+      "isabet_pct": 52.2,
+      "ort_net_getiri_pct": 6.746,
+      "toplam_net_getiri_pct": 1861.99,
+      "cikis_sebebi_dagilimi": {
+        "KAR_AL_ASIRI_ALIM": 105,
+        "MAKS_TUTMA_ASILDI": 44,
+        "BASARISIZ_SICRAMA": 115,
+        "VERI_SONU": 12
+      },
+      "en_kotu_5_islem_net_pct": [
+        -18.05,
+        -18.03,
+        -17.68,
+        -16.86,
+        -16.83
+      ]
+    },
+    {
+      "stop_etiketi": "STOP_%5",
+      "stop_yuzde": 5,
+      "islem_sayisi": 276,
+      "gecersiz_atlanan": 0,
+      "isabet_pct": 34.4,
+      "ort_net_getiri_pct": 3.844,
+      "toplam_net_getiri_pct": 1060.93,
+      "cikis_sebebi_dagilimi": {
+        "KAR_AL_ASIRI_ALIM": 74,
+        "SABIT_STOP_LOSS": 123,
+        "BASARISIZ_SICRAMA": 54,
+        "VERI_SONU": 10,
+        "MAKS_TUTMA_ASILDI": 15
+      },
+      "en_kotu_5_islem_net_pct": [
+        -5.25,
+        -5.25,
+        -5.25,
+        -5.25,
+        -5.25
+      ]
+    },
+    {
+      "stop_etiketi": "STOP_%8",
+      "stop_yuzde": 8,
+      "islem_sayisi": 276,
+      "gecersiz_atlanan": 0,
+      "isabet_pct": 45.3,
+      "ort_net_getiri_pct": 5.693,
+      "toplam_net_getiri_pct": 1571.39,
+      "cikis_sebebi_dagilimi": {
+        "KAR_AL_ASIRI_ALIM": 95,
+        "SABIT_STOP_LOSS": 63,
+        "BASARISIZ_SICRAMA": 79,
+        "VERI_SONU": 12,
+        "MAKS_TUTMA_ASILDI": 27
+      },
+      "en_kotu_5_islem_net_pct": [
+        -8.25,
+        -8.25,
+        -8.25,
+        -8.25,
+        -8.25
+      ]
+    },
+    {
+      "stop_etiketi": "STOP_%12",
+      "stop_yuzde": 12,
+      "islem_sayisi": 276,
+      "gecersiz_atlanan": 0,
+      "isabet_pct": 50.4,
+      "ort_net_getiri_pct": 6.439,
+      "toplam_net_getiri_pct": 1777.04,
+      "cikis_sebebi_dagilimi": {
+        "KAR_AL_ASIRI_ALIM": 103,
+        "SABIT_STOP_LOSS": 21,
+        "BASARISIZ_SICRAMA": 102,
+        "VERI_SONU": 12,
+        "MAKS_TUTMA_ASILDI": 38
+      },
+      "en_kotu_5_islem_net_pct": [
+        -12.25,
+        -12.25,
+        -12.25,
+        -12.25,
+        -12.25
+      ]
+    }
+  ]
+}
