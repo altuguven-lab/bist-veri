@@ -1,5 +1,22 @@
 KULUCKA PROTOKOLU (IP-3) - RESMI
-Baslangic: 07.07.2026 (ilk gercek sinyal gunu) | Bitis: 18.08.2026 (6 hafta)
+Baslangic: 07.07.2026 (ilk gercek sinyal gunu) | ILK BITIS: 18.08.2026 (6 hafta)
+
+*** 08.08.2026 SAYAC SIFIRLAMA (protokolun kendi "DONDURMA" maddesi
+geregi - mantik degisikligi ZORUNLU gorulunce sayac sifirlanir) ***
+YENI BASLANGIC: 08.08.2026 | YENI BITIS: 19.09.2026 (6 hafta)
+
+GEREKCE: sinyal_dogrulama.py (08.08) - kendi GERCEK sinyal gecmisimizle
+(41 trade sinyali, T+1/T+2/T+3 gercek fiyat) olculdu:
+  P3_SKOR_AL (n=21): T+1 ort getiri %-0.078 (NEGATIF), dogrulanan %42.9
+    (yazi-turadan dusuk). Kod incelemesi: _entry esigi 30 gibi GEVSEK.
+  POZ_AZALT (n=4-2): T+1/T+2 ort getiri %+3.4/%+4.7 (GUCLU TERSINE -
+    risk-off sinyali sonrasi fiyat GUCLU YUKSELIYOR), dogrulanan %25/%0.
+    Kod incelemesi: son alt-kosul OR-bagli (tek zayiflik sinyali yeterli).
+UYGULANAN DUZELTME (08.08, V157_tam_duzeltme.txt): P3_SKOR_AL esigi
+30->40, POZ_AZALT son alt-kosulu OR->AND. Ayrica (sinyal mantigi
+DEGISTIRMEYEN, "kozmetik/hata duzeltme" kategorisinde) v112n plot
+sirasi + atama konumu duzeltmesi.
+
 Nitelik: Sistemin ANA kanit mekanizmasi. Geriye donuk hicbir test bunun
 yerine gecemez; burada olculen sey "bu piyasada, bu evrenle, bu icraciyla"
 performanstir.
@@ -37,3 +54,4 @@ kulucka sinyal sayisi 10'a ulasana kadar uzar.
 Ilk veri noktalari (kayit)
 08.07.2026 11:30 YKBNK + AKBNK ACIL_CIK (36.44 / 71.35): endeks ayni gun
 -%2.16 kapatti -> M1 icin iki erken pozitif aday (T+3 hukmu 11.07'de).
+
