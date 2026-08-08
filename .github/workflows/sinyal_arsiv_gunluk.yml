@@ -1,0 +1,42 @@
+# SINYAL DOGRULAMA ARSIVI - GUNLUK (08.08.2026) - Faz V0
+# Konum: .github/workflows/sinyal_arsiv_gunluk.yml
+# GUNLUK calisir (hafta ici, seans kapanisindan sonra, 18:45 TSI =
+# 15:45 UTC - GUNLUK_OZET/RSI gozleminden 15 dk sonra, cakismayi
+# onlemek icin). Pine'a hic dokunmuyor, gercek islem/uyari uretmiyor.
+name: Sinyal Dogrulama Arsivi
+on:
+  schedule:
+    - cron: "45 15 * * 1-5"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  arsiv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66
+      - name: Arsivi guncelle
+        run: python sinyal_arsiv_gunluk.py
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "sinyal-arsiv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/sinyal_arsiv.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Sinyal dogrulama arsivi guncelleme $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
+
