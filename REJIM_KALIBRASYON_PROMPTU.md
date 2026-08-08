@@ -557,3 +557,49 @@ neredeyse tamamini koruyor (isabet -1.8pp, ort getiri -0.3pp) ama en
 kotu senaryoyu %33 azaltiyor (-18.1->-12.2). Dar stoplar (-5/-8) edge'i
 COK fazla yiyor - bu bir TERSINE-DONUS stratejisi, dar stop erken
 cikarip iyilesecek pozisyonlari kesiyor.
+
+25b) v112n OLAYI - KOD UZERINDEN GERCEK TESHIS (08.08)
+
+05.08'de eklenip TUM _v112 ailesini (REJIM-BT/FAKTOR-BT/VOL-BT/SEANS-BT)
+bozan, v157'ye geri donulen "v112n" denemesi, YUKLENEN GERCEK Pine
+dosyasi (V156_..._050826.txt) uzerinden incelendi - iki somut ipucu
+bulundu: (1) V112N plot'u, Temmuz'da OZELLIKLE TradingView'in "ilk 20
+plot" penceresi icin indeks 1-5'e yerlestirilmis 5 carrier plot'un
+(Skor/KGS/Stop/Rejim/RelVol) ONUNE eklenmis, onlari 2-6'ya itmis.
+(2) `_wV112n := _v112Total` atamasi, P3 skor parametrelerinin
+ortasina, ilgisiz bir yorum blogunun icine sikismis.
+
+Ayni kod incelemesinde, sinyal dogrulama testiyle baglantili iki ek
+bulgu: P3_SKOR_AL'da gevsek esik (`_entry > 30`), POZ_AZALT'ta OR-bagli
+tek-sinyal tetikleyici (`cvdFalling or trendWeakening`).
+
+26) UYGULAMA TAMAMLANDI (08.08) - v112n+P3+POZ_AZALT duzeltmeleri,
+kulucka sifirlama, kalici sinyal dogrulama arsivi
+
+Kullanici karari: "onemli olan dogru kodu ve veri uretmek" - Bolum 26'da
+teshis edilen UC duzeltme UYGULANDI (V157_tam_duzeltme.txt):
+  1. v112n plot sirasi + atama konumu (hata duzeltme, sinyal mantigi
+     DEGISMEDI).
+  2. P3_SKOR_AL esigi 30->40 (SINYAL MANTIGI degisikligi).
+  3. POZ_AZALT son alt-kosulu OR->AND (SINYAL MANTIGI degisikligi).
+Parantez dengesi + tum referanslar dogrulandi, hicbir baska satira
+dokunulmadi.
+
+KULUCKA_PROTOKOLU.md GUNCELLENDI: protokolun kendi "DONDURMA" maddesi
+geregi (mantik degisikligi zorunlu -> sayac sifirlanir) resmi olarak
+isletildi. YENI PENCERE: 08.08.2026 - 19.09.2026 (6 hafta). Gerekce
+(sinyal_dogrulama.py bulgulari) kayitli.
+
+KALICI SINYAL DOGRULAMA ARSIVI KURULDU: sinyal_arsiv_gunluk.py +
+.yml, GUNLUK calisir (hafta ici 18:45 TSI). tv_alerts_latest.json'un
+~4-gunluk sinirini asan, data/sinyal_arsiv.json'da BUYUYEN bir arsiv -
+her gun yeni sinyalleri ekler, T+3 gecmis sinyalleri GERCEK fiyatla
+dogrular, tip-bazinda ozet istatistigi GUNCEL tutar. Bu, Bolum 26'daki
+tesbit yontemini (tek seferlik kesif) KALICI/SISTEMATIK hale getirir -
+zamanla ornekelem buyudukce, P3/POZ_AZALT duzeltmesinin GERCEKTEN
+ise yarayip yaramadigini GORECEGIZ.
+
+SONRAKI ADIM: birkac hafta/ay sonra sinyal_arsiv.json + rsi_gozlem_
+defteri.json birlikte okunup, hem YENI Pine mantiginin hem RSI swing
+sisteminin GERCEK performansi degerlendirilmeli.
+
