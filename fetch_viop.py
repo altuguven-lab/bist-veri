@@ -17,10 +17,18 @@ CIKTI = "data/viop_analiz.json"
 KODLAMALAR = ["windows-1254", "utf-8", "iso-8859-9"]
 AYRACLAR = [";", ","]
 
-# Portfoy.json'dan otomatik degil, bilinclii sabit liste (5 pozisyon +
-# ASTOR ilk kesifte SSF'si dogrulanmisti) - portfoy degisirse burasi
-# elle guncellenir, sessiz kaymayi onlemek icin.
-TAKIP_EDILEN = ["AKBNK", "YKBNK", "KCHOL", "TAVHL", "ASTOR"]
+# 09.08 GENISLETME: sadece portfoy pozisyonlariyla SINIRLI degil -
+# takip ettigimiz TUM 30 sembollük evren taranir. VİOP kontrati
+# OLMAYAN semboller icin script GUVENLE "0 sozlesme" yazar (asagidaki
+# dongu, eslesen satir yoksa CROP/hata VERMEZ) - bu yuzden GENISLETMEK
+# ZARARSIZ, VIOP'ta GERCEKTEN olan sembolleri (5'ten fazlasi olabilir,
+# ASTOR ornegindeki gibi zaman icinde YENI sembol eklenmis olabilir)
+# TAHMIN etmek yerine GERCEK GUNCEL bultenden DOGRUDAN ogreniriz.
+TAKIP_EDILEN = ["AKBNK", "YKBNK", "GARAN", "ISCTR", "SAHOL", "KCHOL",
+                 "THYAO", "TAVHL", "EREGL", "ASELS", "ASTOR", "MGROS",
+                 "BIMAS", "TUPRS", "TOASO", "FROTO", "ENKAI", "TTKOM",
+                 "AEFES", "PGSUS", "HALKB", "VAKBN", "OTKAR", "PETKM",
+                 "SISE", "EKGYO", "TRMET", "ALARK", "ENJSA", "ULKER"]
 
 
 def indir(url):
