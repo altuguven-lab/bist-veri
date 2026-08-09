@@ -603,3 +603,36 @@ SONRAKI ADIM: birkac hafta/ay sonra sinyal_arsiv.json + rsi_gozlem_
 defteri.json birlikte okunup, hem YENI Pine mantiginin hem RSI swing
 sisteminin GERCEK performansi degerlendirilmeli.
 
+
+29) KULLANILMAYAN PARAMETRE TEMIZLIGI + V195 KOPRUSU ARASTIRMASI (08.08)
+
+Kod taramasi: TUM 74 input. tanimi kontrol edildi (regex ile "yalniz
+kendi tanim satirinda geciyor mu"). UC aday bulundu: labelMode,
+finalAlertsOnly, radarTradeSrc - ucu de dogrulandi, kod icinde HICBIR
+YERDE kullanilmiyorlar.
+
+KARAR (kullanici): "su an en onemlisi dogru veri toplamak" - yalnizca
+GERCEKTEN gelecegi olmayan kismi sil, gelistirilebilir olanlari koru.
+
+- labelMode: SILINDI (V162_temizlik.txt) - markerMode'un yerini aldigi
+  net bir kalinti, gelecek plani YOK.
+- finalAlertsOnly: DOKUNULMADI, ERTELENDI. Onerilen liste (ileride
+  kullanilmak uzere): NIHAI (goster) = P1 KALITELI AL, P1 AL, GERCEK
+  STOP KIRILDI, POZ AZALT, ACIL CIK, CORE CIKIS, GUNLUK OZET (her
+  zaman). ADAY/ERKEN (gizle) = P2 ERKEN AL, P2 DIP DONUS, P2 DESTEK
+  DONUS, P2 ADAY, P3 SKOR AL, P3 HACIM BEKLE, P3 RADAR, P4 HAZIRLIK,
+  CORE AL ADAYI, CORE IZLEMEYE DEGER, TASIMA, EKLEME ADAYI, KAR KORU,
+  SEKTOR ROTASYONU. ONEMLI: acilirsa "aday/erken" sinyaller HIC
+  URETILMEZ (yalniz gosterim degil, webhook/arsiv verisi de KAYBOLUR)
+  - simdiki oncelikle (veri toplama) CELISIYOR, bu yuzden ERTELENDI.
+- radarTradeSrc: DOKUNULMADI, ERTELENDI. V195_CTRL_KURUMSAL_EVREN_
+  070726.txt incelendi - TAM baglanti noktasi bulundu: V195'in
+  `thisChartTradeScore` plot'u (satir 1031), f_tradeability() ile
+  0-100 araliginda "islem uygunluk skoru" uretiyor (sembol V195
+  evreninde yoksa -1). ONEMLI GUVENLIK NOTU: radarTradeSrc'nin
+  varsayilani `close` (KAPANIS FIYATI) - eger V195 baglanmadan
+  aktif edilirse, TL fiyati YANLISLIKLA "0-100 skoru" gibi
+  yorumlanabilir. Gelecekte baglanirsa, AYRI bir acik/kapali anahtar
+  (varsayilan KAPALI) EKLENMELI, kullanici GERCEKTEN V195'i
+  baglayinca acmali.
+
