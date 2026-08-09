@@ -662,3 +662,22 @@ gelip gelmedigi (alarm kurulumunun GERCEKTEN calistigi teyidi),
 (2) yeni sinyallerin onceki (Bolum 26) istatistiklerden DAHA IYI
 dogrulanip dogrulanmadigi degerlendirilmeli.
 
+
+31) VIOP KAPSAMI 5'TEN 29 SEMBOLE GENISLETILDI (09.08)
+
+fetch_viop.py'nin TAKIP_EDILEN listesi (eskiden 5 - yalniz portfoy
+pozisyonlari) 30 sembollük TAM evrene genisletildi. 2018 tarihli
+resmi VIOP kilavuzu yalniz 20 sembol listeliyordu ama bu ESKI bilgi -
+GERCEK GUNCEL bultenden dogrulandi: 30 sembolun 29'unda GERCEKTEN
+VIOP kontrati VAR (yalniz OTKAR'da yok). Kod guvenli tasarlanmisti
+(eslesme yoksa cokmeden "0 sozlesme" yazar), genisletme risksiz oldu.
+
+gunluk_gozlem_cetveli.py'de sabit-kodlanmis "5 sembol" notu da
+DINAMIK hale getirildi (artik gercek viop_kapsam_sayisi'ni okuyup
+raporluyor - "29/30 semboldeki GERCEK VIOP kontratina gore dolu").
+
+SONUC: gunluk_gozlem_cetveli.py artik VIOP baz gostergesini NEREDEYSE
+TUM evrende (29/30) tasiyor - yalniz 5 portfoy pozisyonuyla SINIRLI
+degil, kullanicinin "bu hisselerde de alim satim yapacagiz" ihtiyacini
+karsiliyor.
+
