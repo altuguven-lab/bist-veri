@@ -452,6 +452,14 @@ def main():
         if M["hesaplanamadi"]:
             md.append(f"- {etiket}: {M['hesaplanamadi']} kayit fiyat "
                       "verisi olmadan HESAPLANAMADI olarak birakildi")
+    md.append("\n## Panel Okuma Hatirlatmasi (08.08 EKI)\n")
+    md.append("N/WR/PF/DD paneli KUMULATIF (07.07'den beri biriken TUM "
+              "islemler) - Pine duzeltmelerinin (P3_SKOR_AL/POZ_AZALT/v112n/"
+              "PF=0, bkz. REJIM_KALIBRASYON_PROMPTU.md Bolum 26-29) etkisini "
+              "GORMEK icin DUZENLI okuma sart. Su semboller icin TradingView "
+              "grafiginden N/WR/PF/DD okunup panel_okuma_arsivi.py'ye "
+              "eklenmeli (portfoy pozisyonlari + ozel takip): AKBNK, YKBNK, "
+              "KCHOL, TAVHL, ASTOR, THYAO.")
     md.append("\n---\nYontem notlari betigin bas yorumundadir; degisiklik = commit.")
 
     os.makedirs("data/denetim", exist_ok=True)
