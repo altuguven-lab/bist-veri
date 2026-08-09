@@ -34,12 +34,18 @@ def _yaz(veri):
     atomik_json_yaz(DOSYA, veri)
 
 
-def kayit_ekle(sembol, tarih, kurum, eski_hedef, yeni_hedef, kaynak_not):
+def kayit_ekle(sembol, tarih, kurum, eski_hedef, yeni_hedef, kaynak_not, vade=None):
     """Tek bir hedef fiyat revizyonunu ekler. Yon otomatik hesaplanir
     (eski/yeni karsilastirmasindan) - elle girilmez, hata riski azalir.
     TEKRAR ONLEME: ayni (sembol,tarih,kurum,eski,yeni) zaten varsa
     eklenmez - __main__ bloğu her workflow kosumunda tekrar
-    calistigi icin bu sart, aksi halde kayitlar katlanarak cogalir."""
+    calistigi icin bu sart, aksi halde kayitlar katlanarak cogalir.
+
+    08.08 EKI: opsiyonel 'vade' parametresi ("kisa_vade_3_6ay" /
+    "orta_vade_12ay" / None="BILINMIYOR"). GERIYE UYUMLU - eski
+    cagrilar (vade VERMEDEN) hic degismeden calismaya devam eder.
+    MEVCUT kayitlar GERIYE DONUK vade ETIKETLENMEZ - gercek ufuklarini
+    dogrulamadan tahmin etmek yanlis olur, "BILINMIYOR" kalirlar."""
     veri = _oku()
     for k in veri["kayitlar"]:
         if (k["sembol"], k["tarih"], k["kurum"], k["eski_hedef"], k["yeni_hedef"]) == \
@@ -55,6 +61,7 @@ def kayit_ekle(sembol, tarih, kurum, eski_hedef, yeni_hedef, kaynak_not):
              "eski_hedef": eski_hedef, "yeni_hedef": yeni_hedef,
              "yuzde_degisim": round((yeni_hedef / eski_hedef - 1) * 100, 1),
              "yon": yon, "kaynak_not": kaynak_not,
+             "vade": vade if vade else "BILINMIYOR",
              "eklenme_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()}
     veri["kayitlar"].append(kayit)
     _yaz(veri)
