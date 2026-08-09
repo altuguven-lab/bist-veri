@@ -34,7 +34,7 @@ def _yaz(veri):
     atomik_json_yaz(DOSYA, veri)
 
 
-def kayit_ekle(sembol, tarih, kurum, eski_hedef, yeni_hedef, kaynak_not, vade=None):
+def kayit_ekle(sembol, tarih, kurum, eski_hedef, yeni_hedef, kaynak_not, vade=None, kayit_tipi=None):
     """Tek bir hedef fiyat revizyonunu ekler. Yon otomatik hesaplanir
     (eski/yeni karsilastirmasindan) - elle girilmez, hata riski azalir.
     TEKRAR ONLEME: ayni (sembol,tarih,kurum,eski,yeni) zaten varsa
@@ -45,12 +45,24 @@ def kayit_ekle(sembol, tarih, kurum, eski_hedef, yeni_hedef, kaynak_not, vade=No
     "orta_vade_12ay" / None="BILINMIYOR"). GERIYE UYUMLU - eski
     cagrilar (vade VERMEDEN) hic degismeden calismaya devam eder.
     MEVCUT kayitlar GERIYE DONUK vade ETIKETLENMEZ - gercek ufuklarini
-    dogrulamadan tahmin etmek yanlis olur, "BILINMIYOR" kalirlar."""
+    dogrulamadan tahmin etmek yanlis olur, "BILINMIYOR" kalirlar.
+
+    08.08 EKI (2. tur): opsiyonel 'kayit_tipi' parametresi
+    ("HEDEF_FIYAT" varsayilan / "KAR_RAKAMI" gibi farkli olcekte
+    sayilar icin). GEREKCE: KCHOL/TUPRS/ASELS kayitlari "eski_hedef"/
+    "yeni_hedef" alanlarina MILYAR TL net kar rakamlari yazmisti,
+    GERCEK hedef fiyat DEGIL - hedef_fiyat_getiri_analizi.py bunu
+    hedef fiyat sanip ANLAMSIZ bir "getiri" (-%90) uretmisti."""
     veri = _oku()
     for k in veri["kayitlar"]:
         if (k["sembol"], k["tarih"], k["kurum"], k["eski_hedef"], k["yeni_hedef"]) == \
            (sembol, tarih, kurum, eski_hedef, yeni_hedef):
-            return k  # zaten var, tekrar ekleme
+            # 08.08 EKI: kayit_tipi SONRADAN verilirse (duzeltme amacli)
+            # MEVCUT kaydi GUNCELLE, yoksa oldugu gibi birak.
+            if kayit_tipi and k.get("kayit_tipi") != kayit_tipi:
+                k["kayit_tipi"] = kayit_tipi
+                _yaz(veri)
+            return k
     if yeni_hedef > eski_hedef:
         yon = "YUKARI"
     elif yeni_hedef < eski_hedef:
@@ -62,6 +74,7 @@ def kayit_ekle(sembol, tarih, kurum, eski_hedef, yeni_hedef, kaynak_not, vade=No
              "yuzde_degisim": round((yeni_hedef / eski_hedef - 1) * 100, 1),
              "yon": yon, "kaynak_not": kaynak_not,
              "vade": vade if vade else "BILINMIYOR",
+             "kayit_tipi": kayit_tipi if kayit_tipi else "HEDEF_FIYAT",
              "eklenme_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()}
     veri["kayitlar"].append(kayit)
     _yaz(veri)
@@ -211,5 +224,29 @@ if __name__ == "__main__":
                    "arka plan (bkz. 06.08 TCMB notu). Aksiyon alinabilir "
                    "Turkiye-ozel veri DEGIL, yalniz arka plan baglami.",
                    ["TRALT", "ASELS", "ASTOR", "AKBNK", "YKBNK"])
+    # 08.08 EKI (2. tur) - DUZELTME: hedef_fiyat_getiri_analizi.py'nin
+    # KCHOL/ASELS/TUPRS'i YANLISLIKLA hedef fiyat sanip ANLAMSIZ getiri
+    # (-%90 gibi) uretmesini onlemek icin, bu UC kaydin GERCEK tipini
+    # etiketliyoruz (upsert - AYNI parametrelerle cagrilinca MEVCUT
+    # kaydi GUNCELLER, yeni kayit EKLEMEZ).
+    kayit_ekle("TUPRS", "2026-08-06", "Ziraat Yatirim", 6.5, 14,
+               "Sabah Stratejisi - 2C26 net kar 45.9mlr TL (piyasa "
+               "beklentisi 30.7mlr TL'nin ~%50 uzerinde). Net rafineri "
+               "marji rehberi 6-7$'dan 13-15$/varile yukseltildi "
+               "(deger hedef fiyat DEGIL, $/varil marj rehberi - "
+               "orta nokta kullanildi).", kayit_tipi="MARJ_REHBERI")
+    kayit_ekle("ASELS", "2026-08-06", "Ziraat Yatirim", 6.9, 8.5,
+               "Sabah Stratejisi - 2C26 net kar 8.5mlr TL, piyasa "
+               "beklentisi 6.9mlr TL'nin uzerinde (%61.3 yillik artis). "
+               "Bakiye siparis 20.7mlr USD'den 23.2mlr USD'ye yukseldi. "
+               "(deger hedef fiyat DEGIL, milyar TL net kar - piyasa "
+               "beklentisi vs gerceklesen kullanildi).", kayit_tipi="KAR_RAKAMI")
+    kayit_ekle("KCHOL", "2026-08-05", "Piyasa Konsensusu", 13.6, 19.7,
+               "2C26 net kari 19.7mlr TL, piyasa beklentisi 13.6mlr "
+               "TL'nin cok uzerinde (%93 yillik artis, onceki "
+               "ceyrekten -558mn TL'den sert sicrama). (deger hedef "
+               "fiyat DEGIL, milyar TL net kar - konsensus vs "
+               "gerceklesen kullanildi, TUPRS/ASELS Ziraat kaydiyla "
+               "ayni desen).", kayit_tipi="KAR_RAKAMI")
     print("Ornek kayitlar eklendi.")
     print(json.dumps(sembol_ozet(), ensure_ascii=False, indent=2))
