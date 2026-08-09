@@ -636,3 +636,29 @@ GERCEKTEN gelecegi olmayan kismi sil, gelistirilebilir olanlari koru.
   (varsayilan KAPALI) EKLENMELI, kullanici GERCEKTEN V195'i
   baglayinca acmali.
 
+
+30) TUM 30 HISSEDE V162 ALARM KURULUMU TAMAMLANDI (08.08)
+
+Bolum 29'da tespit edilen "16/30 sembolde HIC alarm yok" boslugu
+KAPATILDI - kullanici TUM 30 hissede V162 (v112n+P3_esik+POZ_AZALT+
+PF=0+labelMode duzeltmeleri SONRASI) alarmlarini kurdu. Eskiden
+alarmi CALISAN 14 sembol de (muhtemelen eski surumlere bagliydi)
+V162'ye GECIRILDI - tutarlilik saglandi.
+
+EKGYO/ISCTR arama karisikligi da COZULDU: EKGYO (Emlak Konut GYO) ile
+DMLKT (Emlak Katilim GYO) FARKLI sirketler - "BIST:EKGYO" ile aranmali.
+ISCTR'nin TradingView'de UC ayri sinif hissesi var (ISCTR/ISBTR/ISATR)
+- "BIST:ISCTR" ile aranmali (C Grubu, bizim izledigimiz, en likit sinif).
+
+ONEMLI SONUC: bu andan itibaren sinyal_arsiv_gunluk.py'ye giren TUM
+yeni kayitlar, ARTIK TUTARLI sekilde V162 mantigindan geliyor -
+onceki (bugune kadarki) arsiv kismen ESKI surumlerden (14/30 sembol,
+karisik surumler) olustugu icin, BUNDAN SONRAKI veri cok daha
+GUVENILIR bir "duzeltme sonrasi" olcum saglayacak.
+
+SONRAKI ADIM: birkac gun icinde sinyal_arsiv.json + panel_okuma_
+arsivi.py tekrar kontrol edilip, (1) TUM 30 sembolde GUNLUK_OZET
+gelip gelmedigi (alarm kurulumunun GERCEKTEN calistigi teyidi),
+(2) yeni sinyallerin onceki (Bolum 26) istatistiklerden DAHA IYI
+dogrulanip dogrulanmadigi degerlendirilmeli.
+
