@@ -19,8 +19,16 @@ def main():
     fiyatlar = json.load(open("data/bist_quotes.json", encoding="utf-8"))
     guncel_fiyat = {v["sembol"]: v["son_fiyat"] for v in fiyatlar.get("veriler", [])}
 
+    # 08.08 DUZELTME: yalniz GERCEK hedef fiyat kayitlarini isle -
+    # "KAR_RAKAMI"/"MARJ_REHBERI" gibi FARKLI olcekteki sayilar
+    # (orn. KCHOL'un milyar-TL kar rakami) HEDEF FIYAT sanilip
+    # anlamsiz "getiri" (-%90) URETMESIN diye FILTRELENIR. Eski
+    # kayitlarda 'kayit_tipi' YOKSA (henuz etiketlenmemis gecmis
+    # veri), GERIYE UYUMLULUK icin varsayilan HEDEF_FIYAT sayilir.
     en_son_kayit = {}
     for k in arastirma["kayitlar"]:
+        if k.get("kayit_tipi", "HEDEF_FIYAT") != "HEDEF_FIYAT":
+            continue
         sembol = k["sembol"]
         if sembol not in en_son_kayit or k["tarih"] > en_son_kayit[sembol]["tarih"]:
             en_son_kayit[sembol] = k
