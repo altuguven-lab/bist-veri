@@ -1,5 +1,5 @@
 # Gunluk Gozlem Cetveli
-Olusturma: 2026-08-09T13:23:17.719412+00:00
+Olusturma: 2026-08-09T13:25:25.834153+00:00
 VIOP bulten gunu: 2026-08-07
 
 **Kuresel baglam:** asya: NOTR (0.18%) | avrupa: NOTR (0.13%) | amerika: NOTR (0.18%)
