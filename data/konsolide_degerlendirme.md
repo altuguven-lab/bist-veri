@@ -1,5 +1,5 @@
 # Konsolide Degerlendirme Raporu
-Olusturma: 2026-08-09T12:37:01.500783+00:00
+Olusturma: 2026-08-09T12:45:47.579336+00:00
 
 Bu, bir AL/SAT tavsiyesi degildir - mevcut veri katmanlarini bir araya getirir, yorumlamayi insana birakir.
 
