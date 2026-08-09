@@ -90,6 +90,8 @@ def main():
     guncel_fiyat = {v["sembol"]: v["son_fiyat"] for v in fiyatlar_ham.get("veriler", [])}
     rsi_gozlem = _oku("data/rsi_gozlem_defteri.json", {"acik_pozisyonlar": {}, "kapanan_pozisyonlar": []})
     sinyal_arsiv = _oku("data/sinyal_arsiv.json", {"kayitlar": []})
+    hedef_getiri = _oku("data/hedef_fiyat_getiri_analizi.json", {"sonuclar": []})
+    hedef_getiri_map = {s["sembol"]: s for s in hedef_getiri.get("sonuclar", [])}
 
     satirlar = []
     for sembol in evren:
@@ -119,6 +121,7 @@ def main():
             "portfoy": _portfoy_detay(pf_poz, guncel_fiyat.get(sembol)) if pf_poz else None,
             "rsi_gozlem": {"durum": rsi_durum, "detay": rsi_detay} if rsi_durum else None,
             "sinyal_arsivi": sinyal_oz,
+            "hedef_fiyat_getirisi": hedef_getiri_map.get(sembol),
             "kaynak_konsensusu": {"pozitif": pozitif_sayaci, "negatif": negatif_sayaci},
         }
         satirlar.append(satir)
@@ -138,8 +141,8 @@ def main():
           f"Olusturma: {rapor['olusturma_utc']}", "",
           "Bu, bir AL/SAT tavsiyesi degildir - mevcut veri katmanlarini "
           "bir araya getirir, yorumlamayi insana birakir.", "",
-          "| Sembol | Panel(N/WR/PF/DD) | Yabanci Akis | Analist | Portfoy | RSI Gozlem | Sinyal Ars.(top/dogr) | Konsensus(+/-) |",
-          "|---|---|---|---|---|---|---|---|"]
+          "| Sembol | Panel(N/WR/PF/DD) | Yabanci Akis | Analist | Beklenen Getiri% | Portfoy | RSI Gozlem | Sinyal Ars.(top/dogr) | Konsensus(+/-) |",
+          "|---|---|---|---|---|---|---|---|---|"]
     for s in satirlar:
         p = s["panel"]
         if p:
@@ -153,6 +156,8 @@ def main():
         yabanci_str = f"{y['yon']} ({y['puan_degisimi']:+.1f})" if y else "-"
         a = s["analist_gorusu"]
         analist_str = a["yon"] if a else "-"
+        hg = s["hedef_fiyat_getirisi"]
+        hedef_getiri_str = f"{hg['beklenen_getiri_pct']:+.1f}% ({hg['son_revizyon_yonu']})" if hg else "-"
         pf = s["portfoy"]
         if pf:
             kz = pf["kar_zarar_pct"]
@@ -167,7 +172,7 @@ def main():
         kk = s["kaynak_konsensusu"]
         konsensus_str = f"{kk['pozitif']}/{kk['negatif']}"
         md.append(f"| {s['sembol']} | {panel_str} | {yabanci_str} | {analist_str} | "
-                   f"{portfoy_str} | {rsi_str} | {sinyal_str} | {konsensus_str} |")
+                   f"{hedef_getiri_str} | {portfoy_str} | {rsi_str} | {sinyal_str} | {konsensus_str} |")
 
     with open(CIKTI_MD, "w", encoding="utf-8") as f:
         f.write("\n".join(md) + "\n")
