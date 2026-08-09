@@ -63,6 +63,7 @@ def main():
         satir = dict(s)
         satir["viop_baz"] = v
         satirlar.append(satir)
+    viop_kapsam_sayisi = sum(1 for s in satirlar if s["viop_baz"])
 
     rapor = {
         "olusturma_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -73,9 +74,11 @@ def main():
         "kuresel_baglam": kuresel_ozet,
         "not": ("Bu bir 'AL/SAT tavsiyesi' ya da kesin bir tahmin DEGILDIR - "
                 "mevcut verinin GUNLUK konsolide gorunumudur. VIOP sutunu "
-                "YALNIZCA 5 sembolde (portfoy pozisyonlari) dolu - digerlerinde "
-                "VIOP piyasasi yok/veri yok."),
+                "yalniz VIOP kontrati OLAN sembollerde dolu (asagidaki "
+                "viop_kapsam_sayisi'na bakiniz) - kalanlarinda VIOP piyasasi "
+                "yok/veri yok."),
         "sembol_sayisi": len(satirlar),
+        "viop_kapsam_sayisi": viop_kapsam_sayisi,
         "semboller": satirlar,
     }
     atomik_json_yaz("data/gunluk_gozlem_cetveli.json", rapor)
@@ -86,9 +89,9 @@ def main():
     if kuresel_ozet:
         md.append("**Kuresel baglam:** " + " | ".join(kuresel_ozet))
         md.append("")
-    md.append("Bu bir AL/SAT tavsiyesi degildir - mevcut verinin konsolide "
-               "gorunumudur. VIOP sutunu yalniz portfoy pozisyonlarinda (5 "
-               "sembol) dolu.")
+    md.append(f"Bu bir AL/SAT tavsiyesi degildir - mevcut verinin konsolide "
+               f"gorunumudur. VIOP sutunu {viop_kapsam_sayisi}/{len(satirlar)} "
+               f"semboldeki GERCEK VIOP kontratina gore dolu.")
     md.append("")
     md.append("| Sembol | VIOP Baz% | Panel(N/WR/PF/DD) | Yabanci Akis | Analist | Beklenen Getiri% | Portfoy | RSI Gozlem | Sinyal Ars. | Konsensus |")
     md.append("|---|---|---|---|---|---|---|---|---|---|")
