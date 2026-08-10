@@ -1,156 +1,114 @@
 """
-KAZANC_SURPRIZI_REVERSAL (10.08.2026) - Faz V0
-Kurul karari: KCHOL orneginden (05.08 guclu kar surprizi -> fiyat
-ANINDA sicradi -> sonraki gunlerde geri cekildi) genellestirilen bir
-tarama. geri_donus_adaylari.py'den (YTD+haftalik MOMENTUM bazli)
-FARKLI bir MEKANIZMA yakalar: HABER-GUDUMLU asiri tepki + duzeltme.
+KAZANC_REVERSAL_IZLEME (10.08.2026) - Faz V0
+kazanc_surprizi_reversal.py'nin ("GERI_CEKILME_ADAYI_GUCLU"/
+"_TEMKINLI" etiketli) adaylarini KALICI bir arsive ekleyip, YETERLI
+zaman gectikten sonra (10 is gunu - ayni PEAD pencere mantigi)
+GERCEK fiyat hareketiyle "GERCEKTEN toparlandi mi" diye dogrular.
+sinyal_arsiv_gunluk.py ile AYNI disiplin (biriktir + gecikmeli
+dogrula + tip-bazinda ozet).
 
-METODOLOJI:
-  1. arastirma_hedef_fiyat.json'daki kayit_tipi=="KAR_RAKAMI" VE
-     yon=="YUKARI" (pozitif kar surprizi) kayitlarini bul.
-  2. Kayit TARIHINDEN BUGUNE fiyat degisimini hesapla (yfinance).
-  3. Eger fiyat kayit SONRASI GERI CEKILMISSE (negatif), "GERI_
-     CEKILME_ADAYI" olarak isaretle - KCHOL'deki gibi.
-  4. Sembolun SEKTORUNU makro_hassasiyet_haritasi.json'a bakip, o
-     sektorun YAPISAL hassasiyet faktorlerini BAGLAM olarak ekle -
-     TAHMIN URETMEZ, yalniz "bu sembole hangi haberler ONEMLI
-     olabilir" diye REHBERLIK eder.
-
-KIRMIZI CIZGI: bu bir "AL/SAT tavsiyesi" DEGILDIR. Etiketler bile
-KESIN bir hukum degil - KAR SURPRIZI + fiyat GERI CEKILMESI
-oruntusune uyan bir ON-FILTREDIR, nihai karar VE makro baglamin
-GUNCEL yorumu insana aittir.
-
-10.08 LITERATUR KALIBRASYONU (Quantpedia/akademik arastirma):
-  - PENCERE SINIRLAMASI: PEAD/reversal etkileri kazanc aciklamasindan
-    SONRAKI ILK 5-10 GUNDE en guclu, 20-30 gunu asinca "bilgi zaten
-    fiyata islenmis" sayiliyor. Bu yuzden ZIRVE, kayit tarihinden
-    SONRAKI ILK 10 IS GUNUYLE SINIRLANIR - daha sonraki bir zirve
-    "eski/erimis sinyal" sayilip HARIC tutulur.
-  - ESIK DUSURULDU (-3.0 -> -1.5): akademik bulgu - "iyi haberde
-    yatirimcilar AZ tepki verir, KOTU haberde ASIRI tepki verir"
-    (asimetri). Pozitif kar surprizlerinde asiri-tepki DAHA KUCUK
-    olabilir, -3.0 esigi cok siki kaliyordu (KCHOL/ASELS ilk
-    testte esigi TUTTURAMAMISTI).
-  - UC ETIKETLI SISTEM: makro_hassasiyet_haritasi.json ile CAPRAZLAMA
-    eklendi - "GERI_CEKILME_ADAYI_GUCLU" (makro ruzgar notr/bilinmiyor)
-    vs "GERI_CEKILME_ADAYI_TEMKINLI" (ayni sektorde GUNCEL bir
-    NEGATIF makro/analist sinyali de varsa) ayrimi.
+KIRMIZI CIZGI: SALT OLCUM, hicbir gercek islem/uyari uretmez. Bu,
+kazanc_surprizi_reversal.py'nin GERCEK ongoru gucunu ZAMAN icinde
+degerlendirmemizi saglayan tek yol - ONCEDEN VARSAYMAK yerine.
 """
 from json_atomik_yaz import atomik_json_yaz
 import json, datetime
 import yfinance as yf
 
-SEKTOR_HARITASI = {
-    "AKBNK": "Bankacilik", "YKBNK": "Bankacilik", "GARAN": "Bankacilik",
-    "ISCTR": "Bankacilik", "HALKB": "Bankacilik", "VAKBN": "Bankacilik",
-    "KCHOL": "Holding", "SAHOL": "Holding", "ALARK": "Holding",
-    "THYAO": "Havacilik", "PGSUS": "Havacilik", "TAVHL": "Havacilik-Altyapi",
-    "EREGL": "Demir-Celik", "SISE": "Sanayi-Cam",
-    "ASELS": "Savunma", "ASTOR": "Enerji-Ekipman", "ENJSA": "Enerji-Elektrik",
-    "MGROS": "Perakende", "BIMAS": "Perakende",
-    "TUPRS": "Petrokimya", "PETKM": "Petrokimya",
-    "TOASO": "Otomotiv", "FROTO": "Otomotiv", "OTKAR": "Otomotiv",
-    "ENKAI": "Insaat", "TTKOM": "Telekom",
-    "AEFES": "Gida-Icecek", "ULKER": "Gida-Icecek",
-    "EKGYO": "GYO", "TRMET": "Madencilik",
-}
+ARSIV_YOL = "data/kazanc_reversal_izleme.json"
+IZLEME_GUN_SAYISI = 10
 
 
-def _oku(yol, varsayilan=None):
+def _oku_arsiv():
     try:
-        with open(yol, encoding="utf-8") as f:
+        with open(ARSIV_YOL, encoding="utf-8") as f:
             return json.load(f)
     except Exception:
-        return varsayilan if varsayilan is not None else {}
+        return {"kayitlar": []}
+
+
+def _en_yakin_kapanis(seri, hedef_tarih):
+    adaylar = [(t, c) for t, c in seri if t >= hedef_tarih]
+    return min(adaylar, key=lambda x: x[0])[1] if adaylar else None
 
 
 def main():
-    arastirma = _oku("data/arastirma_hedef_fiyat.json", {"kayitlar": []})
-    makro_harita = _oku("data/makro_hassasiyet_haritasi.json",
-                          {"hassasiyet_haritasi": {}})
+    arsiv = _oku_arsiv()
+    mevcut_anahtarlar = {(k["sembol"], k["kar_surprizi_tarihi"]) for k in arsiv["kayitlar"]}
 
-    kar_surprizleri = [k for k in arastirma["kayitlar"]
-                        if k.get("kayit_tipi") == "KAR_RAKAMI" and k["yon"] == "YUKARI"]
-    print(f"{len(kar_surprizleri)} pozitif kar surprizi kaydi bulundu")
+    kaynak = json.load(open("data/kazanc_surprizi_reversal.json", encoding="utf-8"))
+    yeni_sayisi = 0
+    for s in kaynak.get("sonuclar", []):
+        if s["etiket"] not in ("GERI_CEKILME_ADAYI_GUCLU", "GERI_CEKILME_ADAYI_TEMKINLI"):
+            continue
+        anahtar = (s["sembol"], s["kar_surprizi_tarihi"])
+        if anahtar in mevcut_anahtarlar:
+            continue
+        arsiv["kayitlar"].append({
+            "sembol": s["sembol"], "sektor": s["sektor"],
+            "kar_surprizi_tarihi": s["kar_surprizi_tarihi"],
+            "etiket_tarihi": str(datetime.datetime.now(datetime.timezone.utc).date()),
+            "etiket": s["etiket"],
+            "isaretlenme_ani_fiyat": s["son_fiyat"],
+            "isaretlenme_ani_zirveden_geri_cekilme_pct": s["zirveden_geri_cekilme_pct"],
+            "durum": "IZLENIYOR",
+        })
+        mevcut_anahtarlar.add(anahtar)
+        yeni_sayisi += 1
+    print(f"{yeni_sayisi} yeni aday arsive eklendi")
 
-    sonuclar = []
-    for kayit in kar_surprizleri:
+    bugun = datetime.datetime.now(datetime.timezone.utc).date()
+    fiyat_serileri = {}
+    sonuclanan_sayisi = 0
+    for kayit in arsiv["kayitlar"]:
+        if kayit["durum"] != "IZLENIYOR":
+            continue
+        etiket_tarih = datetime.date.fromisoformat(kayit["etiket_tarihi"])
+        if (bugun - etiket_tarih).days < IZLEME_GUN_SAYISI:
+            continue
+
         sembol = kayit["sembol"]
-        try:
-            df = yf.Ticker(f"{sembol}.IS").history(period="3mo", interval="1d")
-        except Exception as e:
-            print(f"HATA: {sembol} veri cekilemedi -> {e}")
+        if sembol not in fiyat_serileri:
+            try:
+                df = yf.Ticker(f"{sembol}.IS").history(period="2mo", interval="1d")
+                fiyat_serileri[sembol] = [(idx.date(), float(v)) for idx, v in df["Close"].items()]
+            except Exception as e:
+                print(f"UYARI: {sembol} veri cekilemedi -> {e}")
+                fiyat_serileri[sembol] = []
+        seri = fiyat_serileri[sembol]
+        if not seri:
             continue
-        if df.empty:
+
+        hedef = etiket_tarih + datetime.timedelta(days=IZLEME_GUN_SAYISI)
+        sonraki_fiyat = _en_yakin_kapanis(seri, hedef)
+        if sonraki_fiyat is None:
             continue
 
-        kayit_tarih = datetime.date.fromisoformat(kayit["tarih"])
-        seri = [(idx.date(), float(v)) for idx, v in df["Close"].items()]
-        sonraki_fiyatlar = [(t, c) for t, c in seri if t >= kayit_tarih]
-        if not sonraki_fiyatlar:
+        getiri_pct = round((sonraki_fiyat / kayit["isaretlenme_ani_fiyat"] - 1) * 100, 2)
+        kayit["izleme_sonrasi_getiri_pct"] = getiri_pct
+        kayit["durum"] = "TOPARLANDI" if getiri_pct > 0 else "TOPARLANMADI"
+        sonuclanan_sayisi += 1
+    print(f"{sonuclanan_sayisi} aday bu kosumda sonuclandi (10 is gunu gecmis)")
+
+    sonuclanan = [k for k in arsiv["kayitlar"] if k["durum"] in ("TOPARLANDI", "TOPARLANMADI")]
+    ozet = {}
+    for etiket in ("GERI_CEKILME_ADAYI_GUCLU", "GERI_CEKILME_ADAYI_TEMKINLI"):
+        alt = [k for k in sonuclanan if k["etiket"] == etiket]
+        if not alt:
             continue
-        kayit_gunu_fiyat = sonraki_fiyatlar[0][1]
-        son_fiyat = seri[-1][1]
-        son_tarih = seri[-1][0]
+        toparlanan = sum(1 for k in alt if k["durum"] == "TOPARLANDI")
+        ort_getiri = sum(k["izleme_sonrasi_getiri_pct"] for k in alt) / len(alt)
+        ozet[etiket] = {"n": len(alt), "toparlanan_pct": round(100 * toparlanan / len(alt), 1),
+                          "ort_getiri_pct": round(ort_getiri, 2)}
 
-        # 10.08 EKI: zirve PENCERESI kayit tarihinden SONRAKI ILK 10 IS
-        # GUNUYLE sinirlandi (PEAD literaturu: etki 5-10 gunde en guclu,
-        # 20-30 gunu asinca "eski" sayilir).
-        pencere_fiyatlar = sonraki_fiyatlar[:10]
-        zirve_tarih, zirve_fiyat = max(pencere_fiyatlar, key=lambda x: x[1])
-        zirve_gun_sayisi = (zirve_tarih - kayit_tarih).days
-        pencere_disi_mi = len(sonraki_fiyatlar) > 10 and (sonraki_fiyatlar[-1][0] - kayit_tarih).days > 30
-
-        zirveden_geri_cekilme_pct = round((son_fiyat / zirve_fiyat - 1) * 100, 2)
-        kayit_gununden_bugune_pct = round((son_fiyat / kayit_gunu_fiyat - 1) * 100, 2)
-
-        sektor = SEKTOR_HARITASI.get(sembol, "DIGER")
-        hassasiyet = makro_harita.get("hassasiyet_haritasi", {}).get(sektor, [])
-
-        kayit_sonuc = {
-            "sembol": sembol, "sektor": sektor,
-            "kar_surprizi_tarihi": kayit["tarih"], "kar_surprizi_notu": kayit["kaynak_not"],
-            "kayit_gunu_fiyat": round(kayit_gunu_fiyat, 2),
-            "zirve_fiyat": round(zirve_fiyat, 2), "zirve_tarihi": str(zirve_tarih),
-            "zirve_gun_sayisi": zirve_gun_sayisi,
-            "son_fiyat": round(son_fiyat, 2), "son_tarih": str(son_tarih),
-            "zirveden_geri_cekilme_pct": zirveden_geri_cekilme_pct,
-            "kayit_gununden_bugune_pct": kayit_gununden_bugune_pct,
-            "makro_hassasiyet_faktorleri": hassasiyet,
-        }
-
-        # 10.08 EKI: esik -3.0 -> -1.5 (asimetri bulgusu), UC etiketli sistem
-        if pencere_disi_mi:
-            kayit_sonuc["etiket"] = "SINYAL_ESKIMIS_30GUN_ASILDI"
-        elif zirveden_geri_cekilme_pct <= -1.5:
-            if hassasiyet:
-                kayit_sonuc["etiket"] = "GERI_CEKILME_ADAYI_TEMKINLI"
-                kayit_sonuc["etiket_notu"] = ("Bu sektorun makro hassasiyet faktorleri var - "
-                                                "GUNCEL haberleri kontrol et, dusus TEKNIK olmayabilir.")
-            else:
-                kayit_sonuc["etiket"] = "GERI_CEKILME_ADAYI_GUCLU"
-        else:
-            kayit_sonuc["etiket"] = "HENUZ_YETERSIZ"
-        sonuclar.append(kayit_sonuc)
-
-    sonuclar.sort(key=lambda s: s["zirveden_geri_cekilme_pct"])
-
-    rapor = {
-        "olusturma_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-        "not": ("Bu bir AL/SAT tavsiyesi DEGILDIR. 'GERI_CEKILME_ADAYI' "
-                "etiketi, kar surprizi SONRASI fiyatin zirveden en az "
-                "%3 geri cekildigi durumlari isaretler - KCHOL orneginden "
-                "genellestirilen bir ON-FILTREDIR. makro_hassasiyet_"
-                "faktorleri TAHMIN URETMEZ, yalniz 'bu sembole hangi "
-                "haberler onemli olabilir' diye YAPISAL REHBERLIK eder."),
-        "toplam_kar_surprizi": len(kar_surprizleri),
-        "sonuclar": sonuclar,
-    }
-    atomik_json_yaz("data/kazanc_surprizi_reversal.json", rapor)
-    print(f"Yazildi: data/kazanc_surprizi_reversal.json")
-    for s in sonuclar:
-        print(f"  {s['sembol']} ({s['sektor']}): zirveden %{s['zirveden_geri_cekilme_pct']} -> {s['etiket']}")
+    arsiv["ozet"] = ozet
+    arsiv["son_guncelleme_utc"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    arsiv["toplam_kayit"] = len(arsiv["kayitlar"])
+    arsiv["sonuclanan_kayit"] = len(sonuclanan)
+    atomik_json_yaz(ARSIV_YOL, arsiv)
+    print(f"\nArsiv: {arsiv['toplam_kayit']} toplam, {arsiv['sonuclanan_kayit']} sonuclanmis")
+    for etiket, v in ozet.items():
+        print(f"  {etiket}: n={v['n']}, toparlanan=%{v['toparlanan_pct']}, ort getiri=%{v['ort_getiri_pct']}")
 
 
 if __name__ == "__main__":
