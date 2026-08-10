@@ -1,0 +1,119 @@
+"""
+MAKRO_HASSASIYET_HARITASI (10.08.2026) - Faz V0
+Kurul karari: HANGI haberin NASIL etkileyecegini TAHMIN ETMEYIZ - bu,
+gerceklesmemis olaylari ongormeye calismak olur, riskli. Bunun yerine
+YAPISAL bir referans kurariz: "bu sektor TARIHSEL/YAPISAL olarak
+hangi faktorlere duyarli" - SONRA her YENI haberi bu haritaya gore
+YORUMLARIZ, otomatik tahmin URETMEYIZ.
+
+arastirma_hedef_fiyat.py/akademik_bulgular.py ile AYNI disiplin -
+YAPILANDIRILMIS, KALICI bir referans veri seti, SALT BILGI.
+
+KIRMIZI CIZGI: "AKBNK faiz artisindan OLUMLU etkilenir" gibi bir
+satir, GECMISTE/YAPISAL olarak DOGRU olsa bile, HER DURUMDA/HER
+FAIZ KARARINDA AYNI YONDE hareket edecegi ANLAMINA GELMEZ - bu
+YALNIZCA "hangi haberlere DIKKAT etmeliyiz" sorusuna bir REHBER.
+"""
+from json_atomik_yaz import atomik_json_yaz
+import datetime
+
+DOSYA = "data/makro_hassasiyet_haritasi.json"
+
+HASSASIYET_HARITASI = {
+    "Bankacilik": [
+        ("TCMB_FAIZ_KARARI", "Politika faizi degisiklikleri net faiz marjini dogrudan etkiler"),
+        ("ENFLASYON_VERISI", "TUIK enflasyon verileri TCMB faiz beklentisini sekillendirir"),
+        ("MAKROIHTIYATI_DUZENLEME", "BDDK kredi buyumesi/karsilik duzenlemeleri"),
+    ],
+    "Holding": [
+        ("USD_TRY_KURU", "Cok sektorlü yapida doviz pozisyonu genis, kur hareketine genis maruziyet"),
+        ("GENEL_PIYASA_RISK_ISTAHI", "Cesitlendirilmis yapida ozel-sirket haberinden cok genel risk istahi belirleyici"),
+    ],
+    "Havacilik": [
+        ("PETROL_FIYATI", "Yakit maliyeti operasyonel giderin buyuk kismi"),
+        ("TURIZM_SEZONU", "Yaz/kis sezon donguleri doluluk oranini belirler"),
+        ("BOLGESEL_JEOPOLITIK_RISK", "Bolgesel gerginlik rota kapanmasi/guvenlik riski yaratabilir"),
+        ("USD_TRY_KURU", "Ucak kirasi/yakit USD bazli, gelirin onemli kismi da doviz"),
+    ],
+    "Havacilik-Altyapi": [
+        ("TURIZM_SEZONU", "Havalimani yolcu trafigi turizm sezonuna bagli"),
+        ("USD_TRY_KURU", "Havalimani isletme sozlesmeleri genelde USD bazli"),
+    ],
+    "Demir-Celik": [
+        ("KURESEL_CELIK_FIYATI", "Urun fiyati dogrudan kuresel emtia piyasasina bagli"),
+        ("CIN_TALEBI", "Cin, kuresel celik arz-talep dengesinin en buyuk belirleyicisi"),
+        ("ENERJI_MALIYETI", "Uretim enerji-yogun, elektrik/dogalgaz fiyati maliyeti etkiler"),
+    ],
+    "Sanayi-Cam": [
+        ("KURESEL_TALEP", "Ihracat agirlikli, kuresel sanayi uretimine duyarli"),
+        ("ENERJI_MALIYETI", "Cam uretimi enerji-yogun bir surec"),
+    ],
+    "Savunma": [
+        ("BOLGESEL_JEOPOLITIK_RISK", "Bolgesel gerginlik savunma harcamasi/siparis temasini guclendirir "
+         "(07.08 arastirmasi: AllianceBernstein notunda Iran gerginligi vurgusu)"),
+        ("USD_TRY_KURU", "Siparis bakiyesi genelde USD bazli"),
+        ("SAVUNMA_IHRACAT_SIPARISLERI", "Yeni ihracat anlasmalari dogrudan gelir gorunumunu etkiler"),
+    ],
+    "Enerji-Ekipman": [
+        ("BOLGESEL_JEOPOLITIK_RISK", "Enerji altyapisi/sebeke yatirimi, jeopolitik risk temasi ile "
+         "iliskilendirilebilir (07.08: AllianceBernstein notunda ASTOR da isaretlenmisti)"),
+        ("ENERJI_DONUSUMU_YATIRIM_DONGUSU", "Sebeke modernizasyonu/yenilenebilir yatirim dongusu"),
+    ],
+    "Enerji-Elektrik": [
+        ("DUZENLEME_TARIFE", "Elektrik dagitim tarifesi duzenlenmis, EPDK kararlarina bagli"),
+        ("TCMB_FAIZ_KARARI", "Sermaye yogun, borclanma maliyeti faiz ortamina duyarli"),
+    ],
+    "Perakende": [
+        ("YURTICI_TUKETIM", "Gelir dogrudan hanehalki tuketim gucune bagli"),
+        ("ENFLASYON_VERISI", "Gida enflasyonu hem ciro hem marj uzerinde etkili"),
+    ],
+    "Petrokimya": [
+        ("PETROL_FIYATI", "Ham petrol girdi maliyeti, rafineri marji uzerinde dogrudan etki"),
+        ("BOLGESEL_JEOPOLITIK_RISK", "Iran gibi buyuk petrol ureticisini iceren gerginlikler arz/fiyat riski yaratir"),
+        ("USD_TRY_KURU", "Girdi/cikti fiyatlari dogrudan USD bazli"),
+    ],
+    "Otomotiv": [
+        ("AVRUPA_TALEBI", "Ihracat agirlikli, AB otomotiv talebine/resesyon riskine duyarli"),
+        ("USD_TRY_KURU", "Parca ithalati ve ihracat geliri kur hareketine duyarli"),
+        ("KURESEL_TEDARIK_ZINCIRI", "Yari iletken/parca tedarik kesintileri uretimi etkileyebilir"),
+    ],
+    "Insaat": [
+        ("TCMB_FAIZ_KARARI", "Insaat kredisi/proje finansmani faiz ortamina duyarli"),
+        ("YURTDISI_PROJE_PORTFOYU", "Bazi insaat sirketlerinin tarihsel Ortadogu proje gecmisi var - "
+         "bolgesel jeopolitik gelismeler proje riskini etkileyebilir"),
+    ],
+    "Telekom": [
+        ("DUZENLEME", "BTK duzenlemeleri/tarife politikasi"),
+        ("YURTICI_TUKETIM", "Buyuk olcude yurtici, dis faktorlere goreli daha az duyarli"),
+    ],
+    "Gida-Icecek": [
+        ("YURTICI_TUKETIM", "Gelir buyuk olcude yurtici tuketime bagli"),
+        ("EMTIA_GIRDI_MALIYETI", "Tarimsal hammadde (arpa, seker vb.) fiyatlari marji etkiler"),
+    ],
+    "GYO": [
+        ("TCMB_FAIZ_KARARI", "Konut kredisi faizi talebi dogrudan etkiler"),
+        ("INSAAT_MALIYETI", "Girdi/isgucu maliyeti proje karliligini etkiler"),
+    ],
+    "Madencilik": [
+        ("KURESEL_METAL_FIYATI", "Urun fiyati kuresel emtia piyasasina bagli"),
+        ("USD_TRY_KURU", "Metal fiyatlari USD bazli fiyatlanir"),
+    ],
+}
+
+
+def main():
+    kayit = {
+        "olusturma_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "not": ("Bu, bir TAHMIN modeli DEGILDIR - hangi haberin nasil "
+                "etkileyecegini ONGORMEZ. Sektorlerin TARIHSEL/YAPISAL "
+                "olarak hangi faktorlere duyarli oldugunu gosteren bir "
+                "REFERANSTIR - yeni haberleri YORUMLARKEN rehber olarak "
+                "kullanilir, otomatik sinyal URETMEZ."),
+        "hassasiyet_haritasi": HASSASIYET_HARITASI,
+    }
+    atomik_json_yaz(DOSYA, kayit)
+    print(f"Yazildi: {DOSYA} ({len(HASSASIYET_HARITASI)} sektor)")
+
+
+if __name__ == "__main__":
+    main()
