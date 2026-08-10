@@ -1,0 +1,37 @@
+# PINE PYTHON CAPRAZ DOGRULAMA (10.08.2026) - Faz V0
+# Konum: .github/workflows/pine_python_capraz_dogrulama.yml
+# TEK SEFERLIK, elle tetiklenir - SALT OLCUM, Pine'a dokunmuyor.
+name: Pine Python Capraz Dogrulama
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  dogrulama:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy
+      - name: Dogrulamayi calistir
+        run: python pine_python_capraz_dogrulama.py
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "pine-python-dogrulama-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/backtest/pine_python_capraz_dogrulama_sonuc.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Pine-Python capraz dogrulama $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
