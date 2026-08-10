@@ -1,0 +1,48 @@
+{
+  "kesif_zamani_utc": "2026-08-10T11:06:06.146937+00:00",
+  "not": "SWING_PINE_SPESIFIKASYONU.md Bolum 4C takibi - esizamanli pozisyon LIMIT DEGERININ (3/5/7/10/15) edge uzerindeki etkisini test eder. Sektor limiti (2) SABIT - onceki testte darbogaz DEGILDI. KISITSIZ referans: 276 islem/isabet %52.2/ort net +%6.746 (rsi_asiri_satim_swing.py).",
+  "sektor_basina_maks_sabit": 2,
+  "kisitsiz_referans": {
+    "islem_sayisi": 276,
+    "isabet_pct": 52.2,
+    "ort_net_getiri_pct": 6.746
+  },
+  "sembol_sayisi": 30,
+  "izgara_sonuclari": [
+    {
+      "maks_eszamanli": 3,
+      "islem_sayisi": 89,
+      "isabet_pct": 40.4,
+      "ort_net_getiri_pct": 3.885,
+      "reddedilen_sinyal_sayisi": 188
+    },
+    {
+      "maks_eszamanli": 5,
+      "islem_sayisi": 134,
+      "isabet_pct": 43.3,
+      "ort_net_getiri_pct": 4.471,
+      "reddedilen_sinyal_sayisi": 141
+    },
+    {
+      "maks_eszamanli": 7,
+      "islem_sayisi": 167,
+      "isabet_pct": 45.5,
+      "ort_net_getiri_pct": 5.283,
+      "reddedilen_sinyal_sayisi": 106
+    },
+    {
+      "maks_eszamanli": 10,
+      "islem_sayisi": 211,
+      "isabet_pct": 47.4,
+      "ort_net_getiri_pct": 5.948,
+      "reddedilen_sinyal_sayisi": 59
+    },
+    {
+      "maks_eszamanli": 15,
+      "islem_sayisi": 235,
+      "isabet_pct": 48.5,
+      "ort_net_getiri_pct": 6.136,
+      "reddedilen_sinyal_sayisi": 34
+    }
+  ]
+}
