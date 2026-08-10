@@ -45,6 +45,7 @@ def viop_baz_bul(viop_veri, sembol):
 
 
 def main():
+    bugun_utc = datetime.datetime.now(datetime.timezone.utc)
     konsolide = _oku("data/konsolide_degerlendirme.json", {"semboller": []})
     viop = _oku("data/viop_analiz.json", {"semboller": {}})
     kuresel = _oku("data/kuresel_gosterge.json", {})
@@ -98,14 +99,21 @@ def main():
     for s in satirlar:
         v = s["viop_baz"]
         viop_str = f"{v['baz_yuzde']:+.2f}%" if v else "-"
+        # 10.08 EKI: panel verisi TAMAMEN MANUEL (kullanici TradingView'den
+        # okuyup paylasiyor) - script OTOMATIK CEKEMIYOR. Bu yuzden veri
+        # SESSIZCE eskiyebilir, "gunluk cetvel" adi YANILTICI bir "hep taze"
+        # izlenimi VERMESIN diye, KAC GUN eski oldugu HER ZAMAN gosterilir.
         p = s["panel"]
         if p:
             n_g = p['n'] if p['n'] is not None else '-'
             wr_g = f"{p['wr_pct']}%" if p['wr_pct'] is not None else '-'
             dd_g = p['dd'] if p['dd'] is not None else '-'
-            panel_str = f"{n_g}/{wr_g}/{p['pf']}/{dd_g}"
+            panel_tarih = datetime.date.fromisoformat(p["tarih"])
+            yas_gun = (bugun_utc.date() - panel_tarih).days
+            yas_etiketi = "bugun" if yas_gun == 0 else f"{yas_gun}g once"
+            panel_str = f"{n_g}/{wr_g}/{p['pf']}/{dd_g} [{yas_etiketi}]"
         else:
-            panel_str = "-"
+            panel_str = "- [hic okuma yok]"
         y = s["yabanci_akisi"]
         yabanci_str = f"{y['yon']} ({y['puan_degisimi']:+.1f})" if y else "-"
         a = s["analist_gorusu"]
