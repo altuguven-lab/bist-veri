@@ -114,9 +114,11 @@ def main():
             continue
         islemler = rsi_swing_simule_pine_esdeger(df, sembol)
         ozet = ozet_hesapla(islemler)
+        # 10.08 EKI: 2000-2001 kriz hipotezini test etmek icin - HAM
+        # islem listesini de sakla (tarih bazinda kumelenme goruntulemek icin)
         sonuclar[sembol] = {
             "veri_baslangic": str(df.index[0].date()), "veri_bitis": str(df.index[-1].date()),
-            "toplam_bar": len(df), "ozet": ozet,
+            "toplam_bar": len(df), "ozet": ozet, "islem_detaylari": islemler,
         }
         if ozet:
             print(f"{sembol} (veri: {sonuclar[sembol]['veri_baslangic']} - {sonuclar[sembol]['veri_bitis']}): "
