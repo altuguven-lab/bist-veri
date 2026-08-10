@@ -182,12 +182,19 @@ pozisyon buyuklugüyle uyumlu, limit=5'ten belirgin daha iyi edge).
 Bolum 1.3 GUNCELLENMELI: "Maksimum 5 esizamanli pozisyon" ->
 "Maksimum 8 esizamanli pozisyon".
 
-ACIK KALAN (Pine SONRASI/canli gozlemde ele alinmali): bu test
-YALNIZ EDGE'i olctu, RISK tarafini (piyasa-geneli stres aninda
-DAHA YUKSEK limit = DAHA FAZLA ESZAMANLI sermaye maruziyeti) HENUZ
-OLCMEDI. Ayrica siralama kriteri (alfabetik) HENUZ optimize
-EDILMEDI - "en derin RSI" gibi bir kalite-sirali secim, GELECEKTE
-ayri bir test konusu olabilir.
+RISK TARAFI COZULDU (10.08) - portfoy_risk_olcumu.py sonucu:
+| Limit | Gozlenen maks eszamanli | Portfoy maks DD | 5-yil toplam getiri |
+|---|---|---|---|
+| 5 | 5 | -%9.04 | +%74.08 |
+| 8 | 8 | -%10.12 | +%126.51 |
+
+DD yalniz +1.08 PUAN kotulesti, toplam getiri NEREDEYSE IKIYE
+KATLANDI - COK ASIMETRIK, OLUMLU bir risk/getiri degisimi. LIMIT=8
+KARARI RISK tarafiyla da DOGRULANDI, KESINLESTI.
+
+ACIK KALAN (Pine SONRASI/canli gozlemde ele alinmali): siralama
+kriteri (alfabetik) HENUZ optimize EDILMEDI - "en derin RSI" gibi
+bir kalite-sirali secim, GELECEKTE ayri bir test konusu olabilir.
 
 **Madde 1 (sagkalim yanliligi) - sagkalim_yanliligi_duyarlilik.py:**
 30/30 sembol "tam gecmisli" (>=1200 gun) cikti - TAM EVREN ve TAM-
