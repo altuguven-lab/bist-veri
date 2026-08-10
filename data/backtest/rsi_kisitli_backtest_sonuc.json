@@ -1,0 +1,1663 @@
+{
+  "kesif_zamani_utc": "2026-08-10T10:48:25.525172+00:00",
+  "not": "SWING_PINE_SPESIFIKASYONU.md Bolum 4B Madde 2 cevabi - pozisyon/sektor KISITLARI GERCEKTEN uygulanarak (maks 5 esizamanli, sektor basina maks 2), PORTFOY-SEVIYESINDE, KRONOLOJIK olarak kosturuldu. rsi_asiri_satim_swing.py'nin KISITSIZ 276 islem/isabet %52.2/ort net +%6.746 sonucuyla KARSILASTIRILMALI - kisitlar EDGE'i DEGISTIRIYOR MU?",
+  "parametreler": {
+    "maks_eszamanli": 5,
+    "sektor_basina_maks": 2,
+    "stop_loss_yuzde": 12
+  },
+  "sembol_sayisi": 30,
+  "kisitli_ozet": {
+    "islem_sayisi": 134,
+    "isabet_pct": 43.3,
+    "ort_net_getiri_pct": 4.471
+  },
+  "toplam_reddedilen_sinyal": 141,
+  "kapanan_islemler": [
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2021-09-06",
+      "cikis_tarih": "2021-09-07",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.291
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2021-08-31",
+      "cikis_tarih": "2021-09-08",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -4.07
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2021-09-09",
+      "cikis_tarih": "2021-09-10",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.721
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2021-09-09",
+      "cikis_tarih": "2021-09-14",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.91
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2021-08-31",
+      "cikis_tarih": "2021-09-20",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -7.269
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2021-09-22",
+      "cikis_tarih": "2021-09-24",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -2.011
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2021-09-22",
+      "cikis_tarih": "2021-10-05",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -4.688
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2021-09-09",
+      "cikis_tarih": "2021-10-06",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.908
+    },
+    {
+      "sembol": "ASELS",
+      "giris_tarih": "2021-09-17",
+      "cikis_tarih": "2021-10-14",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 11.257
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2021-10-07",
+      "cikis_tarih": "2021-10-22",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 13.842
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2021-10-07",
+      "cikis_tarih": "2021-10-26",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 13.188
+    },
+    {
+      "sembol": "ULKER",
+      "giris_tarih": "2021-09-01",
+      "cikis_tarih": "2021-10-27",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 5.205
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2021-09-27",
+      "cikis_tarih": "2021-11-01",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 14.134
+    },
+    {
+      "sembol": "BIMAS",
+      "giris_tarih": "2021-10-18",
+      "cikis_tarih": "2021-11-24",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 16.957
+    },
+    {
+      "sembol": "ULKER",
+      "giris_tarih": "2021-12-23",
+      "cikis_tarih": "2022-02-24",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "ENKAI",
+      "giris_tarih": "2022-02-25",
+      "cikis_tarih": "2022-02-28",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -4.397
+    },
+    {
+      "sembol": "EKGYO",
+      "giris_tarih": "2022-02-25",
+      "cikis_tarih": "2022-04-04",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 22.789
+    },
+    {
+      "sembol": "GARAN",
+      "giris_tarih": "2022-02-25",
+      "cikis_tarih": "2022-04-04",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 10.734
+    },
+    {
+      "sembol": "ULKER",
+      "giris_tarih": "2022-03-02",
+      "cikis_tarih": "2022-04-04",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 11.58
+    },
+    {
+      "sembol": "ASELS",
+      "giris_tarih": "2022-02-25",
+      "cikis_tarih": "2022-04-08",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 35.583
+    },
+    {
+      "sembol": "HALKB",
+      "giris_tarih": "2022-02-25",
+      "cikis_tarih": "2022-04-08",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 21.469
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2022-05-13",
+      "cikis_tarih": "2022-06-22",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 20.679
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2022-06-21",
+      "cikis_tarih": "2022-06-22",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.992
+    },
+    {
+      "sembol": "TOASO",
+      "giris_tarih": "2022-06-10",
+      "cikis_tarih": "2022-06-29",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -9.205
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2022-06-28",
+      "cikis_tarih": "2022-06-29",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -3.951
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2022-06-30",
+      "cikis_tarih": "2022-07-04",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -4.598
+    },
+    {
+      "sembol": "ENJSA",
+      "giris_tarih": "2022-07-06",
+      "cikis_tarih": "2022-07-27",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 15.958
+    },
+    {
+      "sembol": "TOASO",
+      "giris_tarih": "2022-07-01",
+      "cikis_tarih": "2022-07-29",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 20.142
+    },
+    {
+      "sembol": "ULKER",
+      "giris_tarih": "2022-07-06",
+      "cikis_tarih": "2022-08-05",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 9.982
+    },
+    {
+      "sembol": "ASELS",
+      "giris_tarih": "2022-05-20",
+      "cikis_tarih": "2022-08-18",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 13.534
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2022-07-06",
+      "cikis_tarih": "2022-09-12",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 25.031
+    },
+    {
+      "sembol": "ENKAI",
+      "giris_tarih": "2022-09-30",
+      "cikis_tarih": "2022-11-10",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 26.066
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2023-01-12",
+      "cikis_tarih": "2023-01-13",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -4.215
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2023-01-16",
+      "cikis_tarih": "2023-01-27",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -6.976
+    },
+    {
+      "sembol": "YKBNK",
+      "giris_tarih": "2023-01-12",
+      "cikis_tarih": "2023-02-01",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -7.33
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2023-02-03",
+      "cikis_tarih": "2023-02-06",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -2.498
+    },
+    {
+      "sembol": "TAVHL",
+      "giris_tarih": "2023-01-12",
+      "cikis_tarih": "2023-02-07",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "GARAN",
+      "giris_tarih": "2023-02-03",
+      "cikis_tarih": "2023-02-07",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "VAKBN",
+      "giris_tarih": "2023-02-03",
+      "cikis_tarih": "2023-02-07",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2023-01-12",
+      "cikis_tarih": "2023-02-08",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "EKGYO",
+      "giris_tarih": "2023-02-15",
+      "cikis_tarih": "2023-03-29",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "GARAN",
+      "giris_tarih": "2023-02-15",
+      "cikis_tarih": "2023-04-19",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 36.849
+    },
+    {
+      "sembol": "PETKM",
+      "giris_tarih": "2023-02-15",
+      "cikis_tarih": "2023-04-27",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2023-04-28",
+      "cikis_tarih": "2023-05-02",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -2.966
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2023-02-15",
+      "cikis_tarih": "2023-05-09",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 35.423
+    },
+    {
+      "sembol": "HALKB",
+      "giris_tarih": "2023-02-15",
+      "cikis_tarih": "2023-05-16",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 15.135
+    },
+    {
+      "sembol": "PGSUS",
+      "giris_tarih": "2023-05-04",
+      "cikis_tarih": "2023-06-06",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 21.128
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2023-05-11",
+      "cikis_tarih": "2023-06-06",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 28.583
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2023-05-04",
+      "cikis_tarih": "2023-06-08",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 28.557
+    },
+    {
+      "sembol": "TTKOM",
+      "giris_tarih": "2023-05-16",
+      "cikis_tarih": "2023-06-09",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 40.168
+    },
+    {
+      "sembol": "TUPRS",
+      "giris_tarih": "2023-05-03",
+      "cikis_tarih": "2023-07-03",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 22.938
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2023-12-07",
+      "cikis_tarih": "2023-12-13",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -8.333
+    },
+    {
+      "sembol": "TRMET",
+      "giris_tarih": "2023-12-14",
+      "cikis_tarih": "2023-12-20",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -9.433
+    },
+    {
+      "sembol": "TRMET",
+      "giris_tarih": "2023-12-21",
+      "cikis_tarih": "2023-12-22",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.671
+    },
+    {
+      "sembol": "VAKBN",
+      "giris_tarih": "2023-12-14",
+      "cikis_tarih": "2023-12-26",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -9.327
+    },
+    {
+      "sembol": "PGSUS",
+      "giris_tarih": "2023-10-23",
+      "cikis_tarih": "2024-01-22",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": -0.487
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2023-12-14",
+      "cikis_tarih": "2024-01-29",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 20.038
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2023-12-28",
+      "cikis_tarih": "2024-01-29",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 25.605
+    },
+    {
+      "sembol": "HALKB",
+      "giris_tarih": "2023-12-27",
+      "cikis_tarih": "2024-02-09",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 21.81
+    },
+    {
+      "sembol": "TRMET",
+      "giris_tarih": "2023-12-27",
+      "cikis_tarih": "2024-03-26",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 10.468
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2024-03-29",
+      "cikis_tarih": "2024-04-02",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -4.315
+    },
+    {
+      "sembol": "ENKAI",
+      "giris_tarih": "2024-03-27",
+      "cikis_tarih": "2024-05-23",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 21.951
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2024-04-04",
+      "cikis_tarih": "2024-05-24",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 26.653
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2024-03-29",
+      "cikis_tarih": "2024-06-27",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 28.04
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2024-04-05",
+      "cikis_tarih": "2024-07-04",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": -2.496
+    },
+    {
+      "sembol": "PETKM",
+      "giris_tarih": "2024-04-05",
+      "cikis_tarih": "2024-07-04",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 15.892
+    },
+    {
+      "sembol": "FROTO",
+      "giris_tarih": "2024-06-05",
+      "cikis_tarih": "2024-08-02",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -9.658
+    },
+    {
+      "sembol": "TOASO",
+      "giris_tarih": "2024-07-30",
+      "cikis_tarih": "2024-08-02",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -6.101
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2024-08-07",
+      "cikis_tarih": "2024-08-09",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -3.078
+    },
+    {
+      "sembol": "SISE",
+      "giris_tarih": "2024-08-07",
+      "cikis_tarih": "2024-08-12",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -2.489
+    },
+    {
+      "sembol": "ENJSA",
+      "giris_tarih": "2024-06-07",
+      "cikis_tarih": "2024-09-05",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 1.467
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2024-06-27",
+      "cikis_tarih": "2024-09-10",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2024-09-09",
+      "cikis_tarih": "2024-09-25",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -10.637
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2024-09-12",
+      "cikis_tarih": "2024-10-02",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -6.648
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2024-09-26",
+      "cikis_tarih": "2024-10-03",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -7.203
+    },
+    {
+      "sembol": "AKBNK",
+      "giris_tarih": "2024-08-13",
+      "cikis_tarih": "2024-10-21",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2024-10-04",
+      "cikis_tarih": "2024-10-21",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -8.431
+    },
+    {
+      "sembol": "HALKB",
+      "giris_tarih": "2024-08-08",
+      "cikis_tarih": "2024-11-06",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": -5.968
+    },
+    {
+      "sembol": "FROTO",
+      "giris_tarih": "2024-08-13",
+      "cikis_tarih": "2024-11-11",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 17.591
+    },
+    {
+      "sembol": "ISCTR",
+      "giris_tarih": "2024-10-22",
+      "cikis_tarih": "2024-12-06",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 21.8
+    },
+    {
+      "sembol": "GARAN",
+      "giris_tarih": "2024-11-06",
+      "cikis_tarih": "2024-12-06",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 26.076
+    },
+    {
+      "sembol": "BIMAS",
+      "giris_tarih": "2024-10-03",
+      "cikis_tarih": "2024-12-11",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 12.42
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2024-10-22",
+      "cikis_tarih": "2025-01-02",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.824
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2025-01-16",
+      "cikis_tarih": "2025-01-21",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.815
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2025-01-16",
+      "cikis_tarih": "2025-01-24",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -2.022
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2025-01-24",
+      "cikis_tarih": "2025-02-03",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -7.203
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2025-01-27",
+      "cikis_tarih": "2025-02-03",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -3.731
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2025-02-04",
+      "cikis_tarih": "2025-02-05",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.703
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2025-02-04",
+      "cikis_tarih": "2025-02-05",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -2.855
+    },
+    {
+      "sembol": "ULKER",
+      "giris_tarih": "2024-11-21",
+      "cikis_tarih": "2025-02-19",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 14.706
+    },
+    {
+      "sembol": "KCHOL",
+      "giris_tarih": "2025-02-07",
+      "cikis_tarih": "2025-02-19",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -9.561
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2025-02-04",
+      "cikis_tarih": "2025-02-21",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -9.749
+    },
+    {
+      "sembol": "TAVHL",
+      "giris_tarih": "2025-02-24",
+      "cikis_tarih": "2025-02-25",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -2.689
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2025-02-19",
+      "cikis_tarih": "2025-03-06",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 13.781
+    },
+    {
+      "sembol": "KCHOL",
+      "giris_tarih": "2025-02-27",
+      "cikis_tarih": "2025-03-12",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 18.14
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2025-01-16",
+      "cikis_tarih": "2025-03-14",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 10.279
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2025-03-20",
+      "cikis_tarih": "2025-03-21",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -8.757
+    },
+    {
+      "sembol": "VAKBN",
+      "giris_tarih": "2025-03-24",
+      "cikis_tarih": "2025-04-16",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "AKBNK",
+      "giris_tarih": "2025-04-17",
+      "cikis_tarih": "2025-04-18",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -3.681
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2025-02-06",
+      "cikis_tarih": "2025-05-07",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 0.372
+    },
+    {
+      "sembol": "TUPRS",
+      "giris_tarih": "2025-02-26",
+      "cikis_tarih": "2025-05-07",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.039
+    },
+    {
+      "sembol": "AKBNK",
+      "giris_tarih": "2025-04-21",
+      "cikis_tarih": "2025-06-10",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 19.979
+    },
+    {
+      "sembol": "TUPRS",
+      "giris_tarih": "2025-05-08",
+      "cikis_tarih": "2025-06-19",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 11.918
+    },
+    {
+      "sembol": "GARAN",
+      "giris_tarih": "2025-03-24",
+      "cikis_tarih": "2025-06-23",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 7.565
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2025-03-24",
+      "cikis_tarih": "2025-06-23",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": -3.709
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2025-06-20",
+      "cikis_tarih": "2025-06-23",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -3.786
+    },
+    {
+      "sembol": "SISE",
+      "giris_tarih": "2025-05-08",
+      "cikis_tarih": "2025-07-03",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 13.022
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2025-06-24",
+      "cikis_tarih": "2025-08-11",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 21.445
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2025-09-04",
+      "cikis_tarih": "2025-09-05",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.785
+    },
+    {
+      "sembol": "TRMET",
+      "giris_tarih": "2025-08-11",
+      "cikis_tarih": "2025-09-25",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 22.233
+    },
+    {
+      "sembol": "ISCTR",
+      "giris_tarih": "2025-09-04",
+      "cikis_tarih": "2025-10-09",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -11.148
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2025-09-09",
+      "cikis_tarih": "2025-10-13",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -7.895
+    },
+    {
+      "sembol": "YKBNK",
+      "giris_tarih": "2025-09-04",
+      "cikis_tarih": "2025-10-14",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.081
+    },
+    {
+      "sembol": "PGSUS",
+      "giris_tarih": "2025-09-30",
+      "cikis_tarih": "2025-10-17",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.192
+    },
+    {
+      "sembol": "SISE",
+      "giris_tarih": "2025-10-15",
+      "cikis_tarih": "2025-10-17",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.001
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2025-09-09",
+      "cikis_tarih": "2025-11-27",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 10.725
+    },
+    {
+      "sembol": "AKBNK",
+      "giris_tarih": "2025-10-16",
+      "cikis_tarih": "2025-12-01",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 19.551
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2025-10-15",
+      "cikis_tarih": "2025-12-15",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 19.966
+    },
+    {
+      "sembol": "FROTO",
+      "giris_tarih": "2025-10-17",
+      "cikis_tarih": "2025-12-15",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 13.78
+    },
+    {
+      "sembol": "GARAN",
+      "giris_tarih": "2025-10-20",
+      "cikis_tarih": "2026-01-19",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 19.315
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2026-01-22",
+      "cikis_tarih": "2026-03-02",
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2026-03-05",
+      "cikis_tarih": "2026-03-06",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -0.994
+    },
+    {
+      "sembol": "ALARK",
+      "giris_tarih": "2026-03-10",
+      "cikis_tarih": "2026-03-13",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -6.903
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2026-03-10",
+      "cikis_tarih": "2026-05-14",
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 20.628
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2026-03-10",
+      "cikis_tarih": "2026-06-08",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": -3.346
+    },
+    {
+      "sembol": "PGSUS",
+      "giris_tarih": "2026-03-10",
+      "cikis_tarih": "2026-06-08",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": -5.49
+    },
+    {
+      "sembol": "TTKOM",
+      "giris_tarih": "2026-03-10",
+      "cikis_tarih": "2026-06-08",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 4.218
+    },
+    {
+      "sembol": "EKGYO",
+      "giris_tarih": "2026-03-16",
+      "cikis_tarih": "2026-06-15",
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 3.222
+    },
+    {
+      "sembol": "ULKER",
+      "giris_tarih": "2026-07-03",
+      "cikis_tarih": "2026-07-08",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -3.097
+    },
+    {
+      "sembol": "ULKER",
+      "giris_tarih": "2026-07-16",
+      "cikis_tarih": "2026-07-23",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -4.995
+    },
+    {
+      "sembol": "YKBNK",
+      "giris_tarih": "2026-07-22",
+      "cikis_tarih": "2026-07-28",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.457
+    },
+    {
+      "sembol": "HALKB",
+      "giris_tarih": "2026-07-28",
+      "cikis_tarih": "2026-07-29",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.78
+    },
+    {
+      "sembol": "TOASO",
+      "giris_tarih": "2026-07-29",
+      "cikis_tarih": "2026-07-30",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -4.39
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2026-07-30",
+      "cikis_tarih": "2026-08-03",
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -3.704
+    }
+  ],
+  "reddedilen_sinyaller": [
+    {
+      "sembol": "OTKAR",
+      "tarih": "2021-09-09",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "FROTO",
+      "tarih": "2021-09-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2021-09-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "MGROS",
+      "tarih": "2021-09-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2021-09-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2021-09-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2021-09-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "AKBNK",
+      "tarih": "2021-09-27",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2021-09-27",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "BIMAS",
+      "tarih": "2021-09-29",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ENJSA",
+      "tarih": "2021-09-29",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2021-09-29",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "HALKB",
+      "tarih": "2021-10-07",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2021-10-07",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "BIMAS",
+      "tarih": "2021-10-11",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2021-10-11",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "MGROS",
+      "tarih": "2022-02-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2022-02-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TTKOM",
+      "tarih": "2022-02-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2022-02-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ENKAI",
+      "tarih": "2022-03-03",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2022-03-09",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "AEFES",
+      "tarih": "2022-03-14",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "HALKB",
+      "tarih": "2022-07-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2022-07-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "KCHOL",
+      "tarih": "2022-07-18",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PETKM",
+      "tarih": "2022-07-18",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TUPRS",
+      "tarih": "2022-07-18",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2022-07-18",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2023-02-03",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TAVHL",
+      "tarih": "2023-02-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TRMET",
+      "tarih": "2023-02-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ULKER",
+      "tarih": "2023-02-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2023-02-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TRMET",
+      "tarih": "2023-05-04",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "EKGYO",
+      "tarih": "2023-05-08",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ENKAI",
+      "tarih": "2023-05-08",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "FROTO",
+      "tarih": "2023-05-08",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PETKM",
+      "tarih": "2023-05-08",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2023-05-08",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TAVHL",
+      "tarih": "2023-05-08",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ASELS",
+      "tarih": "2023-05-11",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ENKAI",
+      "tarih": "2023-05-11",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "EREGL",
+      "tarih": "2023-05-11",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PETKM",
+      "tarih": "2023-05-11",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TTKOM",
+      "tarih": "2023-05-11",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2023-12-28",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TUPRS",
+      "tarih": "2024-06-12",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ALARK",
+      "tarih": "2024-06-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "KCHOL",
+      "tarih": "2024-08-08",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2024-08-08",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2024-08-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2024-08-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2024-08-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TOASO",
+      "tarih": "2024-08-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2024-08-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2024-08-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ASTOR",
+      "tarih": "2024-08-19",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "KCHOL",
+      "tarih": "2024-08-19",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ASTOR",
+      "tarih": "2024-08-27",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2024-09-12",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TOASO",
+      "tarih": "2024-09-12",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ENJSA",
+      "tarih": "2024-09-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2024-09-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ALARK",
+      "tarih": "2024-10-04",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "MGROS",
+      "tarih": "2024-10-04",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2024-10-04",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PETKM",
+      "tarih": "2024-10-04",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ULKER",
+      "tarih": "2024-10-04",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PETKM",
+      "tarih": "2024-10-09",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TOASO",
+      "tarih": "2024-10-09",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ALARK",
+      "tarih": "2024-10-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ASTOR",
+      "tarih": "2024-10-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PETKM",
+      "tarih": "2024-10-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TAVHL",
+      "tarih": "2024-10-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "THYAO",
+      "tarih": "2024-10-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TOASO",
+      "tarih": "2024-10-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ULKER",
+      "tarih": "2024-10-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SAHOL",
+      "tarih": "2024-10-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PETKM",
+      "tarih": "2024-11-06",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2024-11-06",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2025-02-07",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2025-02-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ASTOR",
+      "tarih": "2025-02-18",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TAVHL",
+      "tarih": "2025-02-27",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ALARK",
+      "tarih": "2025-03-03",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "AKBNK",
+      "tarih": "2025-03-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "BIMAS",
+      "tarih": "2025-03-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "EKGYO",
+      "tarih": "2025-03-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2025-03-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SAHOL",
+      "tarih": "2025-03-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TOASO",
+      "tarih": "2025-03-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2025-03-25",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2025-04-02",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2025-04-07",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2025-04-11",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "EKGYO",
+      "tarih": "2025-04-21",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2025-04-21",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2025-04-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2025-04-24",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PGSUS",
+      "tarih": "2025-05-02",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "AEFES",
+      "tarih": "2025-05-09",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2025-05-09",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "AEFES",
+      "tarih": "2025-06-03",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TAVHL",
+      "tarih": "2025-09-09",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ULKER",
+      "tarih": "2025-09-09",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ALARK",
+      "tarih": "2025-09-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "EREGL",
+      "tarih": "2025-09-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "MGROS",
+      "tarih": "2025-09-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PGSUS",
+      "tarih": "2025-09-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TTKOM",
+      "tarih": "2025-09-15",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ASTOR",
+      "tarih": "2025-10-07",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "GARAN",
+      "tarih": "2025-10-16",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2025-10-20",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "KCHOL",
+      "tarih": "2025-10-20",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PGSUS",
+      "tarih": "2025-10-20",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SAHOL",
+      "tarih": "2025-10-20",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2025-10-20",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2025-10-20",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2025-10-20",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2025-10-21",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "THYAO",
+      "tarih": "2025-11-13",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ASELS",
+      "tarih": "2025-11-17",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "THYAO",
+      "tarih": "2025-11-19",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ALARK",
+      "tarih": "2026-03-17",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2026-03-31",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "HALKB",
+      "tarih": "2026-04-01",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2026-04-01",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "AKBNK",
+      "tarih": "2026-05-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "FROTO",
+      "tarih": "2026-05-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "THYAO",
+      "tarih": "2026-05-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TRMET",
+      "tarih": "2026-05-22",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "HALKB",
+      "tarih": "2026-07-31",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2026-07-31",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "PGSUS",
+      "tarih": "2026-07-31",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "SAHOL",
+      "tarih": "2026-07-31",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "TOASO",
+      "tarih": "2026-07-31",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2026-07-31",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2026-08-04",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "ULKER",
+      "tarih": "2026-08-07",
+      "sebep": "ESZAMANLI_LIMIT"
+    },
+    {
+      "sembol": "OTKAR",
+      "tarih": "2026-08-10",
+      "sebep": "ESZAMANLI_LIMIT"
+    }
+  ]
+}
