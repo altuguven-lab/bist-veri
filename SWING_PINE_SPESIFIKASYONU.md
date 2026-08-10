@@ -142,6 +142,35 @@ KARAR: Madde 1 ve 3, Pine YAZILMADAN ONCE Python'da EK test olarak ele
 alinmali (SIRADAKI ADIM). Madde 2 ve 4 ise Pine yazildiktan/gozlemlendikten
 SONRA dogal olarak GELECEK.
 
+## 4C. MADDE 1 VE 3 SONUCLANDI (10.08) - ONEMLI BIR SURPRIZ BULUNDU
+
+**Madde 3 (kisit-uygulanmis backtest) - rsi_kisitli_backtest.py:**
+KISITSIZ (276 islem, isabet %52.2, ort net +%6.746) vs KISITLI (134
+islem, isabet %43.3, ort net +%4.471). ISABET 8.9 PUAN, ORT GETIRI
+%34 DUSTU. 141 reddedilen sinyalin TAMAMI "ESZAMANLI_LIMIT" (maks 5
+pozisyon) - HIC "SEKTOR_LIMIT" reddi YOK. Sorun sektor cesitlendirme
+DEGIL, "maks 5 esizamanli" kuralinin KENDISI.
+
+YORUM (kurul): "maks 5" limiti muhtemelen PIYASA GENELI asiri-satim
+anlarinda (cok sayida sembolde AYNI ANDA RSI sinyali) devreye giriyor
+- bu anlar TAM DA en guclu toparlanma potansiyeli tasiyan anlar
+OLABILIR. Alfabetik siralama (KALITE DEGIL) hangi sinyalin alinacagini
+belirliyor - bu, RASTGELE bir kayip yaratiyor olabilir.
+
+**ACIK KARAR (Pine yazilmadan ONCE cozulmeli):** eszamanli limit
+degeri (5/7/10) VE siralama kriteri (alfabetik yerine "en derin RSI"
+gibi basit bir kural) test edilip KARARLASTIRILMALI - bu, v1'in
+CEKIRDEK mantiginin (Bolum 1.3) SAYISINI DEGISTIREBILIR.
+
+**Madde 1 (sagkalim yanliligi) - sagkalim_yanliligi_duyarlilik.py:**
+30/30 sembol "tam gecmisli" (>=1200 gun) cikti - TAM EVREN ve TAM-
+GECMISLI ALT-KUME AYNI sonucu verdi (279 islem, isabet %52.0, ort net
++%6.633 - orijinal 276/52.2/6.746'ya YAKIN, kucuk fark VERI CEKME
+zamanlamasindan kaynaklaniyor olabilir). BU BOYUTTA bir surpriz YOK -
+guven artirici, ama TAM sagkalim-yanliligindan-arindirma HALA MUMKUN
+DEGIL (yfinance borsadan TAMAMEN cikmis sirketler icin veri sunmuyor,
+COZULEMEZ bir sinirlama olarak KALIYOR).
+
 ## 5. ONERILEN SIRA (yol haritasi)
 
   1. Acik sorulari (Bolum 4) kullanicidan netlestir.
