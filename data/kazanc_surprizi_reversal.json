@@ -1,5 +1,5 @@
 {
-  "olusturma_utc": "2026-08-10T07:58:39.961532+00:00",
+  "olusturma_utc": "2026-08-10T08:20:40.388430+00:00",
   "not": "Bu bir AL/SAT tavsiyesi DEGILDIR. 'GERI_CEKILME_ADAYI' etiketi, kar surprizi SONRASI fiyatin zirveden en az %3 geri cekildigi durumlari isaretler - KCHOL orneginden genellestirilen bir ON-FILTREDIR. makro_hassasiyet_faktorleri TAHMIN URETMEZ, yalniz 'bu sembole hangi haberler onemli olabilir' diye YAPISAL REHBERLIK eder.",
   "toplam_kar_surprizi": 2,
   "sonuclar": [
@@ -12,10 +12,10 @@
       "zirve_fiyat": 206.0,
       "zirve_tarihi": "2026-08-05",
       "zirve_gun_sayisi": 0,
-      "son_fiyat": 199.8,
+      "son_fiyat": 200.5,
       "son_tarih": "2026-08-10",
-      "zirveden_geri_cekilme_pct": -3.01,
-      "kayit_gununden_bugune_pct": -3.01,
+      "zirveden_geri_cekilme_pct": -2.67,
+      "kayit_gununden_bugune_pct": -2.67,
       "makro_hassasiyet_faktorleri": [
         [
           "USD_TRY_KURU",
@@ -28,6 +28,35 @@
       ],
       "etiket": "GERI_CEKILME_ADAYI_TEMKINLI",
       "etiket_notu": "Bu sektorun makro hassasiyet faktorleri var - GUNCEL haberleri kontrol et, dusus TEKNIK olmayabilir."
+    },
+    {
+      "sembol": "ASELS",
+      "sektor": "Savunma",
+      "kar_surprizi_tarihi": "2026-08-06",
+      "kar_surprizi_notu": "Sabah Stratejisi - 2C26 net kar 8.5mlr TL, piyasa beklentisi 6.9mlr TL'nin uzerinde (%61.3 yillik artis). Bakiye siparis 20.7mlr USD'den 23.2mlr USD'ye yukseldi. (deger hedef fiyat DEGIL, milyar TL net kar - piyasa beklentisi vs gerceklesen kullanildi).",
+      "kayit_gunu_fiyat": 363.0,
+      "zirve_fiyat": 363.0,
+      "zirve_tarihi": "2026-08-06",
+      "zirve_gun_sayisi": 0,
+      "son_fiyat": 360.75,
+      "son_tarih": "2026-08-10",
+      "zirveden_geri_cekilme_pct": -0.62,
+      "kayit_gununden_bugune_pct": -0.62,
+      "makro_hassasiyet_faktorleri": [
+        [
+          "BOLGESEL_JEOPOLITIK_RISK",
+          "Bolgesel gerginlik savunma harcamasi/siparis temasini guclendirir (07.08 arastirmasi: AllianceBernstein notunda Iran gerginligi vurgusu)"
+        ],
+        [
+          "USD_TRY_KURU",
+          "Siparis bakiyesi genelde USD bazli"
+        ],
+        [
+          "SAVUNMA_IHRACAT_SIPARISLERI",
+          "Yeni ihracat anlasmalari dogrudan gelir gorunumunu etkiler"
+        ]
+      ],
+      "etiket": "HENUZ_YETERSIZ"
     }
   ]
 }
