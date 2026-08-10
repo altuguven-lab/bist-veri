@@ -55,7 +55,13 @@ STOP_LOSS_YUZDE = 12
 # 07.08 EKI - Denetim Madde 4: risk cercevesi (SOYUT birim, gercek TL YOK)
 KOVA_TOPLAM_BIRIM = 100.0
 POZISYON_BASINA_YUZDE = 12.0
-MAKS_ESZAMANLI_POZISYON = 5
+# 10.08 GUNCELLEME (Bolum 4C, SWING_PINE_SPESIFIKASYONU.md): rsi_limit_
+# grid.py + portfoy_risk_olcumu.py testleri sonucu 5 -> 8. Kanit: 8
+# pozisyonda (12%x8=96%, matematiksel tutarli maksimum) edge onemli
+# olcude iyilesiyor (5-yillik toplam getiri +%74.08 -> +%126.51),
+# portfoy maks drawdown yalniz 1.08 PUAN kotulesiyor (-%9.04 -> -%10.12) -
+# COK ASIMETRIK, OLUMLU bir risk/getiri degisimi.
+MAKS_ESZAMANLI_POZISYON = 8
 SEKTOR_BASINA_MAKS_POZISYON = 2
 
 # Yaklasik, elle siniflandirilmis sektor haritasi (kesin BIST resmi
