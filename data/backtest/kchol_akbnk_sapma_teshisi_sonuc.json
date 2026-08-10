@@ -1,0 +1,96 @@
+{
+  "kesif_zamani_utc": "2026-08-10T13:15:39.263035+00:00",
+  "not": "KCHOL/AKBNK'nin pine_python_capraz_dogrulama.py'de gosterdigi buyuk sapmanin (PF/DD) KAYNAGINI arastirir - hipotez: duzeltilmemis split/bolunme verisi YAPAY fiyat cokusleri yaratip sahte stop-tetiklemeleri/DD olusturuyor olabilir. TTKOM referans olarak eklendi (makul cikan sembol).",
+  "esik_yuzde": 25.0,
+  "semboller": {
+    "KCHOL": {
+      "veri_baslangic": "2000-05-10",
+      "veri_bitis": "2026-08-10",
+      "kayitli_split_sayisi": 5,
+      "split_listesi": [
+        {
+          "tarih": "2002-05-08",
+          "oran": 2.0
+        },
+        {
+          "tarih": "2004-01-19",
+          "oran": 2.8743790000000002
+        },
+        {
+          "tarih": "2005-01-03",
+          "oran": 0.001
+        },
+        {
+          "tarih": "2009-06-18",
+          "oran": 1.2
+        },
+        {
+          "tarih": "2012-06-08",
+          "oran": 1.05
+        }
+      ],
+      "supheli_sicrama_sayisi": 1,
+      "supheli_sicramalar": [
+        {
+          "tarih": "2007-06-08",
+          "onceki_kapanis": 3.51,
+          "yeni_kapanis": 2.57,
+          "degisim_pct": -26.8
+        }
+      ]
+    },
+    "AKBNK": {
+      "veri_baslangic": "2000-05-10",
+      "veri_bitis": "2026-08-10",
+      "kayitli_split_sayisi": 9,
+      "split_listesi": [
+        {
+          "tarih": "2001-07-06",
+          "oran": 1.6
+        },
+        {
+          "tarih": "2002-11-11",
+          "oran": 1.02
+        },
+        {
+          "tarih": "2003-06-23",
+          "oran": 1.47
+        },
+        {
+          "tarih": "2004-06-07",
+          "oran": 1.25
+        },
+        {
+          "tarih": "2005-01-03",
+          "oran": 0.001
+        },
+        {
+          "tarih": "2005-07-01",
+          "oran": 1.2
+        },
+        {
+          "tarih": "2006-06-08",
+          "oran": 1.222
+        },
+        {
+          "tarih": "2007-06-28",
+          "oran": 1.25
+        },
+        {
+          "tarih": "2010-04-16",
+          "oran": 1.33333
+        }
+      ],
+      "supheli_sicrama_sayisi": 0,
+      "supheli_sicramalar": []
+    },
+    "TTKOM": {
+      "veri_baslangic": "2008-05-15",
+      "veri_bitis": "2026-08-10",
+      "kayitli_split_sayisi": 0,
+      "split_listesi": [],
+      "supheli_sicrama_sayisi": 0,
+      "supheli_sicramalar": []
+    }
+  }
+}
