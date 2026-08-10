@@ -16,10 +16,26 @@ METODOLOJI:
      TAHMIN URETMEZ, yalniz "bu sembole hangi haberler ONEMLI
      olabilir" diye REHBERLIK eder.
 
-KIRMIZI CIZGI: bu bir "AL/SAT tavsiyesi" DEGILDIR. "GERI_CEKILME_
-ADAYI" etiketi bile KESIN bir hukum degil - KAR SURPRIZI + fiyat
-GERI CEKILMESI oruntusune uyan bir ON-FILTREDIR, nihai karar VE
-makro baglamin GUNCEL yorumu insana aittir.
+KIRMIZI CIZGI: bu bir "AL/SAT tavsiyesi" DEGILDIR. Etiketler bile
+KESIN bir hukum degil - KAR SURPRIZI + fiyat GERI CEKILMESI
+oruntusune uyan bir ON-FILTREDIR, nihai karar VE makro baglamin
+GUNCEL yorumu insana aittir.
+
+10.08 LITERATUR KALIBRASYONU (Quantpedia/akademik arastirma):
+  - PENCERE SINIRLAMASI: PEAD/reversal etkileri kazanc aciklamasindan
+    SONRAKI ILK 5-10 GUNDE en guclu, 20-30 gunu asinca "bilgi zaten
+    fiyata islenmis" sayiliyor. Bu yuzden ZIRVE, kayit tarihinden
+    SONRAKI ILK 10 IS GUNUYLE SINIRLANIR - daha sonraki bir zirve
+    "eski/erimis sinyal" sayilip HARIC tutulur.
+  - ESIK DUSURULDU (-3.0 -> -1.5): akademik bulgu - "iyi haberde
+    yatirimcilar AZ tepki verir, KOTU haberde ASIRI tepki verir"
+    (asimetri). Pozitif kar surprizlerinde asiri-tepki DAHA KUCUK
+    olabilir, -3.0 esigi cok siki kaliyordu (KCHOL/ASELS ilk
+    testte esigi TUTTURAMAMISTI).
+  - UC ETIKETLI SISTEM: makro_hassasiyet_haritasi.json ile CAPRAZLAMA
+    eklendi - "GERI_CEKILME_ADAYI_GUCLU" (makro ruzgar notr/bilinmiyor)
+    vs "GERI_CEKILME_ADAYI_TEMKINLI" (ayni sektorde GUNCEL bir
+    NEGATIF makro/analist sinyali de varsa) ayrimi.
 """
 from json_atomik_yaz import atomik_json_yaz
 import json, datetime
@@ -78,7 +94,14 @@ def main():
         son_fiyat = seri[-1][1]
         son_tarih = seri[-1][0]
 
-        zirve_fiyat = max(c for _, c in sonraki_fiyatlar)
+        # 10.08 EKI: zirve PENCERESI kayit tarihinden SONRAKI ILK 10 IS
+        # GUNUYLE sinirlandi (PEAD literaturu: etki 5-10 gunde en guclu,
+        # 20-30 gunu asinca "eski" sayilir).
+        pencere_fiyatlar = sonraki_fiyatlar[:10]
+        zirve_tarih, zirve_fiyat = max(pencere_fiyatlar, key=lambda x: x[1])
+        zirve_gun_sayisi = (zirve_tarih - kayit_tarih).days
+        pencere_disi_mi = len(sonraki_fiyatlar) > 10 and (sonraki_fiyatlar[-1][0] - kayit_tarih).days > 30
+
         zirveden_geri_cekilme_pct = round((son_fiyat / zirve_fiyat - 1) * 100, 2)
         kayit_gununden_bugune_pct = round((son_fiyat / kayit_gunu_fiyat - 1) * 100, 2)
 
@@ -89,16 +112,26 @@ def main():
             "sembol": sembol, "sektor": sektor,
             "kar_surprizi_tarihi": kayit["tarih"], "kar_surprizi_notu": kayit["kaynak_not"],
             "kayit_gunu_fiyat": round(kayit_gunu_fiyat, 2),
-            "zirve_fiyat": round(zirve_fiyat, 2), "son_fiyat": round(son_fiyat, 2),
-            "son_tarih": str(son_tarih),
+            "zirve_fiyat": round(zirve_fiyat, 2), "zirve_tarihi": str(zirve_tarih),
+            "zirve_gun_sayisi": zirve_gun_sayisi,
+            "son_fiyat": round(son_fiyat, 2), "son_tarih": str(son_tarih),
             "zirveden_geri_cekilme_pct": zirveden_geri_cekilme_pct,
             "kayit_gununden_bugune_pct": kayit_gununden_bugune_pct,
             "makro_hassasiyet_faktorleri": hassasiyet,
         }
-        if zirveden_geri_cekilme_pct <= -3.0:
-            kayit_sonuc["etiket"] = "GERI_CEKILME_ADAYI"
+
+        # 10.08 EKI: esik -3.0 -> -1.5 (asimetri bulgusu), UC etiketli sistem
+        if pencere_disi_mi:
+            kayit_sonuc["etiket"] = "SINYAL_ESKIMIS_30GUN_ASILDI"
+        elif zirveden_geri_cekilme_pct <= -1.5:
+            if hassasiyet:
+                kayit_sonuc["etiket"] = "GERI_CEKILME_ADAYI_TEMKINLI"
+                kayit_sonuc["etiket_notu"] = ("Bu sektorun makro hassasiyet faktorleri var - "
+                                                "GUNCEL haberleri kontrol et, dusus TEKNIK olmayabilir.")
+            else:
+                kayit_sonuc["etiket"] = "GERI_CEKILME_ADAYI_GUCLU"
         else:
-            kayit_sonuc["etiket"] = "GERI_CEKILME_YOK_VEYA_KUCUK"
+            kayit_sonuc["etiket"] = "HENUZ_YETERSIZ"
         sonuclar.append(kayit_sonuc)
 
     sonuclar.sort(key=lambda s: s["zirveden_geri_cekilme_pct"])
