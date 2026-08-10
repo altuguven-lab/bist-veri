@@ -196,6 +196,20 @@ ACIK KALAN (Pine SONRASI/canli gozlemde ele alinmali): siralama
 kriteri (alfabetik) HENUZ optimize EDILMEDI - "en derin RSI" gibi
 bir kalite-sirali secim, GELECEKTE ayri bir test konusu olabilir.
 
+## 4D. PIYASA REJIMI FILTRESI TEST EDILDI (10.08) - EKLENMEMESINE KARAR VERILDI
+
+piyasa_rejimi_filtresi.py: RSI edge'i XU100'un KENDI 200-gunluk
+SMA'sina gore YUKARI/ASAGI trend rejimine gore ayristirildi.
+YUKARI_TREND (n=191): isabet %52.4, ort net +%7.075.
+ASAGI_TREND (n=88): isabet %51.1, ort net +%5.663.
+
+SONUC: fark KUCUK (1.3-1.4 puan) VE ASAGI_TREND'de bile edge
+POZITIF/SAGLAM kaliyor - bu, stratejinin rejimden BAGIMSIZ
+saglamligini gosteriyor (GUVEN ARTIRICI). KARAR: rejim filtresi
+v1'e EKLENMIYOR - ~1 puanlik iyilesme icin sinyal sayisinin %32'sini
+(88 islem) kaybetmek KOTU bir takas olurdu. Bolum 2'ye (deneysel
+katmanlar) bile EKLENMEDI - "test edildi, gerek yok" olarak KAPANDI.
+
 **Madde 1 (sagkalim yanliligi) - sagkalim_yanliligi_duyarlilik.py:**
 30/30 sembol "tam gecmisli" (>=1200 gun) cikti - TAM EVREN ve TAM-
 GECMISLI ALT-KUME AYNI sonucu verdi (279 islem, isabet %52.0, ort net
