@@ -1,5 +1,5 @@
 {
-  "olusturma_utc": "2026-08-09T13:25:25.834153+00:00",
+  "olusturma_utc": "2026-08-10T05:40:13.826402+00:00",
   "viop_bulten_gunu": "2026-08-07",
   "kulucka_notu": "VIOP'tan YENI sinyal TURETILMEDI - Kulucka Protokolu 18.08.2026'ya kadar SQZ/sinyal hesaplanmasini yasakliyor. Burada yalniz HAM baz/prim yuzdesi okunabilir hale getirildi.",
   "kuresel_baglam": [
@@ -7,8 +7,9 @@
     "avrupa: NOTR (0.13%)",
     "amerika: NOTR (0.18%)"
   ],
-  "not": "Bu bir 'AL/SAT tavsiyesi' ya da kesin bir tahmin DEGILDIR - mevcut verinin GUNLUK konsolide gorunumudur. VIOP sutunu YALNIZCA 5 sembolde (portfoy pozisyonlari) dolu - digerlerinde VIOP piyasasi yok/veri yok.",
+  "not": "Bu bir 'AL/SAT tavsiyesi' ya da kesin bir tahmin DEGILDIR - mevcut verinin GUNLUK konsolide gorunumudur. VIOP sutunu yalniz VIOP kontrati OLAN sembollerde dolu (asagidaki viop_kapsam_sayisi'na bakiniz) - kalanlarinda VIOP piyasasi yok/veri yok.",
   "sembol_sayisi": 30,
+  "viop_kapsam_sayisi": 29,
   "semboller": [
     {
       "sembol": "AKBNK",

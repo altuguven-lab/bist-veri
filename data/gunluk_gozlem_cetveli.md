@@ -1,10 +1,10 @@
 # Gunluk Gozlem Cetveli
-Olusturma: 2026-08-09T13:25:25.834153+00:00
+Olusturma: 2026-08-10T05:40:13.826402+00:00
 VIOP bulten gunu: 2026-08-07
 
 **Kuresel baglam:** asya: NOTR (0.18%) | avrupa: NOTR (0.13%) | amerika: NOTR (0.18%)
 
-Bu bir AL/SAT tavsiyesi degildir - mevcut verinin konsolide gorunumudur. VIOP sutunu yalniz portfoy pozisyonlarinda (5 sembol) dolu.
+Bu bir AL/SAT tavsiyesi degildir - mevcut verinin konsolide gorunumudur. VIOP sutunu 29/30 semboldeki GERCEK VIOP kontratina gore dolu.
 
 | Sembol | VIOP Baz% | Panel(N/WR/PF/DD) | Yabanci Akis | Analist | Beklenen Getiri% | Portfoy | RSI Gozlem | Sinyal Ars. | Konsensus |
 |---|---|---|---|---|---|---|---|---|---|
