@@ -1,0 +1,21 @@
+{
+  "kesif_zamani_utc": "2026-08-10T11:21:05.779037+00:00",
+  "not": "SWING_PINE_SPESIFIKASYONU.md Bolum 4C'de acik birakilan RISK tarafi - limit=5 vs limit=8'in PORTFOY-SEVIYESINDE (esizamanli TOPLAM maruziyet, GERCEK equity curve, maksimum drawdown) karsilastirmasi. Tek-islem stop'undan (-%12) FARKLI bir olcum - COKLU pozisyon AYNI ANDA zararda oldugunda PORTFOYUN ne kadar dustugunu gosterir.",
+  "pozisyon_buyuklugu_pct": 12.0,
+  "sonuclar": [
+    {
+      "maks_eszamanli_limit": 5,
+      "maks_eszamanli_gozlenen": 5,
+      "maks_portfoy_drawdown_pct": -9.04,
+      "toplam_donem_getirisi_pct": 74.08,
+      "son_equity_pct": 174.08
+    },
+    {
+      "maks_eszamanli_limit": 8,
+      "maks_eszamanli_gozlenen": 8,
+      "maks_portfoy_drawdown_pct": -10.12,
+      "toplam_donem_getirisi_pct": 126.51,
+      "son_equity_pct": 226.51
+    }
+  ]
+}
