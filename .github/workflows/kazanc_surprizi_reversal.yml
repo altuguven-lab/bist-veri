@@ -1,32 +1,33 @@
-# KAZANC REVERSAL IZLEME (10.08.2026) - Faz V0
-# Konum: .github/workflows/kazanc_reversal_izleme.yml
-# HAFTALIK calisir (Pazartesi 07:30 UTC = 10:30 TSI - kazanc_surprizi_
-# reversal.py'den 15dk sonra, onun GUNCEL ciktisini okumasi icin).
-name: Kazanc Reversal Izleme
+# KAZANC SURPRIZI REVERSAL (10.08.2026) - Faz V0
+# Konum: .github/workflows/kazanc_surprizi_reversal.yml
+# HAFTALIK calisir (Pazartesi 07:15 UTC = 10:15 TSI, geri_donus_
+# adaylari.py'den 15dk sonra) - kar surprizi sikligi zaten dusuk
+# (ceyreklik bilancolar), gunluk calismaya gerek yok.
+name: Kazanc Surprizi Reversal
 on:
   schedule:
-    - cron: "30 7 * * 1"
+    - cron: "15 7 * * 1"
   workflow_dispatch: {}
 permissions:
   contents: write
 jobs:
-  izleme:
+  tarama:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install yfinance==0.2.66
-      - name: Izlemeyi guncelle
-        run: python kazanc_reversal_izleme.py
+      - run: pip install yfinance==0.2.66 pandas
+      - name: Taramayi calistir
+        run: python kazanc_surprizi_reversal.py
       - name: Sonuclari commit'le
         run: |
-          git config user.name "kazanc-izleme-bot"
+          git config user.name "kazanc-reversal-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/kazanc_reversal_izleme.json
+          git add data/kazanc_surprizi_reversal.json
           git diff --staged --quiet && exit 0
-          git commit -m "Kazanc reversal izleme guncelleme $(date -u +%Y-%m-%d)"
+          git commit -m "Kazanc surprizi reversal taramasi $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5; do
             if git push; then
               echo "push basarili (deneme $i)"
