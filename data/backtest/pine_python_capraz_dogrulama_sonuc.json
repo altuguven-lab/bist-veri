@@ -1,684 +1,453 @@
 {
-  "kesif_zamani_utc": "2026-08-10T13:19:51.981518+00:00",
+  "kesif_zamani_utc": "2026-08-10T13:36:57.070883+00:00",
   "not": "SW_RSI_v1.pine mantigiyla BIREBIR AYNI kurallar (stop-12 DAHIL) kullanilarak, 'max' (mumkun olan TUM) gecmisle kosturulan Python referansi. Kullanicinin TradingView panelinde okudugu N/Isabet/PF/DD ile DOGRUDAN karsilastirilmalidir.",
   "semboller": {
-    "TTKOM": {
-      "veri_baslangic": "2008-05-15",
+    "AKBNK": {
+      "veri_baslangic": "2021-08-10",
       "veri_bitis": "2026-08-10",
-      "toplam_bar": 4670,
+      "toplam_bar": 1254,
       "ozet": {
-        "islem_sayisi": 45,
-        "isabet_pct": 35.6,
-        "ort_net_getiri_pct": 1.983,
-        "profit_factor": 1.51,
-        "maks_dd_pct": -52.25
+        "islem_sayisi": 7,
+        "isabet_pct": 57.1,
+        "ort_net_getiri_pct": 8.603,
+        "profit_factor": 4.4,
+        "maks_dd_pct": -16.97
       },
       "islem_detaylari": [
         {
-          "sembol": "TTKOM",
-          "giris_tarih": "2008-07-07",
-          "cikis_tarih": "2008-10-06",
+          "sembol": "AKBNK",
+          "giris_tarih": "2021-09-27",
+          "cikis_tarih": "2021-10-27",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 11.118
+        },
+        {
+          "sembol": "AKBNK",
+          "giris_tarih": "2024-08-13",
+          "cikis_tarih": "2024-10-21",
           "sebep": "STOP",
           "net_getiri_pct": -12.25
         },
         {
-          "sembol": "TTKOM",
-          "giris_tarih": "2008-10-09",
-          "cikis_tarih": "2008-10-10",
+          "sembol": "AKBNK",
+          "giris_tarih": "2025-03-25",
+          "cikis_tarih": "2025-03-26",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.492
+          "net_getiri_pct": -1.762
         },
         {
-          "sembol": "TTKOM",
-          "giris_tarih": "2008-10-13",
-          "cikis_tarih": "2008-10-23",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "AKBNK",
+          "giris_tarih": "2025-04-17",
+          "cikis_tarih": "2025-04-18",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.681
         },
         {
-          "sembol": "TTKOM",
-          "giris_tarih": "2010-12-01",
-          "cikis_tarih": "2011-01-13",
+          "sembol": "AKBNK",
+          "giris_tarih": "2025-04-21",
+          "cikis_tarih": "2025-06-10",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 11.205
+          "net_getiri_pct": 19.979
         },
         {
-          "sembol": "TTKOM",
-          "giris_tarih": "2011-08-02",
-          "cikis_tarih": "2011-08-05",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.91
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2011-08-11",
-          "cikis_tarih": "2011-10-20",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -1.086
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2011-10-21",
-          "cikis_tarih": "2011-10-24",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.75
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2011-10-25",
-          "cikis_tarih": "2011-11-24",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.9
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2011-11-25",
-          "cikis_tarih": "2012-01-26",
+          "sembol": "AKBNK",
+          "giris_tarih": "2025-10-16",
+          "cikis_tarih": "2025-12-01",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 12.321
+          "net_getiri_pct": 19.551
         },
         {
-          "sembol": "TTKOM",
-          "giris_tarih": "2012-11-08",
-          "cikis_tarih": "2012-11-19",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.119
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2012-11-26",
-          "cikis_tarih": "2013-01-15",
+          "sembol": "AKBNK",
+          "giris_tarih": "2026-05-22",
+          "cikis_tarih": "2026-06-18",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 14.346
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2013-06-04",
-          "cikis_tarih": "2013-08-27",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2013-11-13",
-          "cikis_tarih": "2013-12-27",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -10.908
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2013-12-30",
-          "cikis_tarih": "2014-03-31",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": -2.709
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2015-08-25",
-          "cikis_tarih": "2015-09-07",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.522
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2015-09-09",
-          "cikis_tarih": "2015-10-13",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 13.912
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2015-12-15",
-          "cikis_tarih": "2016-03-10",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 13.353
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2016-12-02",
-          "cikis_tarih": "2017-01-24",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 10.947
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2017-09-18",
-          "cikis_tarih": "2017-09-25",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.714
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2017-09-26",
-          "cikis_tarih": "2017-11-15",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -11.498
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2017-11-16",
-          "cikis_tarih": "2017-11-20",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.99
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2017-11-27",
-          "cikis_tarih": "2017-11-28",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.746
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2017-11-30",
-          "cikis_tarih": "2018-02-28",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 15.04
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-04-12",
-          "cikis_tarih": "2018-05-04",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.168
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-05-10",
-          "cikis_tarih": "2018-05-11",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -1.284
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-05-14",
-          "cikis_tarih": "2018-06-06",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-06-20",
-          "cikis_tarih": "2018-06-25",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.061
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-06-26",
-          "cikis_tarih": "2018-08-10",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-08-14",
-          "cikis_tarih": "2018-08-15",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.642
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-08-28",
-          "cikis_tarih": "2018-08-31",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.931
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-09-03",
-          "cikis_tarih": "2018-09-05",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -6.702
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2018-09-13",
-          "cikis_tarih": "2018-12-12",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 6.454
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2019-03-28",
-          "cikis_tarih": "2019-06-26",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 14.888
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2020-03-13",
-          "cikis_tarih": "2020-03-16",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -9.483
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2020-03-20",
-          "cikis_tarih": "2020-06-18",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 33.583
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2020-11-02",
-          "cikis_tarih": "2021-01-04",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 35.008
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2021-03-24",
-          "cikis_tarih": "2021-03-25",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -0.681
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2021-04-01",
-          "cikis_tarih": "2021-04-12",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.707
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2021-04-13",
-          "cikis_tarih": "2021-04-21",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.591
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2021-04-26",
-          "cikis_tarih": "2021-07-26",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 3.005
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2022-02-25",
-          "cikis_tarih": "2022-04-04",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 26.363
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2023-05-11",
-          "cikis_tarih": "2023-05-12",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.809
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2023-05-16",
-          "cikis_tarih": "2023-06-09",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 40.168
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2025-09-15",
-          "cikis_tarih": "2025-12-15",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 11.096
-        },
-        {
-          "sembol": "TTKOM",
-          "giris_tarih": "2026-03-10",
-          "cikis_tarih": "2026-06-08",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 4.218
+          "net_getiri_pct": 27.266
         }
       ]
     },
-    "ENJSA": {
-      "veri_baslangic": "2018-02-08",
+    "YKBNK": {
+      "veri_baslangic": "2021-08-10",
       "veri_bitis": "2026-08-10",
-      "toplam_bar": 2147,
+      "toplam_bar": 1254,
       "ozet": {
         "islem_sayisi": 11,
-        "isabet_pct": 54.5,
-        "ort_net_getiri_pct": 3.569,
-        "profit_factor": 2.24,
-        "maks_dd_pct": -20.1
+        "isabet_pct": 27.3,
+        "ort_net_getiri_pct": 4.041,
+        "profit_factor": 2.0,
+        "maks_dd_pct": -18.68
       },
       "islem_detaylari": [
         {
-          "sembol": "ENJSA",
-          "giris_tarih": "2018-06-26",
-          "cikis_tarih": "2018-08-10",
+          "sembol": "YKBNK",
+          "giris_tarih": "2023-01-12",
+          "cikis_tarih": "2023-02-01",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -7.33
+        },
+        {
+          "sembol": "YKBNK",
+          "giris_tarih": "2023-02-03",
+          "cikis_tarih": "2023-02-08",
           "sebep": "STOP",
           "net_getiri_pct": -12.25
         },
         {
-          "sembol": "ENJSA",
-          "giris_tarih": "2018-08-14",
-          "cikis_tarih": "2018-08-15",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.031
-        },
-        {
-          "sembol": "ENJSA",
-          "giris_tarih": "2018-08-27",
-          "cikis_tarih": "2018-11-26",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": -5.123
-        },
-        {
-          "sembol": "ENJSA",
-          "giris_tarih": "2019-04-02",
-          "cikis_tarih": "2019-05-23",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": 3.651
-        },
-        {
-          "sembol": "ENJSA",
-          "giris_tarih": "2019-05-24",
-          "cikis_tarih": "2019-05-27",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -0.842
-        },
-        {
-          "sembol": "ENJSA",
-          "giris_tarih": "2019-05-28",
-          "cikis_tarih": "2019-07-01",
+          "sembol": "YKBNK",
+          "giris_tarih": "2024-11-06",
+          "cikis_tarih": "2024-11-27",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 13.189
+          "net_getiri_pct": 29.494
         },
         {
-          "sembol": "ENJSA",
-          "giris_tarih": "2020-03-20",
-          "cikis_tarih": "2020-03-27",
+          "sembol": "YKBNK",
+          "giris_tarih": "2025-03-25",
+          "cikis_tarih": "2025-03-28",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -9.474
+          "net_getiri_pct": -6.049
         },
         {
-          "sembol": "ENJSA",
-          "giris_tarih": "2020-03-30",
-          "cikis_tarih": "2020-04-29",
+          "sembol": "YKBNK",
+          "giris_tarih": "2025-04-02",
+          "cikis_tarih": "2025-04-03",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.078
+        },
+        {
+          "sembol": "YKBNK",
+          "giris_tarih": "2025-04-07",
+          "cikis_tarih": "2025-04-09",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.066
+        },
+        {
+          "sembol": "YKBNK",
+          "giris_tarih": "2025-04-11",
+          "cikis_tarih": "2025-04-18",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -6.032
+        },
+        {
+          "sembol": "YKBNK",
+          "giris_tarih": "2025-04-21",
+          "cikis_tarih": "2025-06-30",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 26.447
+          "net_getiri_pct": 33.958
         },
         {
-          "sembol": "ENJSA",
-          "giris_tarih": "2022-07-06",
-          "cikis_tarih": "2022-07-27",
+          "sembol": "YKBNK",
+          "giris_tarih": "2025-09-04",
+          "cikis_tarih": "2025-10-14",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.081
+        },
+        {
+          "sembol": "YKBNK",
+          "giris_tarih": "2025-10-20",
+          "cikis_tarih": "2025-12-01",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 15.958
+          "net_getiri_pct": 25.346
         },
         {
-          "sembol": "ENJSA",
-          "giris_tarih": "2024-06-07",
-          "cikis_tarih": "2024-09-05",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 1.467
+          "sembol": "YKBNK",
+          "giris_tarih": "2026-07-22",
+          "cikis_tarih": "2026-07-28",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.457
+        }
+      ]
+    },
+    "GARAN": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 7,
+        "isabet_pct": 71.4,
+        "ort_net_getiri_pct": 12.292,
+        "profit_factor": 6.94,
+        "maks_dd_pct": -12.25
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "GARAN",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-04-04",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 10.734
         },
         {
-          "sembol": "ENJSA",
-          "giris_tarih": "2024-09-13",
-          "cikis_tarih": "2024-12-12",
+          "sembol": "GARAN",
+          "giris_tarih": "2023-02-03",
+          "cikis_tarih": "2023-02-07",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "GARAN",
+          "giris_tarih": "2023-02-15",
+          "cikis_tarih": "2023-04-19",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 36.849
+        },
+        {
+          "sembol": "GARAN",
+          "giris_tarih": "2024-11-06",
+          "cikis_tarih": "2024-12-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 26.076
+        },
+        {
+          "sembol": "GARAN",
+          "giris_tarih": "2025-03-24",
+          "cikis_tarih": "2025-06-23",
           "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 10.272
+          "net_getiri_pct": 7.565
+        },
+        {
+          "sembol": "GARAN",
+          "giris_tarih": "2025-10-16",
+          "cikis_tarih": "2025-10-17",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.242
+        },
+        {
+          "sembol": "GARAN",
+          "giris_tarih": "2025-10-20",
+          "cikis_tarih": "2026-01-19",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 19.315
+        }
+      ]
+    },
+    "ISCTR": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 10,
+        "isabet_pct": 50.0,
+        "ort_net_getiri_pct": 5.805,
+        "profit_factor": 2.39,
+        "maks_dd_pct": -13.94
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2021-09-22",
+          "cikis_tarih": "2021-09-24",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.242
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2021-09-27",
+          "cikis_tarih": "2021-10-27",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 9.107
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2024-08-13",
+          "cikis_tarih": "2024-10-21",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2024-10-22",
+          "cikis_tarih": "2024-12-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 21.8
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2025-03-25",
+          "cikis_tarih": "2025-04-09",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -11.863
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2025-04-24",
+          "cikis_tarih": "2025-04-25",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.352
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2025-05-09",
+          "cikis_tarih": "2025-06-30",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 29.236
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2025-09-04",
+          "cikis_tarih": "2025-10-09",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -11.148
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2025-10-20",
+          "cikis_tarih": "2026-01-19",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 23.709
+        },
+        {
+          "sembol": "ISCTR",
+          "giris_tarih": "2026-03-31",
+          "cikis_tarih": "2026-06-29",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 16.056
+        }
+      ]
+    },
+    "SAHOL": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 3,
+        "isabet_pct": 66.7,
+        "ort_net_getiri_pct": 9.779,
+        "profit_factor": 3.39,
+        "maks_dd_pct": -12.25
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "SAHOL",
+          "giris_tarih": "2024-10-22",
+          "cikis_tarih": "2024-12-09",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 23.279
+        },
+        {
+          "sembol": "SAHOL",
+          "giris_tarih": "2025-03-25",
+          "cikis_tarih": "2025-04-30",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "SAHOL",
+          "giris_tarih": "2025-10-20",
+          "cikis_tarih": "2026-01-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 18.307
+        }
+      ]
+    },
+    "KCHOL": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 6,
+        "isabet_pct": 50.0,
+        "ort_net_getiri_pct": 5.345,
+        "profit_factor": 2.18,
+        "maks_dd_pct": -24.93
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "KCHOL",
+          "giris_tarih": "2022-07-18",
+          "cikis_tarih": "2022-08-10",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 19.692
+        },
+        {
+          "sembol": "KCHOL",
+          "giris_tarih": "2024-08-08",
+          "cikis_tarih": "2024-08-09",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.403
+        },
+        {
+          "sembol": "KCHOL",
+          "giris_tarih": "2024-08-19",
+          "cikis_tarih": "2024-11-04",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "KCHOL",
+          "giris_tarih": "2025-02-07",
+          "cikis_tarih": "2025-02-19",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.561
+        },
+        {
+          "sembol": "KCHOL",
+          "giris_tarih": "2025-02-27",
+          "cikis_tarih": "2025-03-12",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 18.14
+        },
+        {
+          "sembol": "KCHOL",
+          "giris_tarih": "2025-10-20",
+          "cikis_tarih": "2026-01-12",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 21.45
+        }
+      ]
+    },
+    "THYAO": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 4,
+        "isabet_pct": 75.0,
+        "ort_net_getiri_pct": 8.201,
+        "profit_factor": 28.97,
+        "maks_dd_pct": -1.17
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "THYAO",
+          "giris_tarih": "2024-10-15",
+          "cikis_tarih": "2025-01-13",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 7.866
+        },
+        {
+          "sembol": "THYAO",
+          "giris_tarih": "2025-11-13",
+          "cikis_tarih": "2025-11-17",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.173
+        },
+        {
+          "sembol": "THYAO",
+          "giris_tarih": "2025-11-19",
+          "cikis_tarih": "2026-01-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 5.876
+        },
+        {
+          "sembol": "THYAO",
+          "giris_tarih": "2026-05-22",
+          "cikis_tarih": "2026-07-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 20.236
         }
       ]
     },
     "TAVHL": {
-      "veri_baslangic": "2007-02-26",
+      "veri_baslangic": "2021-08-10",
       "veri_bitis": "2026-08-10",
-      "toplam_bar": 4981,
+      "toplam_bar": 1254,
       "ozet": {
-        "islem_sayisi": 42,
-        "isabet_pct": 38.1,
-        "ort_net_getiri_pct": 2.853,
-        "profit_factor": 1.58,
-        "maks_dd_pct": -45.01
+        "islem_sayisi": 7,
+        "isabet_pct": 42.9,
+        "ort_net_getiri_pct": 4.595,
+        "profit_factor": 1.89,
+        "maks_dd_pct": -23.0
       },
       "islem_detaylari": [
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2007-08-20",
-          "cikis_tarih": "2007-11-19",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 3.454
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2008-02-18",
-          "cikis_tarih": "2008-02-19",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -0.879
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2008-02-21",
-          "cikis_tarih": "2008-03-03",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -7.845
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2008-03-06",
-          "cikis_tarih": "2008-03-07",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.145
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2008-03-10",
-          "cikis_tarih": "2008-04-29",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 25.464
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2008-06-30",
-          "cikis_tarih": "2008-09-15",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2008-09-19",
-          "cikis_tarih": "2008-10-06",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2008-10-21",
-          "cikis_tarih": "2008-10-23",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2008-10-28",
-          "cikis_tarih": "2009-01-26",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 21.129
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2009-09-11",
-          "cikis_tarih": "2009-10-19",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 11.573
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2011-02-28",
-          "cikis_tarih": "2011-03-01",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.656
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2011-03-02",
-          "cikis_tarih": "2011-04-07",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 22.007
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2011-08-15",
-          "cikis_tarih": "2011-08-18",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.523
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2011-08-25",
-          "cikis_tarih": "2011-10-24",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 20.881
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2012-09-21",
-          "cikis_tarih": "2012-12-20",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 5.432
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2015-12-08",
-          "cikis_tarih": "2015-12-10",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -7.64
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2015-12-16",
-          "cikis_tarih": "2016-01-04",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -7.777
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2016-01-08",
-          "cikis_tarih": "2016-01-15",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.016
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2016-01-18",
-          "cikis_tarih": "2016-01-20",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.343
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2016-01-25",
-          "cikis_tarih": "2016-02-11",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -9.067
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2016-02-12",
-          "cikis_tarih": "2016-02-15",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.457
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2016-02-17",
-          "cikis_tarih": "2016-04-04",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 22.492
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2016-05-05",
-          "cikis_tarih": "2016-06-13",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2016-06-15",
-          "cikis_tarih": "2016-07-01",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2017-09-26",
-          "cikis_tarih": "2017-09-28",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.681
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2017-10-04",
-          "cikis_tarih": "2017-10-09",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -8.071
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2017-10-10",
-          "cikis_tarih": "2017-12-07",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 26.166
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2018-11-05",
-          "cikis_tarih": "2018-11-09",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.734
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2018-11-13",
-          "cikis_tarih": "2018-12-12",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2019-08-20",
-          "cikis_tarih": "2019-11-06",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 18.967
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2020-03-25",
-          "cikis_tarih": "2020-06-23",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 21.736
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2020-07-13",
-          "cikis_tarih": "2020-08-31",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2020-09-04",
-          "cikis_tarih": "2020-10-26",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.245
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2020-11-02",
-          "cikis_tarih": "2020-11-10",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 18.622
-        },
-        {
-          "sembol": "TAVHL",
-          "giris_tarih": "2021-04-26",
-          "cikis_tarih": "2021-06-04",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 38.574
-        },
         {
           "sembol": "TAVHL",
           "giris_tarih": "2023-01-12",
@@ -730,1277 +499,1795 @@
         }
       ]
     },
-    "KCHOL": {
-      "veri_baslangic": "2000-05-10",
+    "EREGL": {
+      "veri_baslangic": "2021-08-10",
       "veri_bitis": "2026-08-10",
-      "toplam_bar": 6749,
+      "toplam_bar": 1255,
       "ozet": {
-        "islem_sayisi": 90,
-        "isabet_pct": 32.2,
-        "ort_net_getiri_pct": -0.479,
-        "profit_factor": 0.92,
-        "maks_dd_pct": -91.84
+        "islem_sayisi": 16,
+        "isabet_pct": 37.5,
+        "ort_net_getiri_pct": 4.4,
+        "profit_factor": 3.19,
+        "maks_dd_pct": -10.44
       },
       "islem_detaylari": [
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2000-10-24",
-          "cikis_tarih": "2000-10-25",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2021-09-06",
+          "cikis_tarih": "2021-09-07",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.291
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2000-11-07",
-          "cikis_tarih": "2000-11-08",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2021-09-09",
+          "cikis_tarih": "2021-09-14",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.91
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2001-05-07",
-          "cikis_tarih": "2001-05-08",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2021-09-22",
+          "cikis_tarih": "2021-10-05",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.688
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2001-10-25",
-          "cikis_tarih": "2001-10-26",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2021-10-07",
+          "cikis_tarih": "2021-10-22",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 13.842
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2001-10-31",
-          "cikis_tarih": "2001-11-01",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2022-06-21",
+          "cikis_tarih": "2022-06-22",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.992
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2001-11-28",
-          "cikis_tarih": "2001-11-29",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2022-06-28",
+          "cikis_tarih": "2022-06-29",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.951
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2001-12-11",
-          "cikis_tarih": "2001-12-12",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2022-06-30",
+          "cikis_tarih": "2022-07-04",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.598
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2001-12-14",
-          "cikis_tarih": "2001-12-17",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2022-07-06",
+          "cikis_tarih": "2022-09-12",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 25.031
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2002-07-22",
-          "cikis_tarih": "2002-07-23",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2023-04-28",
+          "cikis_tarih": "2023-05-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.966
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2002-10-30",
-          "cikis_tarih": "2002-10-31",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2023-05-11",
+          "cikis_tarih": "2023-06-12",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 21.744
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2002-11-12",
-          "cikis_tarih": "2002-11-13",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2024-04-04",
+          "cikis_tarih": "2024-05-24",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 26.653
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2002-11-20",
-          "cikis_tarih": "2002-11-21",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2025-01-16",
+          "cikis_tarih": "2025-01-21",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.815
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2003-08-18",
-          "cikis_tarih": "2003-08-19",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2025-01-24",
+          "cikis_tarih": "2025-02-03",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -7.203
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2003-09-29",
-          "cikis_tarih": "2003-09-30",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "EREGL",
+          "giris_tarih": "2025-02-04",
+          "cikis_tarih": "2025-02-05",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.703
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2003-10-09",
-          "cikis_tarih": "2003-10-10",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2003-10-17",
-          "cikis_tarih": "2003-10-20",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2003-12-25",
-          "cikis_tarih": "2003-12-26",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2004-01-06",
-          "cikis_tarih": "2004-01-07",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2005-03-31",
-          "cikis_tarih": "2005-04-13",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2005-04-19",
-          "cikis_tarih": "2005-07-18",
+          "sembol": "EREGL",
+          "giris_tarih": "2025-02-06",
+          "cikis_tarih": "2025-05-07",
           "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 16.319
+          "net_getiri_pct": 0.372
         },
         {
-          "sembol": "KCHOL",
-          "giris_tarih": "2005-11-01",
-          "cikis_tarih": "2005-11-28",
+          "sembol": "EREGL",
+          "giris_tarih": "2025-09-15",
+          "cikis_tarih": "2025-09-23",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 24.502
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2006-05-17",
-          "cikis_tarih": "2006-05-22",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -7.713
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2006-05-26",
-          "cikis_tarih": "2006-06-01",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2006-06-02",
-          "cikis_tarih": "2006-06-05",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.636
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2006-06-16",
-          "cikis_tarih": "2006-06-21",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.282
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2006-06-29",
-          "cikis_tarih": "2006-09-22",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": 5.427
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2006-09-27",
-          "cikis_tarih": "2006-12-26",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 9.188
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2007-03-06",
-          "cikis_tarih": "2007-04-05",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 17.294
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2007-06-20",
-          "cikis_tarih": "2007-06-21",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.028
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2007-06-26",
-          "cikis_tarih": "2007-06-27",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -1.221
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2007-06-28",
-          "cikis_tarih": "2007-09-26",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 24.993
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2008-02-04",
-          "cikis_tarih": "2008-02-06",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.434
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2008-02-12",
-          "cikis_tarih": "2008-03-17",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2008-03-19",
-          "cikis_tarih": "2008-03-20",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -1.276
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2008-03-24",
-          "cikis_tarih": "2008-03-31",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.84
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2008-04-01",
-          "cikis_tarih": "2008-05-22",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -8.187
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2008-06-12",
-          "cikis_tarih": "2008-07-01",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -11.744
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2008-07-02",
-          "cikis_tarih": "2008-07-21",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 23.954
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2008-10-30",
-          "cikis_tarih": "2008-11-18",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2009-01-22",
-          "cikis_tarih": "2009-03-12",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2011-02-01",
-          "cikis_tarih": "2011-03-02",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -8.31
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2011-03-03",
-          "cikis_tarih": "2011-04-04",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 22.925
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2011-08-15",
-          "cikis_tarih": "2011-09-20",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 22.801
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2011-11-03",
-          "cikis_tarih": "2011-11-23",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -9.016
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2011-11-25",
-          "cikis_tarih": "2012-01-26",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 19.606
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2012-04-26",
-          "cikis_tarih": "2012-04-30",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -1.761
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2012-05-08",
-          "cikis_tarih": "2012-05-10",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -1.176
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2012-05-29",
-          "cikis_tarih": "2012-06-14",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 12.027
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2013-06-04",
-          "cikis_tarih": "2013-06-20",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2013-06-26",
-          "cikis_tarih": "2013-08-21",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -7.328
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2013-08-26",
-          "cikis_tarih": "2013-08-27",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.327
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2013-08-29",
-          "cikis_tarih": "2013-09-19",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 20.381
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2013-12-30",
-          "cikis_tarih": "2014-01-24",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2014-01-27",
-          "cikis_tarih": "2014-01-28",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -0.774
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2014-01-31",
-          "cikis_tarih": "2014-04-04",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 21.813
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2014-09-29",
-          "cikis_tarih": "2014-10-28",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 10.378
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2015-02-12",
-          "cikis_tarih": "2015-03-12",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -8.761
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2015-03-16",
-          "cikis_tarih": "2015-04-28",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 18.893
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2015-08-25",
-          "cikis_tarih": "2015-10-08",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 12.139
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2015-11-27",
-          "cikis_tarih": "2015-12-08",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.833
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2015-12-09",
-          "cikis_tarih": "2015-12-11",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.678
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2015-12-15",
-          "cikis_tarih": "2016-01-04",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -6.055
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2016-01-05",
-          "cikis_tarih": "2016-03-09",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 21.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2016-05-24",
-          "cikis_tarih": "2016-07-22",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2016-07-25",
-          "cikis_tarih": "2016-10-24",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 9.849
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2016-11-07",
-          "cikis_tarih": "2016-12-30",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 10.593
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2017-09-26",
-          "cikis_tarih": "2017-09-27",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.248
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2017-09-28",
-          "cikis_tarih": "2017-10-09",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.776
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2017-10-10",
-          "cikis_tarih": "2017-11-02",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 11.592
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2018-04-17",
-          "cikis_tarih": "2018-04-25",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -6.867
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2018-04-27",
-          "cikis_tarih": "2018-04-30",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.784
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2018-05-04",
-          "cikis_tarih": "2018-05-08",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.616
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2018-05-09",
-          "cikis_tarih": "2018-08-07",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 2.163
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2018-11-26",
-          "cikis_tarih": "2019-01-17",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 7.336
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2019-03-28",
-          "cikis_tarih": "2019-05-13",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.085
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2019-05-14",
-          "cikis_tarih": "2019-05-22",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.759
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2019-05-23",
-          "cikis_tarih": "2019-06-18",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 17.815
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2020-03-03",
-          "cikis_tarih": "2020-03-09",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.875
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2020-03-26",
-          "cikis_tarih": "2020-05-28",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 17.923
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2020-08-11",
-          "cikis_tarih": "2020-09-21",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -7.942
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2020-09-23",
-          "cikis_tarih": "2020-11-10",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 18.42
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2021-03-30",
-          "cikis_tarih": "2021-04-12",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.07
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2021-04-14",
-          "cikis_tarih": "2021-04-21",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -8.418
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2021-04-26",
-          "cikis_tarih": "2021-07-26",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 9.577
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2022-07-18",
-          "cikis_tarih": "2022-08-10",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 19.692
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2024-08-08",
-          "cikis_tarih": "2024-08-09",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.403
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2024-08-19",
-          "cikis_tarih": "2024-11-04",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2025-02-07",
-          "cikis_tarih": "2025-02-19",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -9.561
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2025-02-27",
-          "cikis_tarih": "2025-03-12",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 18.14
-        },
-        {
-          "sembol": "KCHOL",
-          "giris_tarih": "2025-10-20",
-          "cikis_tarih": "2026-01-12",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 21.45
+          "net_getiri_pct": 14.877
         }
       ]
     },
-    "AKBNK": {
-      "veri_baslangic": "2000-05-10",
+    "ASELS": {
+      "veri_baslangic": "2021-08-10",
       "veri_bitis": "2026-08-10",
-      "toplam_bar": 6749,
+      "toplam_bar": 1254,
       "ozet": {
-        "islem_sayisi": 88,
-        "isabet_pct": 27.3,
-        "ort_net_getiri_pct": -1.259,
-        "profit_factor": 0.81,
-        "maks_dd_pct": -97.4
+        "islem_sayisi": 5,
+        "isabet_pct": 100.0,
+        "ort_net_getiri_pct": 20.567,
+        "profit_factor": 999.0,
+        "maks_dd_pct": 0.0
       },
       "islem_detaylari": [
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2000-10-19",
-          "cikis_tarih": "2000-10-20",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "ASELS",
+          "giris_tarih": "2021-09-17",
+          "cikis_tarih": "2021-10-14",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 11.257
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2000-10-24",
-          "cikis_tarih": "2000-10-25",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "ASELS",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-04-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 35.583
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2001-01-23",
-          "cikis_tarih": "2001-01-24",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "ASELS",
+          "giris_tarih": "2022-05-20",
+          "cikis_tarih": "2022-08-18",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 13.534
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2001-05-11",
-          "cikis_tarih": "2001-05-14",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "ASELS",
+          "giris_tarih": "2023-05-11",
+          "cikis_tarih": "2023-06-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 29.874
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2001-05-18",
-          "cikis_tarih": "2001-05-21",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "ASELS",
+          "giris_tarih": "2025-11-17",
+          "cikis_tarih": "2025-12-15",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 12.586
+        }
+      ]
+    },
+    "ASTOR": {
+      "veri_baslangic": "2023-01-18",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 888,
+      "ozet": {
+        "islem_sayisi": 12,
+        "isabet_pct": 33.3,
+        "ort_net_getiri_pct": 4.145,
+        "profit_factor": 2.07,
+        "maks_dd_pct": -16.47
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "ASTOR",
+          "giris_tarih": "2023-12-07",
+          "cikis_tarih": "2023-12-13",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -8.333
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2001-05-23",
-          "cikis_tarih": "2001-05-24",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "ASTOR",
+          "giris_tarih": "2023-12-28",
+          "cikis_tarih": "2024-01-29",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 25.605
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2001-10-25",
-          "cikis_tarih": "2001-10-26",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "ASTOR",
+          "giris_tarih": "2024-03-29",
+          "cikis_tarih": "2024-04-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.315
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2001-11-28",
-          "cikis_tarih": "2001-11-29",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2001-12-11",
-          "cikis_tarih": "2001-12-12",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2001-12-14",
-          "cikis_tarih": "2001-12-17",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2002-01-09",
-          "cikis_tarih": "2002-01-10",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2002-03-25",
-          "cikis_tarih": "2002-03-26",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2002-03-28",
-          "cikis_tarih": "2002-03-29",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2002-04-17",
-          "cikis_tarih": "2002-04-18",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2002-07-02",
-          "cikis_tarih": "2002-07-03",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2002-09-10",
-          "cikis_tarih": "2002-09-11",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2002-11-11",
-          "cikis_tarih": "2002-11-12",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2002-11-19",
-          "cikis_tarih": "2002-11-20",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2003-06-19",
-          "cikis_tarih": "2003-06-20",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2003-07-02",
-          "cikis_tarih": "2003-07-03",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2003-08-06",
-          "cikis_tarih": "2003-08-07",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2003-08-15",
-          "cikis_tarih": "2003-08-18",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2003-09-15",
-          "cikis_tarih": "2003-09-16",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2003-09-29",
-          "cikis_tarih": "2003-09-30",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2003-10-08",
-          "cikis_tarih": "2003-10-09",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2003-11-06",
-          "cikis_tarih": "2003-11-07",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2005-02-23",
-          "cikis_tarih": "2005-03-17",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2005-03-18",
-          "cikis_tarih": "2005-06-16",
+          "sembol": "ASTOR",
+          "giris_tarih": "2024-04-05",
+          "cikis_tarih": "2024-07-04",
           "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 8.047
+          "net_getiri_pct": -2.496
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2006-05-17",
-          "cikis_tarih": "2006-05-19",
+          "sembol": "ASTOR",
+          "giris_tarih": "2024-08-19",
+          "cikis_tarih": "2024-08-21",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -6.686
+          "net_getiri_pct": -2.41
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2006-05-26",
-          "cikis_tarih": "2006-06-08",
+          "sembol": "ASTOR",
+          "giris_tarih": "2024-08-27",
+          "cikis_tarih": "2024-10-10",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -8.255
+        },
+        {
+          "sembol": "ASTOR",
+          "giris_tarih": "2024-10-15",
+          "cikis_tarih": "2024-11-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 29.188
+        },
+        {
+          "sembol": "ASTOR",
+          "giris_tarih": "2025-02-18",
+          "cikis_tarih": "2025-03-21",
           "sebep": "STOP",
           "net_getiri_pct": -12.25
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2006-06-14",
-          "cikis_tarih": "2006-09-05",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 37.148
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2007-06-11",
-          "cikis_tarih": "2007-07-04",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 8.953
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2008-01-18",
-          "cikis_tarih": "2008-01-21",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2008-01-24",
-          "cikis_tarih": "2008-03-03",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2008-03-05",
-          "cikis_tarih": "2008-03-07",
+          "sembol": "ASTOR",
+          "giris_tarih": "2025-06-20",
+          "cikis_tarih": "2025-06-23",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.218
+          "net_getiri_pct": -3.786
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2008-03-11",
-          "cikis_tarih": "2008-04-25",
+          "sembol": "ASTOR",
+          "giris_tarih": "2025-06-24",
+          "cikis_tarih": "2025-08-11",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 16.661
+          "net_getiri_pct": 21.445
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2008-05-28",
-          "cikis_tarih": "2008-05-29",
+          "sembol": "ASTOR",
+          "giris_tarih": "2025-10-07",
+          "cikis_tarih": "2025-10-13",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.92
+          "net_getiri_pct": -4.623
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2008-05-30",
-          "cikis_tarih": "2008-06-16",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -7.523
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2008-07-04",
-          "cikis_tarih": "2008-07-18",
+          "sembol": "ASTOR",
+          "giris_tarih": "2025-10-15",
+          "cikis_tarih": "2025-12-15",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 29.254
-        },
+          "net_getiri_pct": 19.966
+        }
+      ]
+    },
+    "MGROS": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 10,
+        "isabet_pct": 70.0,
+        "ort_net_getiri_pct": 12.026,
+        "profit_factor": 9.48,
+        "maks_dd_pct": -12.14
+      },
+      "islem_detaylari": [
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2008-11-24",
-          "cikis_tarih": "2009-02-17",
+          "sembol": "MGROS",
+          "giris_tarih": "2021-09-09",
+          "cikis_tarih": "2021-09-10",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -1.812
+          "net_getiri_pct": -1.721
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2009-02-19",
-          "cikis_tarih": "2009-03-06",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -9.013
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2009-03-09",
-          "cikis_tarih": "2009-03-25",
+          "sembol": "MGROS",
+          "giris_tarih": "2021-09-22",
+          "cikis_tarih": "2021-10-26",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 34.004
+          "net_getiri_pct": 6.858
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2010-02-12",
-          "cikis_tarih": "2010-02-15",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.057
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2010-02-16",
-          "cikis_tarih": "2010-02-24",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.705
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2010-02-26",
-          "cikis_tarih": "2010-03-24",
+          "sembol": "MGROS",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-04-01",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 22.827
+          "net_getiri_pct": 30.632
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2010-11-30",
-          "cikis_tarih": "2011-01-28",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2011-03-03",
-          "cikis_tarih": "2011-04-07",
+          "sembol": "MGROS",
+          "giris_tarih": "2022-05-13",
+          "cikis_tarih": "2022-06-22",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 25.925
+          "net_getiri_pct": 20.679
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2011-08-12",
-          "cikis_tarih": "2011-09-20",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 19.815
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2011-11-25",
-          "cikis_tarih": "2012-02-23",
+          "sembol": "MGROS",
+          "giris_tarih": "2024-03-29",
+          "cikis_tarih": "2024-06-27",
           "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 12.166
+          "net_getiri_pct": 28.04
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2012-05-16",
-          "cikis_tarih": "2012-05-23",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -9.0
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2012-05-31",
-          "cikis_tarih": "2012-08-29",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 24.311
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2013-06-04",
-          "cikis_tarih": "2013-06-06",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -6.353
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2013-06-07",
-          "cikis_tarih": "2013-06-24",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2013-06-26",
-          "cikis_tarih": "2013-08-22",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2013-12-30",
-          "cikis_tarih": "2014-01-29",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2014-10-09",
-          "cikis_tarih": "2014-11-28",
+          "sembol": "MGROS",
+          "giris_tarih": "2024-10-04",
+          "cikis_tarih": "2024-12-05",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 20.583
+          "net_getiri_pct": 14.947
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2015-03-09",
-          "cikis_tarih": "2015-03-10",
+          "sembol": "MGROS",
+          "giris_tarih": "2025-03-20",
+          "cikis_tarih": "2025-03-21",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -5.769
+          "net_getiri_pct": -8.757
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2015-03-11",
-          "cikis_tarih": "2015-05-18",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 18.094
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2015-08-25",
-          "cikis_tarih": "2015-11-02",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 21.686
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2015-11-27",
-          "cikis_tarih": "2015-12-11",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -6.337
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2015-12-15",
-          "cikis_tarih": "2016-03-09",
-          "sebep": "KAR_AL",
-          "net_getiri_pct": 16.863
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2017-09-28",
-          "cikis_tarih": "2017-12-27",
+          "sembol": "MGROS",
+          "giris_tarih": "2025-03-24",
+          "cikis_tarih": "2025-06-23",
           "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": -0.779
+          "net_getiri_pct": -3.709
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-05-02",
-          "cikis_tarih": "2018-05-03",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.914
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-05-04",
-          "cikis_tarih": "2018-05-07",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.171
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-05-09",
-          "cikis_tarih": "2018-06-05",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -9.374
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-06-07",
-          "cikis_tarih": "2018-06-08",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.387
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-06-11",
-          "cikis_tarih": "2018-06-13",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.261
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-06-19",
-          "cikis_tarih": "2018-06-25",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.405
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-06-26",
-          "cikis_tarih": "2018-07-11",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -7.581
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-07-17",
-          "cikis_tarih": "2018-08-13",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2018-08-17",
-          "cikis_tarih": "2018-11-15",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 24.233
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2019-03-28",
-          "cikis_tarih": "2019-06-21",
+          "sembol": "MGROS",
+          "giris_tarih": "2025-09-15",
+          "cikis_tarih": "2025-11-10",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 12.859
+          "net_getiri_pct": 12.662
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2019-10-15",
-          "cikis_tarih": "2019-12-16",
+          "sembol": "MGROS",
+          "giris_tarih": "2026-03-10",
+          "cikis_tarih": "2026-05-14",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 21.147
-        },
+          "net_getiri_pct": 20.628
+        }
+      ]
+    },
+    "BIMAS": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1257,
+      "ozet": {
+        "islem_sayisi": 5,
+        "isabet_pct": 60.0,
+        "ort_net_getiri_pct": 4.627,
+        "profit_factor": 4.25,
+        "maks_dd_pct": -7.0
+      },
+      "islem_detaylari": [
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2020-02-21",
-          "cikis_tarih": "2020-02-24",
+          "sembol": "BIMAS",
+          "giris_tarih": "2021-09-29",
+          "cikis_tarih": "2021-10-04",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -2.333
+          "net_getiri_pct": -3.056
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2020-02-26",
-          "cikis_tarih": "2020-02-27",
+          "sembol": "BIMAS",
+          "giris_tarih": "2021-10-11",
+          "cikis_tarih": "2021-10-14",
           "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.73
+          "net_getiri_pct": -4.069
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2020-03-03",
-          "cikis_tarih": "2020-03-12",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
+          "sembol": "BIMAS",
+          "giris_tarih": "2021-10-18",
+          "cikis_tarih": "2021-11-24",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 16.957
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2020-03-26",
-          "cikis_tarih": "2020-03-27",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.397
+          "sembol": "BIMAS",
+          "giris_tarih": "2024-10-03",
+          "cikis_tarih": "2024-12-11",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 12.42
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2020-03-31",
-          "cikis_tarih": "2020-04-02",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.453
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2020-04-06",
-          "cikis_tarih": "2020-07-06",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 9.265
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2020-08-11",
-          "cikis_tarih": "2020-11-09",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 5.656
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2021-04-01",
-          "cikis_tarih": "2021-04-12",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -4.135
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2021-04-13",
-          "cikis_tarih": "2021-07-12",
-          "sebep": "MAKS_TUTMA",
-          "net_getiri_pct": 10.884
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2024-08-13",
-          "cikis_tarih": "2024-10-21",
-          "sebep": "STOP",
-          "net_getiri_pct": -12.25
-        },
-        {
-          "sembol": "AKBNK",
+          "sembol": "BIMAS",
           "giris_tarih": "2025-03-25",
-          "cikis_tarih": "2025-03-26",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -1.762
-        },
+          "cikis_tarih": "2025-06-23",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 0.884
+        }
+      ]
+    },
+    "TUPRS": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 5,
+        "isabet_pct": 60.0,
+        "ort_net_getiri_pct": 10.171,
+        "profit_factor": 14.87,
+        "maks_dd_pct": -3.64
+      },
+      "islem_detaylari": [
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2025-04-17",
-          "cikis_tarih": "2025-04-18",
-          "sebep": "BASARISIZ_SICRAMA",
-          "net_getiri_pct": -3.681
-        },
-        {
-          "sembol": "AKBNK",
-          "giris_tarih": "2025-04-21",
-          "cikis_tarih": "2025-06-10",
+          "sembol": "TUPRS",
+          "giris_tarih": "2022-07-18",
+          "cikis_tarih": "2022-08-11",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 19.979
+          "net_getiri_pct": 19.668
         },
         {
-          "sembol": "AKBNK",
-          "giris_tarih": "2025-10-16",
-          "cikis_tarih": "2025-12-01",
+          "sembol": "TUPRS",
+          "giris_tarih": "2023-05-03",
+          "cikis_tarih": "2023-07-03",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 19.551
+          "net_getiri_pct": 22.938
         },
         {
-          "sembol": "AKBNK",
+          "sembol": "TUPRS",
+          "giris_tarih": "2024-06-12",
+          "cikis_tarih": "2024-09-10",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": -2.628
+        },
+        {
+          "sembol": "TUPRS",
+          "giris_tarih": "2025-02-26",
+          "cikis_tarih": "2025-05-07",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.039
+        },
+        {
+          "sembol": "TUPRS",
+          "giris_tarih": "2025-05-08",
+          "cikis_tarih": "2025-06-19",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 11.918
+        }
+      ]
+    },
+    "TOASO": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 9,
+        "isabet_pct": 33.3,
+        "ort_net_getiri_pct": -0.166,
+        "profit_factor": 0.96,
+        "maks_dd_pct": -23.34
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2022-06-10",
+          "cikis_tarih": "2022-06-29",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.205
+        },
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2022-07-01",
+          "cikis_tarih": "2022-07-29",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 20.142
+        },
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2024-07-30",
+          "cikis_tarih": "2024-08-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -6.101
+        },
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2024-08-13",
+          "cikis_tarih": "2024-09-09",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -10.337
+        },
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2024-09-12",
+          "cikis_tarih": "2024-10-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -6.87
+        },
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2024-10-09",
+          "cikis_tarih": "2024-10-11",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.225
+        },
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2024-10-15",
+          "cikis_tarih": "2025-01-13",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 11.744
+        },
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2025-03-25",
+          "cikis_tarih": "2025-06-23",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 5.749
+        },
+        {
+          "sembol": "TOASO",
+          "giris_tarih": "2026-07-29",
+          "cikis_tarih": "2026-07-30",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.39
+        }
+      ]
+    },
+    "FROTO": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1255,
+      "ozet": {
+        "islem_sayisi": 6,
+        "isabet_pct": 66.7,
+        "ort_net_getiri_pct": 9.753,
+        "profit_factor": 3.67,
+        "maks_dd_pct": -12.25
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "FROTO",
+          "giris_tarih": "2021-09-22",
+          "cikis_tarih": "2021-11-03",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 24.211
+        },
+        {
+          "sembol": "FROTO",
+          "giris_tarih": "2023-05-08",
+          "cikis_tarih": "2023-06-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 24.844
+        },
+        {
+          "sembol": "FROTO",
+          "giris_tarih": "2024-06-05",
+          "cikis_tarih": "2024-08-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.658
+        },
+        {
+          "sembol": "FROTO",
+          "giris_tarih": "2024-08-13",
+          "cikis_tarih": "2024-11-11",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 17.591
+        },
+        {
+          "sembol": "FROTO",
+          "giris_tarih": "2025-10-17",
+          "cikis_tarih": "2025-12-15",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 13.78
+        },
+        {
+          "sembol": "FROTO",
           "giris_tarih": "2026-05-22",
-          "cikis_tarih": "2026-06-18",
+          "cikis_tarih": "2026-07-29",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        }
+      ]
+    },
+    "ENKAI": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 6,
+        "isabet_pct": 66.7,
+        "ort_net_getiri_pct": 15.197,
+        "profit_factor": 8.74,
+        "maks_dd_pct": -7.39
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "ENKAI",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-02-28",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.397
+        },
+        {
+          "sembol": "ENKAI",
+          "giris_tarih": "2022-03-03",
+          "cikis_tarih": "2022-06-01",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 29.436
+        },
+        {
+          "sembol": "ENKAI",
+          "giris_tarih": "2022-09-30",
+          "cikis_tarih": "2022-11-10",
           "sebep": "KAR_AL",
-          "net_getiri_pct": 27.266
+          "net_getiri_pct": 26.066
+        },
+        {
+          "sembol": "ENKAI",
+          "giris_tarih": "2023-05-08",
+          "cikis_tarih": "2023-05-10",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -7.387
+        },
+        {
+          "sembol": "ENKAI",
+          "giris_tarih": "2023-05-11",
+          "cikis_tarih": "2023-07-10",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 25.514
+        },
+        {
+          "sembol": "ENKAI",
+          "giris_tarih": "2024-03-27",
+          "cikis_tarih": "2024-05-23",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 21.951
+        }
+      ]
+    },
+    "TTKOM": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 5,
+        "isabet_pct": 80.0,
+        "ort_net_getiri_pct": 15.607,
+        "profit_factor": 21.49,
+        "maks_dd_pct": -3.81
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "TTKOM",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-04-04",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 26.363
+        },
+        {
+          "sembol": "TTKOM",
+          "giris_tarih": "2023-05-11",
+          "cikis_tarih": "2023-05-12",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.809
+        },
+        {
+          "sembol": "TTKOM",
+          "giris_tarih": "2023-05-16",
+          "cikis_tarih": "2023-06-09",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 40.168
+        },
+        {
+          "sembol": "TTKOM",
+          "giris_tarih": "2025-09-15",
+          "cikis_tarih": "2025-12-15",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 11.096
+        },
+        {
+          "sembol": "TTKOM",
+          "giris_tarih": "2026-03-10",
+          "cikis_tarih": "2026-06-08",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 4.218
+        }
+      ]
+    },
+    "AEFES": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1255,
+      "ozet": {
+        "islem_sayisi": 16,
+        "isabet_pct": 37.5,
+        "ort_net_getiri_pct": 3.666,
+        "profit_factor": 1.91,
+        "maks_dd_pct": -28.51
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2021-08-31",
+          "cikis_tarih": "2021-09-20",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -7.269
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2021-09-22",
+          "cikis_tarih": "2021-09-24",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.011
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2021-09-27",
+          "cikis_tarih": "2021-11-01",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 14.134
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2022-03-14",
+          "cikis_tarih": "2022-04-11",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 29.75
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2023-01-12",
+          "cikis_tarih": "2023-01-13",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.215
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2023-01-16",
+          "cikis_tarih": "2023-01-27",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -6.976
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2023-02-03",
+          "cikis_tarih": "2023-02-06",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.498
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2023-02-15",
+          "cikis_tarih": "2023-05-09",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 35.423
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2024-09-09",
+          "cikis_tarih": "2024-09-25",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -10.637
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2024-09-26",
+          "cikis_tarih": "2024-10-03",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -7.203
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2024-10-04",
+          "cikis_tarih": "2024-10-21",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -8.431
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2024-10-22",
+          "cikis_tarih": "2025-01-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.824
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2025-01-16",
+          "cikis_tarih": "2025-03-14",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 10.279
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2025-05-09",
+          "cikis_tarih": "2025-06-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.352
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2025-06-03",
+          "cikis_tarih": "2025-08-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 22.766
+        },
+        {
+          "sembol": "AEFES",
+          "giris_tarih": "2025-09-09",
+          "cikis_tarih": "2025-11-27",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 10.725
+        }
+      ]
+    },
+    "PGSUS": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1255,
+      "ozet": {
+        "islem_sayisi": 7,
+        "isabet_pct": 28.6,
+        "ort_net_getiri_pct": 0.758,
+        "profit_factor": 1.22,
+        "maks_dd_pct": -21.37
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "PGSUS",
+          "giris_tarih": "2023-05-04",
+          "cikis_tarih": "2023-06-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 21.128
+        },
+        {
+          "sembol": "PGSUS",
+          "giris_tarih": "2023-10-23",
+          "cikis_tarih": "2024-01-22",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": -0.487
+        },
+        {
+          "sembol": "PGSUS",
+          "giris_tarih": "2025-05-02",
+          "cikis_tarih": "2025-07-31",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 7.951
+        },
+        {
+          "sembol": "PGSUS",
+          "giris_tarih": "2025-09-15",
+          "cikis_tarih": "2025-09-29",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -8.206
+        },
+        {
+          "sembol": "PGSUS",
+          "giris_tarih": "2025-09-30",
+          "cikis_tarih": "2025-10-17",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.192
+        },
+        {
+          "sembol": "PGSUS",
+          "giris_tarih": "2025-10-20",
+          "cikis_tarih": "2026-01-19",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": -4.401
+        },
+        {
+          "sembol": "PGSUS",
+          "giris_tarih": "2026-03-10",
+          "cikis_tarih": "2026-06-08",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": -5.49
+        }
+      ]
+    },
+    "HALKB": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 9,
+        "isabet_pct": 66.7,
+        "ort_net_getiri_pct": 12.672,
+        "profit_factor": 8.18,
+        "maks_dd_pct": -9.77
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2021-10-07",
+          "cikis_tarih": "2021-11-15",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 16.533
+        },
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-04-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 21.469
+        },
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2022-07-13",
+          "cikis_tarih": "2022-08-17",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 23.292
+        },
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2023-02-15",
+          "cikis_tarih": "2023-05-16",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 15.135
+        },
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2023-12-27",
+          "cikis_tarih": "2024-02-09",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 21.81
+        },
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2024-08-08",
+          "cikis_tarih": "2024-11-06",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": -5.968
+        },
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2026-04-01",
+          "cikis_tarih": "2026-06-02",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 31.686
+        },
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2026-07-28",
+          "cikis_tarih": "2026-07-29",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.78
+        },
+        {
+          "sembol": "HALKB",
+          "giris_tarih": "2026-08-03",
+          "cikis_tarih": "2026-08-10",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -8.132
+        }
+      ]
+    },
+    "VAKBN": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 16,
+        "isabet_pct": 56.2,
+        "ort_net_getiri_pct": 8.014,
+        "profit_factor": 3.82,
+        "maks_dd_pct": -12.25
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2021-09-22",
+          "cikis_tarih": "2021-09-23",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.015
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2021-10-11",
+          "cikis_tarih": "2021-11-04",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 12.86
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-03-08",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.905
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2022-03-09",
+          "cikis_tarih": "2022-04-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 17.905
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2022-07-13",
+          "cikis_tarih": "2022-07-14",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.383
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2022-07-18",
+          "cikis_tarih": "2022-08-12",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 26.716
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2023-02-03",
+          "cikis_tarih": "2023-02-07",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2023-02-15",
+          "cikis_tarih": "2023-04-19",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 16.53
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2023-12-14",
+          "cikis_tarih": "2023-12-26",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.327
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2023-12-28",
+          "cikis_tarih": "2024-03-27",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 13.852
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2024-08-08",
+          "cikis_tarih": "2024-08-12",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.287
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2024-08-13",
+          "cikis_tarih": "2024-09-23",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 22.794
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2025-03-24",
+          "cikis_tarih": "2025-04-16",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2025-04-22",
+          "cikis_tarih": "2025-07-02",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 33.801
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2025-10-20",
+          "cikis_tarih": "2025-11-28",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 24.016
+        },
+        {
+          "sembol": "VAKBN",
+          "giris_tarih": "2026-04-01",
+          "cikis_tarih": "2026-06-30",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 5.162
+        }
+      ]
+    },
+    "OTKAR": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1252,
+      "ozet": {
+        "islem_sayisi": 20,
+        "isabet_pct": 25.0,
+        "ort_net_getiri_pct": 1.509,
+        "profit_factor": 1.45,
+        "maks_dd_pct": -21.51
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2021-09-09",
+          "cikis_tarih": "2021-09-21",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.115
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2021-09-22",
+          "cikis_tarih": "2021-11-18",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 23.243
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2023-05-04",
+          "cikis_tarih": "2023-06-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 28.557
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2024-08-07",
+          "cikis_tarih": "2024-08-09",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.078
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2024-08-13",
+          "cikis_tarih": "2024-08-21",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -6.855
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2024-09-13",
+          "cikis_tarih": "2024-10-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.236
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2024-10-04",
+          "cikis_tarih": "2025-01-02",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 12.548
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2025-01-16",
+          "cikis_tarih": "2025-01-24",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.022
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2025-01-27",
+          "cikis_tarih": "2025-02-03",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.731
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2025-02-04",
+          "cikis_tarih": "2025-02-05",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.855
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2025-02-07",
+          "cikis_tarih": "2025-02-12",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.572
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2025-02-13",
+          "cikis_tarih": "2025-02-17",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.769
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2025-02-19",
+          "cikis_tarih": "2025-03-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 13.781
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2025-09-09",
+          "cikis_tarih": "2025-10-13",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -7.895
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2025-10-21",
+          "cikis_tarih": "2025-12-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 19.411
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2026-01-22",
+          "cikis_tarih": "2026-03-02",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2026-03-05",
+          "cikis_tarih": "2026-03-06",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -0.994
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2026-03-10",
+          "cikis_tarih": "2026-06-08",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": -3.346
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2026-07-30",
+          "cikis_tarih": "2026-08-03",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.704
+        },
+        {
+          "sembol": "OTKAR",
+          "giris_tarih": "2026-08-04",
+          "cikis_tarih": "2026-08-05",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.93
+        }
+      ]
+    },
+    "PETKM": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 9,
+        "isabet_pct": 33.3,
+        "ort_net_getiri_pct": 2.5,
+        "profit_factor": 1.58,
+        "maks_dd_pct": -20.71
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2022-07-18",
+          "cikis_tarih": "2022-08-16",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 24.484
+        },
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2023-02-15",
+          "cikis_tarih": "2023-04-27",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2023-05-08",
+          "cikis_tarih": "2023-05-09",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.739
+        },
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2023-05-11",
+          "cikis_tarih": "2023-06-07",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 20.603
+        },
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2024-04-05",
+          "cikis_tarih": "2024-07-04",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 15.892
+        },
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2024-10-04",
+          "cikis_tarih": "2024-10-08",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.394
+        },
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2024-10-09",
+          "cikis_tarih": "2024-10-14",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.699
+        },
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2024-10-15",
+          "cikis_tarih": "2024-11-05",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -7.076
+        },
+        {
+          "sembol": "PETKM",
+          "giris_tarih": "2024-11-06",
+          "cikis_tarih": "2025-02-04",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": -7.318
+        }
+      ]
+    },
+    "SISE": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 12,
+        "isabet_pct": 50.0,
+        "ort_net_getiri_pct": 7.166,
+        "profit_factor": 4.56,
+        "maks_dd_pct": -13.09
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2021-09-22",
+          "cikis_tarih": "2021-09-28",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.206
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2021-09-29",
+          "cikis_tarih": "2021-10-06",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.432
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2021-10-07",
+          "cikis_tarih": "2021-10-26",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 8.852
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-03-30",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 22.758
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2023-05-08",
+          "cikis_tarih": "2023-07-17",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 36.48
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2024-08-07",
+          "cikis_tarih": "2024-08-12",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.489
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2024-08-13",
+          "cikis_tarih": "2024-08-14",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.738
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2024-08-15",
+          "cikis_tarih": "2024-09-11",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.295
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2024-09-12",
+          "cikis_tarih": "2024-12-11",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 4.683
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2025-05-08",
+          "cikis_tarih": "2025-07-03",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 13.022
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2025-10-15",
+          "cikis_tarih": "2025-10-17",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.001
+        },
+        {
+          "sembol": "SISE",
+          "giris_tarih": "2025-10-20",
+          "cikis_tarih": "2025-12-08",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 24.36
+        }
+      ]
+    },
+    "EKGYO": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 6,
+        "isabet_pct": 66.7,
+        "ort_net_getiri_pct": 15.594,
+        "profit_factor": 4.97,
+        "maks_dd_pct": -12.25
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "EKGYO",
+          "giris_tarih": "2022-02-25",
+          "cikis_tarih": "2022-04-04",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 22.789
+        },
+        {
+          "sembol": "EKGYO",
+          "giris_tarih": "2023-02-15",
+          "cikis_tarih": "2023-03-29",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "EKGYO",
+          "giris_tarih": "2023-05-08",
+          "cikis_tarih": "2023-08-07",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 64.255
+        },
+        {
+          "sembol": "EKGYO",
+          "giris_tarih": "2025-03-25",
+          "cikis_tarih": "2025-04-17",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -11.326
+        },
+        {
+          "sembol": "EKGYO",
+          "giris_tarih": "2025-04-21",
+          "cikis_tarih": "2025-05-16",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 26.873
+        },
+        {
+          "sembol": "EKGYO",
+          "giris_tarih": "2026-03-16",
+          "cikis_tarih": "2026-06-15",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 3.222
+        }
+      ]
+    },
+    "TRMET": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 6,
+        "isabet_pct": 50.0,
+        "ort_net_getiri_pct": 9.414,
+        "profit_factor": 3.06,
+        "maks_dd_pct": -14.57
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "TRMET",
+          "giris_tarih": "2023-02-15",
+          "cikis_tarih": "2023-03-02",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "TRMET",
+          "giris_tarih": "2023-05-04",
+          "cikis_tarih": "2023-06-09",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 51.135
+        },
+        {
+          "sembol": "TRMET",
+          "giris_tarih": "2023-12-14",
+          "cikis_tarih": "2023-12-20",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.433
+        },
+        {
+          "sembol": "TRMET",
+          "giris_tarih": "2023-12-21",
+          "cikis_tarih": "2023-12-22",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.671
+        },
+        {
+          "sembol": "TRMET",
+          "giris_tarih": "2023-12-27",
+          "cikis_tarih": "2024-03-26",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 10.468
+        },
+        {
+          "sembol": "TRMET",
+          "giris_tarih": "2025-08-11",
+          "cikis_tarih": "2025-09-25",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 22.233
+        }
+      ]
+    },
+    "ALARK": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 17,
+        "isabet_pct": 41.2,
+        "ort_net_getiri_pct": 3.672,
+        "profit_factor": 1.94,
+        "maks_dd_pct": -26.47
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2021-08-31",
+          "cikis_tarih": "2021-09-08",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.07
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2021-09-09",
+          "cikis_tarih": "2021-10-06",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -5.908
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2021-10-07",
+          "cikis_tarih": "2021-10-26",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 13.188
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2023-01-12",
+          "cikis_tarih": "2023-02-08",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2023-05-11",
+          "cikis_tarih": "2023-06-06",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 28.583
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2023-12-14",
+          "cikis_tarih": "2024-01-29",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 20.038
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2024-06-25",
+          "cikis_tarih": "2024-06-26",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -2.642
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2024-06-27",
+          "cikis_tarih": "2024-09-10",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2024-09-12",
+          "cikis_tarih": "2024-10-02",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -6.648
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2024-10-04",
+          "cikis_tarih": "2024-10-14",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.532
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2024-10-15",
+          "cikis_tarih": "2025-01-13",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 7.002
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2025-02-04",
+          "cikis_tarih": "2025-02-21",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.749
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2025-03-03",
+          "cikis_tarih": "2025-04-02",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 34.373
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2025-09-04",
+          "cikis_tarih": "2025-09-05",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -1.785
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2025-09-15",
+          "cikis_tarih": "2025-11-13",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 7.318
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2026-03-10",
+          "cikis_tarih": "2026-03-13",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -6.903
+        },
+        {
+          "sembol": "ALARK",
+          "giris_tarih": "2026-03-17",
+          "cikis_tarih": "2026-06-15",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 18.663
+        }
+      ]
+    },
+    "ENJSA": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 4,
+        "isabet_pct": 100.0,
+        "ort_net_getiri_pct": 9.123,
+        "profit_factor": 999.0,
+        "maks_dd_pct": 0.0
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "ENJSA",
+          "giris_tarih": "2021-09-29",
+          "cikis_tarih": "2021-10-18",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 8.797
+        },
+        {
+          "sembol": "ENJSA",
+          "giris_tarih": "2022-07-06",
+          "cikis_tarih": "2022-07-27",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 15.958
+        },
+        {
+          "sembol": "ENJSA",
+          "giris_tarih": "2024-06-07",
+          "cikis_tarih": "2024-09-05",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 1.467
+        },
+        {
+          "sembol": "ENJSA",
+          "giris_tarih": "2024-09-13",
+          "cikis_tarih": "2024-12-12",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 10.272
+        }
+      ]
+    },
+    "ULKER": {
+      "veri_baslangic": "2021-08-10",
+      "veri_bitis": "2026-08-10",
+      "toplam_bar": 1254,
+      "ozet": {
+        "islem_sayisi": 11,
+        "isabet_pct": 45.5,
+        "ort_net_getiri_pct": -0.219,
+        "profit_factor": 0.96,
+        "maks_dd_pct": -30.58
+      },
+      "islem_detaylari": [
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2021-09-01",
+          "cikis_tarih": "2021-10-27",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 5.205
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2021-12-23",
+          "cikis_tarih": "2022-02-24",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2022-03-02",
+          "cikis_tarih": "2022-04-04",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 11.58
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2022-07-06",
+          "cikis_tarih": "2022-08-05",
+          "sebep": "KAR_AL",
+          "net_getiri_pct": 9.982
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2023-02-15",
+          "cikis_tarih": "2023-02-17",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2024-10-04",
+          "cikis_tarih": "2024-10-14",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -9.844
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2024-10-15",
+          "cikis_tarih": "2024-11-13",
+          "sebep": "STOP",
+          "net_getiri_pct": -12.25
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2024-11-21",
+          "cikis_tarih": "2025-02-19",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 14.706
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2025-09-09",
+          "cikis_tarih": "2025-12-08",
+          "sebep": "MAKS_TUTMA",
+          "net_getiri_pct": 10.807
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2026-07-03",
+          "cikis_tarih": "2026-07-08",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -3.097
+        },
+        {
+          "sembol": "ULKER",
+          "giris_tarih": "2026-07-16",
+          "cikis_tarih": "2026-07-23",
+          "sebep": "BASARISIZ_SICRAMA",
+          "net_getiri_pct": -4.995
         }
       ]
     }
