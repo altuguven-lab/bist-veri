@@ -681,3 +681,44 @@ TUM evrende (29/30) tasiyor - yalniz 5 portfoy pozisyonuyla SINIRLI
 degil, kullanicinin "bu hisselerde de alim satim yapacagiz" ihtiyacini
 karsiliyor.
 
+
+32) GERI DONUS ORUNTULERI - LITERATUR ARASTIRMASI + YOL HARITASI (10.08)
+
+KULLANICI GOZLEMI DOGRULANDI: KCHOL 05.08 kar surprizi (19.7mlr TL vs
+13.1mlr TL beklenti) sonrasi AYNI GUN 206 TL'ye SICRADI, sonraki
+gunlerde 195 TL civarina GERI CEKILDI - "toparlanma basladi" gozlemi
+GERCEK VERIYLE dogrulandi.
+
+AKADEMIK LITERATUR ARASTIRMASI (Quantpedia + akademik makaleler):
+  - "Reversal During Earnings-Announcements": kazanc aciklamasi
+    CEVRESINDE kisa-vadeli tersine-donus, RASTGELE donemlerden COK
+    DAHA GUCLU - akademik olarak dogrulanmis bir FENOMEN.
+  - ASIMETRI BULGUSU (KRITIK): yatirimcilar IYI habere AZ tepki
+    verir, KOTU habere ASIRI tepki verir - yani POZITIF surprizlerde
+    (KCHOL/ASELS gibi) asiri-tepki/duzeltme DAHA KUCUK olabilir.
+  - PENCERE STANDARDI: PEAD/reversal etkileri kazanc SONRASI ILK
+    5-10 GUNDE en guclu, 20-30 gunu asinca "bilgi zaten fiyata
+    islenmis" sayilir (PEAD Screener, TradingView).
+  - "Gap fill" kavrami: asiri-uzamis kazanc-sonrasi sicramalarin
+    GERI CEKILME BEKLENTISI, pratikte YAYGIN kullanilan bir yaklasim.
+
+KALIBRASYON KARARLARI (kazanc_surprizi_reversal.py'ye UYGULANDI):
+  1. PENCERE SINIRLAMASI: zirve, kayit tarihinden SONRAKI ILK 10 IS
+     GUNUYLE sinirlandi (30 gunu asan sinyaller "SINYAL_ESKIMIS_
+     30GUN_ASILDI" - ayri etiket).
+  2. ESIK DUSURULDU: -3.0% -> -1.5% (asimetri bulgusu - ilk testte
+     KCHOL/ASELS -3.0 esigini TUTTURAMAMISTI, -1.5 ile DAHA DUYARLI).
+  3. UC ETIKETLI SISTEM: makro_hassasiyet_haritasi.json ile
+     CAPRAZLANDI - "GERI_CEKILME_ADAYI_GUCLU" (makro ruzgar notr)
+     vs "GERI_CEKILME_ADAYI_TEMKINLI" (ayni sektorde GUNCEL makro
+     hassasiyet VARSA, "haberleri kontrol et" notuyla).
+
+DORT senaryoda (TEMKINLI/GUCLU/ESKIMIS/YETERSIZ etiketleme) IZOLE
+mantik testi ile dogrulandi - hepsi GECTI.
+
+SONRAKI ADIM: workflow tetiklenip, guncellenmis esiklerle KCHOL/ASELS'in
+simdi GERI_CEKILME_ADAYI_* etiketlerinden birine GIRIP GIRMEDIGI
+kontrol edilmeli. Zaman icinde, bu taramanin GERCEK performansi
+(sinyal_arsiv_gunluk.py disiplinine benzer sekilde, "adaylarin
+GERCEKTEN toparlanip toparlanmadigi") ayrica IZLENMELI - HENUZ bu
+IZLEME KURULMADI, gelecek bir adim olarak NOT dusuldu.
