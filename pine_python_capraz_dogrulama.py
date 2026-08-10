@@ -12,6 +12,12 @@ STOP-LOSS'SUZ (orijinal, ilk backtest) veriydi - Pine v1 ISE stop-
 loss'lu. Bu, apples-to-oranges bir karsilastirmaydi. Bu script o
 hatayi DUZELTIR.
 
+10.08 EKI (Kurul karari): Pine PANELI KENDISI degistirilmedi (SADE
+kalsin, tum gecmisi gosterir) - bunun yerine, TUM 30 sembol icin,
+v1 KALIBRASYONUMUZLA TUTARLI 5-YILLIK pencerede, GUVENILIR bir
+REFERANS TABLOSU burada uretilir. KARAR ICIN ASIL kaynak BU
+TABLODUR, Pine panelinin KUMULATIF/tum-gecmis gorunumu DEGIL.
+
 KIRMIZI CIZGI: SALT OLCUM, Pine'a hic dokunmuyor.
 """
 from json_atomik_yaz import atomik_json_yaz
@@ -101,12 +107,17 @@ def ozet_hesapla(islemler):
 
 
 def main():
-    HEDEF_SEMBOLLER = ["TTKOM", "ENJSA", "TAVHL", "KCHOL", "AKBNK"]
+    import yaml
+    with open("config/universe.yml", encoding="utf-8") as f:
+        HEDEF_SEMBOLLER = yaml.safe_load(f)["symbols"]
 
     sonuclar = {}
     for sembol in HEDEF_SEMBOLLER:
         try:
-            df = yf.Ticker(f"{sembol}.IS").history(period="max", interval="1d")
+            # 10.08 EKI: "max" -> "5y" - 2000-2001 Turkiye krizi gibi ESKI
+            # rejimlerin etkisini DISLAMAK icin, v1 kalibrasyonumuzla
+            # (Bolum 1) TUTARLI 5 yillik pencereye SINIRLANDI.
+            df = yf.Ticker(f"{sembol}.IS").history(period="5y", interval="1d")
         except Exception as e:
             print(f"HATA: {sembol} veri cekilemedi -> {e}", file=sys.stderr)
             continue
