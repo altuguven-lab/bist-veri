@@ -36,7 +36,9 @@ sinyal" olarak ele alinmali.
 Kanit: Denetim Madde 4 karari (REJIM_KALIBRASYON_PROMPTU.md Bolum 25).
   - Pozisyon basina: kova'nin %12'si (SOYUT birim - GERCEK TL tutari
     Pine'da SAKLANMAZ/BILINMEZ, oransal sistem).
-  - Maksimum 5 esizamanli pozisyon.
+  - Maksimum 8 esizamanli pozisyon (10.08 GUNCELLEME - bkz. Bolum 4C,
+    rsi_limit_grid.py sonucu: %12 pozisyon buyuklugüyle matematiksel
+    tutarli maksimum, limit=5'ten belirgin daha iyi edge).
   - Ayni sektorden maksimum 2 esizamanli pozisyon (30 sembollük evren
     icin sektor haritasi: rsi_gozlem.py'deki SEKTOR_HARITASI referans
     alinmali - Pine'a AYNI haritanin manuel kopyasi gerekir, Pine
@@ -157,10 +159,35 @@ anlarinda (cok sayida sembolde AYNI ANDA RSI sinyali) devreye giriyor
 OLABILIR. Alfabetik siralama (KALITE DEGIL) hangi sinyalin alinacagini
 belirliyor - bu, RASTGELE bir kayip yaratiyor olabilir.
 
-**ACIK KARAR (Pine yazilmadan ONCE cozulmeli):** eszamanli limit
-degeri (5/7/10) VE siralama kriteri (alfabetik yerine "en derin RSI"
-gibi basit bir kural) test edilip KARARLASTIRILMALI - bu, v1'in
-CEKIRDEK mantiginin (Bolum 1.3) SAYISINI DEGISTIREBILIR.
+**COZULDU (10.08) - rsi_limit_grid.py sonucu:**
+| Limit | Islem | Isabet | Ort net | Reddedilen |
+|---|---|---|---|---|
+| 3 | 89 | %40.4 | +%3.885 | 188 |
+| 5 | 134 | %43.3 | +%4.471 | 141 |
+| 7 | 167 | %45.5 | +%5.283 | 106 |
+| 10 | 211 | %47.4 | +%5.948 | 59 |
+| 15 | 235 | %48.5 | +%6.136 | 34 |
+| Kisitsiz | 276 | %52.2 | +%6.746 | 0 |
+
+ORUNTU: MONOTON iyilesme, "tatli nokta" YOK - limit yukseldikce edge
+surekli kisitsiza YAKLASIYOR.
+
+**KRITIK BULGU (matematiksel tutarsizlik):** Pozisyon buyuklugu (%12,
+Bolum 1.3) ile limit=10/15 BIRBIRIYLE CELISIYOR - 10 pozisyon x %12 =
+%120 (kovanin %100'unu ASAR, IMKANSIZ). %12 boyutuyla matematiksel
+tutarli MAKSIMUM 8 pozisyondur (8x%12=%96).
+
+**KARAR: LIMIT=8 secildi** (matematiksel tutarli maksimum, %12
+pozisyon buyuklugüyle uyumlu, limit=5'ten belirgin daha iyi edge).
+Bolum 1.3 GUNCELLENMELI: "Maksimum 5 esizamanli pozisyon" ->
+"Maksimum 8 esizamanli pozisyon".
+
+ACIK KALAN (Pine SONRASI/canli gozlemde ele alinmali): bu test
+YALNIZ EDGE'i olctu, RISK tarafini (piyasa-geneli stres aninda
+DAHA YUKSEK limit = DAHA FAZLA ESZAMANLI sermaye maruziyeti) HENUZ
+OLCMEDI. Ayrica siralama kriteri (alfabetik) HENUZ optimize
+EDILMEDI - "en derin RSI" gibi bir kalite-sirali secim, GELECEKTE
+ayri bir test konusu olabilir.
 
 **Madde 1 (sagkalim yanliligi) - sagkalim_yanliligi_duyarlilik.py:**
 30/30 sembol "tam gecmisli" (>=1200 gun) cikti - TAM EVREN ve TAM-
