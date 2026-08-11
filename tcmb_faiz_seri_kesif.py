@@ -10,24 +10,44 @@ altindaki GERCEK veri gruplarini/serileri KESFEDER.
 KIRMIZI CIZGI: SALT KESIF/ARASTIRMA, hicbir veri KAYDETMEZ, hicbir
 sinyal URETMEZ - yalniz DOGRU seri kodunu BULMAMIZA yardimci olur.
 """
-import json, os, sys
+import json, os, sys, time
 import urllib.request
 
 EVDS_TEMEL = "https://evds3.tcmb.gov.tr/igmevdsms-dis/{yol}"
 
 
-def evds_istek(yol, anahtar):
+def turkce_kucuk(metin):
+    """11.08 DUZELTME: Python'un standart .lower()'i Turkce buyuk 'I'
+    (noktali - U+0130) harfini 'i' yerine 'i' + GORUNMEZ nokta
+    isaretine (U+0307) cevirir - bu yuzden "FAIZ".lower() "faiz" ile
+    ESLESMIYORDU (aralarinda GORUNMEZ bir karakter kaliyordu). Bu,
+    Turkce harfleri ELLE degistirerek dogru kucuk harfe cevirir."""
+    return metin.replace("İ", "i").replace("I", "ı").lower()
+
+
+def evds_istek(yol, anahtar, deneme_sayisi=3):
     url = EVDS_TEMEL.format(yol=yol)
     istek = urllib.request.Request(url, headers={
         "User-Agent": "bist-veri-arastirma-botu",
         "Accept": "application/json",
         "key": anahtar,
     })
-    with urllib.request.urlopen(istek, timeout=20) as yanit:
-        ham = yanit.read().decode("utf-8", errors="replace")
-    if not ham.strip():
-        raise ValueError(f"BOS yanit (yol: {yol})")
-    return json.loads(ham)
+    # 11.08 EKI: GECICI SSL/aglama zaman asimlarini tolere etmek icin
+    # basit yeniden-deneme (bugunku benzer git-push deseniyle AYNI ruh).
+    son_hata = None
+    for deneme in range(1, deneme_sayisi + 1):
+        try:
+            with urllib.request.urlopen(istek, timeout=30) as yanit:
+                ham = yanit.read().decode("utf-8", errors="replace")
+            if not ham.strip():
+                raise ValueError(f"BOS yanit (yol: {yol})")
+            return json.loads(ham)
+        except Exception as e:
+            son_hata = e
+            print(f"UYARI: istek basarisiz (deneme {deneme}/{deneme_sayisi}) -> {e}", file=sys.stderr)
+            if deneme < deneme_sayisi:
+                time.sleep(3 * deneme)
+    raise son_hata
 
 
 def main():
@@ -45,7 +65,7 @@ def main():
 
     kategori_listesi = kategoriler if isinstance(kategoriler, list) else kategoriler.get("items", kategoriler)
     faiz_kategorileri = [k for k in kategori_listesi
-                          if "faiz" in str(k.get("TOPIC_TITLE_TR", "")).lower()]
+                          if "faiz" in turkce_kucuk(str(k.get("TOPIC_TITLE_TR", "")))]
     print(f"Toplam {len(kategori_listesi)} konu basligi bulundu, "
           f"{len(faiz_kategorileri)} tanesi 'faiz' iceriyor:")
     for k in faiz_kategorileri:
@@ -69,7 +89,7 @@ def main():
             continue
         grup_listesi = gruplar if isinstance(gruplar, list) else gruplar.get("items", gruplar)
         ilgili = [g for g in grup_listesi
-                  if any(kelime in str(g.get("DATAGROUP_NAME", "")).lower()
+                  if any(kelime in turkce_kucuk(str(g.get("DATAGROUP_NAME", "")))
                          for kelime in ["repo", "politika", "gecelik", "fonlama"])]
         for g in ilgili[:20]:
             print(f"  KOD={g.get('DATAGROUP_CODE')}: {g.get('DATAGROUP_NAME')}")
