@@ -16,7 +16,10 @@ import json, datetime, os, sys
 import urllib.request
 import urllib.error
 
-EVDS_TEMEL_URL = "https://evds2.tcmb.gov.tr/service/evds/series={seri}&startDate={baslangic}&endDate={bitis}&type=json&key={anahtar}"
+# 10.08 DUZELTME: EVDS GUVENLIK GUNCELLEMESI - key artik URL parametresi
+# DEGIL, HTTP HEADER olarak gonderilmeli (iki bagimsiz kaynaktan
+# dogrulandi - TCMB bu degisikligi resmi olarak duyurmus).
+EVDS_TEMEL_URL = "https://evds2.tcmb.gov.tr/service/evds/series={seri}&startDate={baslangic}&endDate={bitis}&type=json"
 
 USD_TRY_SERI = "TP.DK.USD.A.YTL"
 
@@ -27,10 +30,28 @@ def tarih_evds_format(tarih):
 
 def evds_veri_cek(seri, baslangic, bitis, anahtar):
     url = EVDS_TEMEL_URL.format(seri=seri, baslangic=tarih_evds_format(baslangic),
-                                  bitis=tarih_evds_format(bitis), anahtar=anahtar)
-    istek = urllib.request.Request(url, headers={"User-Agent": "bist-veri-arastirma-botu"})
+                                  bitis=tarih_evds_format(bitis))
+    print(f"TESHIS: istek URL'i -> {url}", file=sys.stderr)
+    print(f"TESHIS: anahtar uzunlugu -> {len(anahtar)} karakter (HEADER'da gonderiliyor)", file=sys.stderr)
+
+    # 10.08 DUZELTME: key artik HEADER'da - EVDS'nin guvenlik
+    # guncellemesi geregi (URL'de gonderilirse SESSIZCE bos yanit
+    # donuyor - onceki denemede HTTP 200/0-bayt olarak GOZLEMLENDI).
+    istek = urllib.request.Request(url, headers={
+        "User-Agent": "bist-veri-arastirma-botu",
+        "Accept": "application/json",
+        "key": anahtar,
+    })
     with urllib.request.urlopen(istek, timeout=20) as yanit:
-        ham = yanit.read().decode("utf-8")
+        durum_kodu = yanit.status if hasattr(yanit, "status") else yanit.getcode()
+        ham_bytes = yanit.read()
+    print(f"TESHIS: HTTP durum kodu -> {durum_kodu}", file=sys.stderr)
+    print(f"TESHIS: yanit uzunlugu -> {len(ham_bytes)} bayt", file=sys.stderr)
+    ham = ham_bytes.decode("utf-8", errors="replace")
+    print(f"TESHIS: yanitin ilk 300 karakteri -> {ham[:300]!r}", file=sys.stderr)
+    if not ham.strip():
+        raise ValueError(f"EVDS BOS yanit dondurdu (HTTP {durum_kodu}) - "
+                          f"anahtar GECERSIZ olabilir ya da baska bir sorun var.")
     return json.loads(ham)
 
 
