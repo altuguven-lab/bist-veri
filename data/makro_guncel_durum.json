@@ -1,0 +1,269 @@
+{
+  "olusturma_utc": "2026-08-11T09:06:19.680384+00:00",
+  "not": "makro_hassasiyet_haritasi.json'daki faktorlere, MEVCUT GERCEK veriyle (su an yalniz USD_TRY_KURU icin TCMB EVDS) GUNCEL deger eklenmis halidir. Bu bir TAHMIN/SINYAL DEGILDIR - yalniz 'bu faktorun guncel degeri su' diye GOSTERIR, yorumlama insana aittir.",
+  "usd_try_ozet": {
+    "guncel_deger": 47.626,
+    "guncel_tarih": "11-08-2026",
+    "donem_basi_deger": 46.8084,
+    "donem_basi_tarih": "13-07-2026",
+    "donem_ici_degisim_pct": 1.75,
+    "gecerli_gun_sayisi": 21
+  },
+  "usd_try_etkilenen_sektor_sayisi": 7,
+  "hassasiyet_haritasi_guncel": {
+    "Bankacilik": [
+      {
+        "faktor": "TCMB_FAIZ_KARARI",
+        "aciklama": "Politika faizi degisiklikleri net faiz marjini dogrudan etkiler"
+      },
+      {
+        "faktor": "ENFLASYON_VERISI",
+        "aciklama": "TUIK enflasyon verileri TCMB faiz beklentisini sekillendirir"
+      },
+      {
+        "faktor": "MAKROIHTIYATI_DUZENLEME",
+        "aciklama": "BDDK kredi buyumesi/karsilik duzenlemeleri"
+      }
+    ],
+    "Holding": [
+      {
+        "faktor": "USD_TRY_KURU",
+        "aciklama": "Cok sektorlü yapida doviz pozisyonu genis, kur hareketine genis maruziyet",
+        "guncel_veri": {
+          "guncel_deger": 47.626,
+          "guncel_tarih": "11-08-2026",
+          "donem_basi_deger": 46.8084,
+          "donem_basi_tarih": "13-07-2026",
+          "donem_ici_degisim_pct": 1.75,
+          "gecerli_gun_sayisi": 21
+        }
+      },
+      {
+        "faktor": "GENEL_PIYASA_RISK_ISTAHI",
+        "aciklama": "Cesitlendirilmis yapida ozel-sirket haberinden cok genel risk istahi belirleyici"
+      }
+    ],
+    "Havacilik": [
+      {
+        "faktor": "PETROL_FIYATI",
+        "aciklama": "Yakit maliyeti operasyonel giderin buyuk kismi"
+      },
+      {
+        "faktor": "TURIZM_SEZONU",
+        "aciklama": "Yaz/kis sezon donguleri doluluk oranini belirler"
+      },
+      {
+        "faktor": "BOLGESEL_JEOPOLITIK_RISK",
+        "aciklama": "Bolgesel gerginlik rota kapanmasi/guvenlik riski yaratabilir"
+      },
+      {
+        "faktor": "USD_TRY_KURU",
+        "aciklama": "Ucak kirasi/yakit USD bazli, gelirin onemli kismi da doviz",
+        "guncel_veri": {
+          "guncel_deger": 47.626,
+          "guncel_tarih": "11-08-2026",
+          "donem_basi_deger": 46.8084,
+          "donem_basi_tarih": "13-07-2026",
+          "donem_ici_degisim_pct": 1.75,
+          "gecerli_gun_sayisi": 21
+        }
+      }
+    ],
+    "Havacilik-Altyapi": [
+      {
+        "faktor": "TURIZM_SEZONU",
+        "aciklama": "Havalimani yolcu trafigi turizm sezonuna bagli"
+      },
+      {
+        "faktor": "USD_TRY_KURU",
+        "aciklama": "Havalimani isletme sozlesmeleri genelde USD bazli",
+        "guncel_veri": {
+          "guncel_deger": 47.626,
+          "guncel_tarih": "11-08-2026",
+          "donem_basi_deger": 46.8084,
+          "donem_basi_tarih": "13-07-2026",
+          "donem_ici_degisim_pct": 1.75,
+          "gecerli_gun_sayisi": 21
+        }
+      }
+    ],
+    "Demir-Celik": [
+      {
+        "faktor": "KURESEL_CELIK_FIYATI",
+        "aciklama": "Urun fiyati dogrudan kuresel emtia piyasasina bagli"
+      },
+      {
+        "faktor": "CIN_TALEBI",
+        "aciklama": "Cin, kuresel celik arz-talep dengesinin en buyuk belirleyicisi"
+      },
+      {
+        "faktor": "ENERJI_MALIYETI",
+        "aciklama": "Uretim enerji-yogun, elektrik/dogalgaz fiyati maliyeti etkiler"
+      }
+    ],
+    "Sanayi-Cam": [
+      {
+        "faktor": "KURESEL_TALEP",
+        "aciklama": "Ihracat agirlikli, kuresel sanayi uretimine duyarli"
+      },
+      {
+        "faktor": "ENERJI_MALIYETI",
+        "aciklama": "Cam uretimi enerji-yogun bir surec"
+      }
+    ],
+    "Savunma": [
+      {
+        "faktor": "BOLGESEL_JEOPOLITIK_RISK",
+        "aciklama": "Bolgesel gerginlik savunma harcamasi/siparis temasini guclendirir (07.08 arastirmasi: AllianceBernstein notunda Iran gerginligi vurgusu)"
+      },
+      {
+        "faktor": "USD_TRY_KURU",
+        "aciklama": "Siparis bakiyesi genelde USD bazli",
+        "guncel_veri": {
+          "guncel_deger": 47.626,
+          "guncel_tarih": "11-08-2026",
+          "donem_basi_deger": 46.8084,
+          "donem_basi_tarih": "13-07-2026",
+          "donem_ici_degisim_pct": 1.75,
+          "gecerli_gun_sayisi": 21
+        }
+      },
+      {
+        "faktor": "SAVUNMA_IHRACAT_SIPARISLERI",
+        "aciklama": "Yeni ihracat anlasmalari dogrudan gelir gorunumunu etkiler"
+      }
+    ],
+    "Enerji-Ekipman": [
+      {
+        "faktor": "BOLGESEL_JEOPOLITIK_RISK",
+        "aciklama": "Enerji altyapisi/sebeke yatirimi, jeopolitik risk temasi ile iliskilendirilebilir (07.08: AllianceBernstein notunda ASTOR da isaretlenmisti)"
+      },
+      {
+        "faktor": "ENERJI_DONUSUMU_YATIRIM_DONGUSU",
+        "aciklama": "Sebeke modernizasyonu/yenilenebilir yatirim dongusu"
+      }
+    ],
+    "Enerji-Elektrik": [
+      {
+        "faktor": "DUZENLEME_TARIFE",
+        "aciklama": "Elektrik dagitim tarifesi duzenlenmis, EPDK kararlarina bagli"
+      },
+      {
+        "faktor": "TCMB_FAIZ_KARARI",
+        "aciklama": "Sermaye yogun, borclanma maliyeti faiz ortamina duyarli"
+      }
+    ],
+    "Perakende": [
+      {
+        "faktor": "YURTICI_TUKETIM",
+        "aciklama": "Gelir dogrudan hanehalki tuketim gucune bagli"
+      },
+      {
+        "faktor": "ENFLASYON_VERISI",
+        "aciklama": "Gida enflasyonu hem ciro hem marj uzerinde etkili"
+      }
+    ],
+    "Petrokimya": [
+      {
+        "faktor": "PETROL_FIYATI",
+        "aciklama": "Ham petrol girdi maliyeti, rafineri marji uzerinde dogrudan etki"
+      },
+      {
+        "faktor": "BOLGESEL_JEOPOLITIK_RISK",
+        "aciklama": "Iran gibi buyuk petrol ureticisini iceren gerginlikler arz/fiyat riski yaratir"
+      },
+      {
+        "faktor": "USD_TRY_KURU",
+        "aciklama": "Girdi/cikti fiyatlari dogrudan USD bazli",
+        "guncel_veri": {
+          "guncel_deger": 47.626,
+          "guncel_tarih": "11-08-2026",
+          "donem_basi_deger": 46.8084,
+          "donem_basi_tarih": "13-07-2026",
+          "donem_ici_degisim_pct": 1.75,
+          "gecerli_gun_sayisi": 21
+        }
+      }
+    ],
+    "Otomotiv": [
+      {
+        "faktor": "AVRUPA_TALEBI",
+        "aciklama": "Ihracat agirlikli, AB otomotiv talebine/resesyon riskine duyarli"
+      },
+      {
+        "faktor": "USD_TRY_KURU",
+        "aciklama": "Parca ithalati ve ihracat geliri kur hareketine duyarli",
+        "guncel_veri": {
+          "guncel_deger": 47.626,
+          "guncel_tarih": "11-08-2026",
+          "donem_basi_deger": 46.8084,
+          "donem_basi_tarih": "13-07-2026",
+          "donem_ici_degisim_pct": 1.75,
+          "gecerli_gun_sayisi": 21
+        }
+      },
+      {
+        "faktor": "KURESEL_TEDARIK_ZINCIRI",
+        "aciklama": "Yari iletken/parca tedarik kesintileri uretimi etkileyebilir"
+      }
+    ],
+    "Insaat": [
+      {
+        "faktor": "TCMB_FAIZ_KARARI",
+        "aciklama": "Insaat kredisi/proje finansmani faiz ortamina duyarli"
+      },
+      {
+        "faktor": "YURTDISI_PROJE_PORTFOYU",
+        "aciklama": "Bazi insaat sirketlerinin tarihsel Ortadogu proje gecmisi var - bolgesel jeopolitik gelismeler proje riskini etkileyebilir"
+      }
+    ],
+    "Telekom": [
+      {
+        "faktor": "DUZENLEME",
+        "aciklama": "BTK duzenlemeleri/tarife politikasi"
+      },
+      {
+        "faktor": "YURTICI_TUKETIM",
+        "aciklama": "Buyuk olcude yurtici, dis faktorlere goreli daha az duyarli"
+      }
+    ],
+    "Gida-Icecek": [
+      {
+        "faktor": "YURTICI_TUKETIM",
+        "aciklama": "Gelir buyuk olcude yurtici tuketime bagli"
+      },
+      {
+        "faktor": "EMTIA_GIRDI_MALIYETI",
+        "aciklama": "Tarimsal hammadde (arpa, seker vb.) fiyatlari marji etkiler"
+      }
+    ],
+    "GYO": [
+      {
+        "faktor": "TCMB_FAIZ_KARARI",
+        "aciklama": "Konut kredisi faizi talebi dogrudan etkiler"
+      },
+      {
+        "faktor": "INSAAT_MALIYETI",
+        "aciklama": "Girdi/isgucu maliyeti proje karliligini etkiler"
+      }
+    ],
+    "Madencilik": [
+      {
+        "faktor": "KURESEL_METAL_FIYATI",
+        "aciklama": "Urun fiyati kuresel emtia piyasasina bagli"
+      },
+      {
+        "faktor": "USD_TRY_KURU",
+        "aciklama": "Metal fiyatlari USD bazli fiyatlanir",
+        "guncel_veri": {
+          "guncel_deger": 47.626,
+          "guncel_tarih": "11-08-2026",
+          "donem_basi_deger": 46.8084,
+          "donem_basi_tarih": "13-07-2026",
+          "donem_ici_degisim_pct": 1.75,
+          "gecerli_gun_sayisi": 21
+        }
+      }
+    ]
+  }
+}
