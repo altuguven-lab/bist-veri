@@ -1,0 +1,18 @@
+# TCMB FAIZ SERI KESIF (11.08.2026) - Faz V0
+# Konum: .github/workflows/tcmb_faiz_seri_kesif.yml
+# TEK SEFERLIK, elle tetiklenir - GECICI kesif, veri KAYDETMEZ.
+name: TCMB Faiz Seri Kesif
+on:
+  workflow_dispatch: {}
+jobs:
+  kesif:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Kesfi calistir
+        env:
+          TCMB_EVDS_API_KEY: ${{ secrets.TCMB_EVDS_API_KEY }}
+        run: python tcmb_faiz_seri_kesif.py
