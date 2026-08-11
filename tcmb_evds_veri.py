@@ -22,6 +22,13 @@ import urllib.error
 EVDS_TEMEL_URL = "https://evds3.tcmb.gov.tr/igmevdsms-dis/series={seri}&startDate={baslangic}&endDate={bitis}&type=json"
 
 USD_TRY_SERI = "TP.DK.USD.A.YTL"
+# 11.08 EKI: tcmb_faiz_seri_kesif.py ile DOGRULANDI (bkz. o script'in
+# ADIM 3 ciktisi) - Turkiye MB politika faizi, BIS karsilastirma
+# serisinin ICINDE.
+POLITIKA_FAIZ_SERI = "TP.BISPOLFAIZ.TUR"
+# EVDS coklu-seri destegi: seriler "-" ile AYRILARAK TEK istekte cekilir
+# (resmi belgede dogrulandi: "TP.DK.USD.S-TP.DK.EUR.S" ornegi).
+TUM_SERILER = f"{USD_TRY_SERI}-{POLITIKA_FAIZ_SERI}"
 
 
 def tarih_evds_format(tarih):
@@ -72,7 +79,7 @@ def main():
     bitis_sorgu = datetime.date(2999, 1, 1)
 
     try:
-        veri = evds_veri_cek(USD_TRY_SERI, baslangic, bitis_sorgu, anahtar)
+        veri = evds_veri_cek(TUM_SERILER, baslangic, bitis_sorgu, anahtar)
     except urllib.error.HTTPError as e:
         print(f"HATA: EVDS API HTTP hatasi -> {e.code} {e.reason}", file=sys.stderr)
         print("Olasi nedenler: API anahtari eksik/yanlis kopyalanmis, "
@@ -91,13 +98,15 @@ def main():
     # KESIN dogrulanamadi (gercek API cagrisi bu ortamda YAPILAMADI) -
     # HER IKI olasi formati da dener, ikisi de basarisizsa HAM kaydi
     # gosterir ki format sorunu GORULEBILSIN.
-    alt_cizgili = USD_TRY_SERI.replace(".", "_")
-    for k in kayitlar[-5:]:
-        deger = k.get(USD_TRY_SERI, k.get(alt_cizgili))
-        if deger is None:
-            print(f"  {k.get('Tarih')}: DEGER BULUNAMADI - ham kayit: {k}")
-        else:
-            print(f"  {k.get('Tarih')}: {deger}")
+    for seri in (USD_TRY_SERI, POLITIKA_FAIZ_SERI):
+        alt_cizgili = seri.replace(".", "_")
+        print(f"  -- {seri} --")
+        for k in kayitlar[-5:]:
+            deger = k.get(seri, k.get(alt_cizgili))
+            if deger is None:
+                print(f"     {k.get('Tarih')}: DEGER BULUNAMADI")
+            else:
+                print(f"     {k.get('Tarih')}: {deger}")
 
     rapor = {
         "cekim_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
