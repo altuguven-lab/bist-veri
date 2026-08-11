@@ -95,6 +95,17 @@ def main():
             print(f"  KOD={g.get('DATAGROUP_CODE')}: {g.get('DATAGROUP_NAME')}")
         break
 
+    print("\n=== ADIM 3: 'Merkez Bankalari Politika Faiz Orani' grubu icindeki "
+          "GERCEK seri kodlarini listele (bie_bispolfaiz) ===")
+    try:
+        seriler = evds_istek("serieList/type=json&code=bie_bispolfaiz", anahtar)
+    except Exception as e:
+        print(f"HATA: seri listesi cekilemedi -> {e}", file=sys.stderr)
+        return
+    seri_listesi = seriler if isinstance(seriler, list) else seriler.get("items", seriler)
+    for s in seri_listesi[:20]:
+        print(f"  SERI_KODU={s.get('SERIE_CODE')}: {s.get('SERIE_NAME')}")
+
 
 if __name__ == "__main__":
     main()
