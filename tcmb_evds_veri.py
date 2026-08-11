@@ -19,7 +19,7 @@ import urllib.error
 # 10.08 DUZELTME: EVDS GUVENLIK GUNCELLEMESI - key artik URL parametresi
 # DEGIL, HTTP HEADER olarak gonderilmeli (iki bagimsiz kaynaktan
 # dogrulandi - TCMB bu degisikligi resmi olarak duyurmus).
-EVDS_TEMEL_URL = "https://evds2.tcmb.gov.tr/service/evds/series={seri}&startDate={baslangic}&endDate={bitis}&type=json"
+EVDS_TEMEL_URL = "https://evds3.tcmb.gov.tr/service/evds/series={seri}&startDate={baslangic}&endDate={bitis}&type=json"
 
 USD_TRY_SERI = "TP.DK.USD.A.YTL"
 
