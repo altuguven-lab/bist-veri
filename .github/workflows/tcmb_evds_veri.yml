@@ -1,0 +1,40 @@
+# TCMB EVDS VERI (10.08.2026) - Faz V0
+# Konum: .github/workflows/tcmb_evds_veri.yml
+# TEK SEFERLIK, elle tetiklenir - once GERCEK API baglantisini
+# DOGRULAMAK icin. API anahtari REPO SECRET'I olarak eklenmelidir
+# (Settings -> Secrets and variables -> Actions -> TCMB_EVDS_API_KEY).
+name: TCMB EVDS Veri
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  veri:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Veriyi cek
+        env:
+          TCMB_EVDS_API_KEY: ${{ secrets.TCMB_EVDS_API_KEY }}
+        run: python tcmb_evds_veri.py
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "tcmb-evds-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/tcmb_evds_veri.json
+          git diff --staged --quiet && exit 0
+          git commit -m "TCMB EVDS veri guncelleme $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
