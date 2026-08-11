@@ -103,7 +103,19 @@ def main():
         print(f"HATA: seri listesi cekilemedi -> {e}", file=sys.stderr)
         return
     seri_listesi = seriler if isinstance(seriler, list) else seriler.get("items", seriler)
-    for s in seri_listesi[:20]:
+    # 11.08 EKI: "bie_bispolfaiz" grubu DUNYA GENELI (BIS karsilastirma)
+    # serisi - TEK bir ulkeye (Turkiye) OZEL degil, COK ULKE ICERIYOR.
+    # 20-satir SINIRI Turkiye'yi (alfabetik "T") GOSTERMEYEBILIR - bu
+    # yuzden TUM liste + Turkiye'yi OZEL ARAYAN bir satir eklendi.
+    print(f"Toplam {len(seri_listesi)} seri bulundu (TUM liste):")
+    for s in seri_listesi:
+        print(f"  SERI_KODU={s.get('SERIE_CODE')}: {s.get('SERIE_NAME')}")
+    turkiye_serileri = [s for s in seri_listesi
+                         if ".TUR" in str(s.get("SERIE_CODE", "")).upper()
+                         or "TURKIYE" in turkce_kucuk(str(s.get("SERIE_NAME", ""))).upper()
+                         or "TURKEY" in str(s.get("SERIE_NAME", "")).upper()]
+    print(f"\n--- TURKIYE ile eslesen seriler ({len(turkiye_serileri)}) ---")
+    for s in turkiye_serileri:
         print(f"  SERI_KODU={s.get('SERIE_CODE')}: {s.get('SERIE_NAME')}")
 
 
