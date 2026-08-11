@@ -19,7 +19,7 @@ import urllib.error
 # 10.08 DUZELTME: EVDS GUVENLIK GUNCELLEMESI - key artik URL parametresi
 # DEGIL, HTTP HEADER olarak gonderilmeli (iki bagimsiz kaynaktan
 # dogrulandi - TCMB bu degisikligi resmi olarak duyurmus).
-EVDS_TEMEL_URL = "https://evds3.tcmb.gov.tr/service/evds/series={seri}&startDate={baslangic}&endDate={bitis}&type=json"
+EVDS_TEMEL_URL = "https://evds3.tcmb.gov.tr/igmevdsms-dis/series={seri}&startDate={baslangic}&endDate={bitis}&type=json"
 
 USD_TRY_SERI = "TP.DK.USD.A.YTL"
 
@@ -64,9 +64,15 @@ def main():
 
     bugun = datetime.date.today()
     baslangic = bugun - datetime.timedelta(days=30)
+    # 10.08 EKI: resmi EVDS belgesi ("Web Servis ve API Kullanimi",
+    # docId=8) ACIKCA UYARIYOR - "sorgunun surekli GUNCEL veriyi almasi
+    # icin bu alana COK UZAK bir tarih yaziniz. Ornegin 01-01-2999."
+    # Bu yuzden bitis tarihi olarak BUGUN yerine UZAK bir GELECEK
+    # tarih KULLANILIYOR - guncel veriyi GUVENILIR sekilde almak icin.
+    bitis_sorgu = datetime.date(2999, 1, 1)
 
     try:
-        veri = evds_veri_cek(USD_TRY_SERI, baslangic, bugun, anahtar)
+        veri = evds_veri_cek(USD_TRY_SERI, baslangic, bitis_sorgu, anahtar)
     except urllib.error.HTTPError as e:
         print(f"HATA: EVDS API HTTP hatasi -> {e.code} {e.reason}", file=sys.stderr)
         print("Olasi nedenler: API anahtari eksik/yanlis kopyalanmis, "
@@ -97,7 +103,8 @@ def main():
         "cekim_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "kaynak": "TCMB EVDS - resmi Merkez Bankasi veri sistemi",
         "seri_kodu": USD_TRY_SERI,
-        "baslangic_tarihi": str(baslangic), "bitis_tarihi": str(bugun),
+        "baslangic_tarihi": str(baslangic), "bitis_tarihi_sorgu": str(bitis_sorgu),
+        "cekim_tarihi": str(bugun),
         "kayitlar": kayitlar,
     }
     atomik_json_yaz("data/tcmb_evds_veri.json", rapor)
