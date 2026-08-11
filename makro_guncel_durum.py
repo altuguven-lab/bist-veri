@@ -22,10 +22,12 @@ def _oku(yol, varsayilan=None):
         return varsayilan if varsayilan is not None else {}
 
 
-def usd_try_ozet(evds_veri):
+def seri_ozet(evds_veri, alan_adi):
+    """11.08 GENELLEME: usd_try_ozet ARTIK herhangi bir EVDS alanini
+    islerebilir - politika faizi icin de AYNI mantik kullanilabilsin."""
     kayitlar = evds_veri.get("kayitlar", [])
-    gecerli = [(k["Tarih"], float(k["TP_DK_USD_A_YTL"])) for k in kayitlar
-               if k.get("TP_DK_USD_A_YTL") not in (None, "")]
+    gecerli = [(k["Tarih"], float(k[alan_adi])) for k in kayitlar
+               if k.get(alan_adi) not in (None, "")]
     if not gecerli:
         return None
     guncel_tarih, guncel_deger = gecerli[-1]
@@ -39,6 +41,14 @@ def usd_try_ozet(evds_veri):
     }
 
 
+def usd_try_ozet(evds_veri):
+    return seri_ozet(evds_veri, "TP_DK_USD_A_YTL")
+
+
+def politika_faiz_ozet(evds_veri):
+    return seri_ozet(evds_veri, "TP_BISPOLFAIZ_TUR")
+
+
 def main():
     harita = _oku("data/makro_hassasiyet_haritasi.json", {"hassasiyet_haritasi": {}})
     evds = _oku("data/tcmb_evds_veri.json", {"kayitlar": []})
@@ -50,6 +60,13 @@ def main():
     else:
         print("UYARI: USD/TRY icin gecerli kayit bulunamadi")
 
+    politika_faiz = politika_faiz_ozet(evds)
+    if politika_faiz:
+        print(f"Politika faizi guncel: %{politika_faiz['guncel_deger']} "
+              f"({politika_faiz['guncel_tarih']})")
+    else:
+        print("UYARI: politika faizi icin gecerli kayit bulunamadi")
+
     guncellenmis_harita = {}
     etkilenen_sektor_sayisi = 0
     for sektor, faktorler in harita.get("hassasiyet_haritasi", {}).items():
@@ -58,6 +75,9 @@ def main():
             kayit = {"faktor": faktor_adi, "aciklama": aciklama}
             if faktor_adi == "USD_TRY_KURU" and usd_try:
                 kayit["guncel_veri"] = usd_try
+                etkilenen_sektor_sayisi += 1
+            elif faktor_adi == "TCMB_FAIZ_KARARI" and politika_faiz:
+                kayit["guncel_veri"] = politika_faiz
                 etkilenen_sektor_sayisi += 1
             yeni_faktorler.append(kayit)
         guncellenmis_harita[sektor] = yeni_faktorler
@@ -75,7 +95,7 @@ def main():
     }
     atomik_json_yaz("data/makro_guncel_durum.json", rapor)
     print(f"\nYazildi: data/makro_guncel_durum.json "
-          f"({etkilenen_sektor_sayisi} sektor USD_TRY_KURU verisiyle zenginlestirildi)")
+          f"({etkilenen_sektor_sayisi} sektor USD_TRY_KURU/TCMB_FAIZ_KARARI verisiyle zenginlestirildi)")
 
 
 if __name__ == "__main__":
