@@ -722,3 +722,56 @@ kontrol edilmeli. Zaman icinde, bu taramanin GERCEK performansi
 (sinyal_arsiv_gunluk.py disiplinine benzer sekilde, "adaylarin
 GERCEKTEN toparlanip toparlanmadigi") ayrica IZLENMELI - HENUZ bu
 IZLEME KURULMADI, gelecek bir adim olarak NOT dusuldu.
+
+34) PERPLEXITY DEGERLENDIRMESI - STRATEGY AUDIT SONUCLARI (11-12.08)
+
+Perplexity_V162_degerlendirme.txt'nin 1-3. Adimlarindan (HTF duzeltmesi,
+Internal Estimate ayrimi, Strategy Audit mimarisi) URETILEN
+V162_STRATEGY_AUDIT_TAM.pine (V162'den TAMAMEN AYRI dosya, Kulucka
+Protokolu ETKILENMEDI) ile GERCEK TradingView Strategy Tester testleri
+YAPILDI.
+
+BULUNAN VE DUZELTILEN GERCEK HATALAR (Perplexity'nin kendisinde de dahil):
+  - HTF EMA'lari grafigin TEKRARLANAN basamak fonksiyonu uzerinde
+    hesaplaniyordu (agirliklandirma BOZUKTU) - GERCEK HTF baglaminda
+    hesaplanacak sekilde duzeltildi.
+  - PF=0 hatasi (bugunku V162 dersiyle AYNI) bu kopyada da vardi,
+    duzeltildi.
+  - Perplexity'nin rawLongSignal listesi EKSIKTI (commonOk, bankEngineAny
+    gibi UYDURMA/yanlis isimler, VE liderAvci/earlyTurnSignal/
+    dipHunter_any GERCEK motorlarini ATLAMISTI) - GERCEK, TAM 16 motor
+    listesi kullanildi.
+  - default_qty_type/value HIC tanimli degildi (Pine varsayilan 1
+    birim/hisse kullaniyordu) - TL rakamlarini ANLAMSIZ kucuk
+    gosteriyordu, duzeltildi (ayarlanabilir % sermaye).
+  - Coklu-seri TCMB EVDS istegi (bu turda, ayri konu) FREKANS
+    KARISMASI yaratiyordu - ayni ailede bir DERS.
+
+TEST SONUCLARI (THYAO/AKBNK/GARAN, 15dk/30dk/1sa, coklu stop/TP
+kalibrasyonu, sinyal katmanlari - TUMU/ELITE_REAL/ERKEN):
+  - TUM kombinasyonlarda, KAPANMIS islem Profit Factor'u 1'in ALTINDA
+    kaldi (0.068-0.7 araligi).
+  - GARAN TUMU (30dk) ilk bakista "%34.61 kar" gosterdi, ANCAK bu
+    ACIK (kapanmamis) bir pozisyonun o anki degerinden kaynaklaniyordu -
+    GERCEK KAPANMIS islem istatistigi (PF=0.7, isabet %13.51, N=74)
+    AYNI olumsuz orunutuyu DOGRULUYOR.
+  - Gunluk grafikte HIC islem URETILMEDI - V162'nin sabit seans
+    dizeleri (1005-1750) ve HTF ayarlari (1sa/4sa) YALNIZCA gun-ici
+    kullanim icin tasarlanmis GORUNUYOR.
+
+METODOLOJI DERSI (bugunku PF=0/tekrar/sagkalim dersleriyle AYNI aile):
+  "Toplam PnL" TEK BASINA GUVENILIR DEGIL - ACIK pozisyonun o anki
+  (gecici) degerini icerebilir. YALNIZCA KAPANMIS islem istatistikleri
+  (Profit Factor, isabet orani) stratejinin GERCEK, KESINLESMIS
+  performansini yansitir.
+
+SONUC (DENGELI DIL): Bu, V162'nin KESIN olarak kar uretemedigini
+"KANITLAMIYOR" - ama test edilen HER kombinasyonda (3 sembol, 3
+zaman dilimi, 5 stop/TP kalibrasyonu, 3 sinyal katmani), gercekci
+komisyon/kayma dahil edildiginde, TUTARLI, BAGIMSIZ dogrulanmis
+(bugun sabahki sinyal_dogrulama.py bulgusuyla ORTUSEN) bir UYARI
+sinyali veriyor. Buyuk sermayeyle GUVENMEDEN once ciddiye alinmali.
+
+ACIK KALAN (test EDILMEDI): digger 27 sembol, GERCEK V162 cikis
+mantigi (kismi TP/trailing - Strategy Audit'te SADELESTIRILMISTI),
+NEXT_OPEN giris modeli, CONSERVATIVE mod.
