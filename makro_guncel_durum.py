@@ -22,10 +22,12 @@ def _oku(yol, varsayilan=None):
         return varsayilan if varsayilan is not None else {}
 
 
-def seri_ozet(evds_veri, alan_adi):
-    """11.08 GENELLEME: usd_try_ozet ARTIK herhangi bir EVDS alanini
-    islerebilir - politika faizi icin de AYNI mantik kullanilabilsin."""
-    kayitlar = evds_veri.get("kayitlar", [])
+def seri_ozet(kayitlar, alan_adi):
+    # 12.08 DUZELTME: tcmb_evds_veri.py ARTIK USD/TRY ve politika
+    # faizini AYRI ALANLARDA (usd_try_kayitlar/politika_faiz_kayitlar)
+    # tutuyor (coklu-seri istegindeki frekans-karisma HATASI DUZELTILDI) -
+    # bu fonksiyon artik DOGRUDAN kayit LISTESI alir, "evds_veri" sozlugu
+    # DEGIL.
     gecerli = [(k["Tarih"], float(k[alan_adi])) for k in kayitlar
                if k.get(alan_adi) not in (None, "")]
     if not gecerli:
@@ -42,11 +44,11 @@ def seri_ozet(evds_veri, alan_adi):
 
 
 def usd_try_ozet(evds_veri):
-    return seri_ozet(evds_veri, "TP_DK_USD_A_YTL")
+    return seri_ozet(evds_veri.get("usd_try_kayitlar", []), "TP_DK_USD_A_YTL")
 
 
 def politika_faiz_ozet(evds_veri):
-    return seri_ozet(evds_veri, "TP_BISPOLFAIZ_TUR")
+    return seri_ozet(evds_veri.get("politika_faiz_kayitlar", []), "TP_BISPOLFAIZ_TUR")
 
 
 def main():
