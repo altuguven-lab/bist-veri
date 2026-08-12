@@ -78,43 +78,55 @@ def main():
     # tarih KULLANILIYOR - guncel veriyi GUVENILIR sekilde almak icin.
     bitis_sorgu = datetime.date(2999, 1, 1)
 
+    # 12.08 DUZELTME: coklu-seri istegi (USD/TRY-POLITIKA_FAIZ) BOZUK
+    # veri uretiyordu - politika faizi HEP None geliyordu, VE tarih
+    # formati GUNLUK yerine AYLIK'a DONUSMUSTU. HIPOTEZ: TP.BISPOLFAIZ.
+    # TUR AYLIK bir seri, USD/TRY GUNLUK - EVDS coklu-seri BIRLESTIRMESI
+    # bu ikisini DAHA DUSUK (aylik) frekansa INDIRGIYORDU. DUZELTME:
+    # HER IKI seri AYRI AYRI cekilir - hem frekans sorunu COZULUR hem
+    # bir serinin BASARISIZ olmasi DIGERINI ETKILEMEZ (daha SAGLAM).
     try:
-        veri = evds_veri_cek(TUM_SERILER, baslangic, bitis_sorgu, anahtar)
-    except urllib.error.HTTPError as e:
-        print(f"HATA: EVDS API HTTP hatasi -> {e.code} {e.reason}", file=sys.stderr)
-        print("Olasi nedenler: API anahtari eksik/yanlis kopyalanmis, "
-              "ya da seri kodu gecersiz.", file=sys.stderr)
-        sys.exit(1)
+        usd_veri = evds_veri_cek(USD_TRY_SERI, baslangic, bitis_sorgu, anahtar)
+        usd_kayitlar = usd_veri.get("items", [])
+        print(f"{len(usd_kayitlar)} USD/TRY kaydi cekildi")
     except Exception as e:
-        print(f"HATA: EVDS veri cekilemedi -> {e}", file=sys.stderr)
+        print(f"HATA: USD/TRY cekilemedi -> {e}", file=sys.stderr)
+        usd_kayitlar = []
+
+    try:
+        faiz_veri = evds_veri_cek(POLITIKA_FAIZ_SERI, baslangic, bitis_sorgu, anahtar)
+        faiz_kayitlar = faiz_veri.get("items", [])
+        print(f"{len(faiz_kayitlar)} politika faizi kaydi cekildi")
+    except Exception as e:
+        print(f"HATA: politika faizi cekilemedi -> {e}", file=sys.stderr)
+        faiz_kayitlar = []
+
+    if not usd_kayitlar and not faiz_kayitlar:
+        print("HATA: HICBIR seri icin veri gelmedi", file=sys.stderr)
         sys.exit(1)
 
-    kayitlar = veri.get("items", [])
-    print(f"{len(kayitlar)} gunluk USD/TRY kaydi cekildi")
-    if not kayitlar:
-        print("UYARI: kayit listesi bos - seri kodu/tarih araligi kontrol edilmeli", file=sys.stderr)
-
-    # 10.08 NOT: EVDS'nin JSON alan adi formati (nokta mi alt cizgi mi)
-    # KESIN dogrulanamadi (gercek API cagrisi bu ortamda YAPILAMADI) -
-    # HER IKI olasi formati da dener, ikisi de basarisizsa HAM kaydi
-    # gosterir ki format sorunu GORULEBILSIN.
-    for seri in (USD_TRY_SERI, POLITIKA_FAIZ_SERI):
+    def alan_bul(kayit, seri):
         alt_cizgili = seri.replace(".", "_")
-        print(f"  -- {seri} --")
-        for k in kayitlar[-5:]:
-            deger = k.get(seri, k.get(alt_cizgili))
-            if deger is None:
-                print(f"     {k.get('Tarih')}: DEGER BULUNAMADI")
-            else:
-                print(f"     {k.get('Tarih')}: {deger}")
+        return kayit.get(seri, kayit.get(alt_cizgili))
+
+    print("  -- USD/TRY (son 3) --")
+    for k in usd_kayitlar[-3:]:
+        print(f"     {k.get('Tarih')}: {alan_bul(k, USD_TRY_SERI)}")
+    print("  -- Politika Faizi (son 3) --")
+    for k in faiz_kayitlar[-3:]:
+        print(f"     {k.get('Tarih')}: {alan_bul(k, POLITIKA_FAIZ_SERI)}")
 
     rapor = {
         "cekim_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "kaynak": "TCMB EVDS - resmi Merkez Bankasi veri sistemi",
-        "seri_kodu": USD_TRY_SERI,
         "baslangic_tarihi": str(baslangic), "bitis_tarihi_sorgu": str(bitis_sorgu),
         "cekim_tarihi": str(bugun),
-        "kayitlar": kayitlar,
+        "usd_try_seri_kodu": USD_TRY_SERI, "usd_try_kayitlar": usd_kayitlar,
+        "politika_faiz_seri_kodu": POLITIKA_FAIZ_SERI, "politika_faiz_kayitlar": faiz_kayitlar,
+        # geriye-uyum: eski "kayitlar" alanini USD/TRY ile DOLDUR (makro_
+        # guncel_durum.py hala BU alani okuyor - Faz sonraki adimda
+        # o script de GUNCELLENMELI, simdilik BOZULMAMASI icin).
+        "kayitlar": usd_kayitlar,
     }
     atomik_json_yaz("data/tcmb_evds_veri.json", rapor)
     print(f"\nYazildi: data/tcmb_evds_veri.json")
