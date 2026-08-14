@@ -71,6 +71,13 @@ def main():
 
     bugun = datetime.date.today()
     baslangic = bugun - datetime.timedelta(days=30)
+    # 14.08 DUZELTME: TP.BISPOLFAIZ.TUR (BIS karsilastirma serisi)
+    # SUREKLI 0 kayit donduruyordu - HIPOTEZ: bu, USD/TRY'den (gunluk)
+    # FARKLI, DAHA DUSUK frekansli (muhtemelen TCMB PPK toplantisi
+    # OLDUGUNDA guncellenen) bir seri, 30 GUNLUK pencere SON veri
+    # noktasini YAKALAYAMIYOR olabilir. Politika faizi icin AYRI,
+    # DAHA GENIS (180 gun) bir pencere DENENIYOR.
+    baslangic_faiz = bugun - datetime.timedelta(days=180)
     # 10.08 EKI: resmi EVDS belgesi ("Web Servis ve API Kullanimi",
     # docId=8) ACIKCA UYARIYOR - "sorgunun surekli GUNCEL veriyi almasi
     # icin bu alana COK UZAK bir tarih yaziniz. Ornegin 01-01-2999."
@@ -94,7 +101,7 @@ def main():
         usd_kayitlar = []
 
     try:
-        faiz_veri = evds_veri_cek(POLITIKA_FAIZ_SERI, baslangic, bitis_sorgu, anahtar)
+        faiz_veri = evds_veri_cek(POLITIKA_FAIZ_SERI, baslangic_faiz, bitis_sorgu, anahtar)
         faiz_kayitlar = faiz_veri.get("items", [])
         print(f"{len(faiz_kayitlar)} politika faizi kaydi cekildi")
     except Exception as e:
