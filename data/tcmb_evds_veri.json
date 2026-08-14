@@ -1,18 +1,11 @@
 {
-  "cekim_zamani_utc": "2026-08-13T08:19:59.767258+00:00",
+  "cekim_zamani_utc": "2026-08-14T06:39:17.602159+00:00",
   "kaynak": "TCMB EVDS - resmi Merkez Bankasi veri sistemi",
-  "baslangic_tarihi": "2026-07-14",
+  "baslangic_tarihi": "2026-07-15",
   "bitis_tarihi_sorgu": "2999-01-01",
-  "cekim_tarihi": "2026-08-13",
+  "cekim_tarihi": "2026-08-14",
   "usd_try_seri_kodu": "TP.DK.USD.A.YTL",
   "usd_try_kayitlar": [
-    {
-      "Tarih": "14-07-2026",
-      "TP_DK_USD_A_YTL": "46.91210000",
-      "UNIXTIME": {
-        "$numberLong": "1783976400"
-      }
-    },
     {
       "Tarih": "15-07-2026",
       "TP_DK_USD_A_YTL": null,
@@ -221,19 +214,55 @@
       "TP_DK_USD_A_YTL": "47.66780000",
       "UNIXTIME": {
         "$numberLong": "1786568400"
+      }
+    },
+    {
+      "Tarih": "14-08-2026",
+      "TP_DK_USD_A_YTL": "47.68580000",
+      "UNIXTIME": {
+        "$numberLong": "1786654800"
       }
     }
   ],
   "politika_faiz_seri_kodu": "TP.BISPOLFAIZ.TUR",
-  "politika_faiz_kayitlar": [],
-  "kayitlar": [
+  "politika_faiz_kayitlar": [
     {
-      "Tarih": "14-07-2026",
-      "TP_DK_USD_A_YTL": "46.91210000",
+      "Tarih": "2026-2",
+      "TP_BISPOLFAIZ_TUR": "37.00000000",
       "UNIXTIME": {
-        "$numberLong": "1783976400"
+        "$numberLong": "1769893200"
       }
     },
+    {
+      "Tarih": "2026-3",
+      "TP_BISPOLFAIZ_TUR": "37.00000000",
+      "UNIXTIME": {
+        "$numberLong": "1772312400"
+      }
+    },
+    {
+      "Tarih": "2026-4",
+      "TP_BISPOLFAIZ_TUR": "37.00000000",
+      "UNIXTIME": {
+        "$numberLong": "1774990800"
+      }
+    },
+    {
+      "Tarih": "2026-5",
+      "TP_BISPOLFAIZ_TUR": "37.00000000",
+      "UNIXTIME": {
+        "$numberLong": "1777582800"
+      }
+    },
+    {
+      "Tarih": "2026-6",
+      "TP_BISPOLFAIZ_TUR": "37.00000000",
+      "UNIXTIME": {
+        "$numberLong": "1780261200"
+      }
+    }
+  ],
+  "kayitlar": [
     {
       "Tarih": "15-07-2026",
       "TP_DK_USD_A_YTL": null,
@@ -442,6 +471,13 @@
       "TP_DK_USD_A_YTL": "47.66780000",
       "UNIXTIME": {
         "$numberLong": "1786568400"
+      }
+    },
+    {
+      "Tarih": "14-08-2026",
+      "TP_DK_USD_A_YTL": "47.68580000",
+      "UNIXTIME": {
+        "$numberLong": "1786654800"
       }
     }
   ]
