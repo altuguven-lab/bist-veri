@@ -1,0 +1,63 @@
+# GECE / GUNDUZ GETIRI AYRISTIRMASI + GAP OLCUMU (17.08.2026)
+# Konum: .github/workflows/gece_gunduz_olcum.yml
+# ELLE tetiklenir - SALT OLCUM. Sinyal uretmez, Pine'a dokunmaz,
+# karar dosyalarina yazmaz. Kulucka sayacini yakmaz.
+#
+# Amac: "1-2 gunluk swing" kurul sentezinin ilk maddesi - yeni bir
+# gosterge yazmadan once gece (kapanis->acilis) ve gunduz
+# (acilis->kapanis) getirilerini 30 sembollu evrende ayristirmak.
+# Uc on kayitli hipotez (H1 gece payi, H2 gap vetosu, H3 kisa ufuk
+# donus) ve red kriterleri betigin icinde yazili.
+#
+# ONERILEN KOSU SIRASI: once 5y, sonra 2y. Iki pencerenin sonucu
+# ayrisiyorsa bulgu rejim-bagimlidir ve tek pencereye dayanarak
+# swing projesi acilmaz.
+name: Gece Gunduz Olcumu
+
+on:
+  workflow_dispatch:
+    inputs:
+      donem:
+        description: "yfinance donemi (5y, 2y, 1y). Bos birakilirsa 5y."
+        required: false
+        default: "5y"
+
+permissions:
+  contents: write
+
+jobs:
+  olcum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # sinyal_arsiv_gunluk.yml ile ayni surum - iki workflow ayni
+      # fiyat kaynagini kullaniyor, surum ayrismasi olcumleri
+      # kiyaslanamaz hale getirir.
+      - run: pip install yfinance==0.2.66
+
+      - name: Olcumu calistir
+        run: python gece_gunduz_ayristirma.py ${{ inputs.donem }}
+
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "olcum-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/denetim/gece_gunduz_olcum.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Gece/gunduz olcumu ${{ inputs.donem }} $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
