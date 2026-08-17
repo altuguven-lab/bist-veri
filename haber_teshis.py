@@ -91,11 +91,16 @@ def kaynak_teshis(isim, url_veya_liste, taban, ayrintili=False):
         # bakmali, yoksa gercekte islenmeyen kayitlari sayariz.
         incelenen = feed.entries[:25]
 
-        nedenler, ornekler = {}, []
+        nedenler, kalip_sayaci, ornekler = {}, {}, []
         for g in incelenen:
             neden, baslik, puan = _eleme_nedeni(g, taban, simdi)
             kok = neden.split("[")[0]
             nedenler[kok] = nedenler.get(kok, 0) + 1
+            # 17.08 eki: hangi GURULTU kalibinin eledigini ozet modunda da
+            # bilmek gerekiyor - duzeltme dogrudan buna baglaniyor.
+            if kok == "GURULTU_KALIBI":
+                kalip = neden[neden.index("[") + 1:-1]
+                kalip_sayaci[kalip] = kalip_sayaci.get(kalip, 0) + 1
             if ayrintili and len(ornekler) < ORNEK_SAYISI:
                 ornekler.append({"neden": neden, "puan": puan,
                                  "baslik": baslik[:110]})
@@ -106,6 +111,8 @@ def kaynak_teshis(isim, url_veya_liste, taban, ayrintili=False):
             "gecen": nedenler.get("GECTI", 0),
             "eleme_nedenleri": {k: v for k, v in sorted(
                 nedenler.items(), key=lambda x: -x[1]) if k != "GECTI"},
+            "gurultu_kalip_dagilimi": dict(sorted(
+                kalip_sayaci.items(), key=lambda x: -x[1])),
             "ornekler": ornekler,
         }
 
