@@ -1,6 +1,7 @@
 """
 SINYAL DOGRULAMA ARSIVI - GUNLUK (08.08.2026) - Faz V0
 v2 (17.08.2026): PIYASA REFERANSI + GUN-AGIRLIKLI OZET
+v2.1 (17.08.2026): ISLEM GUNU PENCERESI + TUM ARSIVIN YENIDEN DOGRULANMASI
 
 tv_alerts_latest.json yalniz ~4 gun tutuyor - bu script HER GUN, o
 gunku YENI sinyalleri KALICI bir arsive (data/sinyal_arsiv.json) ekler,
@@ -26,6 +27,21 @@ v1 iki yapisal olcum hatasi tasiyordu:
     agirliklandirma "08.08 sonrasi kotulesti" derken, gun basina
     agirliklandirma sonucu TERSINE ceviriyordu. v2 iki okumayi da
     yan yana yazar; hangisine bakilacagini okuyan bilir.
+
+(C) TAKVIM GUNU PENCERESI (v2.1 duzeltmesi). v1/v2 T+N'i TAKVIM
+    gunu sayiyordu. Cuma gelen bir sinyalde T+1 Cumartesi'ye,
+    T+2 Pazar'a, T+3 Pazartesi'ye dusuyor; ucunun de "ilk sonraki
+    seans"i AYNI Pazartesi kapanisi oluyordu. Dogrulanmis 53 kaydin
+    10'u (%19, hepsi Cuma sinyali) bu durumdaydi: T+1=T+2=T+3, yani
+    Cuma sinyalleri icin T+3 diye bir olcum fiilen YOKTU ve kayitlar
+    sahte bir istikrar gosteriyordu. M1/M2 hukum metrikleri T+3
+    uzerinden tanimli oldugu icin bu, hukmun beste birini yanlis
+    pencereden okuyordu.
+    v2.1 T+N'i SERIDEKI BAR sayarak bulur (islem gunu). Kurul karari
+    (17.08): duzeltme geriye donuk uygulanir, TUM arsiv yeniden
+    dogrulanir - arsiv kendi icinde tutarli olur, 08.08 oncesi
+    raporlarla sayilar TUTMAZ (kulucka zaten 08.08'de sifirlandi,
+    eski raporlarla uyumun degeri dusuk goruldu).
 
 Ayrica: sinyal kaydina varsa `skor` alani da islenir. P3_SKOR_AL
 alarm mesaji duzeltilince (17.08 yama sartnamesi) "yuksek skorlu
@@ -54,6 +70,11 @@ DOGRULAMA_ICIN_GEREKEN_GUN = 3  # T+3 gecmeden dogrulama YAPILMAZ
 #  ornekler, yani referans degil olculen seyin kendisi.)
 PIYASA_ENDEKSLERI = ["XU100.IS", "XU030.IS"]
 
+# Olcum surumu. Kaydin `olcum_surumu` alani bundan kucukse (ya da
+# yoksa) kayit YENIDEN hesaplanir. Olcum mantigi her degistiginde
+# bu sayi artar ve arsiv kendini bir sonraki kosuda tasir.
+OLCUM_SURUMU = 2
+
 ALAN_ACIKLAMALARI = {
     "dogrulama_durumu": "OLCUM tamamlandi mi (DOGRULANDI/BEKLIYOR) - "
                         "sinyalin HAKLI cikip cikmadigi DEGIL. Yon isabeti "
@@ -63,6 +84,8 @@ ALAN_ACIKLAMALARI = {
     "getiri_rel_tN_pct": "getiri_tN_pct - piyasa_tN_pct. ASIL BAKILACAK ALAN.",
     "gun_ozet": "Gun-agirlikli okuma: ayni gunun sinyalleri once kendi "
                 "aralarinda ortalanir, sonra gunler ortalanir. n = GUN sayisi.",
+    "olcum_surumu": "Kaydi ureten olcum mantiginin surumu. 2 = islem gunu "
+                    "penceresi (v2.1). Surum atlayinca kayit yeniden hesaplanir.",
 }
 
 
@@ -74,28 +97,56 @@ def _oku_arsiv():
         return {"kayitlar": [], "tip_ozet": {}}
 
 
-def _seri_cek(ticker, donem="2mo"):
+def _donem_sec(en_eski_tarih):
+    """Arsivin en eski kaydini kapsayacak en kisa yfinance donemi.
+    Yeniden dogrulama TUM arsivi tarar - sabit '2mo' arsiv buyudukce
+    eski kayitlari sessizce olcusuz birakirdi."""
+    if en_eski_tarih is None:
+        return "3mo"
+    gun = (datetime.date.today() - en_eski_tarih).days + 10  # pay
+    for sinir, donem in ((60, "3mo"), (150, "6mo"), (330, "1y"),
+                         (700, "2y"), (1800, "5y")):
+        if gun <= sinir:
+            return donem
+    return "max"
+
+
+def _seri_cek(ticker, donem="3mo"):
     try:
         df = yf.Ticker(ticker).history(period=donem, interval="1d")
-        return [(idx.date(), float(v)) for idx, v in df["Close"].items()]
+        seri = [(idx.date(), float(v)) for idx, v in df["Close"].items()]
+        return sorted(seri, key=lambda x: x[0])
     except Exception as e:
         print(f"UYARI: {ticker} veri cekilemedi -> {e}", file=sys.stderr)
         return []
 
 
-def _en_yakin_kapanis(seri, hedef_tarih, sonraki_mi=True):
-    if sonraki_mi:
-        adaylar = [(t, c) for t, c in seri if t >= hedef_tarih]
-        return min(adaylar, key=lambda x: x[0])[1] if adaylar else None
-    adaylar = [(t, c) for t, c in seri if t <= hedef_tarih]
-    return max(adaylar, key=lambda x: x[0])[1] if adaylar else None
+def _baz_indeks(seri, sinyal_tarih):
+    """Sinyal gununun (yoksa ondan onceki en yakin seansin) bar indeksi.
+    T+N bu indeksten ILERI SAYILARAK bulunur - takvim gunu degil."""
+    adaylar = [i for i, (t, _) in enumerate(seri) if t <= sinyal_tarih]
+    return max(adaylar) if adaylar else None
 
 
-def _piyasa_serisi_al():
+def _t_plus_kapanis(seri, sinyal_tarih, n):
+    """Sinyal barindan N ISLEM GUNU sonraki kapanis. Seri o kadar
+    ilerlemediyse None - kayit BEKLIYOR'da kalir."""
+    i = _baz_indeks(seri, sinyal_tarih)
+    if i is None or i + n >= len(seri):
+        return None
+    return seri[i + n][1]
+
+
+def _baz_kapanis(seri, sinyal_tarih):
+    i = _baz_indeks(seri, sinyal_tarih)
+    return seri[i][1] if i is not None else None
+
+
+def _piyasa_serisi_al(donem="3mo"):
     """Ilk dolu donen endeksi kullanir. Hicbiri gelmezse (None, []) doner
     ve goreli olcum o kosuda YAPILMAZ - sessizce vekil kullanilmaz."""
     for tic in PIYASA_ENDEKSLERI:
-        seri = _seri_cek(tic)
+        seri = _seri_cek(tic, donem)
         if seri:
             print(f"Piyasa referansi: {tic} ({len(seri)} gun)")
             return tic, seri
@@ -105,25 +156,28 @@ def _piyasa_serisi_al():
 
 
 def _piyasa_getirisi(piyasa_seri, sinyal_tarih, gun):
-    """Sinyal gunu kapanisindan T+gun kapanisina endeks getirisi."""
-    baz = _en_yakin_kapanis(piyasa_seri, sinyal_tarih, sonraki_mi=False)
-    hedef = _en_yakin_kapanis(piyasa_seri, sinyal_tarih + datetime.timedelta(days=gun),
-                              sonraki_mi=True)
+    """Sinyal gunu kapanisindan T+gun (ISLEM GUNU) kapanisina endeks
+    getirisi."""
+    baz = _baz_kapanis(piyasa_seri, sinyal_tarih)
+    hedef = _t_plus_kapanis(piyasa_seri, sinyal_tarih, gun)
     if baz and hedef and baz > 0:
         return round((hedef / baz - 1) * 100, 3)
     return None
 
 
-def _goreli_yaz(kayit, piyasa_seri):
-    """Kayda piyasa ve goreli getiri alanlarini ekler. Zaten varsa
-    dokunmaz. Eksik mutlak getiri varsa o gun atlanir."""
+def _goreli_yaz(kayit, piyasa_seri, uzerine_yaz=False):
+    """Kayda piyasa ve goreli getiri alanlarini ekler. uzerine_yaz=False
+    ise mevcut degere dokunmaz (gunluk kosum); True ise yeniden hesaplar
+    (surum tasima). Eksik mutlak getiri varsa o gun atlanir."""
     if not piyasa_seri:
         return False
     sinyal_tarih = datetime.date.fromisoformat(kayit["tarih"])
     yazildi = False
     for gun in TAKIP_GUNLERI:
         mutlak = kayit.get(f"getiri_t{gun}_pct")
-        if mutlak is None or f"getiri_rel_t{gun}_pct" in kayit:
+        if mutlak is None:
+            continue
+        if f"getiri_rel_t{gun}_pct" in kayit and not uzerine_yaz:
             continue
         piyasa = _piyasa_getirisi(piyasa_seri, sinyal_tarih, gun)
         if piyasa is None:
@@ -209,43 +263,54 @@ def main():
         yeni_sayisi += 1
     print(f"{yeni_sayisi} yeni sinyal arsive eklendi")
 
-    piyasa_ticker, piyasa_seri = _piyasa_serisi_al()
+    # Yeniden dogrulama TUM arsivi tarar - donem en eski kaydi kapsamali
+    tarihler = [datetime.date.fromisoformat(k["tarih"]) for k in arsiv["kayitlar"]]
+    donem = _donem_sec(min(tarihler) if tarihler else None)
+    print(f"Fiyat donemi: {donem} (arsivin en eskisi: "
+          f"{min(tarihler) if tarihler else '-'})")
+
+    piyasa_ticker, piyasa_seri = _piyasa_serisi_al(donem)
 
     bugun = datetime.datetime.now(datetime.timezone.utc).date()
     fiyat_serileri = {}
     dogrulanan_sayisi = 0
+    tasinan_sayisi = 0
     for kayit in arsiv["kayitlar"]:
-        if kayit["dogrulama_durumu"] != "BEKLIYOR":
+        eski_surum = kayit.get("olcum_surumu", 1) < OLCUM_SURUMU
+        if kayit["dogrulama_durumu"] != "BEKLIYOR" and not eski_surum:
             continue
         sinyal_tarih = datetime.date.fromisoformat(kayit["tarih"])
         if (bugun - sinyal_tarih).days < DOGRULAMA_ICIN_GEREKEN_GUN:
-            continue  # henuz T+3 gecmedi
+            continue  # T+3 islem gunu icin en az bu kadar takvim gunu sart
 
         sembol = kayit["sembol"]
         if sembol not in fiyat_serileri:
-            fiyat_serileri[sembol] = _seri_cek(f"{sembol}.IS")
+            fiyat_serileri[sembol] = _seri_cek(f"{sembol}.IS", donem)
         seri = fiyat_serileri[sembol]
         if not seri:
-            continue
+            continue  # seri yoksa kayda DOKUNULMAZ, eski hali korunur
 
+        bulunan = 0
         for gun in TAKIP_GUNLERI:
-            hedef = sinyal_tarih + datetime.timedelta(days=gun)
-            t_fiyat = _en_yakin_kapanis(seri, hedef, sonraki_mi=True)
+            t_fiyat = _t_plus_kapanis(seri, sinyal_tarih, gun)
             if t_fiyat and kayit["sinyal_fiyat"] > 0:
-                kayit[f"getiri_t{gun}_pct"] = round((t_fiyat / kayit["sinyal_fiyat"] - 1) * 100, 3)
-        _goreli_yaz(kayit, piyasa_seri)
-        if all(f"getiri_t{g}_pct" in kayit for g in TAKIP_GUNLERI):
-            kayit["dogrulama_durumu"] = "DOGRULANDI"
-            dogrulanan_sayisi += 1
-    print(f"{dogrulanan_sayisi} sinyal bu kosumda dogrulandi (T+3 gecmis)")
+                kayit[f"getiri_t{gun}_pct"] = round(
+                    (t_fiyat / kayit["sinyal_fiyat"] - 1) * 100, 3)
+                bulunan += 1
+        _goreli_yaz(kayit, piyasa_seri, uzerine_yaz=eski_surum)
 
-    # v2 GERIYE DONUK TAMAMLAMA: v1 doneminde dogrulanmis kayitlarda
-    # piyasa alanlari yok - endeks serisi zaten elde, tamamlanir.
-    tamamlanan = sum(1 for k in arsiv["kayitlar"]
-                     if k["dogrulama_durumu"] == "DOGRULANDI"
-                     and _goreli_yaz(k, piyasa_seri))
-    if tamamlanan:
-        print(f"{tamamlanan} eski kayda piyasa referansi geriye donuk eklendi")
+        if bulunan == len(TAKIP_GUNLERI):
+            onceden_dogruydu = kayit["dogrulama_durumu"] == "DOGRULANDI"
+            kayit["dogrulama_durumu"] = "DOGRULANDI"
+            kayit["olcum_surumu"] = OLCUM_SURUMU
+            if onceden_dogruydu:
+                tasinan_sayisi += 1
+            else:
+                dogrulanan_sayisi += 1
+    print(f"{dogrulanan_sayisi} sinyal bu kosumda dogrulandi (T+3 islem gunu gecmis)")
+    if tasinan_sayisi:
+        print(f"{tasinan_sayisi} eski kayit islem-gunu penceresiyle YENIDEN "
+              f"hesaplandi (olcum surumu {OLCUM_SURUMU})")
 
     tip_ozet, tip_ozet_rel = {}, {}
     for tip in (AL_SINYALLERI | RISK_OFF_SINYALLERI):
@@ -263,6 +328,13 @@ def main():
     arsiv["tip_ozet"] = tip_ozet
     arsiv["tip_ozet_goreli"] = tip_ozet_rel
     arsiv["piyasa_referansi"] = piyasa_ticker or "YOK"
+    arsiv["olcum_surumu"] = OLCUM_SURUMU
+    surumsuz = sum(1 for k in arsiv["kayitlar"]
+                   if k["dogrulama_durumu"] == "DOGRULANDI"
+                   and k.get("olcum_surumu", 1) < OLCUM_SURUMU)
+    if surumsuz:
+        arsiv["_uyari"] = (f"{surumsuz} dogrulanmis kayit hala eski olcum "
+                           f"surumunde (fiyat serisi cekilemedi) - karisik arsiv")
     arsiv["_alan_aciklamalari"] = ALAN_ACIKLAMALARI
     arsiv["son_guncelleme_utc"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
     arsiv["toplam_kayit"] = len(arsiv["kayitlar"])
