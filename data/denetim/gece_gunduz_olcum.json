@@ -1,324 +1,330 @@
 {
-  "zaman_utc": "2026-08-17T11:18:14.731477+00:00",
+  "zaman_utc": "2026-08-17T11:27:21.764704+00:00",
   "donem": "5y",
   "endeks": "XU100.IS",
   "sembol_sayisi": 30,
-  "gun_sayisi": 1257,
+  "gun_sayisi": 1256,
   "H1_gece_payi": {
-    "gece_gun_agirlikli_ort_pct": 0.279,
-    "gunduz_gun_agirlikli_ort_pct": -0.0436,
-    "gece_payi_pct": 86.5,
+    "gece_gun_agirlikli_ort_pct": 0.2796,
+    "gunduz_gun_agirlikli_ort_pct": -0.0445,
+    "gece_payi_pct": 86.3,
     "RED": false
+  },
+  "H1_KONTROL_endeks": {
+    "gece_ort_pct": 0.2407,
+    "gunduz_ort_pct": -0.042,
+    "gece_payi_pct": 85.1,
+    "not": "Endeks fiyat serisinde temettu/bedelsiz duzeltmesi yoktur. Sembol sonucuyla ayni yondeyse H1 artefakt degildir."
   },
   "H2_gap_veto": {
     "kovalar": {
       "<= -0.75": {
         "gun": 135,
         "gozlem": 443,
-        "gunduz_goreli_ort_pct": -0.3655
+        "gunduz_goreli_ort_pct": -0.365
       },
       "-0.75..-0.30": {
-        "gun": 295,
-        "gozlem": 1147,
-        "gunduz_goreli_ort_pct": 0.0561
+        "gun": 296,
+        "gozlem": 1149,
+        "gunduz_goreli_ort_pct": 0.0591
       },
       "-0.30..+0.30": {
-        "gun": 1224,
-        "gozlem": 31078,
-        "gunduz_goreli_ort_pct": 0.0035
+        "gun": 1226,
+        "gozlem": 31132,
+        "gunduz_goreli_ort_pct": 0.0029
       },
       "+0.30..+0.50": {
-        "gun": 728,
-        "gozlem": 2431,
-        "gunduz_goreli_ort_pct": 0.0034
+        "gun": 730,
+        "gozlem": 2432,
+        "gunduz_goreli_ort_pct": -0.0037
       },
       "+0.50..+0.75": {
         "gun": 392,
-        "gozlem": 856,
-        "gunduz_goreli_ort_pct": -0.1145
+        "gozlem": 855,
+        "gunduz_goreli_ort_pct": -0.0894
       },
       "> +0.75": {
-        "gun": 273,
-        "gozlem": 610,
-        "gunduz_goreli_ort_pct": -0.7259
+        "gun": 274,
+        "gozlem": 621,
+        "gunduz_goreli_ort_pct": -0.7185
       }
     },
     "RED": false
   },
   "H3_kisa_ufuk_donus": {
-    "alt_ust_desil_farki_pct": -0.3973,
+    "alt_ust_desil_farki_pct": -0.383,
     "RED": true
   },
   "sembol_ozet": {
     "AKBNK": {
-      "gun": 1254,
-      "gece_toplam_pct": 411.12,
-      "gunduz_toplam_pct": -80.02,
-      "toplam_pct": 329.4,
-      "gece_payi_pct": 83.7,
-      "gece_ort_pct": 0.3278,
-      "gunduz_ort_pct": -0.0638
+      "gun": 1253,
+      "gece_toplam_pct": 413.43,
+      "gunduz_toplam_pct": -82.43,
+      "toplam_pct": 329.37,
+      "gece_payi_pct": 83.4,
+      "gece_ort_pct": 0.33,
+      "gunduz_ort_pct": -0.0658
     },
     "GARAN": {
-      "gun": 1252,
-      "gece_toplam_pct": 339.07,
-      "gunduz_toplam_pct": -2.33,
-      "toplam_pct": 334.8,
-      "gece_payi_pct": 99.3,
-      "gece_ort_pct": 0.2708,
-      "gunduz_ort_pct": -0.0019
+      "gun": 1253,
+      "gece_toplam_pct": 340.82,
+      "gunduz_toplam_pct": -4.37,
+      "toplam_pct": 334.5,
+      "gece_payi_pct": 98.7,
+      "gece_ort_pct": 0.272,
+      "gunduz_ort_pct": -0.0035
     },
     "YKBNK": {
-      "gun": 1254,
-      "gece_toplam_pct": 343.31,
-      "gunduz_toplam_pct": -6.07,
-      "toplam_pct": 335.02,
-      "gece_payi_pct": 98.3,
-      "gece_ort_pct": 0.2738,
-      "gunduz_ort_pct": -0.0048
+      "gun": 1253,
+      "gece_toplam_pct": 348.38,
+      "gunduz_toplam_pct": -11.35,
+      "toplam_pct": 334.9,
+      "gece_payi_pct": 96.8,
+      "gece_ort_pct": 0.278,
+      "gunduz_ort_pct": -0.0091
     },
     "ISCTR": {
-      "gun": 1254,
-      "gece_toplam_pct": 366.24,
-      "gunduz_toplam_pct": -37.78,
-      "toplam_pct": 326.29,
-      "gece_payi_pct": 90.6,
-      "gece_ort_pct": 0.2921,
-      "gunduz_ort_pct": -0.0301
+      "gun": 1253,
+      "gece_toplam_pct": 369.35,
+      "gunduz_toplam_pct": -41.0,
+      "toplam_pct": 326.19,
+      "gece_payi_pct": 90.0,
+      "gece_ort_pct": 0.2948,
+      "gunduz_ort_pct": -0.0327
     },
     "VAKBN": {
-      "gun": 1254,
-      "gece_toplam_pct": 393.17,
-      "gunduz_toplam_pct": -117.05,
-      "toplam_pct": 273.6,
-      "gece_payi_pct": 77.1,
-      "gece_ort_pct": 0.3135,
-      "gunduz_ort_pct": -0.0933
+      "gun": 1253,
+      "gece_toplam_pct": 394.15,
+      "gunduz_toplam_pct": -118.34,
+      "toplam_pct": 273.33,
+      "gece_payi_pct": 76.9,
+      "gece_ort_pct": 0.3146,
+      "gunduz_ort_pct": -0.0944
     },
     "HALKB": {
-      "gun": 1254,
-      "gece_toplam_pct": 464.12,
-      "gunduz_toplam_pct": -202.03,
-      "toplam_pct": 260.9,
-      "gece_payi_pct": 69.7,
-      "gece_ort_pct": 0.3701,
-      "gunduz_ort_pct": -0.1611
+      "gun": 1253,
+      "gece_toplam_pct": 468.34,
+      "gunduz_toplam_pct": -206.49,
+      "toplam_pct": 260.53,
+      "gece_payi_pct": 69.4,
+      "gece_ort_pct": 0.3738,
+      "gunduz_ort_pct": -0.1648
     },
     "KCHOL": {
-      "gun": 1254,
-      "gece_toplam_pct": 301.18,
-      "gunduz_toplam_pct": -29.24,
-      "toplam_pct": 271.23,
-      "gece_payi_pct": 91.2,
-      "gece_ort_pct": 0.2402,
-      "gunduz_ort_pct": -0.0233
+      "gun": 1253,
+      "gece_toplam_pct": 303.71,
+      "gunduz_toplam_pct": -31.93,
+      "toplam_pct": 271.03,
+      "gece_payi_pct": 90.5,
+      "gece_ort_pct": 0.2424,
+      "gunduz_ort_pct": -0.0255
     },
     "SAHOL": {
-      "gun": 1252,
-      "gece_toplam_pct": 326.04,
-      "gunduz_toplam_pct": -49.49,
-      "toplam_pct": 276.57,
+      "gun": 1253,
+      "gece_toplam_pct": 325.64,
+      "gunduz_toplam_pct": -49.38,
+      "toplam_pct": 276.29,
       "gece_payi_pct": 86.8,
-      "gece_ort_pct": 0.2604,
-      "gunduz_ort_pct": -0.0395
+      "gece_ort_pct": 0.2599,
+      "gunduz_ort_pct": -0.0394
     },
     "ALARK": {
-      "gun": 1254,
-      "gece_toplam_pct": 346.51,
-      "gunduz_toplam_pct": -52.77,
-      "toplam_pct": 290.17,
+      "gun": 1253,
+      "gece_toplam_pct": 346.22,
+      "gunduz_toplam_pct": -52.86,
+      "toplam_pct": 289.78,
       "gece_payi_pct": 86.8,
       "gece_ort_pct": 0.2763,
-      "gunduz_ort_pct": -0.0421
+      "gunduz_ort_pct": -0.0422
     },
     "ENKAI": {
-      "gun": 1252,
-      "gece_toplam_pct": 381.65,
-      "gunduz_toplam_pct": -94.77,
-      "toplam_pct": 284.82,
-      "gece_payi_pct": 80.1,
-      "gece_ort_pct": 0.3048,
-      "gunduz_ort_pct": -0.0757
+      "gun": 1253,
+      "gece_toplam_pct": 382.87,
+      "gunduz_toplam_pct": -96.21,
+      "toplam_pct": 284.61,
+      "gece_payi_pct": 79.9,
+      "gece_ort_pct": 0.3056,
+      "gunduz_ort_pct": -0.0768
     },
     "THYAO": {
-      "gun": 1254,
-      "gece_toplam_pct": 357.87,
-      "gunduz_toplam_pct": 7.44,
-      "toplam_pct": 364.66,
-      "gece_payi_pct": 98.0,
-      "gece_ort_pct": 0.2854,
-      "gunduz_ort_pct": 0.0059
+      "gun": 1253,
+      "gece_toplam_pct": 358.56,
+      "gunduz_toplam_pct": 6.72,
+      "toplam_pct": 364.6,
+      "gece_payi_pct": 98.2,
+      "gece_ort_pct": 0.2862,
+      "gunduz_ort_pct": 0.0054
     },
     "PGSUS": {
-      "gun": 1255,
-      "gece_toplam_pct": 433.04,
-      "gunduz_toplam_pct": -148.96,
+      "gun": 1254,
+      "gece_toplam_pct": 435.38,
+      "gunduz_toplam_pct": -151.3,
       "toplam_pct": 282.22,
-      "gece_payi_pct": 74.4,
-      "gece_ort_pct": 0.345,
-      "gunduz_ort_pct": -0.1187
+      "gece_payi_pct": 74.2,
+      "gece_ort_pct": 0.3472,
+      "gunduz_ort_pct": -0.1207
     },
     "TAVHL": {
-      "gun": 1252,
-      "gece_toplam_pct": 311.94,
-      "gunduz_toplam_pct": -16.12,
-      "toplam_pct": 294.01,
-      "gece_payi_pct": 95.1,
-      "gece_ort_pct": 0.2492,
-      "gunduz_ort_pct": -0.0129
+      "gun": 1253,
+      "gece_toplam_pct": 309.96,
+      "gunduz_toplam_pct": -13.3,
+      "toplam_pct": 294.87,
+      "gece_payi_pct": 95.9,
+      "gece_ort_pct": 0.2474,
+      "gunduz_ort_pct": -0.0106
     },
     "ASELS": {
-      "gun": 1254,
-      "gece_toplam_pct": 372.94,
-      "gunduz_toplam_pct": 77.37,
-      "toplam_pct": 448.93,
-      "gece_payi_pct": 82.8,
-      "gece_ort_pct": 0.2974,
-      "gunduz_ort_pct": 0.0617
+      "gun": 1253,
+      "gece_toplam_pct": 373.32,
+      "gunduz_toplam_pct": 77.07,
+      "toplam_pct": 448.97,
+      "gece_payi_pct": 82.9,
+      "gece_ort_pct": 0.2979,
+      "gunduz_ort_pct": 0.0615
     },
     "OTKAR": {
-      "gun": 1252,
-      "gece_toplam_pct": 274.08,
-      "gunduz_toplam_pct": -65.44,
-      "toplam_pct": 205.32,
-      "gece_payi_pct": 80.7,
-      "gece_ort_pct": 0.2189,
-      "gunduz_ort_pct": -0.0523
+      "gun": 1251,
+      "gece_toplam_pct": 272.42,
+      "gunduz_toplam_pct": -64.47,
+      "toplam_pct": 204.67,
+      "gece_payi_pct": 80.9,
+      "gece_ort_pct": 0.2178,
+      "gunduz_ort_pct": -0.0515
     },
     "ASTOR": {
-      "gun": 893,
-      "gece_toplam_pct": 374.81,
-      "gunduz_toplam_pct": 8.29,
-      "toplam_pct": 382.28,
-      "gece_payi_pct": 97.8,
-      "gece_ort_pct": 0.4197,
-      "gunduz_ort_pct": 0.0093
+      "gun": 892,
+      "gece_toplam_pct": 376.67,
+      "gunduz_toplam_pct": 6.48,
+      "toplam_pct": 382.23,
+      "gece_payi_pct": 98.3,
+      "gece_ort_pct": 0.4223,
+      "gunduz_ort_pct": 0.0073
     },
     "ENJSA": {
-      "gun": 1254,
-      "gece_toplam_pct": 321.33,
-      "gunduz_toplam_pct": -20.03,
-      "toplam_pct": 299.21,
-      "gece_payi_pct": 94.1,
-      "gece_ort_pct": 0.2562,
-      "gunduz_ort_pct": -0.016
+      "gun": 1253,
+      "gece_toplam_pct": 319.41,
+      "gunduz_toplam_pct": -18.23,
+      "toplam_pct": 299.1,
+      "gece_payi_pct": 94.6,
+      "gece_ort_pct": 0.2549,
+      "gunduz_ort_pct": -0.0145
     },
     "TUPRS": {
-      "gun": 1254,
-      "gece_toplam_pct": 328.97,
-      "gunduz_toplam_pct": 79.1,
-      "toplam_pct": 408.26,
-      "gece_payi_pct": 80.6,
-      "gece_ort_pct": 0.2623,
-      "gunduz_ort_pct": 0.0631
+      "gun": 1253,
+      "gece_toplam_pct": 331.47,
+      "gunduz_toplam_pct": 76.44,
+      "toplam_pct": 408.08,
+      "gece_payi_pct": 81.3,
+      "gece_ort_pct": 0.2645,
+      "gunduz_ort_pct": 0.061
     },
     "PETKM": {
-      "gun": 1252,
-      "gece_toplam_pct": 331.76,
-      "gunduz_toplam_pct": -168.81,
-      "toplam_pct": 162.58,
-      "gece_payi_pct": 66.3,
-      "gece_ort_pct": 0.265,
-      "gunduz_ort_pct": -0.1348
+      "gun": 1253,
+      "gece_toplam_pct": 324.79,
+      "gunduz_toplam_pct": -161.94,
+      "toplam_pct": 163.09,
+      "gece_payi_pct": 66.7,
+      "gece_ort_pct": 0.2592,
+      "gunduz_ort_pct": -0.1292
     },
     "EREGL": {
-      "gun": 1253,
-      "gece_toplam_pct": 322.83,
-      "gunduz_toplam_pct": -128.47,
-      "toplam_pct": 194.09,
-      "gece_payi_pct": 71.5,
-      "gece_ort_pct": 0.2576,
-      "gunduz_ort_pct": -0.1025
+      "gun": 1254,
+      "gece_toplam_pct": 320.16,
+      "gunduz_toplam_pct": -126.04,
+      "toplam_pct": 193.97,
+      "gece_payi_pct": 71.8,
+      "gece_ort_pct": 0.2553,
+      "gunduz_ort_pct": -0.1005
     },
     "TRMET": {
-      "gun": 1254,
-      "gece_toplam_pct": 436.4,
-      "gunduz_toplam_pct": -151.65,
-      "toplam_pct": 286.91,
-      "gece_payi_pct": 74.2,
-      "gece_ort_pct": 0.348,
-      "gunduz_ort_pct": -0.1209
+      "gun": 1253,
+      "gece_toplam_pct": 433.03,
+      "gunduz_toplam_pct": -147.91,
+      "toplam_pct": 287.3,
+      "gece_payi_pct": 74.5,
+      "gece_ort_pct": 0.3456,
+      "gunduz_ort_pct": -0.118
     },
     "SISE": {
-      "gun": 1254,
-      "gece_toplam_pct": 235.16,
-      "gunduz_toplam_pct": -37.13,
-      "toplam_pct": 197.31,
-      "gece_payi_pct": 86.4,
-      "gece_ort_pct": 0.1875,
-      "gunduz_ort_pct": -0.0296
+      "gun": 1253,
+      "gece_toplam_pct": 235.99,
+      "gunduz_toplam_pct": -37.95,
+      "toplam_pct": 197.32,
+      "gece_payi_pct": 86.1,
+      "gece_ort_pct": 0.1883,
+      "gunduz_ort_pct": -0.0303
     },
     "TOASO": {
-      "gun": 1254,
-      "gece_toplam_pct": 322.74,
-      "gunduz_toplam_pct": -51.1,
-      "toplam_pct": 270.69,
-      "gece_payi_pct": 86.3,
-      "gece_ort_pct": 0.2574,
-      "gunduz_ort_pct": -0.0407
+      "gun": 1253,
+      "gece_toplam_pct": 327.11,
+      "gunduz_toplam_pct": -55.5,
+      "toplam_pct": 270.59,
+      "gece_payi_pct": 85.5,
+      "gece_ort_pct": 0.2611,
+      "gunduz_ort_pct": -0.0443
     },
     "FROTO": {
-      "gun": 1255,
-      "gece_toplam_pct": 331.24,
-      "gunduz_toplam_pct": -112.32,
+      "gun": 1254,
+      "gece_toplam_pct": 335.44,
+      "gunduz_toplam_pct": -116.42,
       "toplam_pct": 218.24,
-      "gece_payi_pct": 74.7,
-      "gece_ort_pct": 0.2639,
-      "gunduz_ort_pct": -0.0895
+      "gece_payi_pct": 74.2,
+      "gece_ort_pct": 0.2675,
+      "gunduz_ort_pct": -0.0928
     },
     "TTKOM": {
-      "gun": 1254,
-      "gece_toplam_pct": 375.78,
-      "gunduz_toplam_pct": -106.46,
-      "toplam_pct": 267.5,
+      "gun": 1253,
+      "gece_toplam_pct": 375.98,
+      "gunduz_toplam_pct": -106.66,
+      "toplam_pct": 267.52,
       "gece_payi_pct": 77.9,
-      "gece_ort_pct": 0.2997,
-      "gunduz_ort_pct": -0.0849
+      "gece_ort_pct": 0.3001,
+      "gunduz_ort_pct": -0.0851
     },
     "BIMAS": {
-      "gun": 1257,
-      "gece_toplam_pct": 334.18,
-      "gunduz_toplam_pct": -43.04,
-      "toplam_pct": 289.37,
-      "gece_payi_pct": 88.6,
-      "gece_ort_pct": 0.2659,
-      "gunduz_ort_pct": -0.0342
+      "gun": 1256,
+      "gece_toplam_pct": 335.76,
+      "gunduz_toplam_pct": -44.6,
+      "toplam_pct": 289.31,
+      "gece_payi_pct": 88.3,
+      "gece_ort_pct": 0.2673,
+      "gunduz_ort_pct": -0.0355
     },
     "MGROS": {
-      "gun": 1254,
-      "gece_toplam_pct": 303.18,
-      "gunduz_toplam_pct": 16.71,
-      "toplam_pct": 319.1,
-      "gece_payi_pct": 94.8,
-      "gece_ort_pct": 0.2418,
-      "gunduz_ort_pct": 0.0133
+      "gun": 1253,
+      "gece_toplam_pct": 303.51,
+      "gunduz_toplam_pct": 16.3,
+      "toplam_pct": 319.0,
+      "gece_payi_pct": 94.9,
+      "gece_ort_pct": 0.2422,
+      "gunduz_ort_pct": 0.013
     },
     "ULKER": {
-      "gun": 1254,
-      "gece_toplam_pct": 324.1,
-      "gunduz_toplam_pct": -105.09,
-      "toplam_pct": 218.89,
-      "gece_payi_pct": 75.5,
-      "gece_ort_pct": 0.2585,
-      "gunduz_ort_pct": -0.0838
+      "gun": 1253,
+      "gece_toplam_pct": 321.92,
+      "gunduz_toplam_pct": -102.93,
+      "toplam_pct": 218.86,
+      "gece_payi_pct": 75.8,
+      "gece_ort_pct": 0.2569,
+      "gunduz_ort_pct": -0.0821
     },
     "AEFES": {
-      "gun": 1255,
-      "gece_toplam_pct": 307.7,
-      "gunduz_toplam_pct": -32.43,
-      "toplam_pct": 275.24,
-      "gece_payi_pct": 90.5,
-      "gece_ort_pct": 0.2452,
-      "gunduz_ort_pct": -0.0258
+      "gun": 1254,
+      "gece_toplam_pct": 307.33,
+      "gunduz_toplam_pct": -32.07,
+      "toplam_pct": 275.23,
+      "gece_payi_pct": 90.6,
+      "gece_ort_pct": 0.2451,
+      "gunduz_ort_pct": -0.0256
     },
     "EKGYO": {
-      "gun": 1252,
-      "gece_toplam_pct": 315.69,
-      "gunduz_toplam_pct": -10.7,
-      "toplam_pct": 303.7,
-      "gece_payi_pct": 96.7,
-      "gece_ort_pct": 0.2521,
-      "gunduz_ort_pct": -0.0085
+      "gun": 1253,
+      "gece_toplam_pct": 316.68,
+      "gunduz_toplam_pct": -12.07,
+      "toplam_pct": 303.3,
+      "gece_payi_pct": 96.3,
+      "gece_ort_pct": 0.2527,
+      "gunduz_ort_pct": -0.0096
     }
   }
 }
