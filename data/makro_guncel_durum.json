@@ -1,20 +1,28 @@
 {
-  "olusturma_utc": "2026-08-12T08:57:35.720655+00:00",
+  "olusturma_utc": "2026-08-17T08:02:18.184885+00:00",
   "not": "makro_hassasiyet_haritasi.json'daki faktorlere, MEVCUT GERCEK veriyle (su an yalniz USD_TRY_KURU icin TCMB EVDS) GUNCEL deger eklenmis halidir. Bu bir TAHMIN/SINYAL DEGILDIR - yalniz 'bu faktorun guncel degeri su' diye GOSTERIR, yorumlama insana aittir.",
   "usd_try_ozet": {
-    "guncel_deger": 47.6505,
-    "guncel_tarih": "12-08-2026",
-    "donem_basi_deger": 46.8084,
-    "donem_basi_tarih": "13-07-2026",
-    "donem_ici_degisim_pct": 1.8,
-    "gecerli_gun_sayisi": 22
+    "guncel_deger": 47.7206,
+    "guncel_tarih": "17-08-2026",
+    "donem_basi_deger": 46.9858,
+    "donem_basi_tarih": "20-07-2026",
+    "donem_ici_degisim_pct": 1.56,
+    "gecerli_gun_sayisi": 21
   },
-  "usd_try_etkilenen_sektor_sayisi": 7,
+  "usd_try_etkilenen_sektor_sayisi": 11,
   "hassasiyet_haritasi_guncel": {
     "Bankacilik": [
       {
         "faktor": "TCMB_FAIZ_KARARI",
-        "aciklama": "Politika faizi degisiklikleri net faiz marjini dogrudan etkiler"
+        "aciklama": "Politika faizi degisiklikleri net faiz marjini dogrudan etkiler",
+        "guncel_veri": {
+          "guncel_deger": 37.0,
+          "guncel_tarih": "2026-6",
+          "donem_basi_deger": 37.0,
+          "donem_basi_tarih": "2026-2",
+          "donem_ici_degisim_pct": 0.0,
+          "gecerli_gun_sayisi": 5
+        }
       },
       {
         "faktor": "ENFLASYON_VERISI",
@@ -30,12 +38,12 @@
         "faktor": "USD_TRY_KURU",
         "aciklama": "Cok sektorlü yapida doviz pozisyonu genis, kur hareketine genis maruziyet",
         "guncel_veri": {
-          "guncel_deger": 47.6505,
-          "guncel_tarih": "12-08-2026",
-          "donem_basi_deger": 46.8084,
-          "donem_basi_tarih": "13-07-2026",
-          "donem_ici_degisim_pct": 1.8,
-          "gecerli_gun_sayisi": 22
+          "guncel_deger": 47.7206,
+          "guncel_tarih": "17-08-2026",
+          "donem_basi_deger": 46.9858,
+          "donem_basi_tarih": "20-07-2026",
+          "donem_ici_degisim_pct": 1.56,
+          "gecerli_gun_sayisi": 21
         }
       },
       {
@@ -60,12 +68,12 @@
         "faktor": "USD_TRY_KURU",
         "aciklama": "Ucak kirasi/yakit USD bazli, gelirin onemli kismi da doviz",
         "guncel_veri": {
-          "guncel_deger": 47.6505,
-          "guncel_tarih": "12-08-2026",
-          "donem_basi_deger": 46.8084,
-          "donem_basi_tarih": "13-07-2026",
-          "donem_ici_degisim_pct": 1.8,
-          "gecerli_gun_sayisi": 22
+          "guncel_deger": 47.7206,
+          "guncel_tarih": "17-08-2026",
+          "donem_basi_deger": 46.9858,
+          "donem_basi_tarih": "20-07-2026",
+          "donem_ici_degisim_pct": 1.56,
+          "gecerli_gun_sayisi": 21
         }
       }
     ],
@@ -78,12 +86,12 @@
         "faktor": "USD_TRY_KURU",
         "aciklama": "Havalimani isletme sozlesmeleri genelde USD bazli",
         "guncel_veri": {
-          "guncel_deger": 47.6505,
-          "guncel_tarih": "12-08-2026",
-          "donem_basi_deger": 46.8084,
-          "donem_basi_tarih": "13-07-2026",
-          "donem_ici_degisim_pct": 1.8,
-          "gecerli_gun_sayisi": 22
+          "guncel_deger": 47.7206,
+          "guncel_tarih": "17-08-2026",
+          "donem_basi_deger": 46.9858,
+          "donem_basi_tarih": "20-07-2026",
+          "donem_ici_degisim_pct": 1.56,
+          "gecerli_gun_sayisi": 21
         }
       }
     ],
@@ -120,12 +128,12 @@
         "faktor": "USD_TRY_KURU",
         "aciklama": "Siparis bakiyesi genelde USD bazli",
         "guncel_veri": {
-          "guncel_deger": 47.6505,
-          "guncel_tarih": "12-08-2026",
-          "donem_basi_deger": 46.8084,
-          "donem_basi_tarih": "13-07-2026",
-          "donem_ici_degisim_pct": 1.8,
-          "gecerli_gun_sayisi": 22
+          "guncel_deger": 47.7206,
+          "guncel_tarih": "17-08-2026",
+          "donem_basi_deger": 46.9858,
+          "donem_basi_tarih": "20-07-2026",
+          "donem_ici_degisim_pct": 1.56,
+          "gecerli_gun_sayisi": 21
         }
       },
       {
@@ -150,7 +158,15 @@
       },
       {
         "faktor": "TCMB_FAIZ_KARARI",
-        "aciklama": "Sermaye yogun, borclanma maliyeti faiz ortamina duyarli"
+        "aciklama": "Sermaye yogun, borclanma maliyeti faiz ortamina duyarli",
+        "guncel_veri": {
+          "guncel_deger": 37.0,
+          "guncel_tarih": "2026-6",
+          "donem_basi_deger": 37.0,
+          "donem_basi_tarih": "2026-2",
+          "donem_ici_degisim_pct": 0.0,
+          "gecerli_gun_sayisi": 5
+        }
       }
     ],
     "Perakende": [
@@ -176,12 +192,12 @@
         "faktor": "USD_TRY_KURU",
         "aciklama": "Girdi/cikti fiyatlari dogrudan USD bazli",
         "guncel_veri": {
-          "guncel_deger": 47.6505,
-          "guncel_tarih": "12-08-2026",
-          "donem_basi_deger": 46.8084,
-          "donem_basi_tarih": "13-07-2026",
-          "donem_ici_degisim_pct": 1.8,
-          "gecerli_gun_sayisi": 22
+          "guncel_deger": 47.7206,
+          "guncel_tarih": "17-08-2026",
+          "donem_basi_deger": 46.9858,
+          "donem_basi_tarih": "20-07-2026",
+          "donem_ici_degisim_pct": 1.56,
+          "gecerli_gun_sayisi": 21
         }
       }
     ],
@@ -194,12 +210,12 @@
         "faktor": "USD_TRY_KURU",
         "aciklama": "Parca ithalati ve ihracat geliri kur hareketine duyarli",
         "guncel_veri": {
-          "guncel_deger": 47.6505,
-          "guncel_tarih": "12-08-2026",
-          "donem_basi_deger": 46.8084,
-          "donem_basi_tarih": "13-07-2026",
-          "donem_ici_degisim_pct": 1.8,
-          "gecerli_gun_sayisi": 22
+          "guncel_deger": 47.7206,
+          "guncel_tarih": "17-08-2026",
+          "donem_basi_deger": 46.9858,
+          "donem_basi_tarih": "20-07-2026",
+          "donem_ici_degisim_pct": 1.56,
+          "gecerli_gun_sayisi": 21
         }
       },
       {
@@ -210,7 +226,15 @@
     "Insaat": [
       {
         "faktor": "TCMB_FAIZ_KARARI",
-        "aciklama": "Insaat kredisi/proje finansmani faiz ortamina duyarli"
+        "aciklama": "Insaat kredisi/proje finansmani faiz ortamina duyarli",
+        "guncel_veri": {
+          "guncel_deger": 37.0,
+          "guncel_tarih": "2026-6",
+          "donem_basi_deger": 37.0,
+          "donem_basi_tarih": "2026-2",
+          "donem_ici_degisim_pct": 0.0,
+          "gecerli_gun_sayisi": 5
+        }
       },
       {
         "faktor": "YURTDISI_PROJE_PORTFOYU",
@@ -240,7 +264,15 @@
     "GYO": [
       {
         "faktor": "TCMB_FAIZ_KARARI",
-        "aciklama": "Konut kredisi faizi talebi dogrudan etkiler"
+        "aciklama": "Konut kredisi faizi talebi dogrudan etkiler",
+        "guncel_veri": {
+          "guncel_deger": 37.0,
+          "guncel_tarih": "2026-6",
+          "donem_basi_deger": 37.0,
+          "donem_basi_tarih": "2026-2",
+          "donem_ici_degisim_pct": 0.0,
+          "gecerli_gun_sayisi": 5
+        }
       },
       {
         "faktor": "INSAAT_MALIYETI",
@@ -256,12 +288,12 @@
         "faktor": "USD_TRY_KURU",
         "aciklama": "Metal fiyatlari USD bazli fiyatlanir",
         "guncel_veri": {
-          "guncel_deger": 47.6505,
-          "guncel_tarih": "12-08-2026",
-          "donem_basi_deger": 46.8084,
-          "donem_basi_tarih": "13-07-2026",
-          "donem_ici_degisim_pct": 1.8,
-          "gecerli_gun_sayisi": 22
+          "guncel_deger": 47.7206,
+          "guncel_tarih": "17-08-2026",
+          "donem_basi_deger": 46.9858,
+          "donem_basi_tarih": "20-07-2026",
+          "donem_ici_degisim_pct": 1.56,
+          "gecerli_gun_sayisi": 21
         }
       }
     ]
