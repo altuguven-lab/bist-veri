@@ -205,6 +205,18 @@ def main():
         print("HATA: hicbir sembolde yeterli veri yok.", file=sys.stderr)
         return
 
+    # --- H1-KONTROL: endeksin KENDI ayrismasi --------------------------
+    # 17.08 ekle: sembol serilerinde temettu/bedelsiz duzeltmesi var,
+    # endeks fiyat serisinde yok. Endeks de ayni deseni gosteriyorsa
+    # bulgu duzeltme artefakti DEGILDIR; gostermiyorsa buyuk kismi
+    # artefakt suphesi altindadir. Kontrol olmadan H1 yorumlanamaz.
+    e_gece = {t: [k["gece"]] for t, k in endeks.items()}
+    e_gunduz = {t: [k["gunduz"]] for t, k in endeks.items()}
+    eg, _ = _gun_agirlikli(e_gece)
+    ed, _ = _gun_agirlikli(e_gunduz)
+    e_toplam = abs(eg) + abs(ed)
+    e_pay = (abs(eg) / e_toplam * 100) if e_toplam else None
+
     # --- H1: gece payi -------------------------------------------------
     gece_ort, n_gun = _gun_agirlikli(gece_gun)
     gunduz_ort, _ = _gun_agirlikli(gunduz_gun)
@@ -252,6 +264,14 @@ def main():
             "gece_payi_pct": round(gece_payi, 1) if gece_payi else None,
             "RED": h1_red,
         },
+        "H1_KONTROL_endeks": {
+            "gece_ort_pct": round(eg, 4),
+            "gunduz_ort_pct": round(ed, 4),
+            "gece_payi_pct": round(e_pay, 1) if e_pay else None,
+            "not": "Endeks fiyat serisinde temettu/bedelsiz duzeltmesi "
+                   "yoktur. Sembol sonucuyla ayni yondeyse H1 artefakt "
+                   "degildir.",
+        },
         "H2_gap_veto": {"kovalar": gap_tablo, "RED": h2_red},
         "H3_kisa_ufuk_donus": {
             "alt_ust_desil_farki_pct":
@@ -266,6 +286,9 @@ def main():
     print(f"  gece   ort %{gece_ort:+.4f}")
     print(f"  gunduz ort %{gunduz_ort:+.4f}")
     print(f"  gece payi %{gece_payi:.1f}  -> H1 {'RED' if h1_red else 'AYAKTA'}")
+    print(f"  KONTROL {ENDEKS}: gece %{eg:+.4f} | gunduz %{ed:+.4f} | "
+          f"gece payi %{e_pay:.1f}" if e_pay else "  KONTROL: hesaplanamadi")
+    print("    (endekste duzeltme yok - ayni yondeyse artefakt degil)")
     print("\n=== H2: GAP KOVASI -> AYNI GUN GORELI GUNDUZ GETIRISI ===")
     print(f"  {'KOVA':16}{'GUN':>6}{'GOZLEM':>8}{'GUNDUZ GORELI':>15}")
     for ad, _, _ in GAP_KOVALARI:
