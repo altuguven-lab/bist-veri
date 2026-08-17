@@ -1,0 +1,55 @@
+# HABER KANALI TESHISI (17.08.2026)
+# Konum: .github/workflows/haber_teshis.yml
+# ELLE tetiklenir - SALT OLCUM. fetch_news.py'yi DEGISTIRMEZ,
+# data/haber_akisi.json'a DOKUNMAZ, sinyal uretmez.
+#
+# Amac: kaynak_detay "kac tane girdi" diyor, bu "NEDEN girmedi" diyor.
+# 17.08 bulgusu: KAP ham=100/suzulen=0, GN sembol sorgulari %2 gecis
+# orani, 30 sembolun 10'u sifir (AKBNK/KCHOL/YKBNK dahil).
+name: Haber Kanali Teshisi
+
+on:
+  workflow_dispatch:
+    inputs:
+      kaynak:
+        description: "Tek kaynak adi (bos birakilirsa TUM kaynaklar ozetlenir). Ornek: KAP, GN:AKBNK, BloombergHT"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  teshis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bagimliliklar
+        run: pip install feedparser
+
+      - name: Teshisi calistir
+        run: python haber_teshis.py ${{ inputs.kaynak }}
+
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "haber-teshis-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/denetim/haber_teshis.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Haber kanali teshisi $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
