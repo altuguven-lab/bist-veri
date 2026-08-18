@@ -1,0 +1,66 @@
+# IP-7 KIRILMA TESTI (17.08.2026)
+# Konum: .github/workflows/ip7_kirilma_testi.yml
+# ELLE tetiklenir - SALT OLCUM. Sinyal uretmez, Pine'a dokunmaz.
+#
+# KOSUM SIRASI ZORUNLU:
+#   1) asama=1  -> kunye + MDE (kirilma sonucu BASMAZ)
+#   2) ON_KAYIT_IP7.md commit'lenir
+#   3) asama=2  -> tam sonuc
+# Asama 2'yi on kayit commit'inden ONCE kosmak, korleme kuralini (C.6)
+# ihlal eder ve bulguyu "kanit" olmaktan cikarir.
+name: IP-7 Kirilma Testi
+
+on:
+  workflow_dispatch:
+    inputs:
+      asama:
+        description: "1 = kunye+MDE (korlemeli) | 2 = tam sonuc"
+        required: true
+        type: choice
+        options: ["1", "2"]
+        default: "1"
+
+permissions:
+  contents: write
+
+jobs:
+  kirilma:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # yfinance surumu diger olcum workflow'lariyla AYNI tutulur -
+      # surum ayrismasi olcumleri kiyaslanamaz hale getirir.
+      - run: pip install yfinance==0.2.66 ruptures==1.1.10 arch==8.0.0
+
+      - name: On kayit belgesi var mi (asama 2 icin sart)
+        if: ${{ inputs.asama == '2' }}
+        run: |
+          test -f ON_KAYIT_IP7.md || {
+            echo "HATA: ON_KAYIT_IP7.md depoda yok."
+            echo "Korleme kurali geregi asama 2, on kayit commit'lenmeden kosulamaz."
+            exit 1
+          }
+          echo "On kayit bulundu: $(git log -1 --format=%cI -- ON_KAYIT_IP7.md)"
+
+      - name: Testi calistir
+        run: python kirilma_testi.py --asama ${{ inputs.asama }}
+
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "ip7-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/denetim/ip7_kirilma_testi*.json
+          git diff --staged --quiet && exit 0
+          git commit -m "IP-7 kirilma testi asama ${{ inputs.asama }} $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili (deneme $i)"; exit 0; fi
+            echo "push reddedildi, rebase + tekrar ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
