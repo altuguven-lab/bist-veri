@@ -1,0 +1,48 @@
+# BILANCO TAKVIMI (18.08.2026)
+# Konum: .github/workflows/bilanco_takvimi.yml
+# SALT OKUMA - Pine'a dokunmaz, sinyal uretmez, karar dosyasina yazmaz.
+#
+# Hafta ici her sabah 05:30 UTC (08:30 TSI) kosar - brifingten ONCE.
+# Cikti: data/denetim/bilanco_uyari.json (brifing bunu okur)
+#
+# Elle de tetiklenebilir (takvim dosyasi guncellendiginde).
+name: Bilanco Takvimi
+
+on:
+  schedule:
+    - cron: "30 5 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  takvim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Bagimlilik YOK - yalniz standart kutuphane. Bilerek boyle:
+      # brifingin deterministik girdisi dis servise bagli olmamali.
+
+      - name: Takvimi calistir
+        run: python bilanco_takvimi.py
+
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "takvim-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/denetim/bilanco_uyari.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Bilanco takvimi $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili (deneme $i)"; exit 0; fi
+            echo "push reddedildi, rebase + tekrar ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
