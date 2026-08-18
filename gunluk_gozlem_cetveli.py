@@ -7,7 +7,7 @@ tabloda birlestirir.
 
 KIRMIZI CIZGI (Kulucka Protokolu ile UYUM): VIOP verisinden YENI bir
 "sinyal" (SQZ vb.) TURETILMEZ - viop_analiz.json'un kendi notu acik:
-"18.08.2026'ya kadar SQZ/sinyal hesaplanmaz". Burada VIOP'tan yalniz
+"19.09.2026'ya kadar SQZ/sinyal hesaplanmaz". Burada VIOP'tan yalniz
 TANIMLAYICI bir GOZLEM (futures'in spot'a gore baz/prim yuzdesi)
 okunabilir hale getirilir - bu bir SINYAL DEGIL, HAM VERININ
 OKUNMASIDIR (konsolide_degerlendirme.py'deki diger katmanlarla ayni
@@ -70,7 +70,7 @@ def main():
         "olusturma_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "viop_bulten_gunu": viop.get("bulten_gunu"),
         "kulucka_notu": ("VIOP'tan YENI sinyal TURETILMEDI - Kulucka Protokolu "
-                          "18.08.2026'ya kadar SQZ/sinyal hesaplanmasini yasakliyor. "
+                          "19.09.2026'ya kadar SQZ/sinyal hesaplanmasini yasakliyor. "
                           "Burada yalniz HAM baz/prim yuzdesi okunabilir hale getirildi."),
         "kuresel_baglam": kuresel_ozet,
         "not": ("Bu bir 'AL/SAT tavsiyesi' ya da kesin bir tahmin DEGILDIR - "
