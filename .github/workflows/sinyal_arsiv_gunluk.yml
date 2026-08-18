@@ -19,13 +19,26 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install yfinance==0.2.66
+      # 17.08 EKI — INBOX KURTARMA. Pipedream ana dosyaya yazamadigi
+      # kayitlari data/inbox/ altina tekil dosya olarak dusuruyor ve
+      # hicbir sey onlari geri tasimiyordu (12-14.08 kapsama 22-24/30;
+      # 18 kayit orada bekliyordu). Bu adim ANA BETIKTEN ONCE kosmali:
+      # asagidaki betik tv_alerts_latest.json'u OKUYOR, birlestirme
+      # sonra kosarsa o kosuda hicbir ise yaramaz.
+      # Idempotent - iki workflow ayni gun kosarsa ikincisi 0 kayit ekler.
+      - name: Inbox kayitlarini birlestir
+        run: python inbox_birlestir.py
+
       - name: Arsivi guncelle
         run: python sinyal_arsiv_gunluk.py
       - name: Sonuclari commit'le
         run: |
           git config user.name "sinyal-arsiv-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/sinyal_arsiv.json
+          # tv_alerts_latest.json de eklenmeli: inbox birlestirmesi onu
+          # degistiriyor. Eklenmezse kurtarilan kayitlar commit edilmez
+          # ve bir sonraki checkout'ta kaybolur.
+          git add data/sinyal_arsiv.json data/tv_alerts_latest.json
           git diff --staged --quiet && exit 0
           git commit -m "Sinyal dogrulama arsivi guncelleme $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5; do
