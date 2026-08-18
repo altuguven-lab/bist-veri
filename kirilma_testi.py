@@ -55,6 +55,12 @@ SAKLI_BASLANGIC = "2026-02-17"
 # kadar dar olmali. 19.03.2025 ile 01.09.2025 (EBDKS) arasi 166 gun;
 # bundan genis bir GA, siyasi soku kural degisikliginden ayiramaz.
 K1_AZAMI_GA_GUN = 166
+# 18.08: PELT (coklu kirilma) ile LS (tek kirilma) tahminleri materyal
+# olarak ayrisiyorsa, seri icin TEK KIRILMA modeli uygun degil demektir.
+# O durumda GA'nin darligi "guven" degil, yanlis modelin kendi icinde
+# tutarli olmasidir. Ornek: sentetik kontrolde S3 icin PELT 2022-07-19,
+# LS 2023-09-11, GA 3 gun genisliginde cikti - ucu birden guvenilmez.
+MODEL_UYUM_AZAMI_GUN = 90
 EBDKS_TARIHI = "2025-09-01"
 
 ENDEKS = "XU100.IS"
@@ -146,6 +152,32 @@ def _birincil_kirilma(dizi):
     return en_iyi
 
 
+def _tek_kirilma_ls(dizi, min_boyut=30):
+    """Tek seviye kaymasi icin en kucuk kareler optimal kirilma noktasi.
+    Kumulatif toplamlarla vektorize - O(n), tek cagri ~0.04 ms.
+
+    18.08 PERFORMANS DUZELTMESI. Bootstrap her tekrarda PELT kosuyordu:
+    n=2137'de tek PELT fit'i 1,15 saniye, 7 cagri x 1000 tekrar = 134
+    DAKIKA. Isin kendisi 2,5 saatti; hata degil, tasarim hatasiydi.
+    Bootstrap replikasyonlarinda PELT'e zaten GEREK YOK: replikasyonun
+    veri ureten sureci TANIMI GEREGI tek kirilma tasiyor (uydurma seri
+    oncesi/sonrasi iki ortalamadan olusuyor). Tek kirilmayi aramak icin
+    en kucuk kareler tahmincisi hem daha hizli hem daha DOGRU - PELT
+    sifir ya da coklu kirilma dondurup gurultu ekleyebiliyordu.
+    PELT tespit asamasinda (kirilma VAR MI, kac tane) kaliyor.
+    """
+    x = np.asarray(dizi, dtype=float)
+    n = len(x)
+    if n < 2 * min_boyut:
+        return None
+    ks = np.cumsum(x)
+    p = np.arange(min_boyut, n - min_boyut)
+    ort_once = ks[p - 1] / p
+    ort_sonra = (ks[-1] - ks[p - 1]) / (n - p)
+    skor = p * (n - p) / n * (ort_sonra - ort_once) ** 2
+    return int(p[int(np.argmax(skor))])
+
+
 def _kirilma_ga(dizi, p_hat, rng):
     """Kirilma tarihi guven araligi — ARTIK bootstrap'i.
 
@@ -179,11 +211,13 @@ def _kirilma_ga(dizi, p_hat, rng):
             b = int(rng.integers(0, max(1, n - BLOK_UZUNLUGU)))
             parcalar.append(artik[b:b + BLOK_UZUNLUGU])
         yeni_artik = np.concatenate(parcalar)[:n]
-        p = _birincil_kirilma(uydurma + yeni_artik)
+        p = _tek_kirilma_ls(uydurma + yeni_artik)
         if p is not None:
             tahminler.append(p)
     if len(tahminler) < 50:
         return None
+    # GA, LS tahmincisi icindir; PELT nokta tahminiyle materyal fark
+    # varsa rapor ikisini birden gosterir (asagida ls_kirilma alani).
     return (float(np.percentile(tahminler, GA_ALT)),
             float(np.percentile(tahminler, GA_UST)))
 
@@ -394,6 +428,10 @@ def main():
         ga_tarih, ga_genislik = None, None
         k1 = False
         k1_neden = "GA uretilemedi"
+        p_ls = _tek_kirilma_ls(dizi)
+        ayrisma = (abs((tar[p_ls] - tar[p]).days)
+                   if p_ls is not None and p_ls < len(tar) else None)
+        model_uyumsuz = ayrisma is not None and ayrisma > MODEL_UYUM_AZAMI_GUN
         if ga:
             a = tar[max(0, min(len(tar) - 1, int(ga[0])))]
             b = tar[max(0, min(len(tar) - 1, int(ga[1])))]
@@ -404,7 +442,12 @@ def main():
             yeterince_dar = ga_genislik <= K1_AZAMI_GA_GUN
             ayirt_ediyor = not (a <= ebdks <= b)
             k1 = iceriyor and yeterince_dar and ayirt_ediyor
-            if not iceriyor:
+            if model_uyumsuz:
+                k1 = False
+                k1_neden = (f"PELT ile LS tahmini {ayrisma}g ayrisiyor "
+                            "-> TEK KIRILMA MODELI UYGUN DEGIL, GA'nin "
+                            "darligi guven anlamina GELMEZ")
+            elif not iceriyor:
                 k1_neden = "GA 19 Mart'i icermiyor"
             elif not yeterince_dar:
                 k1_neden = f"GA cok genis ({ga_genislik}g > {K1_AZAMI_GA_GUN}g) — BELIRSIZ"
@@ -423,6 +466,11 @@ def main():
             "K1": k1, "K1_neden": k1_neden, "ga_genislik_gun": ga_genislik,
             "once_ort": round(once, 5), "sonra_ort": round(sonra, 5),
             "kayma": round(kayma, 5),
+            "ls_kirilma_tarihi": (str(tar[p_ls])
+                                  if p_ls is not None and p_ls < len(tar)
+                                  else None),
+            "pelt_ls_ayrisma_gun": ayrisma,
+            "tek_kirilma_modeli_uyumsuz": model_uyumsuz,
             "K2": k2,
             "K2_esik_99p": round(k2_esik, 5) if k2_esik is not None else None,
             "ham_p": round(float(p_deg), 6),
