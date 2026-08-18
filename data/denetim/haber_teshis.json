@@ -1,5 +1,5 @@
 {
-  "zaman_utc": "2026-08-17T07:13:46.103512+00:00",
+  "zaman_utc": "2026-08-18T06:44:45.046219+00:00",
   "min_puan": 2,
   "max_yayin_yasi_gun": 7,
   "kaynaklar": [
@@ -9,10 +9,11 @@
       "url": "https://news.google.com/rss/search?q=site%3Akap.org.tr&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 0,
+      "gecen": 1,
       "eleme_nedenleri": {
-        "YAYIN_YASI": 25
+        "YAYIN_YASI": 24
       },
+      "gurultu_kalip_dagilimi": {},
       "ornekler": []
     },
     {
@@ -21,10 +22,13 @@
       "url": "https://news.google.com/rss/search?q=TCMB%20faiz%20OR%20duyuru&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 10,
+      "gecen": 13,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 8,
-        "YAYIN_YASI": 7
+        "GURULTU_KALIBI": 6,
+        "YAYIN_YASI": 6
+      },
+      "gurultu_kalip_dagilimi": {
+        "ne zaman": 6
       },
       "ornekler": []
     },
@@ -32,10 +36,11 @@
       "isim": "Reuters",
       "taban": 2,
       "url": "https://news.google.com/rss/search?q=Reuters%20Turkiye%20ekonomi%20when%3A7d&hl=tr&gl=TR&ceid=TR:tr",
-      "ham": 13,
-      "incelenen": 13,
-      "gecen": 13,
+      "ham": 14,
+      "incelenen": 14,
+      "gecen": 14,
       "eleme_nedenleri": {},
+      "gurultu_kalip_dagilimi": {},
       "ornekler": []
     },
     {
@@ -48,6 +53,7 @@
       "eleme_nedenleri": {
         "YAYIN_YASI": 20
       },
+      "gurultu_kalip_dagilimi": {},
       "ornekler": []
     },
     {
@@ -58,6 +64,7 @@
       "incelenen": 25,
       "gecen": 25,
       "eleme_nedenleri": {},
+      "gurultu_kalip_dagilimi": {},
       "ornekler": []
     },
     {
@@ -66,10 +73,13 @@
       "url": "https://www.dunya.com/rss",
       "ham": 25,
       "incelenen": 25,
-      "gecen": 5,
+      "gecen": 3,
       "eleme_nedenleri": {
         "DUSUK_PUAN": 19,
-        "GURULTU_KALIBI": 1
+        "GURULTU_KALIBI": 3
+      },
+      "gurultu_kalip_dagilimi": {
+        "ne zaman": 3
       },
       "ornekler": []
     },
@@ -81,21 +91,24 @@
       "incelenen": 25,
       "gecen": 2,
       "eleme_nedenleri": {
-        "DUSUK_PUAN": 22,
-        "YAYIN_YASI": 1
+        "DUSUK_PUAN": 21,
+        "YAYIN_YASI": 2
       },
+      "gurultu_kalip_dagilimi": {},
       "ornekler": []
     },
     {
       "isim": "Makro-Asya",
       "taban": 0,
       "url": "https://news.google.com/rss/search?q=Asya%20borsalari%20OR%20Nikkei%20OR%20Kospi%20bugun&hl=tr&gl=TR&ceid=TR:tr",
-      "ham": 72,
+      "ham": 65,
       "incelenen": 25,
-      "gecen": 2,
+      "gecen": 1,
       "eleme_nedenleri": {
-        "YAYIN_YASI": 23
+        "YAYIN_YASI": 23,
+        "DUSUK_PUAN": 1
       },
+      "gurultu_kalip_dagilimi": {},
       "ornekler": []
     },
     {
@@ -104,11 +117,12 @@
       "url": "https://news.google.com/rss/search?q=Iran%20ABD%20gorusmeler%20OR%20Hurmuz%20petrol&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 11,
+      "gecen": 16,
       "eleme_nedenleri": {
-        "DUSUK_PUAN": 13,
+        "DUSUK_PUAN": 8,
         "YAYIN_YASI": 1
       },
+      "gurultu_kalip_dagilimi": {},
       "ornekler": []
     },
     {
@@ -117,19 +131,28 @@
       "url": "https://news.google.com/rss/search?q=Fed%20faiz%20OR%20FOMC%20when%3A3d&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 25,
-      "eleme_nedenleri": {},
+      "gecen": 24,
+      "eleme_nedenleri": {
+        "GURULTU_KALIBI": 1
+      },
+      "gurultu_kalip_dagilimi": {
+        "ne zaman": 1
+      },
       "ornekler": []
     },
     {
       "isim": "Makro-TUIK",
       "taban": 0,
       "url": "https://news.google.com/rss/search?q=TUIK%20enflasyon%20OR%20TUFE%20aciklandi%20when%3A5d&hl=tr&gl=TR&ceid=TR:tr",
-      "ham": 57,
+      "ham": 63,
       "incelenen": 25,
-      "gecen": 23,
+      "gecen": 18,
       "eleme_nedenleri": {
-        "DUSUK_PUAN": 2
+        "GURULTU_KALIBI": 4,
+        "DUSUK_PUAN": 3
+      },
+      "gurultu_kalip_dagilimi": {
+        "ne zaman": 4
       },
       "ornekler": []
     },
@@ -141,9 +164,13 @@
       "incelenen": 25,
       "gecen": 0,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 14,
-        "YAYIN_YASI": 10,
+        "GURULTU_KALIBI": 15,
+        "YAYIN_YASI": 9,
         "DUSUK_PUAN": 1
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 14,
+        "ne zaman": 1
       },
       "ornekler": []
     },
@@ -151,13 +178,17 @@
       "isim": "GN:YKBNK",
       "taban": 1,
       "url": "https://news.google.com/rss/search?q=YKBNK%20OR%20%22Yapi%20Kredi%22%20hisse&hl=tr&gl=TR&ceid=TR:tr",
-      "ham": 90,
+      "ham": 92,
       "incelenen": 25,
       "gecen": 0,
       "eleme_nedenleri": {
         "GURULTU_KALIBI": 17,
         "YAYIN_YASI": 5,
         "DUSUK_PUAN": 3
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 16,
+        "hisse senedi -": 1
       },
       "ornekler": []
     },
@@ -172,6 +203,9 @@
         "GURULTU_KALIBI": 20,
         "YAYIN_YASI": 3
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20
+      },
       "ornekler": []
     },
     {
@@ -182,8 +216,12 @@
       "incelenen": 25,
       "gecen": 0,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 20,
-        "YAYIN_YASI": 5
+        "GURULTU_KALIBI": 21,
+        "YAYIN_YASI": 4
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20,
+        "hisse yorumları": 1
       },
       "ornekler": []
     },
@@ -195,8 +233,11 @@
       "incelenen": 25,
       "gecen": 1,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 22,
-        "YAYIN_YASI": 2
+        "GURULTU_KALIBI": 23,
+        "YAYIN_YASI": 1
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 23
       },
       "ornekler": []
     },
@@ -211,6 +252,9 @@
         "GURULTU_KALIBI": 19,
         "YAYIN_YASI": 6
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 19
+      },
       "ornekler": []
     },
     {
@@ -224,6 +268,9 @@
         "GURULTU_KALIBI": 13,
         "YAYIN_YASI": 11
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 13
+      },
       "ornekler": []
     },
     {
@@ -234,8 +281,11 @@
       "incelenen": 25,
       "gecen": 1,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 19,
-        "YAYIN_YASI": 5
+        "GURULTU_KALIBI": 20,
+        "YAYIN_YASI": 4
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20
       },
       "ornekler": []
     },
@@ -245,10 +295,14 @@
       "url": "https://news.google.com/rss/search?q=EREGL%20OR%20%22Erdemir%22%20hisse&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 2,
+      "gecen": 1,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 17,
+        "GURULTU_KALIBI": 18,
         "YAYIN_YASI": 6
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 17,
+        "hisse yorumları": 1
       },
       "ornekler": []
     },
@@ -263,6 +317,9 @@
         "YAYIN_YASI": 14,
         "GURULTU_KALIBI": 11
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 11
+      },
       "ornekler": []
     },
     {
@@ -273,9 +330,12 @@
       "incelenen": 25,
       "gecen": 2,
       "eleme_nedenleri": {
-        "YAYIN_YASI": 16,
-        "GURULTU_KALIBI": 6,
+        "YAYIN_YASI": 15,
+        "GURULTU_KALIBI": 7,
         "DUSUK_PUAN": 1
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 7
       },
       "ornekler": []
     },
@@ -288,8 +348,12 @@
       "gecen": 1,
       "eleme_nedenleri": {
         "GURULTU_KALIBI": 16,
-        "DUSUK_PUAN": 4,
-        "YAYIN_YASI": 4
+        "YAYIN_YASI": 5,
+        "DUSUK_PUAN": 3
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 15,
+        "ne zaman": 1
       },
       "ornekler": []
     },
@@ -301,9 +365,13 @@
       "incelenen": 25,
       "gecen": 1,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 11,
-        "YAYIN_YASI": 8,
-        "DUSUK_PUAN": 5
+        "YAYIN_YASI": 12,
+        "GURULTU_KALIBI": 10,
+        "DUSUK_PUAN": 2
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 9,
+        "hisse yorumları": 1
       },
       "ornekler": []
     },
@@ -318,6 +386,9 @@
         "GURULTU_KALIBI": 15,
         "YAYIN_YASI": 7
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 15
+      },
       "ornekler": []
     },
     {
@@ -326,10 +397,14 @@
       "url": "https://news.google.com/rss/search?q=TOASO%20OR%20%22Tofas%22%20hisse&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 1,
+      "gecen": 0,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 17,
+        "GURULTU_KALIBI": 18,
         "YAYIN_YASI": 7
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 16,
+        "ne zaman": 2
       },
       "ornekler": []
     },
@@ -341,8 +416,11 @@
       "incelenen": 25,
       "gecen": 0,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 14,
-        "YAYIN_YASI": 11
+        "GURULTU_KALIBI": 15,
+        "YAYIN_YASI": 10
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 15
       },
       "ornekler": []
     },
@@ -357,6 +435,10 @@
         "GURULTU_KALIBI": 19,
         "YAYIN_YASI": 3
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 18,
+        "hisse yorumları": 1
+      },
       "ornekler": []
     },
     {
@@ -370,6 +452,9 @@
         "GURULTU_KALIBI": 21,
         "YAYIN_YASI": 2
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 21
+      },
       "ornekler": []
     },
     {
@@ -380,9 +465,12 @@
       "incelenen": 25,
       "gecen": 0,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 21,
-        "YAYIN_YASI": 3,
+        "GURULTU_KALIBI": 20,
+        "YAYIN_YASI": 4,
         "DUSUK_PUAN": 1
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20
       },
       "ornekler": []
     },
@@ -397,6 +485,9 @@
         "GURULTU_KALIBI": 20,
         "YAYIN_YASI": 4
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20
+      },
       "ornekler": []
     },
     {
@@ -405,10 +496,13 @@
       "url": "https://news.google.com/rss/search?q=HALKB%20OR%20%22Halkbank%22%20hisse&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 4,
+      "gecen": 2,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 14,
-        "YAYIN_YASI": 7
+        "YAYIN_YASI": 14,
+        "GURULTU_KALIBI": 9
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 9
       },
       "ornekler": []
     },
@@ -416,12 +510,16 @@
       "isim": "GN:VAKBN",
       "taban": 1,
       "url": "https://news.google.com/rss/search?q=VAKBN%20OR%20%22VakifBank%22%20hisse&hl=tr&gl=TR&ceid=TR:tr",
-      "ham": 78,
+      "ham": 80,
       "incelenen": 25,
-      "gecen": 3,
+      "gecen": 1,
       "eleme_nedenleri": {
         "GURULTU_KALIBI": 21,
-        "YAYIN_YASI": 1
+        "YAYIN_YASI": 3
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20,
+        "hisse yorumları": 1
       },
       "ornekler": []
     },
@@ -436,6 +534,9 @@
         "YAYIN_YASI": 24,
         "GURULTU_KALIBI": 1
       },
+      "gurultu_kalip_dagilimi": {
+        "hisse yorumları": 1
+      },
       "ornekler": []
     },
     {
@@ -446,8 +547,11 @@
       "incelenen": 25,
       "gecen": 0,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 21,
-        "YAYIN_YASI": 4
+        "GURULTU_KALIBI": 20,
+        "YAYIN_YASI": 5
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20
       },
       "ornekler": []
     },
@@ -462,6 +566,9 @@
         "GURULTU_KALIBI": 20,
         "YAYIN_YASI": 4
       },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20
+      },
       "ornekler": []
     },
     {
@@ -472,8 +579,11 @@
       "incelenen": 25,
       "gecen": 1,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 21,
-        "YAYIN_YASI": 3
+        "GURULTU_KALIBI": 14,
+        "YAYIN_YASI": 10
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 14
       },
       "ornekler": []
     },
@@ -481,13 +591,16 @@
       "isim": "GN:TRMET",
       "taban": 1,
       "url": "https://news.google.com/rss/search?q=TRMET%20hisse&hl=tr&gl=TR&ceid=TR:tr",
-      "ham": 72,
+      "ham": 71,
       "incelenen": 25,
       "gecen": 0,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 17,
-        "YAYIN_YASI": 5,
+        "GURULTU_KALIBI": 16,
+        "YAYIN_YASI": 6,
         "DUSUK_PUAN": 3
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 16
       },
       "ornekler": []
     },
@@ -497,10 +610,13 @@
       "url": "https://news.google.com/rss/search?q=ALARK%20OR%20%22Alarko%20Holding%22%20hisse&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 16,
+      "gecen": 13,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 8,
-        "YAYIN_YASI": 1
+        "GURULTU_KALIBI": 9,
+        "YAYIN_YASI": 3
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 9
       },
       "ornekler": []
     },
@@ -515,6 +631,9 @@
         "YAYIN_YASI": 24,
         "GURULTU_KALIBI": 1
       },
+      "gurultu_kalip_dagilimi": {
+        "ne zaman": 1
+      },
       "ornekler": []
     },
     {
@@ -523,10 +642,13 @@
       "url": "https://news.google.com/rss/search?q=ULKER%20OR%20%22Ulker%22%20hisse&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 1,
+      "gecen": 0,
       "eleme_nedenleri": {
-        "GURULTU_KALIBI": 18,
-        "YAYIN_YASI": 6
+        "GURULTU_KALIBI": 20,
+        "YAYIN_YASI": 5
+      },
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 20
       },
       "ornekler": []
     }
