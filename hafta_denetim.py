@@ -33,7 +33,25 @@ import glob
 import datetime
 import statistics
 
-KULUCKA_BASI = datetime.date(2026, 7, 7)
+# 17.08 DUZELTME. Bu sabit 07.07'de kalmisti; protokol 08.08.2026'da
+# SIFIRLANDI (P3_SKOR_AL esigi 30->40, POZ_AZALT OR->AND zorunlu mantik
+# degisikligi sayildi). Sonuc: W33 raporu "Kulucka gunu 39/42" yaziyordu,
+# dogrusu 9/42 idi - ve daha kotusu, metrikler ESKI mantikla uretilmis
+# 07.07-07.08 sinyallerini de iceriyordu. Yani M1/M2 karisik donem
+# olcuyordu.
+# Bitis tarihi ve pencere uzunlugu artik TUREtiliyor, elle yazilmiyor -
+# hardcoded tarih zaten bu curumeye yol acti.
+# NOT (17.08): protokol hem "42 gun" hem "19.09.2026" diyor, ama
+# 08.08 + 42 gun = 18.09. Bir gunluk tutarsizlik VAR. Burada otoriter
+# kabul edilen BITIS TARIHIDIR (hukum gunu takvimde sabit); gun sayisi
+# ondan turetilir. Tutarsizligin protokol metninde de duzeltilmesi
+# gerekiyor - bu betik onu maskelemez, sadece dogru gunu gosterir.
+KULUCKA_BASI = datetime.date(2026, 8, 8)
+KULUCKA_BITIS = datetime.date(2026, 9, 19)          # KULUCKA_PROTOKOLU.md
+KULUCKA_GUN_SAYISI = (KULUCKA_BITIS - KULUCKA_BASI).days + 1
+# 07.07-07.08 arasi "kalibrasyon donemi"dir: eski mantikla uretildi,
+# hukum metriklerine GIRMEZ (17.08 kurul karari).
+KALIBRASYON_BASI = datetime.date(2026, 7, 7)
 TEST_FIYAT_PARMAK_IZI = ("THYAO", 348.50)
 # v1.2 (23.07) DUZELTME: tarih kilidi KALDIRILDI. Kanit: TradingView'de
 # silinmemis, sabit fiyatli bir test alarmi bu parmak izini 07-22 Temmuz
@@ -385,8 +403,13 @@ def main():
 
     md = []
     md.append(f"# Hafta Kapanisi Denetimi - {yil}-W{hafta:02d}")
-    md.append(f"Kulucka gunu: {gun}/42 | Kayit: {len(sinyaller)} gercek sinyal "
-              f"(test dislandi) | skor alani bozuk: {bozuk}")
+    md.append(f"Kulucka gunu: {gun}/{KULUCKA_GUN_SAYISI} "
+              f"(bas {KULUCKA_BASI}, hukum {KULUCKA_BITIS}) | "
+              f"Kayit: {len(sinyaller)} gercek sinyal (test dislandi) | "
+              f"skor alani bozuk: {bozuk}")
+    md.append(f"> Sayac {KULUCKA_BASI}'de sifirlandi; "
+              f"{KALIBRASYON_BASI}-{KULUCKA_BASI - datetime.timedelta(days=1)} "
+              "arasi KALIBRASYON donemidir ve metriklere girmez.")
     if not fs.aktif or fs.hata:
         md.append(f"\n> FIYAT KAYNAGI SORUNU: {fs.hata or 'bilinmiyor'} - "
                   "M1/M2 sonuclarina guvenme, betigi Actions icinde kosur.")
@@ -453,7 +476,8 @@ def main():
             md.append(f"- {etiket}: {M['hesaplanamadi']} kayit fiyat "
                       "verisi olmadan HESAPLANAMADI olarak birakildi")
     md.append("\n## Panel Okuma Hatirlatmasi (08.08 EKI)\n")
-    md.append("N/WR/PF/DD paneli KUMULATIF (07.07'den beri biriken TUM "
+    md.append(f"N/WR/PF/DD paneli KUMULATIF ({KALIBRASYON_BASI}'den beri "
+              "biriken TUM "
               "islemler) - Pine duzeltmelerinin (P3_SKOR_AL/POZ_AZALT/v112n/"
               "PF=0, bkz. REJIM_KALIBRASYON_PROMPTU.md Bolum 26-29) etkisini "
               "GORMEK icin DUZENLI okuma sart. Su semboller icin TradingView "
