@@ -1,0 +1,436 @@
+{
+  "zaman_utc": "2026-08-18T07:42:48.548246+00:00",
+  "asama": 2,
+  "tohum": 20260817,
+  "pencere": [
+    "2018-01-01",
+    "2026-08-16"
+  ],
+  "sansur": [
+    "2025-03-19",
+    "2025-04-04"
+  ],
+  "endeks_gun": 2134,
+  "sembol_veri_veren": 30,
+  "sembol_istenen": 30,
+  "n_once": 1799,
+  "n_sonra": 335,
+  "seri_uzunluklari": {
+    "S1": 2134,
+    "S2": 2134,
+    "S3": 2134,
+    "S4": 2131
+  },
+  "MDE_sigma": {
+    "alpha_0.05": 0.1667,
+    "alpha_0.01": 0.2034
+  },
+  "betimleyici": {
+    "S1": {
+      "ort": 0.21653,
+      "std": 0.74123
+    },
+    "S2": {
+      "ort": -0.07865,
+      "std": 1.51465
+    },
+    "S3": {
+      "ort": 1.60703,
+      "std": 0.4658
+    },
+    "S4": {
+      "ort": -0.05734,
+      "std": 0.26526
+    }
+  },
+  "kirilmalar": {
+    "S1": {
+      "kirilma_tarihi": "2020-03-24",
+      "ga_95": [
+        "2018-04-20",
+        "2026-04-07"
+      ],
+      "K1": false,
+      "K1_neden": "GA cok genis (2909g > 166g) — BELIRSIZ",
+      "ga_genislik_gun": 2909,
+      "once_ort": 0.13162,
+      "sonra_ort": 0.24637,
+      "kayma": 0.11475,
+      "ls_kirilma_tarihi": "2020-03-24",
+      "pelt_ls_ayrisma_gun": 0,
+      "tek_kirilma_modeli_uyumsuz": false,
+      "K2": true,
+      "K2_esik_99p": 0.06635,
+      "ham_p": 0.002822,
+      "spec_egrisi": [
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2020-03-24",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2020-03-24",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2020-03-24",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2020-03-24",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2020-03-24",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2020-03-24",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2020-03-24",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 60,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        }
+      ]
+    },
+    "S2": {
+      "kirilma": null
+    },
+    "S3": {
+      "kirilma_tarihi": "2018-04-11",
+      "ga_95": [
+        "2018-02-20",
+        "2026-06-24"
+      ],
+      "K1": false,
+      "K1_neden": "PELT ile LS tahmini 2102g ayrisiyor -> TEK KIRILMA MODELI UYGUN DEGIL, GA'nin darligi guven anlamina GELMEZ",
+      "ga_genislik_gun": 3046,
+      "once_ort": 1.39268,
+      "sonra_ort": 1.6143,
+      "kayma": 0.22162,
+      "ls_kirilma_tarihi": "2024-01-12",
+      "pelt_ls_ayrisma_gun": 2102,
+      "tek_kirilma_modeli_uyumsuz": true,
+      "K2": false,
+      "K2_esik_99p": null,
+      "ham_p": 0.0,
+      "spec_egrisi": [
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2018-04-11",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2023-11-09",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2024-01-15",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2024-01-15",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2024-01-15",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2024-01-15",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2024-01-15",
+          "pencerede": false
+        }
+      ]
+    },
+    "S4": {
+      "kirilma_tarihi": "2020-03-03",
+      "ga_95": [
+        "2019-04-30",
+        "2021-02-09"
+      ],
+      "K1": false,
+      "K1_neden": "GA 19 Mart'i icermiyor",
+      "ga_genislik_gun": 651,
+      "once_ort": -0.10904,
+      "sonra_ort": -0.0398,
+      "kayma": 0.06924,
+      "ls_kirilma_tarihi": "2020-04-03",
+      "pelt_ls_ayrisma_gun": 31,
+      "tek_kirilma_modeli_uyumsuz": false,
+      "K2": true,
+      "K2_esik_99p": 0.02204,
+      "ham_p": 0.0,
+      "spec_egrisi": [
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 1.5,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 2.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 3.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": "2020-03-03",
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 20,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 30,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        },
+        {
+          "ceza_carpani": 4.0,
+          "min_boyut": 60,
+          "kirilma_tarihi": null,
+          "pencerede": false
+        }
+      ]
+    }
+  },
+  "K3": {
+    "S1": {
+      "kirilma": null,
+      "korunuyor": false
+    },
+    "S2": {
+      "kirilma": null,
+      "korunuyor": false
+    }
+  },
+  "K4a_faktorler": [
+    "EEM",
+    "USDTRY=X",
+    "^VIX"
+  ],
+  "K4a_artik": {
+    "kirilma": null,
+    "korunuyor": false
+  },
+  "em_plasebo": {
+    "^BVSP": {
+      "durum": "OK",
+      "kirilma_tarihi": "2026-07-01",
+      "19mart_penceresinde": false
+    },
+    "^MXX": {
+      "durum": "OK",
+      "kirilma_tarihi": "2020-04-03",
+      "19mart_penceresinde": false
+    },
+    "^JKSE": {
+      "durum": "OK",
+      "kirilma_tarihi": "2025-04-14",
+      "19mart_penceresinde": true
+    },
+    "^NSEI": {
+      "durum": "OK",
+      "kirilma_tarihi": "2021-04-08",
+      "19mart_penceresinde": false
+    },
+    "EEM": {
+      "durum": "OK",
+      "kirilma_tarihi": null,
+      "19mart_penceresinde": false
+    }
+  },
+  "K4b_em_temiz": false,
+  "holm_duzeltilmis_p": {
+    "S3": 0.0,
+    "S4": 0.0,
+    "S1": 0.002822
+  }
+}
