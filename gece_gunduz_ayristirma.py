@@ -67,6 +67,13 @@ EVREN = [
 
 # Gap kovalari (ATR biriminde). Sentezdeki iki rakip esik
 # (0.3-0.5 ve 0.75) AYNI tabloda gorunsun diye boyle bolundu.
+# B3 (17.08 kurul karari): devre kesici gunleri sansurlenir.
+# Gerekce: 19-25 Mart 2025'te devre kesici tetiklendi ve ikincil veri
+# saglayicilarinin (yfinance) o gunlerdeki kapanis fiyati tanimi resmi
+# Borsa Istanbul bulteninden farkli olabilir. H2'nin en uc kovasi
+# (>+0.75 ATR) tam bu tur gunlerden orantisiz besleniyor.
+SANSUR_PENCERELERI = [("2025-03-19", "2025-04-04")]
+
 GAP_KOVALARI = [
     ("<= -0.75", -99.0, -0.75),
     ("-0.75..-0.30", -0.75, -0.30),
@@ -114,13 +121,24 @@ def _atr_serisi(barlar, pencere=ATR_PENCERE):
     return atr
 
 
+def _sansurlu_mu(tarih):
+    for a, b in SANSUR_PENCERELERI:
+        if datetime.date.fromisoformat(a) <= tarih <= datetime.date.fromisoformat(b):
+            return True
+    return False
+
+
 def _gunluk_kayitlar(barlar):
-    """Her bar icin gece/gunduz/toplam getiri ve ATR-normalize gap."""
+    """Her bar icin gece/gunduz/toplam getiri ve ATR-normalize gap.
+    Sansurlu gunler ATR hesabinda KALIR (sureklilik icin) ama
+    olcume GIRMEZ."""
     atr = _atr_serisi(barlar)
     kayitlar = []
     for i in range(1, len(barlar)):
         b, onceki = barlar[i], barlar[i - 1]
         if onceki["kapanis"] <= 0 or b["acilis"] <= 0:
+            continue
+        if _sansurlu_mu(b["tarih"]) or _sansurlu_mu(onceki["tarih"]):
             continue
         gece = (b["acilis"] / onceki["kapanis"] - 1) * 100
         gunduz = (b["kapanis"] / b["acilis"] - 1) * 100
@@ -145,6 +163,7 @@ def _gun_agirlikli(gun_sozluk):
 def main():
     donem = sys.argv[1] if len(sys.argv) > 1 else VARSAYILAN_DONEM
     print(f"Donem: {donem} | evren: {len(EVREN)} sembol")
+    print("Sansur: " + ", ".join(f"{a}..{b}" for a, b in SANSUR_PENCERELERI))
 
     endeks = {k["tarih"]: k for k in
               _gunluk_kayitlar(_gunluk_cek(ENDEKS, donem))}
@@ -257,6 +276,7 @@ def main():
     sonuc = {
         "zaman_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "donem": donem, "endeks": ENDEKS,
+        "sansur_pencereleri": SANSUR_PENCERELERI,
         "sembol_sayisi": len(sembol_ozet), "gun_sayisi": n_gun,
         "H1_gece_payi": {
             "gece_gun_agirlikli_ort_pct": round(gece_ort, 4),
