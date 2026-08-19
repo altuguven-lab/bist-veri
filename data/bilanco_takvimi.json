@@ -1,183 +1,282 @@
 {
-  "kaynak": "cesitli finans haber siteleri (infoyatirim, finansopia, cnbce, paraajansi) - 04.08.2026 taramasi",
-  "dogrulama_tarihi": "2026-08-04",
-  "not": "Tarihler sirketlerin PLANLADIGI/beklenen tarihlerdir, KAP'ta resmi teyit ile degisebilir. Bizim 5 pozisyonumuz 'bizim_pozisyon' alaniyla ayrica isaretlendi.",
-  "bilancolar": [
+  "_sema_surumu": 3,
+  "_amac": "30 sembollu evrenin bilanco aciklama takvimi. Brifingin haber akisindan BAGIMSIZ, deterministik girdisi.",
+  "_evren_teyidi": "18.08.2026 — data/bist_quotes.json ile BIREBIR eslesme dogrulandi (30/30, fark yok).",
+  "_kaynak_kalitesi_tanimlari": {
+    "SIRKET_KAP": "Sirketin KENDI KAP bildirimi. En guclu kaynak.",
+    "ACIKLANDI_TEYITLI": "Aciklamanin YAPILDIGI haber kaynaklarinda dogrulandi.",
+    "DERLEME_BEKLENTI": "ForInvest/Matriks/basin derlemesi - 'beklenen tarih'. Sirket revize edebilir.",
+    "CELISKILI": "Kaynaklar farkli tarih veriyor. Cozulmeden guvenilmez.",
+    "BILINMIYOR": "Veri bulunamadi."
+  },
+  "_kural": "TAHMIN YAZILMAZ. Bilinmeyen tarih null kalir. Uydurulmus bir tarih, tarihi olmamasindan DAHA KOTUDUR - risk katmanini yanlis yone kilitler ve sahte guven verir.",
+  "_celiskiler": [
     {
-      "tarih": "2026-07-20",
-      "sembol": "TURSG",
-      "sirket": "Turkiye Sigorta",
-      "sektor": "Sigorta",
-      "bizim_pozisyon": false
+      "konu": "2026Q2 konsolide olmayan son tarih",
+      "degerler": [
+        "2026-08-09",
+        "2026-08-10"
+      ],
+      "not": "09.08.2026 PAZAR - yasal son tarih hafta sonuna denk gelince ilk is gunune kayar. 10.08 etkin tarih olarak alindi, KAP'tan teyit edilmeli."
     },
     {
-      "tarih": "2026-07-27",
-      "sembol": "ANHYT",
-      "sirket": "Anadolu Hayat Emeklilik",
-      "sektor": "Sigorta",
-      "bizim_pozisyon": false
+      "konu": "SISE 2026Q2 aciklama",
+      "degerler": [
+        "2026-08-13",
+        "2026-08-14"
+      ],
+      "not": "Iki derleme farkli gun veriyor. Cozulmedi."
     },
     {
-      "tarih": "2026-07-28",
-      "sembol": "AKBNK",
+      "konu": "TRMET 2026Q2 aciklama",
+      "degerler": [
+        "2026-08-10",
+        "2026-08-19"
+      ],
+      "not": "Dokuz gun fark. Bir derleme 10.08, digeri 19.08 diyor. Cozulmedi."
+    }
+  ],
+  "donemler": {
+    "2026Q2": {
+      "donem_sonu": "2026-06-30",
+      "son_tarih_konsolide_olmayan": "2026-08-10",
+      "son_tarih_konsolide": "2026-08-19",
+      "dogrulama_durumu": "DOGRULANDI",
+      "dogrulama_notu": "Konsolide 19.08 birden fazla kaynakta tutarli. Konsolide olmayan icin _celiskiler'e bak."
+    },
+    "2026Q3": {
+      "donem_sonu": "2026-09-30",
+      "son_tarih_konsolide_olmayan": null,
+      "son_tarih_konsolide": null,
+      "dogrulama_durumu": "DOGRULANMADI",
+      "dogrulama_notu": "KAP/BIST resmi takviminden okunacak. Q2 kalibindan cikarim YAPILMADI."
+    }
+  },
+  "semboller": {
+    "AKBNK": {
       "sirket": "Akbank",
       "sektor": "Bankacilik",
-      "bizim_pozisyon": true
+      "2026Q2_aciklama": "2026-07-28",
+      "2026Q3_aciklama": null,
+      "kaynak": "ACIKLANDI_TEYITLI",
+      "not": "2C26: 15,2 mlr TL net kar; 6 aylik 34,35 mlr TL (+%38). ACIK POZISYON."
     },
-    {
-      "tarih": "2026-07-28",
-      "sembol": "TAVHL",
+    "TAVHL": {
       "sirket": "TAV Havalimanlari",
       "sektor": "Ulastirma",
-      "bizim_pozisyon": true
+      "2026Q2_aciklama": "2026-07-28",
+      "2026Q3_aciklama": null,
+      "kaynak": "ACIKLANDI_TEYITLI",
+      "not": "ACIK POZISYON."
     },
-    {
-      "tarih": "2026-07-29",
-      "sembol": "TSKB",
-      "sirket": "Turkiye Sinai Kalkinma Bankasi",
-      "sektor": "Bankacilik",
-      "bizim_pozisyon": false
+    "TOASO": {
+      "sirket": "Tofas",
+      "sektor": "Otomotiv",
+      "2026Q2_aciklama": "2026-07-29",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-07-30",
-      "sembol": "GARAN",
+    "GARAN": {
       "sirket": "Garanti BBVA",
       "sektor": "Bankacilik",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-07-30",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-07-31",
-      "sembol": "YKBNK",
+    "YKBNK": {
       "sirket": "Yapi Kredi",
       "sektor": "Bankacilik",
-      "bizim_pozisyon": true
+      "2026Q2_aciklama": "2026-07-31",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "ACIK POZISYON."
     },
-    {
-      "tarih": "2026-08-03",
-      "sembol": "ISCTR",
+    "OTKAR": {
+      "sirket": "Otokar",
+      "sektor": "Otomotiv",
+      "2026Q2_aciklama": "2026-07-31",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
+    },
+    "ISCTR": {
       "sirket": "Turkiye Is Bankasi",
       "sektor": "Bankacilik",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-03",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-08-03",
-      "sembol": "TTRAK",
-      "sirket": "Turk Traktor",
-      "sektor": "Sanayi",
-      "bizim_pozisyon": false
-    },
-    {
-      "tarih": "2026-08-03",
-      "sembol": "CIMSA",
-      "sirket": "Cimsa Cimento",
-      "sektor": "Sanayi",
-      "bizim_pozisyon": false
-    },
-    {
-      "tarih": "2026-08-04",
-      "sembol": "TUPRS",
+    "TUPRS": {
       "sirket": "Tupras",
       "sektor": "Sanayi",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-04",
+      "2026Q3_aciklama": null,
+      "kaynak": "SIRKET_KAP",
+      "not": "Sirket 10.07'de KAP'tan duyurdu: 04.08.2026 planlandi. 2 hafta sessiz donem uygulaniyor."
     },
-    {
-      "tarih": "2026-08-04",
-      "sembol": "ASELS",
+    "ASELS": {
       "sirket": "Aselsan",
       "sektor": "Sanayi",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-04",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-08-04",
-      "sembol": "AYGAZ",
-      "sirket": "Aygaz",
-      "sektor": "Enerji",
-      "bizim_pozisyon": false
-    },
-    {
-      "tarih": "2026-08-04",
-      "sembol": "FROTO",
+    "FROTO": {
       "sirket": "Ford Otosan",
       "sektor": "Otomotiv",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-04",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-08-05",
-      "sembol": "TTKOM",
+    "TTKOM": {
       "sirket": "Turk Telekom",
       "sektor": "Iletisim",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-05",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-08-05",
-      "sembol": "KCHOL",
+    "KCHOL": {
       "sirket": "Koc Holding",
       "sektor": "Holding",
-      "bizim_pozisyon": true
+      "2026Q2_aciklama": "2026-08-05",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "ACIK POZISYON."
     },
-    {
-      "tarih": "2026-08-05",
-      "sembol": "THYAO",
+    "THYAO": {
       "sirket": "Turk Hava Yollari",
       "sektor": "Ulastirma",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-05",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-08-05",
-      "sembol": "TKNSA",
-      "sirket": "Teknosa",
-      "sektor": "Perakende",
-      "bizim_pozisyon": false
+    "ENJSA": {
+      "sirket": "Enerjisa Enerji",
+      "sektor": "Enerji",
+      "2026Q2_aciklama": "2026-08-10",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-08-05",
-      "sembol": "BRISA",
-      "sirket": "Brisa",
-      "sektor": "Sanayi",
-      "bizim_pozisyon": false
-    },
-    {
-      "tarih": "2026-08-06",
-      "sembol": "ALBRK",
-      "sirket": "Albaraka Turk",
-      "sektor": "Bankacilik",
-      "bizim_pozisyon": false
-    },
-    {
-      "tarih": "2026-08-11",
-      "sembol": "AEFES",
+    "AEFES": {
       "sirket": "Anadolu Efes",
       "sektor": "Icecek",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-11",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-08-11",
-      "sembol": "MGROS",
+    "MGROS": {
       "sirket": "Migros",
       "sektor": "Perakende",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-11",
+      "2026Q3_aciklama": "2026-10-29",
+      "kaynak": "ACIKLANDI_TEYITLI",
+      "not": "2C26: 699 mn TL net ZARAR, beklenti 407 mn TL kar. Ertesi gun %-9,2. FAVOK marji %5,45 -> %4,27. Q3 tarihi IKINCIL kaynak."
     },
-    {
-      "tarih": "2026-08-19",
-      "sembol": "DOAS",
-      "sirket": "Dogus Otomotiv",
-      "sektor": "Otomotiv",
-      "bizim_pozisyon": false
+    "SAHOL": {
+      "sirket": "Haci Omer Sabanci Holding",
+      "sektor": "Holding",
+      "2026Q2_aciklama": "2026-08-12",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
     },
-    {
-      "tarih": "2026-09-16",
-      "sembol": "MAVI",
-      "sirket": "Mavi Giyim",
+    "PGSUS": {
+      "sirket": "Pegasus Hava Tasimaciligi",
+      "sektor": "Havacilik",
+      "2026Q2_aciklama": "2026-08-12",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
+    },
+    "SISE": {
+      "sirket": "Turkiye Sise ve Cam Fabrikalari",
+      "sektor": "Sinai",
+      "2026Q2_aciklama": null,
+      "2026Q3_aciklama": null,
+      "kaynak": "CELISKILI",
+      "not": "13.08 mi 14.08 mi - iki derleme cakisiyor, _celiskiler'e bak."
+    },
+    "BIMAS": {
+      "sirket": "BIM Birlesik Magazalar",
       "sektor": "Perakende",
-      "bizim_pozisyon": false
+      "2026Q2_aciklama": "2026-08-17",
+      "2026Q3_aciklama": null,
+      "kaynak": "ACIKLANDI_TEYITLI",
+      "not": "2C26: 8 mlr TL net kar, beklenti 5,7 mlr. Ertesi gun %+6,2. Net karin 6,8 mlr TL'si net parasal pozisyon kazanci - FAVOK surprizi yalnizca %7."
     },
-    {
-      "tarih": null,
-      "sembol": "ASTOR",
+    "ENKAI": {
+      "sirket": "Enka Insaat",
+      "sektor": "Insaat",
+      "2026Q2_aciklama": "2026-08-17",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI"
+    },
+    "EKGYO": {
+      "sirket": "Emlak Konut GYO",
+      "sektor": "GYO",
+      "2026Q2_aciklama": "2026-08-18",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "BUGUN (18.08) beklenen."
+    },
+    "ULKER": {
+      "sirket": "Ulker Biskuvi",
+      "sektor": "Perakende",
+      "2026Q2_aciklama": "2026-08-18",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "BUGUN (18.08) beklenen."
+    },
+    "ALARK": {
+      "sirket": "Alarko Holding",
+      "sektor": "Holding",
+      "2026Q2_aciklama": "2026-08-19",
+      "2026Q3_aciklama": null,
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "YARIN (19.08) beklenen - konsolide son tarih."
+    },
+    "TRMET": {
+      "sirket": "TR Anadolu Metal Madencilik",
+      "sektor": "Sinai",
+      "2026Q2_aciklama": null,
+      "2026Q3_aciklama": null,
+      "kaynak": "CELISKILI",
+      "not": "10.08 mi 19.08 mi - dokuz gun fark, _celiskiler'e bak."
+    },
+    "ASTOR": {
       "sirket": "Astor Enerji",
       "sektor": "Sanayi/Enerji",
-      "bizim_pozisyon": true,
-      "not": "Kesin tarih bulunamadi - genel donem: konsolide olmayan son 9 Agustos, konsolide son 19 Agustos. Yaklastikca tekrar aranmali."
+      "2026Q2_aciklama": null,
+      "2026Q3_aciklama": null,
+      "kaynak": "BILINMIYOR",
+      "not": "Konsolide son tarih 19.08. Aciklama tarihi bulunamadi."
+    },
+    "EREGL": {
+      "sirket": "Eregli Demir Celik",
+      "sektor": "Sinai",
+      "2026Q2_aciklama": null,
+      "2026Q3_aciklama": null,
+      "kaynak": "BILINMIYOR"
+    },
+    "HALKB": {
+      "sirket": "Turkiye Halk Bankasi",
+      "sektor": "Bankacilik",
+      "2026Q2_aciklama": null,
+      "2026Q3_aciklama": null,
+      "kaynak": "BILINMIYOR"
+    },
+    "VAKBN": {
+      "sirket": "Turkiye Vakiflar Bankasi",
+      "sektor": "Bankacilik",
+      "2026Q2_aciklama": null,
+      "2026Q3_aciklama": null,
+      "kaynak": "BILINMIYOR"
+    },
+    "PETKM": {
+      "sirket": "Petkim Petrokimya",
+      "sektor": "Enerji",
+      "2026Q2_aciklama": null,
+      "2026Q3_aciklama": null,
+      "kaynak": "BILINMIYOR"
     }
-  ]
+  },
+  "_onceki_dosya": "Bu dosya, depoda 04.08.2026'da olusturulmus onceki takvimin (sema: 'bilancolar' dizisi, 25 kayit, evrenimizden 14'u) YERINI ALIR. Onceki dosyadaki 13 tarih bu dosyadakilerle BIREBIR AYNI cikti - bagimsiz iki derleme ayni sonucu verdi, tarihler bu yuzden daha guvenilir. Sirket/sektor etiketleri oradan tasindi. Onceki dosyadaki 'bizim_pozisyon' alani TASINMADI: sabit pozisyon listesi bayatliyor (ASTOR orada hala acik isaretliydi, oysa 11.08'de kapandi). Betik bunu her kosuda portfoy.json'dan CANLI turetir.",
+  "_kaynak": "18.08.2026 taramasi (ForInvest/Matriks derlemeleri, sirket KAP bildirimleri, aciklama haberleri) + 04.08.2026 tarihli onceki depo dosyasi. Iki kaynak cakisan 13 tarihte tam mutabik."
 }
