@@ -1,0 +1,103 @@
+{
+  "zaman_utc": "2026-08-19T06:09:53.787655+00:00",
+  "bugun": "2026-08-19",
+  "bekleyen": [
+    {
+      "sembol": "ALARK",
+      "donem": "2026Q2",
+      "tarih": "2026-08-19",
+      "gun_kaldi": 0,
+      "kaynak": "DERLEME_BEKLENTI",
+      "acik_pozisyon": false
+    }
+  ],
+  "aciklayan": [
+    {
+      "sembol": "EKGYO",
+      "donem": "2026Q2",
+      "tarih": "2026-08-18",
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "BUGUN (18.08) beklenen.",
+      "acik_pozisyon": false
+    },
+    {
+      "sembol": "ULKER",
+      "donem": "2026Q2",
+      "tarih": "2026-08-18",
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "BUGUN (18.08) beklenen.",
+      "acik_pozisyon": false
+    }
+  ],
+  "donem_son_tarih_uyarisi": [
+    {
+      "donem": "2026Q2",
+      "tur": "son_tarih_konsolide",
+      "tarih": "2026-08-19",
+      "gun_kaldi": 0
+    }
+  ],
+  "risk_bayragi": [],
+  "tarihi_bilinmeyen": [
+    {
+      "sembol": "ASTOR",
+      "kaynak": "BILINMIYOR"
+    },
+    {
+      "sembol": "EREGL",
+      "kaynak": "BILINMIYOR"
+    },
+    {
+      "sembol": "HALKB",
+      "kaynak": "BILINMIYOR"
+    },
+    {
+      "sembol": "PETKM",
+      "kaynak": "BILINMIYOR"
+    },
+    {
+      "sembol": "SISE",
+      "kaynak": "CELISKILI"
+    },
+    {
+      "sembol": "TRMET",
+      "kaynak": "CELISKILI"
+    },
+    {
+      "sembol": "VAKBN",
+      "kaynak": "BILINMIYOR"
+    }
+  ],
+  "celiskiler": [
+    {
+      "konu": "2026Q2 konsolide olmayan son tarih",
+      "degerler": [
+        "2026-08-09",
+        "2026-08-10"
+      ],
+      "not": "09.08.2026 PAZAR - yasal son tarih hafta sonuna denk gelince ilk is gunune kayar. 10.08 etkin tarih olarak alindi, KAP'tan teyit edilmeli."
+    },
+    {
+      "konu": "SISE 2026Q2 aciklama",
+      "degerler": [
+        "2026-08-13",
+        "2026-08-14"
+      ],
+      "not": "Iki derleme farkli gun veriyor. Cozulmedi."
+    },
+    {
+      "konu": "TRMET 2026Q2 aciklama",
+      "degerler": [
+        "2026-08-10",
+        "2026-08-19"
+      ],
+      "not": "Dokuz gun fark. Bir derleme 10.08, digeri 19.08 diyor. Cozulmedi."
+    }
+  ],
+  "kapsama": {
+    "toplam_sembol": 30,
+    "tarihi_olan": 23,
+    "kapsama_pct": 76.7,
+    "celiskili": 2
+  }
+}
