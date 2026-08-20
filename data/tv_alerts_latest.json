@@ -1,26 +1,40 @@
 {
-  "son_guncelleme_utc": "2026-08-20T08:30:05.135Z",
+  "son_guncelleme_utc": "2026-08-20T08:30:09.140Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-08",
-    "adet": 455
+    "adet": 456
   },
   "son_sinyal": {
-    "zaman_utc": "2026-08-20T08:30:02.876Z",
-    "sembol": "SISE",
-    "sinyal": "P3_SKOR_AL",
+    "zaman_utc": "2026-08-20T08:30:06.642Z",
+    "sembol": "THYAO",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "39.52",
-    "skor": "30.044876615320522",
-    "kgs": "60",
-    "stop": "39.025659355543645",
+    "fiyat": "303.75",
+    "skor": "24.60497415376947",
+    "kgs": "59",
+    "stop": "301.70036161265574",
     "rejim": "1",
-    "relvol": "1.0447453265266207",
-    "v112n": "109",
+    "relvol": "0.6396364584989521",
+    "v112n": "?",
     "v112wr": "?"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-08-20T08:30:06.642Z",
+      "sembol": "THYAO",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "303.75",
+      "skor": "24.60497415376947",
+      "kgs": "59",
+      "stop": "301.70036161265574",
+      "rejim": "1",
+      "relvol": "0.6396364584989521",
+      "v112n": "?",
+      "v112wr": "?"
+    },
     {
       "zaman_utc": "2026-08-20T08:30:02.876Z",
       "sembol": "SISE",
@@ -1405,20 +1419,6 @@
       "rejim": "1",
       "relvol": "0.7657356251080388",
       "v112n": "166",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-08-17T15:11:06.081Z",
-      "sembol": "PGSUS",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "151.2",
-      "skor": "13.473251084371109",
-      "kgs": "8",
-      "stop": "149.8182954872152",
-      "rejim": "1",
-      "relvol": "0.9304082223809832",
-      "v112n": "110",
       "v112wr": "?"
     }
   ]
