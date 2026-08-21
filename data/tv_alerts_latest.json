@@ -1,26 +1,40 @@
 {
-  "son_guncelleme_utc": "2026-08-21T08:00:29.296Z",
+  "son_guncelleme_utc": "2026-08-21T08:15:19.173Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-08",
-    "adet": 502
+    "adet": 503
   },
   "son_sinyal": {
-    "zaman_utc": "2026-08-21T08:00:27.621Z",
-    "sembol": "TOASO",
-    "sinyal": "P3_SKOR_AL",
+    "zaman_utc": "2026-08-21T08:15:15.967Z",
+    "sembol": "KCHOL",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "279.50",
-    "skor": "82.8711337639788",
-    "kgs": "100",
-    "stop": "276.68981159994854",
+    "fiyat": "219.7",
+    "skor": "31.15778679204442",
+    "kgs": "50",
+    "stop": "217.09342031261934",
     "rejim": "2",
-    "relvol": "4.4074715046101876",
-    "v112n": "190",
+    "relvol": "0.8563803593008186",
+    "v112n": "?",
     "v112wr": "?"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-08-21T08:15:15.967Z",
+      "sembol": "KCHOL",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "219.7",
+      "skor": "31.15778679204442",
+      "kgs": "50",
+      "stop": "217.09342031261934",
+      "rejim": "2",
+      "relvol": "0.8563803593008186",
+      "v112n": "?",
+      "v112wr": "?"
+    },
     {
       "zaman_utc": "2026-08-21T08:00:27.621Z",
       "sembol": "TOASO",
@@ -1405,20 +1419,6 @@
       "rejim": "1",
       "relvol": "0.4647581345907651",
       "v112n": "189",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-08-19T11:15:07.556Z",
-      "sembol": "ULKER",
-      "sinyal": "P3_SKOR_AL",
-      "interval": "15",
-      "fiyat": "98.15",
-      "skor": "85.48006421918161",
-      "kgs": "86",
-      "stop": "97.09361325806717",
-      "rejim": "1",
-      "relvol": "2.4987497619946653",
-      "v112n": "171",
       "v112wr": "?"
     }
   ]
