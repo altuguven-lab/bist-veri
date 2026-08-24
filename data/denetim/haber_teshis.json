@@ -1,49 +1,54 @@
 {
-  "zaman_utc": "2026-08-24T12:00:16.669756+00:00",
+  "zaman_utc": "2026-08-24T12:04:35.498349+00:00",
   "min_puan": 2,
   "max_yayin_yasi_gun": 7,
   "kaynaklar": [
     {
-      "isim": "KAP",
-      "taban": 3,
-      "url": "https://news.google.com/rss/search?q=site%3Akap.org.tr&hl=tr&gl=TR&ceid=TR:tr",
+      "isim": "GN:AKBNK",
+      "taban": 1,
+      "url": "https://news.google.com/rss/search?q=AKBNK%20OR%20%22Akbank%22%20hisse&hl=tr&gl=TR&ceid=TR:tr",
       "ham": 100,
       "incelenen": 25,
-      "gecen": 2,
+      "gecen": 0,
       "eleme_nedenleri": {
-        "YAYIN_YASI": 23
+        "GURULTU_KALIBI": 15,
+        "YAYIN_YASI": 9,
+        "DUSUK_PUAN": 1
       },
-      "gurultu_kalip_dagilimi": {},
+      "gurultu_kalip_dagilimi": {
+        "günlük teknik analiz": 14,
+        "ne zaman": 1
+      },
       "ornekler": [
         {
-          "neden": "YAYIN_YASI[337g]",
+          "neden": "DUSUK_PUAN[1<2]",
+          "puan": 1,
+          "baslik": "AKBANK Hisse Senedi Canlı Grafik - Mynet Finans"
+        },
+        {
+          "neden": "YAYIN_YASI[59g]",
           "puan": null,
-          "baslik": "KAP - kap.org.tr"
+          "baslik": "AKBNK Tahmini — 2027 için Fiyat Hedefi - TradingView"
         },
         {
-          "neden": "YAYIN_YASI[269g]",
+          "neden": "GURULTU_KALIBI[günlük teknik analiz]",
           "puan": null,
-          "baslik": "KAP - kap.org.tr"
+          "baslik": "AKBANK (AKBNK) 24 Ağustos Pazartesi 2026 Günlük Teknik Analiz - Mynet Finans"
         },
         {
-          "neden": "GECTI",
-          "puan": 3,
-          "baslik": "KAP - kap.org.tr"
-        },
-        {
-          "neden": "GECTI",
-          "puan": 3,
-          "baslik": "KAP - kap.org.tr"
-        },
-        {
-          "neden": "YAYIN_YASI[3708g]",
+          "neden": "YAYIN_YASI[26g]",
           "puan": null,
-          "baslik": "TR - KAP - kap.org.tr"
+          "baslik": "HİSSE DEĞERLENDİRMESİ- Şeker Yatırım, AKBNK için 96,80 TL hedef fiyat ile `AL` tavsiyesini korudu [FNC-NEWS] -"
         },
         {
-          "neden": "YAYIN_YASI[3653g]",
+          "neden": "GURULTU_KALIBI[ne zaman]",
           "puan": null,
-          "baslik": "KAP - kap.org.tr"
+          "baslik": "Akbank temettü ne zaman verilecek? AKBNK hisse başı temettü tutarı ne kadar dağıtacak? - Yeni Şafak"
+        },
+        {
+          "neden": "YAYIN_YASI[180g]",
+          "puan": null,
+          "baslik": "Akbank, hisse başına net 1,8715300 TL nakit kar payı ödemesini Genel Kurul onayına sunacak Yazar ForInvest Hab"
         }
       ]
     }
