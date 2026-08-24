@@ -8,8 +8,8 @@ Tasarim ilkeleri (Kanal 1 ile ayni):
 - Tek kaynak coker ise script COKMEZ: kaynak atlanir, stderr'e uyari yazilir.
 - Dosya son MAX_HABER kaydi tutar (eski kayitlar dusurulur), tekrar eden
   basliklar (ayni link) eklenmez.
-- Sembol listesi BIST_SEMBOLLER ile fetch_bist.py'dekiyle birebir aynidir;
-  evren degisiminde IKI dosya birlikte guncellenmelidir.
+- Sembol listesi config/universe.yml'den yuklenir (universe.py) - AYNI
+  dosyayi fetch_bist.py de okur. Evren degisiminde TEK dosya guncellenir.
 
 v2 (17.07.2026, K6): (a) kaynak_sagligi artik HAM cekim adedini sayar
 (0 = gercekten olu); suzulen adet "kaynak_detay"da. (b) Kaynak basina
@@ -22,6 +22,7 @@ karar sistemi icin yeterli).
 
 import feedparser
 import json
+from json_atomik_yaz import atomik_json_yaz
 import datetime
 import html
 import os
@@ -30,14 +31,13 @@ import sys
 import time
 from urllib.parse import quote
 
-# --- EVREN (fetch_bist.py ile birebir ayni tutulmali) --------------------
-# EVREN REV. 07.07.2026: SASA->OTKAR, KOZAL->TRMET, DOAS->ENJSA
-BIST_SEMBOLLER = [
-    "AKBNK", "YKBNK", "GARAN", "ISCTR", "SAHOL", "KCHOL", "THYAO", "TAVHL",
-    "EREGL", "ASELS", "ASTOR", "MGROS", "BIMAS", "TUPRS", "TOASO", "FROTO",
-    "ENKAI", "TTKOM", "AEFES", "PGSUS", "HALKB", "VAKBN", "OTKAR", "PETKM",
-    "SISE", "EKGYO", "TRMET", "ALARK", "ENJSA", "ULKER",
-]
+# 20.08 DUZELTME (C3, mimari inceleme): evren ARTIK BURADA TASINMIYOR.
+# config/universe.yml TEK OTORITE - fetch_bist.py da AYNI dosyayi okur.
+# Sessiz dusme YOK: dosya eksikse universe.yukle_evren() hata verir.
+# fallback_symbols burada kullanilmiyor (Yahoo'ya ozgu; Google News
+# sorgusu ic gecis kodu ayrimina ihtiyac duymuyor).
+from universe import yukle_evren
+BIST_SEMBOLLER, _ = yukle_evren()
 
 # Sembol adi gecmese de haberi onemli kilan makro kelimeler (kucuk harf)
 MAKRO_KELIMELER = [
@@ -245,9 +245,9 @@ def main():
         "toplam_haber": len(hepsi),
         "haberler": hepsi,
     }
-    os.makedirs("data", exist_ok=True)
-    with open(DOSYA, "w", encoding="utf-8") as f:
-        json.dump(cikti, f, ensure_ascii=False, indent=2)
+    # 20.08 DUZELTME (mimari inceleme bulgu 3): atomik yazim -
+    # os.makedirs artik atomik_json_yaz icinde (mkdir parents=True).
+    atomik_json_yaz(DOSYA, cikti)
 
     print(f"Tamamlandi: {len(yeniler)} yeni haber, dosyada {len(hepsi)} kayit.")
 
