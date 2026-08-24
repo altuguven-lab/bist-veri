@@ -177,12 +177,18 @@ def main():
                     f"(mevcut {adet}, esik {PIPEDREAM_AYLIK_ESIK}) - egime dikkat.")
 
     # 4) Portfoy ve islem gunlugu (K2): varlik + gecerlilik + zorunlu alanlar
+    # 24.08 DUZELTME: islem_gunlugu.json 20.08'de olay-tabanli semaya
+    # (v4, C2 karari) gecti - "islemler" yerine "olaylar". portfoy.json
+    # alan adi baslangic_sermaye_tl KORUNDU (RISK_KURALLARI.md Bolum 7
+    # denetim sozlesmesi) - portfoy_turet.py o adla yaziyor, anlami
+    # "getiri olcum tabani"dir, muhasebe kimligi degildir (bkz.
+    # portfoy.json._baslangic_sermaye_notu).
     dosya_kurallari = [
         ("data/portfoy.json", "PORTFOY",
          [("acik_pozisyonlar", list), ("baslangic_sermaye_tl", (int, float)),
           ("nakit_tl", (int, float))]),
         ("data/islem_gunlugu.json", "ISLEM GUNLUGU",
-         [("islemler", list)]),
+         [("olaylar", list)]),
     ]
     for yol, kanal, alanlar in dosya_kurallari:
         d = oku(yol)
