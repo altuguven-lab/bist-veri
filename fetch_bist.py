@@ -9,6 +9,7 @@ NOT: Yahoo Finance BIST verisi genelde birkac dakika gecikmelidir, gercek anlik
 
 import yfinance as yf
 import json
+from json_atomik_yaz import atomik_json_yaz
 import datetime
 import sys
 
@@ -27,22 +28,12 @@ TATIL_GUNLERI = {
     "2027-01-01",  # Yilbasi
 }
 
-# V195 CTRL KURUMSAL'daki 30 sembol listesiyle birebir ayni - istersen
-# kendi listeni buraya uyarlayabilirsin. Yahoo Finance'de BIST hisseleri
-# ".IS" sonekiyle yazilir (orn. AKBNK -> AKBNK.IS).
-# EVREN REV. 07.07.2026: SASA->OTKAR, KOZAL->TRMET, DOAS->ENJSA
-BIST_SEMBOLLER = [
-    "AKBNK", "YKBNK", "GARAN", "ISCTR", "SAHOL", "KCHOL", "THYAO", "TAVHL",
-    "EREGL", "ASELS", "ASTOR", "MGROS", "BIMAS", "TUPRS", "TOASO", "FROTO",
-    "ENKAI", "TTKOM", "AEFES", "PGSUS", "HALKB", "VAKBN", "OTKAR", "PETKM",
-    "SISE", "EKGYO", "TRMET", "ALARK", "ENJSA", "ULKER",
-]
-
-# Kod/unvan degisikligi gecis donemi: birincil kod bos donerse denenecek
-# eski kod (Yahoo bazen veriyi eski ticker altinda tutmaya devam eder).
-ESKI_KOD_YEDEK = {
-    "TRMET": "KOZAA",  # TR Anadolu Metal = eski Koza Anadolu Metal
-}
+# 20.08 DUZELTME (C3, mimari inceleme): evren ARTIK BURADA TASINMIYOR.
+# config/universe.yml TEK OTORITE - fetch_news.py da AYNI dosyayi okur.
+# Sessiz dusme YOK: dosya eksikse universe.yukle_evren() hata verir.
+# Yahoo Finance'de BIST hisseleri ".IS" sonekiyle yazilir (AKBNK -> AKBNK.IS).
+from universe import yukle_evren
+BIST_SEMBOLLER, ESKI_KOD_YEDEK = yukle_evren()
 
 
 def fetch_one(sembol):
@@ -126,16 +117,16 @@ def main():
         "veriler": sonuclar,
     }
 
-    with open("data/bist_quotes.json", "w", encoding="utf-8") as f:
-        json.dump(cikti, f, ensure_ascii=False, indent=2)
+    # 20.08 DUZELTME (mimari inceleme bulgu 3): atomik yazima gecirildi -
+    # kesinti anindaki yazma, YARIM dosya yerine ESKI saglam hali biraktirir.
+    atomik_json_yaz("data/bist_quotes.json", cikti)
 
     # Gun ici 15dk serisi (Claude'un gun ici analizi icin; her kosumda yeniden yazilir)
-    with open("data/bist_intraday.json", "w", encoding="utf-8") as f:
-        json.dump({
-            "guncelleme_zamani_utc": cikti["guncelleme_zamani_utc"],
-            "aciklama": "Bugunun 15dk barlari. a=acilis y=yuksek d=dusuk k=kapanis h=hacim",
-            "seriler": gun_ici,
-        }, f, ensure_ascii=False, indent=2)
+    atomik_json_yaz("data/bist_intraday.json", {
+        "guncelleme_zamani_utc": cikti["guncelleme_zamani_utc"],
+        "aciklama": "Bugunun 15dk barlari. a=acilis y=yuksek d=dusuk k=kapanis h=hacim",
+        "seriler": gun_ici,
+    })
 
     print(f"Tamamlandi: {len(sonuclar)}/{len(BIST_SEMBOLLER)} sembol basariyla cekildi.")
 
