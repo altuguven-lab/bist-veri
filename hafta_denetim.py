@@ -235,12 +235,23 @@ def m1_m2(sinyaller, fs):
 
 
 def m3(islem_dosyasi):
+    """20.08'de islem_gunlugu.json OLAY TABANLI semaya (v4, C2 karari)
+    geciti: tek "islemler" listesi yerine "olaylar" listesi - ACILIS_
+    BAKIYESI/ALIS/SATIS/NAKIT_MUTABAKAT/STOP_GUNCELLEME turlerini
+    karistiriyor. M3 yalniz GERCEK ISLEMLERI (ALIS/SATIS) sayar; digerleri
+    (bakiye/mutabakat/stop kayitlari) sinyal-uyum sorusuna dahil degil.
+
+    24.08 DUZELTME: bu fonksiyon 21.08-24.08 arasi hep "VERI YOK"
+    donduruyordu - eski "islemler" anahtarini ariyordu, v4'te yok.
+    saglik_kontrol.py'nin ayni gun actigi Issue #5 ayni kopuklugu
+    bagimsiz tespit etmisti (RISK_KURALLARI.md Bolum 7 sema ihlali)."""
     d = _json_oku(islem_dosyasi)
     if d is None:
         return {"durum": "DOSYA OKUNAMADI"}
-    islemler = [i for i in d.get("islemler", [])]
+    tum_olaylar = d.get("olaylar", [])
+    islemler = [o for o in tum_olaylar if o.get("tip") in ("ALIS", "SATIS")]
     if not islemler:
-        return {"durum": "VERI YOK (henuz islem kaydi girilmemis)",
+        return {"durum": "VERI YOK (henuz ALIS/SATIS olayi girilmemis)",
                 "toplam": 0}
     say = {}
     for i in islemler:
