@@ -25,7 +25,7 @@ jobs:
           python-version: "3.11"
 
       - name: Bagimliliklar
-        run: pip install feedparser
+        run: pip install feedparser PyYAML==6.0.2
 
       - name: Haberleri cek
         run: python fetch_news.py
