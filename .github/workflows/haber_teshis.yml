@@ -30,7 +30,7 @@ jobs:
           python-version: "3.11"
 
       - name: Bagimliliklar
-        run: pip install feedparser
+        pip install feedparser PyYAML==6.0.2
 
       - name: Teshisi calistir
         run: python haber_teshis.py ${{ inputs.kaynak }}
