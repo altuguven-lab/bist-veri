@@ -200,10 +200,18 @@ def main():
         uyarilar.append("stop seviyesi olmayan acik pozisyon: "
                         + ", ".join(sorted(eksik_stop)))
 
+    # 24.08 DUZELTME: alan adi RISK_KURALLARI.md Bolum 7 denetim
+    # sozlesmesiyle uyumlu tutuluyor (baslangic_sermaye_tl) -
+    # saglik_kontrol.py bu adi ariyor. Anlami degismedi: GETIRI OLCUM
+    # TABANIDIR, muhasebe kimligi degildir (bkz. asagidaki not).
     cikti = {
         "_turetildi": True,
-        "getiri_tabani_tl": (gunluk.get("_getiri_tabani") or {}).get("tutar_tl"),
-        "_getiri_tabani_notu": "GETIRI OLCUM TABANI - muhasebe kimligi degil",
+        "baslangic_sermaye_tl": (gunluk.get("_getiri_tabani") or {}).get("tutar_tl"),
+        "_baslangic_sermaye_notu": ("GETIRI OLCUM TABANIDIR, muhasebe "
+                                    "kimligi DEGILDIR - pozisyon+nakit "
+                                    "toplamiyla ortusmesi beklenmez. "
+                                    "Alan adi RISK_KURALLARI.md Bolum 7 "
+                                    "denetim sozlesmesi icin korundu."),
         "nakit_kaynak": {
             "raporlanan_tarih": nakit_tarih,
             "mutabakat_sayisi": len(mutabakatlar),
