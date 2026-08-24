@@ -205,9 +205,8 @@ def main():
             github_issue_ac_veya_guncelle(
                 f"🟠 TEK HISSE HAREKETI: {sembol} - {bugun}", govde, "risk-esigi")
 
-    os.makedirs("data", exist_ok=True)
-    with open(TAKIP_YOL, "w", encoding="utf-8") as f:
-        json.dump(takip, f, ensure_ascii=False, indent=2)
+    # 20.08 DUZELTME (mimari inceleme bulgu 3): atomik yazim.
+    atomik_json_yaz(TAKIP_YOL, takip)
 
 
 if __name__ == "__main__":
