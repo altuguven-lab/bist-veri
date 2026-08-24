@@ -70,6 +70,22 @@ C.4 Ek kurallar (O3 karari, 14.07.2026):
   yalnizca <=13.07.2026 kayitlari icin gecerlidir (ASELS 14.07 dersi:
   parmak izi fiyati gercek fiyat bolgesinde yasar).
 
+C.5 Veri korleme (17.08.2026 karari, B4):
+- Olcum kodu ve karar esikleri, SONUC gorulmeden yazilir ve
+  commit'lenir. On kayit commit'i olmayan hicbir Ip bulgusu
+  "kanit" sayilmaz. Gerekce: 17.08'de "08.08 sonrasi performans
+  kotulesti" sonucu once soylenip sonra gerekce kurulmustu -
+  gun-agirlikli yeniden hesap iddiayi tersine cevirdi.
+
+C.6 Specification curve (17.08.2026 karari, B4):
+- Duyarlilik analizleri secilerek degil, TUMU tek sirali egride
+  raporlanir. Tek bir spesifikasyonun gecmesi bulgu DEGILDIR.
+  Gerekce: 17.08'de "pozitif kovalarda monotonluk" testi gecti
+  ama tam sekil ters U cikti - tek spesifikasyona bakmanin bedeli
+  buydu.
+
+Bu iki kural TUM Ip calismalarina uygulanir, IP-7'ye ozel degildir.
+
 ## D. Misafir Koltuklar (cagrili, oy yok)
 - VERGI/MEVZUAT DANISMANI - ceyreklik + yil sonu. Nihai vergi
   pozisyonu icin gercek mali musavir sarttir; koltuk cerceve cizer.
@@ -87,7 +103,7 @@ C.4 Ek kurallar (O3 karari, 14.07.2026):
 - evren denetimi (Pazartesi): Mimar + Metodolog + Makro Analist.
 - bilanco guncelle (ceyreklik): Makro Analist + Sermaye Sahibi +
   vergi misafir koltugu.
-- HUKUM GUNU (18.08 haftasi): tam kurul + ekip tam kadro uygulama
+- HUKUM GUNU (19.09.2026 haftasi - 08.08 sayac sifirlamasi sonrasi guncellendi): tam kurul + ekip tam kadro uygulama
   plani + Seytanin Avukati kapanis savunmasi + Sermaye Sahibi son
   gorus -> Baskan karari.
 - Ad-hoc: "komite: <konu>" cagriyla ilgili koltuklar toplanir.
