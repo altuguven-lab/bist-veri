@@ -1,5 +1,5 @@
 {
-  "_sema_surumu": 4,
+  "_sema_surumu": 5,
   "_amac": "DEGISMEZ ANA KAYIT. Pozisyonlar bu dosyadan TURETILIR (portfoy_turet.py). C2 karari, 19.08.2026.",
   "_ilke": "Yalniz OLAY eklenir; gecmis olay DEGISTIRILMEZ. Hata varsa duzeltme olayi eklenir, eski kayit silinmez. portfoy.json artik elle duzenlenmez.",
   "_v3_degisikligi": "v2'de nakit de olaylardan turetiliyordu ve 261.783 TL'lik bir 'acik' hesaplanmisti. ACIK YOKMUS - iki yanlis varsayimdan cikmisti: (1) baslangic_sermaye_tl'nin muhasebe kimligi oldugu varsayildi; GERCEKTE getiri olcum tabanidir, pozisyon+nakit toplamiyla ortusmesi gerekmez. (2) Nakdin sabit durdugu varsayildi; GERCEKTE gunluk para piyasasi fonlarinda degerleniyor, yani getiri isliyor. SONUC: nakit TURETILMEZ, RAPORLANIR. Turetilen nakit gercek bakiyeden surekli sapardi.",
@@ -83,14 +83,46 @@
       "raporlanan_nakit_tl": 618750.0,
       "not": "portfoy.json'da kayitli son bakiye. Nakit gunluk para piyasasi fonlarinda degerlendigi icin getiri isliyor - bu yuzden nakit olaylardan turetilmez, periyodik olarak raporlanir.",
       "_dogrulama": "PORTFOY_DOSYASINDAN — ekstre teyidi yok"
+    },
+    {
+      "olay_id": "E005",
+      "tip": "STOP_GUNCELLEME",
+      "tarih_utc": "2026-08-24T00:00:00Z",
+      "sembol": "AKBNK",
+      "yeni_stop": 65.0,
+      "_not": "Tarihsel degil - SON BILINEN DOGRU deger, bkz. _v5_degisikligi"
+    },
+    {
+      "olay_id": "E006",
+      "tip": "STOP_GUNCELLEME",
+      "tarih_utc": "2026-08-24T00:00:00Z",
+      "sembol": "KCHOL",
+      "yeni_stop": 190.0,
+      "_not": "Tarihsel degil - SON BILINEN DOGRU deger, bkz. _v5_degisikligi"
+    },
+    {
+      "olay_id": "E007",
+      "tip": "STOP_GUNCELLEME",
+      "tarih_utc": "2026-08-24T00:00:00Z",
+      "sembol": "TAVHL",
+      "yeni_stop": 275.0,
+      "_not": "Tarihsel degil - SON BILINEN DOGRU deger, bkz. _v5_degisikligi"
+    },
+    {
+      "olay_id": "E008",
+      "tip": "STOP_GUNCELLEME",
+      "tarih_utc": "2026-08-24T00:00:00Z",
+      "sembol": "YKBNK",
+      "yeni_stop": 33.0,
+      "_not": "Tarihsel degil - SON BILINEN DOGRU deger, bkz. _v5_degisikligi"
     }
   ],
   "_eksik_olaylar": [
-    "TAVHL 24.07 stop guncellemesi (temettu duzeltmesi) - onceki/sonraki deger belirsiz",
-    "ASTOR 04.08 stop guncellemesi 290,00 -> 287,92",
-    "Mevcut stoplar (AKBNK 65,00 / KCHOL 190,00 / TAVHL 275,00 / YKBNK 33,00) hangi olayla konuldu?",
+    "TAVHL 24.07 stop guncellemesi (temettu duzeltmesi) - GERCEK tarih/onceki-sonraki deger hala arastirilacak (mevcut 275,00 deger E005/E006/E007/E008 ile KORUNDU, ama tarihce eksik)",
+    "ASTOR 04.08 stop guncellemesi 290,00 -> 287,92 (KAPALI pozisyon, dusuk oncelik)",
     "Guncel NAKIT_MUTABAKAT - son kayit 13.08. DIKKAT: 13.08 mutabakati ASTOR bedeli (14.08 takas) HENUZ GIRMEDEN alinmis olabilir",
     "ASTOR satisinin NET tutari (komisyon/vergi sonrasi)"
   ],
-  "_v4_degisikligi": "TAKAS TARIHI eklendi. ASTOR ornegi ortaya cikardi: emir 12.08 15:08'de girildi, bedel 14.08'de hesaba gecti (T+2). Bu ayrim ONEMLI cunku iki farkli soruya iki farkli tarih cevap veriyor: M3 (sinyal-uyum) ISLEM tarihine bakar - karar o gun verildi. Nakit mutabakati TAKAS tarihine bakar - para o gun girdi. Tek tarih kullanmak, satis ile mutabakat arasina denk gelen bir NAKIT_MUTABAKAT olayinda sahte 'kayitsiz islem' uyarisi uretirdi."
+  "_v4_degisikligi": "TAKAS TARIHI eklendi. ASTOR ornegi ortaya cikardi: emir 12.08 15:08'de girildi, bedel 14.08'de hesaba gecti (T+2). Bu ayrim ONEMLI cunku iki farkli soruya iki farkli tarih cevap veriyor: M3 (sinyal-uyum) ISLEM tarihine bakar - karar o gun verildi. Nakit mutabakati TAKAS tarihine bakar - para o gun girdi. Tek tarih kullanmak, satis ile mutabakat arasina denk gelen bir NAKIT_MUTABAKAT olayinda sahte 'kayitsiz islem' uyarisi uretirdi.",
+  "_v5_degisikligi": "DORT ACIK POZISYON icin STOP_GUNCELLEME olaylari eklendi. TARIHSEL DEGIL - gercek stop koyma/degistirme tarihleri bilinmiyor (bkz. onceki _eksik_olaylar). Bu olaylarin tek amaci: portfoy_turet.py --yaz calistiginda mevcut DOGRU stop degerlerinin KAYBOLMAMASI. tarih_utc = bugunun tarihi (bu degerlerin SON BILINEN DOGRULUK ani), gercek degisiklik tarihi DEGIL. Gercek stop tarihcesi (TAVHL 24.07 temettu duzeltmesi dahil) ayrica arastirilip, bulunursa GERIYE DONUK ayri olaylar olarak eklenecek - bu olaylar o zaman SILINMEZ, aralarina gercek tarihli olaylar EKLENIR."
 }
