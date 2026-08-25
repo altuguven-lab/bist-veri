@@ -1,23 +1,29 @@
-# KAP BILDIRIM PROTOTIP TESTI (24.08.2026)
+# KAP BILDIRIM PROTOTIP TESTI (25.08.2026, v2)
 # Konum: .github/workflows/kap_prototip_test.yml
 # SALT DENEME - kap_bildirim_prototip.py hicbir dosyaya yazmaz, sadece
-# konsola basar. Bu workflow da HICBIR SEYI COMMIT'LEMEZ - sonucu
-# okumak icin Actions calisma gunlugune (log) bakman yeterli.
+# konsola basar. Bu workflow da HICBIR SEYI COMMIT'LEMEZ.
 #
-# Amac: KAP'in kendi JSON uc noktasina dogrudan erisimin bu ortamdan
-# calisip calismadigini gormek. Sandbox'tan (Claude'un kendi ortami)
-# test edilemedi - kap.org.tr o ortamin izin verilen ag listesinde yok.
-# Bu workflow GERCEK GitHub Actions makinesinden calisir, farkli sonuc
-# verebilir.
+# v2 farki: baslangic/bitis girdileri eklendi. GECMISE DONUK dogrulama
+# icin - bilinen bir olayin oldugu bir pencereyi sorgulamak icin
+# (ornek: MGROS'un 11-12.08 zarar aciklamasi). Ikisi de bos birakilirsa
+# eskisi gibi "gun" girdisine gore bugunden geriye gider.
 name: KAP Prototip Testi
 
 on:
   workflow_dispatch:
     inputs:
       gun:
-        description: "Kac gunluk pencere (varsayilan: 3)"
+        description: "Kac gunluk pencere, bugunden geriye (baslangic/bitis BOSSA kullanilir)"
         required: false
         default: "3"
+      baslangic:
+        description: "Sabit pencere baslangici YYYY-MM-DD (gecmise donuk test icin, bos birakilabilir)"
+        required: false
+        default: ""
+      bitis:
+        description: "Sabit pencere bitisi YYYY-MM-DD (bos birakilirsa baslangic+3 gun)"
+        required: false
+        default: ""
 
 jobs:
   test:
@@ -32,5 +38,14 @@ jobs:
       - name: Bagimliliklar
         run: pip install PyYAML==6.0.2
 
-      - name: Prototipi calistir
-        run: python kap_bildirim_prototip.py --gun ${{ inputs.gun }}
+      - name: Prototipi calistir (sabit pencere varsa onu kullan)
+        run: |
+          if [ -n "${{ inputs.baslangic }}" ]; then
+            ARGS="--baslangic ${{ inputs.baslangic }}"
+            if [ -n "${{ inputs.bitis }}" ]; then
+              ARGS="$ARGS --bitis ${{ inputs.bitis }}"
+            fi
+          else
+            ARGS="--gun ${{ inputs.gun }}"
+          fi
+          python kap_bildirim_prototip.py $ARGS
