@@ -1,7 +1,17 @@
 {
-  "son_guncelleme_utc": "2026-08-13T07:35:04.703065+00:00",
-  "milat_notu": "17.07.2026 milat: sistem oncesi 4 miras pozisyon bu tarihteki guncel degerle devralindi",
+  "_turetildi": true,
   "baslangic_sermaye_tl": 2857000.0,
+  "_baslangic_sermaye_notu": "GETIRI OLCUM TABANIDIR, muhasebe kimligi DEGILDIR - pozisyon+nakit toplamiyla ortusmesi beklenmez. Alan adi RISK_KURALLARI.md Bolum 7 denetim sozlesmesi icin korundu.",
+  "nakit_kaynak": {
+    "raporlanan_tarih": "2026-08-13T07:35:00Z",
+    "mutabakat_sayisi": 1,
+    "aciklanmayan_fark_tl": null,
+    "aciklanmayan_fark_orani": null,
+    "not": "fark = son iki mutabakat arasindaki raporlanan degisim eksi ayni araliktaki islem akisi = fon getirisi + (varsa) kayda gecmemis islem"
+  },
+  "_kaynak": "data/islem_gunlugu.json",
+  "_uyari": "BU DOSYA ELLE DUZENLENMEZ. islem_gunlugu.json'a olay ekleyin.",
+  "son_guncelleme_utc": "2026-08-25T07:19:38.393922+00:00",
   "nakit_tl": 618750.0,
   "acik_pozisyonlar": [
     {
@@ -9,66 +19,50 @@
       "yon": "LONG",
       "adet": 10000,
       "giris_fiyat": 76.9683,
-      "giris_tarih_utc": null,
-      "sinyal_ref": null,
+      "giris_tarih_utc": "2026-07-17T00:00:00Z",
       "sinyal_etiketi": "MIRAS",
-      "stop_seviye": 65.0,
-      "kovalama": false,
-      "not": "sistem oncesi"
+      "stop_seviye": 65.0
     },
     {
       "sembol": "KCHOL",
       "yon": "LONG",
       "adet": 5000,
       "giris_fiyat": 212.74,
-      "giris_tarih_utc": null,
-      "sinyal_ref": null,
+      "giris_tarih_utc": "2026-07-17T00:00:00Z",
       "sinyal_etiketi": "MIRAS",
-      "stop_seviye": 190.0,
-      "kovalama": false,
-      "not": "sistem oncesi"
+      "stop_seviye": 190.0
     },
     {
       "sembol": "TAVHL",
       "yon": "LONG",
       "adet": 1000,
       "giris_fiyat": 300.0,
-      "giris_tarih_utc": null,
-      "sinyal_ref": null,
+      "giris_tarih_utc": "2026-07-17T00:00:00Z",
       "sinyal_etiketi": "MIRAS",
-      "stop_seviye": 275.0,
-      "kovalama": false,
-      "not": "20.07 temettu (net 1.53 TL/hisse, ilk taksit) icin duzeltildi - 24.07; orijinal stop 260.00. Ikinci taksit 22.09.2026, ayni tutarla tekrar duzeltme gerekecek."
+      "stop_seviye": 275.0
     },
     {
       "sembol": "YKBNK",
       "yon": "LONG",
       "adet": 10000,
       "giris_fiyat": 38.54,
-      "giris_tarih_utc": null,
-      "sinyal_ref": null,
+      "giris_tarih_utc": "2026-07-17T00:00:00Z",
       "sinyal_etiketi": "MIRAS",
-      "stop_seviye": 33.0,
-      "kovalama": false,
-      "not": "sistem oncesi"
+      "stop_seviye": 33.0
     }
   ],
   "kapanan_pozisyonlar": [
     {
       "sembol": "ASTOR",
-      "yon": "LONG",
       "adet": 1000,
-      "giris_fiyat": 304.25,
-      "giris_tarih_utc": "2026-07-21T08:19:00Z",
-      "sinyal_ref": null,
-      "sinyal_etiketi": "MANUEL_ALIM",
-      "stop_seviye": 287.92,
-      "kovalama": false,
-      "not": "Kullanici karari, sinyal referansi yok - 21.07 seans ici manuel alim. Stop 04.08'de 290.00'dan 287.92'ye cekildi - V151'in kendi INVALID/gecersizlik seviyesi (panel STOP alani) daha guvenilir bulundu; onceki stop (290.00) 2 gun kirik kalmisti, anayasa geregi IHLAL olarak tutanakta kalir - taniniyor, af degil. | 11.08.2026 (kullanicinin ifadesiyle 'dun') 323.00 TL'den SATILDI - kullanici bunun ERKEN bir satis oldugunu, yukselisin DEVAM ettigini belirtti. Brut satis tutari (komisyon/vergi HARIC): 323000.0 TL - NET nakit rakami dogrulanmadi, kullanicidan TEYIT gerekir.",
+      "giris_ort_fiyat": 304.25,
       "cikis_fiyat": 323.0,
-      "cikis_tarih_utc": null,
-      "getiri_pct": 6.16
+      "cikis_tarih_utc": "2026-08-12T12:08:00Z",
+      "realize_pnl_tl": 18750.0,
+      "_dogrulama": "TARIH TEYITLI"
     }
   ],
-  "_guncel_not": "12.08.2026: ASTOR satisi eklendi - nakit_tl BRUT (komisyon/vergi DUSULMEDEN) hesaplandi, kullanicidan NET rakamla DOGRULAMA istenmeli."
+  "_uyarilar": [
+    "nakit kontrolu yapilamadi — ikinci bir NAKIT_MUTABAKAT olayi gerekli"
+  ]
 }
