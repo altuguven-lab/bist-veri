@@ -27,6 +27,10 @@ import sys
 import urllib.request
 from datetime import date, timedelta
 
+def _tarih_ayristir(metin):
+    """YYYY-MM-DD bekler. Gecersizse argparse'a duzgun hata verdirir."""
+    return date.fromisoformat(metin)
+
 try:
     from universe import yukle_evren
     EVREN, _ = yukle_evren()
@@ -84,15 +88,35 @@ def tur_beyaz_listesi(bildirimler):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--gun", type=int, default=1,
-                    help="Kac gunluk pencere (varsayilan: 1, en fazla 3)")
+                    help="Kac gunluk pencere (bugunden geriye, "
+                         "varsayilan: 1, en fazla 3). --baslangic/"
+                         "--bitis verilirse GOZ ARDI EDILIR.")
+    ap.add_argument("--baslangic", type=_tarih_ayristir, default=None,
+                    help="Sabit pencere baslangici (YYYY-MM-DD). "
+                         "GECMISE DONUK dogrulama icin - bilinen bir "
+                         "olayin oldugu tarihi sorgulamak icin kullan.")
+    ap.add_argument("--bitis", type=_tarih_ayristir, default=None,
+                    help="Sabit pencere bitisi (YYYY-MM-DD). "
+                         "--baslangic verilip bu verilmezse "
+                         "baslangic+3 gun kullanilir (2000 tavani "
+                         "korumasi, KAP_ENDPOINT_NOTES.md §8).")
     args = ap.parse_args()
-    if args.gun > 3:
-        print("UYARI: --gun 3'u asiyor, 2000 tavanina carpma riski "
-              "(25.08 bulgusu). 3'e sabitleniyor.", file=sys.stderr)
-        args.gun = 3
 
-    bugun = date.today()
-    baslangic = bugun - timedelta(days=args.gun)
+    if args.baslangic:
+        baslangic = args.baslangic
+        bugun = args.bitis or (baslangic + timedelta(days=3))
+        if (bugun - baslangic).days > 3:
+            print("UYARI: pencere 3 gunu asiyor, 2000 tavanina carpma "
+                  "riski (25.08 bulgusu) - --bitis'i daralt.",
+                  file=sys.stderr)
+    else:
+        if args.gun > 3:
+            print("UYARI: --gun 3'u asiyor, 2000 tavanina carpma riski "
+                  "(25.08 bulgusu). 3'e sabitleniyor.", file=sys.stderr)
+            args.gun = 3
+        bugun = date.today()
+        baslangic = bugun - timedelta(days=args.gun)
+
     print(f"KAP sorgusu: {baslangic} -> {bugun}\n")
 
     # --- ADIM 1: filtresiz (baseline) ---
@@ -106,36 +130,18 @@ def main():
     if len(ham) >= 2000:
         print("    UYARI: 2000 tavanina carpmis olabilir", file=sys.stderr)
 
-    # --- ADIM 2: sunucu tarafi subjectList denemesi ---
-    try:
-        sunucu_filtreli = kap_bildirimlerini_cek(
-            baslangic, bugun, subject_list=DEGERLI_TURLER)
-    except Exception as e:
-        print(f"HATA: sunucu-filtreli istek basarisiz -> {e}",
-              file=sys.stderr)
-        sunucu_filtreli = None
-
-    if sunucu_filtreli is not None:
-        print(f"[2] SUNUCU-FİLTRELİ istek (subjectList=4 tur metni) — "
-              f"toplam bildirim: {len(sunucu_filtreli)}")
-        if len(sunucu_filtreli) == len(ham):
-            print("    SONUÇ: sayılar AYNI — sunucu metni muhtemelen YOK "
-                  "SAYDI (OID bekliyor olabilir). İstemci tarafı beyaz "
-                  "liste her durumda gerekli.")
-        elif len(sunucu_filtreli) < len(ham):
-            print(f"    SONUÇ: sayı düştü ({len(ham)} → "
-                  f"{len(sunucu_filtreli)}) — sunucu filtresi ÇALIŞIYOR "
-                  "gibi görünüyor. Yine de aşağıdaki istemci-taraflı "
-                  "sonuçla karşılaştır.")
-        else:
-            print("    SONUÇ: sayı ARTTI — beklenmeyen davranış, "
-                  "yoruma dikkatli yaklaş.")
-    print()
+    # 25.08 25.08 ARDIŞIK TEST SONUCU (--gun 3, ayni pencere): filtresiz
+    # 292, subjectList=4 metin -> 0. Bu "calisiyor" degil - istemci
+    # tarafi AYNI 292 kayittan METIN eslestirmeyle 91 buldu (asagida),
+    # yani sunucu dogru metni bile 0'a dusurmus - OID bekleyip metni
+    # reddettigi hipotezini GUCLENDIRIYOR. Yanlis pozitif vermemek icin
+    # sunucu-tarafi denemesi BETIKTEN CIKARILDI - istemci tarafi
+    # (asagida) tek guvenilir yol, ureiimde de bu kullanilacak.
 
     # --- ADIM 3: istemci tarafi beyaz liste + evren filtresi (guvenilir yol) ---
     tur_suzulen = tur_beyaz_listesi(ham)
     nihai = evren_filtresi(tur_suzulen)
-    print(f"[3] İSTEMCİ TARAFI (her zaman uygulanır): "
+    print(f"[2] İSTEMCİ TARAFI (tek güvenilir yol) (her zaman uygulanır): "
           f"{len(ham)} → tür beyaz listesi → {len(tur_suzulen)} "
           f"→ evren filtresi → {len(nihai)}\n")
 
