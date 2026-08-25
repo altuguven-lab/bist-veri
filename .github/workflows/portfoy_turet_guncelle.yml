@@ -1,0 +1,58 @@
+# PORTFOY TURETME GUNCELLE (25.08.2026)
+# Konum: .github/workflows/portfoy_turet_guncelle.yml
+# UretIM - portfoy_turet.py --yaz'i calistirir, data/portfoy.json'i
+# commit'ler.
+#
+# TASARIM: data/islem_gunlugu.json her degistiginde (push) OTOMATIK
+# tetiklenir. Bugunku sorunu (v5 defteri commit'lendi ama --yaz
+# calistirilmasi UNUTULDU, portfoy.json 12 gun eski kaldi) bu tetik
+# tekrarlanmayacak sekilde cozer - defter degisince turetme kendi
+# kendine olur.
+#
+# workflow_dispatch de var - elle tetiklemek istersen (orn. defter
+# degismedi ama --yaz'i yine de kosmak istiyorsan).
+#
+# KIRMIZI CIZGI: portfoy_turet.py mutabakat tutmuyorsa ya da
+# NAKIT_MUTABAKAT hic yoksa cikis kodu 2 ile durur - bu is akisi o
+# durumda BASARISIZ gorunur (kirmizi X), portfoy.json YAZILMAZ.
+# Sessizce yanlis veri yazmaktansa is akisinin kirmizi gorunmesi
+# tercih edildi.
+name: Portfoy Turetme Guncelle
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/islem_gunlugu.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  turet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Turet ve yaz
+        run: python portfoy_turet.py --yaz
+
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "portfoy-turet-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/portfoy.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Portfoy turetildi $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili (deneme $i)"; exit 0; fi
+            echo "push reddedildi, rebase + tekrar ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
