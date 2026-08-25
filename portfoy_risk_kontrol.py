@@ -18,6 +18,7 @@ Boylece "gunluk -%3" ve "haftalik -%5" gercekten o gunun/haftanin
 BASINDAKI degere gore olculur, on cagriya gore degil.
 """
 import json, datetime, os, sys, urllib.request
+from json_atomik_yaz import atomik_json_yaz
 
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 REPO = os.environ.get("GITHUB_REPOSITORY", "")
