@@ -1,0 +1,36 @@
+# KAP BILDIRIM PROTOTIP TESTI (24.08.2026)
+# Konum: .github/workflows/kap_prototip_test.yml
+# SALT DENEME - kap_bildirim_prototip.py hicbir dosyaya yazmaz, sadece
+# konsola basar. Bu workflow da HICBIR SEYI COMMIT'LEMEZ - sonucu
+# okumak icin Actions calisma gunlugune (log) bakman yeterli.
+#
+# Amac: KAP'in kendi JSON uc noktasina dogrudan erisimin bu ortamdan
+# calisip calismadigini gormek. Sandbox'tan (Claude'un kendi ortami)
+# test edilemedi - kap.org.tr o ortamin izin verilen ag listesinde yok.
+# Bu workflow GERCEK GitHub Actions makinesinden calisir, farkli sonuc
+# verebilir.
+name: KAP Prototip Testi
+
+on:
+  workflow_dispatch:
+    inputs:
+      gun:
+        description: "Kac gunluk pencere (varsayilan: 3)"
+        required: false
+        default: "3"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bagimliliklar
+        run: pip install PyYAML==6.0.2
+
+      - name: Prototipi calistir
+        run: python kap_bildirim_prototip.py --gun ${{ inputs.gun }}
