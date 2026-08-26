@@ -11,7 +11,7 @@
   },
   "_kaynak": "data/islem_gunlugu.json",
   "_uyari": "BU DOSYA ELLE DUZENLENMEZ. islem_gunlugu.json'a olay ekleyin.",
-  "son_guncelleme_utc": "2026-08-26T06:23:22.773682+00:00",
+  "son_guncelleme_utc": "2026-08-26T06:50:00.787081+00:00",
   "nakit_tl": 618750.0,
   "acik_pozisyonlar": [
     {
@@ -33,15 +33,6 @@
       "stop_seviye": 190.0
     },
     {
-      "sembol": "TAVHL",
-      "yon": "LONG",
-      "adet": 1000,
-      "giris_fiyat": 300.0,
-      "giris_tarih_utc": "2026-07-17T00:00:00Z",
-      "sinyal_etiketi": "MIRAS",
-      "stop_seviye": 275.0
-    },
-    {
       "sembol": "YKBNK",
       "yon": "LONG",
       "adet": 10000,
@@ -60,6 +51,15 @@
       "cikis_tarih_utc": "2026-08-12T12:08:00Z",
       "realize_pnl_tl": 18750.0,
       "_dogrulama": "TARIH TEYITLI"
+    },
+    {
+      "sembol": "TAVHL",
+      "adet": 1000,
+      "giris_ort_fiyat": 300.0,
+      "cikis_fiyat": 281.0,
+      "cikis_tarih_utc": "2026-08-25T07:50:00Z",
+      "realize_pnl_tl": -19000.0,
+      "_dogrulama": "OK"
     }
   ],
   "_uyarilar": [
