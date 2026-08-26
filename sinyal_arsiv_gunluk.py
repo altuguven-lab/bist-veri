@@ -64,6 +64,18 @@ RISK_OFF_SINYALLERI = {"POZ_AZALT", "STOP_KIRILDI", "ACIL_CIK"}
 TAKIP_GUNLERI = [1, 2, 3]
 DOGRULAMA_ICIN_GEREKEN_GUN = 3  # T+3 gecmeden dogrulama YAPILMAZ
 
+# 26.08.2026 EKLENDI - ON KAYIT (C.5): erken uyari sinyalleri artik
+# arsivleniyor. Bunlar dogrudan AL/RISK_OFF degil - "yaklasiyor" uyarisi.
+# ONCEDEN sonuca bakilmadan iki soru + yontem KILITLENIYOR:
+#   (1) DONUSUM: N islem gunu icinde ayni sembol icin gercek bir
+#       AL_SINYALLERI kaydi geliyor mu? DONUSUM_PENCERE_GUN=5 (sabit,
+#       kurul karari 26.08, sonradan degistirilmez).
+#   (2) KENDI BASINA ONGORU: donusum olmasa bile, radar'in kendisi
+#       fiyat hareketini haber veriyor mu? (ayni forward-return
+#       mekanizmasi AL_SINYALLERI ile PAYLASILIR, ayri kod yazilmadi.)
+IZLEME_SINYALLERI = {"P3_RADAR", "P2_ADAY"}
+DONUSUM_PENCERE_GUN = 5
+
 # Piyasa referansi. Sirayla denenir, ilk dolu donen kullanilir.
 # BULUNAMAZSA: goreli alanlar YAZILMAZ - yerine vekil UYDURULMAZ.
 # (Sinyal sembollerinin ortalamasi vekil OLAMAZ: onlar zaten secilmis
@@ -86,6 +98,14 @@ ALAN_ACIKLAMALARI = {
                 "aralarinda ortalanir, sonra gunler ortalanir. n = GUN sayisi.",
     "olcum_surumu": "Kaydi ureten olcum mantiginin surumu. 2 = islem gunu "
                     "penceresi (v2.1). Surum atlayinca kayit yeniden hesaplanir.",
+    "kategori": "IZLEME ise erken uyari sinyali (P3_RADAR/P2_ADAY) - "
+               "dogrudan AL/RISK_OFF degil. Yoksa AL_SINYALLERI/"
+               "RISK_OFF_SINYALLERI turunden.",
+    "donusum_durumu": "Yalniz IZLEME kayitlarinda: DONUSTU/DONUSMEDI/BEKLIYOR. "
+                      f"Pencere {DONUSUM_PENCERE_GUN} islem gunu (C.5 on kayit, "
+                      "26.08, degistirilmez).",
+    "donusum_gun": "DONUSTU ise, kac islem gunu sonra gercek sinyale donustu.",
+    "donusturen_sinyal": "DONUSTU ise, hangi AL_SINYALLERI turune donustu.",
 }
 
 
@@ -196,6 +216,37 @@ def _sayi_mi(deger):
         return False
 
 
+def _donusum_kontrol(radar_kayit, tum_kayitlar, seri):
+    """radar_kayit (P3_RADAR/P2_ADAY) DONUSUM_PENCERE_GUN islem gunu
+    icinde AYNI sembol icin bir AL_SINYALLERI kaydina DONUSTU mu?
+    seri: sembolun fiyat serisi (bar indeksi icin - takvim gunu DEGIL).
+    Donen: dict (donustu/donusmedi/henuz belirsiz) ya da None (seri yok)."""
+    if not seri:
+        return None
+    radar_tarih = datetime.date.fromisoformat(radar_kayit["tarih"])
+    radar_idx = _baz_indeks(seri, radar_tarih)
+    if radar_idx is None:
+        return None
+
+    for k in tum_kayitlar:
+        if k is radar_kayit or k["sembol"] != radar_kayit["sembol"]:
+            continue
+        if k["sinyal"] not in AL_SINYALLERI:
+            continue
+        k_idx = _baz_indeks(seri, datetime.date.fromisoformat(k["tarih"]))
+        if k_idx is None:
+            continue
+        fark = k_idx - radar_idx
+        if 0 <= fark <= DONUSUM_PENCERE_GUN:
+            return {"donusum_durumu": "DONUSTU", "donusum_gun": fark,
+                    "donusturen_sinyal": k["sinyal"], "donusturen_tarih": k["tarih"]}
+
+    bugun_idx = len(seri) - 1
+    if bugun_idx - radar_idx >= DONUSUM_PENCERE_GUN:
+        return {"donusum_durumu": "DONUSMEDI"}
+    return {"donusum_durumu": "BEKLIYOR"}  # pencere henuz kapanmadi
+
+
 def _ozet_hesapla(alt, alan_kalibi, tip):
     """Bir sinyal tipi icin hem sinyal-agirlikli hem GUN-agirlikli
     ozet uretir. alan_kalibi: 'getiri_t{}_pct' ya da 'getiri_rel_t{}_pct'."""
@@ -213,7 +264,7 @@ def _ozet_hesapla(alt, alan_kalibi, tip):
             gunluk.setdefault(tarih, []).append(d)
         gun_ortalamalari = [statistics.mean(v) for v in gunluk.values()]
 
-        if tip in AL_SINYALLERI:
+        if tip in AL_SINYALLERI or tip in IZLEME_SINYALLERI:
             dogrulanan = sum(1 for d in ham if d > 0)
         else:
             dogrulanan = sum(1 for d in ham if d <= 0)
@@ -239,19 +290,25 @@ def main():
     veri = json.load(open(GIRIS_YOL, encoding="utf-8"))
     yeni_sayisi = 0
     for s in veri["sinyal_gecmisi"]:
-        if s["sinyal"] not in (AL_SINYALLERI | RISK_OFF_SINYALLERI):
+        if s["sinyal"] not in (AL_SINYALLERI | RISK_OFF_SINYALLERI | IZLEME_SINYALLERI):
             continue
         sinyal_tarih = datetime.datetime.fromisoformat(
             s["zaman_utc"].replace("Z", "+00:00")).date()
         anahtar = (s["sembol"], s["sinyal"], str(sinyal_tarih))
         if anahtar in mevcut_anahtarlar:
             continue
+        izleme_mi = s["sinyal"] in IZLEME_SINYALLERI
         kayit = {
             "sembol": s["sembol"], "sinyal": s["sinyal"], "tarih": str(sinyal_tarih),
             "sinyal_fiyat": float(s["fiyat"]),
-            "yon_beklentisi": "YUKARI" if s["sinyal"] in AL_SINYALLERI else "ASAGI_VEYA_NOTR",
+            # IZLEME de YUKARI bekler - AL_SINYALLERI'nin ONCUSU, ayni yon.
+            "yon_beklentisi": "ASAGI_VEYA_NOTR" if s["sinyal"] in RISK_OFF_SINYALLERI
+                              else "YUKARI",
             "dogrulama_durumu": "BEKLIYOR",
         }
+        if izleme_mi:
+            kayit["kategori"] = "IZLEME"
+            kayit["donusum_durumu"] = "BEKLIYOR"
         # v2: alarm mesajinda skor/kgs/rejim varsa sakla - esik testinin
         # girdisi budur. P3_SKOR_AL'de su an "?" geliyor (17.08 bulgusu);
         # mesaj sablonu duzeltilince kendiliginden dolmaya baslar.
@@ -312,8 +369,29 @@ def main():
         print(f"{tasinan_sayisi} eski kayit islem-gunu penceresiyle YENIDEN "
               f"hesaplandi (olcum surumu {OLCUM_SURUMU})")
 
+    # 26.08 EKLENDI: IZLEME kayitlarinin donusum kontrolu. Forward-return
+    # dogrulamasindan BAGIMSIZ - T+3 beklemez, sadece fiyat serisi (bar
+    # indeksi icin) gerekir. Sadece BEKLIYOR olanlar tekrar kontrol edilir;
+    # DONUSTU/DONUSMEDI nihaidir.
+    donusum_kontrol_sayisi = 0
+    for kayit in arsiv["kayitlar"]:
+        if kayit.get("kategori") != "IZLEME":
+            continue
+        if kayit.get("donusum_durumu") != "BEKLIYOR":
+            continue
+        sembol = kayit["sembol"]
+        if sembol not in fiyat_serileri:
+            fiyat_serileri[sembol] = _seri_cek(f"{sembol}.IS", donem)
+        sonuc = _donusum_kontrol(kayit, arsiv["kayitlar"], fiyat_serileri[sembol])
+        if sonuc is None:
+            continue  # seri yok, dokunma
+        kayit.update(sonuc)
+        donusum_kontrol_sayisi += 1
+    if donusum_kontrol_sayisi:
+        print(f"{donusum_kontrol_sayisi} IZLEME kaydi donusum icin kontrol edildi")
+
     tip_ozet, tip_ozet_rel = {}, {}
-    for tip in (AL_SINYALLERI | RISK_OFF_SINYALLERI):
+    for tip in (AL_SINYALLERI | RISK_OFF_SINYALLERI | IZLEME_SINYALLERI):
         alt = [k for k in arsiv["kayitlar"]
                if k["sinyal"] == tip and k["dogrulama_durumu"] == "DOGRULANDI"]
         if not alt:
@@ -325,8 +403,26 @@ def main():
         if goreli:
             tip_ozet_rel[tip] = goreli
 
+    # Donusum ozeti - IZLEME turleri icin ayrica.
+    izleme_donusum_ozet = {}
+    for tip in IZLEME_SINYALLERI:
+        alt = [k for k in arsiv["kayitlar"] if k["sinyal"] == tip
+               and k.get("donusum_durumu") in ("DONUSTU", "DONUSMEDI")]
+        if not alt:
+            continue
+        donusen = [k for k in alt if k["donusum_durumu"] == "DONUSTU"]
+        izleme_donusum_ozet[tip] = {
+            "karar_verilmis": len(alt),
+            "donusen": len(donusen),
+            "donusum_orani_pct": round(100 * len(donusen) / len(alt), 1),
+            "ort_donusum_gun": round(statistics.mean(
+                [k["donusum_gun"] for k in donusen]), 1) if donusen else None,
+        }
+
     arsiv["tip_ozet"] = tip_ozet
     arsiv["tip_ozet_goreli"] = tip_ozet_rel
+    if izleme_donusum_ozet:
+        arsiv["izleme_donusum_ozet"] = izleme_donusum_ozet
     arsiv["piyasa_referansi"] = piyasa_ticker or "YOK"
     arsiv["olcum_surumu"] = OLCUM_SURUMU
     surumsuz = sum(1 for k in arsiv["kayitlar"]
