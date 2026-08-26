@@ -1,5 +1,5 @@
 {
-  "_sema_surumu": 5,
+  "_sema_surumu": 7,
   "_amac": "DEGISMEZ ANA KAYIT. Pozisyonlar bu dosyadan TURETILIR (portfoy_turet.py). C2 karari, 19.08.2026.",
   "_ilke": "Yalniz OLAY eklenir; gecmis olay DEGISTIRILMEZ. Hata varsa duzeltme olayi eklenir, eski kayit silinmez. portfoy.json artik elle duzenlenmez.",
   "_v3_degisikligi": "v2'de nakit de olaylardan turetiliyordu ve 261.783 TL'lik bir 'acik' hesaplanmisti. ACIK YOKMUS - iki yanlis varsayimdan cikmisti: (1) baslangic_sermaye_tl'nin muhasebe kimligi oldugu varsayildi; GERCEKTE getiri olcum tabanidir, pozisyon+nakit toplamiyla ortusmesi gerekmez. (2) Nakdin sabit durdugu varsayildi; GERCEKTE gunluk para piyasasi fonlarinda degerleniyor, yani getiri isliyor. SONUC: nakit TURETILMEZ, RAPORLANIR. Turetilen nakit gercek bakiyeden surekli sapardi.",
@@ -61,7 +61,7 @@
       "sinyal_ref": null,
       "gerekce": "Kullanici karari - sinyal referansi yok, manuel alim",
       "takas_tarihi": "2026-07-23",
-      "_takas_notu": "T+2 varsayimi — dekontla teyit edilmedi"
+      "_takas_notu": "T+2 kurali Altug tarafindan 25.08'de dogrulandi (BIST standardi). 21.07 Sali + T+2 islem gunu = 23.07 Persembe - hesap ile mevcut deger ORTUSUYOR. Tarihin kendisi degismedi, guven durumu 'varsayim'dan 'kural ile dogrulandi'ya yukseldi."
     },
     {
       "olay_id": "E003",
@@ -115,6 +115,18 @@
       "sembol": "YKBNK",
       "yeni_stop": 33.0,
       "_not": "Tarihsel degil - SON BILINEN DOGRU deger, bkz. _v5_degisikligi"
+    },
+    {
+      "olay_id": "E009",
+      "tip": "SATIS",
+      "tarih_utc": "2026-08-25T07:50:00Z",
+      "sembol": "TAVHL",
+      "adet": 1000,
+      "fiyat": 281.0,
+      "gerekce": "Stop mesafesi %0,55'e inmisti (276,50 vs stop 275,00), acilis oncesi risk yuksekti. Pozisyonun tamami kapatildi.",
+      "kaynak": "Altug bildirimi 25.08.2026",
+      "takas_tarihi": "2026-08-27",
+      "_takas_notu": "T+2 kurali: 25.08 Sali (islem) + 2 islem gunu (hafta sonu haric) = 27.08 Persembe. Resmi tatile denk gelmedigi varsayiliyor - teyit edilmedi."
     }
   ],
   "_eksik_olaylar": [
@@ -124,5 +136,7 @@
     "ASTOR satisinin NET tutari (komisyon/vergi sonrasi)"
   ],
   "_v4_degisikligi": "TAKAS TARIHI eklendi. ASTOR ornegi ortaya cikardi: emir 12.08 15:08'de girildi, bedel 14.08'de hesaba gecti (T+2). Bu ayrim ONEMLI cunku iki farkli soruya iki farkli tarih cevap veriyor: M3 (sinyal-uyum) ISLEM tarihine bakar - karar o gun verildi. Nakit mutabakati TAKAS tarihine bakar - para o gun girdi. Tek tarih kullanmak, satis ile mutabakat arasina denk gelen bir NAKIT_MUTABAKAT olayinda sahte 'kayitsiz islem' uyarisi uretirdi.",
-  "_v5_degisikligi": "DORT ACIK POZISYON icin STOP_GUNCELLEME olaylari eklendi. TARIHSEL DEGIL - gercek stop koyma/degistirme tarihleri bilinmiyor (bkz. onceki _eksik_olaylar). Bu olaylarin tek amaci: portfoy_turet.py --yaz calistiginda mevcut DOGRU stop degerlerinin KAYBOLMAMASI. tarih_utc = bugunun tarihi (bu degerlerin SON BILINEN DOGRULUK ani), gercek degisiklik tarihi DEGIL. Gercek stop tarihcesi (TAVHL 24.07 temettu duzeltmesi dahil) ayrica arastirilip, bulunursa GERIYE DONUK ayri olaylar olarak eklenecek - bu olaylar o zaman SILINMEZ, aralarina gercek tarihli olaylar EKLENIR."
+  "_v5_degisikligi": "DORT ACIK POZISYON icin STOP_GUNCELLEME olaylari eklendi. TARIHSEL DEGIL - gercek stop koyma/degistirme tarihleri bilinmiyor (bkz. onceki _eksik_olaylar). Bu olaylarin tek amaci: portfoy_turet.py --yaz calistiginda mevcut DOGRU stop degerlerinin KAYBOLMAMASI. tarih_utc = bugunun tarihi (bu degerlerin SON BILINEN DOGRULUK ani), gercek degisiklik tarihi DEGIL. Gercek stop tarihcesi (TAVHL 24.07 temettu duzeltmesi dahil) ayrica arastirilip, bulunursa GERIYE DONUK ayri olaylar olarak eklenecek - bu olaylar o zaman SILINMEZ, aralarina gercek tarihli olaylar EKLENIR.",
+  "_v6_degisikligi": "TAVHL SATIS olayi eklendi (E009). 25.08 sabahi stop mesafesi %0,55'e inmisti (276,50 vs stop 275,00) - Altug pozisyonu tamamen kapatti. Nakit mutabakati BILEREK EKLENMEDI (Altug: 'nakit kismi detayi su an cok onemli degil, oncelik elestirilerdeki duzeltmeler'). Nakit kontrolu 'YAPILAMADI' uyarisi devam edecek - bu bir hata degil, eksik bilgiyle uydurma yapmamanin sonucu. Bakiye geldiginde ayri bir NAKIT_MUTABAKAT olayiyla kapatilacak.",
+  "_v7_degisikligi": "TAKAS TARIHI KURALI DOGRULANDI (Altug, 25.08): BIST'te tum alim satim islemleri T+2 VALORLE hesaba gecer. Bu, HAFTA SONUNU ATLAYAN ISLEM GUNU sayimidir - RESMI TATIL TAKVIMI bu hesaba KATILMIYOR (elimizde yok). Bir islem resmi tatile denk gelirse bu hesap YANLIS cikar - o durumda elle duzeltilmeli."
 }
