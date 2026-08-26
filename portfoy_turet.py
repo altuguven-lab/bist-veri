@@ -50,6 +50,23 @@ NAKIT_FARK_UYARI_ORANI = 0.05
 # takas_tarihi yoksa islem tarihi kullanilir ve uyari listesine yazilir.
 
 
+def _t_plus_2_islem_gunu(tarih_iso):
+    """25.08 KURALI (Altug): BIST'te tum alim satim islemleri T+2
+    VALORLE hesaba gecer. Hafta sonunu atlayan islem-gunu sayimidir.
+
+    SINIR: RESMI TATIL TAKVIMI bu hesaba KATILMIYOR (elimizde yok).
+    Bir islem resmi tatile denk gelirse bu hesap YANLIS cikar - o
+    durumda islem_gunlugu.json'daki takas_tarihi ELLE DUZELTILMELI.
+    """
+    d = datetime.date.fromisoformat(tarih_iso[:10])
+    eklenen = 0
+    while eklenen < 2:
+        d += datetime.timedelta(days=1)
+        if d.weekday() < 5:  # 0=Pazartesi..4=Cuma
+            eklenen += 1
+    return d.isoformat()
+
+
 def _uygula(olaylar):
     """Olaylari SIRAYLA katlayarak durum uretir. Saf fonksiyon.
 
@@ -60,7 +77,7 @@ def _uygula(olaylar):
     raporlanan_tarih = None
     mutabakatlar = []   # (tarih, raporlanan, o tarihe kadar TAKASLANMIS akis)
     nakit_takvimi = []  # (takas_tarihi, tutar) - sirali degil, toplanirken suzulur
-    takas_tarihi_eksik = []
+    takas_tarihi_otomatik = []  # [(olay_id, hesaplanan_tarih), ...]
     pozisyon = {}
     kapanan = []
     stoplar = {}
@@ -84,8 +101,8 @@ def _uygula(olaylar):
             islem_nakit_akisi -= tutar
             tt = o.get("takas_tarihi")
             if not tt:
-                takas_tarihi_eksik.append(o["olay_id"])
-                tt = o["tarih_utc"][:10]
+                tt = _t_plus_2_islem_gunu(o["tarih_utc"])
+                takas_tarihi_otomatik.append((o["olay_id"], tt))
             nakit_takvimi.append((tt, -tutar))
             mevcut = pozisyon.get(s)
             if mevcut:
@@ -115,8 +132,8 @@ def _uygula(olaylar):
             islem_nakit_akisi += o["adet"] * o["fiyat"]
             tt = o.get("takas_tarihi")
             if not tt:
-                takas_tarihi_eksik.append(o["olay_id"])
-                tt = o["tarih_utc"][:10]
+                tt = _t_plus_2_islem_gunu(o["tarih_utc"])
+                takas_tarihi_otomatik.append((o["olay_id"], tt))
             nakit_takvimi.append((tt, o["adet"] * o["fiyat"]))
             mevcut["adet"] -= o["adet"]
             mevcut["maliyet_toplam"] -= cikan_maliyet
@@ -150,9 +167,11 @@ def _uygula(olaylar):
         else:
             uyarilar.append(f"{o['olay_id']}: bilinmeyen olay tipi '{tip}'")
 
-    if takas_tarihi_eksik:
-        uyarilar.append("takas_tarihi eksik (islem tarihi kullanildi): "
-                        + ", ".join(takas_tarihi_eksik))
+    if takas_tarihi_otomatik:
+        uyarilar.append(
+            "takas_tarihi otomatik T+2 hesaplandi (resmi tatil dikkate "
+            "ALINMADI, hafta sonu haric islem-gunu sayimi): " +
+            ", ".join(f"{oid}->{t}" for oid, t in takas_tarihi_otomatik))
     return (islem_nakit_akisi, raporlanan_nakit, raporlanan_tarih,
             mutabakatlar, pozisyon, kapanan, stoplar, uyarilar)
 
