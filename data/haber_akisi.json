@@ -1,7 +1,7 @@
 {
-  "guncelleme_zamani_utc": "2026-08-25T23:35:50.994564+00:00",
+  "guncelleme_zamani_utc": "2026-08-26T01:56:46.017926+00:00",
   "kaynak_sayisi": 41,
-  "yeni_haber": 42,
+  "yeni_haber": 62,
   "kaynak_sagligi": {
     "KAP": 100,
     "TCMB": 100,
@@ -12,11 +12,11 @@
     "Foreks": 100,
     "Makro-Asya": 71,
     "Makro-Jeopolitik": 100,
-    "Makro-Fed": 50,
-    "Makro-TUIK": 51,
+    "Makro-Fed": 51,
+    "Makro-TUIK": 50,
     "GN:AKBNK": 100,
-    "GN:YKBNK": 31,
-    "GN:GARAN": 32,
+    "GN:YKBNK": 100,
+    "GN:GARAN": 100,
     "GN:ISCTR": 100,
     "GN:SAHOL": 100,
     "GN:KCHOL": 100,
@@ -40,9 +40,9 @@
     "GN:PETKM": 100,
     "GN:SISE": 100,
     "GN:EKGYO": 100,
-    "GN:TRMET": 69,
+    "GN:TRMET": 72,
     "GN:ALARK": 100,
-    "GN:ENJSA": 73,
+    "GN:ENJSA": 72,
     "GN:ULKER": 100
   },
   "kaynak_detay": {
@@ -53,7 +53,7 @@
     },
     "TCMB": {
       "ham": 100,
-      "suzulen": 19,
+      "suzulen": 18,
       "hata": null
     },
     "Reuters": {
@@ -63,7 +63,7 @@
     },
     "BloombergHT": {
       "ham": 20,
-      "suzulen": 0,
+      "suzulen": 20,
       "hata": null
     },
     "AA Ekonomi": {
@@ -78,7 +78,7 @@
     },
     "Foreks": {
       "ham": 100,
-      "suzulen": 4,
+      "suzulen": 3,
       "hata": null
     },
     "Makro-Asya": {
@@ -88,16 +88,16 @@
     },
     "Makro-Jeopolitik": {
       "ham": 100,
-      "suzulen": 16,
+      "suzulen": 15,
       "hata": null
     },
     "Makro-Fed": {
-      "ham": 50,
+      "ham": 51,
       "suzulen": 21,
       "hata": null
     },
     "Makro-TUIK": {
-      "ham": 51,
+      "ham": 50,
       "suzulen": 14,
       "hata": null
     },
@@ -107,13 +107,13 @@
       "hata": null
     },
     "GN:YKBNK": {
-      "ham": 31,
-      "suzulen": 2,
+      "ham": 100,
+      "suzulen": 1,
       "hata": null
     },
     "GN:GARAN": {
-      "ham": 32,
-      "suzulen": 3,
+      "ham": 100,
+      "suzulen": 1,
       "hata": null
     },
     "GN:ISCTR": {
@@ -148,7 +148,7 @@
     },
     "GN:ASELS": {
       "ham": 100,
-      "suzulen": 1,
+      "suzulen": 2,
       "hata": null
     },
     "GN:ASTOR": {
@@ -232,7 +232,7 @@
       "hata": null
     },
     "GN:TRMET": {
-      "ham": 69,
+      "ham": 72,
       "suzulen": 0,
       "hata": null
     },
@@ -242,7 +242,7 @@
       "hata": null
     },
     "GN:ENJSA": {
-      "ham": 73,
+      "ham": 72,
       "suzulen": 0,
       "hata": null
     },
@@ -254,6 +254,578 @@
   },
   "toplam_haber": 100,
   "haberler": [
+    {
+      "zaman_utc": "2026-08-26T01:56:02.822570+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 10:30:40 GMT",
+      "kaynak": "TCMB",
+      "baslik": "Faizde indirim kapısı aralandı - Sözcü Gazetesi",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQelVGTWRfdGkzVVduWllGaEVQVndoenRrdjF3RHBCYUxodXIwWDZDZE1QdE84UFBsaGxZaHlXT1Y5YnRJbFBrczc0MkJ3SnQtN01sa3c2TjBGX3lzMEVsZ2p3bWt3aFNPWGM4ZUVrRktpZjFxOXBPR3M5WERrNmJaTmNPZW9Kems3YnNZS3Q3TGJGQkVBVUVWRno0TFBGVXM?oc=5",
+      "puan": 5,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:02.822659+00:00",
+      "yayin_zamani": "Fri, 21 Aug 2026 14:40:02 GMT",
+      "kaynak": "TCMB",
+      "baslik": "JPMorgan, TCMB'den yıl sonuna kadar iki faiz indirimi bekliyor - Bloomberght",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOUFBSSEwyQkpPUGpUM21HWFFiVXhMTThCMFptcERNY19PeHdsaDBQWkpRendCRjlSb2VNQy1Ib1N5YnVieXNMZ3FpalRsNlV0U2NhU1d3MFpLM0FwcWxWWm11MDlTRUFsNGw3TDUwN1MwakpQQVplbS1KYkNkUjNnWVU2eWtMdlBfM0ZkYWozWXFlWk9uc243ZXpNQlhZZw?oc=5",
+      "puan": 5,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:02.822788+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 11:34:00 GMT",
+      "kaynak": "TCMB",
+      "baslik": "Goldman Sachs'tan TCMB için yeni faiz tahmini - platinonline.com",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPbm1WenJnYXBQSy12M3dZZVpHOXJBR3M3MEJLM2RBOXF2ZDA3NTh0QkhCZzJ5SXRTaWc2eF9UcmhxZkgtclFEekxVQ3NfSHdjLU5ZSncwM2xUdExIYmN3OE9ReUprWWJwN0pFNFZzZUpnRThadnlFeHRxektSVlVaVlNFSjFsZUpUWGJ3S1hMWmpvMUE?oc=5",
+      "puan": 5,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:02.822901+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 21:21:00 GMT",
+      "kaynak": "TCMB",
+      "baslik": "TCMB'den iki elektronik para şirketine kritik karar: Lisanslar iptal edildi - CNBC-e",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVmpWSlEzcEhaSjUyUklNZEthMWQ4ZWxXY21yNXhlaDZzVHpGS0hlUDFHbS1sYjRvRjN1X19CVVctQ3FIOW1kUGlrQTNpbFppRGNwTFVUbHcyY3NUaVAxTmlkVUJ0S1RIVDhGaU1lbVk2QUFnSnEwOUpIWTBaTEVCSEM0S29HeEw3S3dtSUkyREtqYjg5S28zTmI1Mk1BVC1XMmdHbDJXaW1TQXF0cW9NZQ?oc=5",
+      "puan": 5,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:02.822922+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 13:42:00 GMT",
+      "kaynak": "TCMB",
+      "baslik": "TCMB'nin repo hamlesi faiz indiriminin önünü açabilir - Ekonomim",
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSk5ia3MtTF91Y1pZZ3lneElTdE5YQjhGcVpEVnJFQnNsdFJqbzZyM1pOWk1RN1pRZm9pTlpRMjU5UV9aZ3Z3UGsxSzRJUHRPUUNRUXdNYmd0X1ZRanZZRjlBaHItMzRrSDZudm9LbWxQQzFrVVFlcU9qamwtTHBja19oMzM0bllmV2liRk04cWt1ZEdkWE93Q2Y3eXBYYVRWc2RIMjVtQdIBrAFBVV95cUxOSWxRODgyMzFURmVSLUpUTE4tUUU1SXowcmpNS2sxNjBhUTR6UlM5YTIzamI2ZzRaaTl0dzBUZkwzWkZ0aXJoa0k0ZzFJZEJxeEVxTXZfclFmMVk1R01idmp1QWRCUE1tTE9yNkRDRDdROWhkQzJwc3Z1TE53eWlWT2dVdUNnWjUyUS1zV2pRWG9OenF0WWVjSFN6ek1lUjVMS2JDZUhpQTZaWUJy?oc=5",
+      "puan": 5,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:02.822993+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 10:36:49 GMT",
+      "kaynak": "TCMB",
+      "baslik": "Goldman Sachs TCMB için faiz tahminini değiştirmedi: Riskler ne? - Paratic Haber",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOSEtvUDlIYWs1SEJUX1FCMlVtWV9hT210WFdienMtT2ZBdkFNXzEtYWdLMnZZS0xWU2VVRFl5WnV5a21xdUdrSUFxeDhoV0V4TndKUGhPOThxNVlIZ1FnMkZla3RBc2ktYUgtdjM5akhxMnNVLW5faW0wRHE5TjlFUGlwU1ItM3B1WWVJ?oc=5",
+      "puan": 5,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:02.823069+00:00",
+      "yayin_zamani": "Sun, 23 Aug 2026 19:23:07 GMT",
+      "kaynak": "TCMB",
+      "baslik": "TCMB kararı borsa, faiz ve döviz nasıl etkilenecek? - ParaMedya",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOVl9UMVhPS2lZVDk0WVA0UXpBNDFFY05ieGN6VE5MMTJMM09ienZKMk5TZVFtdnA3bm9WeXFHU1dlcHBzTTR2SFJRVV9HbjdVa1MwbWhOdjhmQ1c3SGxoUTNIOFNvcXRwam1GREtQYk5YZlkwYnNRc2tfUjBPWjM5WEkteS1pcXJvOGtLcUNybnRNT1o30gGaAUFVX3lxTE15Z1UyekNNMmhjeUllNDlMN3hSNnZlUkxkTnJKZW9uSThJTzdqRjBOTklfekF4TE9wUHVnUmxqd1lLVU9BUy1kX2dxdjJZYTdqYy1TVHJQWl9CTWFFT1hEMzZPT3NYZXBJd2JhSjdST0pyUWNGOGctOEZ6QXhrV25MTndGQjNUVXUtVTFEalREZXl2VEZzNEMwcmc?oc=5",
+      "puan": 5,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.736966+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 18:31:41 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Halkbank'a 1,1 milyar dolarlık ilave kaynak",
+      "link": "https://www.bloomberght.com/halkbank-a-1-1-milyar-dolarlik-ilave-kaynak-3786429",
+      "puan": 4,
+      "ilgili_semboller": [
+        "HALKB"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737148+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 15:40:24 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "BofA'dan TCMB için Ekim tahmini",
+      "link": "https://www.bloomberght.com/bofa-dan-tcmb-icin-ekim-tahmini-3786418",
+      "puan": 4,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737324+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 12:28:40 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Halkbank üreten kadınlar yarışmasında yeni dönem başladı",
+      "link": "https://www.bloomberght.com/halkbank-ureten-kadinlar-yarismasi-yeni-donem-basladi-3786389",
+      "puan": 4,
+      "ilgili_semboller": [
+        "HALKB"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:15.106354+00:00",
+      "yayin_zamani": "Thu, 20 Aug 2026 06:52:17 GMT",
+      "kaynak": "GN:AKBNK",
+      "baslik": "Teknik Analiz/Hisse Senedi Önerisi: AKBNK \"AL\" (Yapı Kredi Yatırım) [FNC-NEWS] - KAP Haberleri - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOMmduVFE2Uzlzamo4RVU3ZDV0YkNxR1NpbzUtejhuSmlTX3hpYlNfaHpCZnZMYjE1bHRMN0VtRWZuejNiXzNTZ2RGTkp2bTlZRm15Zl9YZ3hMUkFHRkNHMGZUWVZDZjJpZ01ieFRrZXRtWkhwQW9Pd2YwRkEtUEdHa3hFSWs0SHZWY2tNX004c1poNDBBeWdQZWE3MnRwckYtanRlS2JxUjNKZ05fLUk0TFRSX0FEa1B4dm95cWlrY2MxTWtoaFRBem9UMUM2U0FLbWNKdnF6UQ?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "AKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:16.241083+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 07:32:43 GMT",
+      "kaynak": "GN:YKBNK",
+      "baslik": "Günlük Hisse Önerisi: YKBNK / Global Menkul – (25.08.2026) - Para & Borsa",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPMWlfd2JRYk1NdEpJMFdvd2doVUw5MjNLRVpta21kVUF6eGtBUGI5UE5SYm0tMURUVzRaN3JwR1Qyd3RjVGJMb0R2d3hTTGRIQ1FPbFl5TmhqOHpMUUJNS0hObXlscS1sUnNZc0F2WkdDYkFOOENoUjhzQ2JJRUl0ampNSkpnZGc?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "YKBNK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:25.054765+00:00",
+      "yayin_zamani": "Thu, 20 Aug 2026 12:32:56 GMT",
+      "kaynak": "GN:ASELS",
+      "baslik": "ASELS Teknik Analizi / A1 Capital – (20.08.2026) - Para & Borsa",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBEQkp0SXJfMU43aHJUSk1ycWF5cGdBSFFYM003anpOWHNlUnBISmQ2SmpPM0diU0NIUl94eS13SVd1WlVDeVFvdDdsclIweWs5OFRJeU02M2pQNkktWTdrUVlPb25sTGNfanNQV203dTB3akFWT2lOSDJFMA?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "ASELS"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:43.977881+00:00",
+      "yayin_zamani": "Thu, 20 Aug 2026 04:22:52 GMT",
+      "kaynak": "GN:ALARK",
+      "baslik": "HİSSE DEĞERLENDİRMESİ-Pusula Yatırım, ALARK için hedef fiyatını 162,40 TL ve tavsiyesini - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMihwJBVV95cUxOaVR3aktBSFA5ejBOM2xGQzRzTEx6dV85elV0UVcxZUNUOWcta0cyRjZ1cTllYVp1T0NJeEV5WkFVWDhYZVd0Um1GT1lyOTFHUWJ3ZFRzVEVRZTFqb2dNSmxVRDF5SXk1T3dLVFlQbzFhdzFYemxBWDNzOVlGU2h1cnZVWkpWNFNVa2ZYbkdXc1dLVHFlSVlOV2wzaVRBcWp6cFBrZUs1OVNNWHVlMlRsMkV2TU9ZYkZfcGZqOWE3ZjJibUtmcFFsTGwwbWEzM3BxWjlwd3Y1OUFGRl9keUJPeDByOXMzdmlQRVNLOU1uMnlUc1dSbUVPRV9UbEpHX0FVNTdqaURBSQ?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "ALARK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:43.977916+00:00",
+      "yayin_zamani": "Fri, 21 Aug 2026 13:28:05 GMT",
+      "kaynak": "GN:ALARK",
+      "baslik": "#ALARKO HOLDING HISSE #ALARK HİSSE NET KAR BEKLENTISI 2024 HEDEF FIYAT 5 FK YA GÖRE Game Informer (9CngJIV22g) - Mshale",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1HVEVVOUVnYWtSZFN5c1hpa0Y1S2RiS05zV2poTnRkaWNkbHptSHc0YVRjbm0xenlfOThsQmlILTlsYmhQcm85RDhNeGUtRy1wdDVHLWJLalRjd1k?oc=5",
+      "puan": 3,
+      "ilgili_semboller": [
+        "ALARK"
+      ]
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756102+00:00",
+      "yayin_zamani": "Wed, 19 Aug 2026 07:04:10 GMT",
+      "kaynak": "Reuters",
+      "baslik": "Barrack: Türkiye, İsrail, Suriye arasında çatışma önleme mekanizması - BBC",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9xejAtNDlhX3N6aVpWMHZKU2UzWDdkLXVaTjVtODAzRmlYWVpoQkFOOWFpNjRYRGYwbEVodFZvRF8zdDlYd3pGZ1lfSi1CT3M1a1RRODlrVkV3d2Z10gFiQVVfeXFMTlFVQk44cVJZZkIwdk52a2I5V19yV2ZILVVaMUx5eENHUzE2OXRWQV9sQVpmclhtU0dOMnROWDJGd1U3S1lLMzZyR3FVZWxSUklTYkt6aWswQ2RyTk80S25zZXc?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756218+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 07:30:00 GMT",
+      "kaynak": "Reuters",
+      "baslik": "ABD, İran ile ticaret yapan ülkelere misilleme paketini açıkladı; Türkiye İran ekonomik ilişkileri ne durumda? - Gazete Zebra",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOY1dzM0M1clp2U1lFbjVhZHF2LWxOVEpjaUNvTWdXWWh0bFRWd2psUVhKUmpfRDVFdGxVWGhia2FNUll3ek9BUkUwY1hLZ1NtMnlGWFdvaG8wcUp5QXNnbDZ5MnJyV09lc0ZXZG42aXZTd0xCejFPcTJHdW5FVHE0bkVobEhRZ3I4MWlTY3RNLWEwVlZNdDBTUkxybG5sdXRpc0pXN3JoUnZjVVQ4b2RSN3F4a3hxeWtfdFNYNkl0VDhkeFE2VkkzU05heXk1VjM1LWp6M9IB2gFBVV95cUxQbENvSlc0UWplZE1haHdaTUoxQ0s0VEc1ZEd3MTdGWGhxa2ZCV2hSdlp3ZmtZV3h6MGpzYklVVVpsWmZJSmpHSEVFNmtYbEpTaGtiVzB4QWtYbldLNDE3cS12LXJKcHl4aFRHTVREU0NRdGFSYmNTQ0htMDFxeGxvVk5vR0FCRXFXS1kyRnVYU0wybk5ra0NFallwVGJUdXZ2eUQxMnhWYTlmdDh1WVJVNW14QnEwZ0dVTktZbDhFX3RWVXZZX2V6RkVwYmdXdUtUeGRWck0zNDZEUQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756244+00:00",
+      "yayin_zamani": "Thu, 20 Aug 2026 06:13:21 GMT",
+      "kaynak": "Reuters",
+      "baslik": "İsrail Türkiye sınırındaki Ebu Zuhur üssünü neden vurdu? - dw.com",
+      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOSFNUeC1jbVI4N0d1clgzQjZNd0JVOURTV1hCTUZzY2c2Q2pCRXhadjdYanJ4R21ZWGFYX2lOejJPSmd2czZBVDM0OVJYcU1OZERIME5BR3h0TU5BZDJpMnU2R20wMVZrTTdENENDc1d3cElpUzNHdzdSb0FaYjQzZ0RlM0hRQ0VCTVhOQ3NPbExTVDhyVmNvanJuNjNBSi01SVM2X09Wb3FhWWYwc2kzc0E3YV9YYkdzZlpOa25Iak5zczhnZ2tGU9IByAFBVV95cUxOWTlVNEh0VDBNczJBZm5oTm1SODZMUEFHZk9JZFBPNTFfY1VLRl9kTUQwNm5qQ3pNY2FrSVFTTG9jd3E1Tlg1aVVobnNzMUlfTTh4ZW5fQ3A0ck1TVkFJcHlnbU5pUGNfVTBjdUNmcTFpc2IyZGlWYllWaTY0MGFEZTVpdXVvbEhzU2dfNkg1TkJGN3o5WUU1LXpBTUpPMkdMLU5VZS1mV1VQVmlsV0p3UE81cFNNUDRfOGZBVnEtelRaUjhwMTg3bA?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756345+00:00",
+      "yayin_zamani": "Mon, 24 Aug 2026 06:04:41 GMT",
+      "kaynak": "Reuters",
+      "baslik": "Tether'in 120 milyon dolarlık Bitcoin madenciliği projesi nasıl çöktü? - Şarkul Avsat Türkçe",
+      "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPVTBtZkJ6LUptdlVBMlVMM2dxUDQxQml5QTd4NVM2Sm1EVFV4SnpOSDRsOFNkb1N2RUhaM1VCTl9jMGdhVFhBUWtKMTBvM0RsQWpKZ0Qxc2EwLU5kcTFOWWU0Y09RaUVmWjFYcmhTa0ZzWlN1dk1NOG04WmpFZnNJM2pfcVdzcEcyUDI3cVZ0bzdVVVZybHhTZVB6bjVEWXdqekpDWjRNVXk2cGFOQ0w4VWpwWFk1SEdVVXV2V3pyWXFzU2xLYzFfQkhQRXhaVnpvb3M4UlNtNDVTZmZQYzE5Xw?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756384+00:00",
+      "yayin_zamani": "Fri, 21 Aug 2026 07:00:00 GMT",
+      "kaynak": "Reuters",
+      "baslik": "Reuters’ten seçim ve sonrası için analiz: Seçimin kazananı belli değil, sonrası için acı reçete yazılıyor - Para Analiz",
+      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOMXNQekpaVUNqRW5LeDMtbDZqT2VyVFRpRmNfMGhxd0RfclhYZ0lzdzd1MWFYRzlWOEZ1QTlVLVNGVjBKRFZNZkphckZjTkQ4NkRSSnhHb2hEM0lmc2RETGtfc2VxckFsb0s5bUdqT1Nxc1pPR1RzY2tPTHBmXzdrVkwteVozWmNFVzZtdVpZVFR6VmVfZnhIQ3BzSDFUaGxaWWZKNk1zTndIQWpWRldTdjZ0b2xYa0MzU3lXdkRnUWxRNmI4c3RMdENBbkRZMXhOUjlldQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756411+00:00",
+      "yayin_zamani": "Wed, 19 Aug 2026 11:34:10 GMT",
+      "kaynak": "Reuters",
+      "baslik": "'İran ABD'nin Avrupa'daki askeri varlıklarını vurmayı değerlendirdi' - BBC",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBLb1JqVlJOemlDR2F3aXdpSVh3dndIaDRXMzNPczBka3lyM2RPc3hObmwyRTdCanNoS1pfUFpCTkZlMzNkR1F6V0cwUDAxZ2hWblVxemxsNHlWN3Qx0gFiQVVfeXFMTnFwOERIODh0R0NCSmxLMkJzb3U4NV9ZMUNOdENZMGRWNXVPckNYTWJkclVCamZMRmpVZTkyTmJkRjFCb0h3OUVvc3JjckJ6NFFvb2dyaGxiYTdfRS1QNjhHMFE?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756437+00:00",
+      "yayin_zamani": "Thu, 20 Aug 2026 05:54:59 GMT",
+      "kaynak": "Reuters",
+      "baslik": "ABD'nin borcu ilk kez 40 trilyon doları aştı - Şarkul Avsat Türkçe",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNRXhxVnVLTnVmVDh6RGhQUEFjWGxnckNDMlpBRzdsS1R6QVFuZHo2empCVk1nMnV2M180MUhWeDVTWFFrbHpnSV81d0hZSV81S1F2SHBPOEFTSDYwMkJwTFl4eDlRX2NjZTVxWnFHX1NvZ1ZVeXlhcjd1ZmppdW9tWkR2djhoTGI5YzVfMU11djZHeHdTZVQ3dURRVVRFaTJoSFdXUmhfeEpGTTg?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756466+00:00",
+      "yayin_zamani": "Sat, 22 Aug 2026 05:36:18 GMT",
+      "kaynak": "Reuters",
+      "baslik": "İran \"ekonomik savaştan\" çıkış yolu arıyor - Şarkul Avsat Türkçe",
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQa3FTNi1XZmQ0aGhCNWFHdEtGNFJBR2FRYjZTZTVsQzZvVjgwQmdOOXliTWFROGxiZVBUTTJLVHFsVnBTelN5R0FmU2oxREZ6U2ctaWowNWUxcXZqd1hUSEVVLTg3Tnd5TThnd0dGbkhCTktvSE50ei1rcnZWNWNZUFFWbFA3LWJqam9USXFOQTlOQ3BIcm9jYm9fUDlHOGZ1ajN6XzNWSXdzRm1oRlY5d3BoOHY4NUp3bzVZeXdKRQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756589+00:00",
+      "yayin_zamani": "Thu, 20 Aug 2026 13:47:39 GMT",
+      "kaynak": "Reuters",
+      "baslik": "Reuters: İsrail, askeri üssü vurmadan önce Türkiye’yi sordu - kronos41.news",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQcnBIQzF6NEswSVNlTEswT1g2UVN3cU5QN2V5X3M5NjV1MTlMOFFXTC1FSjR3QnlRYm5pZnNmM2xVeVA5WjdFUHZrYzBjSlZ6aTJ4MjI3ZHhFMk9EWXJteXNtcEVFa3pmdGpLMHkxdS0wY2ZEdW9fSTNkWElrMzU1SFBwbTlSUQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:03.756616+00:00",
+      "yayin_zamani": "Thu, 20 Aug 2026 06:51:00 GMT",
+      "kaynak": "Reuters",
+      "baslik": "Trump düğmeye bastı! Eşi benzeri görülmemiş ölçekte olacak dedi - Özgün Kocaeli",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQN0RxV2J6MDBJcDZMMDZMTVdEUlYwV244emRZZ1FPNzFoLWNvNzdaU0d6b2lramhZQTl1M2t6Vk5Cc0czdHdaUkp2b0JHbU82ajMyOGlRcGJ0bEtKdmwzRUVDVm0xLVphRWU1UUhSQmV6ZFhrcFMzR2owbmJiZnZfX1hMR2s5OF81UFBkOHl0T1dib3R1aHN6WENB?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.736908+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 20:04:47 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "OpenAI'da yaprak dökümü sürüyor: Bir yönetici daha ayrıldı",
+      "link": "https://www.bloomberght.com/openai-da-yaprak-dokumu-suruyor-bir-yonetici-daha-ayrildi-3786431",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.736939+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 19:39:13 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "İran'dan kritik iki temas",
+      "link": "https://www.bloomberght.com/iran-dan-kritik-iki-temas-3786430",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.736993+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 18:13:25 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "IMF Başkanı Georgieva: Küresel ekonomi enerji şokuna direniyor",
+      "link": "https://www.bloomberght.com/imf-baskani-georgieva-kuresel-ekonomi-enerji-sokuna-direniyor-3786428",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737014+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 17:17:34 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "İran'dan ekonomik savaş çıkışı",
+      "link": "https://www.bloomberght.com/iran-dan-ekonomik-savas-cikisi-3786426",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737036+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 17:06:23 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "SpaceX'te yeni üs yatırımı planı",
+      "link": "https://www.bloomberght.com/spacex-te-yeni-us-yatirimi-plani-3786425",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737062+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 16:28:38 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Cumhurbaşkanı Erdoğan'dan kabine toplantısı sonrası açıklamalar",
+      "link": "https://www.bloomberght.com/cumhurbaskani-erdogan-dan-kabine-toplantisi-sonrasi-aciklamalar-3786424",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737087+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 16:14:09 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Anthropic'ten yatırımcılara devasa 'pazar' sunumu",
+      "link": "https://www.bloomberght.com/anthropic-ten-yatirimcilara-devasa-pazar-sunumu-3786422",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737108+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 16:01:59 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "\"Hürmüz'deki mayınlar temizlendi\"",
+      "link": "https://www.bloomberght.com/hurmuz-deki-mayinlar-temizlendi-3786420",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737129+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 15:55:13 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Sektörel güven endeksleri geriledi",
+      "link": "https://www.bloomberght.com/sektorel-guven-endeksleri-geriledi-3786419",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737166+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 15:21:11 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Kanada'dan ABD'ye tarife misillemesi",
+      "link": "https://www.bloomberght.com/kanada-dan-abd-ye-tarife-misillemesi-3786416",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737193+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 14:29:48 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "HSBC’ye göre Eylül PPK’sı öncesi getiri eğrisi dikleşebilir",
+      "link": "https://www.bloomberght.com/hsbcye-gore-eylul-ppksi-oncesi-getiri-egrisi-diklesebilir-3786408",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737212+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 14:21:23 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "ABD'de tüketici güveni geriledi",
+      "link": "https://www.bloomberght.com/abd-de-tuketici-guveni-geriledi-3786403",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737237+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 14:13:21 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Tahran, Hürmüz'e ilişkin şartlarını ABD'ye iletti",
+      "link": "https://www.bloomberght.com/tahran-hurmuz-e-iliskin-sartlarini-abd-ye-iletti-3786399",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737262+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 13:36:04 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Trump Kanada'ya kızdı, gölün adını değiştirmekle tehdit etti",
+      "link": "https://www.bloomberght.com/trump-kanada-ya-kizdi-golun-adini-degistirmekle-tehdit-etti-3786394",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737299+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 13:27:19 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "ABD'de konut fiyatlarındaki yıllık artış yüzde 1,5",
+      "link": "https://www.bloomberght.com/abd-de-konut-fiyatlarindaki-yillik-artis-yuzde-1-5-3786393",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737348+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 12:11:31 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Volkswagen işçisinden yönetime: Güvenimiz zedelendi",
+      "link": "https://www.bloomberght.com/volkswagen-iscisinden-yonetime-guvenimiz-zedelendi-3786386",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:04.737370+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 11:35:44 +0000",
+      "kaynak": "BloombergHT",
+      "baslik": "Trump: İran ordusu maaşları ödeyemiyor",
+      "link": "https://www.bloomberght.com/trump-iran-protestoculari-olduruyor-3786385",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929189+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 18:27:37 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Borsa günü düşüşle tamamladı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/borsa-gunu-dususle-tamamladi/4037153",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929215+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 16:56:40 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "60 saniyede ekonomide bugün (25 Ağustos 2026)",
+      "link": "https://www.aa.com.tr/tr/ekonomi/60-saniyede-ekonomide-bugun-25-agustos-2026/4037072",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929314+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 14:56:38 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "AB'den ikinci çeyrekte 21,8 milyar avro dış ticaret açığı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/abden-ikinci-ceyrekte-21-8-milyar-avro-dis-ticaret-acigi/4036919",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929341+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 13:56:49 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Volkswagen'de küçülme planı yönetim ile işçileri karşı karşıya getiriyor",
+      "link": "https://www.aa.com.tr/tr/ekonomi/volkswagende-kuculme-plani-yonetim-ile-iscileri-karsi-karsiya-getiriyor/4036804",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929427+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 11:17:54 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Malya Tarım'da işlenip paketlenen sertifikalı tohumlar çiftçilere bayiler aracılığıyla ulaştırılıyor",
+      "link": "https://www.aa.com.tr/tr/ekonomi/malya-tarimda-islenip-paketlenen-sertifikali-tohumlar-ciftcilere-bayiler-araciligiyla-ulastiriliyor-/4036594",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929452+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 11:15:02 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Türk tohumculuğu Asya ile Avrupa arasında büyüyor",
+      "link": "https://www.aa.com.tr/tr/ekonomi/turk-tohumculugu-asya-ile-avrupa-arasinda-buyuyor/4036589",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929571+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 10:00:24 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Borsa güne düşüşle başladı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/borsa-gune-dususle-basladi/4036460",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929594+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 09:53:03 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Türkiye'de yılın ilk 7 ayında 54 ilin ihracatı arttı",
+      "link": "https://www.aa.com.tr/tr/ekonomi/turkiyede-yilin-ilk-7-ayinda-54-ilin-ihracati-artti/4036453",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929620+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 09:10:43 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Bitcoin mayıstan bu yana ilk kez 80 bin doların üzerine yükseldi",
+      "link": "https://www.aa.com.tr/tr/ekonomi/bitcoin-mayistan-bu-yana-ilk-kez-80-bin-dolarin-uzerine-yukseldi/4036409",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929645+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 08:46:14 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Küresel piyasalar \"üçlü baskıyla\" yön bulmakta zorlanıyor",
+      "link": "https://www.aa.com.tr/tr/ekonomi/kuresel-piyasalar-uclu-baskiyla-yon-bulmakta-zorlaniyor/4036400",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929700+00:00",
+      "yayin_zamani": "Mon, 24 Aug 2026 20:53:55 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Türkiye tarımsal hasılada dünyada 7'nci, Avrupa'da birinci sırada",
+      "link": "https://www.aa.com.tr/tr/ekonomi/turkiye-tarimsal-hasilada-dunyada-7nci-avrupada-birinci-sirada/4036210",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:07.929745+00:00",
+      "yayin_zamani": "Mon, 24 Aug 2026 17:27:12 +0300",
+      "kaynak": "AA Ekonomi",
+      "baslik": "Ticaret Bakanı Bolat, Katarlı mevkidaşı Al-Sayed ile görüştü",
+      "link": "https://www.aa.com.tr/tr/ekonomi/ticaret-bakani-bolat-katarli-mevkidasi-al-sayed-ile-gorustu/4036022",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:12.063980+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 06:27:35 GMT",
+      "kaynak": "Makro-Jeopolitik",
+      "baslik": "Hürmüz Boğazı’nın riski: ABD yaptırımları petrol arzını tehdit ediyor - Investing.com Türkiye",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTXN1ZnRWMVBza0ptYkFndXpacF85WFlGX3hVcVd2Wi1oM3pkTEdJcl82c1liR1EwQ2VJVF9VRmxoQWZCQ0ZnNnVmUzh5dnY5cUc3ZVB2a2psY3N3T0ZsSU92UXZfSXc2NC1ybHhfb29BNHUwNHhXcXZ0QThDOVZpOGNmZmFQNEIxWE5qZG5QRXYxaTE1akQ3dEhlRmxyLTBQVkI5M0lVNmg5Wk5uV1NXelhiNE01QQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:13.040711+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 04:02:32 GMT",
+      "kaynak": "Makro-Fed",
+      "baslik": "ABD Merkez Bankası Başkanı Kevin Warsh, Jackson Hole'da herhangi bir faiz oranı bilgisi açıkladı mı? - Vietnam.vn",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQSEJxMU5DWU5Kbk92X1pYeTJRZFdRYTVLOWZOYmM2WmlCR1pocDdzX0gza3l0alk4YkVCZlk2cDBpVzJXX0JFNHdQR1JISm8wSXltc04xMFJ3REZWTUNGUEZSVENXRlcyaHVLN09mX3UtM3JZYW1iMm1WNVY5UzRibFpoVHpGaWhTa3oxTUFkSF9yd0I3?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:14.042027+00:00",
+      "yayin_zamani": "Mon, 24 Aug 2026 09:17:00 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Merkez Bankası kritik veriyi açıkladı: 12 ay sonra enflasyon ne olacak? - Yeniçağ Gazetesi",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY1NVTFZPYmtsN25BaXhmampQOGNfVE8zeDlISFh1M21zdkU0QU84UXFoV3FnVVVCMlJISHlPOHRZQmdGLWlucHZuOXVjU1F2ZUZvQ0JuNFQwZUxQSW9RNEFBeE5hQkdwUnZ3SWhOOUxLNndQSXVpdmhBbF9JbDZmbFM2VVpYV1drc2pyRzVOdFNCb2ZJb2t2OUZkLWItNWp4RGdwb0VPWGh6UWQ3VXA4V0twNlg?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:14.042149+00:00",
+      "yayin_zamani": "Mon, 24 Aug 2026 07:05:54 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Sektörel enflasyon beklentileri açıklandı - Doviz.com",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQT1NlaDExRXFlNFZvR3k2OEtjeE1mVkJFNDR0RGx4dkkxd3dIVVEyRXF1UEVGVVhpQUdQNXQybnlOMk14cmZWN3d4UXVNWVRiRVdhNGdVX0ExU1RYYkJYaGNGMzFrOTBfdkN2WmdVcTVuNGkzNENOa0NnYmhOVVZ6V0VnTVMtMG1EdmtMcUFveHhIeXPSAZsBQVVfeXFMUGQ2U2ZtY3NoVjExNF82UmoyWnF1d1E5ZWg0T3ZuRzVMQk8zNWljaVdCQTZUSW16X29HNEZqdjc3b0VSNWJWTldPcmlRR1JrWlhoVHJqR1BrS2lOdElfcEN6SkY0SE80ZHlNSEd5WGtfcVNNeDhob0hoR2IzdzlhZXplZ3lYMHg5VGU2bE1tVldhNVdIeEZIcjhJc2M?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:14.042199+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 14:19:00 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Dolar ve enflasyon 12 ay sonra ne kadar olacak? Yurttaşın tahminleri açıklandı - Cumhuriyet",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOV1hoQWJUQzdMY3lOYkRCWmFUanNkZFFwOWFOSFJqeVZDOG1zVUoyVUFFM2Mtc2dvMm5XQmNEV0ZwUngzY3c4UEczODFfSDN4WXBuaWlNdWV5akVPTGw2UVdac2xub2hlSUN0UFVGWFh5VXFkZ0FPelNIc1RJblRsbEd3ZWJVVXlKYjI2bUpZWU5Dc1hFd0JXN0hqd1I2Snl3Q0tfQnJhb0hLX2VGQW9iczRtVVlWTTVranktdkRzNjU?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:14.042228+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 07:07:00 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Koç Üniversitesi’nin enflasyon anketi açıklandı: Dolar tahmini yükseldi, enflasyon beklentisi düştü - Dünya Gazetesi",
+      "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPT2pLRG5ENFR2MWwwS3FObFA1MEdpdTVsUTJoNnQ2MFVKcmVPOG9CWEVtYy1hLWVqSHpkVnVzaWwtblJ0amxQVVM4RVJuMjgyLVF4SkFtbmg3cWtIbVhCWDhUT0RBM0ZMN3JLTG1SUi1HeGVkYTlnNUlROWszZzl2RVI4dGhLSUdOcUNIWDRYTm1ENXBKMmZiS2trdnZwTnVMbm5yOHBMc2ROeUZaTmM1TTNVMmdYWWRNbEFQcXJ6NmFJZDJ2TmJmamZkVVhJNGQ2Z2cxanVOUGtlZHdxWnM5S0twQQ?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:14.042316+00:00",
+      "yayin_zamani": "Sat, 22 Aug 2026 14:43:22 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "MEMUR VE EMEKLİ MEMUR ZAMLARI YÜZDE KAÇ? 2027 Ocak TCMB Piyasa Katılımcılarına göre Memur zammı tahminleri! - Uzmanpara",
+      "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNd0pORUZ5cGFhZWlPVGxXZ1NzbFlmRHpWZHdIVXA2cE1EY25lWGtSZlBSNUtIb3hJMHBhX3BXQ2tiY3FqRFlib2NpSTVPU0REd2RIeTVVRXVLWEVIODZtaFdoX3NKY1pWVGY2YnFqX3dkc1luMEtENElBWVZpWnZVVU1oNGpWZnhnTUpmMlZIVW90Vl9oRTAydjJoSTEtSHljZVNEaWllbHAzWTVBZkF3dExTc2NPSnRJSWp4Rl9WenF2UjlGa2JmVFFEd05vaE5KOFBqUDlvM3IzeDFyX3RaaUV0cFFKXzlhOEktVUl4YXQybzNzWHMxZlVMUkZxV1E1dUpWYnJHTmZKR0JX?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
+    {
+      "zaman_utc": "2026-08-26T01:56:14.042369+00:00",
+      "yayin_zamani": "Tue, 25 Aug 2026 05:59:45 GMT",
+      "kaynak": "Makro-TUIK",
+      "baslik": "Hane halkının yatırım tercihi değişti: Gayrimenkul geriledi, altın öne çıktı - Herbir Emlak",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQLTJjbnJ4X2h1QjZpaUQ0WWZrLXY1VC1HcWNBWFVDZEpnR2FaZzQzVFQtSmdRWm1kMFBYQjJMOThMVDlialZlVmtQR0NaejFwN2RTYTZLNURHb2lnNGppaTZQTC1uRjFnckVVc1BjbURjMjItUEdRdFVlWnNJbHoyUmR0SS1yYzdBNWNWQmpxbEFELTg1MEo5bk1SQkd5dFdxR3hLMnJ2Y1ZFSzdhMnc?oc=5",
+      "puan": 2,
+      "ilgili_semboller": []
+    },
     {
       "zaman_utc": "2026-08-25T23:35:07.032525+00:00",
       "yayin_zamani": "Tue, 25 Aug 2026 16:17:09 GMT",
@@ -597,579 +1169,6 @@
       "kaynak": "Makro-TUIK",
       "baslik": "Enflasyonda Yeni Beklenti Açıklandı: Piyasa Düşürdü, Hanehalkı Yükseltti - Şanlıurfa Gazetesi",
       "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPLWpmcG0zODl5SHo3ZWRyZDhfUFJIN1U0QWMxRGdpQ0tIWWVzdHJPdHdRVFBYcEhrUmMwNjVoekkxSDNqQzV4eTEzcWoxSExPbXBmeU1UTU1vQ1JQMXR3cEc2X1dWMG5mNzloYWJwMHBPa3hPQmRSZnhNbFFhRVBncUlLRWFJZU0wLUl6Q0x1bktqLUk0OW9YTS16Sy1seTgxeWUwb1pNRQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T23:35:18.439030+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 07:28:00 GMT",
-      "kaynak": "Makro-TUIK",
-      "baslik": "TCMB'nin enflasyon beklentileri açıklandı: Hane halkı ve piyasa ayrıştı - Gazete Oksijen",
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQX2lHLTZNN2FBNEdFTy1zNlJfZVFVY1dQc2hWZTFMenFGOTJvMVZvWWd5cGtLNnUtczZaWGFRWXlDY3dpWGJEU1BZT2Fzck1vZC0xSnlaSERKbU44SDNQMVd4VE5tYzIxV1B3MUNSaVE0blNMbnFfYUZpNE51NWl1Z05ydWVvbGcw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T23:35:18.439083+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 08:15:00 GMT",
-      "kaynak": "Makro-TUIK",
-      "baslik": "Merkez Bankası'nın enflasyon beklentisi anketinde yeni rakamlar açıklandı - 24 Saat Gazetesi Ankara",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQaWFYbjRXNVpTWjZhb1c3aGUwZl9EenhTYjh2cHV0VDJZMVpSS0U0QlVQQXFjeHc3U2pXaUlteXZIOERVMVl0bDV0ak5VU2hxcTlHQWpEVm9JR21zT2E3MzdpVVA3UFRwemp6TXpKa0N5V2VuSWJUakJVc1NyYUNBWGM1X2xfdmhVRXVuV1c3YXRpOGg1M25WQXk4dU1OTTJmRk9JcE93?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T23:35:18.439144+00:00",
-      "yayin_zamani": "Sun, 23 Aug 2026 05:57:00 GMT",
-      "kaynak": "Makro-TUIK",
-      "baslik": "Ocak 2027 emekli zammı ne kadar olacak? En düşük SSK ve Bağ-Kur emekli ve memur maaş zammı tablosu ne kadar kaç TL olacak enflasyon farkı yüzde kaç? - Yeni Şafak",
-      "link": "https://news.google.com/rss/articles/CBMingJBVV95cUxNVF9hLXJvN2lETmRnTWVRTnhGYjJSemg5NUFXUGNnV1VFUm04M1duQ2Q0UDhoVEZrdFYycFk3aGpWS0ZxN25fOG9rOExVZmxQbXFmdWJOTUx4RklkdlBULVhZLVRYeTZyN1l3OHVGR0N5VDBZMm1xbmczNWlJNUlUSnJjT3RhYk52eHBrcnJ1dUJLY1FZQUtPcHR5TDUycjZBbWp0NkZUYTd6SElRZG5zc1diSTJUb3pjazJUSWZ6WjVESjh5bFV2MXVPZVI4V3RLV19kZmhudm43UTE2UlVZWHJwS0l3MkQtSjBXVXk0ZC1lRGVfQ0M3VkV4VlVULUljX2ZScnE5OUdIYlE5MTUyMWkxQU00Mk9SSjdwcHJB?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T23:35:18.439326+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 06:15:00 GMT",
-      "kaynak": "Makro-TUIK",
-      "baslik": "Altında yükseliş sürecek mi? Piyasalar Fed mesajına odaklandı - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNR2pXRlRtTUlGZk1Nb1NwZERpQWNYME9HM2tSamxvRnR3Y2Jhcm1RSTFtNlJtUWxCTC0tblpvbF9lNzNUcUFxQ0RFTUUxNDE1Wlh2cWhiLUVmQnhpUmpBUDYyZ3oxdU9ib0pLTVI3UmJqMGh0bFFXODVjRUNXc0RIVGp2b0JPd1VuQjRGQ3FmNW5UWmY2TUJVLVRHR3pBbGRZWXByOVNOZmpfMWxUMlJLTjdR?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:37.818527+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 11:49:12 GMT",
-      "kaynak": "Foreks",
-      "baslik": "PETKM işlem sırasında devre kesici çalıştı - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQY25SbjFBcXlKUEM1WkpRS3UtLUxkdkx2LVBXRHNyVnVDWnRXcG5FQl9RQ2kxelBPVVJlZmZIVW5IOG9Hekw4VVJLZXJra3NIOHk2OTItSk9qMFVheEoyTU9OclEzRWg1a19Gdy1KZnNicnhiQzVlc0hfckZJU2lNUG1FcDFGMzR2bmp3dkVsamp2eWpzM1dwekRzR0szMXlZcmJrWWlHckdwSkcxY1B5M1hHRzFCZjV5V0Y0Y3F5YnFmYnZsSjB4bUZXRnZ1WUl4eFJqb01lenJaR0E?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "PETKM"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:37.818743+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 15:46:40 GMT",
-      "kaynak": "Foreks",
-      "baslik": "BofA, TCMB'den yılın tek politika faizi indirimini Ekim ayında 100 baz puanla bekliyor - Bloomberg HT - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxON1NwYVlGSzRFcFljZEJ1Nm1fN2FQeExJYUlDTXMxcEhxMTZMbEl3WDFsOWEyMTdRcjY3bmVBbi1PVjJRTm9pbERYTnRPdEFLbm5RUjZONXN3N05EdDEzOWdWV0xMclZUQ3lJdDZESi1KUFpGcENTQXlJS0F3andJbmJBOVJ5UTlIdVRXUzQ3T1dDbUZKQUZXSmpQV0IxeTZZUXZycVFpUHdELTY3TGNoOFVPb0dLQVlEdmpFYUg5cG5PTDlpNnFzSHNURHYwazlVQk5QMUlLUUFIMHpPT2laNDJxcUd5WGRNMHJOOGxOUnI3UE9JOTZGTWo2b3VXVUtDSHVpVGowZkdienQ2TVdvWkZSemtYdm5LcVhZOTliUFZweUVlLVh6eA?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:37.818786+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 16:14:40 GMT",
-      "kaynak": "Foreks",
-      "baslik": "Pay Dışında Sermaye Piyasası Aracı İşlemlerine İlişkin Bildirim (Faiz İçeren) - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPbm1RcEtyRUluSjMyX0dJcUV6djRaTzh2TXdFOGVYXzhsSEZnRU14Yk9NYXgtSl9JTXhLMUpSaWZOdU9aMHdOYnluZWlsM0NtMG14MXFXazAxSXJaTUh3dG5wV25lQUV0RWNlcHJmaHVJT3BURmdTR213RWZtNFhuWVh5S1RNR2ltNUtXd29GdVFqVVJSaVdfMk40TVVacmlkYTRnTXQ3TEh5cXVna3NSUUJBQm11U1pmdGZnZVNScy04c1I0NzZ6VnljMlFSX28zRkVzeGtteXFVZ191WERBcFU2Y3FTRTFlOGdaRXJ6OEMyNEYyZk0zN1k4TUpXallvYndkTg?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:45.258655+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 06:39:54 GMT",
-      "kaynak": "GN:GARAN",
-      "baslik": "Teknik Analiz/Hisse Senedi Önerisi: GARAN \"AL\" (Yapı Kredi Yatırım) [FNC-NEWS] - KAP Haberleri - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTUVyMzJUWXgxUHVQN0ZXMVVMQzFmOGF0U0NaSkJiVXVuS2h1cXdLWndCMWxOZldXQ0M5cmZmR2o0M3M4Mlg3SFh2ZldnMnZyLWMtUDJ2NmdPM21KNGVJOEl4THVsT0RJb25OZzdaMWFoV1lQTXJXeDd1QUExNUFrLUI3SzJoYm41TVdMZ3prdXpmWm9FLTE1VDhya1FsMjVRczhwb2lFcnlBWjhsUGFPMWVheFJPZUFrR0pnTmJiNnZzYnNrRllRdHNBSVhFLTdENU94Zy14RQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "GARAN"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-25T22:43:14.358954+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 18:45:30 GMT",
-      "kaynak": "GN:ULKER",
-      "baslik": "ULKER BISKUVI Hisse Senedi Canlı Grafik - Mynet Finans",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE84RDhIU2xkR1lkT0FmNGpGeEhmWG9scGZLUnFfTGZzeW5Fc3owaTFWU1pqUmNoekMxbWFzZkZMU0NDWHVLMTZWbWpUNGxUbmxwWEFWTnlYMUpZVDVBNmNJZ19fOTYwMEVPOEtvQQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ULKER"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-25T22:43:14.358996+00:00",
-      "yayin_zamani": "Thu, 20 Aug 2026 07:32:55 GMT",
-      "kaynak": "GN:ULKER",
-      "baslik": "Borsanın dev şirketleri için beklenen fiyatlar açıklandı. GLRMK, ULKER, TRGYO, BIOEN... - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNcUh3RW5IVHBVajFQZlpSNnM5ejA5RjllejhLMzJpaXBIbDFWelpkeFBFczliaFZfcGQxU1BKb1BXOXNPSHp6ODltbDhXaVE5S2Q2TWtRSkRuM2g1YWhVX3V5c1FfMWhFRXYyb1Ewdjl4bGVTWUVaSkdzVmhyQWU2dDF3QmM3djZvV25nLVA2dVZzZHRRQjFlTVBXYlQzaGtBTkhILV85WG1FaXRDWFZsZFIxN3hsY1hPVWJXTUtKUnFRdHpEMnlXMU5ZU1JEMHR3ajhjcUtmcG1Hazd0NVRnX0JVQ0jSAeoBQVVfeXFMTXFTVzNaQkFKaHRJQmhYa0ViemdEci1DTG90QkxMWGttcnFlSlYxZDVlUk1abFd6RkYzcDQ3ZkcxUDM3dzFqb1ZjRlpkQlR0S2h4UENISTlLSG5sZjdubk00b0JaRWdiNjNFOG5oRndEV3NqQTQ2bjQyelM1MzFjNlY2TVNPb19QeTBUWmhOcGhYS2pheURqUUpzVWIzMkVDMnRySzRJQnY2T19rT1ZqNGZhaUh3OVRlS1FaS2xYOERKVzh2SUUxWi1zb3dnUFFMeEc2SVdzcW04ZWx0aUxyQnU5dlU1azdrcl9B?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ULKER"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-25T22:43:14.359057+00:00",
-      "yayin_zamani": "Wed, 19 Aug 2026 05:12:40 GMT",
-      "kaynak": "GN:ULKER",
-      "baslik": "HİSSE DEĞERLENDİRMESİ-Alnus Yatırım, ULKER için hedef fiyatını159,06 TL'ye revize etti, tavsiyesini - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxNZHRpVmcyUFp2QWJjNzV6cGFPc29jTFRuMEFabE9uTGVuWEt6eTFjcW9CNlNyVUhyWHIwRDJsZDYzbkhEU1VQc2NVVkJIeExjUzFzNWtLcTE4MFg4UjhxWE1zUC1DTEdHeVlLU2hJREptVlZGX3hMa3AzV2pTWTZkdjlGZmdVUlNEQjRTTWU2NFp2TTVEQjhVZWVPRnBjQTRKazh5Q0NiSjJIZlpwOVVjUFFta0VfemFTamNWS0Vxc2ZmV3pqWFRUM0Y4ZnJ4VGJ3cnMxa2k0N2EyNEJDV3BfY1c2V2tFeGhkV05GUzJsdFd1VG9UVElhLXVTbllWT1RPczh3MHpKd0xVVVEyWFg1czJDWnY?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ULKER"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:32.338356+00:00",
-      "yayin_zamani": "Thu, 20 Aug 2026 06:37:30 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Suriye Dışişleri Bakanı: İsrail'in vurduğu üste Türk askeri varlığı planı yok - Rudaw",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBDTTNWalB5TDFqWW1xeDFZYkpQemtwTktJeXpubjlZRXNQalB4b2Jfenh4X0tPM1hZOGtQbXFEc0VVVDZqV0VReDRPLVVYRmd4bjNLajYwZVhFU01MZHc0TkU2bFJLZw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:32.338398+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 11:18:35 GMT",
-      "kaynak": "Reuters",
-      "baslik": "İsrail-Suriye masasında Türkiye pazarlığı - Independent Türkçe",
-      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1FY1ktOU04VmFjTmZvajFNWERzREdwYklJS3NzcDVmSS1QVEYxLUk2SHBQVWlaZmVJUGJDajYxWnBoZVA5SXE1ZTA4STM?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:32.338418+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 12:52:29 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Rusya'dan Türkiye'yi etkileyecek yasak hazırlığı - Nefes Gazetesi",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPUHRTRHlySktMU0JOSWRfSXJPZWVOMG9MWl9nWm5XQ1lWSjBaQXVfMDVTd1pjazUzQmlXTEVTRkpBQXMzYWNUX29feDJSTk5XVE0xc3dkVXBJVVFqMmJUb3d0bW9ydFpUNV9wTHhzR0FmZTNsMUFFLVZ2SXZsMUFHd1lZLUI5SjVQMmfSAYoBQVVfeXFMT1B0U0R5ckpLTFNCTklkX0lyT2VlTjBvTFpfZ1puV0NZVkowWkF1XzA1U3daY2s1M0JpV0xFU0ZKQUFzM2FjVF9vX3gyUk5OV1RNMXN3ZFVwSVVRajJiVG93dG1vcnRaVDVfcEx4c0dBZmUzbDFBRS1Wdkl2bDFBR3dZWS1COUo1UDJn?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:32.338440+00:00",
-      "yayin_zamani": "Fri, 21 Aug 2026 05:11:00 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Reuters: Mossad ile Suriye arasında kritik Türkiye görüşmesi - Yeniçağ Gazetesi",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQQ2htOXg1ZWZmVlNhT3pSdG5LaGZld0FqLWtaM05EcmZCTW1qRkhUd3FjREpVNFhuQzhkY2dsMzVuSkhzWThxSXpNOE9ZRWNpTFkzN3NRNUJfTEVyX0lFLWNGVkwyVnUzVmU3SHZ5QXNSYVlpOE82S1R3UU0tSVNBN29WRVdnVUdldUVEejBNMUNNSHpPVTQwYThfNGxFNGcyemUzSW95SQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:32.338509+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 10:21:19 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Nüfusun yaşlanması Almanya'nın kamu harcamalarını rekor düzeye taşıdı - NTV Haber",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOdmxCZzFYSDNQOWVrN2VFM0NiaVVabjRmQk5aQm9NQi1TbTJwclB1d29fTER1RXRZcEVLRGNQSy0weFh3M003NmtOSUxWQ0hhaHozNnhfY1k4aVZxLW9ueFJBd2VFR3cxU1ktV2hDWkZkZWVlLUVTNm0yd1NRU0tPVWRPQ2FtODlfRlpORlhuWWVGSzdXS25UTDRleWVRRHlWVW9ldVhfd25UaVdJTS1rU2xabjNDZlXSAbcBQVVfeXFMTnZsQmcxWEgzUDllazdlRTNDYmlVWm40ZkJOWkJvTUItU20ycHJQdXdvX0xEdUV0WXBFS0RjUEstMHhYdzNNNzZrTklMVkNIYWh6MzZ4X2NZOGlWcS1vbnhSQXdlRUd3MVNZLVdoQ1pGZGVlZS1FUzZtMndTUVNLT1VkT0NhbTg5X0ZaTkZYblllRks3V0tuVEw0ZXllUUR5VlVvZXVYX3duVGlXSU0ta1NsWm4zQ2ZV?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:32.338649+00:00",
-      "yayin_zamani": "Sat, 22 Aug 2026 11:52:52 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Barrack, Türkiye sınırına yakın Suriye üssünün bombalanmasının ardından İsrail'i uyardı - Şarkul Avsat Türkçe",
-      "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxQN1RFWlBzRmlxanRuUXo4VDB3LUJGXzd6Y1JvanZUdkIxNHhZSkRHRmNWU0xnWUg3dnNqdE92aDN3WWpfQjR2VE5PTnpZaEE4VzBpVHE1OVFDN2RRU1Q5bm9kcWZMRkVpMjctVVNKSjZUaUhScjF0RjFWdGRkV2ZBSDZHWmd0UWZCaFdJVVM3cG5XTHUxUGVveTRfUnc0TUxoSGJtY1BKV3RIRkIzWUR1WDFFNGVKdkptRFhYa2h6QjBOMWhXMzkyajVFX1hBMGZpWjdQanVWV185RUZ5elRXdEJFMjVxbE9wdTV5RFNWRGtJUzZ3SHEtdTh6NDZJQWdBbmJYN2ZpUkVjZGs4MEFEeU1VYw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:32.338672+00:00",
-      "yayin_zamani": "Sat, 22 Aug 2026 07:05:59 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Bangladeş’ten Mekke Paktı hamlesi! Tel Aviv karıştı: İsrail ve Hindistan ne yapacak? - Takvim",
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNdEdSdlg4ZUtGRXhDakFKX2tncHZIWVhZbUpzTnRPcHpCaDVfWjQ2TW9YeGhjLUo5dHpEaHJEdmNSeHk5QlFxNTZMWU9ILVg2N0dES19QR01aS0R4Z0tXcS1YMHl3a2dQckVnTlg3eVJ2MDNjNUxqWWRIWkxXcGZjQUJtWmlnVVg4cU4wNm4wWGctVFhrM1FqaVVHNFRpLXdvbTB5VjVvWS1YX0owQWJDS0JUcXZpc3EwRFU1SA?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:32.338698+00:00",
-      "yayin_zamani": "Wed, 19 Aug 2026 07:19:00 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Axios: İsrail, Suriye'deki saldırı öncesinde ABD'yi bilgilendirdi, Ankara Türk askeri iddiasını reddetti - Gazete Oksijen",
-      "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPY2VkMFlDQXlfNGliX05ZQl90aFlXOTFQTEhUZFRCRnMtV29UT1QyUzQ1OFJpZDZicUF1dWliVlRlRm5NUi10eFc2WENQWmZjel9QOFpscUlRRTAtSnNHVjc3VjNqQnBWSV9iaTRDbmp2bC1mSnQydTJtalRJNmxuZDlac1FDQ0tiNjVOa09MTDE0UmczWFhIX2hERzZmMnQyRkFuVzVjdnJJSVk0YjMyTHA0c3hSMG5Ka19vRWY3VXNyajhwYmlzcTkyR1dhNi0tbEUxTmNDRHpYTnc?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:36.127175+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 19:18:50 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Kanada, yaklaşık 20 milyar dolarlık ABD ürününe yüzde 15-50 misilleme tarifesi uygulayacak",
-      "link": "https://www.aa.com.tr/tr/ekonomi/kanada-yaklasik-20-milyar-dolarlik-abd-urunune-yuzde-15-50-misilleme-tarifesi-uygulayacak-/4037202",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:36.127239+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 16:21:16 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "ABD'de konut fiyatlarındaki yıllık artış haziranda yüzde 1,5 oldu",
-      "link": "https://www.aa.com.tr/tr/ekonomi/abdde-konut-fiyatlarindaki-yillik-artis-haziranda-yuzde-1-5-oldu/4037029",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:36.127262+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 16:04:32 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Sanayi kollarında ihracat katkı oranında inşaat seramikleri sektörü 9,05 puanla ilk sırada yer aldı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/sanayi-kollarinda-ihracat-katki-oraninda-insaat-seramikleri-sektoru-9-05-puanla-ilk-sirada-yer-aldi/4037004",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:36.127327+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 13:19:52 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Ifo: Almanya'da iş dünyasının güveni, artan enerji fiyatlarına rağmen beklentilerin üzerinde arttı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/ifo-almanyada-is-dunyasinin-guveni-artan-enerji-fiyatlarina-ragmen-beklentilerin-uzerinde-artti/4036761",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:36.127346+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 13:15:01 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "AB'den iklim değişikliğine uyum için daha fazla yatırım çağrısı",
-      "link": "https://www.aa.com.tr/tr/ekonomi/abden-iklim-degisikligine-uyum-icin-daha-fazla-yatirim-cagrisi/4036755",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:38.816611+00:00",
-      "yayin_zamani": "Wed, 19 Aug 2026 08:14:00 GMT",
-      "kaynak": "Makro-Asya",
-      "baslik": "Bugünkü Borsa Durumu: Yükselen petrol fiyatları, rekor seviyedeki tahvil getirileri ve Asya'yı kasıp kavuran yapay zeka hisselerindeki satış dalgası nedeniyle Avrupa'da borsa duraklama yaşıyor. - firstonline.info",
-      "link": "https://news.google.com/rss/articles/CBMi8wJBVV95cUxQVDctQ3V0OG9yU1ZzX1hVaVRNTm5zTUVSYl9CRXVXM096OEd1ZFlMQ3l6NGkzb21ZRXR1UEZNX1VUQWJjeEhUMW1vRzltTnN0bXBOOHY2YUZMbUJHc1pPcVBtdGFFUkJFX0RxdnExZFhMc3pGWE5LbHhjMEY3ZXE5TGxjMkFjNU5YNjJXSWdyLWxzWUlEbHlybl9NUDdBSndOR1VyRkdQYjh1dFFLZkVzMVRmOVhYbXQ2S3c1d2NWNzNTV2I1MjVrQ3pKd3piaFY4TnBXNTI0T3RsT1k2VGFuUHA1bzBDRUZ6Zl9GOUhDcmIxeVctTDlZZGhsR01kWHp6RmkzZS1RLXgwbzJIZ29KNl9fVGQtWGVocDVHbWN3bHV0SmlVYWMyc2E3N1hNNTExcDFMYTg1a3pLeGtEVTFKS01DZ3phX1JaMF9Uc3BMMmVDSGQzSHEtZDZjMlFmM0xaMU5tRzNqQm5PZXN2c3E1ZzdaZw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:39.919985+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 10:11:51 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "Brent petrol 88 dolara geriledi! Gözler Hürmüz Boğazı'nda - CNN Türk",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOSmRNNDEyaEF3dG5GQXAyMFZnTlMyRTlSZDZHelg1eGxJMnJuV1ZXcW5EQnVWQzNWUlR6cmlpT0hBTTBYQXM0Szl1aFRUbjJBV3Z3VnRpR09LTWFLejZqWEt1aE9fWFQzWk5lNUNOSjhxbU9VUHJMTENVVzBVOVFkTUUwd25PbUEtZW90cHFCanJ0NUxxRWI1MFBnNA?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:39.920094+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 11:01:43 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "İran'dan müzakere sinyali: Petrol fiyatları 88 doların altına geriledi - Sözcü Gazetesi",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPc1htc3BUTjRueWkxOGQzVWVCU1diRjM2dENuUVpZSlBsb3JCRWhWQ3dfdFNRMVFqdWVyVHg4amVQMnRGSlRBRkJrRGkzX2dObkxrcE12LV9iTGozUVFPMmNzbzhuNTQ0U3hWenY3OFZPek5STVA3YXd2emQ0NEJST2M3QTRxdjQxZkcwbWdIM1NPQWprM2xkc1NzMm40VEZkVHNiS0x5Z3o?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:39.920119+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 11:27:38 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "İran’dan Hürmüz Tehdidi: “Bölgeden Tek Damla Petrol Çıkmayacak” - Stratejik Düşünce Enstitüsü",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNUERuWXBiYzJYUk5WTGlOTTg3TUd2bW9RMkVMLXpERVMwc0pldmFLTUpCY3dDSEl2ZW9qanJQbDd2bXVFSjNhbnNrMTZWelRfRGVQZERoVzZGbzVKSTJ3TUFoTWNTZmdzOEVqdjJLQ3IxdWFNVmNLbDZ5SDYzVmRwUXVXdHRJRmVHUndvMW1NLS1FZHJ4T19ISjlHVlRRMDhoWEo3Vw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:39.920279+00:00",
-      "yayin_zamani": "Sat, 22 Aug 2026 12:48:34 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "İran, Irak'a ait petrol tankerlerine Hürmüz Boğazı'ndan geçiş izni verdi - soL Haber",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNmEzTEhNUjctVEVjMmFlY29GVGpBZTQtSUhnaVZvZVVmWk4xVURXS1VFT3ZsV3dlUFFyREdVS1lnWExMZ1BCUFl2ZVdnMnljdURlbTFhd0s0QVZMVFQ1cHZIZjNZa05vMjN4b2JKQjhhYmFra3VnOVZ5MmpkS0R6LVl6QTVNRVBsU1dKQXJob2NNYUJkNnhDNjBrYUdobzAxVGd0am9henRhdmc?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:39.920305+00:00",
-      "yayin_zamani": "Thu, 20 Aug 2026 06:16:00 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "ABD'nin Hürmüz Boğazı'nda petrol tankerleri için gizli geçiş koridoru oluşturduğu iddia edildi - TRT Haber",
-      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQTTV4cEE5bHh4MFhfcWZCYml2MTJNUnFTZWd1X2RTWV96TWIzZ1Y1XzFrQ1pIcVU4Q0wtVzFyODVsU2RGT0RtOGxVdEtNdkpsOGFmbXJHeVFJdy1qRU1rMXQ2cU5IVjRYbjlqZ1hIbG94ckZYSUR6Y0pxc3NnVENVd2xKWXlJLUFZaVpqUGh5MWRRUVBZR3NQVEIwa3pieC1lSnB6WWU0cG42RGhrNERpNjFJdGlmTHlQX0pZemcxbjFsRjRpNTZjellUeW0wZFRaNTBLSGRXUXE?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:39.920393+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 04:39:58 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "Petrol fiyatlarında İran yaptırımı öncesi düşüş: Piyasalar ABD'den gelecek kararı bekliyor - CNBC-e",
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPaXV5V1cxaVFqOVc3bU40UE9CYnptUG9VNW9LclU5bkUydG9fdmpoWGlvUmZYTGcyUjQxRDJJZC1hV1pNYWZXWGJFMF9VZUJjUXJ0VlJ1ODNObVRPbWFpeUZZc2lwdUpZQzhNQ2V2alpWQ1k1QzVRd3BJVlJ1ZlpkTWhRUkIwbHY1cTA4YWQ0dE1PdUN4cEl0MkFrZ2t2ckhXRW42eDNrbENxMWZHRi1RV0hBeTZpSWQ3ZXlMNDNIeUp0UQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:39.920479+00:00",
-      "yayin_zamani": "Sun, 23 Aug 2026 09:15:11 GMT",
-      "kaynak": "Makro-Jeopolitik",
-      "baslik": "İran'dan Hürmüz resti: ABD'ye katılan olursa tek damla petrol çıkmaz - Söz Bursa",
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOV3BTVkpFMFF5QUhWakRUTFZkcC0wS0pyX0Y2TGNaZmtSVW1zb1V6akVyNkg0d01HVC0wWUVNVXc4VkxRbG96dmJJYkdsblpXNnktM0plTWVrMVl3WkRrSTlVVjFLX1ljbDVHd2JDQ01WN0k2dGNkRHRMRURPdFNPUEx3bTBhcnFFR2kwaUFrcXdZYzY3S0NyYlB1YzJzdTM2N0hXakN1MHg?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969336+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 09:20:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed'in kararı bekleniyor: Altın ne kadar olacak, yükselecek mi, düşecek mi? - GZT",
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPN3JDZzRXb2U5NWFHU3JuV3NpMlBNVDM3WUlwbWxDU2VGT0oxbUhDckZDRHlpX0xhc2dBaTlKLXFrMjNjOV8wdmNfRWo3YkxnNTRYTXFPZzBkQ2N2SkxSVjhtR21TMkNWZUtJMGc3VWZ0ejNvQVBlUHpQa1R3a2djWGs5dUF5M0t5ZjFhWENSY3hyWXJvZmZqbjZ6eTQ3V0ppRkVVd052aXREZw?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969418+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 12:56:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fidelity’den altın hamlesi: Fed belirsizliği portföyü yönlendirdi - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOUm1wTEVQRVExc3hudjVzVEpmLUFmN1Z5bUo0Y0M3ZEVqX2dReFNuLWtvbTlQTVAwNW9ncTRPN1FlNGRmWU5qOTUtSUM4QWFsWUNwMXFvOU10NnZua3RwWEx4U0w0OTVmV3YyWW5GZGVMaVhDbE1FbDlxY3ZUNlRQWXhFeGt6clplR3BmQU1nMnF1ZWVSamI2M2JkX281VlFwSmZreGJsRjNTNjN2czZkc3BYYTE5QW93eThBM2pYSUhZVkxHUlc40gHHAUFVX3lxTE5SbXBMRVBFUTFzeG52NXNUSmYtQWY3VnltSjRjQzdkRWpfZ1F4U24ta29tOVBNUDA1b2dxNE83UWU0ZGZZTmo5NS1JQzhBYWxZQ3AxcW85TXQ2dm5rdHBYTHhTTDQ5NWZXdjJZbkZkZUxpWENsTUVsOXFjdlQ2VFBZeEV4a3pyWmVHcGZBTWcycXVlZVJqYjYzYmRfbzVWUXBKZmt4YmxGM1M2M3ZzNmRzcFhhMTlBb3d5OEEzalhJSFlWTEdSVzg?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969460+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 02:55:12 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Altın, PCE ve Fed'den Warsh öncesinde ABD Dolarının güçlenmesiyle Mayıs ortası zirvelerinden geriledi - FXStreet",
-      "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQdGs0clpTTU1fODl5NmJuVW1QTmk4RUZHSFRjUmNneXFURmQ4X1VqTlFaVFFod1lBWWN4TzlmNVprTC11aHhzQW5BY3E3UGR6Q3NZSy1mQzh6YzllYllYUW03RjBnek9yLTNUMWZDREYyUmFaclBHZDFpX1ZDeFRkaEtzRUJQZWtIMnRXQ091MWp2bld2OEt2blc2MHRNcE0tMTBic1lNWk0zT0d3U1Rjb18ydEZNNVdzam9mSVFqTmFJWTlqQnNoMW9yQ0lkMDVpV093UnpCdGI5bXRBWEtvc1hEMEpqc2ttOE9YU2p1SdIB9AFBVV95cUxNWWhYcVVvOEZ3N292am9yMUFzZWhwOC0yeVZKaEFhdEZuVFgtdTNCYjBCYnRNa0pScmIzNGY0T2prMDFIWnQ5eUVsTUJyRTlKcFJKeGgtSWRKM2g1VEZ0QW5iZmtPQUZNM0ZhTV9pbF9ydldqV0xGVF95UE5RSGVjZ0ZPb0Vxb1FRMmQ5S0E2Z2FINW1oTW9GS1RhdThjV1p1MFltMmFHbWtENjdfb3d2aXVmeVZNOHlKWHFUWEVSWTk4ckVmT1A2TTJvOFd3Wm1SSmU4UHk2OWI1eklVdnc4Z3lWMnU4WlVDbWVQaXpfWVVwMmVj?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969507+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 05:30:10 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Bu Haftanın Küresel Ekonomisi: Fed Başkanı'nın Açıklaması Bekleniyor - Vietnam.vn",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNbmhjUUdZRk9nd2hxQ2ViVmt1Zm5GMVpsYUNSNmdIRGFZa0s4ZGp6d3lMMjE2OERNNzRVRHh5dS1vY1ROYjNaLU1BSWxrUG95ZjZZc0RiUkRPX2NUbEJrdXVIM1k1bDVNWUJlcUJFNmV3M1dvTXdqX05MaUY2TnNMTDhzWWlrUmREYmc?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969528+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 04:27:23 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Altında yeni ralli sinyali: Fiyatlar 3 ayın zirvesine çıktı, gözler enflasyon ve Fed'de - CNBC-e",
-      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOVF3d2dzb253ODJuN0hEVXZfaGhaS01QTV9zQzVOQzZGMFVIRzRfQnNVZDcwS1BzLVVLUG5CY0xBekd1M1lscU5WcTN4ZW5pbS0yVS1yOUJhSGJ0cWt5c2ppRjVQVHVXOHJxSWFleEJ0Qy1rdE90MlI2NU0zdTAyT1V6SVFsWDY4dFprZEk2aXFzeWFZZG45X0NvVklJblREclRlVlpadmhSVWd6N0dkMTdjQXdnUWtRbTlB?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969551+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 13:04:49 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Truflation temmuz çekirdek PCE’yi aylık %0,2 görüyor, Fed’in bu yıl faiz artırmayacağını söylüyor - Investing.com Türkiye",
-      "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNVFl2QURUbEhvT083akhKUGIxT0pUR3FoZ3hySHpvTkpmNWNXaFU4alFSRlllM0tDa1l4b1Q2Y0pINHFkbldDQmxuWWV3NENSeERSWTlkSjJvTmN1dFZ1MVZkcm01V2Mzc0p2YjJ6enpjakdqbUlNSmlKZzRLMlNzVEhoTUtKZVd3Qm5XbWVzXzJ0ei1xYWhMams3bEt2MnhqNGZpWDU0STRyam42YXdwS2RPc0ZNV01nQmxVTlVZY0tCZ2R5WVk4TW5jNmZIZ1FhN0x4RQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969587+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 05:41:13 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Fed'in 'sıkılaştırma' politikası piyasayı daha belirsiz hale getiriyor. - Vietnam.vn",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB6MWRtMjI4VnhGZGM4UmJ5T2JwSVFBU1dqZllJcWtKeFl2bjZzUHhKeUhRRFRZS19qTzA0YzFLSG9aUWZFVUREYXVITldINU5GcGpMM3pweXd4Q0Y3Y09reTExYnRUWVM1ajRUM2lnd3UwSFg4Z3NrVV9iOXNLN00?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969612+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 03:35:35 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "İngiliz Sterlini, ABD PCE öncesinde doların güçlenmesiyle 1,3650'nin altındaki aralıkta kalıyor - FXStreet",
-      "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPMHhLY1U4N3BiMGJDOXU1ZF9ieG43SnFkbmk0RzFFbUJHQUhRNDVhRGNmTDBUdUU4ZUxOTlFiRDBoZlhjT2FHeWQyaFhSaDkxSG9tT2Jlc0xNa1l2d3NxeDJlX0VRWVpxdEJ1eWp0SWpkNWQtRW1uZE1CcXBzMHFBSUFBOWhHQXd6ZzdhLUJhOWdXQjhLZ05xT0Y2aGdRbWVnNTNQNEE1TVpkWXBjUEZ4VzVjeWdqVTZ2WGNhTEFIUVZHcXFlblZQSEF6bFpNdFBRaEhVUFV1N0RLYW5OY3RLNkxyaE9RcWF0QTF3VER4ZGlOcThzVGJFMER1Zm9KVjA3bjdv0gGDAkFVX3lxTE8weEtjVTg3cGIwYkM5dTVkX2J4bjdKcWRuaTRHMUVtQkdBSFE0NWFEY2ZMMFR1RThlTE5OUWJEMGhmWGNPYUd5ZDJoWFJoOTFIb21PYmVzTE1rWXZ3c3F4MmVfRVFZWnF0QnV5anRJamQ1ZC1FbW5kTUJxcHMwcUFJQUE5aEdBd3pnN2EtQmE5Z1dCOEtnTnFPRjZoZ1FtZWc1M1A0QTVNWmRZcGNQRnhXNWN5Z2pVNnZYY2FMQUhRVkdxcWVuVlBIQXpsWk10UFFoSFVQVXU3REthbk5jdEs2THJoT1FxYXRBMXdURHhkaU5xOHNUYkUwRHVmb0pWMDduN28?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969633+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 05:07:32 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Altın 3 ayın zirvesine tavan yaptı: Gözler ABD verilerinde - Sözcü Gazetesi",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSFpXc28tU3JhS0dRV2RTTWY4SVlUTjRPV3A0YlhoUUJRczB4U1dxbzYwZ3FvRlg3bGFIVDNpWTI0Vkk4QVBvSEtjSTRQM1d3SjQ2bklkdXJHdndZSDhFamN0SjBMeU0xUUpabVBMN21kNnlMdklDYXJrdnBkeUUxUDVXcHd0VWlaVXFiOWgyRkpINkhIZWwtc19B?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969657+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 23:36:27 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Zayıflayan ABD enflasyonu Fed beklentilerini törpülerken, İran kaynaklı riskler sürerken altın üç ayın zirvesine çıktı - VT Markets",
-      "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPQU5lM0U1ZE9VQUUwYWY0NExYNGZnZS1FbkROcFBGdTBBeDk2Q2kzU3V3blU1MlU2ZkZrMlVINU5ZZGVKQzJ2dHktUGFHWXMxdjYxRlBuMHdYZVhNMTU5N1dCanAzSHNXMGliczA5SkJFUmxsd21fMVZSNzNzVl9reXNiSUI2ejZrb1dJeXUzdU95bENEX2Fhaks0YW5DaWpiWWZ3YkxIZndxWG5vZld4RU00ZW0yZmh5WmJaQ2ZndDdJUTZSUVczUm1hRndXdXBjNFc2TzBYdFJjSVdEaG9ZeGR5cHBsWE5oVDVRby1KckRweGdEek9EWg?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969685+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 08:52:44 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Altın, İran risklerinin USD'yi desteklemesi ve kazançları sınırlamasıyla Mayıs ortası zirveleri civarında seyrediyor - FXStreet",
-      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNakt1V0x0TkZCUjdiQ2N0Q01qVDhOX2p3aXRxTEctZm81MlVyRWlBLS10allFWERMTm4zNkZFWGdiOVdzUThybERCbVRJWkcxakdlX1Q1a1FOcDBrX2ItdEEyZU9UaVlSNi1PSHNoSE1pMXVocHJtWnFuRWtVMm0yYkczU1R3MkF0UGxaWm40MWxlN3dVRE8taUZHTEE5bm9aenVQR2FUdHA0ajgzT0pVVDBsRlo4REFGX1RGdmppZGNJNDYzQ1dWR2dVQ1dUdzBnRnFlaXFneUpqdDhHZU9JNmtWUG9GRDhnWm81MXNCNDhFTFNJSWswQ0FwSWxMUlF2dFHSAYcCQVVfeXFMTU1rQk1SVGRVM0NsLXZtSTlQODhDZkJ4ek1qMk1XUzAtNXlnWE4xQV9ac25QQkU0eW85bGZFbVpNcEtHeUdzOHN4N05LN1RBZy04TzNNbU9YTGFMdG9Xa1JqVlQybWw3cE9uWjlyNUZtRGs4WU94TFlic0lUMktMbm5FMlZUeXg1ZHcyaUR3dkM5dGxJV05ZTEF5SUVFaFgzbHFxSVlQRHprbGlkelExdlBacTI0TWo2RDBRbW1ZT3hnMnp2UkpPSm05bzhDR1RSTlB2dHZRSFQxbmE3bERxM3ZLQ2hNQ013RHhpeUlaOGw1YU1ON1RVLU1UZ2V1WktKY3AteXMtRDQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969704+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 05:59:00 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Jackson Hole’da gözler Warsh’ta: Fed’in faiz yol haritası netleşecek mi? - Manşet Haber",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSTdVSUV2NE9WeFBqaXdWdHJEbllnVjYzc3dTcmo3M0l2blF2MW9LdW81Z0c5cS1HWGl1UlFNaDJ0S0ZjSFRmRWc5Y0JqbzE5c2pnWmZpWGNvS1NOUzU4UUJPc0otSk1NMy0xOUREb2NPQnA0a3N1MGx5WUFPbzVrZzRfNlBYaDBoWmNUaUpQR2ItVnd5aDk1cFBqMEM?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T22:42:40.969750+00:00",
-      "yayin_zamani": "Sun, 23 Aug 2026 08:13:32 GMT",
-      "kaynak": "Makro-Fed",
-      "baslik": "Altın fiyatları uçuşa geçti ama tehlike kapıda: Uzman isimden o seviye için net uyarı! - Sözcü Gazetesi",
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNdEkyY0hpY3JFVkN1c2xNVE1uNDdSLUFQQ2xTOUxGQ1FxZmd1V3FjMDFCYWJRUW1ZQ3BTSDJ0VnBXVEVjS1ZtVGF2ZTVzMnk3LXFPd3U3aUxENTJ6R3hCODZ2NWV4dWRYcGxuQU1VcjBPTk5vbmcxV0VIblRjdm9CMTZCbFNsZG1OOVQwYVhZR21BWlNoek9MY2JNbjdMOElNM1Fxd01Gclo2SXNDVWhHeUx5a2dKZVB4Y0g5amhB?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:21.870582+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 17:46:00 GMT",
-      "kaynak": "TCMB",
-      "baslik": "BofA’dan TCMB yorumu: Faiz indirimi için tarih verildi - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNdE1LQVh1b2ZCMHdCWmI0Rm5FTEZsdC1JdExpbXQwcEhSTkJPZ3I5a2ZDcS13ZnJFYUYxbVZya3NuOG5MRldxdjg2VUNpejlOVkNGd2RYQU9MN3NMOU1qS2RFRFAtT1B0QjZFU25fR0ZIdlBIZGRaX0RYTU4wSVRQNVhmSTVCd0ZKSG8tT2pzZ0pJREUzdEJ5RjRzT1BTeHhL0gGmAUFVX3lxTE5xZFdNcUdIUWlwRGcySmpObU93a0hOdjdJMWlMajlMT0RsejQ0T0ZrTzlBQzdSRjIwS3JUWXY0YmRqNlpwZWtBNDhZZVNIX3VWSHZxdTZFQm9BM0tGcFdmNlZLbm9QOW1HbllDU2hpSDU4YnBQWWhhNUt0M2tobl9jRU9qOG9LSlpoTk9mdG9kaVlrVmpSVDhia1p4N1BrOFpQUDEzRXc?oc=5",
-      "puan": 5,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:21.870825+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 21:00:00 GMT",
-      "kaynak": "TCMB",
-      "baslik": "TCMB faiz kararı reel sektör için ne anlama geliyor - Ekonomim",
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPWG52TXdMQnNSZm9JMTN1MXViMnc5VjZkZmFsNU04cXlRdzBvbnFPYUZPTXdELUF6NVhPc2dDQld1aWhkYlI0NEJUZ2NQZzVoblJBS0lfcm5tNHFka0lxc19ZMms4aUJpZWJhNjBYRGJpT3hZLURiZlYxMmdyZ0kwNWZzV0VmS2RUZ2F1TGhUNVN2dlRSWU1UaTMxMA?oc=5",
-      "puan": 5,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:21.870909+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 08:45:00 GMT",
-      "kaynak": "TCMB",
-      "baslik": "Son dakika: Merkez Bankası faiz indiriminde ilk sinyal! Borsa, kredi ve konut piyasasına etkisi ne olacak? - Uzmanpara",
-      "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPNnJXVEV0NUxPSVhFaWVPLTB2b3dXblllUmF4R05HdTFJSVVodlRTU0k0X0F0cmIyWGJhQktRV2I1eE5LRmFPTldUYWtpNjE4RWp2OWE3MkdobWlYTmdibUE4SWlHanVwOWVYSG9EZW5nUGtnOXJoX1M1Z1dHaUNIUFRXaF80SzczTlZNTVZFTm9fb05NSko4RkpVcDV6dTVWVHYtdWozdHhFSTFVLWMzVmx3Z3BiTkxvUFJERjg5VF9xbTlDU0U2WUZMM3Z2a2U4WjRxTWlqVTJGUUlfcVYxQ1RSUEs4ZzB0UEE?oc=5",
-      "puan": 5,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:21.871021+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 15:30:08 GMT",
-      "kaynak": "TCMB",
-      "baslik": "Merkez Bankası'ndan 'gevşeme sinyali': Neden şimdi? - BBC",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9XODcwNktwdFJzYS1mUW5nQXA4WG9oOTZXZ2JRUkw5Y3YxckEyUVNFenoyV1FqU1R1SnFPbVh0T2ptUlBWWE5icnhBam4zcC1EdWJsSFR4dFZBR2ZH0gFiQVVfeXFMTlZ3cnlkZjc3RHpwT0NHTDhYd2lBbG54NWVURG1RU1M3RlVlUlFtaVYzMlRTdzFYaFlINnIzdlRUNW9HdU9yR2lNcmdxN1pFMkhRZHdlM2JaVklvdXRoeDRoZGc?oc=5",
-      "puan": 5,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:45.539955+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 17:40:17 GMT",
-      "kaynak": "GN:ASELS",
-      "baslik": "Borsada 4 hisse için hedef fiyat: ASELS ve EKGYO listeye girdi - Paratic Haber",
-      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQZm1EM3ZJSGtuNHM1RktkUGg5RWZGOFRRbko0X19oNC1QenpIT1Z1eWMySUt3ZjJ0enJlanAzb3E1bXVlZ2JobzNqNjlyM2U5SkJNTGtxYkJSRWJXN09FNjVUOXplNzZCY0VhNE5CY0N1V0w0QTRJNGFKbHc3ZzZaaHhvVkk2RkxTZkE?oc=5",
-      "puan": 5,
-      "ilgili_semboller": [
-        "ASELS",
-        "EKGYO"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:28.328321+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 11:05:13 +0300",
-      "kaynak": "AA Ekonomi",
-      "baslik": "Ham petrol devi Rusya rafineri açmazında",
-      "link": "https://www.aa.com.tr/tr/ekonomi/ham-petrol-devi-rusya-rafineri-acmazinda/4036570",
-      "puan": 4,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:20.799002+00:00",
-      "yayin_zamani": "Fri, 21 Aug 2026 00:54:13 GMT",
-      "kaynak": "KAP",
-      "baslik": "KAP - kap.org.tr",
-      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE15bGRsbWRyeHlURVRodmY3c09YdDJYZmFyRXJERXNjVHltQm1vb0JLSHk4T3U3dTV2bWMxZ3hpd0taakJzVUFvT21kU0ZlMWs?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:29.270001+00:00",
-      "yayin_zamani": "Wed, 26 Aug 2026 00:00:00 +0300",
-      "kaynak": "Dunya",
-      "baslik": "Yatırımcı güvenli limana kaçtıkça altında ralli sürdü",
-      "link": "https://www.dunya.com/finans/altin/yatirimci-guvenli-limana-kactikca-altinda-ralli-surdu-haberi-837592",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:30.411223+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 18:38:01 GMT",
-      "kaynak": "Foreks",
-      "baslik": "Avrupa borsaları tahvil ve yaptırım baskısıyla günü karışık tamamladı - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQcTd2SXZEay1wWFM2S0RieXlUVk1fY3Q0ZGUyTDFuc0swMDJnUk5GV2tRODZnOG1LQXdTR1c0OVNvVGxzWDM1ZGNoUm9TQzFpaFIxTnk1UXR1bzB3WXJrR1Exd0VtYU1UY2VqWG83cFJwaU15OGprbE5VcUlLVWxXYXlLRWtpbDJ2azQ5cnhzeWNiTkNrSjgxSWVpNUxmV25xLTdWeTJGT3RQa3JQQWlVU0FDc1RfMEdwYWtDRXRjaWowam5jY2tkMkpCSDRFTllXOVVMN3B0QmtGLWVPOVA5WFVXNDBXYnRVczUzVWhYbGN0UURXd0U1YndTaw?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:30.411465+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 13:00:04 GMT",
-      "kaynak": "Foreks",
-      "baslik": "*TCMB, 26 Ağustos 2026 vadeli GLP Repo kotasyonu açtı - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOQ0pYbmtKWTlVRE1hb2VfU3NLdjFyRTJMRXNrekNQckNDcVluV3pRTDhDbXFFRWlqZHlDUjVzQzAxYm1GeDFuV3FIMVlDNGMwQ3QtNzk1TWdUaFZfcG5IbTdkekVJNDhidUtGUVBmWEpaTkFVMmFGWE1KOWtfYnZQWGoxQlVpZUUtN2VqNktQcmFyNHBpaEtBTUd1bmxZLTV5Tkk3dmhQeVBjRjNDQWlLM29BZElnaHE2TFZVdUZib1JwTUVIY1QweTB1a0puWlo3Y2VJWUhKaVhldnVyX0JOSER5RzNKZmM?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:30.411493+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 13:53:28 GMT",
-      "kaynak": "Foreks",
-      "baslik": "TCMB'nin 26 Ağustos 2026 için açıkladığı geçici rezerv 1.027.882,10 milyon TL - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNRlNRSEtjLUdEcUFLd0M2Yk1SRFMwWEZ6Ykw4YWF0aDVna2ZiTFdyWnFIN3Q3OHFKV25TOWo3c1poYkNDZldvczdRRXFsQ0liZHNqMVRnQml1VjBNTTZGQi0wbzBDUlV3SUgxU1IwMFpVc0JIakgxZnpQeFd3N205S1pjbjJLc0NhdEtrNHp6a0ZqdUNtZEV1QW9PNXU5ZmFpb3VGVUl6OU50WWhBcVNkQmNtU0ctbDdKMXlLNnVLRUZBY0FMazd2SXdIVlEyS0RCTlYtQS11MDRydTItUk1hVTRwbFY3TWpIbHZMeWxhNG8zV0MybmlWdWdDSUlCTTlKdlg5TlJR?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:30.411520+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 15:50:20 GMT",
-      "kaynak": "Foreks",
-      "baslik": "Ons altın erken saatlerdeki kayıplarını geri aldı - Foreks.com",
-      "link": "https://news.google.com/rss/articles/CBMiugJBVV95cUxOekk3VG82aHNFOEFpRWxmVkdraXBXM1lOTWUxMEMwa3piZG96R2VGaXZKUkRjeHNidmhhSWFQSGRRUFZCcThTUjJPY0VBNU5zZWxFZjJRaEZaTXVlbnRCS3AtQ0NEZlV6SHVPbzd5SzVxcDlTSnhGR3FEdlBGWVpuRGpmOUkwRTVhdXp0YXlZN2tSaF93a3RJNEhTV2dmdHJWLXg2U1RMMXJaM0drREFsTS1OcE5ZRy12LVA5bUpLY1ZBWHdkT2hxSDVhbzNoSU5ZQW9wMkkwdHNYMzBvY2FkU0NhOFBUaEtOdlVDVUFYZFdmenhQcUZMTVBxWTBqMTJrY0pZbHlnSDhJX0FGelZ2amdzbE4wTjZ1aUVBSmRjR19sZDBfSWpGUTQ0UXNZMDJtTjUyQmdrNjREQQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:41:04.717544+00:00",
-      "yayin_zamani": "Mon, 24 Aug 2026 19:01:00 GMT",
-      "kaynak": "GN:ALARK",
-      "baslik": "ALARK hissesi 25 Ağustos 2026: Destek ve direnç seviyeleri - Haber Ege",
-      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTGZyZy1mYjNFZnhwQVRXQmlaLVhSb1hRcjZNYlM2U0ZReGZtN0cwVmhIaFRCank3MUxrQ05ZOUlzUklIQ2g4bHNHOEZMcFN6aGxRcDVuOWgyZjJHMlB1RjE1V0lwQnhkTjlQMVUxY2hQM1k1eTFLS2lNci1WSEs2dFQyeV9MOHhHRjFtcjRXT01sVE1WRTV6LQ?oc=5",
-      "puan": 3,
-      "ilgili_semboller": [
-        "ALARK"
-      ]
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:22.790001+00:00",
-      "yayin_zamani": "Thu, 20 Aug 2026 10:21:04 GMT",
-      "kaynak": "Reuters",
-      "baslik": "İsrail: 'Erdoğan Türkiye'yi Suriye'de tehlikeli maceralara sürüklüyor' - BBC",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1ZZXBMNFdrdWp5U1BTeEdhUEcxNDdBTFY5ZmlsQktqVlBsUWtaTktXMHYtejJhazhNSzZHNW1obVZoTENBMXlvUzJyN2hiMG43RGczVUtKRTZfWWhZ0gFiQVVfeXFMTlZGeFJmVEFqVmRNcXRtQWxKc1ktSUFUaTlQeVRtcTBWWTRWd0szSnlidlphNDRBZTQxU1JxUDR0ZVkyTk9GRlQxOFF6TFY0YmxBaGtoZ0tTbG9ORm11UWJYOGc?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:22.790042+00:00",
-      "yayin_zamani": "Fri, 21 Aug 2026 07:00:00 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Yiğit Bulut Reuters’in “ortodoks politikalara dönüş” haberini yalanladı - Para Analiz",
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdldEdVlpWmZSbElFUU94dEczaHplZkpOaDVPNWpHTWgybHFTaUxzM1Y5YUoxRTlzajNLd3JpN0hueDN5WXlMVlk3cU13SF9JVmcwYWJGR3Ewc0l1bS16aE1kZUhGbV92VzlYTGpDZXhaWnEta3ZiaE9GOXNVM1JkT2JRNGNpd29tZXBLV2p4bG5INnEzWGlmSTNvdmdjdFhUVFk3QXBrTQ?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:22.790072+00:00",
-      "yayin_zamani": "Tue, 25 Aug 2026 05:58:18 GMT",
-      "kaynak": "Reuters",
-      "baslik": "ABD İran'a yeni yaptırım açıkladı: Türkiye'ye etkisi ne? - DW.com",
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWFVGNnBxdmczcEtzeVhYSEVyalhTVmJxNW9Ua0ZZTkctQVlKaGF6UVpTWWxVTlJ0VE1PVlRPUzdQdlpjc1J0S25xVDlwMkgyOUhrSTVRelNFN3psSExscEkxV2VlWURTb0tSaFZHRTUxWldic3liYVdvNnJybjIwZEpQcTgwQlVjNlhBR1dNTVZ5MVZFZXRNVzRDQ2Nmc2E4dm5oQ0d1bEo4dW54WVlZTGo2YUJBOEdTTFl5aWZB0gG-AUFVX3lxTFBRNWpaQ0FiSFFydU9JRnJzUXd1ZjVRLXhmR29iVWJ1bUlIRDhkYnNFQ0VpWnZ1bjNtNmZxTFk4TEdEZlZKeEx3Mlp0Vm5SMzRoRjBCVTFTVWp1a2VRSGJ5eHdSbVVkY3Y3ZG9IRVVvc0dvTENNNWtOVlVrX2NMTEo4UUFSTWZRUkFzajVEbjgxMjJIeThGT0JuYnVlMGtxTy1GdllDb2E3WElaWXFXdWZjOFlfTlQ2anFWbHppNmc?oc=5",
-      "puan": 2,
-      "ilgili_semboller": []
-    },
-    {
-      "zaman_utc": "2026-08-25T21:40:22.790101+00:00",
-      "yayin_zamani": "Sat, 22 Aug 2026 10:38:24 GMT",
-      "kaynak": "Reuters",
-      "baslik": "Çin ekonomisi, İran savaşı şokuna nasıl dayandı? - Şarkul Avsat Türkçe",
-      "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOTjFubWdnLXNjY1hTZWtkWDFLNUJQTGRPaXNuSHdOcmFDTE05bEp2TmREVThxNDZCa3U0MFdCMzhNa00zWlA1WEl5aUZoSUVwdjEzdmVLYm9uYzUwWF80YXREVmFmanZ0QnozRHJHcEV3SkdockJQSE91cmc5N0hMMnpjaHQyOTBtbDMyN0pfRTRHbmR5UUVjRVBrMkdZejhwTmlhbGgycXdxWmo3V3lZNm1PVkdFeDdqTlFTX0IyNV9UcWdncHR4czh5Yw?oc=5",
       "puan": 2,
       "ilgili_semboller": []
     }
