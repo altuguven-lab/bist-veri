@@ -86,6 +86,21 @@ C.6 Specification curve (17.08.2026 karari, B4):
 
 Bu iki kural TUM Ip calismalarina uygulanir, IP-7'ye ozel degildir.
 
+C.7 Rapor durum etiketi (26.08.2026 karari):
+- Her ureten .md raporun EN UST SATIRI durum etiketi tasir:
+  GECERLI / KISMEN GECERLI (bkz. <dosya>) / GECERSIZ (yerine <dosya>).
+  Gerekce: 19.08'de bu kural onerildi ve hic uygulanmadi - "hangi
+  rapor hala dogru" sorusunun cevabi dosya tarihine bakip tahmin
+  etmek olmustu, bu bizzat C.5'in ihlal ettigi turden bir riskti
+  (eski bulguyu guncel sanmak).
+- Yeni raporlar `raporlar/` klasorune yazilir. Kok dizindeki mevcut
+  raporlarin `raporlar/`'a tasinmasi kademeli yapilir - GERIYE DONUK
+  ZORUNLULUK YOKTUR, tasinmayan eski dosya GECERSIZ sayilmaz, sadece
+  klasor disi kalir.
+- Kod dosyalari (.py, .yml) ve governance belgeleri (KOMITE_TUZUGU.md,
+  RISK_KURALLARI.md, README.md) bu kuralin DISINDADIR - yalniz
+  "olay/bulgu raporlayan" .md dosyalari icin gecerlidir.
+
 ## D. Misafir Koltuklar (cagrili, oy yok)
 - VERGI/MEVZUAT DANISMANI - ceyreklik + yil sonu. Nihai vergi
   pozisyonu icin gercek mali musavir sarttir; koltuk cerceve cizer.
