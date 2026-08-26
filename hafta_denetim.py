@@ -32,6 +32,7 @@ import os
 import glob
 import datetime
 import statistics
+import math
 
 # 17.08 DUZELTME. Bu sabit 07.07'de kalmisti; protokol 08.08.2026'da
 # SIFIRLANDI (P3_SKOR_AL esigi 30->40, POZ_AZALT OR->AND zorunlu mantik
@@ -319,6 +320,59 @@ def m6_haber_kesisim(sinyaller, fs):
                    "sinirlidir - arsivlenmis haber olmadan M6 kismi kalir"}
 
 
+def m7_alarm_dogrulugu():
+    """Turlerin PIYASA-GORELI T+3 getirisi, yon-farkinda, guven araligiyla.
+    Kaynak: data/sinyal_arsiv.json (sinyal_arsiv_gunluk.py).
+
+    26.08 KARAR (kurul): P3_SKOR_AL'in MUTLAK getirisinin piyasa
+    yukselisinden mi kaynaklandigini, yoksa gercek bir kenar mi
+    tasidigini ayirt etmek icin eklendi. 26.08 ilk olcum: mutlak
+    T+3 +0.58%, GORELI T+3 -0.44% (t=-0.79, ANLAMLI DEGIL - kenar
+    yok, ama zarar da kanitlanmadi). ACIL_CIK ayni olcumde ANLAMLI
+    cikti (t=-2.53, dogru yonde). POZ_AZALT ters yonde (t=1.31,
+    n=7 kucuk, anlamli degil ama 08.08 bulgusunun TEKRARI - izlenmeli).
+
+    Ayrica IZLEME turlerinin (P3_RADAR/P2_ADAY) donusum ozetini de
+    tasir - sinyal_arsiv_gunluk.py'de hesaplanir, burada sadece
+    okunur."""
+    arsiv = _json_oku("data/sinyal_arsiv.json")
+    if not arsiv:
+        return {"durum": "DOSYA YOK"}
+    dg = [k for k in arsiv.get("kayitlar", []) if k.get("dogrulama_durumu") == "DOGRULANDI"]
+    turler = sorted(set(k["sinyal"] for k in dg))
+    sonuc = {}
+    for tur in turler:
+        alt = [k for k in dg if k["sinyal"] == tur]
+        yon = alt[0].get("yon_beklentisi", "?")
+        vals = [k["getiri_rel_t3_pct"] for k in alt if k.get("getiri_rel_t3_pct") is not None]
+        if len(vals) < 2:
+            sonuc[tur] = {"n": len(vals), "yon_beklentisi": yon,
+                          "durum": "n COK KUCUK - guven araligi hesaplanamaz"}
+            continue
+        n = len(vals)
+        ort = statistics.mean(vals)
+        std = statistics.stdev(vals)
+        se = std / math.sqrt(n)
+        t = ort / se if se else 0.0
+        isabet = sum(1 for v in vals if (v > 0 if yon == "YUKARI" else v < 0))
+        sonuc[tur] = {
+            "n": n, "yon_beklentisi": yon,
+            "goreli_t3_ortalama_pct": round(ort, 3),
+            "t_istatistigi": round(t, 2),
+            "anlamli_mi": abs(t) > 1.96,
+            "isabet_pct": round(100 * isabet / n, 1),
+            "guven_araligi_95": [round(ort - 1.96 * se, 3), round(ort + 1.96 * se, 3)],
+        }
+    return {
+        "turler": sonuc,
+        "izleme_donusum": arsiv.get("izleme_donusum_ozet", {}),
+        "not": ("Yon beklentisi YUKARI icin isabet=goreli>0, ASAGI_VEYA_NOTR "
+                "icin isabet=goreli<0. |t|>1.96 -> yaklasik %5 anlamlilikta "
+                "sifirdan ayirt edilebilir - degilse KENAR YOK denir, "
+                "ZARAR VAR denmez (ikisi farkli iddia)."),
+    }
+
+
 def o2_kullanilabilirlik(sinyaller):
     """Icra Trader'in haftalik raporu icin ham metrikler (tuzuk A.6)."""
     trade = [s for s in sinyaller if s.get("sinyal") != "GUNLUK_OZET"]
@@ -405,6 +459,7 @@ def main():
     M4 = m4_rejim_flip(sinyaller)
     M5 = m5_yeniden_giris(sinyaller)
     M6 = m6_haber_kesisim(sinyaller, fs)
+    M7 = m7_alarm_dogrulugu()
     O2 = o2_kullanilabilirlik(sinyaller)
     KF = kacan_firsatlar(sinyaller, fs)
     SUPHELI = supheli_fiyat_taramasi(sinyaller)
@@ -446,6 +501,30 @@ def main():
               f"vakalar: {M5['vakalar'] or 'yok'}")
     md.append(f"- M6 haberli sinyal: {M6['haberli']}/{M6['trade_sinyal']} "
               f"({M6['not']})")
+    md.append("\n## M7 - Tur Bazinda Alarm Dogrulugu (26.08 EKI, piyasa-goreli, "
+              "guven araligiyla)\n")
+    if M7.get("durum") == "DOSYA YOK":
+        md.append("- sinyal_arsiv.json bulunamadi, M7 hesaplanamadi")
+    else:
+        md.append("| Tur | n | Beklenti | Goreli T+3 | t | Anlamli mi | Isabet% |")
+        md.append("|---|---|---|---|---|---|---|")
+        for tur, v in M7["turler"].items():
+            if "durum" in v:
+                md.append(f"| {tur} | {v['n']} | {v['yon_beklentisi']} | "
+                          f"{v['durum']} | - | - | - |")
+            else:
+                anlamli = "EVET" if v["anlamli_mi"] else "hayir"
+                md.append(f"| {tur} | {v['n']} | {v['yon_beklentisi']} | "
+                          f"%{v['goreli_t3_ortalama_pct']:+.2f} | "
+                          f"{v['t_istatistigi']:.2f} | {anlamli} | "
+                          f"%{v['isabet_pct']:.1f} |")
+        if M7.get("izleme_donusum"):
+            md.append("\nIZLEME turleri (P3_RADAR/P2_ADAY) donusum orani:")
+            for tur, v in M7["izleme_donusum"].items():
+                md.append(f"  - {tur}: {v['donusen']}/{v['karar_verilmis']} "
+                          f"(%{v['donusum_orani_pct']}), ort {v['ort_donusum_gun']} "
+                          "islem gunu")
+        md.append(f"\n_{M7.get('not','')}_")
     md.append("\n## Fiyat Saglama Kontrolu (05.08 EKI - THYAO-348.50 vakasi sonrasi)\n")
     if SUPHELI:
         md.append(f"UYARI: {len(SUPHELI)} kayit, GUNLUK_OZET referansindan "
@@ -509,7 +588,7 @@ def main():
                  "kulucka_gunu": gun,
                  "M1": {k: v for k, v in M1.items() if k != "detay"},
                  "M2": {k: v for k, v in M2.items() if k != "detay"},
-                 "M3": M3, "M4": M4, "M5": M5, "M6": M6, "O2": O2, "KF": KF}
+                 "M3": M3, "M4": M4, "M5": M5, "M6": M6, "M7": M7, "O2": O2, "KF": KF}
     atomik_json_yaz(kok + ".json", json_veri)
     print("\n".join(md))
     print(f"\nYAZILDI: {kok}.md / .json")
