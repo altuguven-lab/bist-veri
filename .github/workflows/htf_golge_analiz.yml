@@ -1,0 +1,31 @@
+name: HTF Golge Analizi
+
+on:
+  schedule:
+    # Her Pazar 06:00 UTC (09:00 TSI) - haftalik, canli sisteme yuk
+    # bindirmemek icin dusuk sikllikta. Bu SALT OLCUM, alarm uretmiyor.
+    - cron: "0 6 * * 0"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  golge-analiz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bagimliliklari kur
+        run: pip install yfinance pandas
+      - name: Golge analizi calistir
+        run: python htf_golge_analiz.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/htf_golge_sonuc.json
+          git diff --staged --quiet || git commit -m "HTF golge analizi guncellendi"
+          git push
