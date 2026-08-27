@@ -190,8 +190,26 @@ def main():
         print("HATA: olay yok", file=sys.stderr)
         sys.exit(1)
 
+    # 27.08 EKLENDI (kurul karari): TradingView "Portfoyde Pozisyon Var"
+    # kutusu otomatik guncellenmiyor - POZ_AZALT'in 18 gun sessiz kalmasinin
+    # sebebi buydu. Hatirlatma icin ONCEKI portfoy.json'daki acik pozisyon
+    # setini al - _uygula() TUM GECMISI her seferinde yeniden isledigi icin
+    # oradan degil, BURADAN (eski dosya vs yeni durum FARKI) hesaplanmali,
+    # yoksa uzun-kapanmis pozisyonlar (ASTOR, TAVHL) HER kosuda yeniden
+    # "hatirlatma" olarak cikar - gurultu, sonunda yok sayilir.
+    try:
+        with open(PORTFOY_YOL, encoding="utf-8") as f:
+            eski_portfoy = json.load(f)
+        eski_acik_semboller = {p["sembol"] for p in eski_portfoy.get("acik_pozisyonlar", [])}
+    except (FileNotFoundError, json.JSONDecodeError):
+        eski_acik_semboller = set()  # ilk kosum ya da bozuk dosya - hatirlatma yapilmaz
+
     (islem_akisi, nakit, nakit_tarih, mutabakatlar, pozisyon, kapanan,
      stoplar, uyarilar) = _uygula(olaylar)
+
+    yeni_acik_semboller = set(pozisyon.keys())
+    yeni_acilan = sorted(yeni_acik_semboller - eski_acik_semboller)
+    yeni_kapanan = sorted(eski_acik_semboller - yeni_acik_semboller)
 
     # --- KAPI: raporlanan nakit var mi ------------------------------
     if nakit is None:
@@ -291,6 +309,19 @@ def main():
     elif fark is None:
         uyarilar.append("nakit kontrolu yapilamadi — ikinci bir "
                         "NAKIT_MUTABAKAT olayi gerekli")
+    if yeni_acilan or yeni_kapanan:
+        print("\n" + "=" * 60)
+        print("!! TRADINGVIEW HATIRLATMASI - 'Portfoyde Pozisyon Var' kutusu !!")
+        print("=" * 60)
+        for s_ in yeni_acilan:
+            print(f"  ISARETLE : {s_} grafiginde kutuyu ISARETLE "
+                  "(yeni pozisyon acildi)")
+        for s_ in yeni_kapanan:
+            print(f"  KALDIR   : {s_} grafiginde kutuyu KALDIR "
+                  "(pozisyon tamamen kapandi)")
+        print("Yapilmazsa POZ_AZALT/panel etiketi o sembol icin yine "
+              "yanlis kalir - bkz. 27.08 kok neden.")
+        print("=" * 60)
     if uyarilar:
         print("\nUYARILAR")
         for u in uyarilar:
