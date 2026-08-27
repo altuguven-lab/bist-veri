@@ -138,3 +138,28 @@ kendiliginden yururlukten kalkar ve dosyadan silinir.
 9.4 ISTISNA YOK: olgunlasma sayaci P3_SKOR'un kendi kulucka v2
     penceresine bagli degildir - deploy tarihinden itibaren, sinyal
     sayisina gore isler.
+
+
+## 10. BILINEN SINIRLAMA - v112 (N/WR/PF/DD) PANELI
+
+10.1 DURUM (27.08.2026 tespit edildi): TradingView'de "Portfoyde
+    Pozisyon Var" kutusu isaretli her sembolde, panelin sag-ust
+    istatistik kutusu (N/WR/PF/DD - gecmis sinyal isabet orani) KALICI
+    OLARAK SIFIR gosterir (N0 WR0% PF0 DD0%).
+
+10.2 KOK NEDEN: Pine, bir girdi (input) degistiginde TUM GECMISI bastan
+    yeniden hesaplar. "Portfoyde Pozisyon Var" tarihli bir olay degil,
+    sabit bir kutu - isaretlenince grafigin ILK barindan itibaren karar
+    mantigi hep HOLD/CIK doner, hicbir zaman AL degil. Sonuc: v112'nin
+    kendi ic simulasyonu (paneli besleyen sayac) tum gecmiste hic giris
+    olayi gormez, sifirda kalir.
+
+10.3 KARAR: bu DUZELTILMEYECEK - gercek performans olcumu zaten
+    sinyal_arsiv.json + hafta_denetim.py (M7) uzerinden, PINE'IN
+    DISINDAN, gercek fiyatla yapiliyor. Panelin sifir gostermesi bilgi
+    kaybi degil; ayni bilgi zaten baska, daha guvenilir bir kaynaktan
+    geliyor. Duzeltme projesi ACILMAYACAK (M7 zaten karsiliyor).
+
+10.4 UYGULAMA: portfolioPosition isaretli sembollerde panelin N/WR/PF/DD
+    alanina GUVENILMEZ - gercek performans icin sinyal_arsiv.json / M7
+    raporuna bakilir.
