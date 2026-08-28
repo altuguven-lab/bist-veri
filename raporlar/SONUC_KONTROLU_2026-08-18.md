@@ -1,3 +1,4 @@
+KISMEN GECERLI (bkz. güncel sinyal_arsiv durumu — v2.1 o gün commit'lenmemişti, sonradan commit'lendi)
 # SONUÇ KONTROLÜ — 18.08.2026
 İP-7 aşama 2 (07:42) + gece/gündüz 5y sansürlü (07:48)
 
