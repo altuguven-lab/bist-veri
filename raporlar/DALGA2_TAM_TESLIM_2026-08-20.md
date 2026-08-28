@@ -1,3 +1,4 @@
+GECERLI
 # DALGA 2 — TAM TESLİM
 20.08.2026 | C3 + atomik yazım yaygınlaştırma + mükerrer temizlik
 
