@@ -1,3 +1,4 @@
+GECERLI (tarihsel anlık görüntü — 17.08 durumu)
 # İCRA RAPORU — 17.08.2026
 ## Teşhis düzeltmeleri, kanıtlar, yama şartnamesi
 
