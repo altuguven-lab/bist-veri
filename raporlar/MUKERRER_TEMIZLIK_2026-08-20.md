@@ -1,3 +1,4 @@
+KISMEN GECERLI (supertrend/momentum şüphesi sonradan çürütüldü, diğer iki silme geçerliydi)
 # MÜKERRER DOSYA TEMİZLİĞİ
 20.08.2026 | Etiket: ALTYAPI | Dalga 2, madde 5
 
