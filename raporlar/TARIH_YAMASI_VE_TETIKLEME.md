@@ -1,3 +1,4 @@
+GECERLI
 # TARİH YAMASI + TETİKLEME LİSTESİ
 17.08.2026 | Etiket: ALTYAPI/BELGE — Pine'a dokunmuyor
 
