@@ -1,0 +1,34 @@
+name: SQZ Skoru (VIOP Sikisma Radari)
+
+on:
+  schedule:
+    # fetch_viop.yml'den (VIOP bulteni ~18:45 TR sonrasi) biraz sonra,
+    # hafta ici 19:30 TR = 16:30 UTC. Onceki gunun bulten verisiyle
+    # calisir, fetch_viop.yml'in cikardigi data/viop_analiz.json'a bagli.
+    - cron: "30 16 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sqz-skoru:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bagimliliklari kur
+        run: pip install yfinance pandas
+      - name: SQZ skoru hesapla
+        run: python sqz_skoru.py
+      - name: SQZ karnesi guncelle
+        run: python sqz_karne.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/sqz_skoru.json data/viop_seri.json data/sqz_karne.json
+          git diff --staged --quiet || git commit -m "SQZ skoru ve karne guncellendi"
+          git push
