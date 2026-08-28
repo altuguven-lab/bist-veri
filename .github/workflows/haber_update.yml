@@ -1,14 +1,23 @@
 name: Haber Akisi Guncelle
 
+# 28.08 DUZELTME (repository_dispatch'e gecis): 27-28.08 tesbitinde bu
+# workflow'un zamanli tetikleyicisi 94 dakikadan baslayip ~10 saate
+# kadar cikan, GITTIKCE BUYUYEN gecikmeler yasadi (bkz. Actions calisma
+# gecmisi #532-#538, WORKFLOW_KONSOLIDASYON_NOTU.md). Bu depoda 24 ayri
+# zamanli workflow oldugu icin GitHub'in ic zamanlayicisi asiri yuklu.
+# En sik calisan bu workflow artik GitHub'in `schedule:` tetikleyicisine
+# GUVENMIYOR: harici bir cron servisi GitHub API'sine `repository_dispatch`
+# (event_type: haber_tetikle) gonderiyor. Kurulum: WORKFLOW_KONSOLIDASYON_
+# NOTU.md "Harici tetikleyici kurulumu".
+#
+# 03.08 DUZELTME (eski, hala gecerli): 30dk'da bir (gunde 48 kez)
+# GitHub'in kendi belgeledigi "yuksek yukte sessizce atlanabilir"
+# riskine cok aciktir - 8+ saatlik sessiz bosluklar yasandi (script
+# hatasi degil, GitHub'in zamanlayici guvenilirligi). Saatte bire
+# dusuruldu.
 on:
-  schedule:
-    # 03.08 DUZELTME: 30dk'da bir (gunde 48 kez) GitHub'in kendi
-    # belgeledigi "yuksek yukte sessizce atlanabilir" riskine cok
-    # aciktir - 8+ saatlik sessiz bosluklar yasandi (script hatasi
-    # degil, GitHub'in zamanlayici guvenilirligi). Saatte bire
-    # dusuruldu - haber akisi icin zaten yeterli, GitHub'in onerdigi
-    # "15 dakikadan sik olmasin" esiginin rahat altinda.
-    - cron: "13 * * * *"
+  repository_dispatch:
+    types: [haber_tetikle]
   workflow_dispatch: {}
 
 permissions:
@@ -33,13 +42,12 @@ jobs:
       - name: Commit ve push
         run: |
           git config user.name "bist-veri-bot"
-          git config user.email "bot@users.noreply.github.com"
+          git config user.email "actions@users.noreply.github.com"
           git add data/haber_akisi.json
           git diff --staged --quiet && exit 0
           git commit -m "Otomatik haber guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          # 03.08 DUZELTME: diger 9 workflow'la ayni "fetch first" carpismasi
-          # riski - gunde 48 kez calistigi icin en yuksek carpisma ihtimaline
-          # sahip workflow. 5 denemeli jitter'li pull --rebase + push.
+          # 03.08 DUZELTME: diger workflow'larla ayni "fetch first"
+          # carpisma riski - 5 denemeli jitter'li pull --rebase + push.
           for i in 1 2 3 4 5; do
             if git push; then
               echo "push basarili (deneme $i)"
