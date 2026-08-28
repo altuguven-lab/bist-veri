@@ -1,14 +1,18 @@
 name: Haber Akisi Guncelle
 
-# 28.08 DUZELTME (repository_dispatch'e gecis): 27-28.08 tesbitinde bu
-# workflow'un zamanli tetikleyicisi 94 dakikadan baslayip ~10 saate
-# kadar cikan, GITTIKCE BUYUYEN gecikmeler yasadi (bkz. Actions calisma
-# gecmisi #532-#538, WORKFLOW_KONSOLIDASYON_NOTU.md). Bu depoda 24 ayri
-# zamanli workflow oldugu icin GitHub'in ic zamanlayicisi asiri yuklu.
-# En sik calisan bu workflow artik GitHub'in `schedule:` tetikleyicisine
-# GUVENMIYOR: harici bir cron servisi GitHub API'sine `repository_dispatch`
-# (event_type: haber_tetikle) gonderiyor. Kurulum: WORKFLOW_KONSOLIDASYON_
-# NOTU.md "Harici tetikleyici kurulumu".
+# 28.08 DUZELTME (v2 - harici cron KURULMADAN otomatik): 27-28.08
+# tesbitinde bu workflow'un zamanli tetikleyicisi 94 dakikadan baslayip
+# ~10 saate kadar cikan, GITTIKCE BUYUYEN gecikmeler yasadi (bkz. Actions
+# calisma gecmisi #532-#538). Kok neden GitHub'in zamanlayicisi degil,
+# DEPODAKI ASIRI ZAMANLI IS YUKUYDU: 24 ayri workflow ayni depoda
+# `schedule:` kullaniyordu. O gun ayni konsolidasyonla 24 -> 12 zamanli
+# dosyaya inildi, tum ayni-dakika cakismalari kaldirildi (bkz.
+# WORKFLOW_KONSOLIDASYON_NOTU.md). `schedule:` bu yuzden GERI EKLENDI -
+# artik rekabet etmiyor, harici cron/PAT kurulumu GEREKMIYOR.
+# `repository_dispatch` de DURUYOR (zararsiz, ileride harici bir
+# tetikleyici eklemek istenirse hazir durur). saglik_kontrol.py
+# (risk_ve_saglik_paketi.yml icinde) hala devrede - GitHub yine de
+# nadiren bir kosuyu atlarsa bunu 2 saat icinde Issue acarak yakalar.
 #
 # 03.08 DUZELTME (eski, hala gecerli): 30dk'da bir (gunde 48 kez)
 # GitHub'in kendi belgeledigi "yuksek yukte sessizce atlanabilir"
@@ -16,6 +20,8 @@ name: Haber Akisi Guncelle
 # hatasi degil, GitHub'in zamanlayici guvenilirligi). Saatte bire
 # dusuruldu.
 on:
+  schedule:
+    - cron: "13 * * * *"
   repository_dispatch:
     types: [haber_tetikle]
   workflow_dispatch: {}
