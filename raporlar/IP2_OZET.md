@@ -1,3 +1,4 @@
+GECERLI
 IP-2 GUNLUK ISKELET KARAKTER HARITASI - KOMITE OZETI
 Tarih: 09.07.2026 | Veri: data/backtest/ip2_iskelet_sonuc.json
 Nitelik: Gosterge niteliginde karakter haritasi. GETIRI IDDIASI DEGILDIR.
