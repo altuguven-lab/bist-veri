@@ -1,3 +1,4 @@
+GECERLI
 # C3 — TEK KAYNAK: config/universe.yml
 20.08.2026 | Etiket: ALTYAPI | Sinyal mantığı değişmiyor, kuluçkayı etkilemiyor
 
