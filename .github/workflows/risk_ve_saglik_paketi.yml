@@ -1,0 +1,66 @@
+# RISK VE SAGLIK PAKETI (28.08.2026 KONSOLIDASYON)
+# Konum: .github/workflows/risk_ve_saglik_paketi.yml
+# ONCEKI DURUM: portfoy_risk.yml + saglik_kontrol.yml AYRI dosyalardi,
+# ikisi de "35 6,11 * * 1-5"'te (gunde iki kez) ateşleniyordu - sabah
+# 6:35'te fetch_sektor/fetch_viop/kuresel_asya ile de cakisiyordu.
+# Bu paket saati BILEREK 6:35'te BIRAKILDI (digerleri bu saatten
+# UZAKLASTIRILDI - bkz. sabah_veri_paketi.yml 6:30, kuresel_gosterge.yml
+# asya 6:40) - cunku saglik_kontrol.py digerlerinden SONRA calismali
+# (fiyat/haber kanallarinin o sabahki ilk yazimini denetlemesi icin
+# mumkunse; kesin sira garantisi degil ama saatin sabit tutulmasi mevcut
+# Issue/izleme aliskanliklarini bozmuyor). Ikisi birbirinden BAGIMSIZ,
+# paralel job olarak kosuyor.
+name: Risk ve Saglik Paketi
+on:
+  schedule:
+    - cron: "35 6,11 * * 1-5"
+  workflow_dispatch: {}
+jobs:
+  risk:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Risk esigi kontrolu
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python portfoy_risk_kontrol.py
+      - name: Takip dosyasini commit et
+        run: |
+          git config user.name "risk-esigi-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/portfoy_risk_takip.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Risk esigi takibi $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
+
+  saglik:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml
+      - name: Saglik kontrolu
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python saglik_kontrol.py
