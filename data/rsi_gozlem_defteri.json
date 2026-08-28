@@ -16,14 +16,6 @@
       "sektor": "Otomotiv",
       "pozisyon_birim_yuzde": 12.0
     },
-    "HALKB": {
-      "giris_tarih": "2026-08-12",
-      "giris_fiyat": 34.47999954223633,
-      "giris_rsi": 36.2,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Bankacilik",
-      "pozisyon_birim_yuzde": 12.0
-    },
     "MGROS": {
       "giris_tarih": "2026-08-14",
       "giris_fiyat": 555.0,
@@ -41,7 +33,25 @@
       "pozisyon_birim_yuzde": 12.0
     }
   },
-  "kapanan_pozisyonlar": [],
-  "son_guncelleme_utc": "2026-08-28T00:30:34.881979+00:00",
-  "reddedilen_sinyaller": []
+  "kapanan_pozisyonlar": [
+    {
+      "sembol": "HALKB",
+      "giris_tarih": "2026-08-12",
+      "cikis_tarih": "2026-08-28",
+      "tutma_gun": 16,
+      "giris_fiyat": 34.47999954223633,
+      "cikis_fiyat": 46.099998474121094,
+      "sebep": "KAR_AL_ASIRI_ALIM",
+      "net_getiri_pct": 33.451,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Bankacilik"
+    }
+  ],
+  "son_guncelleme_utc": "2026-08-28T13:45:08.073392+00:00",
+  "reddedilen_sinyaller": [],
+  "ozet": {
+    "toplam_kapanan": 1,
+    "isabet_pct": 100.0,
+    "ort_net_getiri_pct": 33.451
+  }
 }
