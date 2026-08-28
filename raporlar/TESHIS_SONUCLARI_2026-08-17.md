@@ -1,3 +1,4 @@
+GECERLI (tarihsel anlık görüntü — 17.08 durumu)
 # TEŞHİS SONUÇLARI + İKİ İŞ ŞARTNAMESİ
 17.08.2026 | Teşhis koşusu: 07:13 UTC, 41 kaynak
 
