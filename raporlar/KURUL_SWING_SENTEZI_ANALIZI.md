@@ -1,3 +1,4 @@
+GECERLI
 # KURUL ANALİZİ — 1-2 GÜNLÜK SWING SENTEZİ
 17.08.2026 | Girdi: Kurul_Sentezi__BIST_1-2_Günlük_Swing_Kriterleri.md
 Kuluçka v2 günü 9/42 (bitiş 19.09.2026)
