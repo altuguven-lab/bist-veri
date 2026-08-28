@@ -1,3 +1,4 @@
+GECERLI
 # sinyal_arsiv_gunluk.py v2.1 — TESLİM NOTU
 17.08.2026 | Kurul kararı: seçenek (1) — düzelt ve tüm arşivi yeniden doğrula
 Etiket: ALTYAPI (salt ölçüm) | Pine'a dokunmuyor, kuluçka sayacını yakmıyor
