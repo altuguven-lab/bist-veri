@@ -1,3 +1,4 @@
+GECERLI
 # BIST Gün İçi Alım-Satım: Teknik + Temel Anlatı Sentezinin Değerlendirmesi
 
 ## Özet
