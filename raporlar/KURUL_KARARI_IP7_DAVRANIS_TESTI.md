@@ -1,3 +1,4 @@
+GECERLI
 # KURUL KARARI — "19 MART 2025 SONRASI BIST DAVRANIŞI" TEST PROTOKOLÜ
 17.08.2026 | Girdi: kurul sentezi + iki üye protokolü (GPT-5.6 Sol, Claude Opus 5)
 Etiket: ÖLÇÜM | Pine'a dokunmaz, kuluçka sayacını yakmaz
