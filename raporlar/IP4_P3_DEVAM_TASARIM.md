@@ -1,3 +1,4 @@
+GECERLI
 # IP-4: P3_DEVAM MODULU TASARIMI (Trend-Ici Giris)
 Statu: TASLAK v0.1 | Karar: Baskan, 18.07.2026 (acil istisna - B yolu)
 Anayasal cerceve: Tasarim/golge dogrulama sayaci YAKMAZ. Sayac, modulun
