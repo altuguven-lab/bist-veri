@@ -1,3 +1,4 @@
+GECERLI
 # G1 DUZELTME RAPORU (Ters Muhendislik, 2. Tur) - 13.07.2026
 Taban: canli uretim dosyasi (22 kayit) + V151/Pipedream kaynak okumasi.
 
