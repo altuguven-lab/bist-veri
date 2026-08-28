@@ -1,18 +1,19 @@
 name: BIST Veri Guncelleme
 
-# 28.08 DUZELTME (repository_dispatch'e gecis): GitHub'in kendi
-# `schedule:` tetikleyicisi bu is icin YETERSIZ cikti - 27.08/28.08
+# 28.08 DUZELTME (v2 - harici cron KURULMADAN otomatik): 27-28.08
 # tesbitinde bu workflow saatlerce (bir seferinde ~18 saat) hic
-# tetiklenmedi, ayrica GitHub bunu belgeliyor: "yuksek yukte sessizce
-# atlanabilir/ertelenebilir". 05.08'de saatte 4->2'ye dusurulmesi
-# (asagidaki eski not) bunu HAFIFLETTI ama COZMEDI. Bu depoda 24 ayri
-# zamanli workflow oldugu icin (bkz. WORKFLOW_KONSOLIDASYON_NOTU.md)
-# GitHub'in ic zamanlayicisi asiri yuklu - en kritik/en sik ihtiyac
-# duyulan bu iki kanal (bu dosya + haber_update.yml) artik GitHub'in
-# zamanlayicisina GUVENMIYOR: harici bir cron servisi (ör. cron-job.org)
-# GitHub API'sine `repository_dispatch` (event_type: bist_veri_tetikle)
-# gonderiyor, bu da bu workflow'u DOGRUDAN, saat garantili tetikliyor.
-# Kurulum: WORKFLOW_KONSOLIDASYON_NOTU.md "Harici tetikleyici kurulumu".
+# tetiklenmedi. Kok neden GitHub'in zamanlayicisinin kendisi degil,
+# DEPODAKI ASIRI ZAMANLI IS YUKUYDU: 24 ayri workflow ayni depoda
+# `schedule:` kullaniyordu, bircogu ayni dakikada cakisiyordu (bkz.
+# WORKFLOW_KONSOLIDASYON_NOTU.md). O gun ayni konsolidasyonla 24 -> 12
+# zamanli dosyaya inildi ve TUM ayni-dakika cakismalari kaldirildi.
+# `schedule:` bu yuzden GERI EKLENDI - artik rekabet etmiyor. Harici
+# cron/PAT kurulumu GEREKMIYOR. `repository_dispatch` de DURUYOR
+# (zarasiz, ileride harici bir tetikleyici eklemek istenirse hazir
+# durur). saglik_kontrol.py (risk_ve_saglik_paketi.yml icinde) hala
+# devrede - bu, GitHub yine de bir kosuyu atlarsa (nadiren, global
+# yuk) bunu 2 saat icinde Issue acarak yakalayan guvenlik agidir; o
+# Issue gelirse "Run workflow" ile elle tetiklemek yeterlidir.
 #
 # 05.08 DUZELTME (eski, hala gecerli): saatte 4 kez (her 15dk) GitHub'in
 # kendi belgeledigi 'yuksek yukte sessizce atlanabilir' esigindeydi -
@@ -20,6 +21,8 @@ name: BIST Veri Guncelleme
 # bildiriyordu, biz Actions kirmizisini gormezden gelmisiz. Saatte 2'ye
 # dusuruldu.
 on:
+  schedule:
+    - cron: "4,34 7-15 * * 1-5"
   repository_dispatch:
     types: [bist_veri_tetikle]
   workflow_dispatch: {}
