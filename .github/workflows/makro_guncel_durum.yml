@@ -1,25 +1,47 @@
-# MAKRO GUNCEL DURUM (11.08.2026) - Faz V0
+# MAKRO GUNCEL DURUM (28.08.2026: workflow_run'a GECIRILDI)
 # Konum: .github/workflows/makro_guncel_durum.yml
-# HAFTALIK calisir (Pazartesi 07:15 UTC - tcmb_evds_veri.py'den
-# 15dk sonra, GUNCEL veriyi okumasi icin).
+# ONCEKI DURUM: "15 7 * * 1" (Pazartesi 07:15 UTC) sabit saatte
+# calisiyordu - hem kazanc_surprizi_reversal.yml ile TAM CAKISMA hem de
+# "tcmb_evds_veri.py'den 15dk sonra calissin" varsayimi wall-clock'a
+# bagliydi (28.08 tesbiti: bu varsayim GitHub yuklenince saatlerce
+# kayabiliyor - bkz. WORKFLOW_KONSOLIDASYON_NOTU.md).
+# YENI TETIKLEYICI: tcmb_evds_veri.yml BITTIGI ANDA (workflow_run,
+# completed event) ateşleniyor - GERCEK bagimliligi (tcmb verisinin
+# GUNCEL olmasi) saate degil, olaya bagliyor. tcmb_evds_veri.yml hafta
+# ici HER GUN calisiyor ama bu is sadece PAZARTESI anlamli oldugu icin
+# ilk adim gunu kontrol edip Pazartesi degilse sessizce atlıyor.
 name: Makro Guncel Durum
 on:
-  schedule:
-    - cron: "15 7 * * 1"
+  workflow_run:
+    workflows: ["TCMB EVDS Veri"]
+    types: [completed]
   workflow_dispatch: {}
 permissions:
   contents: write
 jobs:
   entegrasyon:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
+      - name: Sadece Pazartesi calis (workflow_run tetiklemesiyse)
+        if: github.event_name == 'workflow_run'
+        run: |
+          gun=$(date -u +%u)
+          if [ "$gun" != "1" ]; then
+            echo "Bugun Pazartesi degil (gun=$gun), atlaniyor."
+            echo "ATLA=1" >> "$GITHUB_ENV"
+          fi
       - uses: actions/checkout@v4
+        if: env.ATLA != '1'
       - uses: actions/setup-python@v5
+        if: env.ATLA != '1'
         with:
           python-version: "3.11"
       - name: Entegrasyonu calistir
+        if: env.ATLA != '1'
         run: python makro_guncel_durum.py
       - name: Sonuclari commit'le
+        if: env.ATLA != '1'
         run: |
           git config user.name "makro-guncel-bot"
           git config user.email "actions@users.noreply.github.com"
