@@ -1,3 +1,4 @@
+GECERLI
 # ÖLÇÜM EKİ — ENDEKS KONTROLÜ SONUCU
 17.08.2026 | `gece_gunduz_ayristirma.py 5y` (H1_KONTROL_endeks ile)
 
