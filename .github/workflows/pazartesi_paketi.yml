@@ -1,0 +1,111 @@
+# PAZARTESI PAKETI (28.08.2026 KONSOLIDASYON)
+# Konum: .github/workflows/pazartesi_paketi.yml
+# ONCEKI DURUM: geri_donus_adaylari.yml (07:00), kazanc_surprizi_reversal.yml
+# (07:15) ve kazanc_reversal_izleme.yml (07:30) 3 AYRI dosyaydi, birbirinin
+# ciktisini okuyacak sekilde 15'er dakika ARAYLA (wall-clock) zamanlanmisti.
+# 28.08 tesbiti: GitHub'in zamanlayicisi yuklenince bu tur sabit-dakika
+# varsayimlari saatlerce kayabiliyor (bkz. WORKFLOW_KONSOLIDASYON_NOTU.md,
+# haber_update.yml'de gozlenen 94dk->10 saate cikan gecikme orneği). Ayrica
+# 07:15'te makro_guncel_durum.yml ile TAM CAKISMA vardi.
+# BU DOSYADA zincir artik `needs:` ile GARANTI SIRALI: her adim bir
+# oncekinin (commit dahil) BITMESINI bekliyor, saatin kacta oldugu
+# ONEMSIZ. Tek tetikleyici: Pazartesi 07:00 UTC.
+# makro_guncel_durum.py BURAYA DAHIL EDILMEDI - o, tcmb_evds_veri.py'nin
+# CIKTISINA bagli (gunluk calisan ayri bir workflow); onun icin ayri
+# workflow_run tetikleyicisi kuruldu, bkz. makro_guncel_durum.yml.
+name: Pazartesi Paketi
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  geri_donus_adaylari:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas pyyaml
+      - name: Taramayi calistir
+        run: python geri_donus_adaylari.py
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "geri-donus-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/geri_donus_adaylari.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Geri donus adaylari taramasi $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
+
+  kazanc_surprizi_reversal:
+    needs: geri_donus_adaylari
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas
+      - name: Taramayi calistir
+        run: python kazanc_surprizi_reversal.py
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "kazanc-reversal-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/kazanc_surprizi_reversal.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Kazanc surprizi reversal taramasi $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
+
+  kazanc_reversal_izleme:
+    needs: kazanc_surprizi_reversal
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66
+      - name: Izlemeyi guncelle
+        run: python kazanc_reversal_izleme.py
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "kazanc-izleme-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/kazanc_reversal_izleme.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Kazanc reversal izleme guncelleme $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
