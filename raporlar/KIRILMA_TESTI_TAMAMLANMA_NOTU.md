@@ -1,3 +1,4 @@
+GECERLI
 # kirilma_testi.py — TAMAMLANDI
 17.08.2026 | Ön kayıt: ON_KAYIT_IP7.md | Etiket: ÖLÇÜM
 
