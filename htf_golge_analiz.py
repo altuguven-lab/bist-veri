@@ -36,6 +36,17 @@ C.5 ON KAYIT (veri gorulmeden yontem kilitlendi, 27.08.2026):
   ise "KANIT YETERSIZ" - duzeltmenin canli etkisi belirsiz kalir,
   bu BASARISIZLIK degildir, dogru sonuc budur.
 
+  27.08 EK ON KAYIT (ilk kosumun SONUCUNU gordukten sonra eklendi -
+  bu yuzden ilk kosum icin kesin kanit degil, ikinci kosumdan itibaren
+  ON KAYITLI sayilir): "farkli" grubu YONE gore ikiye bolunur:
+    - YENI > ESKI: duzeltme HTF onayini GUCLENDIRIYOR (sinyal zaten
+      gecerdi, ama daha guclu onayla)
+    - YENI < ESKI: duzeltme HTF onayini ZAYIFLATIYOR (sinyal
+      duzeltilmis sistemde pAzamiHtf esigini GECEMEYEBILIRDI - bu
+      grubun performansi, duzeltmenin "kotu sinyalleri eliyor mu"
+      sorusuna dogrudan cevap verir)
+  Her alt grup n<10 ise ayri ayri "n YETERSIZ" raporlanir.
+
 CANLI SISTEME ETKI: SIFIR. Bu betik hicbir alertcondition, hicbir
 Pine dosyasi, hicbir islem/portfoy dosyasi YAZMAZ - sadece OKUR
 (sinyal_arsiv.json) ve kendi cikti dosyasina (htf_golge_sonuc.json)
@@ -201,10 +212,13 @@ def main():
 
     farkli = [s for s in sonuclar if s["farkli_mi"]]
     ayni = [s for s in sonuclar if not s["farkli_mi"]]
+    yon_yukari = [s for s in farkli if s["htfAlign_yeni"] > s["htfAlign_eski"]]
+    yon_asagi = [s for s in farkli if s["htfAlign_yeni"] < s["htfAlign_eski"]]
     print(f"{len(sonuclar)} kayit hesaplandi, {len(farkli)} farkli, {len(ayni)} ayni")
 
     ozet = {"n_toplam": len(sonuclar), "n_farkli": len(farkli), "n_ayni": len(ayni)}
-    for grup_ad, grup in [("farkli", farkli), ("ayni", ayni)]:
+    for grup_ad, grup in [("farkli", farkli), ("ayni", ayni),
+                           ("yon_yukari", yon_yukari), ("yon_asagi", yon_asagi)]:
         vals = [s["getiri_rel_t3_pct"] for s in grup if s.get("getiri_rel_t3_pct") is not None]
         if len(vals) >= 2:
             ozet[f"{grup_ad}_ortalama_goreli_t3"] = round(statistics.mean(vals), 3)
