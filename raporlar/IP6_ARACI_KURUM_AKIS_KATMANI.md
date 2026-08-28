@@ -1,3 +1,4 @@
+GECERLI
 # İP-6 ÖNERİSİ — ARACI KURUM AKIŞ KATMANI (AKD / TAKAS)
 17.08.2026 | Etiket: ÖLÇÜM PROJESİ | Pine'a dokunmaz, kuluçka sayacını yakmaz
 
