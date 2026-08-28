@@ -1,12 +1,27 @@
 name: BIST Veri Guncelleme
 
-# 05.08 DUZELTME: saatte 4 kez (her 15dk) GitHub'in kendi belgeledigi
-# 'yuksek yukte sessizce atlanabilir' esigindeydi - saglik_kontrol.py
-# GERCEK bir arizayi (69 dk gecikme) haftalardir dogru bildiriyordu,
-# biz Actions kirmizisini gormezden gelmisiz. Saatte 2'ye dusuruldu.
+# 28.08 DUZELTME (repository_dispatch'e gecis): GitHub'in kendi
+# `schedule:` tetikleyicisi bu is icin YETERSIZ cikti - 27.08/28.08
+# tesbitinde bu workflow saatlerce (bir seferinde ~18 saat) hic
+# tetiklenmedi, ayrica GitHub bunu belgeliyor: "yuksek yukte sessizce
+# atlanabilir/ertelenebilir". 05.08'de saatte 4->2'ye dusurulmesi
+# (asagidaki eski not) bunu HAFIFLETTI ama COZMEDI. Bu depoda 24 ayri
+# zamanli workflow oldugu icin (bkz. WORKFLOW_KONSOLIDASYON_NOTU.md)
+# GitHub'in ic zamanlayicisi asiri yuklu - en kritik/en sik ihtiyac
+# duyulan bu iki kanal (bu dosya + haber_update.yml) artik GitHub'in
+# zamanlayicisina GUVENMIYOR: harici bir cron servisi (ör. cron-job.org)
+# GitHub API'sine `repository_dispatch` (event_type: bist_veri_tetikle)
+# gonderiyor, bu da bu workflow'u DOGRUDAN, saat garantili tetikliyor.
+# Kurulum: WORKFLOW_KONSOLIDASYON_NOTU.md "Harici tetikleyici kurulumu".
+#
+# 05.08 DUZELTME (eski, hala gecerli): saatte 4 kez (her 15dk) GitHub'in
+# kendi belgeledigi 'yuksek yukte sessizce atlanabilir' esigindeydi -
+# saglik_kontrol.py GERCEK bir arizayi (69 dk gecikme) haftalardir dogru
+# bildiriyordu, biz Actions kirmizisini gormezden gelmisiz. Saatte 2'ye
+# dusuruldu.
 on:
-  schedule:
-    - cron: "4,34 7-15 * * 1-5"
+  repository_dispatch:
+    types: [bist_veri_tetikle]
   workflow_dispatch: {}
 
 jobs:
