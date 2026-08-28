@@ -1,3 +1,4 @@
+GECERLI
 IP-1 OLAY PENCERESI CALISMASI - KOMITE OZETI
 Tarih: 09.07.2026 | Veri: data/backtest/olay_penceresi_sonuc.json
 Nitelik: Rejim-davranis haritasi. GETIRI IDDIASI DEGILDIR.
