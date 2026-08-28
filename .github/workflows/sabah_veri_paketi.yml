@@ -1,0 +1,78 @@
+# SABAH VERI PAKETI (28.08.2026 KONSOLIDASYON)
+# Konum: .github/workflows/sabah_veri_paketi.yml
+# ONCEKI DURUM: fetch_sektor.yml + fetch_viop.yml AYRI dosyalardi, ikisi
+# de "35 6 * * 1-5"'te ateşleniyordu - kuresel_asya.yml, portfoy_risk.yml
+# ve saglik_kontrol.yml ile birlikte AYNI DAKIKADA 5 workflow yarisiyordu.
+# 28.08 saglik kontrolu bu besli yigilmayi (ve genel zamanlayici asirimini)
+# GERCEK bir arizanin (fiyat+haber kanali 8-18 saat gecikme) kok nedeni
+# olarak isaretledi - bkz. WORKFLOW_KONSOLIDASYON_NOTU.md.
+# Bu iki betik birbirinden BAGIMSIZ (ayri veri kaynaklari), o yuzden
+# ayni tetiklemede PARALEL iki job olarak kosuyorlar - biri patlarsa
+# digeri etkilenmez (mevcut "tek kaynak hatasinda cokmez" ilkesi korunuyor).
+# Saat 6:35'ten 6:30'a CEKILDI (digger paketlerle cakismayi azaltmak icin,
+# bkz. not dosyasindaki tam zaman cizelgesi).
+name: Sabah Veri Paketi
+on:
+  schedule:
+    - cron: "30 6 * * 1-5"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  sektor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66
+      - name: Sektor verisini cek
+        run: python fetch_sektor.py
+      - name: Commit et
+        run: |
+          git config user.name "sektor-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/sektor_gosterge.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Sektor gosterge $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
+
+  viop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pandas
+      - name: VIOP verisini cek
+        run: python fetch_viop.py
+      - name: Commit et
+        run: |
+          git config user.name "viop-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/viop_analiz.json
+          git diff --staged --quiet && exit 0
+          git commit -m "VIOP gunluk veri $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
