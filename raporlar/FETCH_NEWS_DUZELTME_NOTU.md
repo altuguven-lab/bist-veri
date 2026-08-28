@@ -1,3 +1,4 @@
+KISMEN GECERLI (bkz. sonraki bulgu — beklenen faydayı sağlamadı, KAP ile çözüldü)
 # fetch_news.py — when:7d DÜZELTMESİ
 20.08.2026 | Etiket: ALTYAPI (sinyal mantığı değişmiyor) | Kuluçkayı etkilemiyor
 
