@@ -1,3 +1,4 @@
+GECERLI
 IP-4 EK-1: v0.2 REVIZYONU - P3_SKOR (skor-tabanli giris)
 Statu: TASLAK | 20.07.2026 | Gerekce: D1 basarisizligi (pullback sinifi
 %12-25 isabet, 0/13 yakalama) + TUPRS vakasi (16.07 skor 97.2 ->
