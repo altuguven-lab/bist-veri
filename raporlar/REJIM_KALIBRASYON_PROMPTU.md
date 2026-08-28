@@ -1,3 +1,4 @@
+GECERLI
 REJIM/KALIBRASYON DURUM PROMPTU (05.08.2026, guncel)
 Bu belge, 05.08.2026'da (gun boyu) yapilan calisma ve kurul kararlarinin
 konsolide ozeti - gelecekteki oturumlarin (ve gelecekteki Claude'un) hizli
