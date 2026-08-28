@@ -1,3 +1,4 @@
+GECERSIZ (yerine: 26.08 kararı — konu kapandı)
 # pSkorTaban OKUMA KONTROL LİSTESİ
 20.08'den beri açık | Her grafikte "P3 SKOR" ayar grubundaki
 **"Skor Tabanı"** değerini bu tabloya işle.
