@@ -1,0 +1,102 @@
+# SEANS KAPANISI PAKETI (28.08.2026 KONSOLIDASYON)
+# Konum: .github/workflows/seans_kapanisi.yml
+# ONCEKI DURUM: golge_kalibrasyon.yml (15:20), rsi_gozlem.yml (15:30),
+# sinyal_arsiv_gunluk.yml (15:45) hafta ici HER GUN 3 AYRI dosyada,
+# 10-15dk arayla ateşleniyordu. Aralarinda STATED bir veri bagimliligi
+# YOK (ucu de tv_alerts_latest.json / GUNLUK_OZET'in o gunku yaziminin
+# tamamlanmis olmasina guveniyor, birbirinin CIKTISINI okumuyor) - o
+# yuzden TEK tetiklemede 3 BAGIMSIZ paralel job olarak birlestirildi.
+# Tek cron: 15:20 UTC (en erken olan saat korundu).
+name: Seans Kapanisi Paketi
+on:
+  schedule:
+    - cron: "20 15 * * 1-5"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  golge_kalibrasyon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66
+      - run: python golge_kalibrasyon.py
+      - run: |
+          git config user.name "golge-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/denetim/
+          git diff --staged --quiet || git commit -m "Golge kalibrasyon $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
+
+  rsi_gozlem:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy pyyaml
+      - name: Gozlem defterini guncelle
+        run: python rsi_gozlem.py
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "rsi-gozlem-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/rsi_gozlem_defteri.json
+          git diff --staged --quiet && exit 0
+          git commit -m "RSI gozlem defteri guncelleme $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
+
+  sinyal_arsiv_gunluk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66
+      - name: Inbox kayitlarini birlestir
+        run: python inbox_birlestir.py
+      - name: Arsivi guncelle
+        run: python sinyal_arsiv_gunluk.py
+      - name: Sonuclari commit'le
+        run: |
+          git config user.name "sinyal-arsiv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/sinyal_arsiv.json data/tv_alerts_latest.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Sinyal dogrulama arsivi guncelleme $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push basarili (deneme $i)"
+              exit 0
+            fi
+            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"
+          exit 1
