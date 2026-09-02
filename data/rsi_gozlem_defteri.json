@@ -16,14 +16,6 @@
       "sektor": "Otomotiv",
       "pozisyon_birim_yuzde": 12.0
     },
-    "MGROS": {
-      "giris_tarih": "2026-08-14",
-      "giris_fiyat": 555.0,
-      "giris_rsi": 30.7,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Perakende",
-      "pozisyon_birim_yuzde": 12.0
-    },
     "SISE": {
       "giris_tarih": "2026-08-19",
       "giris_fiyat": 38.84000015258789,
@@ -53,13 +45,25 @@
       "net_getiri_pct": 33.451,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Bankacilik"
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2026-08-14",
+      "cikis_tarih": "2026-09-02",
+      "tutma_gun": 19,
+      "giris_fiyat": 555.0,
+      "cikis_fiyat": 525.0,
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.655,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Perakende"
     }
   ],
-  "son_guncelleme_utc": "2026-09-01T18:37:46.301683+00:00",
+  "son_guncelleme_utc": "2026-09-02T18:47:59.451456+00:00",
   "reddedilen_sinyaller": [],
   "ozet": {
-    "toplam_kapanan": 1,
-    "isabet_pct": 100.0,
-    "ort_net_getiri_pct": 33.451
+    "toplam_kapanan": 2,
+    "isabet_pct": 50.0,
+    "ort_net_getiri_pct": 13.898
   }
 }
