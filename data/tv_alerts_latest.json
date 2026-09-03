@@ -1,26 +1,40 @@
 {
-  "son_guncelleme_utc": "2026-09-03T08:15:05.416Z",
+  "son_guncelleme_utc": "2026-09-03T13:15:14.848Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 53
+    "adet": 54
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-03T08:15:04.072Z",
-    "sembol": "AKBNK",
-    "sinyal": "P3_RADAR",
+    "zaman_utc": "2026-09-03T13:15:12.829Z",
+    "sembol": "TRALT",
+    "sinyal": "P2_ADAY",
     "interval": "15",
-    "fiyat": "72.70",
-    "skor": "47.87836169232459",
-    "kgs": "87",
-    "stop": "72.14399410261719",
-    "rejim": "0",
-    "relvol": "2.5196585349535336",
+    "fiyat": "51.40",
+    "skor": "41.551684785376096",
+    "kgs": "88",
+    "stop": "50.94698097027246",
+    "rejim": "2",
+    "relvol": "2.5806347779398453",
     "v112n": "?",
     "v112wr": "?"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-03T13:15:12.829Z",
+      "sembol": "TRALT",
+      "sinyal": "P2_ADAY",
+      "interval": "15",
+      "fiyat": "51.40",
+      "skor": "41.551684785376096",
+      "kgs": "88",
+      "stop": "50.94698097027246",
+      "rejim": "2",
+      "relvol": "2.5806347779398453",
+      "v112n": "?",
+      "v112wr": "?"
+    },
     {
       "zaman_utc": "2026-09-03T08:15:04.072Z",
       "sembol": "AKBNK",
@@ -1405,20 +1419,6 @@
       "rejim": "0",
       "relvol": "1.0428281581433556",
       "v112n": "143",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-08-10T15:11:03.051Z",
-      "sembol": "TUPRS",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "340.00",
-      "skor": "93.72739695493323",
-      "kgs": "92",
-      "stop": "340.22192194283855",
-      "rejim": "0",
-      "relvol": "2.2061403904061683",
-      "v112n": "150",
       "v112wr": "?"
     }
   ]
