@@ -1,4 +1,4 @@
-# Golge Kalibrasyon (2026-09-08)
+# Golge Kalibrasyon (2026-09-09)
 SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ## Katman B - IP-2 vekili (EMA dizilim gecisi + hacim + rejim)
@@ -235,7 +235,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TRMET | 2026-09-01 | skor 11.9 | T+3 +1.93%
 - EREGL | 2026-07-29 | skor 11.9 | T+3 -5.70%
 - ALARK | 2026-09-01 | skor 11.8 | T+3 +3.80%
-- TTKOM | 2026-09-03 | skor 11.4 | T+3 beklemede
+- TTKOM | 2026-09-03 | skor 11.4 | T+3 +9.06%
 - TOASO | 2026-09-01 | skor 11.2 | T+3 +2.33%
 - SISE | 2026-09-01 | skor 11.2 | T+3 -1.21%
 - EREGL | 2026-09-01 | skor 11.2 | T+3 -1.54%
@@ -328,24 +328,25 @@ Hipotez: sektoru o gun negatifken isabet dusuyor mu? Yalniz Bankacilik+Sinai kap
 D1 esigi: kulucka penceresi yakalama >= %50 VE T+3 isabet >= %55
 | kalicilik | temas | hacim | toplam | kulucka | isabet% | yakalama |
 |---|---|---|---|---|---|---|
-| 5 | 0.5% | 1.1 | 14 | 5 | 28.6 | 1/106 |
-| 5 | 0.5% | 1.2 | 11 | 5 | 27.3 | 1/106 |
-| 5 | 0.5% | 1.3 | 10 | 5 | 30.0 | 1/106 |
-| 5 | 1.0% | 1.1 | 16 | 6 | 26.7 | 1/106 |
-| 5 | 1.0% | 1.2 | 12 | 5 | 25.0 | 1/106 |
-| 5 | 1.0% | 1.3 | 11 | 5 | 27.3 | 1/106 |
-| 8 | 0.5% | 1.1 | 12 | 4 | 33.3 | 1/106 |
-| 8 | 0.5% | 1.2 | 10 | 4 | 30.0 | 1/106 |
-| 8 | 0.5% | 1.3 | 9 | 4 | 33.3 | 1/106 |
-| 8 | 1.0% | 1.1 | 14 | 5 | 30.8 | 1/106 |
-| 8 | 1.0% | 1.2 | 11 | 4 | 27.3 | 1/106 |
-| 8 | 1.0% | 1.3 | 10 | 4 | 30.0 | 1/106 |
+| 5 | 0.5% | 1.1 | 16 | 7 | 28.6 | 1/106 |
+| 5 | 0.5% | 1.2 | 12 | 6 | 27.3 | 1/106 |
+| 5 | 0.5% | 1.3 | 11 | 6 | 30.0 | 1/106 |
+| 5 | 1.0% | 1.1 | 18 | 8 | 26.7 | 1/106 |
+| 5 | 1.0% | 1.2 | 13 | 6 | 25.0 | 1/106 |
+| 5 | 1.0% | 1.3 | 12 | 6 | 27.3 | 1/106 |
+| 8 | 0.5% | 1.1 | 14 | 6 | 33.3 | 1/106 |
+| 8 | 0.5% | 1.2 | 11 | 5 | 30.0 | 1/106 |
+| 8 | 0.5% | 1.3 | 10 | 5 | 33.3 | 1/106 |
+| 8 | 1.0% | 1.1 | 16 | 7 | 30.8 | 1/106 |
+| 8 | 1.0% | 1.2 | 12 | 5 | 27.3 | 1/106 |
+| 8 | 1.0% | 1.3 | 11 | 5 | 30.0 | 1/106 |
 
 ### Varsayilan konfig (8 / 0.5% / 1.2) vaka dokumu
 - SAHOL | 2026-07-01 | 98.1 -> T+3 93.6 | MISS | ONCESI
 - EREGL | 2026-06-15 | 40.2 -> T+3 40.0 | MISS | ONCESI
 - EREGL | 2026-07-02 | 40.8 -> T+3 41.26 | HIT | ONCESI
 - EREGL | 2026-07-06 | 41.52 -> T+3 40.06 | MISS | ONCESI
+- ASELS | 2026-09-09 | 402.25 -> T+3 None | beklemede | KULUCKA
 - MGROS | 2026-06-02 | 676.0 -> T+3 662.0 | MISS | ONCESI
 - TRMET | 2026-08-20 | 132.5 -> T+3 138.9 | HIT | KULUCKA
 - TRMET | 2026-08-24 | 147.0 -> T+3 144.7 | MISS | KULUCKA
