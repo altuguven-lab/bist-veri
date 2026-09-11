@@ -1,9 +1,9 @@
-# Golge Kalibrasyon (2026-09-10)
+# Golge Kalibrasyon (2026-09-11)
 SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ## Katman B - IP-2 vekili (EMA dizilim gecisi + hacim + rejim)
-- Toplam vekil-P1: 9 | T+3 isabet: 3/8 (37.5%) | IP-2 taban cizgisi: %54
-- Kulucka donemi vekil-P1: 3 (canli V151: 0) | firsat penceresi yakalama: 0/106
+- Toplam vekil-P1: 9 | T+3 isabet: 3/9 (33.3%) | IP-2 taban cizgisi: %54
+- Kulucka donemi vekil-P1: 3 (canli V151: 0) | firsat penceresi yakalama: 0/132
   - 2026-W25: 5 vekil sinyal
   - 2026-W28: 1 vekil sinyal
   - 2026-W34: 2 vekil sinyal
@@ -11,7 +11,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ### Kulucka donemi vekil dokumu
 - BIMAS | 2026-08-18 | 405.0 -> T+3 416.5 | HIT
-- PETKM | 2026-09-08 | 24.26 -> T+3 None | beklemede
+- PETKM | 2026-09-08 | 24.26 -> T+3 24.68 | HIT
 - ALARK | 2026-08-18 | 107.0 -> T+3 106.3 | MISS
 
 ## Katman A - gercek skor bandi (bir bar gecikmeli, gunde tek ornek)
@@ -328,18 +328,18 @@ Hipotez: sektoru o gun negatifken isabet dusuyor mu? Yalniz Bankacilik+Sinai kap
 D1 esigi: kulucka penceresi yakalama >= %50 VE T+3 isabet >= %55
 | kalicilik | temas | hacim | toplam | kulucka | isabet% | yakalama |
 |---|---|---|---|---|---|---|
-| 5 | 0.5% | 1.1 | 16 | 7 | 28.6 | 1/106 |
-| 5 | 0.5% | 1.2 | 12 | 6 | 27.3 | 1/106 |
-| 5 | 0.5% | 1.3 | 11 | 6 | 30.0 | 1/106 |
-| 5 | 1.0% | 1.1 | 18 | 8 | 26.7 | 1/106 |
-| 5 | 1.0% | 1.2 | 13 | 6 | 25.0 | 1/106 |
-| 5 | 1.0% | 1.3 | 12 | 6 | 27.3 | 1/106 |
-| 8 | 0.5% | 1.1 | 14 | 6 | 33.3 | 1/106 |
-| 8 | 0.5% | 1.2 | 11 | 5 | 30.0 | 1/106 |
-| 8 | 0.5% | 1.3 | 10 | 5 | 33.3 | 1/106 |
-| 8 | 1.0% | 1.1 | 16 | 7 | 30.8 | 1/106 |
-| 8 | 1.0% | 1.2 | 12 | 5 | 27.3 | 1/106 |
-| 8 | 1.0% | 1.3 | 11 | 5 | 30.0 | 1/106 |
+| 5 | 0.5% | 1.1 | 17 | 8 | 28.6 | 1/132 |
+| 5 | 0.5% | 1.2 | 12 | 6 | 27.3 | 1/132 |
+| 5 | 0.5% | 1.3 | 11 | 6 | 30.0 | 1/132 |
+| 5 | 1.0% | 1.1 | 19 | 9 | 31.2 | 1/132 |
+| 5 | 1.0% | 1.2 | 13 | 6 | 25.0 | 1/132 |
+| 5 | 1.0% | 1.3 | 12 | 6 | 27.3 | 1/132 |
+| 8 | 0.5% | 1.1 | 15 | 7 | 33.3 | 1/132 |
+| 8 | 0.5% | 1.2 | 11 | 5 | 30.0 | 1/132 |
+| 8 | 0.5% | 1.3 | 10 | 5 | 33.3 | 1/132 |
+| 8 | 1.0% | 1.1 | 17 | 8 | 35.7 | 1/132 |
+| 8 | 1.0% | 1.2 | 12 | 5 | 27.3 | 1/132 |
+| 8 | 1.0% | 1.3 | 11 | 5 | 30.0 | 1/132 |
 
 ### Varsayilan konfig (8 / 0.5% / 1.2) vaka dokumu
 - SAHOL | 2026-07-01 | 98.1 -> T+3 93.6 | MISS | ONCESI
