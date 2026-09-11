@@ -1,0 +1,411 @@
+{
+  "olusturma_utc": "2026-09-11T18:34:39.949330+00:00",
+  "kulucka_gunu": "2026-09-08",
+  "M1": {
+    "hit": 0,
+    "miss": 2,
+    "beklemede": 0,
+    "hesaplanamadi": 0,
+    "oran": 0.0
+  },
+  "M2": {
+    "hit": 0,
+    "miss": 0,
+    "beklemede": 0,
+    "hesaplanamadi": 0,
+    "oran": null
+  },
+  "M3": {
+    "toplam": 3,
+    "kirilim": {
+      "MANUEL_ALIM": 1,
+      "ETIKETSIZ": 2
+    },
+    "sinyalli_oran": 0.0,
+    "ragmen": 0,
+    "gecer_mi": false
+  },
+  "M4": {
+    "sembol_flip": {
+      "FROTO": 3,
+      "TRALT": 2,
+      "TTKOM": 2,
+      "ENJSA": 4,
+      "TUPRS": 2,
+      "ALARK": 3,
+      "KCHOL": 3,
+      "EREGL": 1,
+      "EKGYO": 1,
+      "SISE": 1,
+      "GARAN": 1,
+      "VAKBN": 1,
+      "AKBNK": 1,
+      "ULKER": 1
+    },
+    "gozlem": 92,
+    "not": "veri yalnizca gecerli GUNLUK_OZET kayitlarindan; seri kisa ise anlamsizdir"
+  },
+  "M5": {
+    "vakalar": [],
+    "medyan_gun": null,
+    "not": "takvim gunu bazli; seans bazina fiyat serisi girince gecilecek"
+  },
+  "M6": {
+    "trade_sinyal": 2,
+    "haberli": 0,
+    "not": "haber_akisi son ~77 kaydi tutar; tarihsel eslesme sinirlidir - arsivlenmis haber olmadan M6 kismi kalir"
+  },
+  "M7": {
+    "turler": {
+      "ACIL_CIK": {
+        "n": 12,
+        "yon_beklentisi": "ASAGI_VEYA_NOTR",
+        "goreli_t3_ortalama_pct": 2.27,
+        "t_istatistigi": 0.68,
+        "anlamli_mi": false,
+        "isabet_pct": 58.3,
+        "guven_araligi_95": [
+          -4.284,
+          8.825
+        ]
+      },
+      "P2_ADAY": {
+        "n": 12,
+        "yon_beklentisi": "YUKARI",
+        "goreli_t3_ortalama_pct": -2.098,
+        "t_istatistigi": -1.62,
+        "anlamli_mi": false,
+        "isabet_pct": 50.0,
+        "guven_araligi_95": [
+          -4.637,
+          0.441
+        ]
+      },
+      "P2_DIP_DONUS": {
+        "n": 12,
+        "yon_beklentisi": "YUKARI",
+        "goreli_t3_ortalama_pct": 4.273,
+        "t_istatistigi": 1.41,
+        "anlamli_mi": false,
+        "isabet_pct": 66.7,
+        "guven_araligi_95": [
+          -1.668,
+          10.214
+        ]
+      },
+      "P3_RADAR": {
+        "n": 21,
+        "yon_beklentisi": "YUKARI",
+        "goreli_t3_ortalama_pct": -0.194,
+        "t_istatistigi": -0.28,
+        "anlamli_mi": false,
+        "isabet_pct": 52.4,
+        "guven_araligi_95": [
+          -1.572,
+          1.184
+        ]
+      },
+      "P3_SKOR_AL": {
+        "n": 200,
+        "yon_beklentisi": "YUKARI",
+        "goreli_t3_ortalama_pct": -0.585,
+        "t_istatistigi": -1.76,
+        "anlamli_mi": false,
+        "isabet_pct": 41.5,
+        "guven_araligi_95": [
+          -1.237,
+          0.067
+        ]
+      },
+      "POZ_AZALT": {
+        "n": 7,
+        "yon_beklentisi": "ASAGI_VEYA_NOTR",
+        "goreli_t3_ortalama_pct": 2.731,
+        "t_istatistigi": 1.31,
+        "anlamli_mi": false,
+        "isabet_pct": 28.6,
+        "guven_araligi_95": [
+          -1.351,
+          6.813
+        ]
+      },
+      "STOP_KIRILDI": {
+        "n": 2,
+        "yon_beklentisi": "ASAGI_VEYA_NOTR",
+        "goreli_t3_ortalama_pct": -0.085,
+        "t_istatistigi": -0.12,
+        "anlamli_mi": false,
+        "isabet_pct": 50.0,
+        "guven_araligi_95": [
+          -1.41,
+          1.241
+        ]
+      }
+    },
+    "izleme_donusum": {
+      "P2_ADAY": {
+        "karar_verilmis": 9,
+        "donusen": 3,
+        "donusum_orani_pct": 33.3,
+        "ort_donusum_gun": 0.3
+      },
+      "P3_RADAR": {
+        "karar_verilmis": 19,
+        "donusen": 13,
+        "donusum_orani_pct": 68.4,
+        "ort_donusum_gun": 0.4
+      }
+    },
+    "not": "Yon beklentisi YUKARI icin isabet=goreli>0, ASAGI_VEYA_NOTR icin isabet=goreli<0. |t|>1.96 -> yaklasik %5 anlamlilikta sifirdan ayirt edilebilir - degilse KENAR YOK denir, ZARAR VAR denmez (ikisi farkli iddia)."
+  },
+  "O2": {
+    "islem_sinyali_toplam": 19,
+    "gun_ortalama": 3.8,
+    "en_yogun_gun": 7,
+    "tip_dagilimi": {
+      "P2_ADAY": 5,
+      "SEKTOR_ROTASYONU": 4,
+      "P3_RADAR": 3,
+      "?": 3,
+      "P3_SKOR_AL": 2,
+      "ACIL_CIK": 2
+    },
+    "yogun_saat_utc": 15,
+    "sembol_dagilimi": {
+      "AKBNK": 3,
+      "GARAN": 3,
+      "?": 3,
+      "TRALT": 2,
+      "BIMAS": 2,
+      "EREGL": 1,
+      "THYAO": 1,
+      "ASTOR": 1,
+      "VAKBN": 1,
+      "PETKM": 1,
+      "HALKB": 1
+    }
+  },
+  "KF": {
+    "kacan": [
+      [
+        "HALKB",
+        "2026-08-25",
+        33.0,
+        34.65999984741211,
+        46.099998474121094
+      ],
+      [
+        "PETKM",
+        "2026-09-03",
+        28.1,
+        20.219999313354492,
+        25.899999618530273
+      ],
+      [
+        "SISE",
+        "2026-09-02",
+        17.2,
+        39.099998474121094,
+        45.81999969482422
+      ],
+      [
+        "EKGYO",
+        "2026-09-03",
+        15.2,
+        19.510000228881836,
+        22.479999542236328
+      ],
+      [
+        "TRALT",
+        "2026-08-18",
+        14.6,
+        47.58000183105469,
+        54.54999923706055
+      ],
+      [
+        "TRMET",
+        "2026-08-18",
+        13.6,
+        126.0999984741211,
+        143.3000030517578
+      ],
+      [
+        "ASTOR",
+        "2026-08-11",
+        13.4,
+        301.75,
+        342.25
+      ],
+      [
+        "TOASO",
+        "2026-09-03",
+        12.4,
+        260.5,
+        292.75
+      ],
+      [
+        "ISCTR",
+        "2026-09-02",
+        12.3,
+        12.779999732971191,
+        14.350000381469727
+      ],
+      [
+        "TTKOM",
+        "2026-09-08",
+        11.7,
+        54.5,
+        60.849998474121094
+      ],
+      [
+        "ASELS",
+        "2026-08-10",
+        11.1,
+        356.25,
+        395.75
+      ],
+      [
+        "BIMAS",
+        "2026-08-14",
+        11.1,
+        374.75,
+        416.5
+      ],
+      [
+        "FROTO",
+        "2026-09-03",
+        11.0,
+        75.6500015258789,
+        83.94999694824219
+      ],
+      [
+        "OTKAR",
+        "2026-08-10",
+        10.4,
+        290.5,
+        320.75
+      ],
+      [
+        "ALARK",
+        "2026-08-14",
+        9.4,
+        103.4000015258789,
+        113.0999984741211
+      ],
+      [
+        "TUPRS",
+        "2026-08-14",
+        9.3,
+        361.75,
+        395.5
+      ],
+      [
+        "ENJSA",
+        "2026-08-25",
+        9.1,
+        108.0999984741211,
+        117.9000015258789
+      ],
+      [
+        "ULKER",
+        "2026-09-03",
+        8.5,
+        88.6500015258789,
+        96.1500015258789
+      ],
+      [
+        "VAKBN",
+        "2026-09-02",
+        7.5,
+        34.08000183105469,
+        36.63999938964844
+      ],
+      [
+        "AEFES",
+        "2026-09-02",
+        7.1,
+        17.989999771118164,
+        19.260000228881836
+      ],
+      [
+        "KCHOL",
+        "2026-08-18",
+        7.0,
+        207.89999389648438,
+        222.39999389648438
+      ],
+      [
+        "EREGL",
+        "2026-09-03",
+        6.8,
+        36.58000183105469,
+        39.08000183105469
+      ],
+      [
+        "ENKAI",
+        "2026-08-25",
+        6.0,
+        83.94999694824219,
+        89.0
+      ],
+      [
+        "YKBNK",
+        "2026-08-21",
+        5.6,
+        35.099998474121094,
+        37.08000183105469
+      ],
+      [
+        "TAVHL",
+        "2026-09-02",
+        5.5,
+        261.0,
+        275.25
+      ],
+      [
+        "AKBNK",
+        "2026-08-21",
+        4.9,
+        69.69999694824219,
+        73.1500015258789
+      ],
+      [
+        "THYAO",
+        "2026-09-02",
+        4.6,
+        291.5,
+        305.0
+      ],
+      [
+        "PGSUS",
+        "2026-09-03",
+        4.4,
+        148.1999969482422,
+        154.6999969482422
+      ],
+      [
+        "SAHOL",
+        "2026-09-02",
+        4.3,
+        92.5,
+        96.5
+      ],
+      [
+        "GARAN",
+        "2026-08-11",
+        3.6,
+        126.5,
+        131.0
+      ],
+      [
+        "MGROS",
+        "2026-09-03",
+        3.3,
+        516.0,
+        533.0
+      ]
+    ],
+    "erken_savunma": [],
+    "esik_yuzde": 3.0
+  }
+}
