@@ -54,5 +54,30 @@
     ],
     "ozet_yon": "RISK-OFF",
     "ozet_ortalama_yuzde": -0.4
+  },
+  "amerika": {
+    "guncelleme_zamani_utc": "2026-09-14T18:50:39.816941+00:00",
+    "endeksler": [
+      {
+        "isim": "S&P 500",
+        "kod": "^GSPC",
+        "bolge": "ABD",
+        "degisim_yuzde": 0.5
+      },
+      {
+        "isim": "Dow Jones",
+        "kod": "^DJI",
+        "bolge": "ABD",
+        "degisim_yuzde": 0.12
+      },
+      {
+        "isim": "Nasdaq",
+        "kod": "^IXIC",
+        "bolge": "ABD",
+        "degisim_yuzde": 1.02
+      }
+    ],
+    "ozet_yon": "RISK-ON",
+    "ozet_ortalama_yuzde": 0.55
   }
 }
