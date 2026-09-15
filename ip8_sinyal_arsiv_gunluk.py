@@ -43,29 +43,68 @@ ISLEM_GUNLERI_ILERI = [1, 3, 5, 10, 20]                          # olcum ufuklar
 
 
 # ============================================================
-# FIYAT CEKME - BU KISIM SIZIN MEVCUT PIPELINE'INIZA BAGLANMALI
+# FIYAT CEKME - yfinance ile CALISIR HALDE (BIST hisseleri .IS uzantisiyla
+# Yahoo Finance'te ucretsiz mevcut - dogrulandi: THYAO.IS, XU100.IS vb.)
 # ============================================================
+import time as _time
+
+_FIYAT_CACHE = {}  # ayni calisma icinde tekrar tekrar cekmemek icin bellek-ici cache
+
+def _yf_sembol(sembol: str) -> str:
+    """IP-8'in kendi isimlerini (orn. 'XU100', 'THYAO') yfinance'in
+    bekledigi '.IS' formatina cevirir."""
+    if sembol.upper() == "XU100":
+        return "XU100.IS"
+    return f"{sembol.upper()}.IS"
+
+
 def get_price_series(sembol: str, baslangic_tarih: str, bitis_tarih: str) -> dict:
     """
     sembol icin baslangic-bitis arasindaki GUNLUK KAPANIS fiyatlarini
-    {tarih_str: kapanis_float} seklinde dondurmeli.
+    {tarih_str: kapanis_float} seklinde dondurur. yfinance kullanir.
 
-    ONEMLI: Bu bir STUB'dir. Kendi bist-veri pipeline'inizdaki mevcut fiyat
-    kaynagina (TradingView export, Matriks, veya zaten kullandiginiz baska
-    bir fetch mekanizmasi) baglamaniz gerekiyor. Ornegin eger elinizde
-    gunluk OHLCV CSV/JSON dosyalari varsa, burada onlari okuyup
-    donduren bir fonksiyon yazin.
-
-    Ornek iskelet (kendi kaynaginiza gore doldurun):
-        import pandas as pd
-        df = pd.read_csv(f"data/fiyatlar/{sembol}.csv", parse_dates=["tarih"])
-        df = df[(df["tarih"] >= baslangic_tarih) & (df["tarih"] <= bitis_tarih)]
-        return dict(zip(df["tarih"].dt.strftime("%Y-%m-%d"), df["kapanis"]))
+    NOT: yfinance Yahoo Finance'in GECIKMELI/ucretsiz verisidir - kesin
+    dogruluk icin (ozellikle T+1 acilis/VWAP giris fiyatlari gibi hassas
+    olcumler icin) ileride TradeMaster/Matriks gibi birincil kaynaginizla
+    CAPRAZ KONTROL etmenizi oneririm. Baslangic icin (isabet oranı /
+    fazla getiri YONU olcumu) yfinance'in gunluk kapanis hassasiyeti
+    yeterlidir.
     """
-    raise NotImplementedError(
-        "get_price_series() implementasyonu gerekiyor - kendi bist-veri "
-        "fiyat kaynaginiza baglayin. Bkz. fonksiyon docstring'i."
-    )
+    cache_anahtar = (sembol, baslangic_tarih, bitis_tarih)
+    if cache_anahtar in _FIYAT_CACHE:
+        return _FIYAT_CACHE[cache_anahtar]
+
+    import yfinance as yf
+    yf_sembol = _yf_sembol(sembol)
+
+    for deneme in range(3):  # yfinance ara sira gecici hata verebiliyor, 3 deneme
+        try:
+            df = yf.download(
+                yf_sembol,
+                start=baslangic_tarih,
+                end=bitis_tarih,
+                progress=False,
+                auto_adjust=False,
+            )
+            break
+        except Exception as e:
+            if deneme == 2:
+                print(f"UYARI: {yf_sembol} icin fiyat cekilemedi: {e}")
+                return {}
+            _time.sleep(2)
+
+    if df is None or df.empty:
+        print(f"UYARI: {yf_sembol} icin veri bos dondu.")
+        return {}
+
+    sonuc = {}
+    for tarih_idx, satir in df.iterrows():
+        tarih_str = tarih_idx.strftime("%Y-%m-%d")
+        kapanis = float(satir["Close"]) if "Close" in satir else float(satir["Close"].iloc[0])
+        sonuc[tarih_str] = kapanis
+
+    _FIYAT_CACHE[cache_anahtar] = sonuc
+    return sonuc
 
 
 def n_islem_gunu_sonrasi_fiyat(fiyat_serisi: dict, sinyal_tarihi: str, n: int):
