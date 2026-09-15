@@ -37,7 +37,15 @@ from pathlib import Path
 # YOL AYARLARI - kendi bist-veri repo yapiniza gore duzenleyin
 # ============================================================
 REPO_KOK = Path(__file__).resolve().parent
-WEBHOOK_INBOX = REPO_KOK / "webhook_inbox" / "ip8_raw.jsonl"   # ham webhook'lar (satir-satir JSON)
+WEBHOOK_INBOX = REPO_KOK / "webhook_inbox" / "ip8_raw.jsonl"   # ham webhook'lar (satir-satir JSON) - ARTIK KULLANILMIYOR, bkz. GITHUB_KAYNAK
+# 14.09 DUZELTME: gercek mimari yerel dosya degil - Pipedream, V162'nin
+# tv_alerts_latest.json'una PARALEL sekilde data/ip8_sinyal_latest.json'a
+# GitHub uzerinden yaziyor (bkz. ip8_pipedream_kod_adimi.js). ingest()
+# artik bu GitHub dosyasini okuyor.
+GITHUB_OWNER = "altuguven-lab"
+GITHUB_REPO = "bist-veri"
+GITHUB_IP8_YOL = "data/ip8_sinyal_latest.json"
+GITHUB_RAW_URL = f"https://raw.githubusercontent.com/{GITHUB_OWNER}/{GITHUB_REPO}/main/{GITHUB_IP8_YOL}"
 ARSIV_DOSYASI = REPO_KOK / "data" / "ip8_sinyal_arsiv.json"     # islenmis arsiv
 ISLEM_GUNLERI_ILERI = [1, 3, 5, 10, 20]                          # olcum ufuklari
 
@@ -140,9 +148,32 @@ def arsiv_kaydet(arsiv: dict):
 # 1) INGEST - webhook inbox'taki gunluk ozet JSON'larini sektor bazinda
 #    ayri kayitlara bolup arsive ekler (henuz arside yoksa)
 # ============================================================
+# ============================================================
+# 1) INGEST - GitHub'daki data/ip8_sinyal_latest.json dosyasini (Pipedream'in
+#    yazdigi, "gunluk_gecmis" dizisi iceren) okuyup sektor bazinda ayri
+#    kayitlara boler, arsive ekler (henuz arside yoksa)
+# ============================================================
 def ingest():
-    if not WEBHOOK_INBOX.exists():
-        print(f"UYARI: {WEBHOOK_INBOX} bulunamadi - islenecek yeni webhook yok.")
+    import urllib.request
+    import urllib.error
+
+    try:
+        with urllib.request.urlopen(GITHUB_RAW_URL, timeout=20) as r:
+            dosya_icerik = json.loads(r.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            print(f"UYARI: {GITHUB_RAW_URL} henuz yok - ilk webhook henuz "
+                  f"GitHub'a yazilmamis olabilir (Pipedream kurulumunu kontrol edin).")
+        else:
+            print(f"HATA: GitHub'dan okuma basarisiz ({e.code}): {e}")
+        return
+    except Exception as e:
+        print(f"HATA: GitHub'dan okuma basarisiz: {e}")
+        return
+
+    gunluk_gecmis = dosya_icerik.get("gunluk_gecmis", [])
+    if not gunluk_gecmis:
+        print("UYARI: gunluk_gecmis bos - islenecek gun yok.")
         return
 
     arsiv = arsiv_yukle()
@@ -151,66 +182,57 @@ def ingest():
     }
 
     yeni_sayisi = 0
-    with open(WEBHOOK_INBOX, "r", encoding="utf-8") as f:
-        for satir in f:
-            satir = satir.strip()
-            if not satir:
-                continue
-            try:
-                payload = json.loads(satir)
-            except json.JSONDecodeError:
-                continue
-            if payload.get("tip") != "IP8_GUNLUK_SEKTOR_OZET":
-                continue
+    for gun_payload in gunluk_gecmis:
+        tarih = gun_payload.get("tarih")
+        if not tarih:
+            continue
+        rejim = gun_payload.get("rejim")
+        breadth_ham = gun_payload.get("breadthYumusatilmamis")
+        xu_kapanis = gun_payload.get("xuKapanis")
+        xu_gunluk_getiri = gun_payload.get("xuGunlukGetiri")
+        isinma_tamam = gun_payload.get("isinmaTamamMi")
+        kesitsel_kapsam = gun_payload.get("kesitselKapsam")
 
-            tarih = payload["tarih"]
-            rejim = payload.get("rejim")
-            breadth_ham = payload.get("breadthYumusatilmamis")
-            xu_kapanis = payload.get("xuKapanis")
-            xu_gunluk_getiri = payload.get("xuGunlukGetiri")
-            isinma_tamam = payload.get("isinmaTamamMi")
-            kesitsel_kapsam = payload.get("kesitselKapsam")
+        for sek in gun_payload.get("sektorler", []):
+            anahtar = (tarih, sek["sektor"])
+            if anahtar in mevcut_anahtarlar:
+                continue  # zaten arsivde
 
-            for sek in payload.get("sektorler", []):
-                anahtar = (tarih, sek["sektor"])
-                if anahtar in mevcut_anahtarlar:
-                    continue  # zaten arsivde
-
-                kayit = {
-                    "tarih": tarih,
-                    "sektor": sek["sektor"],
-                    "rejim": rejim,
-                    "breadthHam": breadth_ham,
-                    "xuKapanis": xu_kapanis,
-                    "xuGunlukGetiri": xu_gunluk_getiri,
-                    "isinmaTamamMi": isinma_tamam,
-                    "kesitselKapsam": kesitsel_kapsam,
-                    "srs": sek.get("srs"),
-                    "srsAdj": sek.get("srsAdj"),
-                    "evre": sek.get("evre"),
-                    "eqs": sek.get("eqs"),
-                    "eqsAdj": sek.get("eqsAdj"),
-                    "aksiyon": sek.get("aksiyon"),
-                    "guven": sek.get("guven"),
-                    "gecerliUye": sek.get("gecerliUye"),
-                    "lider": sek.get("lider"),
-                    "liderSkor": sek.get("liderSkor"),
-                    "liderGunlukPct": sek.get("liderGunlukPct"),
-                    "delta1": sek.get("delta1"),
-                    "delta3": sek.get("delta3"),
-                    "ret5Pct": sek.get("ret5Pct"),
-                    "breadthSektorHam": sek.get("breadthHam"),
-                    "breadthSektorYumus": sek.get("breadthYumus"),
-                    # Dogrulama alanlari - baslangicta bos, dogrula() doldurur
-                    "dogrulama_durumu": "BEKLIYOR",
-                    "lider_fiyat_sinyal_gunu": None,
-                    "ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
-                    "xu100_ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
-                    "fazla_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
-                }
-                arsiv["kayitlar"].append(kayit)
-                mevcut_anahtarlar.add(anahtar)
-                yeni_sayisi += 1
+            kayit = {
+                "tarih": tarih,
+                "sektor": sek["sektor"],
+                "rejim": rejim,
+                "breadthHam": breadth_ham,
+                "xuKapanis": xu_kapanis,
+                "xuGunlukGetiri": xu_gunluk_getiri,
+                "isinmaTamamMi": isinma_tamam,
+                "kesitselKapsam": kesitsel_kapsam,
+                "srs": sek.get("srs"),
+                "srsAdj": sek.get("srsAdj"),
+                "evre": sek.get("evre"),
+                "eqs": sek.get("eqs"),
+                "eqsAdj": sek.get("eqsAdj"),
+                "aksiyon": sek.get("aksiyon"),
+                "guven": sek.get("guven"),
+                "gecerliUye": sek.get("gecerliUye"),
+                "lider": sek.get("lider"),
+                "liderSkor": sek.get("liderSkor"),
+                "liderGunlukPct": sek.get("liderGunlukPct"),
+                "delta1": sek.get("delta1"),
+                "delta3": sek.get("delta3"),
+                "ret5Pct": sek.get("ret5Pct"),
+                "breadthSektorHam": sek.get("breadthHam"),
+                "breadthSektorYumus": sek.get("breadthYumus"),
+                # Dogrulama alanlari - baslangicta bos, dogrula() doldurur
+                "dogrulama_durumu": "BEKLIYOR",
+                "lider_fiyat_sinyal_gunu": None,
+                "ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
+                "xu100_ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
+                "fazla_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
+            }
+            arsiv["kayitlar"].append(kayit)
+            mevcut_anahtarlar.add(anahtar)
+            yeni_sayisi += 1
 
     arsiv_kaydet(arsiv)
     print(f"Ingest tamamlandi: {yeni_sayisi} yeni sektor-gun kaydi eklendi. "
