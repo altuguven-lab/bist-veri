@@ -49,6 +49,23 @@ GITHUB_RAW_URL = f"https://raw.githubusercontent.com/{GITHUB_OWNER}/{GITHUB_REPO
 ARSIV_DOSYASI = REPO_KOK / "data" / "ip8_sinyal_arsiv.json"     # islenmis arsiv
 ISLEM_GUNLERI_ILERI = [1, 3, 5, 10, 20]                          # olcum ufuklari
 
+# 15.09 EKLENTI (denetim - "Model ve lider performansı ayrılmalı"): Pine
+# kaynagindaki (IP8_FAZ03A.pine) KANONIK sektor uyeligiyle BIREBIR ayni -
+# sektorun esit-agirlikli GERCEK getirisini olcebilmek icin gerekli.
+SEKTOR_UYELERI = {
+    "Banka": ["AKBNK", "GARAN", "YKBNK", "HALKB", "VAKBN"],
+    "Holding": ["KCHOL", "SAHOL", "AGHOL"],
+    "Savunma": ["ASELS", "OTKAR"],
+    "Rafineri": ["TUPRS", "PETKM"],
+    "EnerjiUretimi": ["ENJSA", "AKSEN"],
+    "Elektrik": ["ASTOR", "KONTR", "ALFAS", "CWENE", "EUPWR", "GESAN"],
+    "DemirCelik": ["EREGL", "KRDMD", "KCAER", "BRSAN"],
+    "Otomotiv": ["FROTO", "TOASO"],
+    "Tuketim": ["BIMAS", "MGROS", "ULKER"],
+    "Telekom": ["TCELL", "TTKOM"],
+    "Ulastirma": ["THYAO", "TAVHL"],
+}
+
 
 # ============================================================
 # FIYAT CEKME - yfinance ile CALISIR HALDE (BIST hisseleri .IS uzantisiyla
@@ -116,8 +133,11 @@ def get_price_series(sembol: str, baslangic_tarih: str, bitis_tarih: str) -> dic
 
 
 def n_islem_gunu_sonrasi_fiyat(fiyat_serisi: dict, sinyal_tarihi: str, n: int):
-    """fiyat_serisi icindeki tarihleri siralayip sinyal_tarihi'nden N ISLEM
-    GUNU sonraki kapanisi dondurur. Yetersizse None doner (henuz olgunlasmamis)."""
+    """ESKI YONTEM - artik SADECE XU100'un kendi ileri fiyatini bulmak icin
+    kullaniliyor (XU100 zaten referans takvimin kendisi oldugu icin guvenli).
+    Diger tum sembollerde n_islem_gunu_sonrasi_tarih() + tarih bazli lookup
+    kullanilmali (bkz. asagisi, denetim maddesi "ileri gun eslestirmesinde
+    tarih riski")."""
     tarihler = sorted(fiyat_serisi.keys())
     if sinyal_tarihi not in tarihler:
         return None
@@ -126,6 +146,23 @@ def n_islem_gunu_sonrasi_fiyat(fiyat_serisi: dict, sinyal_tarihi: str, n: int):
     if hedef_idx >= len(tarihler):
         return None
     return fiyat_serisi[tarihler[hedef_idx]]
+
+
+def n_islem_gunu_sonrasi_tarih(xu_takvim: list, sinyal_tarihi: str, n: int):
+    """15.09 EKLENTI (denetim maddesi 'ileri gun eslestirmesinde tarih
+    riski'): HER sembol icin kendi takviminde N adim ilerlemek yerine,
+    TEK BIR REFERANS TAKVIM (XU100'un islem gunleri) kullanip hedef TAKVIM
+    TARIHINI belirliyoruz. Hedef hisse o G+N tarihinde islem gormemisse
+    (tatil, gecici durdurma vb.) DIGER olcumlerle (XU100, diger sektor
+    uyeleri) YANLIS hizalanmis bir gun karsilastirilmaz - o hisse icin
+    sadece o tarihte veri var mi diye AYRICA kontrol edilir."""
+    if sinyal_tarihi not in xu_takvim:
+        return None
+    idx = xu_takvim.index(sinyal_tarihi)
+    hedef_idx = idx + n
+    if hedef_idx >= len(xu_takvim):
+        return None
+    return xu_takvim[hedef_idx]
 
 
 # ============================================================
@@ -198,6 +235,15 @@ def ingest():
             if anahtar in mevcut_anahtarlar:
                 continue  # zaten arsivde
 
+            # 15.09 EKLENTI (denetim maddesi 3): TEST kayitlari (evre/aksiyon
+            # "TEST" veya lider "TESTHISSE" olanlar) atlaniyor - boylece
+            # gercek bir gunun ayni (tarih,sektor) anahtari "zaten var"
+            # denilip yanlislikla es gecilmez. NOT: Pipedream tarafi da
+            # (ip8_pipedream_kod_adimi.js) artik test payload'larini
+            # gunluk_gecmis'e hic yazmiyor - bu ikinci bir guvenlik katmani.
+            if sek.get("evre") == "TEST" or sek.get("aksiyon") == "TEST" or sek.get("lider") == "TESTHISSE":
+                continue
+
             kayit = {
                 "tarih": tarih,
                 "sektor": sek["sektor"],
@@ -223,12 +269,24 @@ def ingest():
                 "ret5Pct": sek.get("ret5Pct"),
                 "breadthSektorHam": sek.get("breadthHam"),
                 "breadthSektorYumus": sek.get("breadthYumus"),
-                # Dogrulama alanlari - baslangicta bos, dogrula() doldurur
-                "dogrulama_durumu": "BEKLIYOR",
+                # 15.09 DUZELTME (denetim maddesi "Doğrulama durumu daha
+                # ayrıntılı olmalı" + "Model ve lider performansı ayrılmalı"):
+                # eskiden TEK bir "dogrulama_durumu" (hep-ya-da-hic, 20 gun
+                # dolmadan hicbir sonuc gorunmuyordu) VE sadece LIDER hissenin
+                # getirisi olculuyordu (sektor secimi ile lider secimi
+                # birbirine karisiyordu). Artik:
+                #  - her vade (1/3/5/10/20) AYRI ayri "BEKLIYOR"/"DOGRULANDI"
+                #  - LIDER getirisi VE SEKTOR (esit agirlikli uye) getirisi
+                #    AYRI olculuyor, boylece "sektor secimi mi dogru, lider
+                #    secimi mi dogru" sorusu ayristirilabiliyor
+                "dogrulama": {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI},
                 "lider_fiyat_sinyal_gunu": None,
-                "ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
+                "lider_ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
+                "sektor_ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
                 "xu100_ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
-                "fazla_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
+                "lider_fazla_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},   # lider - XU100
+                "sektor_fazla_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},  # sektor - XU100
+                "lider_katkisi": {str(n): None for n in ISLEM_GUNLERI_ILERI},        # lider - sektor
             }
             arsiv["kayitlar"].append(kayit)
             mevcut_anahtarlar.add(anahtar)
@@ -249,12 +307,22 @@ def dogrula():
     arsiv = arsiv_yukle()
     bugun = datetime.now().strftime("%Y-%m-%d")
 
-    # Hangi sembollerin fiyat serisine ihtiyacimiz var, toplu cekelim
-    gerekli_semboller = set()
-    for k in arsiv["kayitlar"]:
-        if k["dogrulama_durumu"] == "BEKLIYOR" and k.get("lider") and k["lider"] != "LIDER YOK":
-            gerekli_semboller.add(k["lider"])
-    gerekli_semboller.add("XU100")
+    # 15.09 DUZELTME (denetim - "Model ve lider performansı ayrılmalı"):
+    # artik sadece lider degil, o sektorun TUM UYELERI icin de fiyat
+    # gerekiyor (esit-agirlikli sektor getirisini olcebilmek icin).
+    guncellenmemis = [k for k in arsiv["kayitlar"] if any(
+        k["dogrulama"][str(n)] == "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI)]
+    if not guncellenmemis:
+        print("Tum kayitlar zaten tum vadelerde dogrulanmis.")
+        return
+
+    gerekli_semboller = {"XU100"}
+    for k in guncellenmemis:
+        lider = k.get("lider")
+        if lider and lider != "LIDER YOK":
+            gerekli_semboller.add(lider)
+        for uye in SEKTOR_UYELERI.get(k["sektor"], []):
+            gerekli_semboller.add(uye)
 
     fiyat_cache = {}
     for sem in gerekli_semboller:
@@ -264,70 +332,114 @@ def dogrula():
             print(f"HATA: {e}")
             sys.exit(1)
 
-    guncellenen = 0
-    for k in arsiv["kayitlar"]:
-        if k["dogrulama_durumu"] != "BEKLIYOR":
-            continue
+    xu_fiyatlar = fiyat_cache.get("XU100", {})
+    xu_takvim = sorted(xu_fiyatlar.keys())  # 15.09: TEK referans takvim
+
+    guncellenen_kayit = 0
+    for k in guncellenmemis:
+        tarih = k["tarih"]
+        if tarih not in xu_fiyatlar:
+            continue  # XU100 icin bile veri yoksa bu gun henuz islenemez
+        sinyal_xu = xu_fiyatlar[tarih]
+
         lider = k.get("lider")
-        if not lider or lider == "LIDER YOK":
-            # lider yoksa sadece SEKTOR REJIMI/EVRESI dogrulanabilir - fiyat
-            # bazli ileri getiri olculemez, KAPSAM_DISI isaretle
-            k["dogrulama_durumu"] = "KAPSAM_DISI_LIDER_YOK"
-            continue
+        lider_var = lider and lider != "LIDER YOK"
+        lider_fiyatlar = fiyat_cache.get(lider, {}) if lider_var else {}
+        if lider_var and tarih in lider_fiyatlar:
+            k["lider_fiyat_sinyal_gunu"] = lider_fiyatlar[tarih]
 
-        lider_fiyatlar = fiyat_cache.get(lider, {})
-        xu_fiyatlar = fiyat_cache.get("XU100", {})
-        if k["tarih"] not in lider_fiyatlar or k["tarih"] not in xu_fiyatlar:
-            continue  # bu sembol icin veri henuz yok, bir sonraki calismada tekrar denenir
+        uyeler = SEKTOR_UYELERI.get(k["sektor"], [])
+        # Sektorun sinyal-gunundeki "baz" fiyatlarini (esit-agirlik icin
+        # her uyenin KENDI sinyal-gunu fiyatina ihtiyac var) hazirla
+        uye_sinyal_fiyat = {}
+        for uye in uyeler:
+            fs = fiyat_cache.get(uye, {})
+            if tarih in fs:
+                uye_sinyal_fiyat[uye] = fs[tarih]
 
-        sinyal_fiyat = lider_fiyatlar[k["tarih"]]
-        sinyal_xu = xu_fiyatlar[k["tarih"]]
-        k["lider_fiyat_sinyal_gunu"] = sinyal_fiyat
-
-        tumu_olgunlasti = True
+        herhangi_biri_guncellendi = False
         for n in ISLEM_GUNLERI_ILERI:
-            ileri_fiyat = n_islem_gunu_sonrasi_fiyat(lider_fiyatlar, k["tarih"], n)
-            ileri_xu = n_islem_gunu_sonrasi_fiyat(xu_fiyatlar, k["tarih"], n)
-            if ileri_fiyat is None or ileri_xu is None:
-                tumu_olgunlasti = False
-                continue
-            getiri = (ileri_fiyat / sinyal_fiyat - 1) * 100
-            xu_getiri = (ileri_xu / sinyal_xu - 1) * 100
-            k["ileri_getiri"][str(n)] = round(getiri, 3)
-            k["xu100_ileri_getiri"][str(n)] = round(xu_getiri, 3)
-            k["fazla_getiri"][str(n)] = round(getiri - xu_getiri, 3)
+            if k["dogrulama"][str(n)] == "DOGRULANDI":
+                continue  # bu vade zaten olgunlasmis, tekrar hesaplama
 
-        if tumu_olgunlasti:
-            k["dogrulama_durumu"] = "DOGRULANDI"
-            guncellenen += 1
+            # 15.09: hedef TAKVIM TARIHI, XU100 referansindan belirleniyor -
+            # her sembolun kendi eksik-gun'lerinden BAGIMSIZ tek bir "G+N"
+            hedef_tarih = n_islem_gunu_sonrasi_tarih(xu_takvim, tarih, n)
+            if hedef_tarih is None:
+                continue  # XU100'de bile henuz o kadar gun gecmemis
+
+            # XU100 ileri getiri (referans oldugu icin her zaman mevcut)
+            if hedef_tarih not in xu_fiyatlar:
+                continue
+            xu_ileri = xu_fiyatlar[hedef_tarih]
+            xu_getiri = (xu_ileri / sinyal_xu - 1) * 100
+            k["xu100_ileri_getiri"][str(n)] = round(xu_getiri, 3)
+
+            # LIDER ileri getiri (o TAM takvim tarihinde lider islem
+            # gormemisse None kalir - farkli bir gunle YANLIS hizalanmaz)
+            if lider_var and tarih in lider_fiyatlar and hedef_tarih in lider_fiyatlar:
+                lider_getiri = (lider_fiyatlar[hedef_tarih] / lider_fiyatlar[tarih] - 1) * 100
+                k["lider_ileri_getiri"][str(n)] = round(lider_getiri, 3)
+                k["lider_fazla_getiri"][str(n)] = round(lider_getiri - xu_getiri, 3)
+
+            # SEKTOR esit-agirlikli ileri getiri (LIDER YOK olsa BILE
+            # hesaplanabilir - sektor secimi lider seciminden bagimsiz
+            # olculebilsin diye)
+            uye_getirileri = []
+            for uye, baz_fiyat in uye_sinyal_fiyat.items():
+                fs = fiyat_cache.get(uye, {})
+                if hedef_tarih in fs:
+                    uye_getirileri.append((fs[hedef_tarih] / baz_fiyat - 1) * 100)
+            if uye_getirileri:
+                sektor_getiri = sum(uye_getirileri) / len(uye_getirileri)
+                k["sektor_ileri_getiri"][str(n)] = round(sektor_getiri, 3)
+                k["sektor_fazla_getiri"][str(n)] = round(sektor_getiri - xu_getiri, 3)
+                if lider_var and k["lider_ileri_getiri"][str(n)] is not None:
+                    k["lider_katkisi"][str(n)] = round(
+                        k["lider_ileri_getiri"][str(n)] - sektor_getiri, 3)
+
+            # 15.09: bu VADE icin "DOGRULANDI" - en az sektor getirisi
+            # hesaplanabildiyse yeterli (lider yoksa bile sektor olculur)
+            if uye_getirileri:
+                k["dogrulama"][str(n)] = "DOGRULANDI"
+                herhangi_biri_guncellendi = True
+
+        if herhangi_biri_guncellendi:
+            guncellenen_kayit += 1
 
     arsiv_kaydet(arsiv)
-    print(f"Dogrulama tamamlandi: {guncellenen} kayit tam olgunlasip DOGRULANDI "
-          f"olarak isaretlendi.")
+    print(f"Dogrulama tamamlandi: {guncellenen_kayit} kayitta en az bir vade guncellendi.")
 
 
 # ============================================================
 # 3) OZET RAPOR - aksiyon turune gore isabet/ortalama fazla getiri
 #    (M7 tarzi, V162'deki hafta_denetim.py'ye benzer mantik)
+#    15.09 DUZELTME: artik SEKTOR ve LIDER getirisi AYRI raporlaniyor, ve
+#    her vade (1/3/5/10/20) kendi olgunlastigi anda goruluyor - 20 gun
+#    dolmasini beklemeye gerek yok.
 # ============================================================
 def ozet_rapor():
     arsiv = arsiv_yukle()
-    dogrulanan = [k for k in arsiv["kayitlar"] if k["dogrulama_durumu"] == "DOGRULANDI"]
-    if not dogrulanan:
-        print("Henuz DOGRULANDI durumunda kayit yok.")
+    if not arsiv["kayitlar"]:
+        print("Arsiv bos.")
         return
 
-    print(f"{'Aksiyon':<20}{'n':>5}{'T+1 FazlaGet':>14}{'T+5 FazlaGet':>14}{'T+20 FazlaGet':>15}{'Isabet(T+5>0)':>16}")
-    aksiyonlar = sorted(set(k["aksiyon"] for k in dogrulanan))
+    print(f"{'Aksiyon':<20}{'Vade':>5}{'n':>5}{'SektorFazlaGet':>16}{'LiderFazlaGet':>15}{'LiderKatkisi':>14}{'SektorIsabet%':>15}")
+    aksiyonlar = sorted(set(k["aksiyon"] for k in arsiv["kayitlar"] if k.get("aksiyon")))
     for aks in aksiyonlar:
-        alt = [k for k in dogrulanan if k["aksiyon"] == aks]
-        n = len(alt)
-        def ort(gun):
-            degerler = [k["fazla_getiri"][str(gun)] for k in alt if k["fazla_getiri"][str(gun)] is not None]
-            return sum(degerler) / len(degerler) if degerler else float("nan")
-        isabet5 = [k["fazla_getiri"]["5"] for k in alt if k["fazla_getiri"]["5"] is not None]
-        isabet_oran = (sum(1 for x in isabet5 if x > 0) / len(isabet5) * 100) if isabet5 else float("nan")
-        print(f"{aks:<20}{n:>5}{ort(1):>14.2f}{ort(5):>14.2f}{ort(20):>15.2f}{isabet_oran:>15.1f}%")
+        alt = [k for k in arsiv["kayitlar"] if k["aksiyon"] == aks]
+        for n in ISLEM_GUNLERI_ILERI:
+            sektor_degerler = [k["sektor_fazla_getiri"][str(n)] for k in alt if k["sektor_fazla_getiri"][str(n)] is not None]
+            lider_degerler = [k["lider_fazla_getiri"][str(n)] for k in alt if k["lider_fazla_getiri"][str(n)] is not None]
+            katki_degerler = [k["lider_katkisi"][str(n)] for k in alt if k["lider_katkisi"][str(n)] is not None]
+            if not sektor_degerler and not lider_degerler:
+                continue
+            n_sayisi = len(sektor_degerler) if sektor_degerler else len(lider_degerler)
+            sek_ort = sum(sektor_degerler) / len(sektor_degerler) if sektor_degerler else float("nan")
+            lid_ort = sum(lider_degerler) / len(lider_degerler) if lider_degerler else float("nan")
+            katki_ort = sum(katki_degerler) / len(katki_degerler) if katki_degerler else float("nan")
+            isabet = (sum(1 for x in sektor_degerler if x > 0) / len(sektor_degerler) * 100) if sektor_degerler else float("nan")
+            print(f"{aks:<20}{('T+'+str(n)):>5}{n_sayisi:>5}{sek_ort:>16.2f}{lid_ort:>15.2f}{katki_ort:>14.2f}{isabet:>14.1f}%")
 
 
 # ============================================================
