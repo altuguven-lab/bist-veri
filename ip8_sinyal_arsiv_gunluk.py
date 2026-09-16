@@ -229,6 +229,8 @@ def ingest():
         xu_gunluk_getiri = gun_payload.get("xuGunlukGetiri")
         isinma_tamam = gun_payload.get("isinmaTamamMi")
         kesitsel_kapsam = gun_payload.get("kesitselKapsam")
+        universe_versiyon = gun_payload.get("universeVersion")
+        state_age_days = gun_payload.get("stateAgeDays")
 
         for sek in gun_payload.get("sektorler", []):
             anahtar = (tarih, sek["sektor"])
@@ -253,6 +255,8 @@ def ingest():
                 "xuGunlukGetiri": xu_gunluk_getiri,
                 "isinmaTamamMi": isinma_tamam,
                 "kesitselKapsam": kesitsel_kapsam,
+                "universeVersion": universe_versiyon,
+                "stateAgeDays": state_age_days,
                 "srs": sek.get("srs"),
                 "srsAdj": sek.get("srsAdj"),
                 "evre": sek.get("evre"),
