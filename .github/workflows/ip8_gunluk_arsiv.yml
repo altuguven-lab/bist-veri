@@ -1,0 +1,38 @@
+name: IP8 gunluk sinyal arsivi
+
+# 15.09.2026 - denetim maddesi "Python arşivleyiciyi çalıştıran GitHub
+# Actions yok" uzerine eklendi. TradingView alarmi (yeniGun) piyasa
+# kapanisindan hemen sonra tetiklenir - saat, alarmin gercekte ne zaman
+# geldigine gore ayarlanmali (asagidaki "30 16 * * 1-5" ~19:30 TRT'dir,
+# UTC+3 fark alinarak; TRT saatiniz degisirse cron'u guncelleyin).
+on:
+  schedule:
+    - cron: "30 16 * * 1-5"   # Pazartesi-Cuma, 16:30 UTC (~19:30 TRT)
+  workflow_dispatch: {}        # elle de calistirilabilsin diye
+
+jobs:
+  ip8-arsiv:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bagimliliklari kur
+        run: pip install yfinance
+
+      - name: Arsivle ve dogrula
+        run: python ip8_sinyal_arsiv_gunluk.py --ingest --dogrula
+
+      - name: Degisiklikleri commit'le
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ip8_sinyal_arsiv.json
+          git diff --cached --quiet || git commit -m "IP8 gunluk arsiv guncellemesi $(date -u +%Y-%m-%d)"
+          git push
