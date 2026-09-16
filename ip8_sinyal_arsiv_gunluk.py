@@ -172,7 +172,14 @@ def arsiv_yukle() -> dict:
     if ARSIV_DOSYASI.exists():
         with open(ARSIV_DOSYASI, "r", encoding="utf-8") as f:
             return json.load(f)
-    return {"versiyon": "ip8-v1", "kayitlar": []}
+    # 15.09 EKLENTI (denetim - "Ham veri ve normalize veri ayrılmalı"):
+    # "ham_gunler" alani, GitHub'dan gelen her GUNUN TAM/HAM JSON'unu
+    # (tarih -> orijinal payload) ayrica saklar. Boylece "kayitlar" (sektor
+    # bazina bolunmus, normalize edilmis) yapisi ILERIDE degisirse/
+    # duzeltilirse, orijinal veri KAYBOLMADAN yeniden islenebilir. (NOT:
+    # GitHub'daki data/ip8_sinyal_latest.json zaten son 500 gunun hamini
+    # tutuyor - bu, ayni verinin YEREL/YEDEKLI bir kopyasidir.)
+    return {"versiyon": "ip8-v1", "kayitlar": [], "ham_gunler": {}}
 
 
 def arsiv_kaydet(arsiv: dict):
@@ -181,10 +188,6 @@ def arsiv_kaydet(arsiv: dict):
         json.dump(arsiv, f, ensure_ascii=False, indent=1)
 
 
-# ============================================================
-# 1) INGEST - webhook inbox'taki gunluk ozet JSON'larini sektor bazinda
-#    ayri kayitlara bolup arsive ekler (henuz arside yoksa)
-# ============================================================
 # ============================================================
 # 1) INGEST - GitHub'daki data/ip8_sinyal_latest.json dosyasini (Pipedream'in
 #    yazdigi, "gunluk_gecmis" dizisi iceren) okuyup sektor bazinda ayri
@@ -196,7 +199,7 @@ def ingest():
 
     try:
         with urllib.request.urlopen(GITHUB_RAW_URL, timeout=20) as r:
-            dosya_icerik = json.loads(r.read().decode("utf-8"))
+            ham_metin = r.read().decode("utf-8")
     except urllib.error.HTTPError as e:
         if e.code == 404:
             print(f"UYARI: {GITHUB_RAW_URL} henuz yok - ilk webhook henuz "
@@ -208,12 +211,32 @@ def ingest():
         print(f"HATA: GitHub'dan okuma basarisiz: {e}")
         return
 
+    # 15.09 DUZELTME: dosya GitHub'da mevcut ama BOS/gecersiz JSON icerebilir
+    # (orn. "sil" yerine yanlislikla icerigi bosaltip kaydetmek, ya da
+    # raw.githubusercontent.com'un kisa sureli eski/bos onbellegi). Eskiden
+    # bu durum cig gibi bir JSONDecodeError ile duruyordu - artik ayni
+    # "henuz yok" mesajiyla ZARARSIZCA atlaniyor.
+    if not ham_metin.strip():
+        print(f"UYARI: {GITHUB_RAW_URL} BOS donuyor - dosya GitHub'da var ama "
+              f"icerigi bos olabilir (yanlislikla icerik silinip 'sil' yerine "
+              f"kaydedilmis olabilir) YA DA GitHub'in onbellegi henuz "
+              f"guncellenmemis olabilir (birkac dakika sonra tekrar deneyin).")
+        return
+    try:
+        dosya_icerik = json.loads(ham_metin)
+    except json.JSONDecodeError as e:
+        print(f"UYARI: {GITHUB_RAW_URL} icerigi GECERLI JSON DEGIL "
+              f"(ilk 200 karakter: {ham_metin[:200]!r}). Dosyayi GitHub'da "
+              f"elle kontrol edin.")
+        return
+
     gunluk_gecmis = dosya_icerik.get("gunluk_gecmis", [])
     if not gunluk_gecmis:
         print("UYARI: gunluk_gecmis bos - islenecek gun yok.")
         return
 
     arsiv = arsiv_yukle()
+    arsiv.setdefault("ham_gunler", {})  # eski arsiv dosyalarinda bu alan olmayabilir
     mevcut_anahtarlar = {
         (k["tarih"], k["sektor"]) for k in arsiv["kayitlar"]
     }
@@ -223,6 +246,12 @@ def ingest():
         tarih = gun_payload.get("tarih")
         if not tarih:
             continue
+
+        # 15.09 EKLENTI: bu gunun TAM/HAM payload'unu ayrica sakla (sektor
+        # bazina bolunmeden once) - ileride normalize mantigi degisirse
+        # orijinal veriden yeniden turetilebilsin diye.
+        arsiv["ham_gunler"].setdefault(tarih, gun_payload)
+
         rejim = gun_payload.get("rejim")
         breadth_ham = gun_payload.get("breadthYumusatilmamis")
         xu_kapanis = gun_payload.get("xuKapanis")
