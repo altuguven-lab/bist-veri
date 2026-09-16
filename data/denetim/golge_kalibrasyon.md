@@ -1,4 +1,4 @@
-# Golge Kalibrasyon (2026-09-15)
+# Golge Kalibrasyon (2026-09-16)
 SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ## Katman B - IP-2 vekili (EMA dizilim gecisi + hacim + rejim)
@@ -328,16 +328,16 @@ Hipotez: sektoru o gun negatifken isabet dusuyor mu? Yalniz Bankacilik+Sinai kap
 D1 esigi: kulucka penceresi yakalama >= %50 VE T+3 isabet >= %55
 | kalicilik | temas | hacim | toplam | kulucka | isabet% | yakalama |
 |---|---|---|---|---|---|---|
-| 5 | 0.5% | 1.1 | 17 | 8 | 25.0 | 1/132 |
+| 5 | 0.5% | 1.1 | 17 | 8 | 23.5 | 1/132 |
 | 5 | 0.5% | 1.2 | 12 | 6 | 25.0 | 1/132 |
 | 5 | 0.5% | 1.3 | 11 | 6 | 27.3 | 1/132 |
-| 5 | 1.0% | 1.1 | 19 | 9 | 27.8 | 1/132 |
+| 5 | 1.0% | 1.1 | 19 | 9 | 26.3 | 1/132 |
 | 5 | 1.0% | 1.2 | 13 | 6 | 23.1 | 1/132 |
 | 5 | 1.0% | 1.3 | 12 | 6 | 25.0 | 1/132 |
-| 8 | 0.5% | 1.1 | 15 | 7 | 28.6 | 1/132 |
+| 8 | 0.5% | 1.1 | 15 | 7 | 26.7 | 1/132 |
 | 8 | 0.5% | 1.2 | 11 | 5 | 27.3 | 1/132 |
 | 8 | 0.5% | 1.3 | 10 | 5 | 30.0 | 1/132 |
-| 8 | 1.0% | 1.1 | 17 | 8 | 31.2 | 1/132 |
+| 8 | 1.0% | 1.1 | 17 | 8 | 29.4 | 1/132 |
 | 8 | 1.0% | 1.2 | 12 | 5 | 25.0 | 1/132 |
 | 8 | 1.0% | 1.3 | 11 | 5 | 27.3 | 1/132 |
 
