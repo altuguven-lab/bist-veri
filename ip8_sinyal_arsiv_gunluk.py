@@ -73,6 +73,14 @@ SEKTOR_UYELERI = {
 # ============================================================
 import time as _time
 
+# 15.09 EKLENTI (denetim madde 4.5): yfinance bazi surumlerde/durumlarda
+# Open/Close degerini SAYI yerine tek-elemanli pandas Series olarak
+# donduruyor - dogrudan float(deger) bu durumda TypeError/ValueError ile
+# kiriliyordu. Bu yardimci ikisini de guvenle isler.
+def scalar(v):
+    return float(v.iloc[0]) if hasattr(v, "iloc") else float(v)
+
+
 _FIYAT_CACHE = {}  # ayni calisma icinde tekrar tekrar cekmemek icin bellek-ici cache
 _OHLC_CACHE = {}   # {sembol: {tarih: {"open":.., "close":..}}} - tek indirmeyle ikisi de
 
@@ -99,13 +107,20 @@ def _ohlc_getir(sembol: str, baslangic_tarih: str, bitis_tarih: str) -> dict:
     import yfinance as yf
     yf_sembol = _yf_sembol(sembol)
 
+    # 15.09 DUZELTME (denetim madde 4.6): yfinance'in "end" parametresi
+    # COGUNLUKLA o gunu HARIC TUTAR - bugunun (henuz kapanmamis olsa bile
+    # tamamlanmis onceki günün) verisini kacirmamak icin bitis tarihini
+    # 1 gun ileri aliyoruz.
+    bitis_dt = datetime.strptime(bitis_tarih, "%Y-%m-%d") + timedelta(days=1)
+    bitis_tarih_istek = bitis_dt.strftime("%Y-%m-%d")
+
     df = None
     for deneme in range(3):
         try:
             df = yf.download(
                 yf_sembol,
                 start=baslangic_tarih,
-                end=bitis_tarih,
+                end=bitis_tarih_istek,
                 progress=False,
                 auto_adjust=True,  # 15.09: temettu/bolunme DUZELTILMIS fiyat
             )
@@ -123,8 +138,12 @@ def _ohlc_getir(sembol: str, baslangic_tarih: str, bitis_tarih: str) -> dict:
     sonuc = {}
     for tarih_idx, satir in df.iterrows():
         tarih_str = tarih_idx.strftime("%Y-%m-%d")
-        kapanis = float(satir["Close"]) if "Close" in satir else float(satir["Close"].iloc[0])
-        acilis = float(satir["Open"]) if "Open" in satir else float(satir["Open"].iloc[0])
+        # 15.09 DUZELTME (denetim madde 4.5): yfinance bazi surumlerde
+        # Open/Close'u SAYI yerine tek-elemanli Series dondurebiliyor -
+        # dogrudan float() cagrisi bu durumda KIRILIYORDU. Artik ortak
+        # bir scalar() yardimcisi ikisini de guvenle isliyor.
+        kapanis = scalar(satir["Close"])
+        acilis = scalar(satir["Open"])
         sonuc[tarih_str] = {"close": kapanis, "open": acilis}
 
     _OHLC_CACHE[cache_anahtar] = sonuc
@@ -205,8 +224,20 @@ def arsiv_migrate(arsiv: dict) -> dict:
         if k.get("evre") == "TEST" or k.get("aksiyon") == "TEST" or k.get("lider") == "TESTHISSE":
             continue
         # Eski sema -> yeni sema donusumu
-        if "dogrulama" not in k:
-            k["dogrulama"] = {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI}
+        # 15.09 DUZELTME (denetim madde 4.7): eski "dogrulama" (tek alan)
+        # semasi UC ayri alana (Sektor/Lider/Benchmark) tasiniyor. Retroaktif
+        # olarak hangi PARCANIN eksik oldugunu bilemeyiz (eski sema bunu
+        # ayirmiyordu) - bu yuzden eski durumu UCUNE de UYGULUYORUZ; zaten
+        # DOGRULANDI olan vadeler icin gercek getiri degerleri (asagida
+        # ayrica tasinan) mevcut oldugundan bu GUVENLI bir varsayimdir.
+        if "dogrulama" in k and "dogrulamaSektor" not in k:
+            eski_durum = k.pop("dogrulama")
+            k["dogrulamaSektor"] = dict(eski_durum)
+            k["dogrulamaLider"] = dict(eski_durum)
+            k["dogrulamaBenchmark"] = dict(eski_durum)
+        k.setdefault("dogrulamaSektor", {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI})
+        k.setdefault("dogrulamaLider", {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI})
+        k.setdefault("dogrulamaBenchmark", {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI})
         if "lider_ileri_getiri" not in k:
             k["lider_ileri_getiri"] = {str(n): None for n in ISLEM_GUNLERI_ILERI}
         if "sektor_ileri_getiri" not in k:
@@ -218,7 +249,10 @@ def arsiv_migrate(arsiv: dict) -> dict:
         if "lider_katkisi" not in k:
             k["lider_katkisi"] = {str(n): None for n in ISLEM_GUNLERI_ILERI}
         k.setdefault("giris_tarihi", None)
-        k.setdefault("sektorGetiriUyeSayisi", None)
+        # 15.09: eski tek "sektorGetiriUyeSayisi" -> vade-bazli "uyeSayisi"
+        eski_uye_sayisi = k.pop("sektorGetiriUyeSayisi", None)
+        if "uyeSayisi" not in k:
+            k["uyeSayisi"] = {str(n): eski_uye_sayisi for n in ISLEM_GUNLERI_ILERI}
         k.setdefault("sektorToplamUye", len(SEKTOR_UYELERI.get(k.get("sektor", ""), [])))
         # Artik kullanilmayan eski alanlari temizle (opsiyonel, temiz tutmak icin)
         k.pop("dogrulama_durumu", None)
@@ -247,9 +281,17 @@ def arsiv_yukle() -> dict:
 
 
 def arsiv_kaydet(arsiv: dict):
+    # 15.09 DUZELTME (denetim madde 4.10): program yazma SIRASINDA
+    # kesilirse (ornegin GitHub Actions zaman asimi/hata ile durursa),
+    # dogrudan ARSIV_DOSYASI'na yazmak YARIM/BOZUK bir JSON birakabilirdi.
+    # Artik once GECICI bir dosyaya tam yaziliyor, SONRA os.replace() ile
+    # (ATOMIK islem) asil dosyanin yerine konuyor - ya TAM eski hal ya TAM
+    # yeni hal olur, yarim durum olusamaz.
     ARSIV_DOSYASI.parent.mkdir(parents=True, exist_ok=True)
-    with open(ARSIV_DOSYASI, "w", encoding="utf-8") as f:
+    gecici_dosya = ARSIV_DOSYASI.with_suffix(".json.tmp")
+    with open(gecici_dosya, "w", encoding="utf-8") as f:
         json.dump(arsiv, f, ensure_ascii=False, indent=1)
+    os.replace(gecici_dosya, ARSIV_DOSYASI)
 
 
 # ============================================================
@@ -366,20 +408,22 @@ def ingest():
                 "ret5Pct": sek.get("ret5Pct"),
                 "breadthSektorHam": sek.get("breadthHam"),
                 "breadthSektorYumus": sek.get("breadthYumus"),
-                # 15.09 DUZELTME (denetim maddesi "Doğrulama durumu daha
-                # ayrıntılı olmalı" + "Model ve lider performansı ayrılmalı"):
-                # eskiden TEK bir "dogrulama_durumu" (hep-ya-da-hic, 20 gun
-                # dolmadan hicbir sonuc gorunmuyordu) VE sadece LIDER hissenin
-                # getirisi olculuyordu (sektor secimi ile lider secimi
-                # birbirine karisiyordu). Artik:
-                #  - her vade (1/3/5/10/20) AYRI ayri "BEKLIYOR"/"DOGRULANDI"
-                #  - LIDER getirisi VE SEKTOR (esit agirlikli uye) getirisi
-                #    AYRI olculuyor, boylece "sektor secimi mi dogru, lider
-                #    secimi mi dogru" sorusu ayristirilabiliyor
-                "dogrulama": {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI},
+                # 15.09 DUZELTME (denetim madde 4.7 - ayri dogrulama
+                # durumlari): eskiden TEK "dogrulama" alani vardi - sektor
+                # getirisi hesaplanabildiginde vade "DOGRULANDI" oluyordu,
+                # LIDER hissenin verisi eksik olsa BILE. Artik UC AYRI
+                # durum: sektor, lider, benchmark(XU100) birbirinden
+                # BAGIMSIZ izleniyor - "sektoru dogru olcuyoruz ama lider
+                # verisi eksik" gibi durumlar artik GORULEBILIYOR.
+                "dogrulamaSektor": {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI},
+                "dogrulamaLider": {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI},
+                "dogrulamaBenchmark": {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI},
                 "giris_tarihi": None,  # D+1 acilis tarihi, dogrula() doldurur
                 "lider_fiyat_sinyal_gunu": None,  # artik GIRIS (D+1 acilis) fiyati
-                "sektorGetiriUyeSayisi": None,
+                # 15.09 DUZELTME (denetim madde 4.8): tek sabit sayi yerine
+                # VADE BAZINDA (1g/3g/5g/10g/20g farkli olabilir - bir hisse
+                # 10 gun icinde islem durdurulmus olabilir mesela).
+                "uyeSayisi": {str(n): None for n in ISLEM_GUNLERI_ILERI},
                 "sektorToplamUye": len(SEKTOR_UYELERI.get(sek["sektor"], [])),
                 "lider_ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
                 "sektor_ileri_getiri": {str(n): None for n in ISLEM_GUNLERI_ILERI},
@@ -421,8 +465,13 @@ def dogrula():
     arsiv = arsiv_yukle()
     bugun = datetime.now().strftime("%Y-%m-%d")
 
+    # 15.09 DUZELTME (denetim madde 4.7): artik UC AYRI durum kontrol
+    # ediliyor - herhangi biri BEKLIYOR olan kayit yeniden islenir.
     guncellenmemis = [k for k in arsiv["kayitlar"] if any(
-        k["dogrulama"][str(n)] == "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI)]
+        k["dogrulamaSektor"][str(n)] == "BEKLIYOR"
+        or k["dogrulamaLider"][str(n)] == "BEKLIYOR"
+        or k["dogrulamaBenchmark"][str(n)] == "BEKLIYOR"
+        for n in ISLEM_GUNLERI_ILERI)]
     if not guncellenmemis:
         print("Tum kayitlar zaten tum vadelerde dogrulanmis.")
         return
@@ -435,10 +484,6 @@ def dogrula():
         for uye in SEKTOR_UYELERI.get(k["sektor"], []):
             gerekli_semboller.add(uye)
 
-    # 15.09 DUZELTME (denetim madde 11A - EN ONEMLI): GIRIS fiyati artik
-    # sinyal gununun KAPANISI degil, SINYAL GUNUNDEN SONRAKI ILK ISLEM
-    # GUNUNUN ACILISI - alarm sabah 10:15 gibi geldiginde, o anda henuz
-    # BILINMEYEN gun-sonu kapanisini "giris fiyati" saymak gercekci degildi.
     fiyat_cache = {}       # kapanis - CIKIS icin
     acilis_cache = {}      # acilis - GIRIS icin
     for sem in gerekli_semboller:
@@ -456,10 +501,9 @@ def dogrula():
     for k in guncellenmemis:
         tarih = k["tarih"]
 
-        # GIRIS TARIHI = sinyal tarihinden 1 islem gunu SONRASI (D+1)
         giris_tarihi = n_islem_gunu_sonrasi_tarih(xu_takvim, tarih, 1)
         if giris_tarihi is None:
-            continue  # XU100'de bile D+1 henuz gelmemis
+            continue
         if giris_tarihi not in xu_fiyatlar or giris_tarihi not in acilis_cache.get("XU100", {}):
             continue
         giris_xu = acilis_cache["XU100"][giris_tarihi]
@@ -472,11 +516,10 @@ def dogrula():
         giris_fiyat_lider = None
         if lider_var and giris_tarihi in lider_acilislar:
             giris_fiyat_lider = lider_acilislar[giris_tarihi]
-            k["lider_fiyat_sinyal_gunu"] = giris_fiyat_lider  # (isim korunuyor, artik GIRIS fiyati)
+            k["lider_fiyat_sinyal_gunu"] = giris_fiyat_lider
 
         uyeler = SEKTOR_UYELERI.get(k["sektor"], [])
         min_esik = f_min_esik(len(uyeler))
-        # Sektorun GIRIS gunundeki (D+1 acilis) baz fiyatlari
         uye_giris_fiyat = {}
         for uye in uyeler:
             fs = acilis_cache.get(uye, {})
@@ -485,55 +528,71 @@ def dogrula():
 
         herhangi_biri_guncellendi = False
         for n in ISLEM_GUNLERI_ILERI:
-            if k["dogrulama"][str(n)] == "DOGRULANDI":
-                continue
-
-            # 15.09: hedef tarih artik GIRIS TARIHINDEN N gun sonrasi
-            # (sinyal tarihinden degil) - "N gun elde tutma" anlamini
-            # dogru yansitiyor.
+            n_str = str(n)
             hedef_tarih = n_islem_gunu_sonrasi_tarih(xu_takvim, giris_tarihi, n)
             if hedef_tarih is None:
                 continue
-            if hedef_tarih not in xu_fiyatlar:
-                continue
-            xu_ileri = xu_fiyatlar[hedef_tarih]
-            xu_getiri = (xu_ileri / giris_xu - 1) * 100
-            k["xu100_ileri_getiri"][str(n)] = round(xu_getiri, 3)
 
-            if lider_var and giris_fiyat_lider is not None and hedef_tarih in lider_kapanislar:
-                lider_getiri = (lider_kapanislar[hedef_tarih] / giris_fiyat_lider - 1) * 100
-                k["lider_ileri_getiri"][str(n)] = round(lider_getiri, 3)
-                k["lider_fazla_getiri"][str(n)] = round(lider_getiri - xu_getiri, 3)
-
-            # SEKTOR esit-agirlikli ileri getiri + MINIMUM UYE ESIGI
-            # (denetim madde 11B): tek uyeyle "dogrulandi" DENMIYOR artik.
-            uye_getirileri = []
-            for uye, baz_fiyat in uye_giris_fiyat.items():
-                fs = fiyat_cache.get(uye, {})
-                if hedef_tarih in fs:
-                    uye_getirileri.append((fs[hedef_tarih] / baz_fiyat - 1) * 100)
-
-            k["sektorGetiriUyeSayisi"] = len(uye_getirileri)
-            k["sektorToplamUye"] = len(uyeler)
-
-            if len(uye_getirileri) >= min_esik:
-                sektor_getiri = sum(uye_getirileri) / len(uye_getirileri)
-                k["sektor_ileri_getiri"][str(n)] = round(sektor_getiri, 3)
-                k["sektor_fazla_getiri"][str(n)] = round(sektor_getiri - xu_getiri, 3)
-                if lider_var and k["lider_ileri_getiri"][str(n)] is not None:
-                    k["lider_katkisi"][str(n)] = round(
-                        k["lider_ileri_getiri"][str(n)] - sektor_getiri, 3)
-                k["dogrulama"][str(n)] = "DOGRULANDI"
+            # --- BENCHMARK (XU100) - ayri durum ---
+            if k["dogrulamaBenchmark"][n_str] != "DOGRULANDI" and hedef_tarih in xu_fiyatlar:
+                xu_ileri = xu_fiyatlar[hedef_tarih]
+                xu_getiri = (xu_ileri / giris_xu - 1) * 100
+                k["xu100_ileri_getiri"][n_str] = round(xu_getiri, 3)
+                k["dogrulamaBenchmark"][n_str] = "DOGRULANDI"
                 herhangi_biri_guncellendi = True
-            # esik altindaysa bu vade "BEKLIYOR" olarak kalir - belki bir
-            # sonraki calismada eksik uyenin verisi gelmis olur
+
+            xu_getiri_mevcut = k["xu100_ileri_getiri"][n_str]
+            if xu_getiri_mevcut is None:
+                continue  # benchmark olmadan lider/sektor fazla getirisi hesaplanamaz
+
+            # --- LIDER - ayri durum ---
+            if k["dogrulamaLider"][n_str] != "DOGRULANDI":
+                if not lider_var:
+                    k["dogrulamaLider"][n_str] = "LIDER_YOK"
+                elif giris_fiyat_lider is not None and hedef_tarih in lider_kapanislar:
+                    lider_getiri = (lider_kapanislar[hedef_tarih] / giris_fiyat_lider - 1) * 100
+                    k["lider_ileri_getiri"][n_str] = round(lider_getiri, 3)
+                    k["lider_fazla_getiri"][n_str] = round(lider_getiri - xu_getiri_mevcut, 3)
+                    k["dogrulamaLider"][n_str] = "DOGRULANDI"
+                    herhangi_biri_guncellendi = True
+                # else: veri henuz gelmemis olabilir - VERI_EKSIK'e ancak
+                # benchmark uzun suredir DOGRULANDI oldugu halde lider hala
+                # gelmiyorsa geciliyor (asagida, dongu sonrasi)
+
+            # --- SEKTOR (esit-agirlik + minimum esik) - ayri durum ---
+            if k["dogrulamaSektor"][n_str] != "DOGRULANDI":
+                uye_getirileri = []
+                for uye, baz_fiyat in uye_giris_fiyat.items():
+                    fs = fiyat_cache.get(uye, {})
+                    if hedef_tarih in fs:
+                        uye_getirileri.append((fs[hedef_tarih] / baz_fiyat - 1) * 100)
+                k["uyeSayisi"][n_str] = len(uye_getirileri)
+                if len(uye_getirileri) >= min_esik:
+                    sektor_getiri = sum(uye_getirileri) / len(uye_getirileri)
+                    k["sektor_ileri_getiri"][n_str] = round(sektor_getiri, 3)
+                    k["sektor_fazla_getiri"][n_str] = round(sektor_getiri - xu_getiri_mevcut, 3)
+                    if k["lider_ileri_getiri"][n_str] is not None:
+                        k["lider_katkisi"][n_str] = round(
+                            k["lider_ileri_getiri"][n_str] - sektor_getiri, 3)
+                    k["dogrulamaSektor"][n_str] = "DOGRULANDI"
+                    herhangi_biri_guncellendi = True
+
+            # 15.09 (denetim madde 4.7): benchmark DOGRULANDI oldugu halde
+            # lider hala BEKLIYOR ise ve hedef tarihten sonra XU100'de en
+            # az 5 gun daha gecmisse, kalici bir veri eksikligi kabul edip
+            # sonsuza dek "BEKLIYOR" kalmasini onle.
+            if k["dogrulamaLider"][n_str] == "BEKLIYOR" and lider_var:
+                hedef_idx = xu_takvim.index(hedef_tarih) if hedef_tarih in xu_takvim else None
+                if hedef_idx is not None and hedef_idx + 5 < len(xu_takvim):
+                    k["dogrulamaLider"][n_str] = "VERI_EKSIK"
+                    herhangi_biri_guncellendi = True
 
         if herhangi_biri_guncellendi:
             guncellenen_kayit += 1
 
     arsiv_kaydet(arsiv)
-    print(f"Dogrulama tamamlandi: {guncellenen_kayit} kayitta en az bir vade guncellendi. "
-          f"(Giris fiyati artik D+1 acilisi, cikis fiyati kapanis)")
+    print(f"Dogrulama tamamlandi: {guncellenen_kayit} kayitta en az bir vade/durum guncellendi. "
+          f"(Giris fiyati D+1 acilisi, cikis fiyati kapanis, sektor/lider/benchmark ayri izleniyor)")
 
 
 
