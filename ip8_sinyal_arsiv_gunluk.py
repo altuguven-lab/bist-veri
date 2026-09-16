@@ -168,10 +168,51 @@ def n_islem_gunu_sonrasi_tarih(xu_takvim: list, sinyal_tarihi: str, n: int):
 # ============================================================
 # ARSIV OKUMA/YAZMA
 # ============================================================
+def arsiv_migrate(arsiv: dict) -> dict:
+    """15.09 EKLENTI (denetim - KRITIK, dogrulanmis cokme): eski semali
+    kayitlar ("dogrulama_durumu": "BEKLIYOR" gibi) yeni dogrula()
+    fonksiyonunun bekledigi ("dogrulama": {"1":"BEKLIYOR",...}) yapisinda
+    DEGILDI - calistirildiginda KeyError: 'dogrulama' ile COKUYORDU.
+    Bu fonksiyon HER yuklemede otomatik calisir: eski semali kayitlari
+    gunceller, unutulmus test kayitlarini temizler, versiyon damgasini
+    ilerletir. Boylece elle GitHub'a girip JSON duzenlemeye GEREK KALMAZ."""
+    arsiv.setdefault("ham_gunler", {})
+    arsiv.setdefault("kayitlar", [])
+
+    yeni_kayitlar = []
+    for k in arsiv["kayitlar"]:
+        # Unutulmus/eski test kayitlarini burada da temizle (ikinci guvenlik agi)
+        if k.get("evre") == "TEST" or k.get("aksiyon") == "TEST" or k.get("lider") == "TESTHISSE":
+            continue
+        # Eski sema -> yeni sema donusumu
+        if "dogrulama" not in k:
+            k["dogrulama"] = {str(n): "BEKLIYOR" for n in ISLEM_GUNLERI_ILERI}
+        if "lider_ileri_getiri" not in k:
+            k["lider_ileri_getiri"] = {str(n): None for n in ISLEM_GUNLERI_ILERI}
+        if "sektor_ileri_getiri" not in k:
+            k["sektor_ileri_getiri"] = {str(n): None for n in ISLEM_GUNLERI_ILERI}
+        if "lider_fazla_getiri" not in k:
+            k["lider_fazla_getiri"] = {str(n): None for n in ISLEM_GUNLERI_ILERI}
+        if "sektor_fazla_getiri" not in k:
+            k["sektor_fazla_getiri"] = {str(n): None for n in ISLEM_GUNLERI_ILERI}
+        if "lider_katkisi" not in k:
+            k["lider_katkisi"] = {str(n): None for n in ISLEM_GUNLERI_ILERI}
+        # Artik kullanilmayan eski alanlari temizle (opsiyonel, temiz tutmak icin)
+        k.pop("dogrulama_durumu", None)
+        k.pop("ileri_getiri", None)
+        k.pop("fazla_getiri", None)
+        yeni_kayitlar.append(k)
+
+    arsiv["kayitlar"] = yeni_kayitlar
+    arsiv["versiyon"] = "ip8-v2"
+    return arsiv
+
+
 def arsiv_yukle() -> dict:
     if ARSIV_DOSYASI.exists():
         with open(ARSIV_DOSYASI, "r", encoding="utf-8") as f:
-            return json.load(f)
+            ham = json.load(f)
+        return arsiv_migrate(ham)
     # 15.09 EKLENTI (denetim - "Ham veri ve normalize veri ayrılmalı"):
     # "ham_gunler" alani, GitHub'dan gelen her GUNUN TAM/HAM JSON'unu
     # (tarih -> orijinal payload) ayrica saklar. Boylece "kayitlar" (sektor
@@ -179,7 +220,7 @@ def arsiv_yukle() -> dict:
     # duzeltilirse, orijinal veri KAYBOLMADAN yeniden islenebilir. (NOT:
     # GitHub'daki data/ip8_sinyal_latest.json zaten son 500 gunun hamini
     # tutuyor - bu, ayni verinin YEREL/YEDEKLI bir kopyasidir.)
-    return {"versiyon": "ip8-v1", "kayitlar": [], "ham_gunler": {}}
+    return {"versiyon": "ip8-v2", "kayitlar": [], "ham_gunler": {}}
 
 
 def arsiv_kaydet(arsiv: dict):
