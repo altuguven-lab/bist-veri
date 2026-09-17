@@ -1,0 +1,39 @@
+# B5 FAZ V0 - NOMINAL BOGA REJIM ADX DIRENC TESTI (17.09.2026)
+# Konum: .github/workflows/b5_nominal_boga_adx.yml
+# ELLE tetiklenir - SALT OLCUM. Pine'a dokunmaz, kulucka sayacini etkilemez.
+# ON KOSUL: kgs_gunluk_port.py depoda olmali (import ediyor).
+name: B5 Nominal Boga ADX Testi (Faz V0)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  b5-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy
+      - name: On kosul - kgs_gunluk_port.py depoda mi
+        run: |
+          test -f kgs_gunluk_port.py || { echo "HATA: kgs_gunluk_port.py depoda yok"; exit 1; }
+      - name: B5 testini calistir
+        run: python b5_nominal_boga_adx.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "b5-test-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/backtest/b5_nominal_boga_adx_sonuc.json
+          git diff --staged --quiet && exit 0
+          git commit -m "B5 Faz V0: nominal boga ADX sonucu $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili ($i)"; exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
