@@ -1,0 +1,55 @@
+# B1 FAZ V1 - CIFTE-ESIK vs TEK-ESIK GATE KIYASI (17.09.2026)
+# Konum: .github/workflows/b1_esik_revizyon_backtest.yml
+# ELLE tetiklenir - SALT OLCUM. Sinyal uretmez, Pine'a dokunmaz, kulucka
+# sayacini etkilemez.
+#
+# ON KOSUL: kgs_gunluk_port.py depoda olmali (bu script ondan import
+# ediyor - SEMBOLLER, gostergeler, kgs_hesapla vb. tekrar yazilmadi).
+#
+# Cikti data/backtest/b1_esik_revizyon_sonuc.json - GUNLUK BAR
+# yaklasikligi, TEK BASINA hicbir esik/agirlik degisikligine GEREKCE
+# OLAMAZ (bkz. script'in kendi durustluk notu).
+name: B1 Esik Revizyon Backtest (Faz V1)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  b1-backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install yfinance==0.2.66 pandas numpy
+
+      - name: On kosul - kgs_gunluk_port.py depoda mi
+        run: |
+          test -f kgs_gunluk_port.py || {
+            echo "HATA: kgs_gunluk_port.py depoda yok. Bu script ondan import ediyor."
+            exit 1
+          }
+
+      - name: B1 esik revizyon backtest'ini calistir
+        run: python b1_esik_revizyon_backtest.py
+
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "b1-backtest-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/backtest/b1_esik_revizyon_sonuc.json
+          git diff --staged --quiet && exit 0
+          git commit -m "B1 Faz V1: esik revizyon backtest sonucu $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili (deneme $i)"; exit 0; fi
+            echo "push reddedildi, rebase + tekrar ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
