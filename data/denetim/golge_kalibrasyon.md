@@ -1,4 +1,4 @@
-# Golge Kalibrasyon (2026-09-16)
+# Golge Kalibrasyon (2026-09-17)
 SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ## Katman B - IP-2 vekili (EMA dizilim gecisi + hacim + rejim)
