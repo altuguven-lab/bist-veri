@@ -1,0 +1,917 @@
+{
+  "calisma": "B3 Faz V0 - Kovalama Vetosu Kacirdi Vakalari Testi",
+  "uretim_zamani_utc": "2026-09-17T11:03:20.152614+00:00",
+  "durustluk_notu": "GUNLUK BAR yaklasikligi. _p3Baglam (skor/rejim/HTF/DNA filtreleri) ATLANDI - burada 'aday' yalniz tepe-asimi+hacim, gercek P3_SKOR_AL'in TAM on-sartlarini tasimiyor (daha genis havuz). TEK BASINA hicbir kod degisikligine GEREKCE OLAMAZ - B3'un ilk kesif adimidir.",
+  "backlog_karar_kriteri": "KACIRDI vakalarinin T+3 sonuclari >%55 pozitifse gecis yapilsin",
+  "t3_kacirdi_isabet_pct": 55.1,
+  "karar_kriteri_gecti_mi": true,
+  "genel": {
+    "alindi": {
+      "t3": {
+        "adet": 1801,
+        "isabet_pct": 55.6,
+        "ort_getiri_pct": 0.779
+      },
+      "t10": {
+        "adet": 1796,
+        "isabet_pct": 58.7,
+        "ort_getiri_pct": 2.291
+      }
+    },
+    "kacirdi": {
+      "t3": {
+        "adet": 2253,
+        "isabet_pct": 55.1,
+        "ort_getiri_pct": 0.857
+      },
+      "t10": {
+        "adet": 2244,
+        "isabet_pct": 59.5,
+        "ort_getiri_pct": 2.759
+      }
+    }
+  },
+  "kacirdi_bant_kademeli": {
+    "1.5-3.0_bant": {
+      "t3": {
+        "adet": 1145,
+        "isabet_pct": 54.6,
+        "ort_getiri_pct": 0.821
+      },
+      "t10": {
+        "adet": 1143,
+        "isabet_pct": 61.3,
+        "ort_getiri_pct": 2.798
+      }
+    },
+    "3.0-6.0_bant": {
+      "t3": {
+        "adet": 845,
+        "isabet_pct": 56.2,
+        "ort_getiri_pct": 0.972
+      },
+      "t10": {
+        "adet": 844,
+        "isabet_pct": 58.5,
+        "ort_getiri_pct": 2.869
+      }
+    },
+    "6.0_uzeri": {
+      "t3": {
+        "adet": 263,
+        "isabet_pct": 54.0,
+        "ort_getiri_pct": 0.649
+      },
+      "t10": {
+        "adet": 257,
+        "isabet_pct": 54.5,
+        "ort_getiri_pct": 2.225
+      }
+    }
+  },
+  "sembol_bazli": {
+    "AKBNK": {
+      "alindi": {
+        "t3": {
+          "adet": 57,
+          "isabet_pct": 52.6,
+          "ort_getiri_pct": 1.212
+        },
+        "t10": {
+          "adet": 56,
+          "isabet_pct": 76.8,
+          "ort_getiri_pct": 4.528
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 77,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.453
+        },
+        "t10": {
+          "adet": 77,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.316
+        }
+      },
+      "kacirdi_gun_sayisi": 77,
+      "alindi_gun_sayisi": 57
+    },
+    "YKBNK": {
+      "alindi": {
+        "t3": {
+          "adet": 56,
+          "isabet_pct": 53.6,
+          "ort_getiri_pct": 1.079
+        },
+        "t10": {
+          "adet": 56,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 3.965
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 79,
+          "isabet_pct": 62.0,
+          "ort_getiri_pct": 1.014
+        },
+        "t10": {
+          "adet": 79,
+          "isabet_pct": 65.8,
+          "ort_getiri_pct": 3.325
+        }
+      },
+      "kacirdi_gun_sayisi": 79,
+      "alindi_gun_sayisi": 56
+    },
+    "GARAN": {
+      "alindi": {
+        "t3": {
+          "adet": 53,
+          "isabet_pct": 50.9,
+          "ort_getiri_pct": 1.138
+        },
+        "t10": {
+          "adet": 53,
+          "isabet_pct": 50.9,
+          "ort_getiri_pct": 2.23
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 67,
+          "isabet_pct": 44.8,
+          "ort_getiri_pct": -0.443
+        },
+        "t10": {
+          "adet": 67,
+          "isabet_pct": 56.7,
+          "ort_getiri_pct": 2.162
+        }
+      },
+      "kacirdi_gun_sayisi": 67,
+      "alindi_gun_sayisi": 53
+    },
+    "ISCTR": {
+      "alindi": {
+        "t3": {
+          "adet": 69,
+          "isabet_pct": 47.8,
+          "ort_getiri_pct": 0.598
+        },
+        "t10": {
+          "adet": 69,
+          "isabet_pct": 59.4,
+          "ort_getiri_pct": 1.931
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 74,
+          "isabet_pct": 59.5,
+          "ort_getiri_pct": 2.065
+        },
+        "t10": {
+          "adet": 73,
+          "isabet_pct": 53.4,
+          "ort_getiri_pct": 2.671
+        }
+      },
+      "kacirdi_gun_sayisi": 74,
+      "alindi_gun_sayisi": 69
+    },
+    "HALKB": {
+      "alindi": {
+        "t3": {
+          "adet": 49,
+          "isabet_pct": 42.9,
+          "ort_getiri_pct": -0.493
+        },
+        "t10": {
+          "adet": 49,
+          "isabet_pct": 63.3,
+          "ort_getiri_pct": 1.201
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 77,
+          "isabet_pct": 50.6,
+          "ort_getiri_pct": 1.691
+        },
+        "t10": {
+          "adet": 77,
+          "isabet_pct": 45.5,
+          "ort_getiri_pct": 5.48
+        }
+      },
+      "kacirdi_gun_sayisi": 77,
+      "alindi_gun_sayisi": 49
+    },
+    "VAKBN": {
+      "alindi": {
+        "t3": {
+          "adet": 56,
+          "isabet_pct": 39.3,
+          "ort_getiri_pct": -0.641
+        },
+        "t10": {
+          "adet": 56,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 1.084
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 75,
+          "isabet_pct": 52.0,
+          "ort_getiri_pct": 2.071
+        },
+        "t10": {
+          "adet": 73,
+          "isabet_pct": 60.3,
+          "ort_getiri_pct": 8.24
+        }
+      },
+      "kacirdi_gun_sayisi": 75,
+      "alindi_gun_sayisi": 56
+    },
+    "KCHOL": {
+      "alindi": {
+        "t3": {
+          "adet": 58,
+          "isabet_pct": 58.6,
+          "ort_getiri_pct": 0.653
+        },
+        "t10": {
+          "adet": 58,
+          "isabet_pct": 55.2,
+          "ort_getiri_pct": 0.927
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 65,
+          "isabet_pct": 63.1,
+          "ort_getiri_pct": 1.071
+        },
+        "t10": {
+          "adet": 65,
+          "isabet_pct": 58.5,
+          "ort_getiri_pct": 0.489
+        }
+      },
+      "kacirdi_gun_sayisi": 65,
+      "alindi_gun_sayisi": 58
+    },
+    "SAHOL": {
+      "alindi": {
+        "t3": {
+          "adet": 58,
+          "isabet_pct": 60.3,
+          "ort_getiri_pct": 0.92
+        },
+        "t10": {
+          "adet": 58,
+          "isabet_pct": 53.4,
+          "ort_getiri_pct": 1.405
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 66,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 0.605
+        },
+        "t10": {
+          "adet": 66,
+          "isabet_pct": 62.1,
+          "ort_getiri_pct": 1.57
+        }
+      },
+      "kacirdi_gun_sayisi": 66,
+      "alindi_gun_sayisi": 58
+    },
+    "BIMAS": {
+      "alindi": {
+        "t3": {
+          "adet": 47,
+          "isabet_pct": 44.7,
+          "ort_getiri_pct": -0.479
+        },
+        "t10": {
+          "adet": 47,
+          "isabet_pct": 53.2,
+          "ort_getiri_pct": -0.273
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 63,
+          "isabet_pct": 54.0,
+          "ort_getiri_pct": -0.214
+        },
+        "t10": {
+          "adet": 63,
+          "isabet_pct": 50.8,
+          "ort_getiri_pct": 0.028
+        }
+      },
+      "kacirdi_gun_sayisi": 63,
+      "alindi_gun_sayisi": 47
+    },
+    "MGROS": {
+      "alindi": {
+        "t3": {
+          "adet": 75,
+          "isabet_pct": 64.0,
+          "ort_getiri_pct": 1.384
+        },
+        "t10": {
+          "adet": 75,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 3.711
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 75,
+          "isabet_pct": 40.0,
+          "ort_getiri_pct": -1.126
+        },
+        "t10": {
+          "adet": 75,
+          "isabet_pct": 46.7,
+          "ort_getiri_pct": -0.073
+        }
+      },
+      "kacirdi_gun_sayisi": 75,
+      "alindi_gun_sayisi": 75
+    },
+    "ASELS": {
+      "alindi": {
+        "t3": {
+          "adet": 68,
+          "isabet_pct": 54.4,
+          "ort_getiri_pct": 1.063
+        },
+        "t10": {
+          "adet": 68,
+          "isabet_pct": 54.4,
+          "ort_getiri_pct": 2.874
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 102,
+          "isabet_pct": 63.7,
+          "ort_getiri_pct": 2.132
+        },
+        "t10": {
+          "adet": 102,
+          "isabet_pct": 67.6,
+          "ort_getiri_pct": 4.311
+        }
+      },
+      "kacirdi_gun_sayisi": 102,
+      "alindi_gun_sayisi": 68
+    },
+    "THYAO": {
+      "alindi": {
+        "t3": {
+          "adet": 53,
+          "isabet_pct": 54.7,
+          "ort_getiri_pct": 1.644
+        },
+        "t10": {
+          "adet": 53,
+          "isabet_pct": 60.4,
+          "ort_getiri_pct": 2.53
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 72,
+          "isabet_pct": 59.7,
+          "ort_getiri_pct": 1.082
+        },
+        "t10": {
+          "adet": 72,
+          "isabet_pct": 62.5,
+          "ort_getiri_pct": 2.851
+        }
+      },
+      "kacirdi_gun_sayisi": 72,
+      "alindi_gun_sayisi": 53
+    },
+    "PGSUS": {
+      "alindi": {
+        "t3": {
+          "adet": 37,
+          "isabet_pct": 64.9,
+          "ort_getiri_pct": 2.264
+        },
+        "t10": {
+          "adet": 37,
+          "isabet_pct": 67.6,
+          "ort_getiri_pct": 5.252
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 87,
+          "isabet_pct": 65.5,
+          "ort_getiri_pct": 2.942
+        },
+        "t10": {
+          "adet": 87,
+          "isabet_pct": 72.4,
+          "ort_getiri_pct": 5.527
+        }
+      },
+      "kacirdi_gun_sayisi": 87,
+      "alindi_gun_sayisi": 37
+    },
+    "TAVHL": {
+      "alindi": {
+        "t3": {
+          "adet": 62,
+          "isabet_pct": 64.5,
+          "ort_getiri_pct": 1.302
+        },
+        "t10": {
+          "adet": 62,
+          "isabet_pct": 54.8,
+          "ort_getiri_pct": 2.162
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 76,
+          "isabet_pct": 61.8,
+          "ort_getiri_pct": 1.065
+        },
+        "t10": {
+          "adet": 76,
+          "isabet_pct": 57.9,
+          "ort_getiri_pct": 1.02
+        }
+      },
+      "kacirdi_gun_sayisi": 76,
+      "alindi_gun_sayisi": 62
+    },
+    "TTKOM": {
+      "alindi": {
+        "t3": {
+          "adet": 67,
+          "isabet_pct": 56.7,
+          "ort_getiri_pct": 0.348
+        },
+        "t10": {
+          "adet": 66,
+          "isabet_pct": 59.1,
+          "ort_getiri_pct": 2.24
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 71,
+          "isabet_pct": 56.3,
+          "ort_getiri_pct": 0.248
+        },
+        "t10": {
+          "adet": 70,
+          "isabet_pct": 61.4,
+          "ort_getiri_pct": 2.776
+        }
+      },
+      "kacirdi_gun_sayisi": 71,
+      "alindi_gun_sayisi": 67
+    },
+    "EREGL": {
+      "alindi": {
+        "t3": {
+          "adet": 69,
+          "isabet_pct": 63.8,
+          "ort_getiri_pct": 0.571
+        },
+        "t10": {
+          "adet": 69,
+          "isabet_pct": 58.0,
+          "ort_getiri_pct": 1.435
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 77,
+          "isabet_pct": 46.8,
+          "ort_getiri_pct": 0.141
+        },
+        "t10": {
+          "adet": 77,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 0.334
+        }
+      },
+      "kacirdi_gun_sayisi": 77,
+      "alindi_gun_sayisi": 69
+    },
+    "SISE": {
+      "alindi": {
+        "t3": {
+          "adet": 77,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.727
+        },
+        "t10": {
+          "adet": 77,
+          "isabet_pct": 64.9,
+          "ort_getiri_pct": 2.604
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 65,
+          "isabet_pct": 50.8,
+          "ort_getiri_pct": 0.068
+        },
+        "t10": {
+          "adet": 64,
+          "isabet_pct": 53.1,
+          "ort_getiri_pct": 2.211
+        }
+      },
+      "kacirdi_gun_sayisi": 65,
+      "alindi_gun_sayisi": 77
+    },
+    "TRMET": {
+      "alindi": {
+        "t3": {
+          "adet": 63,
+          "isabet_pct": 60.3,
+          "ort_getiri_pct": 1.544
+        },
+        "t10": {
+          "adet": 63,
+          "isabet_pct": 54.0,
+          "ort_getiri_pct": 1.223
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 72,
+          "isabet_pct": 52.8,
+          "ort_getiri_pct": 0.899
+        },
+        "t10": {
+          "adet": 72,
+          "isabet_pct": 59.7,
+          "ort_getiri_pct": 1.859
+        }
+      },
+      "kacirdi_gun_sayisi": 72,
+      "alindi_gun_sayisi": 63
+    },
+    "TUPRS": {
+      "alindi": {
+        "t3": {
+          "adet": 59,
+          "isabet_pct": 59.3,
+          "ort_getiri_pct": 1.322
+        },
+        "t10": {
+          "adet": 59,
+          "isabet_pct": 59.3,
+          "ort_getiri_pct": 2.465
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 97,
+          "isabet_pct": 59.8,
+          "ort_getiri_pct": 0.89
+        },
+        "t10": {
+          "adet": 97,
+          "isabet_pct": 62.9,
+          "ort_getiri_pct": 2.836
+        }
+      },
+      "kacirdi_gun_sayisi": 97,
+      "alindi_gun_sayisi": 59
+    },
+    "PETKM": {
+      "alindi": {
+        "t3": {
+          "adet": 77,
+          "isabet_pct": 55.8,
+          "ort_getiri_pct": 0.776
+        },
+        "t10": {
+          "adet": 77,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 1.17
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 84,
+          "isabet_pct": 51.2,
+          "ort_getiri_pct": 0.848
+        },
+        "t10": {
+          "adet": 82,
+          "isabet_pct": 52.4,
+          "ort_getiri_pct": 1.022
+        }
+      },
+      "kacirdi_gun_sayisi": 84,
+      "alindi_gun_sayisi": 77
+    },
+    "ASTOR": {
+      "alindi": {
+        "t3": {
+          "adet": 22,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 1.436
+        },
+        "t10": {
+          "adet": 22,
+          "isabet_pct": 63.6,
+          "ort_getiri_pct": 6.609
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 45,
+          "isabet_pct": 53.3,
+          "ort_getiri_pct": 2.436
+        },
+        "t10": {
+          "adet": 45,
+          "isabet_pct": 71.1,
+          "ort_getiri_pct": 8.69
+        }
+      },
+      "kacirdi_gun_sayisi": 45,
+      "alindi_gun_sayisi": 22
+    },
+    "ENJSA": {
+      "alindi": {
+        "t3": {
+          "adet": 81,
+          "isabet_pct": 55.6,
+          "ort_getiri_pct": 0.388
+        },
+        "t10": {
+          "adet": 81,
+          "isabet_pct": 58.0,
+          "ort_getiri_pct": 1.66
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 67,
+          "isabet_pct": 59.7,
+          "ort_getiri_pct": 0.746
+        },
+        "t10": {
+          "adet": 67,
+          "isabet_pct": 68.7,
+          "ort_getiri_pct": 2.968
+        }
+      },
+      "kacirdi_gun_sayisi": 67,
+      "alindi_gun_sayisi": 81
+    },
+    "ENKAI": {
+      "alindi": {
+        "t3": {
+          "adet": 53,
+          "isabet_pct": 60.4,
+          "ort_getiri_pct": 0.678
+        },
+        "t10": {
+          "adet": 53,
+          "isabet_pct": 58.5,
+          "ort_getiri_pct": 3.22
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 77,
+          "isabet_pct": 49.4,
+          "ort_getiri_pct": -0.08
+        },
+        "t10": {
+          "adet": 77,
+          "isabet_pct": 58.4,
+          "ort_getiri_pct": 1.748
+        }
+      },
+      "kacirdi_gun_sayisi": 77,
+      "alindi_gun_sayisi": 53
+    },
+    "EKGYO": {
+      "alindi": {
+        "t3": {
+          "adet": 63,
+          "isabet_pct": 60.3,
+          "ort_getiri_pct": 1.072
+        },
+        "t10": {
+          "adet": 63,
+          "isabet_pct": 60.3,
+          "ort_getiri_pct": 3.261
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 85,
+          "isabet_pct": 49.4,
+          "ort_getiri_pct": 0.374
+        },
+        "t10": {
+          "adet": 84,
+          "isabet_pct": 54.8,
+          "ort_getiri_pct": 2.275
+        }
+      },
+      "kacirdi_gun_sayisi": 85,
+      "alindi_gun_sayisi": 63
+    },
+    "FROTO": {
+      "alindi": {
+        "t3": {
+          "adet": 60,
+          "isabet_pct": 53.3,
+          "ort_getiri_pct": -0.066
+        },
+        "t10": {
+          "adet": 58,
+          "isabet_pct": 58.6,
+          "ort_getiri_pct": 2.349
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 69,
+          "isabet_pct": 52.2,
+          "ort_getiri_pct": 0.106
+        },
+        "t10": {
+          "adet": 69,
+          "isabet_pct": 63.8,
+          "ort_getiri_pct": 2.184
+        }
+      },
+      "kacirdi_gun_sayisi": 69,
+      "alindi_gun_sayisi": 60
+    },
+    "TOASO": {
+      "alindi": {
+        "t3": {
+          "adet": 57,
+          "isabet_pct": 49.1,
+          "ort_getiri_pct": 0.652
+        },
+        "t10": {
+          "adet": 56,
+          "isabet_pct": 62.5,
+          "ort_getiri_pct": 2.495
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 77,
+          "isabet_pct": 64.9,
+          "ort_getiri_pct": 1.532
+        },
+        "t10": {
+          "adet": 76,
+          "isabet_pct": 60.5,
+          "ort_getiri_pct": 3.185
+        }
+      },
+      "kacirdi_gun_sayisi": 77,
+      "alindi_gun_sayisi": 57
+    },
+    "OTKAR": {
+      "alindi": {
+        "t3": {
+          "adet": 76,
+          "isabet_pct": 56.6,
+          "ort_getiri_pct": 0.776
+        },
+        "t10": {
+          "adet": 76,
+          "isabet_pct": 51.3,
+          "ort_getiri_pct": 1.53
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 93,
+          "isabet_pct": 59.1,
+          "ort_getiri_pct": 1.065
+        },
+        "t10": {
+          "adet": 93,
+          "isabet_pct": 60.2,
+          "ort_getiri_pct": 3.822
+        }
+      },
+      "kacirdi_gun_sayisi": 93,
+      "alindi_gun_sayisi": 76
+    },
+    "AEFES": {
+      "alindi": {
+        "t3": {
+          "adet": 53,
+          "isabet_pct": 54.7,
+          "ort_getiri_pct": 0.154
+        },
+        "t10": {
+          "adet": 53,
+          "isabet_pct": 62.3,
+          "ort_getiri_pct": 2.742
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 68,
+          "isabet_pct": 57.4,
+          "ort_getiri_pct": 0.392
+        },
+        "t10": {
+          "adet": 68,
+          "isabet_pct": 63.2,
+          "ort_getiri_pct": 1.878
+        }
+      },
+      "kacirdi_gun_sayisi": 68,
+      "alindi_gun_sayisi": 53
+    },
+    "ALARK": {
+      "alindi": {
+        "t3": {
+          "adet": 67,
+          "isabet_pct": 59.7,
+          "ort_getiri_pct": 0.985
+        },
+        "t10": {
+          "adet": 67,
+          "isabet_pct": 61.2,
+          "ort_getiri_pct": 2.688
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 82,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 0.58
+        },
+        "t10": {
+          "adet": 82,
+          "isabet_pct": 62.2,
+          "ort_getiri_pct": 3.709
+        }
+      },
+      "kacirdi_gun_sayisi": 82,
+      "alindi_gun_sayisi": 67
+    },
+    "ULKER": {
+      "alindi": {
+        "t3": {
+          "adet": 59,
+          "isabet_pct": 55.9,
+          "ort_getiri_pct": 0.831
+        },
+        "t10": {
+          "adet": 59,
+          "isabet_pct": 54.2,
+          "ort_getiri_pct": 1.294
+        }
+      },
+      "kacirdi": {
+        "t3": {
+          "adet": 69,
+          "isabet_pct": 50.7,
+          "ort_getiri_pct": 0.359
+        },
+        "t10": {
+          "adet": 69,
+          "isabet_pct": 65.2,
+          "ort_getiri_pct": 3.712
+        }
+      },
+      "kacirdi_gun_sayisi": 69,
+      "alindi_gun_sayisi": 59
+    }
+  },
+  "trmet_2024_06_07_kacirdi_gunleri": [
+    "2024-07-10"
+  ]
+}
