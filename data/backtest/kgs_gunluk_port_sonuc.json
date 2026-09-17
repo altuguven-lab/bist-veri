@@ -1,0 +1,550 @@
+{
+  "calisma": "B1 Faz V0 - KGS Gunluk-Bar Yaklasik Portu",
+  "uretim_zamani_utc": "2026-09-17T09:01:39.220388+00:00",
+  "durustluk_notu": "GOSTERGE NITELIGINDE yaklasik kopya, GUNLUK barda (15dk DEGIL). V0'da atlanan KGS ayarlamalari: kgsBankAdj, kgsStateBonus, kgsV103Adj, kgsEarlyLeaderAdj, kgsAccelAdj, kgsSectorIndexAdj, elite/holding/havacilik taban istisnalari, risk cezasi (hepsi False varsayildi). CVD, OBV proxy'si ile yaklasiklanmistir, bagimsiz tick verisi degildir. TEK BASINA hicbir uretim agirlik degisikligine GEREKCE OLAMAZ - B1'in ilk kesif adimidir.",
+  "evren": [
+    "AKBNK",
+    "YKBNK",
+    "GARAN",
+    "ISCTR",
+    "HALKB",
+    "VAKBN",
+    "KCHOL",
+    "SAHOL",
+    "BIMAS",
+    "MGROS",
+    "ASELS",
+    "THYAO",
+    "PGSUS",
+    "TAVHL",
+    "TTKOM",
+    "EREGL",
+    "SISE",
+    "TRMET",
+    "TUPRS",
+    "PETKM",
+    "ASTOR",
+    "ENJSA",
+    "ENKAI",
+    "EKGYO",
+    "FROTO",
+    "TOASO",
+    "OTKAR",
+    "AEFES",
+    "ALARK",
+    "ULKER"
+  ],
+  "sembol_bazli": {
+    "AKBNK": {
+      "sektor": "BANKACILIK",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 45.28,
+      "kgs_std": 22.26,
+      "entryScoreBase_ortalama": 23.41,
+      "kgs_entryScoreBase_korelasyon": 0.963,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.64,
+        "kgsEma": 7.55,
+        "kgsRs": 10.15,
+        "kgsVol": 4.75,
+        "kgsSector": 5.38,
+        "kgsCvd": 4.71,
+        "kgsKurum": 4.11
+      }
+    },
+    "YKBNK": {
+      "sektor": "BANKACILIK",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 46.82,
+      "kgs_std": 22.04,
+      "entryScoreBase_ortalama": 24.1,
+      "kgs_entryScoreBase_korelasyon": 0.964,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.89,
+        "kgsEma": 8.4,
+        "kgsRs": 10.1,
+        "kgsVol": 4.76,
+        "kgsSector": 5.61,
+        "kgsCvd": 4.82,
+        "kgsKurum": 4.24
+      }
+    },
+    "GARAN": {
+      "sektor": "BANKACILIK",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 46.87,
+      "kgs_std": 20.98,
+      "entryScoreBase_ortalama": 24.05,
+      "kgs_entryScoreBase_korelasyon": 0.964,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.19,
+        "kgsEma": 8.61,
+        "kgsRs": 9.99,
+        "kgsVol": 4.75,
+        "kgsSector": 5.35,
+        "kgsCvd": 4.75,
+        "kgsKurum": 4.23
+      }
+    },
+    "ISCTR": {
+      "sektor": "BANKACILIK",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 45.78,
+      "kgs_std": 22.47,
+      "entryScoreBase_ortalama": 23.67,
+      "kgs_entryScoreBase_korelasyon": 0.964,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.87,
+        "kgsEma": 7.51,
+        "kgsRs": 10.08,
+        "kgsVol": 4.78,
+        "kgsSector": 5.42,
+        "kgsCvd": 4.79,
+        "kgsKurum": 4.32
+      }
+    },
+    "HALKB": {
+      "sektor": "BANKACILIK",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 43.28,
+      "kgs_std": 22.76,
+      "entryScoreBase_ortalama": 22.57,
+      "kgs_entryScoreBase_korelasyon": 0.966,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 7.98,
+        "kgsEma": 5.88,
+        "kgsRs": 10.52,
+        "kgsVol": 4.57,
+        "kgsSector": 5.16,
+        "kgsCvd": 4.84,
+        "kgsKurum": 4.32
+      }
+    },
+    "VAKBN": {
+      "sektor": "BANKACILIK",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 43.67,
+      "kgs_std": 22.99,
+      "entryScoreBase_ortalama": 22.82,
+      "kgs_entryScoreBase_korelasyon": 0.967,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.15,
+        "kgsEma": 6.36,
+        "kgsRs": 10.01,
+        "kgsVol": 4.65,
+        "kgsSector": 5.23,
+        "kgsCvd": 4.91,
+        "kgsKurum": 4.37
+      }
+    },
+    "KCHOL": {
+      "sektor": "HOLDING",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 48.06,
+      "kgs_std": 20.82,
+      "entryScoreBase_ortalama": 24.59,
+      "kgs_entryScoreBase_korelasyon": 0.958,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.12,
+        "kgsEma": 8.7,
+        "kgsRs": 10.46,
+        "kgsVol": 4.76,
+        "kgsSector": 5.56,
+        "kgsCvd": 4.98,
+        "kgsKurum": 4.47
+      }
+    },
+    "SAHOL": {
+      "sektor": "HOLDING",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 47.29,
+      "kgs_std": 21.24,
+      "entryScoreBase_ortalama": 24.25,
+      "kgs_entryScoreBase_korelasyon": 0.962,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.03,
+        "kgsEma": 8.46,
+        "kgsRs": 10.21,
+        "kgsVol": 4.8,
+        "kgsSector": 5.55,
+        "kgsCvd": 4.9,
+        "kgsKurum": 4.35
+      }
+    },
+    "BIMAS": {
+      "sektor": "PERAKENDE",
+      "bar_sayisi": 1943,
+      "kgs_ortalama": 49.45,
+      "kgs_std": 18.96,
+      "entryScoreBase_ortalama": 25.03,
+      "kgs_entryScoreBase_korelasyon": 0.956,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.48,
+        "kgsEma": 9.99,
+        "kgsRs": 10.15,
+        "kgsVol": 4.76,
+        "kgsSector": 5.79,
+        "kgsCvd": 4.94,
+        "kgsKurum": 4.34
+      }
+    },
+    "MGROS": {
+      "sektor": "PERAKENDE",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 47.59,
+      "kgs_std": 22.28,
+      "entryScoreBase_ortalama": 24.52,
+      "kgs_entryScoreBase_korelasyon": 0.964,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.14,
+        "kgsEma": 8.37,
+        "kgsRs": 9.94,
+        "kgsVol": 4.68,
+        "kgsSector": 5.95,
+        "kgsCvd": 5.01,
+        "kgsKurum": 4.5
+      }
+    },
+    "ASELS": {
+      "sektor": "SAVUNMA",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 48.97,
+      "kgs_std": 20.25,
+      "entryScoreBase_ortalama": 25.07,
+      "kgs_entryScoreBase_korelasyon": 0.959,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.13,
+        "kgsEma": 8.95,
+        "kgsRs": 11.15,
+        "kgsVol": 4.68,
+        "kgsSector": 5.57,
+        "kgsCvd": 4.96,
+        "kgsKurum": 4.53
+      }
+    },
+    "THYAO": {
+      "sektor": "HAVACILIK",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 45.26,
+      "kgs_std": 22.42,
+      "entryScoreBase_ortalama": 23.44,
+      "kgs_entryScoreBase_korelasyon": 0.966,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.52,
+        "kgsEma": 6.68,
+        "kgsRs": 10.3,
+        "kgsVol": 4.75,
+        "kgsSector": 5.94,
+        "kgsCvd": 4.81,
+        "kgsKurum": 4.25
+      }
+    },
+    "PGSUS": {
+      "sektor": "HAVACILIK",
+      "bar_sayisi": 1941,
+      "kgs_ortalama": 46.05,
+      "kgs_std": 22.81,
+      "entryScoreBase_ortalama": 23.73,
+      "kgs_entryScoreBase_korelasyon": 0.965,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.4,
+        "kgsEma": 7.47,
+        "kgsRs": 10.28,
+        "kgsVol": 4.64,
+        "kgsSector": 5.98,
+        "kgsCvd": 4.93,
+        "kgsKurum": 4.35
+      }
+    },
+    "TAVHL": {
+      "sektor": "HAVACILIK",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 46.15,
+      "kgs_std": 21.67,
+      "entryScoreBase_ortalama": 23.85,
+      "kgs_entryScoreBase_korelasyon": 0.963,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.57,
+        "kgsEma": 7.75,
+        "kgsRs": 9.98,
+        "kgsVol": 4.74,
+        "kgsSector": 5.75,
+        "kgsCvd": 4.96,
+        "kgsKurum": 4.4
+      }
+    },
+    "TTKOM": {
+      "sektor": "ILETISIM",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 44.45,
+      "kgs_std": 20.05,
+      "entryScoreBase_ortalama": 23.19,
+      "kgs_entryScoreBase_korelasyon": 0.959,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.82,
+        "kgsEma": 8.8,
+        "kgsRs": 10.5,
+        "kgsVol": 4.69,
+        "kgsSector": 2.06,
+        "kgsCvd": 5.02,
+        "kgsKurum": 4.56
+      }
+    },
+    "EREGL": {
+      "sektor": "SINAI",
+      "bar_sayisi": 1941,
+      "kgs_ortalama": 48.14,
+      "kgs_std": 20.91,
+      "entryScoreBase_ortalama": 24.66,
+      "kgs_entryScoreBase_korelasyon": 0.96,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.87,
+        "kgsEma": 8.87,
+        "kgsRs": 10.54,
+        "kgsVol": 4.77,
+        "kgsSector": 5.67,
+        "kgsCvd": 4.95,
+        "kgsKurum": 4.47
+      }
+    },
+    "SISE": {
+      "sektor": "SINAI",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 44.79,
+      "kgs_std": 20.85,
+      "entryScoreBase_ortalama": 23.3,
+      "kgs_entryScoreBase_korelasyon": 0.959,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.43,
+        "kgsEma": 6.82,
+        "kgsRs": 10.09,
+        "kgsVol": 4.74,
+        "kgsSector": 5.45,
+        "kgsCvd": 4.9,
+        "kgsKurum": 4.35
+      }
+    },
+    "TRMET": {
+      "sektor": "SINAI",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 48.8,
+      "kgs_std": 23.06,
+      "entryScoreBase_ortalama": 24.89,
+      "kgs_entryScoreBase_korelasyon": 0.966,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.75,
+        "kgsEma": 8.61,
+        "kgsRs": 11.03,
+        "kgsVol": 4.58,
+        "kgsSector": 5.88,
+        "kgsCvd": 5.18,
+        "kgsKurum": 4.77
+      }
+    },
+    "TUPRS": {
+      "sektor": "ENERJI",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 47.09,
+      "kgs_std": 22.08,
+      "entryScoreBase_ortalama": 24.18,
+      "kgs_entryScoreBase_korelasyon": 0.963,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.77,
+        "kgsEma": 7.96,
+        "kgsRs": 10.59,
+        "kgsVol": 4.73,
+        "kgsSector": 5.84,
+        "kgsCvd": 4.83,
+        "kgsKurum": 4.37
+      }
+    },
+    "PETKM": {
+      "sektor": "ENERJI",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 44.76,
+      "kgs_std": 22.3,
+      "entryScoreBase_ortalama": 23.3,
+      "kgs_entryScoreBase_korelasyon": 0.964,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.34,
+        "kgsEma": 6.36,
+        "kgsRs": 10.57,
+        "kgsVol": 4.61,
+        "kgsSector": 5.64,
+        "kgsCvd": 4.86,
+        "kgsKurum": 4.38
+      }
+    },
+    "ASTOR": {
+      "sektor": "ENERJI",
+      "bar_sayisi": 915,
+      "kgs_ortalama": 46.4,
+      "kgs_std": 23.83,
+      "entryScoreBase_ortalama": 23.82,
+      "kgs_entryScoreBase_korelasyon": 0.969,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.5,
+        "kgsEma": 7.21,
+        "kgsRs": 10.1,
+        "kgsVol": 4.59,
+        "kgsSector": 6.56,
+        "kgsCvd": 5.0,
+        "kgsKurum": 4.44
+      }
+    },
+    "ENJSA": {
+      "sektor": "ENERJI",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 50.48,
+      "kgs_std": 19.31,
+      "entryScoreBase_ortalama": 25.63,
+      "kgs_entryScoreBase_korelasyon": 0.956,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.44,
+        "kgsEma": 10.51,
+        "kgsRs": 10.3,
+        "kgsVol": 4.68,
+        "kgsSector": 5.91,
+        "kgsCvd": 5.08,
+        "kgsKurum": 4.55
+      }
+    },
+    "ENKAI": {
+      "sektor": "INSAAT",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 48.23,
+      "kgs_std": 17.77,
+      "entryScoreBase_ortalama": 24.72,
+      "kgs_entryScoreBase_korelasyon": 0.953,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.64,
+        "kgsEma": 11.53,
+        "kgsRs": 10.73,
+        "kgsVol": 4.65,
+        "kgsSector": 2.17,
+        "kgsCvd": 4.98,
+        "kgsKurum": 4.52
+      }
+    },
+    "EKGYO": {
+      "sektor": "GYO",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 42.69,
+      "kgs_std": 21.98,
+      "entryScoreBase_ortalama": 22.58,
+      "kgs_entryScoreBase_korelasyon": 0.965,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.48,
+        "kgsEma": 7.27,
+        "kgsRs": 10.88,
+        "kgsVol": 4.75,
+        "kgsSector": 2.04,
+        "kgsCvd": 4.88,
+        "kgsKurum": 4.4
+      }
+    },
+    "FROTO": {
+      "sektor": "OTOMOTIV",
+      "bar_sayisi": 1941,
+      "kgs_ortalama": 47.69,
+      "kgs_std": 21.57,
+      "entryScoreBase_ortalama": 24.29,
+      "kgs_entryScoreBase_korelasyon": 0.964,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.73,
+        "kgsEma": 8.77,
+        "kgsRs": 10.45,
+        "kgsVol": 4.75,
+        "kgsSector": 5.88,
+        "kgsCvd": 4.86,
+        "kgsKurum": 4.25
+      }
+    },
+    "TOASO": {
+      "sektor": "OTOMOTIV",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 48.63,
+      "kgs_std": 22.22,
+      "entryScoreBase_ortalama": 24.91,
+      "kgs_entryScoreBase_korelasyon": 0.963,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.25,
+        "kgsEma": 8.91,
+        "kgsRs": 10.4,
+        "kgsVol": 4.73,
+        "kgsSector": 5.89,
+        "kgsCvd": 5.01,
+        "kgsKurum": 4.44
+      }
+    },
+    "OTKAR": {
+      "sektor": "OTOMOTIV",
+      "bar_sayisi": 1938,
+      "kgs_ortalama": 46.71,
+      "kgs_std": 22.45,
+      "entryScoreBase_ortalama": 24.13,
+      "kgs_entryScoreBase_korelasyon": 0.961,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.71,
+        "kgsEma": 7.83,
+        "kgsRs": 10.26,
+        "kgsVol": 4.45,
+        "kgsSector": 5.81,
+        "kgsCvd": 5.1,
+        "kgsKurum": 4.54
+      }
+    },
+    "AEFES": {
+      "sektor": "GENEL",
+      "bar_sayisi": 1941,
+      "kgs_ortalama": 46.64,
+      "kgs_std": 21.91,
+      "entryScoreBase_ortalama": 24.0,
+      "kgs_entryScoreBase_korelasyon": 0.962,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 8.82,
+        "kgsEma": 7.67,
+        "kgsRs": 10.52,
+        "kgsVol": 4.6,
+        "kgsSector": 5.67,
+        "kgsCvd": 4.95,
+        "kgsKurum": 4.42
+      }
+    },
+    "ALARK": {
+      "sektor": "GENEL",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 47.73,
+      "kgs_std": 22.7,
+      "entryScoreBase_ortalama": 24.6,
+      "kgs_entryScoreBase_korelasyon": 0.963,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 9.27,
+        "kgsEma": 7.86,
+        "kgsRs": 10.49,
+        "kgsVol": 4.67,
+        "kgsSector": 5.99,
+        "kgsCvd": 4.92,
+        "kgsKurum": 4.54
+      }
+    },
+    "ULKER": {
+      "sektor": "GENEL",
+      "bar_sayisi": 1940,
+      "kgs_ortalama": 42.49,
+      "kgs_std": 22.16,
+      "entryScoreBase_ortalama": 22.25,
+      "kgs_entryScoreBase_korelasyon": 0.964,
+      "alt_skor_ortalamalari": {
+        "kgsTrend": 7.98,
+        "kgsEma": 5.39,
+        "kgsRs": 9.98,
+        "kgsVol": 4.71,
+        "kgsSector": 5.45,
+        "kgsCvd": 4.79,
+        "kgsKurum": 4.2
+      }
+    }
+  },
+  "genel_kgs_entryScoreBase_korelasyon": 0.963
+}
