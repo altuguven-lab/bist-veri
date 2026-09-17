@@ -1,0 +1,125 @@
+{
+  "calisma": "B5 Faz V0 - Nominal Boga Rejim ADX Direnc Testi",
+  "uretim_zamani_utc": "2026-09-17T11:41:17.121031+00:00",
+  "durustluk_notu": "Yalniz ADX direnci test edildi, GENISLIK (breadth) V0 kapsami disinda - 30 sembolun hepsi icin ayri request.security gerektirir. TEK BASINA hicbir kod degisikligine GEREKCE OLAMAZ - B5'in ilk kesif adimidir.",
+  "donem": "2021-01-01 - 2022-12-31",
+  "donem_toplam_gun": 500,
+  "donem_riskOff_gun_eski_kural": 104,
+  "donem_riskOff_oran_eski_kural_pct": 20.8,
+  "adx_esik_bazli": {
+    "adx_esik_20": {
+      "kurtarilan_gun_sayisi": 78,
+      "gercek_off_gun_sayisi": 26,
+      "kurtarilan": {
+        "t3": {
+          "gun_sayisi": 78,
+          "isabet_pct": 62.8,
+          "ort_getiri_pct": 0.344
+        },
+        "t10": {
+          "gun_sayisi": 78,
+          "isabet_pct": 65.4,
+          "ort_getiri_pct": 1.617
+        },
+        "t20": {
+          "gun_sayisi": 78,
+          "isabet_pct": 83.3,
+          "ort_getiri_pct": 4.398
+        }
+      },
+      "gercek_off": {
+        "t3": {
+          "gun_sayisi": 26,
+          "isabet_pct": 69.2,
+          "ort_getiri_pct": 0.882
+        },
+        "t10": {
+          "gun_sayisi": 26,
+          "isabet_pct": 76.9,
+          "ort_getiri_pct": 2.654
+        },
+        "t20": {
+          "gun_sayisi": 26,
+          "isabet_pct": 46.2,
+          "ort_getiri_pct": 4.724
+        }
+      }
+    },
+    "adx_esik_25": {
+      "kurtarilan_gun_sayisi": 60,
+      "gercek_off_gun_sayisi": 44,
+      "kurtarilan": {
+        "t3": {
+          "gun_sayisi": 60,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 0.436
+        },
+        "t10": {
+          "gun_sayisi": 60,
+          "isabet_pct": 68.3,
+          "ort_getiri_pct": 1.492
+        },
+        "t20": {
+          "gun_sayisi": 60,
+          "isabet_pct": 93.3,
+          "ort_getiri_pct": 4.765
+        }
+      },
+      "gercek_off": {
+        "t3": {
+          "gun_sayisi": 44,
+          "isabet_pct": 61.4,
+          "ort_getiri_pct": 0.537
+        },
+        "t10": {
+          "gun_sayisi": 44,
+          "isabet_pct": 68.2,
+          "ort_getiri_pct": 2.4
+        },
+        "t20": {
+          "gun_sayisi": 44,
+          "isabet_pct": 47.7,
+          "ort_getiri_pct": 4.089
+        }
+      }
+    },
+    "adx_esik_30": {
+      "kurtarilan_gun_sayisi": 25,
+      "gercek_off_gun_sayisi": 79,
+      "kurtarilan": {
+        "t3": {
+          "gun_sayisi": 25,
+          "isabet_pct": 64.0,
+          "ort_getiri_pct": 0.357
+        },
+        "t10": {
+          "gun_sayisi": 25,
+          "isabet_pct": 68.0,
+          "ort_getiri_pct": 1.265
+        },
+        "t20": {
+          "gun_sayisi": 25,
+          "isabet_pct": 88.0,
+          "ort_getiri_pct": 2.568
+        }
+      },
+      "gercek_off": {
+        "t3": {
+          "gun_sayisi": 79,
+          "isabet_pct": 64.6,
+          "ort_getiri_pct": 0.517
+        },
+        "t10": {
+          "gun_sayisi": 79,
+          "isabet_pct": 68.4,
+          "ort_getiri_pct": 2.07
+        },
+        "t20": {
+          "gun_sayisi": 79,
+          "isabet_pct": 69.6,
+          "ort_getiri_pct": 5.084
+        }
+      }
+    }
+  }
+}
