@@ -1,0 +1,937 @@
+{
+  "calisma": "B1 Faz V1 - Cifte-Esik vs Tek-Esik Gate Kiyasi",
+  "uretim_zamani_utc": "2026-09-17T10:31:01.362848+00:00",
+  "yontem_notu": "Yuzdelik esdegerligi kullanildi (esik=75. yuzdelik, 252 gunluk kayan pencerede), gercek Pine'daki MUTLAK puan esikleriyle (85, 75 vb.) DOGRUDAN AYNI DEGIL - kaba karsiliktir.",
+  "durustluk_notu": "GUNLUK BAR yaklasikligi (V0 ile AYNI kisitlar - bkz. kgs_gunluk_port_sonuc.json). Bu TEK BASINA hicbir esik/agirlik degisikligine GEREKCE OLAMAZ - kurula sunulacak karar-destek verisidir, 15dk gercek veriyle teyit gerektirir.",
+  "genel": {
+    "iki_kapi": {
+      "t3": {
+        "adet": 12874,
+        "isabet_pct": 53.0,
+        "ort_getiri_pct": 0.528
+      },
+      "t10": {
+        "adet": 12801,
+        "isabet_pct": 56.3,
+        "ort_getiri_pct": 1.78
+      }
+    },
+    "tek_kapi": {
+      "t3": {
+        "adet": 14709,
+        "isabet_pct": 53.2,
+        "ort_getiri_pct": 0.576
+      },
+      "t10": {
+        "adet": 14632,
+        "isabet_pct": 56.5,
+        "ort_getiri_pct": 1.804
+      }
+    },
+    "iki_kapi_toplam_gun": 12877,
+    "tek_kapi_toplam_gun": 14712,
+    "iki_kapi_tek_kapi_orani_pct": 87.5
+  },
+  "sembol_bazli": {
+    "AKBNK": {
+      "sektor": "BANKACILIK",
+      "iki_kapi_gun_sayisi": 452,
+      "tek_kapi_gun_sayisi": 497,
+      "iki_kapi_tek_kapi_orani_pct": 90.9,
+      "iki_kapi": {
+        "t3": {
+          "adet": 452,
+          "isabet_pct": 51.3,
+          "ort_getiri_pct": 0.595
+        },
+        "t10": {
+          "adet": 450,
+          "isabet_pct": 54.4,
+          "ort_getiri_pct": 1.572
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 497,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.66
+        },
+        "t10": {
+          "adet": 495,
+          "isabet_pct": 54.3,
+          "ort_getiri_pct": 1.585
+        }
+      }
+    },
+    "YKBNK": {
+      "sektor": "BANKACILIK",
+      "iki_kapi_gun_sayisi": 426,
+      "tek_kapi_gun_sayisi": 487,
+      "iki_kapi_tek_kapi_orani_pct": 87.5,
+      "iki_kapi": {
+        "t3": {
+          "adet": 426,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 0.698
+        },
+        "t10": {
+          "adet": 424,
+          "isabet_pct": 53.3,
+          "ort_getiri_pct": 1.412
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 487,
+          "isabet_pct": 54.0,
+          "ort_getiri_pct": 0.703
+        },
+        "t10": {
+          "adet": 485,
+          "isabet_pct": 53.4,
+          "ort_getiri_pct": 1.688
+        }
+      }
+    },
+    "GARAN": {
+      "sektor": "BANKACILIK",
+      "iki_kapi_gun_sayisi": 409,
+      "tek_kapi_gun_sayisi": 479,
+      "iki_kapi_tek_kapi_orani_pct": 85.4,
+      "iki_kapi": {
+        "t3": {
+          "adet": 409,
+          "isabet_pct": 49.1,
+          "ort_getiri_pct": 0.378
+        },
+        "t10": {
+          "adet": 407,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 1.632
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 479,
+          "isabet_pct": 48.6,
+          "ort_getiri_pct": 0.372
+        },
+        "t10": {
+          "adet": 477,
+          "isabet_pct": 55.3,
+          "ort_getiri_pct": 1.692
+        }
+      }
+    },
+    "ISCTR": {
+      "sektor": "BANKACILIK",
+      "iki_kapi_gun_sayisi": 428,
+      "tek_kapi_gun_sayisi": 485,
+      "iki_kapi_tek_kapi_orani_pct": 88.2,
+      "iki_kapi": {
+        "t3": {
+          "adet": 428,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.942
+        },
+        "t10": {
+          "adet": 423,
+          "isabet_pct": 52.0,
+          "ort_getiri_pct": 1.984
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 485,
+          "isabet_pct": 52.2,
+          "ort_getiri_pct": 1.074
+        },
+        "t10": {
+          "adet": 480,
+          "isabet_pct": 52.3,
+          "ort_getiri_pct": 1.95
+        }
+      }
+    },
+    "HALKB": {
+      "sektor": "BANKACILIK",
+      "iki_kapi_gun_sayisi": 451,
+      "tek_kapi_gun_sayisi": 512,
+      "iki_kapi_tek_kapi_orani_pct": 88.1,
+      "iki_kapi": {
+        "t3": {
+          "adet": 451,
+          "isabet_pct": 47.9,
+          "ort_getiri_pct": 0.425
+        },
+        "t10": {
+          "adet": 445,
+          "isabet_pct": 45.4,
+          "ort_getiri_pct": 1.732
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 512,
+          "isabet_pct": 47.3,
+          "ort_getiri_pct": 0.357
+        },
+        "t10": {
+          "adet": 506,
+          "isabet_pct": 46.8,
+          "ort_getiri_pct": 1.58
+        }
+      }
+    },
+    "VAKBN": {
+      "sektor": "BANKACILIK",
+      "iki_kapi_gun_sayisi": 439,
+      "tek_kapi_gun_sayisi": 496,
+      "iki_kapi_tek_kapi_orani_pct": 88.5,
+      "iki_kapi": {
+        "t3": {
+          "adet": 439,
+          "isabet_pct": 52.2,
+          "ort_getiri_pct": 0.936
+        },
+        "t10": {
+          "adet": 432,
+          "isabet_pct": 55.3,
+          "ort_getiri_pct": 3.639
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 496,
+          "isabet_pct": 51.6,
+          "ort_getiri_pct": 0.872
+        },
+        "t10": {
+          "adet": 489,
+          "isabet_pct": 55.8,
+          "ort_getiri_pct": 3.448
+        }
+      }
+    },
+    "KCHOL": {
+      "sektor": "HOLDING",
+      "iki_kapi_gun_sayisi": 475,
+      "tek_kapi_gun_sayisi": 535,
+      "iki_kapi_tek_kapi_orani_pct": 88.8,
+      "iki_kapi": {
+        "t3": {
+          "adet": 475,
+          "isabet_pct": 50.3,
+          "ort_getiri_pct": 0.239
+        },
+        "t10": {
+          "adet": 474,
+          "isabet_pct": 59.3,
+          "ort_getiri_pct": 1.312
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 535,
+          "isabet_pct": 51.4,
+          "ort_getiri_pct": 0.281
+        },
+        "t10": {
+          "adet": 534,
+          "isabet_pct": 58.8,
+          "ort_getiri_pct": 1.395
+        }
+      }
+    },
+    "SAHOL": {
+      "sektor": "HOLDING",
+      "iki_kapi_gun_sayisi": 443,
+      "tek_kapi_gun_sayisi": 497,
+      "iki_kapi_tek_kapi_orani_pct": 89.1,
+      "iki_kapi": {
+        "t3": {
+          "adet": 443,
+          "isabet_pct": 52.1,
+          "ort_getiri_pct": 0.401
+        },
+        "t10": {
+          "adet": 442,
+          "isabet_pct": 56.6,
+          "ort_getiri_pct": 1.353
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 497,
+          "isabet_pct": 52.7,
+          "ort_getiri_pct": 0.424
+        },
+        "t10": {
+          "adet": 496,
+          "isabet_pct": 57.3,
+          "ort_getiri_pct": 1.477
+        }
+      }
+    },
+    "BIMAS": {
+      "sektor": "PERAKENDE",
+      "iki_kapi_gun_sayisi": 468,
+      "tek_kapi_gun_sayisi": 550,
+      "iki_kapi_tek_kapi_orani_pct": 85.1,
+      "iki_kapi": {
+        "t3": {
+          "adet": 468,
+          "isabet_pct": 47.9,
+          "ort_getiri_pct": -0.135
+        },
+        "t10": {
+          "adet": 463,
+          "isabet_pct": 53.3,
+          "ort_getiri_pct": 0.579
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 550,
+          "isabet_pct": 49.1,
+          "ort_getiri_pct": -0.018
+        },
+        "t10": {
+          "adet": 545,
+          "isabet_pct": 53.4,
+          "ort_getiri_pct": 0.711
+        }
+      }
+    },
+    "MGROS": {
+      "sektor": "PERAKENDE",
+      "iki_kapi_gun_sayisi": 435,
+      "tek_kapi_gun_sayisi": 493,
+      "iki_kapi_tek_kapi_orani_pct": 88.2,
+      "iki_kapi": {
+        "t3": {
+          "adet": 435,
+          "isabet_pct": 54.7,
+          "ort_getiri_pct": 0.755
+        },
+        "t10": {
+          "adet": 435,
+          "isabet_pct": 67.4,
+          "ort_getiri_pct": 3.69
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 493,
+          "isabet_pct": 53.8,
+          "ort_getiri_pct": 0.579
+        },
+        "t10": {
+          "adet": 493,
+          "isabet_pct": 63.9,
+          "ort_getiri_pct": 2.93
+        }
+      }
+    },
+    "ASELS": {
+      "sektor": "SAVUNMA",
+      "iki_kapi_gun_sayisi": 457,
+      "tek_kapi_gun_sayisi": 515,
+      "iki_kapi_tek_kapi_orani_pct": 88.7,
+      "iki_kapi": {
+        "t3": {
+          "adet": 457,
+          "isabet_pct": 56.9,
+          "ort_getiri_pct": 0.924
+        },
+        "t10": {
+          "adet": 456,
+          "isabet_pct": 55.7,
+          "ort_getiri_pct": 2.103
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 515,
+          "isabet_pct": 57.5,
+          "ort_getiri_pct": 1.028
+        },
+        "t10": {
+          "adet": 514,
+          "isabet_pct": 56.2,
+          "ort_getiri_pct": 2.293
+        }
+      }
+    },
+    "THYAO": {
+      "sektor": "HAVACILIK",
+      "iki_kapi_gun_sayisi": 462,
+      "tek_kapi_gun_sayisi": 522,
+      "iki_kapi_tek_kapi_orani_pct": 88.5,
+      "iki_kapi": {
+        "t3": {
+          "adet": 462,
+          "isabet_pct": 55.0,
+          "ort_getiri_pct": 0.402
+        },
+        "t10": {
+          "adet": 462,
+          "isabet_pct": 56.3,
+          "ort_getiri_pct": 1.251
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 522,
+          "isabet_pct": 55.9,
+          "ort_getiri_pct": 0.604
+        },
+        "t10": {
+          "adet": 522,
+          "isabet_pct": 56.3,
+          "ort_getiri_pct": 1.393
+        }
+      }
+    },
+    "PGSUS": {
+      "sektor": "HAVACILIK",
+      "iki_kapi_gun_sayisi": 407,
+      "tek_kapi_gun_sayisi": 469,
+      "iki_kapi_tek_kapi_orani_pct": 86.8,
+      "iki_kapi": {
+        "t3": {
+          "adet": 405,
+          "isabet_pct": 54.1,
+          "ort_getiri_pct": 0.651
+        },
+        "t10": {
+          "adet": 400,
+          "isabet_pct": 57.8,
+          "ort_getiri_pct": 2.316
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 467,
+          "isabet_pct": 54.4,
+          "ort_getiri_pct": 0.953
+        },
+        "t10": {
+          "adet": 462,
+          "isabet_pct": 57.4,
+          "ort_getiri_pct": 2.428
+        }
+      }
+    },
+    "TAVHL": {
+      "sektor": "HAVACILIK",
+      "iki_kapi_gun_sayisi": 432,
+      "tek_kapi_gun_sayisi": 500,
+      "iki_kapi_tek_kapi_orani_pct": 86.4,
+      "iki_kapi": {
+        "t3": {
+          "adet": 432,
+          "isabet_pct": 53.0,
+          "ort_getiri_pct": 0.454
+        },
+        "t10": {
+          "adet": 432,
+          "isabet_pct": 56.2,
+          "ort_getiri_pct": 1.118
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 500,
+          "isabet_pct": 53.8,
+          "ort_getiri_pct": 0.642
+        },
+        "t10": {
+          "adet": 500,
+          "isabet_pct": 55.6,
+          "ort_getiri_pct": 1.246
+        }
+      }
+    },
+    "TTKOM": {
+      "sektor": "ILETISIM",
+      "iki_kapi_gun_sayisi": 420,
+      "tek_kapi_gun_sayisi": 490,
+      "iki_kapi_tek_kapi_orani_pct": 85.7,
+      "iki_kapi": {
+        "t3": {
+          "adet": 420,
+          "isabet_pct": 49.5,
+          "ort_getiri_pct": 0.071
+        },
+        "t10": {
+          "adet": 418,
+          "isabet_pct": 55.5,
+          "ort_getiri_pct": 1.514
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 490,
+          "isabet_pct": 51.8,
+          "ort_getiri_pct": 0.317
+        },
+        "t10": {
+          "adet": 487,
+          "isabet_pct": 57.9,
+          "ort_getiri_pct": 1.877
+        }
+      }
+    },
+    "EREGL": {
+      "sektor": "SINAI",
+      "iki_kapi_gun_sayisi": 435,
+      "tek_kapi_gun_sayisi": 510,
+      "iki_kapi_tek_kapi_orani_pct": 85.3,
+      "iki_kapi": {
+        "t3": {
+          "adet": 435,
+          "isabet_pct": 55.2,
+          "ort_getiri_pct": 0.334
+        },
+        "t10": {
+          "adet": 435,
+          "isabet_pct": 57.7,
+          "ort_getiri_pct": 0.945
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 510,
+          "isabet_pct": 56.7,
+          "ort_getiri_pct": 0.506
+        },
+        "t10": {
+          "adet": 510,
+          "isabet_pct": 58.6,
+          "ort_getiri_pct": 1.146
+        }
+      }
+    },
+    "SISE": {
+      "sektor": "SINAI",
+      "iki_kapi_gun_sayisi": 433,
+      "tek_kapi_gun_sayisi": 493,
+      "iki_kapi_tek_kapi_orani_pct": 87.8,
+      "iki_kapi": {
+        "t3": {
+          "adet": 433,
+          "isabet_pct": 52.4,
+          "ort_getiri_pct": 0.256
+        },
+        "t10": {
+          "adet": 428,
+          "isabet_pct": 54.0,
+          "ort_getiri_pct": 1.049
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 493,
+          "isabet_pct": 53.1,
+          "ort_getiri_pct": 0.313
+        },
+        "t10": {
+          "adet": 488,
+          "isabet_pct": 55.3,
+          "ort_getiri_pct": 1.162
+        }
+      }
+    },
+    "TRMET": {
+      "sektor": "SINAI",
+      "iki_kapi_gun_sayisi": 451,
+      "tek_kapi_gun_sayisi": 513,
+      "iki_kapi_tek_kapi_orani_pct": 87.9,
+      "iki_kapi": {
+        "t3": {
+          "adet": 451,
+          "isabet_pct": 52.8,
+          "ort_getiri_pct": 0.403
+        },
+        "t10": {
+          "adet": 451,
+          "isabet_pct": 50.3,
+          "ort_getiri_pct": 0.614
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 513,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.352
+        },
+        "t10": {
+          "adet": 513,
+          "isabet_pct": 51.3,
+          "ort_getiri_pct": 0.649
+        }
+      }
+    },
+    "TUPRS": {
+      "sektor": "ENERJI",
+      "iki_kapi_gun_sayisi": 463,
+      "tek_kapi_gun_sayisi": 518,
+      "iki_kapi_tek_kapi_orani_pct": 89.4,
+      "iki_kapi": {
+        "t3": {
+          "adet": 463,
+          "isabet_pct": 55.5,
+          "ort_getiri_pct": 0.994
+        },
+        "t10": {
+          "adet": 463,
+          "isabet_pct": 57.5,
+          "ort_getiri_pct": 2.306
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 518,
+          "isabet_pct": 55.6,
+          "ort_getiri_pct": 0.978
+        },
+        "t10": {
+          "adet": 517,
+          "isabet_pct": 56.7,
+          "ort_getiri_pct": 2.152
+        }
+      }
+    },
+    "PETKM": {
+      "sektor": "ENERJI",
+      "iki_kapi_gun_sayisi": 457,
+      "tek_kapi_gun_sayisi": 526,
+      "iki_kapi_tek_kapi_orani_pct": 86.9,
+      "iki_kapi": {
+        "t3": {
+          "adet": 457,
+          "isabet_pct": 49.9,
+          "ort_getiri_pct": 0.007
+        },
+        "t10": {
+          "adet": 452,
+          "isabet_pct": 49.8,
+          "ort_getiri_pct": 0.153
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 526,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.186
+        },
+        "t10": {
+          "adet": 521,
+          "isabet_pct": 50.1,
+          "ort_getiri_pct": 0.251
+        }
+      }
+    },
+    "ASTOR": {
+      "sektor": "ENERJI",
+      "iki_kapi_gun_sayisi": 215,
+      "tek_kapi_gun_sayisi": 232,
+      "iki_kapi_tek_kapi_orani_pct": 92.7,
+      "iki_kapi": {
+        "t3": {
+          "adet": 215,
+          "isabet_pct": 60.5,
+          "ort_getiri_pct": 1.563
+        },
+        "t10": {
+          "adet": 215,
+          "isabet_pct": 68.4,
+          "ort_getiri_pct": 5.401
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 232,
+          "isabet_pct": 59.5,
+          "ort_getiri_pct": 1.359
+        },
+        "t10": {
+          "adet": 232,
+          "isabet_pct": 67.7,
+          "ort_getiri_pct": 5.069
+        }
+      }
+    },
+    "ENJSA": {
+      "sektor": "ENERJI",
+      "iki_kapi_gun_sayisi": 436,
+      "tek_kapi_gun_sayisi": 495,
+      "iki_kapi_tek_kapi_orani_pct": 88.1,
+      "iki_kapi": {
+        "t3": {
+          "adet": 436,
+          "isabet_pct": 55.3,
+          "ort_getiri_pct": 0.291
+        },
+        "t10": {
+          "adet": 432,
+          "isabet_pct": 52.5,
+          "ort_getiri_pct": 0.88
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 495,
+          "isabet_pct": 55.4,
+          "ort_getiri_pct": 0.375
+        },
+        "t10": {
+          "adet": 490,
+          "isabet_pct": 53.5,
+          "ort_getiri_pct": 1.014
+        }
+      }
+    },
+    "ENKAI": {
+      "sektor": "INSAAT",
+      "iki_kapi_gun_sayisi": 400,
+      "tek_kapi_gun_sayisi": 486,
+      "iki_kapi_tek_kapi_orani_pct": 82.3,
+      "iki_kapi": {
+        "t3": {
+          "adet": 400,
+          "isabet_pct": 51.7,
+          "ort_getiri_pct": 0.191
+        },
+        "t10": {
+          "adet": 397,
+          "isabet_pct": 52.4,
+          "ort_getiri_pct": 1.037
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 486,
+          "isabet_pct": 53.5,
+          "ort_getiri_pct": 0.358
+        },
+        "t10": {
+          "adet": 483,
+          "isabet_pct": 54.9,
+          "ort_getiri_pct": 1.445
+        }
+      }
+    },
+    "EKGYO": {
+      "sektor": "GYO",
+      "iki_kapi_gun_sayisi": 428,
+      "tek_kapi_gun_sayisi": 490,
+      "iki_kapi_tek_kapi_orani_pct": 87.3,
+      "iki_kapi": {
+        "t3": {
+          "adet": 428,
+          "isabet_pct": 53.0,
+          "ort_getiri_pct": 0.662
+        },
+        "t10": {
+          "adet": 425,
+          "isabet_pct": 59.3,
+          "ort_getiri_pct": 2.654
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 490,
+          "isabet_pct": 52.7,
+          "ort_getiri_pct": 0.655
+        },
+        "t10": {
+          "adet": 487,
+          "isabet_pct": 58.5,
+          "ort_getiri_pct": 2.47
+        }
+      }
+    },
+    "FROTO": {
+      "sektor": "OTOMOTIV",
+      "iki_kapi_gun_sayisi": 414,
+      "tek_kapi_gun_sayisi": 478,
+      "iki_kapi_tek_kapi_orani_pct": 86.6,
+      "iki_kapi": {
+        "t3": {
+          "adet": 414,
+          "isabet_pct": 53.9,
+          "ort_getiri_pct": 0.43
+        },
+        "t10": {
+          "adet": 410,
+          "isabet_pct": 63.9,
+          "ort_getiri_pct": 2.22
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 478,
+          "isabet_pct": 54.6,
+          "ort_getiri_pct": 0.516
+        },
+        "t10": {
+          "adet": 474,
+          "isabet_pct": 62.2,
+          "ort_getiri_pct": 2.198
+        }
+      }
+    },
+    "TOASO": {
+      "sektor": "OTOMOTIV",
+      "iki_kapi_gun_sayisi": 428,
+      "tek_kapi_gun_sayisi": 493,
+      "iki_kapi_tek_kapi_orani_pct": 86.8,
+      "iki_kapi": {
+        "t3": {
+          "adet": 427,
+          "isabet_pct": 54.6,
+          "ort_getiri_pct": 0.741
+        },
+        "t10": {
+          "adet": 424,
+          "isabet_pct": 60.8,
+          "ort_getiri_pct": 1.443
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 492,
+          "isabet_pct": 53.0,
+          "ort_getiri_pct": 0.678
+        },
+        "t10": {
+          "adet": 488,
+          "isabet_pct": 60.0,
+          "ort_getiri_pct": 1.574
+        }
+      }
+    },
+    "OTKAR": {
+      "sektor": "OTOMOTIV",
+      "iki_kapi_gun_sayisi": 401,
+      "tek_kapi_gun_sayisi": 460,
+      "iki_kapi_tek_kapi_orani_pct": 87.2,
+      "iki_kapi": {
+        "t3": {
+          "adet": 401,
+          "isabet_pct": 58.9,
+          "ort_getiri_pct": 1.237
+        },
+        "t10": {
+          "adet": 399,
+          "isabet_pct": 60.2,
+          "ort_getiri_pct": 3.462
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 460,
+          "isabet_pct": 57.6,
+          "ort_getiri_pct": 1.142
+        },
+        "t10": {
+          "adet": 458,
+          "isabet_pct": 58.3,
+          "ort_getiri_pct": 3.093
+        }
+      }
+    },
+    "AEFES": {
+      "sektor": "GENEL",
+      "iki_kapi_gun_sayisi": 462,
+      "tek_kapi_gun_sayisi": 522,
+      "iki_kapi_tek_kapi_orani_pct": 88.5,
+      "iki_kapi": {
+        "t3": {
+          "adet": 462,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.214
+        },
+        "t10": {
+          "adet": 462,
+          "isabet_pct": 56.5,
+          "ort_getiri_pct": 1.03
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 522,
+          "isabet_pct": 52.1,
+          "ort_getiri_pct": 0.19
+        },
+        "t10": {
+          "adet": 522,
+          "isabet_pct": 57.5,
+          "ort_getiri_pct": 1.25
+        }
+      }
+    },
+    "ALARK": {
+      "sektor": "GENEL",
+      "iki_kapi_gun_sayisi": 416,
+      "tek_kapi_gun_sayisi": 483,
+      "iki_kapi_tek_kapi_orani_pct": 86.1,
+      "iki_kapi": {
+        "t3": {
+          "adet": 416,
+          "isabet_pct": 57.0,
+          "ort_getiri_pct": 1.098
+        },
+        "t10": {
+          "adet": 412,
+          "isabet_pct": 64.8,
+          "ort_getiri_pct": 3.6
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 483,
+          "isabet_pct": 56.9,
+          "ort_getiri_pct": 1.019
+        },
+        "t10": {
+          "adet": 479,
+          "isabet_pct": 65.6,
+          "ort_getiri_pct": 3.57
+        }
+      }
+    },
+    "ULKER": {
+      "sektor": "GENEL",
+      "iki_kapi_gun_sayisi": 434,
+      "tek_kapi_gun_sayisi": 486,
+      "iki_kapi_tek_kapi_orani_pct": 89.3,
+      "iki_kapi": {
+        "t3": {
+          "adet": 434,
+          "isabet_pct": 50.9,
+          "ort_getiri_pct": 0.339
+        },
+        "t10": {
+          "adet": 433,
+          "isabet_pct": 55.9,
+          "ort_getiri_pct": 1.707
+        }
+      },
+      "tek_kapi": {
+        "t3": {
+          "adet": 486,
+          "isabet_pct": 51.4,
+          "ort_getiri_pct": 0.4
+        },
+        "t10": {
+          "adet": 485,
+          "isabet_pct": 56.5,
+          "ort_getiri_pct": 1.656
+        }
+      }
+    }
+  }
+}
