@@ -1,0 +1,59 @@
+# KOPRU SESSIZLIK IZLEYICISI (17.09.2026)
+# Konum: .github/workflows/kopru_sessizlik_izleyici.yml
+#
+# AMAC: 03-04.09'daki "webhook checkbox isaretsiz kaldi, kopru 10 gun
+# sessiz kaldi ama 14.09'a kadar fark edilmedi" sorununun bir daha
+# GEC fark edilmemesi. Pipedream'in kendi REST API'sinde workflow
+# calistirma GECMISINI cekecek genel bir uc nokta YOK (Pipedream'in
+# kendi GitHub deposunda #188 numarali, henuz karsilanmamis bir istek
+# olarak duruyor) - bu yuzden Pipedream'e degil, koprunun ASIL URETTIGI
+# seye (repo'daki "TV sinyal:" commit'leri) bakiyoruz. Bu hem daha
+# guvenilir hem daha basit.
+#
+# NASIL CALISIR: Her gun piyasa kapanisindan sonra (18:30 TSI), son
+# "TV sinyal:" commit'inin ne zaman oldugunu kontrol eder. 2 tam
+# gunden (48 saat) uzun sure hic sinyal commit'i gelmediyse is
+# BASARISIZ olarak isaretlenir - GitHub bunun icin OTOMATIK olarak
+# hesap sahibine e-posta gonderir (ekstra kurulum GEREKMEZ).
+#
+# ESIK AYARI: 2 gun varsayilan - bir gunluk sakin piyasa gunlerinde
+# yanlis alarm vermez, ama 03-04.09 tarzi COK GUNLUK bir sessizligi
+# yakalar. Asagidaki ESIK_SAAT degerini degistirerek ayarlayabilirsin.
+name: Kopru Sessizlik Izleyici
+
+on:
+  schedule:
+    - cron: '30 15 * * 1-5'  # Pazartesi-Cuma 15:30 UTC = 18:30 TSI (piyasa kapanisi sonrasi)
+  workflow_dispatch: {}  # elle de calistirabilirsin
+
+jobs:
+  sessizlik-kontrolu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # TAM commit gecmisi lazim (varsayilan sadece son commit'i ceker)
+
+      - name: Son "TV sinyal:" commit'ini bul ve yasini olc
+        run: |
+          ESIK_SAAT=48
+
+          SON_COMMIT_TARIH=$(git log --all --grep="^TV sinyal:" -1 --format="%ct" || echo "")
+
+          if [ -z "$SON_COMMIT_TARIH" ]; then
+            echo "::error::Repo'da HIC 'TV sinyal:' commit'i bulunamadi - kopru hic calismamis olabilir."
+            exit 1
+          fi
+
+          SIMDI=$(date +%s)
+          FARK_SAAT=$(( (SIMDI - SON_COMMIT_TARIH) / 3600 ))
+          SON_COMMIT_OKUNAKLI=$(date -d "@$SON_COMMIT_TARIH" -u +"%Y-%m-%d %H:%M UTC")
+
+          echo "Son TV sinyal commit'i: $SON_COMMIT_OKUNAKLI ($FARK_SAAT saat once)"
+
+          if [ "$FARK_SAAT" -gt "$ESIK_SAAT" ]; then
+            echo "::error::KOPRU SESSIZ GORUNUYOR - son sinyal commit'i $FARK_SAAT saat once ($SON_COMMIT_OKUNAKLI), esik $ESIK_SAAT saat. TradingView alarmlarini (ozellikle webhook checkbox'larini) kontrol et."
+            exit 1
+          else
+            echo "Kopru normal calisiyor - son sinyal $FARK_SAAT saat once."
+          fi
