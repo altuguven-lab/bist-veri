@@ -761,3 +761,19 @@ kullanıyor, aksi halde klasik N-bar ortalamasına (volAvgSma) düşüyor.
 Panel gösterimine (VOL BASE: SLOT/N=18) DOKUNULMADI - token bütçesi,
 kozmetik ekleme değil çekirdek düzeltme önceliklendirildi.
 ```
+
+---
+
+## [CL031-geri alındı] Saat-slot örneklem güveni geri alındı (token bütçesi)
+
+```
+21.09.2026: [CL031]'de eklenen _todSlotN dizisi (yeni dizi + 2 array
+işlemi + degisen kosul) gercek token maliyetiydi - string/yorum icerik
+kisaltmalarinin (SkorGecTest metin kaldirma gibi) token sayisini
+DEGISTIRMEDIGI anlasilinca (yalniz GERCEK kod ifadeleri sayiliyor),
+80073/80000 asimini kapatmak icin EN SON eklenen, EN PAHALI gercek kod
+geri alindi - pozisyon-cakisma guvenlik duzeltmesi ve entryScore tanisi
+KORUNDU. Saat-slot ornek guveni fikri gecerliligini koruyor, token
+bütçesi daha rahat oldugunda (orn. LIVE/RESEARCH ayrimi gibi daha buyuk
+bir sadelestirmeden sonra) tekrar denenebilir.
+```
