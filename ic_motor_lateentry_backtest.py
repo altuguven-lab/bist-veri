@@ -32,7 +32,7 @@ import pandas as pd
 
 from kgs_gunluk_port import SEMBOLLER, veri_cek, gostergeler
 
-LATE_ATR_MULT = 1.8
+LATE_ATR_MULT_LISTESI = [1.8, 2.5, 3.0, 4.0]  # 1.8 = Pine varsayilani, digerleri "ekstrem kovalama" testi
 LATE_EMA_EXT_PCT = 1.035
 ILERI_GUNLER = [3, 10]
 
@@ -65,57 +65,61 @@ def main():
         if d is not None and len(d) > 250:
             ham[s] = gostergeler(d)
 
-    temiz_g = {n: [] for n in ILERI_GUNLER}
-    kovalama_g = {n: [] for n in ILERI_GUNLER}
-    sembol_sonuc = {}
+    esik_sonuclari = {}
+    for atr_mult in LATE_ATR_MULT_LISTESI:
+        temiz_g = {n: [] for n in ILERI_GUNLER}
+        kovalama_g = {n: [] for n in ILERI_GUNLER}
+        sembol_sonuc = {}
 
-    for s, df in ham.items():
-        atr = atr_hesapla(df, 14)
-        tetikSeviye = df["High"].shift(1).rolling(10).max()
-        tepeAsim = df["Close"] > tetikSeviye
-        hacimVar = df["relVol"] >= 1.2
-        aday = tepeAsim & hacimVar  # jenerik "motor atesledi" vekili (B3 ile ayni)
+        for s, df in ham.items():
+            atr = atr_hesapla(df, 14)
+            tetikSeviye = df["High"].shift(1).rolling(10).max()
+            tepeAsim = df["Close"] > tetikSeviye
+            hacimVar = df["relVol"] >= 1.2
+            aday = tepeAsim & hacimVar
 
-        # GERCEK Pine formulu (satir 344), e9 = emaFast
-        lateEntry = (df["Close"] > df["e9"] + atr * LATE_ATR_MULT) | (df["Close"] > df["e9"] * LATE_EMA_EXT_PCT)
+            lateEntry = (df["Close"] > df["e9"] + atr * atr_mult) | (df["Close"] > df["e9"] * LATE_EMA_EXT_PCT)
 
-        temiz_mask = aday & (~lateEntry)
-        kovalama_mask = aday & lateEntry
+            temiz_mask = aday & (~lateEntry)
+            kovalama_mask = aday & lateEntry
 
-        s_sonuc = {"temiz": {}, "kovalama": {},
-                   "temiz_gun_sayisi": int(temiz_mask.sum()), "kovalama_gun_sayisi": int(kovalama_mask.sum())}
-        for n in ILERI_GUNLER:
-            g = ileri_getiri(df["Close"], n)
-            g_temiz = g[temiz_mask].dropna().tolist()
-            g_kovalama = g[kovalama_mask].dropna().tolist()
-            s_sonuc["temiz"][f"t{n}"] = islem_ozet(g_temiz)
-            s_sonuc["kovalama"][f"t{n}"] = islem_ozet(g_kovalama)
-            temiz_g[n].extend(g_temiz)
-            kovalama_g[n].extend(g_kovalama)
-        sembol_sonuc[s] = s_sonuc
+            s_sonuc = {"temiz": {}, "kovalama": {},
+                       "temiz_gun_sayisi": int(temiz_mask.sum()), "kovalama_gun_sayisi": int(kovalama_mask.sum())}
+            for n in ILERI_GUNLER:
+                g = ileri_getiri(df["Close"], n)
+                g_temiz = g[temiz_mask].dropna().tolist()
+                g_kovalama = g[kovalama_mask].dropna().tolist()
+                s_sonuc["temiz"][f"t{n}"] = islem_ozet(g_temiz)
+                s_sonuc["kovalama"][f"t{n}"] = islem_ozet(g_kovalama)
+                temiz_g[n].extend(g_temiz)
+                kovalama_g[n].extend(g_kovalama)
+            sembol_sonuc[s] = s_sonuc
 
-    genel_temiz = {f"t{n}": islem_ozet(temiz_g[n]) for n in ILERI_GUNLER}
-    genel_kovalama = {f"t{n}": islem_ozet(kovalama_g[n]) for n in ILERI_GUNLER}
+        genel_temiz = {f"t{n}": islem_ozet(temiz_g[n]) for n in ILERI_GUNLER}
+        genel_kovalama = {f"t{n}": islem_ozet(kovalama_g[n]) for n in ILERI_GUNLER}
+        esik_sonuclari[f"atr_mult_{atr_mult}"] = {
+            "genel": {"temiz": genel_temiz, "kovalama": genel_kovalama},
+            "sembol_bazli": sembol_sonuc,
+        }
+        print(f"ATR x{atr_mult}: TEMIZ T+3={genel_temiz['t3']}, KOVALAMA T+3={genel_kovalama['t3']}")
+        print(f"ATR x{atr_mult}: TEMIZ T+10={genel_temiz['t10']}, KOVALAMA T+10={genel_kovalama['t10']}")
 
     rapor = {
-        "calisma": "IC MOTOR lateEntry Backtest",
+        "calisma": "IC MOTOR lateEntry Backtest - Cok Esikli",
         "uretim_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "durustluk_notu": (
             "GUNLUK BAR yaklasikligi. 'Aday' sinyali 16 ic motorun TAMAMINI degil, "
             "jenerik bir breakout+hacim vekilini temsil ediyor (B3 ile ayni pattern). "
-            "lateEntry formulu GERCEK Pine formulu (satir 344) birebir. Sonuc yon "
-            "verir, 16 motorun her biri icin kesin degildir."
+            "ATR carpani 1.8 Pine varsayilani, 2.5/3.0/4.0 'ekstrem kovalama' testi icin "
+            "eklendi. Sonuc yon verir, 16 motorun her biri icin kesin degildir."
         ),
-        "genel": {"temiz": genel_temiz, "kovalama": genel_kovalama},
-        "sembol_bazli": sembol_sonuc,
+        "esikler": esik_sonuclari,
     }
 
     import os
     os.makedirs("data/backtest", exist_ok=True)
     with open("data/backtest/ic_motor_lateentry_sonuc.json", "w", encoding="utf-8") as f:
         json.dump(rapor, f, ensure_ascii=False, indent=2)
-    print(f"TEMIZ  T+3: {genel_temiz['t3']}, T+10: {genel_temiz['t10']}")
-    print(f"KOVALAMA T+3: {genel_kovalama['t3']}, T+10: {genel_kovalama['t10']}")
     print("Tamamlandi -> data/backtest/ic_motor_lateentry_sonuc.json")
 
 
