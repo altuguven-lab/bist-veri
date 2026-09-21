@@ -682,3 +682,21 @@ Bir sonraki token/plot sıkışmasında **önce hangi alarmların kırpılabilec
 
 Not: SkorGecTest (webhook bar-gecikmesi test amaçlı alan) kaldırılması için
 öneri: en az 20-30 gerçek alarm örneği toplanıp bar-gecikmesi kesinleşince.
+
+---
+
+## [CL028] positionConflict güvenlik açığı (EKLEME dışında YENİ AL da bloke edilmeliydi)
+
+```
+17.09 (dış kurul incelemesi, doğrulandı - güvenlik açığı): positionConflict
+(_v112Open'a bağlı olduğu için _finalAlertEvent'ten SONRA tanımlanıyor - o
+yüzden orada KULLANILAMIYOR, "Undeclared identifier" verirdi) eskiden
+YALNIZ EKLEME_ADAYI'nı engelliyordu - P1/P2/CORE_AL gibi YENİ giriş
+alarmları çakışma sırasında bile ateşleyebiliyordu. _erkenPosCakisma
+(yalnız _posOpen/portfolioPosition - ikisi de o noktada ZATEN hazır,
+_v112Open'ı BEKLEMEDEN) ile _finalAlertEvent (TÜM AL alarmlarının
+ortak tetikleyicisi, ÇIKIŞ için değil) artık korunuyor. ÇIKIŞ/STOP
+yollarına (hardExitRaw/exitRiskFull) DOKUNULMADI. _shadowAlertEvent
+(araştırma) BİLEREK DEĞİŞTİRİLMEDİ.
+```
+
