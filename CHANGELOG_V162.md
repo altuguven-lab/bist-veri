@@ -815,3 +815,31 @@ duruyor ama tek kuresel esikle DUZELTILMEMELI - ileride ele alinacaksa
 SEMBOL/SEKTOR BAZLI bir esik gerekir, cok daha buyuk bir proje
 (muhtemelen UPM_V1 olceginde).
 ```
+
+---
+
+## Skor motorunda çifte-sayım testi — SONUÇ: kod değişikliği gerekmiyor (21.09.2026)
+
+```
+Son buyuk incelemenin iddiasi: "RS gucu hem dogrudan skor aliyor hem
+liderlik skorunu hem sektor skorunu hem bazi giris motorlarinin
+kosulunu karsiliyor" - yani ayni alti-yatan bilginin birden fazla
+skor bileseninde TEKRAR odullendirilebilecegi.
+
+TEST: KGS'nin 7 alt-skoru (Trend/EMA/RS/Vol/Sektor/CVD/Kurum) arasindaki
+korelasyon matrisi olculdu (n=57.300, 30 sembol x ~7.7 yil).
+
+SONUC: En yuksek korelasyon kgsTrend-kgsKurum (0.623), en dusuk
+kgsVol-kgsSector (0.025). Reviewer'in ozellikle isaret ettigi
+kgsRs-kgsSector cifti 0.529 - orta duzeyde, ama B1'de bulunan
+KGS-entryScore korelasyonunun (0.963, %92 paylasilan varyans - B1'in
+kod degisikligini gerektiren esik) COK ALTINDA (0.529 = %28 paylasilan
+varyans). Alt-skorlar birbiriyle ILISKILI (beklenen - hepsi gercek
+piyasa gucunun farkli yuzlerini olcuyor) ama COGUNLUKLA BAGIMSIZ bilgi
+tasiyor, mukerrer degil.
+
+KARAR: Bu, B1 capinda bir "gereksiz cifte-kapi" sorunu DEGIL. Kod
+degisikligi ONERILMIYOR - KGS'nin cok-faktorlu tasarimi cesitlendirilmis
+gorunuyor. B2/B5 ile ayni sonuc turu: test edildi, hipotez guclu
+desteklenmedi.
+```
