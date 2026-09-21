@@ -744,3 +744,20 @@ fiyati yerine xu100Close'a cevrildi (zararsiz iyilestirme, XBANK zaten
 _xbankBear'da ayrica na-check tasiyordu). SONUC: bu madde buyuk olcude
 zaten guvenliydi, ek is GEREKMEDI.
 ```
+
+---
+
+## [CL031] Saat-slot hacim modeline örneklem güveni eklendi
+
+```
+21.09.2026 (dış kurul incelemesi, doğrulandı): _todSlotVol her saat-dilimi
+için üstel ortalama tutuyordu (_todBase*0.8+volume*0.2), ama SADECE
+na(_todBase) kontrolü vardı - slot bir kez doldu mu (tek örneklemle bile)
+hemen tam güvenilir sayılıyordu. Kısa geçmişte/tatil sonrası/yarım gün
+seanslarında bu aşırı oynak bir relVol tabanı üretebilirdi. _todSlotN
+(paralel dizi, her slotun örneklem sayısını tutuyor) eklendi - artık
+volAvg yalnız o slot en az 10 kez görülmüşse slot-bazlı ortalamayı
+kullanıyor, aksi halde klasik N-bar ortalamasına (volAvgSma) düşüyor.
+Panel gösterimine (VOL BASE: SLOT/N=18) DOKUNULMADI - token bütçesi,
+kozmetik ekleme değil çekirdek düzeltme önceliklendirildi.
+```
