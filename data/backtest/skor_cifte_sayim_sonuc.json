@@ -1,0 +1,178 @@
+{
+  "calisma": "Skor Cifte-Sayim Testi (KGS alt-skorlari arasi korelasyon)",
+  "uretim_zamani_utc": "2026-09-21T11:55:29.613725+00:00",
+  "durustluk_notu": "GUNLUK BAR yaklasikligi (kgs_gunluk_port.py V0 kisitlari gecerli). Yuksek korelasyon TEK BASINA hata kaniti degildir, ortak alti-yatan gerceklik (gercek trend gucu) yansitiyor olabilir - yorum kurula ait.",
+  "gozlem_sayisi": 57300,
+  "korelasyon_matrisi": {
+    "kgsTrend": {
+      "kgsTrend": 1.0,
+      "kgsEma": 0.613,
+      "kgsRs": 0.386,
+      "kgsVol": 0.178,
+      "kgsSector": 0.31,
+      "kgsCvd": 0.467,
+      "kgsKurum": 0.623
+    },
+    "kgsEma": {
+      "kgsTrend": 0.613,
+      "kgsEma": 1.0,
+      "kgsRs": 0.214,
+      "kgsVol": 0.05,
+      "kgsSector": 0.29,
+      "kgsCvd": 0.271,
+      "kgsKurum": 0.459
+    },
+    "kgsRs": {
+      "kgsTrend": 0.386,
+      "kgsEma": 0.214,
+      "kgsRs": 1.0,
+      "kgsVol": 0.129,
+      "kgsSector": 0.529,
+      "kgsCvd": 0.248,
+      "kgsKurum": 0.381
+    },
+    "kgsVol": {
+      "kgsTrend": 0.178,
+      "kgsEma": 0.05,
+      "kgsRs": 0.129,
+      "kgsVol": 1.0,
+      "kgsSector": 0.025,
+      "kgsCvd": 0.2,
+      "kgsKurum": 0.126
+    },
+    "kgsSector": {
+      "kgsTrend": 0.31,
+      "kgsEma": 0.29,
+      "kgsRs": 0.529,
+      "kgsVol": 0.025,
+      "kgsSector": 1.0,
+      "kgsCvd": 0.167,
+      "kgsKurum": 0.288
+    },
+    "kgsCvd": {
+      "kgsTrend": 0.467,
+      "kgsEma": 0.271,
+      "kgsRs": 0.248,
+      "kgsVol": 0.2,
+      "kgsSector": 0.167,
+      "kgsCvd": 1.0,
+      "kgsKurum": 0.566
+    },
+    "kgsKurum": {
+      "kgsTrend": 0.623,
+      "kgsEma": 0.459,
+      "kgsRs": 0.381,
+      "kgsVol": 0.126,
+      "kgsSector": 0.288,
+      "kgsCvd": 0.566,
+      "kgsKurum": 1.0
+    }
+  },
+  "ciftler_siralanmis": [
+    {
+      "a": "kgsTrend",
+      "b": "kgsKurum",
+      "korelasyon": 0.623
+    },
+    {
+      "a": "kgsTrend",
+      "b": "kgsEma",
+      "korelasyon": 0.613
+    },
+    {
+      "a": "kgsCvd",
+      "b": "kgsKurum",
+      "korelasyon": 0.566
+    },
+    {
+      "a": "kgsRs",
+      "b": "kgsSector",
+      "korelasyon": 0.529
+    },
+    {
+      "a": "kgsTrend",
+      "b": "kgsCvd",
+      "korelasyon": 0.467
+    },
+    {
+      "a": "kgsEma",
+      "b": "kgsKurum",
+      "korelasyon": 0.459
+    },
+    {
+      "a": "kgsTrend",
+      "b": "kgsRs",
+      "korelasyon": 0.386
+    },
+    {
+      "a": "kgsRs",
+      "b": "kgsKurum",
+      "korelasyon": 0.381
+    },
+    {
+      "a": "kgsTrend",
+      "b": "kgsSector",
+      "korelasyon": 0.31
+    },
+    {
+      "a": "kgsEma",
+      "b": "kgsSector",
+      "korelasyon": 0.29
+    },
+    {
+      "a": "kgsSector",
+      "b": "kgsKurum",
+      "korelasyon": 0.288
+    },
+    {
+      "a": "kgsEma",
+      "b": "kgsCvd",
+      "korelasyon": 0.271
+    },
+    {
+      "a": "kgsRs",
+      "b": "kgsCvd",
+      "korelasyon": 0.248
+    },
+    {
+      "a": "kgsEma",
+      "b": "kgsRs",
+      "korelasyon": 0.214
+    },
+    {
+      "a": "kgsVol",
+      "b": "kgsCvd",
+      "korelasyon": 0.2
+    },
+    {
+      "a": "kgsTrend",
+      "b": "kgsVol",
+      "korelasyon": 0.178
+    },
+    {
+      "a": "kgsSector",
+      "b": "kgsCvd",
+      "korelasyon": 0.167
+    },
+    {
+      "a": "kgsRs",
+      "b": "kgsVol",
+      "korelasyon": 0.129
+    },
+    {
+      "a": "kgsVol",
+      "b": "kgsKurum",
+      "korelasyon": 0.126
+    },
+    {
+      "a": "kgsEma",
+      "b": "kgsVol",
+      "korelasyon": 0.05
+    },
+    {
+      "a": "kgsVol",
+      "b": "kgsSector",
+      "korelasyon": 0.025
+    }
+  ]
+}
