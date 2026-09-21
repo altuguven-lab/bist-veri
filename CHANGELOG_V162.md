@@ -700,3 +700,20 @@ yollarına (hardExitRaw/exitRiskFull) DOKUNULMADI. _shadowAlertEvent
 (araştırma) BİLEREK DEĞİŞTİRİLMEDİ.
 ```
 
+
+---
+
+## [CL029] entryScore P3Ozet'e eklendi (alarm kalitesi teşhisi için)
+
+```
+21.09.2026 (kullanıcı talebi - "AL/ERKEN AL neredeyse hiç gelmiyor" şikayetinin
+teşhisi için): sinyal_arsiv.json'un yalnız FİİLEN ateşlenen sinyalleri
+kaydettiği, "entryScore eşiğe ne kadar yaklaştı ama geçemedi" bilgisini
+tutmadığı fark edildi. GUNLUK_OZET zaten her sembol için günde bir kez
+(AL/PAS fark etmeksizin) ateşlendiği için, entryScore'u P3Ozet taşıyıcısına
+(yeni plot GEREKMEDEN, 100000'lik basamakta) eklemek en ucuz veri-biriktirme
+yolu. Decode: entryScore = deger // 100000, yariBoyut = (deger % 100000) // 10000,
+htf = (deger % 10000) // 1000, dnadef = (deger % 1000) // 100, skortb = deger % 100.
+Bir hafta biriktikten sonra entryScore dağılımı analiz edilip hangi eşiğin/
+koşulun en sık engellediği teşhis edilecek.
+```
