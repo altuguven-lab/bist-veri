@@ -32,8 +32,8 @@ import pandas as pd
 
 from kgs_gunluk_port import SEMBOLLER, veri_cek, gostergeler
 
-LATE_ATR_MULT_LISTESI = [1.8, 2.5, 3.0, 4.0]  # 1.8 = Pine varsayilani, digerleri "ekstrem kovalama" testi
-LATE_EMA_EXT_PCT = 1.035
+LATE_ATR_MULT_SABIT = 4.0  # onceki testte 2.5+'ta hic etkisi kalmadigi dogrulandi - artik sabit/etkisiz tutuluyor
+LATE_EMA_EXT_PCT_LISTESI = [1.020, 1.035, 1.050, 1.070, 1.100]  # %2.0/%3.5(Pine varsayilani)/%5/%7/%10
 ILERI_GUNLER = [3, 10]
 
 
@@ -66,7 +66,7 @@ def main():
             ham[s] = gostergeler(d)
 
     esik_sonuclari = {}
-    for atr_mult in LATE_ATR_MULT_LISTESI:
+    for ema_pct in LATE_EMA_EXT_PCT_LISTESI:
         temiz_g = {n: [] for n in ILERI_GUNLER}
         kovalama_g = {n: [] for n in ILERI_GUNLER}
         sembol_sonuc = {}
@@ -78,7 +78,9 @@ def main():
             hacimVar = df["relVol"] >= 1.2
             aday = tepeAsim & hacimVar
 
-            lateEntry = (df["Close"] > df["e9"] + atr * atr_mult) | (df["Close"] > df["e9"] * LATE_EMA_EXT_PCT)
+            # ATR tarafi SABIT/gevsek (onceki testte etkisiz oldugu dogrulandi) -
+            # boylece fark TAMAMEN EMA-yuzdesi tarafindan geliyor
+            lateEntry = (df["Close"] > df["e9"] + atr * LATE_ATR_MULT_SABIT) | (df["Close"] > df["e9"] * ema_pct)
 
             temiz_mask = aday & (~lateEntry)
             kovalama_mask = aday & lateEntry
@@ -97,21 +99,22 @@ def main():
 
         genel_temiz = {f"t{n}": islem_ozet(temiz_g[n]) for n in ILERI_GUNLER}
         genel_kovalama = {f"t{n}": islem_ozet(kovalama_g[n]) for n in ILERI_GUNLER}
-        esik_sonuclari[f"atr_mult_{atr_mult}"] = {
+        esik_sonuclari[f"ema_pct_{ema_pct}"] = {
             "genel": {"temiz": genel_temiz, "kovalama": genel_kovalama},
             "sembol_bazli": sembol_sonuc,
         }
-        print(f"ATR x{atr_mult}: TEMIZ T+3={genel_temiz['t3']}, KOVALAMA T+3={genel_kovalama['t3']}")
-        print(f"ATR x{atr_mult}: TEMIZ T+10={genel_temiz['t10']}, KOVALAMA T+10={genel_kovalama['t10']}")
+        print(f"EMA x{ema_pct}: TEMIZ T+3={genel_temiz['t3']}, KOVALAMA T+3={genel_kovalama['t3']}")
+        print(f"EMA x{ema_pct}: TEMIZ T+10={genel_temiz['t10']}, KOVALAMA T+10={genel_kovalama['t10']}")
 
     rapor = {
-        "calisma": "IC MOTOR lateEntry Backtest - Cok Esikli",
+        "calisma": "IC MOTOR lateEntry Backtest - EMA Yuzdesi Izole Testi",
         "uretim_zamani_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "durustluk_notu": (
             "GUNLUK BAR yaklasikligi. 'Aday' sinyali 16 ic motorun TAMAMINI degil, "
             "jenerik bir breakout+hacim vekilini temsil ediyor (B3 ile ayni pattern). "
-            "ATR carpani 1.8 Pine varsayilani, 2.5/3.0/4.0 'ekstrem kovalama' testi icin "
-            "eklendi. Sonuc yon verir, 16 motorun her biri icin kesin degildir."
+            "ATR tarafi SABIT/gevsek (x4.0, onceki testte etkisiz dogrulandi) tutuldu - "
+            "fark TAMAMEN EMA-yuzdesi (1.035 Pine varsayilani + 4 alternatif) tarafindan "
+            "geliyor. Sonuc yon verir, 16 motorun her biri icin kesin degildir."
         ),
         "esikler": esik_sonuclari,
     }
