@@ -717,3 +717,30 @@ htf = (deger % 10000) // 1000, dnadef = (deger % 1000) // 100, skortb = deger % 
 Bir hafta biriktikten sonra entryScore dağılımı analiz edilip hangi eşiğin/
 koşulun en sık engellediği teşhis edilecek.
 ```
+
+---
+
+## [CL030] SkorGecTest kaldırıldı (amacına ulaştı)
+
+```
+21.09.2026: SkorGecTest (1 plot + 22 JSON alan referansı, 24 yer) 03.09'da
+"bar-gecikme sorunu... KESİNLEŞTİ" diye zaten doğrulanmıştı - kaldırma
+kriteri (20-30 alarm örneği + bar-gecikmesi kesinleşmesi) çoktan
+karşılanmıştı, unutulmuş bir kalıntıydı. Token/plot bütçesinde gerçek
+alan açmak için kaldırıldı.
+```
+
+## XBANK/Brent/Altın/HTF nz() incelemesi (21.09.2026, dış kurul incelemesi doğrulaması)
+
+```
+Dış kurul incelemesi "nz(external, close) risk" maddesini iddia etmişti.
+Kod incelendiğinde: Brent (_brentEma20 = na(_brentClose)?na:...) ve Altın
+AYNI desenle ZATEN korumalı - ara hesaplamanın nz() fallback'i, orijinal
+veri eksikse na-check ile eleniyor. HTF (htfBull/htf2Bull) acik bir
+na-check TASIMIYOR ama Pine'in "na ile karsilastirma = false" davranisi
+sayesinde ORTUK olarak guvenli (veri yoksa sessizce false donuyor,
+yanlis-pozitif URETMIYOR). Yalniz XBANK'ta dusme noktasi hissenin kendi
+fiyati yerine xu100Close'a cevrildi (zararsiz iyilestirme, XBANK zaten
+_xbankBear'da ayrica na-check tasiyordu). SONUC: bu madde buyuk olcude
+zaten guvenliydi, ek is GEREKMEDI.
+```
