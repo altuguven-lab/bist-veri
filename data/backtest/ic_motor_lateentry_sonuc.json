@@ -1,32 +1,32 @@
 {
-  "calisma": "IC MOTOR lateEntry Backtest - Cok Esikli",
-  "uretim_zamani_utc": "2026-09-21T11:30:11.053871+00:00",
-  "durustluk_notu": "GUNLUK BAR yaklasikligi. 'Aday' sinyali 16 ic motorun TAMAMINI degil, jenerik bir breakout+hacim vekilini temsil ediyor (B3 ile ayni pattern). ATR carpani 1.8 Pine varsayilani, 2.5/3.0/4.0 'ekstrem kovalama' testi icin eklendi. Sonuc yon verir, 16 motorun her biri icin kesin degildir.",
+  "calisma": "IC MOTOR lateEntry Backtest - EMA Yuzdesi Izole Testi",
+  "uretim_zamani_utc": "2026-09-21T11:42:16.514078+00:00",
+  "durustluk_notu": "GUNLUK BAR yaklasikligi. 'Aday' sinyali 16 ic motorun TAMAMINI degil, jenerik bir breakout+hacim vekilini temsil ediyor (B3 ile ayni pattern). ATR tarafi SABIT/gevsek (x4.0, onceki testte etkisiz dogrulandi) tutuldu - fark TAMAMEN EMA-yuzdesi (1.035 Pine varsayilani + 4 alternatif) tarafindan geliyor. Sonuc yon verir, 16 motorun her biri icin kesin degildir.",
   "esikler": {
-    "atr_mult_1.8": {
+    "ema_pct_1.02": {
       "genel": {
         "temiz": {
           "t3": {
-            "adet": 655,
-            "isabet_pct": 57.3,
-            "ort_getiri_pct": 0.883
+            "adet": 59,
+            "isabet_pct": 57.6,
+            "ort_getiri_pct": 0.634
           },
           "t10": {
-            "adet": 654,
-            "isabet_pct": 60.2,
-            "ort_getiri_pct": 2.208
+            "adet": 59,
+            "isabet_pct": 71.2,
+            "ort_getiri_pct": 3.474
           }
         },
         "kovalama": {
           "t3": {
-            "adet": 3406,
-            "isabet_pct": 55.0,
-            "ort_getiri_pct": 0.828
+            "adet": 4003,
+            "isabet_pct": 55.4,
+            "ort_getiri_pct": 0.838
           },
           "t10": {
-            "adet": 3393,
+            "adet": 3989,
             "isabet_pct": 58.9,
-            "ort_getiri_pct": 2.63
+            "ort_getiri_pct": 2.553
           }
         }
       },
@@ -34,98 +34,968 @@
         "AKBNK": {
           "temiz": {
             "t3": {
-              "adet": 18,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.914
+              "adet": 3,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 2.859
             },
             "t10": {
-              "adet": 17,
-              "isabet_pct": 82.4,
-              "ort_getiri_pct": 2.315
+              "adet": 3,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 3.097
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 117,
-              "isabet_pct": 53.0,
-              "ort_getiri_pct": 0.775
+              "adet": 130,
+              "isabet_pct": 51.5,
+              "ort_getiri_pct": 0.735
             },
             "t10": {
-              "adet": 117,
-              "isabet_pct": 60.7,
-              "ort_getiri_pct": 2.174
+              "adet": 129,
+              "isabet_pct": 62.0,
+              "ort_getiri_pct": 2.163
             }
           },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 117
+          "temiz_gun_sayisi": 3,
+          "kovalama_gun_sayisi": 130
+        },
+        "YKBNK": {
+          "temiz": {
+            "t3": {
+              "adet": 2,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -2.251
+            },
+            "t10": {
+              "adet": 2,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 9.345
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 134,
+              "isabet_pct": 59.0,
+              "ort_getiri_pct": 1.085
+            },
+            "t10": {
+              "adet": 134,
+              "isabet_pct": 62.7,
+              "ort_getiri_pct": 3.624
+            }
+          },
+          "temiz_gun_sayisi": 2,
+          "kovalama_gun_sayisi": 134
+        },
+        "GARAN": {
+          "temiz": {
+            "t3": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            },
+            "t10": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 121,
+              "isabet_pct": 47.9,
+              "ort_getiri_pct": 0.288
+            },
+            "t10": {
+              "adet": 121,
+              "isabet_pct": 54.5,
+              "ort_getiri_pct": 2.252
+            }
+          },
+          "temiz_gun_sayisi": 0,
+          "kovalama_gun_sayisi": 121
+        },
+        "ISCTR": {
+          "temiz": {
+            "t3": {
+              "adet": 1,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 1.687
+            },
+            "t10": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -1.687
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 144,
+              "isabet_pct": 52.8,
+              "ort_getiri_pct": 1.323
+            },
+            "t10": {
+              "adet": 143,
+              "isabet_pct": 55.9,
+              "ort_getiri_pct": 2.279
+            }
+          },
+          "temiz_gun_sayisi": 1,
+          "kovalama_gun_sayisi": 144
+        },
+        "HALKB": {
+          "temiz": {
+            "t3": {
+              "adet": 4,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 1.73
+            },
+            "t10": {
+              "adet": 4,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 3.734
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 122,
+              "isabet_pct": 46.7,
+              "ort_getiri_pct": 0.813
+            },
+            "t10": {
+              "adet": 122,
+              "isabet_pct": 51.6,
+              "ort_getiri_pct": 3.818
+            }
+          },
+          "temiz_gun_sayisi": 4,
+          "kovalama_gun_sayisi": 122
+        },
+        "VAKBN": {
+          "temiz": {
+            "t3": {
+              "adet": 4,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 1.087
+            },
+            "t10": {
+              "adet": 4,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 1.885
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 127,
+              "isabet_pct": 46.5,
+              "ort_getiri_pct": 0.906
+            },
+            "t10": {
+              "adet": 125,
+              "isabet_pct": 58.4,
+              "ort_getiri_pct": 5.316
+            }
+          },
+          "temiz_gun_sayisi": 4,
+          "kovalama_gun_sayisi": 127
+        },
+        "KCHOL": {
+          "temiz": {
+            "t3": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            },
+            "t10": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 123,
+              "isabet_pct": 61.0,
+              "ort_getiri_pct": 0.874
+            },
+            "t10": {
+              "adet": 123,
+              "isabet_pct": 56.9,
+              "ort_getiri_pct": 0.696
+            }
+          },
+          "temiz_gun_sayisi": 0,
+          "kovalama_gun_sayisi": 123
+        },
+        "SAHOL": {
+          "temiz": {
+            "t3": {
+              "adet": 1,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 1.994
+            },
+            "t10": {
+              "adet": 1,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 4.722
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 123,
+              "isabet_pct": 56.9,
+              "ort_getiri_pct": 0.784
+            },
+            "t10": {
+              "adet": 123,
+              "isabet_pct": 56.9,
+              "ort_getiri_pct": 1.369
+            }
+          },
+          "temiz_gun_sayisi": 1,
+          "kovalama_gun_sayisi": 123
+        },
+        "BIMAS": {
+          "temiz": {
+            "t3": {
+              "adet": 5,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 2.492
+            },
+            "t10": {
+              "adet": 5,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 6.257
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 105,
+              "isabet_pct": 47.6,
+              "ort_getiri_pct": -0.461
+            },
+            "t10": {
+              "adet": 105,
+              "isabet_pct": 49.5,
+              "ort_getiri_pct": -0.403
+            }
+          },
+          "temiz_gun_sayisi": 5,
+          "kovalama_gun_sayisi": 105
+        },
+        "MGROS": {
+          "temiz": {
+            "t3": {
+              "adet": 1,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 5.476
+            },
+            "t10": {
+              "adet": 1,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 16.427
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 148,
+              "isabet_pct": 51.4,
+              "ort_getiri_pct": 0.063
+            },
+            "t10": {
+              "adet": 148,
+              "isabet_pct": 56.1,
+              "ort_getiri_pct": 1.654
+            }
+          },
+          "temiz_gun_sayisi": 1,
+          "kovalama_gun_sayisi": 148
+        },
+        "ASELS": {
+          "temiz": {
+            "t3": {
+              "adet": 4,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -2.844
+            },
+            "t10": {
+              "adet": 4,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 1.035
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 167,
+              "isabet_pct": 61.1,
+              "ort_getiri_pct": 1.783
+            },
+            "t10": {
+              "adet": 167,
+              "isabet_pct": 62.3,
+              "ort_getiri_pct": 3.784
+            }
+          },
+          "temiz_gun_sayisi": 4,
+          "kovalama_gun_sayisi": 167
+        },
+        "THYAO": {
+          "temiz": {
+            "t3": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            },
+            "t10": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 125,
+              "isabet_pct": 57.6,
+              "ort_getiri_pct": 1.32
+            },
+            "t10": {
+              "adet": 125,
+              "isabet_pct": 61.6,
+              "ort_getiri_pct": 2.715
+            }
+          },
+          "temiz_gun_sayisi": 0,
+          "kovalama_gun_sayisi": 125
+        },
+        "PGSUS": {
+          "temiz": {
+            "t3": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            },
+            "t10": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 124,
+              "isabet_pct": 65.3,
+              "ort_getiri_pct": 2.74
+            },
+            "t10": {
+              "adet": 124,
+              "isabet_pct": 71.0,
+              "ort_getiri_pct": 5.445
+            }
+          },
+          "temiz_gun_sayisi": 0,
+          "kovalama_gun_sayisi": 124
+        },
+        "TAVHL": {
+          "temiz": {
+            "t3": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            },
+            "t10": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 138,
+              "isabet_pct": 63.0,
+              "ort_getiri_pct": 1.171
+            },
+            "t10": {
+              "adet": 138,
+              "isabet_pct": 56.5,
+              "ort_getiri_pct": 1.531
+            }
+          },
+          "temiz_gun_sayisi": 0,
+          "kovalama_gun_sayisi": 138
+        },
+        "TTKOM": {
+          "temiz": {
+            "t3": {
+              "adet": 3,
+              "isabet_pct": 33.3,
+              "ort_getiri_pct": 0.606
+            },
+            "t10": {
+              "adet": 3,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 4.469
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 137,
+              "isabet_pct": 57.7,
+              "ort_getiri_pct": 0.405
+            },
+            "t10": {
+              "adet": 135,
+              "isabet_pct": 60.7,
+              "ort_getiri_pct": 2.821
+            }
+          },
+          "temiz_gun_sayisi": 3,
+          "kovalama_gun_sayisi": 137
+        },
+        "EREGL": {
+          "temiz": {
+            "t3": {
+              "adet": 5,
+              "isabet_pct": 80.0,
+              "ort_getiri_pct": 2.041
+            },
+            "t10": {
+              "adet": 5,
+              "isabet_pct": 80.0,
+              "ort_getiri_pct": 2.302
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 142,
+              "isabet_pct": 54.2,
+              "ort_getiri_pct": 0.303
+            },
+            "t10": {
+              "adet": 142,
+              "isabet_pct": 54.9,
+              "ort_getiri_pct": 0.81
+            }
+          },
+          "temiz_gun_sayisi": 5,
+          "kovalama_gun_sayisi": 142
+        },
+        "SISE": {
+          "temiz": {
+            "t3": {
+              "adet": 5,
+              "isabet_pct": 60.0,
+              "ort_getiri_pct": 0.45
+            },
+            "t10": {
+              "adet": 5,
+              "isabet_pct": 80.0,
+              "ort_getiri_pct": 6.575
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 140,
+              "isabet_pct": 52.1,
+              "ort_getiri_pct": 0.472
+            },
+            "t10": {
+              "adet": 139,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 2.212
+            }
+          },
+          "temiz_gun_sayisi": 5,
+          "kovalama_gun_sayisi": 140
+        },
+        "TRMET": {
+          "temiz": {
+            "t3": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            },
+            "t10": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 135,
+              "isabet_pct": 56.3,
+              "ort_getiri_pct": 1.2
+            },
+            "t10": {
+              "adet": 135,
+              "isabet_pct": 57.0,
+              "ort_getiri_pct": 1.547
+            }
+          },
+          "temiz_gun_sayisi": 0,
+          "kovalama_gun_sayisi": 135
+        },
+        "TUPRS": {
+          "temiz": {
+            "t3": {
+              "adet": 3,
+              "isabet_pct": 33.3,
+              "ort_getiri_pct": 0.424
+            },
+            "t10": {
+              "adet": 3,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 3.346
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 153,
+              "isabet_pct": 60.1,
+              "ort_getiri_pct": 1.066
+            },
+            "t10": {
+              "adet": 153,
+              "isabet_pct": 61.4,
+              "ort_getiri_pct": 2.683
+            }
+          },
+          "temiz_gun_sayisi": 3,
+          "kovalama_gun_sayisi": 153
+        },
+        "PETKM": {
+          "temiz": {
+            "t3": {
+              "adet": 2,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -1.833
+            },
+            "t10": {
+              "adet": 2,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 1.3
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 160,
+              "isabet_pct": 54.4,
+              "ort_getiri_pct": 0.924
+            },
+            "t10": {
+              "adet": 158,
+              "isabet_pct": 51.9,
+              "ort_getiri_pct": 1.06
+            }
+          },
+          "temiz_gun_sayisi": 2,
+          "kovalama_gun_sayisi": 160
+        },
+        "ASTOR": {
+          "temiz": {
+            "t3": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -6.212
+            },
+            "t10": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -8.522
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 66,
+              "isabet_pct": 54.5,
+              "ort_getiri_pct": 2.234
+            },
+            "t10": {
+              "adet": 66,
+              "isabet_pct": 69.7,
+              "ort_getiri_pct": 8.257
+            }
+          },
+          "temiz_gun_sayisi": 1,
+          "kovalama_gun_sayisi": 66
+        },
+        "ENJSA": {
+          "temiz": {
+            "t3": {
+              "adet": 3,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 6.089
+            },
+            "t10": {
+              "adet": 3,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 7.868
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 143,
+              "isabet_pct": 55.9,
+              "ort_getiri_pct": 0.419
+            },
+            "t10": {
+              "adet": 143,
+              "isabet_pct": 61.5,
+              "ort_getiri_pct": 2.085
+            }
+          },
+          "temiz_gun_sayisi": 3,
+          "kovalama_gun_sayisi": 143
+        },
+        "ENKAI": {
+          "temiz": {
+            "t3": {
+              "adet": 6,
+              "isabet_pct": 83.3,
+              "ort_getiri_pct": 0.723
+            },
+            "t10": {
+              "adet": 6,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 3.944
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 125,
+              "isabet_pct": 52.8,
+              "ort_getiri_pct": 0.178
+            },
+            "t10": {
+              "adet": 125,
+              "isabet_pct": 59.2,
+              "ort_getiri_pct": 2.317
+            }
+          },
+          "temiz_gun_sayisi": 6,
+          "kovalama_gun_sayisi": 125
+        },
+        "EKGYO": {
+          "temiz": {
+            "t3": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            },
+            "t10": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 144,
+              "isabet_pct": 54.2,
+              "ort_getiri_pct": 0.728
+            },
+            "t10": {
+              "adet": 143,
+              "isabet_pct": 58.0,
+              "ort_getiri_pct": 2.8
+            }
+          },
+          "temiz_gun_sayisi": 0,
+          "kovalama_gun_sayisi": 144
+        },
+        "FROTO": {
+          "temiz": {
+            "t3": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -0.381
+            },
+            "t10": {
+              "adet": 1,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 9.487
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 127,
+              "isabet_pct": 53.5,
+              "ort_getiri_pct": 0.068
+            },
+            "t10": {
+              "adet": 125,
+              "isabet_pct": 61.6,
+              "ort_getiri_pct": 2.3
+            }
+          },
+          "temiz_gun_sayisi": 1,
+          "kovalama_gun_sayisi": 127
+        },
+        "TOASO": {
+          "temiz": {
+            "t3": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            },
+            "t10": {
+              "adet": 0,
+              "isabet_pct": null,
+              "ort_getiri_pct": null
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 135,
+              "isabet_pct": 58.5,
+              "ort_getiri_pct": 1.157
+            },
+            "t10": {
+              "adet": 133,
+              "isabet_pct": 60.9,
+              "ort_getiri_pct": 2.852
+            }
+          },
+          "temiz_gun_sayisi": 0,
+          "kovalama_gun_sayisi": 135
+        },
+        "OTKAR": {
+          "temiz": {
+            "t3": {
+              "adet": 2,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.001
+            },
+            "t10": {
+              "adet": 2,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 0.985
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 168,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 0.958
+            },
+            "t10": {
+              "adet": 168,
+              "isabet_pct": 56.5,
+              "ort_getiri_pct": 2.81
+            }
+          },
+          "temiz_gun_sayisi": 2,
+          "kovalama_gun_sayisi": 168
+        },
+        "AEFES": {
+          "temiz": {
+            "t3": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -12.084
+            },
+            "t10": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -13.003
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 120,
+              "isabet_pct": 56.7,
+              "ort_getiri_pct": 0.391
+            },
+            "t10": {
+              "adet": 120,
+              "isabet_pct": 63.3,
+              "ort_getiri_pct": 2.384
+            }
+          },
+          "temiz_gun_sayisi": 1,
+          "kovalama_gun_sayisi": 120
+        },
+        "ALARK": {
+          "temiz": {
+            "t3": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -0.219
+            },
+            "t10": {
+              "adet": 1,
+              "isabet_pct": 100.0,
+              "ort_getiri_pct": 3.509
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 150,
+              "isabet_pct": 55.3,
+              "ort_getiri_pct": 0.831
+            },
+            "t10": {
+              "adet": 150,
+              "isabet_pct": 61.3,
+              "ort_getiri_pct": 3.224
+            }
+          },
+          "temiz_gun_sayisi": 1,
+          "kovalama_gun_sayisi": 150
+        },
+        "ULKER": {
+          "temiz": {
+            "t3": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -3.745
+            },
+            "t10": {
+              "adet": 1,
+              "isabet_pct": 0.0,
+              "ort_getiri_pct": -11.519
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 127,
+              "isabet_pct": 53.5,
+              "ort_getiri_pct": 0.611
+            },
+            "t10": {
+              "adet": 127,
+              "isabet_pct": 60.6,
+              "ort_getiri_pct": 2.708
+            }
+          },
+          "temiz_gun_sayisi": 1,
+          "kovalama_gun_sayisi": 127
+        }
+      }
+    },
+    "ema_pct_1.035": {
+      "genel": {
+        "temiz": {
+          "t3": {
+            "adet": 663,
+            "isabet_pct": 57.0,
+            "ort_getiri_pct": 0.85
+          },
+          "t10": {
+            "adet": 662,
+            "isabet_pct": 59.7,
+            "ort_getiri_pct": 2.166
+          }
+        },
+        "kovalama": {
+          "t3": {
+            "adet": 3399,
+            "isabet_pct": 55.1,
+            "ort_getiri_pct": 0.833
+          },
+          "t10": {
+            "adet": 3386,
+            "isabet_pct": 59.0,
+            "ort_getiri_pct": 2.644
+          }
+        }
+      },
+      "sembol_bazli": {
+        "AKBNK": {
+          "temiz": {
+            "t3": {
+              "adet": 17,
+              "isabet_pct": 47.1,
+              "ort_getiri_pct": 0.748
+            },
+            "t10": {
+              "adet": 16,
+              "isabet_pct": 81.2,
+              "ort_getiri_pct": 2.193
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 116,
+              "isabet_pct": 53.4,
+              "ort_getiri_pct": 0.788
+            },
+            "t10": {
+              "adet": 116,
+              "isabet_pct": 60.3,
+              "ort_getiri_pct": 2.183
+            }
+          },
+          "temiz_gun_sayisi": 17,
+          "kovalama_gun_sayisi": 116
         },
         "YKBNK": {
           "temiz": {
             "t3": {
               "adet": 20,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 2.105
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 1.639
             },
             "t10": {
               "adet": 20,
               "isabet_pct": 65.0,
-              "ort_getiri_pct": 5.446
+              "ort_getiri_pct": 5.003
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 117,
-              "isabet_pct": 59.8,
-              "ort_getiri_pct": 0.897
+              "adet": 116,
+              "isabet_pct": 59.5,
+              "ort_getiri_pct": 0.932
             },
             "t10": {
-              "adet": 117,
-              "isabet_pct": 62.4,
-              "ort_getiri_pct": 3.543
+              "adet": 116,
+              "isabet_pct": 62.9,
+              "ort_getiri_pct": 3.485
             }
           },
           "temiz_gun_sayisi": 20,
-          "kovalama_gun_sayisi": 117
+          "kovalama_gun_sayisi": 116
         },
         "GARAN": {
           "temiz": {
             "t3": {
-              "adet": 18,
-              "isabet_pct": 38.9,
-              "ort_getiri_pct": 0.341
+              "adet": 19,
+              "isabet_pct": 36.8,
+              "ort_getiri_pct": 0.314
             },
             "t10": {
-              "adet": 18,
-              "isabet_pct": 33.3,
-              "ort_getiri_pct": -0.197
+              "adet": 19,
+              "isabet_pct": 36.8,
+              "ort_getiri_pct": 0.56
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 103,
-              "isabet_pct": 49.5,
-              "ort_getiri_pct": 0.279
+              "adet": 102,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 0.283
             },
             "t10": {
-              "adet": 103,
-              "isabet_pct": 58.3,
-              "ort_getiri_pct": 2.68
+              "adet": 102,
+              "isabet_pct": 57.8,
+              "ort_getiri_pct": 2.567
             }
           },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 103
+          "temiz_gun_sayisi": 19,
+          "kovalama_gun_sayisi": 102
         },
         "ISCTR": {
           "temiz": {
             "t3": {
-              "adet": 33,
-              "isabet_pct": 42.4,
-              "ort_getiri_pct": 0.494
+              "adet": 34,
+              "isabet_pct": 41.2,
+              "ort_getiri_pct": 0.431
             },
             "t10": {
-              "adet": 33,
-              "isabet_pct": 63.6,
-              "ort_getiri_pct": 2.286
+              "adet": 34,
+              "isabet_pct": 61.8,
+              "ort_getiri_pct": 2.192
             }
           },
           "kovalama": {
@@ -140,7 +1010,7 @@
               "ort_getiri_pct": 2.27
             }
           },
-          "temiz_gun_sayisi": 33,
+          "temiz_gun_sayisi": 34,
           "kovalama_gun_sayisi": 111
         },
         "HALKB": {
@@ -230,14 +1100,14 @@
         "SAHOL": {
           "temiz": {
             "t3": {
-              "adet": 18,
-              "isabet_pct": 61.1,
-              "ort_getiri_pct": 0.178
+              "adet": 19,
+              "isabet_pct": 63.2,
+              "ort_getiri_pct": 0.409
             },
             "t10": {
-              "adet": 18,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 2.722
+              "adet": 19,
+              "isabet_pct": 68.4,
+              "ort_getiri_pct": 2.673
             }
           },
           "kovalama": {
@@ -252,7 +1122,7 @@
               "ort_getiri_pct": 1.165
             }
           },
-          "temiz_gun_sayisi": 18,
+          "temiz_gun_sayisi": 19,
           "kovalama_gun_sayisi": 105
         },
         "BIMAS": {
@@ -260,12 +1130,12 @@
             "t3": {
               "adet": 31,
               "isabet_pct": 58.1,
-              "ort_getiri_pct": 0.18
+              "ort_getiri_pct": 0.273
             },
             "t10": {
               "adet": 31,
               "isabet_pct": 54.8,
-              "ort_getiri_pct": 0.811
+              "ort_getiri_pct": 0.975
             }
           },
           "kovalama": {
@@ -286,58 +1156,58 @@
         "MGROS": {
           "temiz": {
             "t3": {
-              "adet": 17,
-              "isabet_pct": 64.7,
-              "ort_getiri_pct": 2.116
+              "adet": 16,
+              "isabet_pct": 68.8,
+              "ort_getiri_pct": 2.046
             },
             "t10": {
-              "adet": 17,
-              "isabet_pct": 76.5,
-              "ort_getiri_pct": 4.037
+              "adet": 16,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 4.251
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 134,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": -0.099
+              "adet": 133,
+              "isabet_pct": 49.6,
+              "ort_getiri_pct": -0.135
             },
             "t10": {
-              "adet": 134,
-              "isabet_pct": 54.5,
-              "ort_getiri_pct": 1.523
+              "adet": 133,
+              "isabet_pct": 54.1,
+              "ort_getiri_pct": 1.452
             }
           },
-          "temiz_gun_sayisi": 17,
-          "kovalama_gun_sayisi": 134
+          "temiz_gun_sayisi": 16,
+          "kovalama_gun_sayisi": 133
         },
         "ASELS": {
           "temiz": {
             "t3": {
-              "adet": 32,
-              "isabet_pct": 56.2,
-              "ort_getiri_pct": 1.542
+              "adet": 34,
+              "isabet_pct": 55.9,
+              "ort_getiri_pct": 1.484
             },
             "t10": {
-              "adet": 32,
-              "isabet_pct": 53.1,
-              "ort_getiri_pct": 2.393
+              "adet": 34,
+              "isabet_pct": 52.9,
+              "ort_getiri_pct": 2.41
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 136,
-              "isabet_pct": 61.0,
-              "ort_getiri_pct": 1.754
+              "adet": 137,
+              "isabet_pct": 60.6,
+              "ort_getiri_pct": 1.722
             },
             "t10": {
-              "adet": 136,
-              "isabet_pct": 64.7,
-              "ort_getiri_pct": 4.081
+              "adet": 137,
+              "isabet_pct": 64.2,
+              "ort_getiri_pct": 4.045
             }
           },
-          "temiz_gun_sayisi": 32,
-          "kovalama_gun_sayisi": 136
+          "temiz_gun_sayisi": 34,
+          "kovalama_gun_sayisi": 137
         },
         "THYAO": {
           "temiz": {
@@ -426,86 +1296,86 @@
         "TTKOM": {
           "temiz": {
             "t3": {
-              "adet": 18,
-              "isabet_pct": 55.6,
-              "ort_getiri_pct": 1.01
+              "adet": 21,
+              "isabet_pct": 57.1,
+              "ort_getiri_pct": 1.002
             },
             "t10": {
-              "adet": 18,
-              "isabet_pct": 83.3,
-              "ort_getiri_pct": 4.083
+              "adet": 21,
+              "isabet_pct": 76.2,
+              "ort_getiri_pct": 3.427
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 118,
-              "isabet_pct": 57.6,
-              "ort_getiri_pct": 0.324
+              "adet": 119,
+              "isabet_pct": 57.1,
+              "ort_getiri_pct": 0.304
             },
             "t10": {
-              "adet": 116,
-              "isabet_pct": 57.8,
-              "ort_getiri_pct": 2.56
+              "adet": 117,
+              "isabet_pct": 58.1,
+              "ort_getiri_pct": 2.754
             }
           },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 118
+          "temiz_gun_sayisi": 21,
+          "kovalama_gun_sayisi": 119
         },
         "EREGL": {
           "temiz": {
             "t3": {
               "adet": 32,
               "isabet_pct": 62.5,
-              "ort_getiri_pct": 0.475
+              "ort_getiri_pct": 0.511
             },
             "t10": {
               "adet": 32,
-              "isabet_pct": 68.8,
-              "ort_getiri_pct": 2.701
+              "isabet_pct": 65.6,
+              "ort_getiri_pct": 2.509
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 116,
-              "isabet_pct": 52.6,
-              "ort_getiri_pct": 0.31
+              "adet": 115,
+              "isabet_pct": 53.0,
+              "ort_getiri_pct": 0.32
             },
             "t10": {
-              "adet": 116,
-              "isabet_pct": 52.6,
-              "ort_getiri_pct": 0.36
+              "adet": 115,
+              "isabet_pct": 53.0,
+              "ort_getiri_pct": 0.402
             }
           },
           "temiz_gun_sayisi": 32,
-          "kovalama_gun_sayisi": 116
+          "kovalama_gun_sayisi": 115
         },
         "SISE": {
           "temiz": {
             "t3": {
-              "adet": 41,
-              "isabet_pct": 56.1,
-              "ort_getiri_pct": 1.093
+              "adet": 42,
+              "isabet_pct": 57.1,
+              "ort_getiri_pct": 1.001
             },
             "t10": {
-              "adet": 41,
-              "isabet_pct": 65.9,
-              "ort_getiri_pct": 3.09
+              "adet": 42,
+              "isabet_pct": 64.3,
+              "ort_getiri_pct": 2.933
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 102,
-              "isabet_pct": 51.0,
-              "ort_getiri_pct": 0.264
+              "adet": 103,
+              "isabet_pct": 50.5,
+              "ort_getiri_pct": 0.254
             },
             "t10": {
-              "adet": 101,
-              "isabet_pct": 56.4,
-              "ort_getiri_pct": 2.08
+              "adet": 102,
+              "isabet_pct": 56.9,
+              "ort_getiri_pct": 2.129
             }
           },
-          "temiz_gun_sayisi": 41,
-          "kovalama_gun_sayisi": 102
+          "temiz_gun_sayisi": 42,
+          "kovalama_gun_sayisi": 103
         },
         "TRMET": {
           "temiz": {
@@ -545,7 +1415,7 @@
             "t10": {
               "adet": 25,
               "isabet_pct": 56.0,
-              "ort_getiri_pct": 1.954
+              "ort_getiri_pct": 1.953
             }
           },
           "kovalama": {
@@ -585,7 +1455,7 @@
             "t10": {
               "adet": 120,
               "isabet_pct": 50.8,
-              "ort_getiri_pct": 0.749
+              "ort_getiri_pct": 0.75
             }
           },
           "temiz_gun_sayisi": 40,
@@ -622,86 +1492,86 @@
         "ENJSA": {
           "temiz": {
             "t3": {
-              "adet": 38,
-              "isabet_pct": 63.2,
-              "ort_getiri_pct": 1.031
+              "adet": 36,
+              "isabet_pct": 63.9,
+              "ort_getiri_pct": 0.993
             },
             "t10": {
-              "adet": 38,
-              "isabet_pct": 60.5,
-              "ort_getiri_pct": 1.613
+              "adet": 36,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 1.178
             }
           },
           "kovalama": {
             "t3": {
               "adet": 110,
-              "isabet_pct": 55.5,
-              "ort_getiri_pct": 0.454
+              "isabet_pct": 54.5,
+              "ort_getiri_pct": 0.385
             },
             "t10": {
               "adet": 110,
-              "isabet_pct": 64.5,
-              "ort_getiri_pct": 2.575
+              "isabet_pct": 63.6,
+              "ort_getiri_pct": 2.539
             }
           },
-          "temiz_gun_sayisi": 38,
+          "temiz_gun_sayisi": 36,
           "kovalama_gun_sayisi": 110
         },
         "ENKAI": {
           "temiz": {
             "t3": {
-              "adet": 23,
-              "isabet_pct": 73.9,
-              "ort_getiri_pct": 1.82
+              "adet": 24,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 1.618
             },
             "t10": {
-              "adet": 23,
-              "isabet_pct": 60.9,
-              "ort_getiri_pct": 4.869
+              "adet": 24,
+              "isabet_pct": 62.5,
+              "ort_getiri_pct": 5.009
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 110,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": -0.095
+              "adet": 107,
+              "isabet_pct": 49.5,
+              "ort_getiri_pct": -0.114
             },
             "t10": {
-              "adet": 110,
-              "isabet_pct": 57.3,
-              "ort_getiri_pct": 1.752
+              "adet": 107,
+              "isabet_pct": 57.9,
+              "ort_getiri_pct": 1.804
             }
           },
-          "temiz_gun_sayisi": 23,
-          "kovalama_gun_sayisi": 110
+          "temiz_gun_sayisi": 24,
+          "kovalama_gun_sayisi": 107
         },
         "EKGYO": {
           "temiz": {
             "t3": {
-              "adet": 13,
-              "isabet_pct": 61.5,
-              "ort_getiri_pct": 0.33
+              "adet": 12,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 0.264
             },
             "t10": {
-              "adet": 13,
-              "isabet_pct": 61.5,
-              "ort_getiri_pct": 1.368
+              "adet": 12,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 0.873
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 134,
-              "isabet_pct": 52.2,
-              "ort_getiri_pct": 0.659
+              "adet": 132,
+              "isabet_pct": 53.8,
+              "ort_getiri_pct": 0.77
             },
             "t10": {
-              "adet": 133,
-              "isabet_pct": 56.4,
-              "ort_getiri_pct": 2.656
+              "adet": 131,
+              "isabet_pct": 58.0,
+              "ort_getiri_pct": 2.976
             }
           },
-          "temiz_gun_sayisi": 13,
-          "kovalama_gun_sayisi": 134
+          "temiz_gun_sayisi": 12,
+          "kovalama_gun_sayisi": 132
         },
         "FROTO": {
           "temiz": {
@@ -746,30 +1616,30 @@
           },
           "kovalama": {
             "t3": {
-              "adet": 122,
-              "isabet_pct": 58.2,
-              "ort_getiri_pct": 1.169
+              "adet": 121,
+              "isabet_pct": 58.7,
+              "ort_getiri_pct": 1.179
             },
             "t10": {
-              "adet": 120,
-              "isabet_pct": 60.8,
-              "ort_getiri_pct": 2.674
+              "adet": 119,
+              "isabet_pct": 60.5,
+              "ort_getiri_pct": 2.629
             }
           },
           "temiz_gun_sayisi": 14,
-          "kovalama_gun_sayisi": 122
+          "kovalama_gun_sayisi": 121
         },
         "OTKAR": {
           "temiz": {
             "t3": {
-              "adet": 33,
-              "isabet_pct": 57.6,
-              "ort_getiri_pct": 0.497
+              "adet": 34,
+              "isabet_pct": 58.8,
+              "ort_getiri_pct": 0.579
             },
             "t10": {
-              "adet": 33,
-              "isabet_pct": 48.5,
-              "ort_getiri_pct": -0.908
+              "adet": 34,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.613
             }
           },
           "kovalama": {
@@ -784,905 +1654,35 @@
               "ort_getiri_pct": 3.639
             }
           },
-          "temiz_gun_sayisi": 33,
+          "temiz_gun_sayisi": 34,
           "kovalama_gun_sayisi": 136
         },
         "AEFES": {
-          "temiz": {
-            "t3": {
-              "adet": 20,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 0.811
-            },
-            "t10": {
-              "adet": 20,
-              "isabet_pct": 80.0,
-              "ort_getiri_pct": 5.533
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 100,
-              "isabet_pct": 57.0,
-              "ort_getiri_pct": 0.196
-            },
-            "t10": {
-              "adet": 100,
-              "isabet_pct": 59.0,
-              "ort_getiri_pct": 1.594
-            }
-          },
-          "temiz_gun_sayisi": 20,
-          "kovalama_gun_sayisi": 100
-        },
-        "ALARK": {
-          "temiz": {
-            "t3": {
-              "adet": 13,
-              "isabet_pct": 53.8,
-              "ort_getiri_pct": 1.067
-            },
-            "t10": {
-              "adet": 13,
-              "isabet_pct": 46.2,
-              "ort_getiri_pct": 0.36
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 136,
-              "isabet_pct": 54.4,
-              "ort_getiri_pct": 0.733
-            },
-            "t10": {
-              "adet": 136,
-              "isabet_pct": 63.2,
-              "ort_getiri_pct": 3.526
-            }
-          },
-          "temiz_gun_sayisi": 13,
-          "kovalama_gun_sayisi": 136
-        },
-        "ULKER": {
           "temiz": {
             "t3": {
               "adet": 21,
               "isabet_pct": 52.4,
-              "ort_getiri_pct": -0.039
+              "ort_getiri_pct": 0.721
             },
             "t10": {
               "adet": 21,
-              "isabet_pct": 42.9,
-              "ort_getiri_pct": -1.697
+              "isabet_pct": 81.0,
+              "ort_getiri_pct": 5.412
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 107,
-              "isabet_pct": 53.3,
-              "ort_getiri_pct": 0.697
+              "adet": 100,
+              "isabet_pct": 57.0,
+              "ort_getiri_pct": 0.196
             },
             "t10": {
-              "adet": 107,
-              "isabet_pct": 63.6,
-              "ort_getiri_pct": 3.44
+              "adet": 100,
+              "isabet_pct": 59.0,
+              "ort_getiri_pct": 1.594
             }
           },
           "temiz_gun_sayisi": 21,
-          "kovalama_gun_sayisi": 107
-        }
-      }
-    },
-    "atr_mult_2.5": {
-      "genel": {
-        "temiz": {
-          "t3": {
-            "adet": 658,
-            "isabet_pct": 57.1,
-            "ort_getiri_pct": 0.88
-          },
-          "t10": {
-            "adet": 657,
-            "isabet_pct": 60.3,
-            "ort_getiri_pct": 2.219
-          }
-        },
-        "kovalama": {
-          "t3": {
-            "adet": 3403,
-            "isabet_pct": 55.1,
-            "ort_getiri_pct": 0.828
-          },
-          "t10": {
-            "adet": 3390,
-            "isabet_pct": 58.9,
-            "ort_getiri_pct": 2.628
-          }
-        }
-      },
-      "sembol_bazli": {
-        "AKBNK": {
-          "temiz": {
-            "t3": {
-              "adet": 18,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.914
-            },
-            "t10": {
-              "adet": 17,
-              "isabet_pct": 82.4,
-              "ort_getiri_pct": 2.315
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 117,
-              "isabet_pct": 53.0,
-              "ort_getiri_pct": 0.775
-            },
-            "t10": {
-              "adet": 117,
-              "isabet_pct": 60.7,
-              "ort_getiri_pct": 2.174
-            }
-          },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 117
-        },
-        "YKBNK": {
-          "temiz": {
-            "t3": {
-              "adet": 20,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 2.105
-            },
-            "t10": {
-              "adet": 20,
-              "isabet_pct": 65.0,
-              "ort_getiri_pct": 5.446
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 117,
-              "isabet_pct": 59.8,
-              "ort_getiri_pct": 0.897
-            },
-            "t10": {
-              "adet": 117,
-              "isabet_pct": 62.4,
-              "ort_getiri_pct": 3.543
-            }
-          },
-          "temiz_gun_sayisi": 20,
-          "kovalama_gun_sayisi": 117
-        },
-        "GARAN": {
-          "temiz": {
-            "t3": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": 0.314
-            },
-            "t10": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": 0.56
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 102,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.283
-            },
-            "t10": {
-              "adet": 102,
-              "isabet_pct": 57.8,
-              "ort_getiri_pct": 2.567
-            }
-          },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 102
-        },
-        "ISCTR": {
-          "temiz": {
-            "t3": {
-              "adet": 33,
-              "isabet_pct": 42.4,
-              "ort_getiri_pct": 0.494
-            },
-            "t10": {
-              "adet": 33,
-              "isabet_pct": 63.6,
-              "ort_getiri_pct": 2.286
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 111,
-              "isabet_pct": 56.8,
-              "ort_getiri_pct": 1.6
-            },
-            "t10": {
-              "adet": 110,
-              "isabet_pct": 53.6,
-              "ort_getiri_pct": 2.27
-            }
-          },
-          "temiz_gun_sayisi": 33,
-          "kovalama_gun_sayisi": 111
-        },
-        "HALKB": {
-          "temiz": {
-            "t3": {
-              "adet": 15,
-              "isabet_pct": 40.0,
-              "ort_getiri_pct": 0.011
-            },
-            "t10": {
-              "adet": 15,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 0.199
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 111,
-              "isabet_pct": 48.6,
-              "ort_getiri_pct": 0.954
-            },
-            "t10": {
-              "adet": 111,
-              "isabet_pct": 50.5,
-              "ort_getiri_pct": 4.304
-            }
-          },
-          "temiz_gun_sayisi": 15,
-          "kovalama_gun_sayisi": 111
-        },
-        "VAKBN": {
-          "temiz": {
-            "t3": {
-              "adet": 22,
-              "isabet_pct": 45.5,
-              "ort_getiri_pct": 0.133
-            },
-            "t10": {
-              "adet": 22,
-              "isabet_pct": 54.5,
-              "ort_getiri_pct": 2.791
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 109,
-              "isabet_pct": 46.8,
-              "ort_getiri_pct": 1.069
-            },
-            "t10": {
-              "adet": 107,
-              "isabet_pct": 59.8,
-              "ort_getiri_pct": 5.706
-            }
-          },
-          "temiz_gun_sayisi": 22,
-          "kovalama_gun_sayisi": 109
-        },
-        "KCHOL": {
-          "temiz": {
-            "t3": {
-              "adet": 19,
-              "isabet_pct": 68.4,
-              "ort_getiri_pct": 0.769
-            },
-            "t10": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": -1.665
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 104,
-              "isabet_pct": 59.6,
-              "ort_getiri_pct": 0.893
-            },
-            "t10": {
-              "adet": 104,
-              "isabet_pct": 60.6,
-              "ort_getiri_pct": 1.127
-            }
-          },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 104
-        },
-        "SAHOL": {
-          "temiz": {
-            "t3": {
-              "adet": 18,
-              "isabet_pct": 61.1,
-              "ort_getiri_pct": 0.178
-            },
-            "t10": {
-              "adet": 18,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 2.722
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 105,
-              "isabet_pct": 56.2,
-              "ort_getiri_pct": 0.863
-            },
-            "t10": {
-              "adet": 105,
-              "isabet_pct": 55.2,
-              "ort_getiri_pct": 1.165
-            }
-          },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 105
-        },
-        "BIMAS": {
-          "temiz": {
-            "t3": {
-              "adet": 31,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 0.18
-            },
-            "t10": {
-              "adet": 31,
-              "isabet_pct": 54.8,
-              "ort_getiri_pct": 0.811
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 79,
-              "isabet_pct": 46.8,
-              "ort_getiri_pct": -0.562
-            },
-            "t10": {
-              "adet": 79,
-              "isabet_pct": 50.6,
-              "ort_getiri_pct": -0.522
-            }
-          },
-          "temiz_gun_sayisi": 31,
-          "kovalama_gun_sayisi": 79
-        },
-        "MGROS": {
-          "temiz": {
-            "t3": {
-              "adet": 17,
-              "isabet_pct": 64.7,
-              "ort_getiri_pct": 2.116
-            },
-            "t10": {
-              "adet": 17,
-              "isabet_pct": 76.5,
-              "ort_getiri_pct": 4.037
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 134,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": -0.099
-            },
-            "t10": {
-              "adet": 134,
-              "isabet_pct": 54.5,
-              "ort_getiri_pct": 1.523
-            }
-          },
-          "temiz_gun_sayisi": 17,
-          "kovalama_gun_sayisi": 134
-        },
-        "ASELS": {
-          "temiz": {
-            "t3": {
-              "adet": 32,
-              "isabet_pct": 56.2,
-              "ort_getiri_pct": 1.542
-            },
-            "t10": {
-              "adet": 32,
-              "isabet_pct": 53.1,
-              "ort_getiri_pct": 2.393
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 136,
-              "isabet_pct": 61.0,
-              "ort_getiri_pct": 1.754
-            },
-            "t10": {
-              "adet": 136,
-              "isabet_pct": 64.7,
-              "ort_getiri_pct": 4.081
-            }
-          },
-          "temiz_gun_sayisi": 32,
-          "kovalama_gun_sayisi": 136
-        },
-        "THYAO": {
-          "temiz": {
-            "t3": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 1.758
-            },
-            "t10": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 2.85
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 106,
-              "isabet_pct": 57.5,
-              "ort_getiri_pct": 1.242
-            },
-            "t10": {
-              "adet": 106,
-              "isabet_pct": 62.3,
-              "ort_getiri_pct": 2.691
-            }
-          },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 106
-        },
-        "PGSUS": {
-          "temiz": {
-            "t3": {
-              "adet": 9,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 0.915
-            },
-            "t10": {
-              "adet": 9,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 5.098
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 115,
-              "isabet_pct": 65.2,
-              "ort_getiri_pct": 2.883
-            },
-            "t10": {
-              "adet": 115,
-              "isabet_pct": 71.3,
-              "ort_getiri_pct": 5.472
-            }
-          },
-          "temiz_gun_sayisi": 9,
-          "kovalama_gun_sayisi": 115
-        },
-        "TAVHL": {
-          "temiz": {
-            "t3": {
-              "adet": 19,
-              "isabet_pct": 68.4,
-              "ort_getiri_pct": 2.054
-            },
-            "t10": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 2.734
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 119,
-              "isabet_pct": 62.2,
-              "ort_getiri_pct": 1.03
-            },
-            "t10": {
-              "adet": 119,
-              "isabet_pct": 56.3,
-              "ort_getiri_pct": 1.339
-            }
-          },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 119
-        },
-        "TTKOM": {
-          "temiz": {
-            "t3": {
-              "adet": 18,
-              "isabet_pct": 55.6,
-              "ort_getiri_pct": 1.01
-            },
-            "t10": {
-              "adet": 18,
-              "isabet_pct": 83.3,
-              "ort_getiri_pct": 4.083
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 118,
-              "isabet_pct": 57.6,
-              "ort_getiri_pct": 0.324
-            },
-            "t10": {
-              "adet": 116,
-              "isabet_pct": 57.8,
-              "ort_getiri_pct": 2.56
-            }
-          },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 118
-        },
-        "EREGL": {
-          "temiz": {
-            "t3": {
-              "adet": 32,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 0.475
-            },
-            "t10": {
-              "adet": 32,
-              "isabet_pct": 68.8,
-              "ort_getiri_pct": 2.701
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 116,
-              "isabet_pct": 52.6,
-              "ort_getiri_pct": 0.31
-            },
-            "t10": {
-              "adet": 116,
-              "isabet_pct": 52.6,
-              "ort_getiri_pct": 0.36
-            }
-          },
-          "temiz_gun_sayisi": 32,
-          "kovalama_gun_sayisi": 116
-        },
-        "SISE": {
-          "temiz": {
-            "t3": {
-              "adet": 41,
-              "isabet_pct": 56.1,
-              "ort_getiri_pct": 1.093
-            },
-            "t10": {
-              "adet": 41,
-              "isabet_pct": 65.9,
-              "ort_getiri_pct": 3.09
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 102,
-              "isabet_pct": 51.0,
-              "ort_getiri_pct": 0.264
-            },
-            "t10": {
-              "adet": 101,
-              "isabet_pct": 56.4,
-              "ort_getiri_pct": 2.08
-            }
-          },
-          "temiz_gun_sayisi": 41,
-          "kovalama_gun_sayisi": 102
-        },
-        "TRMET": {
-          "temiz": {
-            "t3": {
-              "adet": 8,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 2.711
-            },
-            "t10": {
-              "adet": 8,
-              "isabet_pct": 87.5,
-              "ort_getiri_pct": 6.954
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 127,
-              "isabet_pct": 55.9,
-              "ort_getiri_pct": 1.105
-            },
-            "t10": {
-              "adet": 127,
-              "isabet_pct": 55.1,
-              "ort_getiri_pct": 1.206
-            }
-          },
-          "temiz_gun_sayisi": 8,
-          "kovalama_gun_sayisi": 127
-        },
-        "TUPRS": {
-          "temiz": {
-            "t3": {
-              "adet": 25,
-              "isabet_pct": 64.0,
-              "ort_getiri_pct": 1.235
-            },
-            "t10": {
-              "adet": 25,
-              "isabet_pct": 56.0,
-              "ort_getiri_pct": 1.954
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 131,
-              "isabet_pct": 58.8,
-              "ort_getiri_pct": 1.019
-            },
-            "t10": {
-              "adet": 131,
-              "isabet_pct": 62.6,
-              "ort_getiri_pct": 2.837
-            }
-          },
-          "temiz_gun_sayisi": 25,
-          "kovalama_gun_sayisi": 131
-        },
-        "PETKM": {
-          "temiz": {
-            "t3": {
-              "adet": 40,
-              "isabet_pct": 60.0,
-              "ort_getiri_pct": 0.581
-            },
-            "t10": {
-              "adet": 40,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 2.003
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 122,
-              "isabet_pct": 51.6,
-              "ort_getiri_pct": 0.992
-            },
-            "t10": {
-              "adet": 120,
-              "isabet_pct": 50.8,
-              "ort_getiri_pct": 0.749
-            }
-          },
-          "temiz_gun_sayisi": 40,
-          "kovalama_gun_sayisi": 122
-        },
-        "ASTOR": {
-          "temiz": {
-            "t3": {
-              "adet": 2,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.19
-            },
-            "t10": {
-              "adet": 2,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.28
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 65,
-              "isabet_pct": 53.8,
-              "ort_getiri_pct": 2.167
-            },
-            "t10": {
-              "adet": 65,
-              "isabet_pct": 69.2,
-              "ort_getiri_pct": 8.244
-            }
-          },
-          "temiz_gun_sayisi": 2,
-          "kovalama_gun_sayisi": 65
-        },
-        "ENJSA": {
-          "temiz": {
-            "t3": {
-              "adet": 38,
-              "isabet_pct": 63.2,
-              "ort_getiri_pct": 1.031
-            },
-            "t10": {
-              "adet": 38,
-              "isabet_pct": 60.5,
-              "ort_getiri_pct": 1.613
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 110,
-              "isabet_pct": 55.5,
-              "ort_getiri_pct": 0.454
-            },
-            "t10": {
-              "adet": 110,
-              "isabet_pct": 64.5,
-              "ort_getiri_pct": 2.575
-            }
-          },
-          "temiz_gun_sayisi": 38,
-          "kovalama_gun_sayisi": 110
-        },
-        "ENKAI": {
-          "temiz": {
-            "t3": {
-              "adet": 24,
-              "isabet_pct": 75.0,
-              "ort_getiri_pct": 1.806
-            },
-            "t10": {
-              "adet": 24,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 4.859
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 109,
-              "isabet_pct": 49.5,
-              "ort_getiri_pct": -0.109
-            },
-            "t10": {
-              "adet": 109,
-              "isabet_pct": 56.9,
-              "ort_getiri_pct": 1.726
-            }
-          },
-          "temiz_gun_sayisi": 24,
-          "kovalama_gun_sayisi": 109
-        },
-        "EKGYO": {
-          "temiz": {
-            "t3": {
-              "adet": 13,
-              "isabet_pct": 61.5,
-              "ort_getiri_pct": 0.33
-            },
-            "t10": {
-              "adet": 13,
-              "isabet_pct": 61.5,
-              "ort_getiri_pct": 1.368
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 134,
-              "isabet_pct": 52.2,
-              "ort_getiri_pct": 0.659
-            },
-            "t10": {
-              "adet": 133,
-              "isabet_pct": 56.4,
-              "ort_getiri_pct": 2.656
-            }
-          },
-          "temiz_gun_sayisi": 13,
-          "kovalama_gun_sayisi": 134
-        },
-        "FROTO": {
-          "temiz": {
-            "t3": {
-              "adet": 24,
-              "isabet_pct": 54.2,
-              "ort_getiri_pct": 0.238
-            },
-            "t10": {
-              "adet": 24,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 1.696
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 104,
-              "isabet_pct": 52.9,
-              "ort_getiri_pct": 0.025
-            },
-            "t10": {
-              "adet": 102,
-              "isabet_pct": 61.8,
-              "ort_getiri_pct": 2.512
-            }
-          },
-          "temiz_gun_sayisi": 24,
-          "kovalama_gun_sayisi": 104
-        },
-        "TOASO": {
-          "temiz": {
-            "t3": {
-              "adet": 14,
-              "isabet_pct": 57.1,
-              "ort_getiri_pct": 0.962
-            },
-            "t10": {
-              "adet": 14,
-              "isabet_pct": 64.3,
-              "ort_getiri_pct": 4.756
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 122,
-              "isabet_pct": 58.2,
-              "ort_getiri_pct": 1.169
-            },
-            "t10": {
-              "adet": 120,
-              "isabet_pct": 60.8,
-              "ort_getiri_pct": 2.674
-            }
-          },
-          "temiz_gun_sayisi": 14,
-          "kovalama_gun_sayisi": 122
-        },
-        "OTKAR": {
-          "temiz": {
-            "t3": {
-              "adet": 33,
-              "isabet_pct": 57.6,
-              "ort_getiri_pct": 0.497
-            },
-            "t10": {
-              "adet": 33,
-              "isabet_pct": 48.5,
-              "ort_getiri_pct": -0.908
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 136,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 1.039
-            },
-            "t10": {
-              "adet": 136,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 3.639
-            }
-          },
-          "temiz_gun_sayisi": 33,
-          "kovalama_gun_sayisi": 136
-        },
-        "AEFES": {
-          "temiz": {
-            "t3": {
-              "adet": 20,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 0.811
-            },
-            "t10": {
-              "adet": 20,
-              "isabet_pct": 80.0,
-              "ort_getiri_pct": 5.533
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 100,
-              "isabet_pct": 57.0,
-              "ort_getiri_pct": 0.196
-            },
-            "t10": {
-              "adet": 100,
-              "isabet_pct": 59.0,
-              "ort_getiri_pct": 1.594
-            }
-          },
-          "temiz_gun_sayisi": 20,
           "kovalama_gun_sayisi": 100
         },
         "ALARK": {
@@ -1700,18 +1700,18 @@
           },
           "kovalama": {
             "t3": {
-              "adet": 136,
-              "isabet_pct": 54.4,
-              "ort_getiri_pct": 0.733
+              "adet": 138,
+              "isabet_pct": 55.1,
+              "ort_getiri_pct": 0.801
             },
             "t10": {
-              "adet": 136,
-              "isabet_pct": 63.2,
-              "ort_getiri_pct": 3.526
+              "adet": 138,
+              "isabet_pct": 63.0,
+              "ort_getiri_pct": 3.495
             }
           },
           "temiz_gun_sayisi": 13,
-          "kovalama_gun_sayisi": 136
+          "kovalama_gun_sayisi": 138
         },
         "ULKER": {
           "temiz": {
@@ -1743,30 +1743,30 @@
         }
       }
     },
-    "atr_mult_3.0": {
+    "ema_pct_1.05": {
       "genel": {
         "temiz": {
           "t3": {
-            "adet": 658,
-            "isabet_pct": 57.1,
-            "ort_getiri_pct": 0.88
+            "adet": 1639,
+            "isabet_pct": 54.1,
+            "ort_getiri_pct": 0.711
           },
           "t10": {
-            "adet": 657,
-            "isabet_pct": 60.3,
-            "ort_getiri_pct": 2.219
+            "adet": 1635,
+            "isabet_pct": 59.7,
+            "ort_getiri_pct": 2.335
           }
         },
         "kovalama": {
           "t3": {
-            "adet": 3403,
-            "isabet_pct": 55.1,
-            "ort_getiri_pct": 0.828
+            "adet": 2423,
+            "isabet_pct": 56.3,
+            "ort_getiri_pct": 0.92
           },
           "t10": {
-            "adet": 3390,
-            "isabet_pct": 58.9,
-            "ort_getiri_pct": 2.628
+            "adet": 2413,
+            "isabet_pct": 58.7,
+            "ort_getiri_pct": 2.723
           }
         }
       },
@@ -1774,869 +1774,869 @@
         "AKBNK": {
           "temiz": {
             "t3": {
-              "adet": 18,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.914
+              "adet": 39,
+              "isabet_pct": 41.0,
+              "ort_getiri_pct": 0.17
             },
             "t10": {
-              "adet": 17,
-              "isabet_pct": 82.4,
-              "ort_getiri_pct": 2.315
+              "adet": 38,
+              "isabet_pct": 73.7,
+              "ort_getiri_pct": 3.603
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 117,
-              "isabet_pct": 53.0,
-              "ort_getiri_pct": 0.775
+              "adet": 94,
+              "isabet_pct": 57.4,
+              "ort_getiri_pct": 1.037
             },
             "t10": {
-              "adet": 117,
-              "isabet_pct": 60.7,
-              "ort_getiri_pct": 2.174
+              "adet": 94,
+              "isabet_pct": 58.5,
+              "ort_getiri_pct": 1.611
             }
           },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 117
+          "temiz_gun_sayisi": 39,
+          "kovalama_gun_sayisi": 94
         },
         "YKBNK": {
           "temiz": {
             "t3": {
-              "adet": 20,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 2.105
+              "adet": 39,
+              "isabet_pct": 53.8,
+              "ort_getiri_pct": 1.705
             },
             "t10": {
-              "adet": 20,
-              "isabet_pct": 65.0,
-              "ort_getiri_pct": 5.446
+              "adet": 39,
+              "isabet_pct": 61.5,
+              "ort_getiri_pct": 5.486
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 117,
+              "adet": 97,
               "isabet_pct": 59.8,
-              "ort_getiri_pct": 0.897
+              "ort_getiri_pct": 0.767
             },
             "t10": {
-              "adet": 117,
-              "isabet_pct": 62.4,
-              "ort_getiri_pct": 3.543
+              "adet": 97,
+              "isabet_pct": 63.9,
+              "ort_getiri_pct": 2.994
             }
           },
-          "temiz_gun_sayisi": 20,
-          "kovalama_gun_sayisi": 117
+          "temiz_gun_sayisi": 39,
+          "kovalama_gun_sayisi": 97
         },
         "GARAN": {
           "temiz": {
             "t3": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": 0.314
+              "adet": 42,
+              "isabet_pct": 42.9,
+              "ort_getiri_pct": 0.576
             },
             "t10": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": 0.56
+              "adet": 42,
+              "isabet_pct": 47.6,
+              "ort_getiri_pct": 1.488
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 102,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.283
+              "adet": 79,
+              "isabet_pct": 50.6,
+              "ort_getiri_pct": 0.135
             },
             "t10": {
-              "adet": 102,
-              "isabet_pct": 57.8,
-              "ort_getiri_pct": 2.567
+              "adet": 79,
+              "isabet_pct": 58.2,
+              "ort_getiri_pct": 2.658
             }
           },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 102
+          "temiz_gun_sayisi": 42,
+          "kovalama_gun_sayisi": 79
         },
         "ISCTR": {
           "temiz": {
             "t3": {
-              "adet": 33,
-              "isabet_pct": 42.4,
-              "ort_getiri_pct": 0.494
+              "adet": 57,
+              "isabet_pct": 42.1,
+              "ort_getiri_pct": 0.622
             },
             "t10": {
-              "adet": 33,
-              "isabet_pct": 63.6,
-              "ort_getiri_pct": 2.286
+              "adet": 57,
+              "isabet_pct": 57.9,
+              "ort_getiri_pct": 2.72
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 111,
-              "isabet_pct": 56.8,
-              "ort_getiri_pct": 1.6
+              "adet": 88,
+              "isabet_pct": 60.2,
+              "ort_getiri_pct": 1.782
             },
             "t10": {
-              "adet": 110,
-              "isabet_pct": 53.6,
-              "ort_getiri_pct": 2.27
+              "adet": 87,
+              "isabet_pct": 54.0,
+              "ort_getiri_pct": 1.945
             }
           },
-          "temiz_gun_sayisi": 33,
-          "kovalama_gun_sayisi": 111
+          "temiz_gun_sayisi": 57,
+          "kovalama_gun_sayisi": 88
         },
         "HALKB": {
           "temiz": {
             "t3": {
-              "adet": 15,
-              "isabet_pct": 40.0,
-              "ort_getiri_pct": 0.011
-            },
-            "t10": {
-              "adet": 15,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 0.199
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 111,
-              "isabet_pct": 48.6,
-              "ort_getiri_pct": 0.954
-            },
-            "t10": {
-              "adet": 111,
-              "isabet_pct": 50.5,
-              "ort_getiri_pct": 4.304
-            }
-          },
-          "temiz_gun_sayisi": 15,
-          "kovalama_gun_sayisi": 111
-        },
-        "VAKBN": {
-          "temiz": {
-            "t3": {
-              "adet": 22,
-              "isabet_pct": 45.5,
-              "ort_getiri_pct": 0.133
-            },
-            "t10": {
-              "adet": 22,
-              "isabet_pct": 54.5,
-              "ort_getiri_pct": 2.791
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 109,
-              "isabet_pct": 46.8,
-              "ort_getiri_pct": 1.069
-            },
-            "t10": {
-              "adet": 107,
-              "isabet_pct": 59.8,
-              "ort_getiri_pct": 5.706
-            }
-          },
-          "temiz_gun_sayisi": 22,
-          "kovalama_gun_sayisi": 109
-        },
-        "KCHOL": {
-          "temiz": {
-            "t3": {
-              "adet": 19,
-              "isabet_pct": 68.4,
-              "ort_getiri_pct": 0.769
-            },
-            "t10": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": -1.665
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 104,
-              "isabet_pct": 59.6,
-              "ort_getiri_pct": 0.893
-            },
-            "t10": {
-              "adet": 104,
-              "isabet_pct": 60.6,
-              "ort_getiri_pct": 1.127
-            }
-          },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 104
-        },
-        "SAHOL": {
-          "temiz": {
-            "t3": {
-              "adet": 18,
-              "isabet_pct": 61.1,
-              "ort_getiri_pct": 0.178
-            },
-            "t10": {
-              "adet": 18,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 2.722
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 105,
-              "isabet_pct": 56.2,
-              "ort_getiri_pct": 0.863
-            },
-            "t10": {
-              "adet": 105,
-              "isabet_pct": 55.2,
-              "ort_getiri_pct": 1.165
-            }
-          },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 105
-        },
-        "BIMAS": {
-          "temiz": {
-            "t3": {
-              "adet": 31,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 0.18
-            },
-            "t10": {
-              "adet": 31,
-              "isabet_pct": 54.8,
-              "ort_getiri_pct": 0.811
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 79,
-              "isabet_pct": 46.8,
-              "ort_getiri_pct": -0.562
-            },
-            "t10": {
-              "adet": 79,
-              "isabet_pct": 50.6,
-              "ort_getiri_pct": -0.522
-            }
-          },
-          "temiz_gun_sayisi": 31,
-          "kovalama_gun_sayisi": 79
-        },
-        "MGROS": {
-          "temiz": {
-            "t3": {
-              "adet": 17,
-              "isabet_pct": 64.7,
-              "ort_getiri_pct": 2.116
-            },
-            "t10": {
-              "adet": 17,
-              "isabet_pct": 76.5,
-              "ort_getiri_pct": 4.037
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 134,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": -0.099
-            },
-            "t10": {
-              "adet": 134,
-              "isabet_pct": 54.5,
-              "ort_getiri_pct": 1.523
-            }
-          },
-          "temiz_gun_sayisi": 17,
-          "kovalama_gun_sayisi": 134
-        },
-        "ASELS": {
-          "temiz": {
-            "t3": {
-              "adet": 32,
-              "isabet_pct": 56.2,
-              "ort_getiri_pct": 1.542
-            },
-            "t10": {
-              "adet": 32,
-              "isabet_pct": 53.1,
-              "ort_getiri_pct": 2.393
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 136,
-              "isabet_pct": 61.0,
-              "ort_getiri_pct": 1.754
-            },
-            "t10": {
-              "adet": 136,
-              "isabet_pct": 64.7,
-              "ort_getiri_pct": 4.081
-            }
-          },
-          "temiz_gun_sayisi": 32,
-          "kovalama_gun_sayisi": 136
-        },
-        "THYAO": {
-          "temiz": {
-            "t3": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 1.758
-            },
-            "t10": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 2.85
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 106,
-              "isabet_pct": 57.5,
-              "ort_getiri_pct": 1.242
-            },
-            "t10": {
-              "adet": 106,
-              "isabet_pct": 62.3,
-              "ort_getiri_pct": 2.691
-            }
-          },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 106
-        },
-        "PGSUS": {
-          "temiz": {
-            "t3": {
-              "adet": 9,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 0.915
-            },
-            "t10": {
-              "adet": 9,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 5.098
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 115,
-              "isabet_pct": 65.2,
-              "ort_getiri_pct": 2.883
-            },
-            "t10": {
-              "adet": 115,
-              "isabet_pct": 71.3,
-              "ort_getiri_pct": 5.472
-            }
-          },
-          "temiz_gun_sayisi": 9,
-          "kovalama_gun_sayisi": 115
-        },
-        "TAVHL": {
-          "temiz": {
-            "t3": {
-              "adet": 19,
-              "isabet_pct": 68.4,
-              "ort_getiri_pct": 2.054
-            },
-            "t10": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 2.734
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 119,
-              "isabet_pct": 62.2,
-              "ort_getiri_pct": 1.03
-            },
-            "t10": {
-              "adet": 119,
-              "isabet_pct": 56.3,
-              "ort_getiri_pct": 1.339
-            }
-          },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 119
-        },
-        "TTKOM": {
-          "temiz": {
-            "t3": {
-              "adet": 18,
-              "isabet_pct": 55.6,
-              "ort_getiri_pct": 1.01
-            },
-            "t10": {
-              "adet": 18,
-              "isabet_pct": 83.3,
-              "ort_getiri_pct": 4.083
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 118,
-              "isabet_pct": 57.6,
-              "ort_getiri_pct": 0.324
-            },
-            "t10": {
-              "adet": 116,
-              "isabet_pct": 57.8,
-              "ort_getiri_pct": 2.56
-            }
-          },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 118
-        },
-        "EREGL": {
-          "temiz": {
-            "t3": {
-              "adet": 32,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 0.475
-            },
-            "t10": {
-              "adet": 32,
-              "isabet_pct": 68.8,
-              "ort_getiri_pct": 2.701
-            }
-          },
-          "kovalama": {
-            "t3": {
-              "adet": 116,
-              "isabet_pct": 52.6,
-              "ort_getiri_pct": 0.31
-            },
-            "t10": {
-              "adet": 116,
-              "isabet_pct": 52.6,
-              "ort_getiri_pct": 0.36
-            }
-          },
-          "temiz_gun_sayisi": 32,
-          "kovalama_gun_sayisi": 116
-        },
-        "SISE": {
-          "temiz": {
-            "t3": {
               "adet": 41,
-              "isabet_pct": 56.1,
-              "ort_getiri_pct": 1.093
+              "isabet_pct": 53.7,
+              "ort_getiri_pct": 0.402
             },
             "t10": {
               "adet": 41,
               "isabet_pct": 65.9,
-              "ort_getiri_pct": 3.09
+              "ort_getiri_pct": 2.203
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 102,
-              "isabet_pct": 51.0,
-              "ort_getiri_pct": 0.264
+              "adet": 85,
+              "isabet_pct": 44.7,
+              "ort_getiri_pct": 1.054
             },
             "t10": {
-              "adet": 101,
-              "isabet_pct": 56.4,
-              "ort_getiri_pct": 2.08
+              "adet": 85,
+              "isabet_pct": 45.9,
+              "ort_getiri_pct": 4.594
             }
           },
           "temiz_gun_sayisi": 41,
-          "kovalama_gun_sayisi": 102
+          "kovalama_gun_sayisi": 85
+        },
+        "VAKBN": {
+          "temiz": {
+            "t3": {
+              "adet": 46,
+              "isabet_pct": 39.1,
+              "ort_getiri_pct": -0.566
+            },
+            "t10": {
+              "adet": 46,
+              "isabet_pct": 58.7,
+              "ort_getiri_pct": 1.897
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 85,
+              "isabet_pct": 50.6,
+              "ort_getiri_pct": 1.712
+            },
+            "t10": {
+              "adet": 83,
+              "isabet_pct": 59.0,
+              "ort_getiri_pct": 7.045
+            }
+          },
+          "temiz_gun_sayisi": 46,
+          "kovalama_gun_sayisi": 85
+        },
+        "KCHOL": {
+          "temiz": {
+            "t3": {
+              "adet": 61,
+              "isabet_pct": 63.9,
+              "ort_getiri_pct": 1.296
+            },
+            "t10": {
+              "adet": 61,
+              "isabet_pct": 55.7,
+              "ort_getiri_pct": 2.265
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 62,
+              "isabet_pct": 58.1,
+              "ort_getiri_pct": 0.459
+            },
+            "t10": {
+              "adet": 62,
+              "isabet_pct": 58.1,
+              "ort_getiri_pct": -0.848
+            }
+          },
+          "temiz_gun_sayisi": 61,
+          "kovalama_gun_sayisi": 62
+        },
+        "SAHOL": {
+          "temiz": {
+            "t3": {
+              "adet": 53,
+              "isabet_pct": 56.6,
+              "ort_getiri_pct": 0.85
+            },
+            "t10": {
+              "adet": 53,
+              "isabet_pct": 54.7,
+              "ort_getiri_pct": 1.87
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 71,
+              "isabet_pct": 57.7,
+              "ort_getiri_pct": 0.751
+            },
+            "t10": {
+              "adet": 71,
+              "isabet_pct": 59.2,
+              "ort_getiri_pct": 1.042
+            }
+          },
+          "temiz_gun_sayisi": 53,
+          "kovalama_gun_sayisi": 71
+        },
+        "BIMAS": {
+          "temiz": {
+            "t3": {
+              "adet": 63,
+              "isabet_pct": 46.0,
+              "ort_getiri_pct": -0.006
+            },
+            "t10": {
+              "adet": 63,
+              "isabet_pct": 50.8,
+              "ort_getiri_pct": 0.327
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 47,
+              "isabet_pct": 55.3,
+              "ort_getiri_pct": -0.757
+            },
+            "t10": {
+              "adet": 47,
+              "isabet_pct": 53.2,
+              "ort_getiri_pct": -0.673
+            }
+          },
+          "temiz_gun_sayisi": 63,
+          "kovalama_gun_sayisi": 47
+        },
+        "MGROS": {
+          "temiz": {
+            "t3": {
+              "adet": 63,
+              "isabet_pct": 50.8,
+              "ort_getiri_pct": 0.329
+            },
+            "t10": {
+              "adet": 63,
+              "isabet_pct": 63.5,
+              "ort_getiri_pct": 2.449
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 86,
+              "isabet_pct": 52.3,
+              "ort_getiri_pct": -0.068
+            },
+            "t10": {
+              "adet": 86,
+              "isabet_pct": 51.2,
+              "ort_getiri_pct": 1.242
+            }
+          },
+          "temiz_gun_sayisi": 63,
+          "kovalama_gun_sayisi": 86
+        },
+        "ASELS": {
+          "temiz": {
+            "t3": {
+              "adet": 68,
+              "isabet_pct": 55.9,
+              "ort_getiri_pct": 1.301
+            },
+            "t10": {
+              "adet": 68,
+              "isabet_pct": 58.8,
+              "ort_getiri_pct": 3.091
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 103,
+              "isabet_pct": 62.1,
+              "ort_getiri_pct": 1.921
+            },
+            "t10": {
+              "adet": 103,
+              "isabet_pct": 64.1,
+              "ort_getiri_pct": 4.135
+            }
+          },
+          "temiz_gun_sayisi": 68,
+          "kovalama_gun_sayisi": 103
+        },
+        "THYAO": {
+          "temiz": {
+            "t3": {
+              "adet": 48,
+              "isabet_pct": 54.2,
+              "ort_getiri_pct": 1.378
+            },
+            "t10": {
+              "adet": 48,
+              "isabet_pct": 64.6,
+              "ort_getiri_pct": 2.556
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 77,
+              "isabet_pct": 59.7,
+              "ort_getiri_pct": 1.285
+            },
+            "t10": {
+              "adet": 77,
+              "isabet_pct": 59.7,
+              "ort_getiri_pct": 2.814
+            }
+          },
+          "temiz_gun_sayisi": 48,
+          "kovalama_gun_sayisi": 77
+        },
+        "PGSUS": {
+          "temiz": {
+            "t3": {
+              "adet": 31,
+              "isabet_pct": 67.7,
+              "ort_getiri_pct": 2.134
+            },
+            "t10": {
+              "adet": 31,
+              "isabet_pct": 67.7,
+              "ort_getiri_pct": 5.572
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 93,
+              "isabet_pct": 64.5,
+              "ort_getiri_pct": 2.942
+            },
+            "t10": {
+              "adet": 93,
+              "isabet_pct": 72.0,
+              "ort_getiri_pct": 5.403
+            }
+          },
+          "temiz_gun_sayisi": 31,
+          "kovalama_gun_sayisi": 93
+        },
+        "TAVHL": {
+          "temiz": {
+            "t3": {
+              "adet": 48,
+              "isabet_pct": 62.5,
+              "ort_getiri_pct": 1.181
+            },
+            "t10": {
+              "adet": 48,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 2.081
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 90,
+              "isabet_pct": 63.3,
+              "ort_getiri_pct": 1.166
+            },
+            "t10": {
+              "adet": 90,
+              "isabet_pct": 55.6,
+              "ort_getiri_pct": 1.238
+            }
+          },
+          "temiz_gun_sayisi": 48,
+          "kovalama_gun_sayisi": 90
+        },
+        "TTKOM": {
+          "temiz": {
+            "t3": {
+              "adet": 57,
+              "isabet_pct": 52.6,
+              "ort_getiri_pct": 0.676
+            },
+            "t10": {
+              "adet": 56,
+              "isabet_pct": 62.5,
+              "ort_getiri_pct": 1.677
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 83,
+              "isabet_pct": 60.2,
+              "ort_getiri_pct": 0.226
+            },
+            "t10": {
+              "adet": 82,
+              "isabet_pct": 59.8,
+              "ort_getiri_pct": 3.662
+            }
+          },
+          "temiz_gun_sayisi": 57,
+          "kovalama_gun_sayisi": 83
+        },
+        "EREGL": {
+          "temiz": {
+            "t3": {
+              "adet": 83,
+              "isabet_pct": 59.0,
+              "ort_getiri_pct": 0.422
+            },
+            "t10": {
+              "adet": 83,
+              "isabet_pct": 57.8,
+              "ort_getiri_pct": 1.234
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 64,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 0.283
+            },
+            "t10": {
+              "adet": 64,
+              "isabet_pct": 53.1,
+              "ort_getiri_pct": 0.377
+            }
+          },
+          "temiz_gun_sayisi": 83,
+          "kovalama_gun_sayisi": 64
+        },
+        "SISE": {
+          "temiz": {
+            "t3": {
+              "adet": 80,
+              "isabet_pct": 52.5,
+              "ort_getiri_pct": 0.871
+            },
+            "t10": {
+              "adet": 80,
+              "isabet_pct": 61.3,
+              "ort_getiri_pct": 2.185
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 65,
+              "isabet_pct": 52.3,
+              "ort_getiri_pct": -0.021
+            },
+            "t10": {
+              "adet": 64,
+              "isabet_pct": 56.2,
+              "ort_getiri_pct": 2.585
+            }
+          },
+          "temiz_gun_sayisi": 80,
+          "kovalama_gun_sayisi": 65
         },
         "TRMET": {
           "temiz": {
             "t3": {
-              "adet": 8,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 2.711
+              "adet": 30,
+              "isabet_pct": 56.7,
+              "ort_getiri_pct": 1.924
             },
             "t10": {
-              "adet": 8,
-              "isabet_pct": 87.5,
-              "ort_getiri_pct": 6.954
+              "adet": 30,
+              "isabet_pct": 63.3,
+              "ort_getiri_pct": 4.305
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 127,
-              "isabet_pct": 55.9,
-              "ort_getiri_pct": 1.105
+              "adet": 105,
+              "isabet_pct": 56.2,
+              "ort_getiri_pct": 0.993
             },
             "t10": {
-              "adet": 127,
-              "isabet_pct": 55.1,
-              "ort_getiri_pct": 1.206
+              "adet": 105,
+              "isabet_pct": 55.2,
+              "ort_getiri_pct": 0.759
             }
           },
-          "temiz_gun_sayisi": 8,
-          "kovalama_gun_sayisi": 127
+          "temiz_gun_sayisi": 30,
+          "kovalama_gun_sayisi": 105
         },
         "TUPRS": {
           "temiz": {
             "t3": {
-              "adet": 25,
-              "isabet_pct": 64.0,
-              "ort_getiri_pct": 1.235
+              "adet": 60,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 1.319
             },
             "t10": {
-              "adet": 25,
-              "isabet_pct": 56.0,
-              "ort_getiri_pct": 1.954
+              "adet": 60,
+              "isabet_pct": 65.0,
+              "ort_getiri_pct": 3.107
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 131,
-              "isabet_pct": 58.8,
-              "ort_getiri_pct": 1.019
+              "adet": 96,
+              "isabet_pct": 60.4,
+              "ort_getiri_pct": 0.887
             },
             "t10": {
-              "adet": 131,
-              "isabet_pct": 62.6,
-              "ort_getiri_pct": 2.837
+              "adet": 96,
+              "isabet_pct": 59.4,
+              "ort_getiri_pct": 2.438
             }
           },
-          "temiz_gun_sayisi": 25,
-          "kovalama_gun_sayisi": 131
+          "temiz_gun_sayisi": 60,
+          "kovalama_gun_sayisi": 96
         },
         "PETKM": {
           "temiz": {
             "t3": {
-              "adet": 40,
-              "isabet_pct": 60.0,
-              "ort_getiri_pct": 0.581
+              "adet": 78,
+              "isabet_pct": 55.1,
+              "ort_getiri_pct": 1.199
             },
             "t10": {
-              "adet": 40,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 2.003
+              "adet": 78,
+              "isabet_pct": 53.8,
+              "ort_getiri_pct": 2.738
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 122,
-              "isabet_pct": 51.6,
-              "ort_getiri_pct": 0.992
+              "adet": 84,
+              "isabet_pct": 52.4,
+              "ort_getiri_pct": 0.603
             },
             "t10": {
-              "adet": 120,
-              "isabet_pct": 50.8,
-              "ort_getiri_pct": 0.749
+              "adet": 82,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.531
             }
           },
-          "temiz_gun_sayisi": 40,
-          "kovalama_gun_sayisi": 122
+          "temiz_gun_sayisi": 78,
+          "kovalama_gun_sayisi": 84
         },
         "ASTOR": {
           "temiz": {
             "t3": {
-              "adet": 2,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.19
+              "adet": 12,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 1.365
             },
             "t10": {
-              "adet": 2,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.28
+              "adet": 12,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 2.82
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 65,
-              "isabet_pct": 53.8,
-              "ort_getiri_pct": 2.167
+              "adet": 55,
+              "isabet_pct": 50.9,
+              "ort_getiri_pct": 2.27
             },
             "t10": {
-              "adet": 65,
-              "isabet_pct": 69.2,
-              "ort_getiri_pct": 8.244
+              "adet": 55,
+              "isabet_pct": 69.1,
+              "ort_getiri_pct": 9.138
             }
           },
-          "temiz_gun_sayisi": 2,
-          "kovalama_gun_sayisi": 65
+          "temiz_gun_sayisi": 12,
+          "kovalama_gun_sayisi": 55
         },
         "ENJSA": {
           "temiz": {
             "t3": {
-              "adet": 38,
-              "isabet_pct": 63.2,
-              "ort_getiri_pct": 1.031
+              "adet": 74,
+              "isabet_pct": 55.4,
+              "ort_getiri_pct": 0.329
             },
             "t10": {
-              "adet": 38,
-              "isabet_pct": 60.5,
-              "ort_getiri_pct": 1.613
+              "adet": 74,
+              "isabet_pct": 62.2,
+              "ort_getiri_pct": 1.67
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 110,
-              "isabet_pct": 55.5,
-              "ort_getiri_pct": 0.454
+              "adet": 72,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 0.747
             },
             "t10": {
-              "adet": 110,
-              "isabet_pct": 64.5,
-              "ort_getiri_pct": 2.575
+              "adet": 72,
+              "isabet_pct": 62.5,
+              "ort_getiri_pct": 2.752
             }
           },
-          "temiz_gun_sayisi": 38,
-          "kovalama_gun_sayisi": 110
+          "temiz_gun_sayisi": 74,
+          "kovalama_gun_sayisi": 72
         },
         "ENKAI": {
           "temiz": {
             "t3": {
-              "adet": 24,
-              "isabet_pct": 75.0,
-              "ort_getiri_pct": 1.806
+              "adet": 66,
+              "isabet_pct": 57.6,
+              "ort_getiri_pct": 0.683
             },
             "t10": {
-              "adet": 24,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 4.859
+              "adet": 66,
+              "isabet_pct": 62.1,
+              "ort_getiri_pct": 3.1
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 109,
-              "isabet_pct": 49.5,
-              "ort_getiri_pct": -0.109
+              "adet": 65,
+              "isabet_pct": 50.8,
+              "ort_getiri_pct": -0.284
             },
             "t10": {
-              "adet": 109,
-              "isabet_pct": 56.9,
-              "ort_getiri_pct": 1.726
+              "adet": 65,
+              "isabet_pct": 55.4,
+              "ort_getiri_pct": 1.672
             }
           },
-          "temiz_gun_sayisi": 24,
-          "kovalama_gun_sayisi": 109
+          "temiz_gun_sayisi": 66,
+          "kovalama_gun_sayisi": 65
         },
         "EKGYO": {
           "temiz": {
             "t3": {
-              "adet": 13,
-              "isabet_pct": 61.5,
-              "ort_getiri_pct": 0.33
+              "adet": 43,
+              "isabet_pct": 58.1,
+              "ort_getiri_pct": 0.451
             },
             "t10": {
-              "adet": 13,
-              "isabet_pct": 61.5,
-              "ort_getiri_pct": 1.368
+              "adet": 43,
+              "isabet_pct": 53.5,
+              "ort_getiri_pct": 1.439
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 134,
-              "isabet_pct": 52.2,
-              "ort_getiri_pct": 0.659
+              "adet": 101,
+              "isabet_pct": 52.5,
+              "ort_getiri_pct": 0.845
             },
             "t10": {
-              "adet": 133,
-              "isabet_pct": 56.4,
-              "ort_getiri_pct": 2.656
+              "adet": 100,
+              "isabet_pct": 60.0,
+              "ort_getiri_pct": 3.385
             }
           },
-          "temiz_gun_sayisi": 13,
-          "kovalama_gun_sayisi": 134
+          "temiz_gun_sayisi": 43,
+          "kovalama_gun_sayisi": 101
         },
         "FROTO": {
           "temiz": {
             "t3": {
-              "adet": 24,
-              "isabet_pct": 54.2,
-              "ort_getiri_pct": 0.238
+              "adet": 56,
+              "isabet_pct": 51.8,
+              "ort_getiri_pct": -0.19
             },
             "t10": {
-              "adet": 24,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 1.696
+              "adet": 56,
+              "isabet_pct": 57.1,
+              "ort_getiri_pct": 1.512
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 104,
-              "isabet_pct": 52.9,
-              "ort_getiri_pct": 0.025
+              "adet": 72,
+              "isabet_pct": 54.2,
+              "ort_getiri_pct": 0.263
             },
             "t10": {
-              "adet": 102,
-              "isabet_pct": 61.8,
-              "ort_getiri_pct": 2.512
+              "adet": 70,
+              "isabet_pct": 65.7,
+              "ort_getiri_pct": 3.032
             }
           },
-          "temiz_gun_sayisi": 24,
-          "kovalama_gun_sayisi": 104
+          "temiz_gun_sayisi": 56,
+          "kovalama_gun_sayisi": 72
         },
         "TOASO": {
           "temiz": {
             "t3": {
-              "adet": 14,
-              "isabet_pct": 57.1,
-              "ort_getiri_pct": 0.962
+              "adet": 60,
+              "isabet_pct": 53.3,
+              "ort_getiri_pct": 0.41
             },
             "t10": {
-              "adet": 14,
-              "isabet_pct": 64.3,
-              "ort_getiri_pct": 4.756
+              "adet": 58,
+              "isabet_pct": 67.2,
+              "ort_getiri_pct": 4.052
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 122,
-              "isabet_pct": 58.2,
-              "ort_getiri_pct": 1.169
+              "adet": 75,
+              "isabet_pct": 62.7,
+              "ort_getiri_pct": 1.753
             },
             "t10": {
-              "adet": 120,
-              "isabet_pct": 60.8,
-              "ort_getiri_pct": 2.674
+              "adet": 75,
+              "isabet_pct": 56.0,
+              "ort_getiri_pct": 1.924
             }
           },
-          "temiz_gun_sayisi": 14,
-          "kovalama_gun_sayisi": 122
+          "temiz_gun_sayisi": 60,
+          "kovalama_gun_sayisi": 75
         },
         "OTKAR": {
           "temiz": {
             "t3": {
-              "adet": 33,
-              "isabet_pct": 57.6,
-              "ort_getiri_pct": 0.497
+              "adet": 85,
+              "isabet_pct": 54.1,
+              "ort_getiri_pct": 0.705
             },
             "t10": {
-              "adet": 33,
-              "isabet_pct": 48.5,
-              "ort_getiri_pct": -0.908
+              "adet": 85,
+              "isabet_pct": 54.1,
+              "ort_getiri_pct": 1.174
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 136,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 1.039
+              "adet": 85,
+              "isabet_pct": 62.4,
+              "ort_getiri_pct": 1.188
             },
             "t10": {
-              "adet": 136,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 3.639
+              "adet": 85,
+              "isabet_pct": 58.8,
+              "ort_getiri_pct": 4.403
             }
           },
-          "temiz_gun_sayisi": 33,
-          "kovalama_gun_sayisi": 136
+          "temiz_gun_sayisi": 85,
+          "kovalama_gun_sayisi": 85
         },
         "AEFES": {
           "temiz": {
             "t3": {
-              "adet": 20,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 0.811
+              "adet": 48,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 0.847
             },
             "t10": {
-              "adet": 20,
-              "isabet_pct": 80.0,
-              "ort_getiri_pct": 5.533
+              "adet": 48,
+              "isabet_pct": 70.8,
+              "ort_getiri_pct": 4.301
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 100,
-              "isabet_pct": 57.0,
-              "ort_getiri_pct": 0.196
+              "adet": 73,
+              "isabet_pct": 54.8,
+              "ort_getiri_pct": -0.08
             },
             "t10": {
-              "adet": 100,
-              "isabet_pct": 59.0,
-              "ort_getiri_pct": 1.594
+              "adet": 73,
+              "isabet_pct": 57.5,
+              "ort_getiri_pct": 0.912
             }
           },
-          "temiz_gun_sayisi": 20,
-          "kovalama_gun_sayisi": 100
+          "temiz_gun_sayisi": 48,
+          "kovalama_gun_sayisi": 73
         },
         "ALARK": {
           "temiz": {
             "t3": {
-              "adet": 13,
-              "isabet_pct": 53.8,
-              "ort_getiri_pct": 1.067
+              "adet": 51,
+              "isabet_pct": 56.9,
+              "ort_getiri_pct": 0.552
             },
             "t10": {
-              "adet": 13,
-              "isabet_pct": 46.2,
-              "ort_getiri_pct": 0.36
+              "adet": 51,
+              "isabet_pct": 58.8,
+              "ort_getiri_pct": 1.867
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 136,
-              "isabet_pct": 54.4,
-              "ort_getiri_pct": 0.733
+              "adet": 100,
+              "isabet_pct": 54.0,
+              "ort_getiri_pct": 0.963
             },
             "t10": {
-              "adet": 136,
-              "isabet_pct": 63.2,
-              "ort_getiri_pct": 3.526
+              "adet": 100,
+              "isabet_pct": 63.0,
+              "ort_getiri_pct": 3.918
             }
           },
-          "temiz_gun_sayisi": 13,
-          "kovalama_gun_sayisi": 136
+          "temiz_gun_sayisi": 51,
+          "kovalama_gun_sayisi": 100
         },
         "ULKER": {
           "temiz": {
             "t3": {
-              "adet": 22,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": -0.059
+              "adet": 57,
+              "isabet_pct": 54.4,
+              "ort_getiri_pct": -0.019
             },
             "t10": {
-              "adet": 22,
-              "isabet_pct": 40.9,
-              "ort_getiri_pct": -1.837
+              "adet": 57,
+              "isabet_pct": 54.4,
+              "ort_getiri_pct": 0.147
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 106,
-              "isabet_pct": 53.8,
-              "ort_getiri_pct": 0.709
+              "adet": 71,
+              "isabet_pct": 52.1,
+              "ort_getiri_pct": 1.055
             },
             "t10": {
-              "adet": 106,
-              "isabet_pct": 64.2,
-              "ort_getiri_pct": 3.518
+              "adet": 71,
+              "isabet_pct": 64.8,
+              "ort_getiri_pct": 4.564
             }
           },
-          "temiz_gun_sayisi": 22,
-          "kovalama_gun_sayisi": 106
+          "temiz_gun_sayisi": 57,
+          "kovalama_gun_sayisi": 71
         }
       }
     },
-    "atr_mult_4.0": {
+    "ema_pct_1.07": {
       "genel": {
         "temiz": {
           "t3": {
-            "adet": 658,
-            "isabet_pct": 57.1,
-            "ort_getiri_pct": 0.88
+            "adet": 2745,
+            "isabet_pct": 55.9,
+            "ort_getiri_pct": 0.861
           },
           "t10": {
-            "adet": 657,
-            "isabet_pct": 60.3,
-            "ort_getiri_pct": 2.219
+            "adet": 2739,
+            "isabet_pct": 60.7,
+            "ort_getiri_pct": 2.557
           }
         },
         "kovalama": {
           "t3": {
-            "adet": 3403,
-            "isabet_pct": 55.1,
-            "ort_getiri_pct": 0.828
+            "adet": 1317,
+            "isabet_pct": 54.4,
+            "ort_getiri_pct": 0.782
           },
           "t10": {
-            "adet": 3390,
-            "isabet_pct": 58.9,
-            "ort_getiri_pct": 2.628
+            "adet": 1309,
+            "isabet_pct": 55.8,
+            "ort_getiri_pct": 2.585
           }
         }
       },
@@ -2644,842 +2644,1712 @@
         "AKBNK": {
           "temiz": {
             "t3": {
-              "adet": 18,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.914
+              "adet": 77,
+              "isabet_pct": 54.5,
+              "ort_getiri_pct": 1.24
             },
             "t10": {
-              "adet": 17,
-              "isabet_pct": 82.4,
-              "ort_getiri_pct": 2.315
+              "adet": 76,
+              "isabet_pct": 73.7,
+              "ort_getiri_pct": 5.211
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 117,
-              "isabet_pct": 53.0,
-              "ort_getiri_pct": 0.775
+              "adet": 56,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 0.153
             },
             "t10": {
-              "adet": 117,
-              "isabet_pct": 60.7,
-              "ort_getiri_pct": 2.174
+              "adet": 56,
+              "isabet_pct": 48.2,
+              "ort_getiri_pct": -1.924
             }
           },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 117
+          "temiz_gun_sayisi": 77,
+          "kovalama_gun_sayisi": 56
         },
         "YKBNK": {
           "temiz": {
             "t3": {
-              "adet": 20,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 2.105
+              "adet": 84,
+              "isabet_pct": 54.8,
+              "ort_getiri_pct": 1.147
             },
             "t10": {
-              "adet": 20,
-              "isabet_pct": 65.0,
-              "ort_getiri_pct": 5.446
+              "adet": 84,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 3.515
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 117,
-              "isabet_pct": 59.8,
-              "ort_getiri_pct": 0.897
+              "adet": 52,
+              "isabet_pct": 63.5,
+              "ort_getiri_pct": 0.857
             },
             "t10": {
-              "adet": 117,
-              "isabet_pct": 62.4,
-              "ort_getiri_pct": 3.543
+              "adet": 52,
+              "isabet_pct": 71.2,
+              "ort_getiri_pct": 4.021
             }
           },
-          "temiz_gun_sayisi": 20,
-          "kovalama_gun_sayisi": 117
+          "temiz_gun_sayisi": 84,
+          "kovalama_gun_sayisi": 52
         },
         "GARAN": {
           "temiz": {
             "t3": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": 0.314
+              "adet": 80,
+              "isabet_pct": 47.5,
+              "ort_getiri_pct": 0.771
             },
             "t10": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": 0.56
+              "adet": 80,
+              "isabet_pct": 55.0,
+              "ort_getiri_pct": 2.745
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 102,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.283
+              "adet": 41,
+              "isabet_pct": 48.8,
+              "ort_getiri_pct": -0.653
             },
             "t10": {
-              "adet": 102,
-              "isabet_pct": 57.8,
-              "ort_getiri_pct": 2.567
+              "adet": 41,
+              "isabet_pct": 53.7,
+              "ort_getiri_pct": 1.291
             }
           },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 102
+          "temiz_gun_sayisi": 80,
+          "kovalama_gun_sayisi": 41
         },
         "ISCTR": {
           "temiz": {
             "t3": {
-              "adet": 33,
-              "isabet_pct": 42.4,
-              "ort_getiri_pct": 0.494
+              "adet": 95,
+              "isabet_pct": 50.5,
+              "ort_getiri_pct": 1.025
             },
             "t10": {
-              "adet": 33,
-              "isabet_pct": 63.6,
-              "ort_getiri_pct": 2.286
+              "adet": 95,
+              "isabet_pct": 58.9,
+              "ort_getiri_pct": 3.136
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 111,
-              "isabet_pct": 56.8,
-              "ort_getiri_pct": 1.6
+              "adet": 50,
+              "isabet_pct": 58.0,
+              "ort_getiri_pct": 1.898
             },
             "t10": {
-              "adet": 110,
-              "isabet_pct": 53.6,
-              "ort_getiri_pct": 2.27
+              "adet": 49,
+              "isabet_pct": 49.0,
+              "ort_getiri_pct": 0.538
             }
           },
-          "temiz_gun_sayisi": 33,
-          "kovalama_gun_sayisi": 111
+          "temiz_gun_sayisi": 95,
+          "kovalama_gun_sayisi": 50
         },
         "HALKB": {
           "temiz": {
             "t3": {
-              "adet": 15,
-              "isabet_pct": 40.0,
-              "ort_getiri_pct": 0.011
+              "adet": 79,
+              "isabet_pct": 55.7,
+              "ort_getiri_pct": 0.855
             },
             "t10": {
-              "adet": 15,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 0.199
+              "adet": 79,
+              "isabet_pct": 60.8,
+              "ort_getiri_pct": 2.982
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 111,
-              "isabet_pct": 48.6,
-              "ort_getiri_pct": 0.954
+              "adet": 47,
+              "isabet_pct": 34.0,
+              "ort_getiri_pct": 0.819
             },
             "t10": {
-              "adet": 111,
-              "isabet_pct": 50.5,
-              "ort_getiri_pct": 4.304
+              "adet": 47,
+              "isabet_pct": 38.3,
+              "ort_getiri_pct": 5.217
             }
           },
-          "temiz_gun_sayisi": 15,
-          "kovalama_gun_sayisi": 111
+          "temiz_gun_sayisi": 79,
+          "kovalama_gun_sayisi": 47
         },
         "VAKBN": {
           "temiz": {
             "t3": {
-              "adet": 22,
-              "isabet_pct": 45.5,
-              "ort_getiri_pct": 0.133
+              "adet": 79,
+              "isabet_pct": 43.0,
+              "ort_getiri_pct": -0.5
             },
             "t10": {
-              "adet": 22,
-              "isabet_pct": 54.5,
-              "ort_getiri_pct": 2.791
+              "adet": 79,
+              "isabet_pct": 62.0,
+              "ort_getiri_pct": 2.849
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 109,
-              "isabet_pct": 46.8,
-              "ort_getiri_pct": 1.069
+              "adet": 52,
+              "isabet_pct": 51.9,
+              "ort_getiri_pct": 3.058
             },
             "t10": {
-              "adet": 107,
-              "isabet_pct": 59.8,
-              "ort_getiri_pct": 5.706
+              "adet": 50,
+              "isabet_pct": 54.0,
+              "ort_getiri_pct": 8.939
             }
           },
-          "temiz_gun_sayisi": 22,
-          "kovalama_gun_sayisi": 109
+          "temiz_gun_sayisi": 79,
+          "kovalama_gun_sayisi": 52
         },
         "KCHOL": {
           "temiz": {
             "t3": {
-              "adet": 19,
-              "isabet_pct": 68.4,
-              "ort_getiri_pct": 0.769
+              "adet": 90,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 1.428
             },
             "t10": {
-              "adet": 19,
-              "isabet_pct": 36.8,
-              "ort_getiri_pct": -1.665
+              "adet": 90,
+              "isabet_pct": 62.2,
+              "ort_getiri_pct": 2.122
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 104,
-              "isabet_pct": 59.6,
-              "ort_getiri_pct": 0.893
+              "adet": 33,
+              "isabet_pct": 45.5,
+              "ort_getiri_pct": -0.636
             },
             "t10": {
-              "adet": 104,
-              "isabet_pct": 60.6,
-              "ort_getiri_pct": 1.127
+              "adet": 33,
+              "isabet_pct": 42.4,
+              "ort_getiri_pct": -3.193
             }
           },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 104
+          "temiz_gun_sayisi": 90,
+          "kovalama_gun_sayisi": 33
         },
         "SAHOL": {
           "temiz": {
             "t3": {
-              "adet": 18,
-              "isabet_pct": 61.1,
-              "ort_getiri_pct": 0.178
+              "adet": 92,
+              "isabet_pct": 57.6,
+              "ort_getiri_pct": 1.047
             },
             "t10": {
-              "adet": 18,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 2.722
+              "adet": 92,
+              "isabet_pct": 59.8,
+              "ort_getiri_pct": 1.841
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 105,
+              "adet": 32,
               "isabet_pct": 56.2,
-              "ort_getiri_pct": 0.863
+              "ort_getiri_pct": 0.065
             },
             "t10": {
-              "adet": 105,
-              "isabet_pct": 55.2,
-              "ort_getiri_pct": 1.165
+              "adet": 32,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 0.116
             }
           },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 105
+          "temiz_gun_sayisi": 92,
+          "kovalama_gun_sayisi": 32
         },
         "BIMAS": {
           "temiz": {
             "t3": {
-              "adet": 31,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 0.18
+              "adet": 91,
+              "isabet_pct": 49.5,
+              "ort_getiri_pct": 0.005
             },
             "t10": {
-              "adet": 31,
-              "isabet_pct": 54.8,
-              "ort_getiri_pct": 0.811
+              "adet": 91,
+              "isabet_pct": 54.9,
+              "ort_getiri_pct": 0.567
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 79,
-              "isabet_pct": 46.8,
-              "ort_getiri_pct": -0.562
+              "adet": 19,
+              "isabet_pct": 52.6,
+              "ort_getiri_pct": -1.915
             },
             "t10": {
-              "adet": 79,
-              "isabet_pct": 50.6,
-              "ort_getiri_pct": -0.522
+              "adet": 19,
+              "isabet_pct": 36.8,
+              "ort_getiri_pct": -3.298
             }
           },
-          "temiz_gun_sayisi": 31,
-          "kovalama_gun_sayisi": 79
+          "temiz_gun_sayisi": 91,
+          "kovalama_gun_sayisi": 19
         },
         "MGROS": {
           "temiz": {
             "t3": {
-              "adet": 17,
-              "isabet_pct": 64.7,
-              "ort_getiri_pct": 2.116
+              "adet": 113,
+              "isabet_pct": 54.0,
+              "ort_getiri_pct": 0.526
             },
             "t10": {
-              "adet": 17,
-              "isabet_pct": 76.5,
-              "ort_getiri_pct": 4.037
+              "adet": 113,
+              "isabet_pct": 55.8,
+              "ort_getiri_pct": 1.619
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 134,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": -0.099
+              "adet": 36,
+              "isabet_pct": 44.4,
+              "ort_getiri_pct": -1.238
             },
             "t10": {
-              "adet": 134,
-              "isabet_pct": 54.5,
-              "ort_getiri_pct": 1.523
+              "adet": 36,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 2.171
             }
           },
-          "temiz_gun_sayisi": 17,
-          "kovalama_gun_sayisi": 134
+          "temiz_gun_sayisi": 113,
+          "kovalama_gun_sayisi": 36
         },
         "ASELS": {
           "temiz": {
             "t3": {
-              "adet": 32,
-              "isabet_pct": 56.2,
-              "ort_getiri_pct": 1.542
+              "adet": 108,
+              "isabet_pct": 59.3,
+              "ort_getiri_pct": 1.545
             },
             "t10": {
-              "adet": 32,
-              "isabet_pct": 53.1,
-              "ort_getiri_pct": 2.393
+              "adet": 108,
+              "isabet_pct": 62.0,
+              "ort_getiri_pct": 3.584
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 136,
-              "isabet_pct": 61.0,
-              "ort_getiri_pct": 1.754
+              "adet": 63,
+              "isabet_pct": 60.3,
+              "ort_getiri_pct": 1.896
             },
             "t10": {
-              "adet": 136,
-              "isabet_pct": 64.7,
-              "ort_getiri_pct": 4.081
+              "adet": 63,
+              "isabet_pct": 61.9,
+              "ort_getiri_pct": 3.953
             }
           },
-          "temiz_gun_sayisi": 32,
-          "kovalama_gun_sayisi": 136
+          "temiz_gun_sayisi": 108,
+          "kovalama_gun_sayisi": 63
         },
         "THYAO": {
           "temiz": {
             "t3": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 1.758
+              "adet": 83,
+              "isabet_pct": 56.6,
+              "ort_getiri_pct": 1.256
             },
             "t10": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 2.85
+              "adet": 83,
+              "isabet_pct": 65.1,
+              "ort_getiri_pct": 3.029
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 106,
-              "isabet_pct": 57.5,
-              "ort_getiri_pct": 1.242
+              "adet": 42,
+              "isabet_pct": 59.5,
+              "ort_getiri_pct": 1.448
             },
             "t10": {
-              "adet": 106,
-              "isabet_pct": 62.3,
-              "ort_getiri_pct": 2.691
+              "adet": 42,
+              "isabet_pct": 54.8,
+              "ort_getiri_pct": 2.096
             }
           },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 106
+          "temiz_gun_sayisi": 83,
+          "kovalama_gun_sayisi": 42
         },
         "PGSUS": {
           "temiz": {
             "t3": {
-              "adet": 9,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 0.915
+              "adet": 58,
+              "isabet_pct": 65.5,
+              "ort_getiri_pct": 2.12
             },
             "t10": {
-              "adet": 9,
-              "isabet_pct": 66.7,
-              "ort_getiri_pct": 5.098
+              "adet": 58,
+              "isabet_pct": 67.2,
+              "ort_getiri_pct": 5.11
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 115,
+              "adet": 66,
               "isabet_pct": 65.2,
-              "ort_getiri_pct": 2.883
+              "ort_getiri_pct": 3.285
             },
             "t10": {
-              "adet": 115,
-              "isabet_pct": 71.3,
-              "ort_getiri_pct": 5.472
+              "adet": 66,
+              "isabet_pct": 74.2,
+              "ort_getiri_pct": 5.739
             }
           },
-          "temiz_gun_sayisi": 9,
-          "kovalama_gun_sayisi": 115
+          "temiz_gun_sayisi": 58,
+          "kovalama_gun_sayisi": 66
         },
         "TAVHL": {
           "temiz": {
             "t3": {
-              "adet": 19,
-              "isabet_pct": 68.4,
-              "ort_getiri_pct": 2.054
+              "adet": 87,
+              "isabet_pct": 67.8,
+              "ort_getiri_pct": 1.507
             },
             "t10": {
-              "adet": 19,
-              "isabet_pct": 57.9,
-              "ort_getiri_pct": 2.734
+              "adet": 87,
+              "isabet_pct": 60.9,
+              "ort_getiri_pct": 2.164
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 119,
-              "isabet_pct": 62.2,
-              "ort_getiri_pct": 1.03
+              "adet": 51,
+              "isabet_pct": 54.9,
+              "ort_getiri_pct": 0.599
             },
             "t10": {
-              "adet": 119,
-              "isabet_pct": 56.3,
-              "ort_getiri_pct": 1.339
+              "adet": 51,
+              "isabet_pct": 49.0,
+              "ort_getiri_pct": 0.452
             }
           },
-          "temiz_gun_sayisi": 19,
-          "kovalama_gun_sayisi": 119
+          "temiz_gun_sayisi": 87,
+          "kovalama_gun_sayisi": 51
         },
         "TTKOM": {
           "temiz": {
             "t3": {
-              "adet": 18,
-              "isabet_pct": 55.6,
-              "ort_getiri_pct": 1.01
+              "adet": 95,
+              "isabet_pct": 58.9,
+              "ort_getiri_pct": 1.079
             },
             "t10": {
-              "adet": 18,
-              "isabet_pct": 83.3,
-              "ort_getiri_pct": 4.083
+              "adet": 94,
+              "isabet_pct": 66.0,
+              "ort_getiri_pct": 3.013
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 118,
-              "isabet_pct": 57.6,
-              "ort_getiri_pct": 0.324
+              "adet": 45,
+              "isabet_pct": 53.3,
+              "ort_getiri_pct": -1.006
             },
             "t10": {
-              "adet": 116,
-              "isabet_pct": 57.8,
-              "ort_getiri_pct": 2.56
+              "adet": 44,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 2.521
             }
           },
-          "temiz_gun_sayisi": 18,
-          "kovalama_gun_sayisi": 118
+          "temiz_gun_sayisi": 95,
+          "kovalama_gun_sayisi": 45
         },
         "EREGL": {
           "temiz": {
             "t3": {
-              "adet": 32,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 0.475
+              "adet": 118,
+              "isabet_pct": 53.4,
+              "ort_getiri_pct": 0.376
             },
             "t10": {
-              "adet": 32,
-              "isabet_pct": 68.8,
-              "ort_getiri_pct": 2.701
+              "adet": 118,
+              "isabet_pct": 56.8,
+              "ort_getiri_pct": 0.943
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 116,
-              "isabet_pct": 52.6,
-              "ort_getiri_pct": 0.31
+              "adet": 29,
+              "isabet_pct": 62.1,
+              "ort_getiri_pct": 0.304
             },
             "t10": {
-              "adet": 116,
-              "isabet_pct": 52.6,
-              "ort_getiri_pct": 0.36
+              "adet": 29,
+              "isabet_pct": 51.7,
+              "ort_getiri_pct": 0.528
             }
           },
-          "temiz_gun_sayisi": 32,
-          "kovalama_gun_sayisi": 116
+          "temiz_gun_sayisi": 118,
+          "kovalama_gun_sayisi": 29
         },
         "SISE": {
           "temiz": {
             "t3": {
-              "adet": 41,
-              "isabet_pct": 56.1,
-              "ort_getiri_pct": 1.093
+              "adet": 112,
+              "isabet_pct": 56.2,
+              "ort_getiri_pct": 0.959
             },
             "t10": {
-              "adet": 41,
-              "isabet_pct": 65.9,
-              "ort_getiri_pct": 3.09
+              "adet": 112,
+              "isabet_pct": 63.4,
+              "ort_getiri_pct": 3.057
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 102,
-              "isabet_pct": 51.0,
-              "ort_getiri_pct": 0.264
+              "adet": 33,
+              "isabet_pct": 39.4,
+              "ort_getiri_pct": -1.185
             },
             "t10": {
-              "adet": 101,
-              "isabet_pct": 56.4,
-              "ort_getiri_pct": 2.08
+              "adet": 32,
+              "isabet_pct": 43.8,
+              "ort_getiri_pct": -0.067
             }
           },
-          "temiz_gun_sayisi": 41,
-          "kovalama_gun_sayisi": 102
+          "temiz_gun_sayisi": 112,
+          "kovalama_gun_sayisi": 33
         },
         "TRMET": {
           "temiz": {
             "t3": {
-              "adet": 8,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 2.711
+              "adet": 72,
+              "isabet_pct": 59.7,
+              "ort_getiri_pct": 1.579
             },
             "t10": {
-              "adet": 8,
-              "isabet_pct": 87.5,
-              "ort_getiri_pct": 6.954
+              "adet": 72,
+              "isabet_pct": 56.9,
+              "ort_getiri_pct": 2.555
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 127,
-              "isabet_pct": 55.9,
-              "ort_getiri_pct": 1.105
+              "adet": 63,
+              "isabet_pct": 52.4,
+              "ort_getiri_pct": 0.766
             },
             "t10": {
-              "adet": 127,
-              "isabet_pct": 55.1,
-              "ort_getiri_pct": 1.206
+              "adet": 63,
+              "isabet_pct": 57.1,
+              "ort_getiri_pct": 0.394
             }
           },
-          "temiz_gun_sayisi": 8,
-          "kovalama_gun_sayisi": 127
+          "temiz_gun_sayisi": 72,
+          "kovalama_gun_sayisi": 63
         },
         "TUPRS": {
           "temiz": {
             "t3": {
-              "adet": 25,
-              "isabet_pct": 64.0,
-              "ort_getiri_pct": 1.235
+              "adet": 112,
+              "isabet_pct": 60.7,
+              "ort_getiri_pct": 1.391
             },
             "t10": {
-              "adet": 25,
-              "isabet_pct": 56.0,
-              "ort_getiri_pct": 1.954
+              "adet": 112,
+              "isabet_pct": 63.4,
+              "ort_getiri_pct": 3.26
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 131,
-              "isabet_pct": 58.8,
-              "ort_getiri_pct": 1.019
+              "adet": 44,
+              "isabet_pct": 56.8,
+              "ort_getiri_pct": 0.194
             },
             "t10": {
-              "adet": 131,
-              "isabet_pct": 62.6,
-              "ort_getiri_pct": 2.837
+              "adet": 44,
+              "isabet_pct": 56.8,
+              "ort_getiri_pct": 1.258
             }
           },
-          "temiz_gun_sayisi": 25,
-          "kovalama_gun_sayisi": 131
+          "temiz_gun_sayisi": 112,
+          "kovalama_gun_sayisi": 44
         },
         "PETKM": {
           "temiz": {
             "t3": {
-              "adet": 40,
-              "isabet_pct": 60.0,
-              "ort_getiri_pct": 0.581
+              "adet": 119,
+              "isabet_pct": 53.8,
+              "ort_getiri_pct": 1.004
             },
             "t10": {
-              "adet": 40,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 2.003
+              "adet": 119,
+              "isabet_pct": 53.8,
+              "ort_getiri_pct": 1.942
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 122,
-              "isabet_pct": 51.6,
-              "ort_getiri_pct": 0.992
+              "adet": 43,
+              "isabet_pct": 53.5,
+              "ort_getiri_pct": 0.575
             },
             "t10": {
-              "adet": 120,
-              "isabet_pct": 50.8,
-              "ort_getiri_pct": 0.749
+              "adet": 41,
+              "isabet_pct": 46.3,
+              "ort_getiri_pct": -1.488
             }
           },
-          "temiz_gun_sayisi": 40,
-          "kovalama_gun_sayisi": 122
+          "temiz_gun_sayisi": 119,
+          "kovalama_gun_sayisi": 43
         },
         "ASTOR": {
           "temiz": {
             "t3": {
-              "adet": 2,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.19
+              "adet": 29,
+              "isabet_pct": 51.7,
+              "ort_getiri_pct": 0.388
             },
             "t10": {
-              "adet": 2,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": 0.28
+              "adet": 29,
+              "isabet_pct": 62.1,
+              "ort_getiri_pct": 3.24
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 65,
-              "isabet_pct": 53.8,
-              "ort_getiri_pct": 2.167
+              "adet": 38,
+              "isabet_pct": 55.3,
+              "ort_getiri_pct": 3.42
             },
             "t10": {
-              "adet": 65,
-              "isabet_pct": 69.2,
-              "ort_getiri_pct": 8.244
+              "adet": 38,
+              "isabet_pct": 73.7,
+              "ort_getiri_pct": 11.644
             }
           },
-          "temiz_gun_sayisi": 2,
-          "kovalama_gun_sayisi": 65
+          "temiz_gun_sayisi": 29,
+          "kovalama_gun_sayisi": 38
         },
         "ENJSA": {
           "temiz": {
             "t3": {
-              "adet": 38,
-              "isabet_pct": 63.2,
-              "ort_getiri_pct": 1.031
+              "adet": 113,
+              "isabet_pct": 59.3,
+              "ort_getiri_pct": 0.571
             },
             "t10": {
-              "adet": 38,
-              "isabet_pct": 60.5,
-              "ort_getiri_pct": 1.613
+              "adet": 113,
+              "isabet_pct": 64.6,
+              "ort_getiri_pct": 2.308
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 110,
-              "isabet_pct": 55.5,
-              "ort_getiri_pct": 0.454
+              "adet": 33,
+              "isabet_pct": 48.5,
+              "ort_getiri_pct": 0.413
             },
             "t10": {
-              "adet": 110,
-              "isabet_pct": 64.5,
-              "ort_getiri_pct": 2.575
+              "adet": 33,
+              "isabet_pct": 54.5,
+              "ort_getiri_pct": 1.846
             }
           },
-          "temiz_gun_sayisi": 38,
-          "kovalama_gun_sayisi": 110
+          "temiz_gun_sayisi": 113,
+          "kovalama_gun_sayisi": 33
         },
         "ENKAI": {
           "temiz": {
             "t3": {
-              "adet": 24,
-              "isabet_pct": 75.0,
-              "ort_getiri_pct": 1.806
+              "adet": 95,
+              "isabet_pct": 52.6,
+              "ort_getiri_pct": 0.39
             },
             "t10": {
-              "adet": 24,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 4.859
+              "adet": 95,
+              "isabet_pct": 62.1,
+              "ort_getiri_pct": 2.695
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 109,
-              "isabet_pct": 49.5,
-              "ort_getiri_pct": -0.109
+              "adet": 36,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": -0.289
             },
             "t10": {
-              "adet": 109,
-              "isabet_pct": 56.9,
-              "ort_getiri_pct": 1.726
+              "adet": 36,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 1.59
             }
           },
-          "temiz_gun_sayisi": 24,
-          "kovalama_gun_sayisi": 109
+          "temiz_gun_sayisi": 95,
+          "kovalama_gun_sayisi": 36
         },
         "EKGYO": {
           "temiz": {
             "t3": {
-              "adet": 13,
-              "isabet_pct": 61.5,
-              "ort_getiri_pct": 0.33
+              "adet": 85,
+              "isabet_pct": 55.3,
+              "ort_getiri_pct": 0.596
             },
             "t10": {
-              "adet": 13,
-              "isabet_pct": 61.5,
-              "ort_getiri_pct": 1.368
+              "adet": 85,
+              "isabet_pct": 56.5,
+              "ort_getiri_pct": 2.222
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 134,
-              "isabet_pct": 52.2,
-              "ort_getiri_pct": 0.659
+              "adet": 59,
+              "isabet_pct": 52.5,
+              "ort_getiri_pct": 0.917
             },
             "t10": {
-              "adet": 133,
-              "isabet_pct": 56.4,
-              "ort_getiri_pct": 2.656
+              "adet": 58,
+              "isabet_pct": 60.3,
+              "ort_getiri_pct": 3.647
             }
           },
-          "temiz_gun_sayisi": 13,
-          "kovalama_gun_sayisi": 134
+          "temiz_gun_sayisi": 85,
+          "kovalama_gun_sayisi": 59
         },
         "FROTO": {
           "temiz": {
             "t3": {
-              "adet": 24,
-              "isabet_pct": 54.2,
-              "ort_getiri_pct": 0.238
+              "adet": 93,
+              "isabet_pct": 52.7,
+              "ort_getiri_pct": -0.012
             },
             "t10": {
-              "adet": 24,
-              "isabet_pct": 62.5,
-              "ort_getiri_pct": 1.696
+              "adet": 91,
+              "isabet_pct": 58.2,
+              "ort_getiri_pct": 2.195
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 104,
-              "isabet_pct": 52.9,
-              "ort_getiri_pct": 0.025
+              "adet": 35,
+              "isabet_pct": 54.3,
+              "ort_getiri_pct": 0.27
             },
             "t10": {
-              "adet": 102,
-              "isabet_pct": 61.8,
-              "ort_getiri_pct": 2.512
+              "adet": 35,
+              "isabet_pct": 71.4,
+              "ort_getiri_pct": 2.776
             }
           },
-          "temiz_gun_sayisi": 24,
-          "kovalama_gun_sayisi": 104
+          "temiz_gun_sayisi": 93,
+          "kovalama_gun_sayisi": 35
         },
         "TOASO": {
           "temiz": {
             "t3": {
-              "adet": 14,
-              "isabet_pct": 57.1,
-              "ort_getiri_pct": 0.962
+              "adet": 101,
+              "isabet_pct": 53.5,
+              "ort_getiri_pct": 0.804
             },
             "t10": {
-              "adet": 14,
-              "isabet_pct": 64.3,
-              "ort_getiri_pct": 4.756
+              "adet": 99,
+              "isabet_pct": 61.6,
+              "ort_getiri_pct": 2.819
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 122,
-              "isabet_pct": 58.2,
-              "ort_getiri_pct": 1.169
+              "adet": 34,
+              "isabet_pct": 73.5,
+              "ort_getiri_pct": 2.203
             },
             "t10": {
-              "adet": 120,
-              "isabet_pct": 60.8,
-              "ort_getiri_pct": 2.674
+              "adet": 34,
+              "isabet_pct": 58.8,
+              "ort_getiri_pct": 2.951
             }
           },
-          "temiz_gun_sayisi": 14,
-          "kovalama_gun_sayisi": 122
+          "temiz_gun_sayisi": 101,
+          "kovalama_gun_sayisi": 34
         },
         "OTKAR": {
           "temiz": {
             "t3": {
-              "adet": 33,
-              "isabet_pct": 57.6,
-              "ort_getiri_pct": 0.497
+              "adet": 115,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 0.943
             },
             "t10": {
-              "adet": 33,
-              "isabet_pct": 48.5,
-              "ort_getiri_pct": -0.908
+              "adet": 115,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 1.904
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 136,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 1.039
+              "adet": 55,
+              "isabet_pct": 58.2,
+              "ort_getiri_pct": 0.954
             },
             "t10": {
-              "adet": 136,
-              "isabet_pct": 58.1,
-              "ort_getiri_pct": 3.639
+              "adet": 55,
+              "isabet_pct": 52.7,
+              "ort_getiri_pct": 4.638
             }
           },
-          "temiz_gun_sayisi": 33,
-          "kovalama_gun_sayisi": 136
+          "temiz_gun_sayisi": 115,
+          "kovalama_gun_sayisi": 55
         },
         "AEFES": {
           "temiz": {
             "t3": {
-              "adet": 20,
-              "isabet_pct": 55.0,
-              "ort_getiri_pct": 0.811
+              "adet": 92,
+              "isabet_pct": 56.5,
+              "ort_getiri_pct": 0.718
             },
             "t10": {
-              "adet": 20,
-              "isabet_pct": 80.0,
-              "ort_getiri_pct": 5.533
+              "adet": 92,
+              "isabet_pct": 68.5,
+              "ort_getiri_pct": 3.088
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 100,
-              "isabet_pct": 57.0,
-              "ort_getiri_pct": 0.196
+              "adet": 29,
+              "isabet_pct": 55.2,
+              "ort_getiri_pct": -1.078
             },
             "t10": {
-              "adet": 100,
-              "isabet_pct": 59.0,
-              "ort_getiri_pct": 1.594
+              "adet": 29,
+              "isabet_pct": 44.8,
+              "ort_getiri_pct": -0.38
             }
           },
-          "temiz_gun_sayisi": 20,
-          "kovalama_gun_sayisi": 100
+          "temiz_gun_sayisi": 92,
+          "kovalama_gun_sayisi": 29
         },
         "ALARK": {
           "temiz": {
             "t3": {
-              "adet": 13,
-              "isabet_pct": 53.8,
-              "ort_getiri_pct": 1.067
+              "adet": 99,
+              "isabet_pct": 55.6,
+              "ort_getiri_pct": 0.682
             },
             "t10": {
-              "adet": 13,
-              "isabet_pct": 46.2,
-              "ort_getiri_pct": 0.36
+              "adet": 99,
+              "isabet_pct": 60.6,
+              "ort_getiri_pct": 2.194
             }
           },
           "kovalama": {
             "t3": {
-              "adet": 136,
-              "isabet_pct": 54.4,
-              "ort_getiri_pct": 0.733
+              "adet": 52,
+              "isabet_pct": 53.8,
+              "ort_getiri_pct": 1.094
             },
             "t10": {
-              "adet": 136,
-              "isabet_pct": 63.2,
-              "ort_getiri_pct": 3.526
+              "adet": 52,
+              "isabet_pct": 63.5,
+              "ort_getiri_pct": 5.189
             }
           },
-          "temiz_gun_sayisi": 13,
-          "kovalama_gun_sayisi": 136
+          "temiz_gun_sayisi": 99,
+          "kovalama_gun_sayisi": 52
         },
         "ULKER": {
           "temiz": {
             "t3": {
-              "adet": 22,
-              "isabet_pct": 50.0,
-              "ort_getiri_pct": -0.059
+              "adet": 79,
+              "isabet_pct": 54.4,
+              "ort_getiri_pct": 0.592
             },
             "t10": {
-              "adet": 22,
-              "isabet_pct": 40.9,
-              "ort_getiri_pct": -1.837
+              "adet": 79,
+              "isabet_pct": 57.0,
+              "ort_getiri_pct": 1.284
             }
           },
           "kovalama": {
             "t3": {
+              "adet": 49,
+              "isabet_pct": 51.0,
+              "ort_getiri_pct": 0.552
+            },
+            "t10": {
+              "adet": 49,
+              "isabet_pct": 65.3,
+              "ort_getiri_pct": 4.714
+            }
+          },
+          "temiz_gun_sayisi": 79,
+          "kovalama_gun_sayisi": 49
+        }
+      }
+    },
+    "ema_pct_1.1": {
+      "genel": {
+        "temiz": {
+          "t3": {
+            "adet": 3578,
+            "isabet_pct": 55.9,
+            "ort_getiri_pct": 0.871
+          },
+          "t10": {
+            "adet": 3568,
+            "isabet_pct": 59.8,
+            "ort_getiri_pct": 2.644
+          }
+        },
+        "kovalama": {
+          "t3": {
+            "adet": 484,
+            "isabet_pct": 51.7,
+            "ort_getiri_pct": 0.575
+          },
+          "t10": {
+            "adet": 480,
+            "isabet_pct": 54.4,
+            "ort_getiri_pct": 1.986
+          }
+        }
+      },
+      "sembol_bazli": {
+        "AKBNK": {
+          "temiz": {
+            "t3": {
+              "adet": 115,
+              "isabet_pct": 52.2,
+              "ort_getiri_pct": 1.071
+            },
+            "t10": {
+              "adet": 114,
+              "isabet_pct": 67.5,
+              "ort_getiri_pct": 3.899
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 18,
+              "isabet_pct": 55.6,
+              "ort_getiri_pct": -1.059
+            },
+            "t10": {
+              "adet": 18,
+              "isabet_pct": 33.3,
+              "ort_getiri_pct": -8.676
+            }
+          },
+          "temiz_gun_sayisi": 115,
+          "kovalama_gun_sayisi": 18
+        },
+        "YKBNK": {
+          "temiz": {
+            "t3": {
+              "adet": 116,
+              "isabet_pct": 60.3,
+              "ort_getiri_pct": 1.821
+            },
+            "t10": {
+              "adet": 116,
+              "isabet_pct": 65.5,
+              "ort_getiri_pct": 4.839
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 20,
+              "isabet_pct": 45.0,
+              "ort_getiri_pct": -3.517
+            },
+            "t10": {
+              "adet": 20,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -2.849
+            }
+          },
+          "temiz_gun_sayisi": 116,
+          "kovalama_gun_sayisi": 20
+        },
+        "GARAN": {
+          "temiz": {
+            "t3": {
+              "adet": 102,
+              "isabet_pct": 47.1,
+              "ort_getiri_pct": 0.576
+            },
+            "t10": {
+              "adet": 102,
+              "isabet_pct": 52.9,
+              "ort_getiri_pct": 2.102
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 19,
+              "isabet_pct": 52.6,
+              "ort_getiri_pct": -1.257
+            },
+            "t10": {
+              "adet": 19,
+              "isabet_pct": 63.2,
+              "ort_getiri_pct": 3.055
+            }
+          },
+          "temiz_gun_sayisi": 102,
+          "kovalama_gun_sayisi": 19
+        },
+        "ISCTR": {
+          "temiz": {
+            "t3": {
+              "adet": 117,
+              "isabet_pct": 53.0,
+              "ort_getiri_pct": 1.345
+            },
+            "t10": {
+              "adet": 116,
+              "isabet_pct": 59.5,
+              "ort_getiri_pct": 3.424
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 28,
+              "isabet_pct": 53.6,
+              "ort_getiri_pct": 1.248
+            },
+            "t10": {
+              "adet": 28,
+              "isabet_pct": 39.3,
+              "ort_getiri_pct": -2.606
+            }
+          },
+          "temiz_gun_sayisi": 117,
+          "kovalama_gun_sayisi": 28
+        },
+        "HALKB": {
+          "temiz": {
+            "t3": {
+              "adet": 105,
+              "isabet_pct": 47.6,
+              "ort_getiri_pct": 0.231
+            },
+            "t10": {
+              "adet": 105,
+              "isabet_pct": 55.2,
+              "ort_getiri_pct": 3.037
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 21,
+              "isabet_pct": 47.6,
+              "ort_getiri_pct": 3.895
+            },
+            "t10": {
+              "adet": 21,
+              "isabet_pct": 38.1,
+              "ort_getiri_pct": 7.708
+            }
+          },
+          "temiz_gun_sayisi": 105,
+          "kovalama_gun_sayisi": 21
+        },
+        "VAKBN": {
+          "temiz": {
+            "t3": {
+              "adet": 113,
+              "isabet_pct": 44.2,
+              "ort_getiri_pct": -0.346
+            },
+            "t10": {
+              "adet": 111,
+              "isabet_pct": 58.6,
+              "ort_getiri_pct": 3.573
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 18,
+              "isabet_pct": 61.1,
+              "ort_getiri_pct": 8.812
+            },
+            "t10": {
+              "adet": 18,
+              "isabet_pct": 61.1,
+              "ort_getiri_pct": 15.3
+            }
+          },
+          "temiz_gun_sayisi": 113,
+          "kovalama_gun_sayisi": 18
+        },
+        "KCHOL": {
+          "temiz": {
+            "t3": {
+              "adet": 115,
+              "isabet_pct": 62.6,
+              "ort_getiri_pct": 1.273
+            },
+            "t10": {
+              "adet": 115,
+              "isabet_pct": 56.5,
+              "ort_getiri_pct": 1.196
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 8,
+              "isabet_pct": 37.5,
+              "ort_getiri_pct": -4.868
+            },
+            "t10": {
+              "adet": 8,
+              "isabet_pct": 62.5,
+              "ort_getiri_pct": -6.489
+            }
+          },
+          "temiz_gun_sayisi": 115,
+          "kovalama_gun_sayisi": 8
+        },
+        "SAHOL": {
+          "temiz": {
+            "t3": {
+              "adet": 118,
+              "isabet_pct": 59.3,
+              "ort_getiri_pct": 1.042
+            },
+            "t10": {
+              "adet": 118,
+              "isabet_pct": 59.3,
+              "ort_getiri_pct": 1.837
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 6,
+              "isabet_pct": 16.7,
+              "ort_getiri_pct": -4.09
+            },
+            "t10": {
+              "adet": 6,
+              "isabet_pct": 16.7,
+              "ort_getiri_pct": -7.274
+            }
+          },
+          "temiz_gun_sayisi": 118,
+          "kovalama_gun_sayisi": 6
+        },
+        "BIMAS": {
+          "temiz": {
+            "t3": {
               "adet": 106,
-              "isabet_pct": 53.8,
-              "ort_getiri_pct": 0.709
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.398
             },
             "t10": {
               "adet": 106,
-              "isabet_pct": 64.2,
-              "ort_getiri_pct": 3.518
+              "isabet_pct": 51.9,
+              "ort_getiri_pct": -0.078
             }
           },
-          "temiz_gun_sayisi": 22,
-          "kovalama_gun_sayisi": 106
+          "kovalama": {
+            "t3": {
+              "adet": 4,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": 1.553
+            },
+            "t10": {
+              "adet": 4,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.7
+            }
+          },
+          "temiz_gun_sayisi": 106,
+          "kovalama_gun_sayisi": 4
+        },
+        "MGROS": {
+          "temiz": {
+            "t3": {
+              "adet": 142,
+              "isabet_pct": 52.1,
+              "ort_getiri_pct": 0.155
+            },
+            "t10": {
+              "adet": 142,
+              "isabet_pct": 56.3,
+              "ort_getiri_pct": 1.601
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 7,
+              "isabet_pct": 42.9,
+              "ort_getiri_pct": -1.029
+            },
+            "t10": {
+              "adet": 7,
+              "isabet_pct": 57.1,
+              "ort_getiri_pct": 4.839
+            }
+          },
+          "temiz_gun_sayisi": 142,
+          "kovalama_gun_sayisi": 7
+        },
+        "ASELS": {
+          "temiz": {
+            "t3": {
+              "adet": 143,
+              "isabet_pct": 58.0,
+              "ort_getiri_pct": 1.671
+            },
+            "t10": {
+              "adet": 143,
+              "isabet_pct": 59.4,
+              "ort_getiri_pct": 3.246
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 28,
+              "isabet_pct": 67.9,
+              "ort_getiri_pct": 1.694
+            },
+            "t10": {
+              "adet": 28,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 6.137
+            }
+          },
+          "temiz_gun_sayisi": 143,
+          "kovalama_gun_sayisi": 28
+        },
+        "THYAO": {
+          "temiz": {
+            "t3": {
+              "adet": 104,
+              "isabet_pct": 57.7,
+              "ort_getiri_pct": 1.401
+            },
+            "t10": {
+              "adet": 104,
+              "isabet_pct": 64.4,
+              "ort_getiri_pct": 3.107
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 21,
+              "isabet_pct": 57.1,
+              "ort_getiri_pct": 0.923
+            },
+            "t10": {
+              "adet": 21,
+              "isabet_pct": 47.6,
+              "ort_getiri_pct": 0.775
+            }
+          },
+          "temiz_gun_sayisi": 104,
+          "kovalama_gun_sayisi": 21
+        },
+        "PGSUS": {
+          "temiz": {
+            "t3": {
+              "adet": 86,
+              "isabet_pct": 64.0,
+              "ort_getiri_pct": 2.221
+            },
+            "t10": {
+              "adet": 86,
+              "isabet_pct": 68.6,
+              "ort_getiri_pct": 5.586
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 38,
+              "isabet_pct": 68.4,
+              "ort_getiri_pct": 3.913
+            },
+            "t10": {
+              "adet": 38,
+              "isabet_pct": 76.3,
+              "ort_getiri_pct": 5.127
+            }
+          },
+          "temiz_gun_sayisi": 86,
+          "kovalama_gun_sayisi": 38
+        },
+        "TAVHL": {
+          "temiz": {
+            "t3": {
+              "adet": 122,
+              "isabet_pct": 64.8,
+              "ort_getiri_pct": 1.388
+            },
+            "t10": {
+              "adet": 122,
+              "isabet_pct": 59.8,
+              "ort_getiri_pct": 2.32
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 16,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.486
+            },
+            "t10": {
+              "adet": 16,
+              "isabet_pct": 31.2,
+              "ort_getiri_pct": -4.486
+            }
+          },
+          "temiz_gun_sayisi": 122,
+          "kovalama_gun_sayisi": 16
+        },
+        "TTKOM": {
+          "temiz": {
+            "t3": {
+              "adet": 127,
+              "isabet_pct": 58.3,
+              "ort_getiri_pct": 0.744
+            },
+            "t10": {
+              "adet": 126,
+              "isabet_pct": 61.9,
+              "ort_getiri_pct": 3.214
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 13,
+              "isabet_pct": 46.2,
+              "ort_getiri_pct": -2.869
+            },
+            "t10": {
+              "adet": 12,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.897
+            }
+          },
+          "temiz_gun_sayisi": 127,
+          "kovalama_gun_sayisi": 13
+        },
+        "EREGL": {
+          "temiz": {
+            "t3": {
+              "adet": 133,
+              "isabet_pct": 56.4,
+              "ort_getiri_pct": 0.612
+            },
+            "t10": {
+              "adet": 133,
+              "isabet_pct": 57.9,
+              "ort_getiri_pct": 1.186
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 14,
+              "isabet_pct": 42.9,
+              "ort_getiri_pct": -2.013
+            },
+            "t10": {
+              "adet": 14,
+              "isabet_pct": 35.7,
+              "ort_getiri_pct": -2.23
+            }
+          },
+          "temiz_gun_sayisi": 133,
+          "kovalama_gun_sayisi": 14
+        },
+        "SISE": {
+          "temiz": {
+            "t3": {
+              "adet": 133,
+              "isabet_pct": 53.4,
+              "ort_getiri_pct": 0.596
+            },
+            "t10": {
+              "adet": 133,
+              "isabet_pct": 60.9,
+              "ort_getiri_pct": 2.775
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 12,
+              "isabet_pct": 41.7,
+              "ort_getiri_pct": -0.919
+            },
+            "t10": {
+              "adet": 11,
+              "isabet_pct": 36.4,
+              "ort_getiri_pct": -2.612
+            }
+          },
+          "temiz_gun_sayisi": 133,
+          "kovalama_gun_sayisi": 12
+        },
+        "TRMET": {
+          "temiz": {
+            "t3": {
+              "adet": 107,
+              "isabet_pct": 58.9,
+              "ort_getiri_pct": 1.644
+            },
+            "t10": {
+              "adet": 107,
+              "isabet_pct": 57.0,
+              "ort_getiri_pct": 2.266
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 28,
+              "isabet_pct": 46.4,
+              "ort_getiri_pct": -0.496
+            },
+            "t10": {
+              "adet": 28,
+              "isabet_pct": 57.1,
+              "ort_getiri_pct": -1.204
+            }
+          },
+          "temiz_gun_sayisi": 107,
+          "kovalama_gun_sayisi": 28
+        },
+        "TUPRS": {
+          "temiz": {
+            "t3": {
+              "adet": 141,
+              "isabet_pct": 62.4,
+              "ort_getiri_pct": 1.434
+            },
+            "t10": {
+              "adet": 141,
+              "isabet_pct": 66.0,
+              "ort_getiri_pct": 3.676
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 15,
+              "isabet_pct": 33.3,
+              "ort_getiri_pct": -2.526
+            },
+            "t10": {
+              "adet": 15,
+              "isabet_pct": 20.0,
+              "ort_getiri_pct": -6.524
+            }
+          },
+          "temiz_gun_sayisi": 141,
+          "kovalama_gun_sayisi": 15
+        },
+        "PETKM": {
+          "temiz": {
+            "t3": {
+              "adet": 144,
+              "isabet_pct": 56.2,
+              "ort_getiri_pct": 1.284
+            },
+            "t10": {
+              "adet": 144,
+              "isabet_pct": 54.9,
+              "ort_getiri_pct": 1.951
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 18,
+              "isabet_pct": 33.3,
+              "ort_getiri_pct": -2.259
+            },
+            "t10": {
+              "adet": 16,
+              "isabet_pct": 25.0,
+              "ort_getiri_pct": -6.934
+            }
+          },
+          "temiz_gun_sayisi": 144,
+          "kovalama_gun_sayisi": 18
+        },
+        "ASTOR": {
+          "temiz": {
+            "t3": {
+              "adet": 47,
+              "isabet_pct": 44.7,
+              "ort_getiri_pct": 0.473
+            },
+            "t10": {
+              "adet": 47,
+              "isabet_pct": 59.6,
+              "ort_getiri_pct": 4.167
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 20,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 5.949
+            },
+            "t10": {
+              "adet": 20,
+              "isabet_pct": 90.0,
+              "ort_getiri_pct": 17.029
+            }
+          },
+          "temiz_gun_sayisi": 47,
+          "kovalama_gun_sayisi": 20
+        },
+        "ENJSA": {
+          "temiz": {
+            "t3": {
+              "adet": 140,
+              "isabet_pct": 58.6,
+              "ort_getiri_pct": 0.7
+            },
+            "t10": {
+              "adet": 140,
+              "isabet_pct": 62.1,
+              "ort_getiri_pct": 2.203
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 6,
+              "isabet_pct": 16.7,
+              "ort_getiri_pct": -3.322
+            },
+            "t10": {
+              "adet": 6,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 2.223
+            }
+          },
+          "temiz_gun_sayisi": 140,
+          "kovalama_gun_sayisi": 6
+        },
+        "ENKAI": {
+          "temiz": {
+            "t3": {
+              "adet": 119,
+              "isabet_pct": 54.6,
+              "ort_getiri_pct": 0.277
+            },
+            "t10": {
+              "adet": 119,
+              "isabet_pct": 58.0,
+              "ort_getiri_pct": 2.412
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 12,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.525
+            },
+            "t10": {
+              "adet": 12,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 2.182
+            }
+          },
+          "temiz_gun_sayisi": 119,
+          "kovalama_gun_sayisi": 12
+        },
+        "EKGYO": {
+          "temiz": {
+            "t3": {
+              "adet": 130,
+              "isabet_pct": 56.9,
+              "ort_getiri_pct": 0.89
+            },
+            "t10": {
+              "adet": 129,
+              "isabet_pct": 57.4,
+              "ort_getiri_pct": 2.761
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 14,
+              "isabet_pct": 28.6,
+              "ort_getiri_pct": -0.777
+            },
+            "t10": {
+              "adet": 14,
+              "isabet_pct": 64.3,
+              "ort_getiri_pct": 3.16
+            }
+          },
+          "temiz_gun_sayisi": 130,
+          "kovalama_gun_sayisi": 14
+        },
+        "FROTO": {
+          "temiz": {
+            "t3": {
+              "adet": 116,
+              "isabet_pct": 53.4,
+              "ort_getiri_pct": 0.079
+            },
+            "t10": {
+              "adet": 114,
+              "isabet_pct": 63.2,
+              "ort_getiri_pct": 2.739
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 12,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -0.074
+            },
+            "t10": {
+              "adet": 12,
+              "isabet_pct": 50.0,
+              "ort_getiri_pct": -1.273
+            }
+          },
+          "temiz_gun_sayisi": 116,
+          "kovalama_gun_sayisi": 12
+        },
+        "TOASO": {
+          "temiz": {
+            "t3": {
+              "adet": 127,
+              "isabet_pct": 57.5,
+              "ort_getiri_pct": 1.033
+            },
+            "t10": {
+              "adet": 125,
+              "isabet_pct": 60.0,
+              "ort_getiri_pct": 2.589
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 8,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 3.122
+            },
+            "t10": {
+              "adet": 8,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 6.968
+            }
+          },
+          "temiz_gun_sayisi": 127,
+          "kovalama_gun_sayisi": 8
+        },
+        "OTKAR": {
+          "temiz": {
+            "t3": {
+              "adet": 152,
+              "isabet_pct": 57.2,
+              "ort_getiri_pct": 0.721
+            },
+            "t10": {
+              "adet": 152,
+              "isabet_pct": 55.3,
+              "ort_getiri_pct": 1.99
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 18,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 2.855
+            },
+            "t10": {
+              "adet": 18,
+              "isabet_pct": 66.7,
+              "ort_getiri_pct": 9.535
+            }
+          },
+          "temiz_gun_sayisi": 152,
+          "kovalama_gun_sayisi": 18
+        },
+        "AEFES": {
+          "temiz": {
+            "t3": {
+              "adet": 115,
+              "isabet_pct": 57.4,
+              "ort_getiri_pct": 0.633
+            },
+            "t10": {
+              "adet": 115,
+              "isabet_pct": 65.2,
+              "ort_getiri_pct": 2.854
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 6,
+              "isabet_pct": 33.3,
+              "ort_getiri_pct": -6.334
+            },
+            "t10": {
+              "adet": 6,
+              "isabet_pct": 16.7,
+              "ort_getiri_pct": -9.197
+            }
+          },
+          "temiz_gun_sayisi": 115,
+          "kovalama_gun_sayisi": 6
+        },
+        "ALARK": {
+          "temiz": {
+            "t3": {
+              "adet": 135,
+              "isabet_pct": 57.8,
+              "ort_getiri_pct": 1.009
+            },
+            "t10": {
+              "adet": 135,
+              "isabet_pct": 62.2,
+              "ort_getiri_pct": 3.106
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 16,
+              "isabet_pct": 31.2,
+              "ort_getiri_pct": -0.737
+            },
+            "t10": {
+              "adet": 16,
+              "isabet_pct": 56.2,
+              "ort_getiri_pct": 4.23
+            }
+          },
+          "temiz_gun_sayisi": 135,
+          "kovalama_gun_sayisi": 16
+        },
+        "ULKER": {
+          "temiz": {
+            "t3": {
+              "adet": 108,
+              "isabet_pct": 50.9,
+              "ort_getiri_pct": 0.365
+            },
+            "t10": {
+              "adet": 108,
+              "isabet_pct": 57.4,
+              "ort_getiri_pct": 1.581
+            }
+          },
+          "kovalama": {
+            "t3": {
+              "adet": 20,
+              "isabet_pct": 65.0,
+              "ort_getiri_pct": 1.72
+            },
+            "t10": {
+              "adet": 20,
+              "isabet_pct": 75.0,
+              "ort_getiri_pct": 8.085
+            }
+          },
+          "temiz_gun_sayisi": 108,
+          "kovalama_gun_sayisi": 20
         }
       }
     }
