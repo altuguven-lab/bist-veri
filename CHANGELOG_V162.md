@@ -651,3 +651,34 @@ Bu dosya, Pine kodundaki token bütçesini (80.000 sınır) korumak için koddan
 
 ---
 
+## [CL027] Rejim kovaları logicEraStart'a geçirildi
+
+```
+"Yeni" rejim kovalari (regimeHistMult'u besleyen) artik logicEraStart'tan
+(17.09.2026, son mantik degisikligi) besleniyor, hacimEraTarihi'nden
+(08.07.2026) DEGIL. Eskiden 08.07-16.09 arasi islemler de "yeni" sayiliyordu,
+ama o donem hala eski mantikla hesaplaniyordu - bu, gercek lot boyutuna
+(sizingFeedbackEnabled acildiginda) tutarsiz bir donem karisimi tasiyordu.
+hacimEraTarihi, Eski/panel kovalarinda (_trendEskiN vb.) referans/karsilastirma
+amacli degismeden kaliyor.
+```
+
+---
+
+
+---
+
+## Alarm Önceliklendirme Rehberi (17.09.2026, son dış inceleme madde 7)
+
+Bir sonraki token/plot sıkışmasında **önce hangi alarmların kırpılabileceğini**
+önceden belirlemek için. Kritik ve İşlem alarmları LIVE'da her koşulda kalır.
+
+| Öncelik | Alarm türleri | Kırpma sırası |
+|---|---|---|
+| **Kritik** | STOP_KIRILDI, IC_STOP, ACIL_CIK, POZ_AZALT | Asla — LIVE'da mutlaka kalır |
+| **İşlem** | CORE_AL, CORE_CIKIS, P1_KALITELI_AL, P2_ADAY | Asla — LIVE'da mutlaka kalır |
+| **İzleme** | CORE_IZLE, P3_HACIM_BEKLE, HAZIRLIK, ROTASYON | İsteğe bağlı, gerekirse 3. sırada kırpılır |
+| **Araştırma** | GUNLUK_OZET, SkorGecTest alanı | İlk kırpılacaklar — 1. sırada |
+
+Not: SkorGecTest (webhook bar-gecikmesi test amaçlı alan) kaldırılması için
+öneri: en az 20-30 gerçek alarm örneği toplanıp bar-gecikmesi kesinleşince.
