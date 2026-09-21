@@ -777,3 +777,41 @@ KORUNDU. Saat-slot ornek guveni fikri gecerliligini koruyor, token
 bütçesi daha rahat oldugunda (orn. LIVE/RESEARCH ayrimi gibi daha buyuk
 bir sadelestirmeden sonra) tekrar denenebilir.
 ```
+
+---
+
+## lateEntry / kovalama eşiği testi — SONUÇ: değişiklik önerilmiyor (21.09.2026)
+
+```
+Denetimde bulunan bulgu: ic pozisyon motorunun (_posOpen, 16 ayri
+tetikleyici) hicbirinde not _lateEntry korumasi yok - gorunen alarmlar
+(P1/CORE_AL) korumali ama ic motor (WR/PF/Kelly'yi besleyen) degil.
+
+TEST 1 (ATR carpani 1.8/2.5/3.0/4.0): kucuk, tutarsiz fark. 2.5+'tan
+sonra sonuc DEGISMIYOR - cunku lateEntry = (ATR kosulu) OR (EMA yuzdesi
+kosulu), EMA-yuzdesi (sabit %3.5) baskin hale geliyor, ATR tarafi
+etkisiz kaliyor.
+
+TEST 2 (EMA yuzdesi izole, ATR sabit/gevsek): %3.5 (Pine varsayilani)
+ve %5.0'da fark yok/ters. %7-10 araliginda GENEL toplamda belirgin,
+tutarli fark ortaya cikti (kovalama grubu T+10'da hem isabet hem
+getiride daha kotu).
+
+TEST 3 (sembol bazinda saglamlik kontrolu, %10 esigi): KRITIK BULGU -
+23 sembolden yalniz 13'unde "temiz > kovalama" yonu dogrulandi, 10
+sembolde TAM TERSI (bazilari cok guclu: ASTOR -30pp, ULKER -18pp,
+ASELS -16pp - yani bu hisselerde "kovalama" gunleri AKBNK/TUPRS/PETKM
+gibi bankacilik/savunma agirlikli hisselerde ise "kovalama" GERCEKTEN
+kotu (TUPRS +46pp, AKBNK +34pp, PETKM +30pp)).
+
+SONUC: Genel toplam sonucu, IKI ZIT EGILIMIN ORTALAMASIYDI - tek bir
+kuresel lateEmaExtPct/lateAtrMult degeri (sistemde HER yerde - tum
+f_v114Decision kapilari, panel metinleri - kullanilan) bu heterojenligi
+yansitamaz, evrenin yarisi icin dogru yarisi icin yanlis olurdu.
+
+KARAR: Ne "16 motora lateEntry ekleme" ne "esik kalibrasyonu" su an
+UYGULANMIYOR. Mimari tutarsizlik (16 motorun korumasiz olmasi) hala
+duruyor ama tek kuresel esikle DUZELTILMEMELI - ileride ele alinacaksa
+SEMBOL/SEKTOR BAZLI bir esik gerekir, cok daha buyuk bir proje
+(muhtemelen UPM_V1 olceginde).
+```
