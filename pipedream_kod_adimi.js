@@ -47,6 +47,16 @@ export default defineComponent({
       // bu alanlar "?" gelir - mesaj sablonlarina eklenmedi, bilincli.
       v112n: String(body.v112n ?? "?"),
       v112wr: String(body.v112wr ?? "?"),
+      // 21.09 EKI (kurul onayli, genel sistem kontrolunde bulundu): Pine
+      // tarafi 17.09'dan beri bu alanlari GONDERIYORDU ama bu kod onlari
+      // TANIMIYORDU, sessizce dusuyordu - ozellikle p3ozet, entryScore
+      // tanisi icin (bkz. CHANGELOG_V162.md [CL029]) ZORUNLU, bir haftalik
+      // veri birikimi bu alan olmadan BOS kalacakti.
+      p3ozet: String(body.p3ozet ?? "?"),
+      pozsebep: String(body.pozsebep ?? "?"),
+      schemaVersion: String(body.schemaVersion ?? "?"),
+      eventId: String(body.eventId ?? "?"),
+      carrierLagBars: String(body.carrierLagBars ?? "?"),
     };
     const buAy = yeniSinyal.zaman_utc.slice(0, 7);
 
