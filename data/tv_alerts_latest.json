@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-22T11:45:15.744Z",
+  "son_guncelleme_utc": "2026-09-22T12:15:14.950Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 127
+    "adet": 128
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-22T11:45:14.278Z",
-    "sembol": "HALKB",
-    "sinyal": "P3_SKOR_AL",
+    "zaman_utc": "2026-09-22T12:15:12.687Z",
+    "sembol": "ENJSA",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "47.72",
-    "skor": "35.41",
-    "kgs": "81",
-    "stop": "47.86",
-    "rejim": "0",
-    "relvol": "0.27",
-    "v112n": "168",
+    "fiyat": "108.9",
+    "skor": "17.34",
+    "kgs": "51",
+    "stop": "108.60000000000001",
+    "rejim": "2",
+    "relvol": "2.27",
+    "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "7702032",
+    "p3ozet": "3801032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "HALKB|15|P3_SKOR_AL|2026-09-22T11:30:00Z",
+    "eventId": "ENJSA|15|SEKTOR_ROTASYONU|2026-09-22T12:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-22T12:15:12.687Z",
+      "sembol": "ENJSA",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "108.9",
+      "skor": "17.34",
+      "kgs": "51",
+      "stop": "108.60000000000001",
+      "rejim": "2",
+      "relvol": "2.27",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "3801032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ENJSA|15|SEKTOR_ROTASYONU|2026-09-22T12:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-22T11:45:14.278Z",
       "sembol": "HALKB",
@@ -1495,20 +1514,6 @@
       "rejim": "0",
       "relvol": "0.6908027903607621",
       "v112n": "162",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-02T15:11:01.886Z",
-      "sembol": "FROTO",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "76.25",
-      "skor": "21.482849452497604",
-      "kgs": "28",
-      "stop": "75.96492065944659",
-      "rejim": "0",
-      "relvol": "0.6966688631730955",
-      "v112n": "129",
       "v112wr": "?"
     }
   ]
