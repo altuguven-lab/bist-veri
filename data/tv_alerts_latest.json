@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-22T11:15:12.043Z",
+  "son_guncelleme_utc": "2026-09-22T11:15:13.287Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 124
+    "adet": 125
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-22T11:15:08.944Z",
-    "sembol": "HALKB",
+    "zaman_utc": "2026-09-22T11:15:12.666Z",
+    "sembol": "ISCTR",
     "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "47.38",
-    "skor": "28.7",
-    "kgs": "54",
-    "stop": "47.84",
+    "fiyat": "13.62",
+    "skor": "70.81",
+    "kgs": "77",
+    "stop": "13.58",
     "rejim": "0",
-    "relvol": "0.36",
+    "relvol": "0.48",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "5202032",
+    "p3ozet": "5602032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "HALKB|15|P3_RADAR|2026-09-22T11:00:00Z",
+    "eventId": "ISCTR|15|P3_RADAR|2026-09-22T11:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-22T11:15:12.666Z",
+      "sembol": "ISCTR",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "13.62",
+      "skor": "70.81",
+      "kgs": "77",
+      "stop": "13.58",
+      "rejim": "0",
+      "relvol": "0.48",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "5602032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ISCTR|15|P3_RADAR|2026-09-22T11:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-22T11:15:08.944Z",
       "sembol": "HALKB",
@@ -1480,20 +1499,6 @@
       "rejim": "0",
       "relvol": "0.7812867003706936",
       "v112n": "166",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-02T14:15:12.289Z",
-      "sembol": "TRALT",
-      "sinyal": "P2_ADAY",
-      "interval": "15",
-      "fiyat": "50.80",
-      "skor": "39.99784575678516",
-      "kgs": "70",
-      "stop": "50.39630724847459",
-      "rejim": "2",
-      "relvol": "0.9073541604011908",
-      "v112n": "?",
       "v112wr": "?"
     }
   ]
