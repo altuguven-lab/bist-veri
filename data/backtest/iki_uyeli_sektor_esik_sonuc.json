@@ -1,0 +1,205 @@
+{
+  "calisma": "IP-8 Iki-Uyeli Sektor Esik Testi",
+  "uretim_zamani_utc": "2026-09-22T12:11:23.023296+00:00",
+  "durustluk_notu": "GUNLUK BAR yaklasikligi. IP-8'in TAM SRS/EQS formulunu BIREBIR replike ETMIYOR - basitlestirilmis bir vekil (RS ayrismasi). Sonuc yon verir, IP-8'in gercek esik degerleri icin kesin kanit degildir.",
+  "parametreler": {
+    "guc_esigi_rs_pct": 2.0,
+    "ayrisma_esigi_percentile": 75
+  },
+  "genel": {
+    "temiz_uyumlu": {
+      "t3": {
+        "adet": 3216,
+        "isabet_pct": 57.1,
+        "ort_getiri_pct": 0.668
+      },
+      "t10": {
+        "adet": 3201,
+        "isabet_pct": 59.5,
+        "ort_getiri_pct": 1.736
+      }
+    },
+    "baskin_tek_hisse": {
+      "t3": {
+        "adet": 1746,
+        "isabet_pct": 51.5,
+        "ort_getiri_pct": 0.222
+      },
+      "t10": {
+        "adet": 1743,
+        "isabet_pct": 55.7,
+        "ort_getiri_pct": 1.183
+      }
+    }
+  },
+  "sektor_bazli": {
+    "Savunma": {
+      "temiz": {
+        "t3": {
+          "adet": 570,
+          "isabet_pct": 56.3,
+          "ort_getiri_pct": 0.747
+        },
+        "t10": {
+          "adet": 570,
+          "isabet_pct": 59.1,
+          "ort_getiri_pct": 1.871
+        }
+      },
+      "baskin": {
+        "t3": {
+          "adet": 337,
+          "isabet_pct": 54.0,
+          "ort_getiri_pct": 0.329
+        },
+        "t10": {
+          "adet": 337,
+          "isabet_pct": 48.4,
+          "ort_getiri_pct": 0.48
+        }
+      },
+      "temiz_gun_sayisi": 571,
+      "baskin_gun_sayisi": 337
+    },
+    "Rafineri": {
+      "temiz": {
+        "t3": {
+          "adet": 467,
+          "isabet_pct": 54.8,
+          "ort_getiri_pct": 0.41
+        },
+        "t10": {
+          "adet": 462,
+          "isabet_pct": 56.7,
+          "ort_getiri_pct": 1.505
+        }
+      },
+      "baskin": {
+        "t3": {
+          "adet": 242,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 0.164
+        },
+        "t10": {
+          "adet": 240,
+          "isabet_pct": 52.9,
+          "ort_getiri_pct": 0.999
+        }
+      },
+      "temiz_gun_sayisi": 470,
+      "baskin_gun_sayisi": 242
+    },
+    "EnerjiUretim": {
+      "temiz": {
+        "t3": {
+          "adet": 564,
+          "isabet_pct": 55.7,
+          "ort_getiri_pct": 0.506
+        },
+        "t10": {
+          "adet": 564,
+          "isabet_pct": 56.7,
+          "ort_getiri_pct": 1.422
+        }
+      },
+      "baskin": {
+        "t3": {
+          "adet": 281,
+          "isabet_pct": 58.7,
+          "ort_getiri_pct": 0.926
+        },
+        "t10": {
+          "adet": 281,
+          "isabet_pct": 63.3,
+          "ort_getiri_pct": 2.665
+        }
+      },
+      "temiz_gun_sayisi": 564,
+      "baskin_gun_sayisi": 281
+    },
+    "Otomotiv": {
+      "temiz": {
+        "t3": {
+          "adet": 554,
+          "isabet_pct": 58.5,
+          "ort_getiri_pct": 0.699
+        },
+        "t10": {
+          "adet": 547,
+          "isabet_pct": 65.6,
+          "ort_getiri_pct": 2.004
+        }
+      },
+      "baskin": {
+        "t3": {
+          "adet": 324,
+          "isabet_pct": 48.1,
+          "ort_getiri_pct": -0.159
+        },
+        "t10": {
+          "adet": 324,
+          "isabet_pct": 53.1,
+          "ort_getiri_pct": 0.351
+        }
+      },
+      "temiz_gun_sayisi": 557,
+      "baskin_gun_sayisi": 324
+    },
+    "Telekom": {
+      "temiz": {
+        "t3": {
+          "adet": 494,
+          "isabet_pct": 59.1,
+          "ort_getiri_pct": 0.649
+        },
+        "t10": {
+          "adet": 492,
+          "isabet_pct": 58.7,
+          "ort_getiri_pct": 1.242
+        }
+      },
+      "baskin": {
+        "t3": {
+          "adet": 267,
+          "isabet_pct": 48.3,
+          "ort_getiri_pct": -0.222
+        },
+        "t10": {
+          "adet": 266,
+          "isabet_pct": 59.0,
+          "ort_getiri_pct": 1.214
+        }
+      },
+      "temiz_gun_sayisi": 497,
+      "baskin_gun_sayisi": 267
+    },
+    "Ulastirma": {
+      "temiz": {
+        "t3": {
+          "adet": 567,
+          "isabet_pct": 58.2,
+          "ort_getiri_pct": 0.95
+        },
+        "t10": {
+          "adet": 566,
+          "isabet_pct": 59.9,
+          "ort_getiri_pct": 2.271
+        }
+      },
+      "baskin": {
+        "t3": {
+          "adet": 295,
+          "isabet_pct": 49.5,
+          "ort_getiri_pct": 0.295
+        },
+        "t10": {
+          "adet": 295,
+          "isabet_pct": 59.0,
+          "ort_getiri_pct": 1.609
+        }
+      },
+      "temiz_gun_sayisi": 570,
+      "baskin_gun_sayisi": 295
+    }
+  }
+}
