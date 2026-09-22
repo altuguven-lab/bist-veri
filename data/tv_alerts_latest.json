@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-22T12:45:11.586Z",
+  "son_guncelleme_utc": "2026-09-22T12:45:12.906Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 129
+    "adet": 130
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-22T12:45:08.223Z",
-    "sembol": "EKGYO",
+    "zaman_utc": "2026-09-22T12:45:10.622Z",
+    "sembol": "TOASO",
     "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "19.53",
-    "skor": "49.88",
-    "kgs": "77",
-    "stop": "19.47",
-    "rejim": "1",
-    "relvol": "0.64",
+    "fiyat": "287.75",
+    "skor": "71.16",
+    "kgs": "67",
+    "stop": "288",
+    "rejim": "2",
+    "relvol": "0.17",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "8102032",
+    "p3ozet": "6302032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-09-22T12:30:00Z",
+    "eventId": "TOASO|15|SEKTOR_ROTASYONU|2026-09-22T12:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-22T12:45:10.622Z",
+      "sembol": "TOASO",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "287.75",
+      "skor": "71.16",
+      "kgs": "67",
+      "stop": "288",
+      "rejim": "2",
+      "relvol": "0.17",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "6302032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TOASO|15|SEKTOR_ROTASYONU|2026-09-22T12:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-22T12:45:08.223Z",
       "sembol": "EKGYO",
@@ -1505,20 +1524,6 @@
       "rejim": "0",
       "relvol": "0.757768026656015",
       "v112n": "225",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-02T15:11:02.759Z",
-      "sembol": "BIMAS",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "406.25",
-      "skor": "12.529182652495257",
-      "kgs": "14",
-      "stop": "403.5036191754008",
-      "rejim": "0",
-      "relvol": "0.7488394797925314",
-      "v112n": "231",
       "v112wr": "?"
     }
   ]
