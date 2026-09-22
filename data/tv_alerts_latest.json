@@ -1,10 +1,10 @@
 {
-  "son_guncelleme_utc": "2026-09-22T15:11:22.947Z",
+  "son_guncelleme_utc": "2026-09-22T15:11:23.866Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 167
+    "adet": 168
   },
   "son_sinyal": {
     "zaman_utc": "2026-09-22T15:11:06.547Z",
@@ -100,6 +100,25 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "SISE|15|GUNLUK_OZET|2026-09-22T15:00:00Z",
+      "carrierLagBars": "1"
+    },
+    {
+      "zaman_utc": "2026-09-22T15:11:05.710Z",
+      "sembol": "ENJSA",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "109.1",
+      "skor": "22.11",
+      "kgs": "60",
+      "stop": "108.7",
+      "rejim": "0",
+      "relvol": "0.49",
+      "v112n": "224",
+      "v112wr": "?",
+      "p3ozet": "5902032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ENJSA|15|GUNLUK_OZET|2026-09-22T15:00:00Z",
       "carrierLagBars": "1"
     },
     {
@@ -1695,20 +1714,6 @@
       "rejim": "0",
       "relvol": "1.14",
       "v112n": "264",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-18T15:11:03.680Z",
-      "sembol": "AKBNK",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "70.70",
-      "skor": "32.16",
-      "kgs": "51",
-      "stop": "71.65",
-      "rejim": "0",
-      "relvol": "1.38",
-      "v112n": "71",
       "v112wr": "?"
     }
   ]
