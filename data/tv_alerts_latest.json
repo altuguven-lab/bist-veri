@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-22T15:11:19.818Z",
+  "son_guncelleme_utc": "2026-09-22T15:11:20.842Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 164
+    "adet": 165
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-22T15:11:06.233Z",
-    "sembol": "SAHOL",
+    "zaman_utc": "2026-09-22T15:11:06.339Z",
+    "sembol": "MGROS",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "91.15",
-    "skor": "25.85",
-    "kgs": "39",
-    "stop": "91.85000000000001",
+    "fiyat": "539.0",
+    "skor": "25.2",
+    "kgs": "25",
+    "stop": "547",
     "rejim": "0",
-    "relvol": "0.62",
-    "v112n": "161",
+    "relvol": "0.54",
+    "v112n": "229",
     "v112wr": "?",
-    "p3ozet": "1802032",
+    "p3ozet": "502032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "SAHOL|15|GUNLUK_OZET|2026-09-22T15:00:00Z",
+    "eventId": "MGROS|15|GUNLUK_OZET|2026-09-22T15:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-22T15:11:06.339Z",
+      "sembol": "MGROS",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "539.0",
+      "skor": "25.2",
+      "kgs": "25",
+      "stop": "547",
+      "rejim": "0",
+      "relvol": "0.54",
+      "v112n": "229",
+      "v112wr": "?",
+      "p3ozet": "502032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "MGROS|15|GUNLUK_OZET|2026-09-22T15:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-22T15:11:06.233Z",
       "sembol": "SAHOL",
@@ -1679,20 +1698,6 @@
       "stop": "71.75",
       "rejim": "0",
       "relvol": "0.31",
-      "v112n": "?",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-18T07:00:15.999Z",
-      "sembol": "?",
-      "sinyal": "?",
-      "interval": "?",
-      "fiyat": "?",
-      "skor": "?",
-      "kgs": "?",
-      "stop": "?",
-      "rejim": "?",
-      "relvol": "?",
       "v112n": "?",
       "v112wr": "?"
     }
