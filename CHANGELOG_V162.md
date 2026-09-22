@@ -843,3 +843,32 @@ degisikligi ONERILMIYOR - KGS'nin cok-faktorlu tasarimi cesitlendirilmis
 gorunuyor. B2/B5 ile ayni sonuc turu: test edildi, hipotez guclu
 desteklenmedi.
 ```
+
+---
+
+## [IP-8] İki-üyeli sektör eşik sıkılaştırması — SONUÇ: kanıtla destekleniyor (22.09.2026)
+
+```
+22.09.2026: IP-8'de 2-uyeli sektorlerde (Savunma, Rafineri, EnerjiUretim,
+Otomotiv, Telekom, Ulastirma) GIR esigi SRS_adj>=52/EQS_adj>=65'ten
+SRS_adj>=58/EQS_adj>=70'e sikilastirildi (dis kurul incelemesi madde C).
+Gerekce: tek hissenin sert hareketi sektoru TEK BASINA belirleyebiliyordu.
+
+TEST: Her ciftin gunluk RS ayrismasi (|RS_uye1-RS_uye2|) hesaplandi,
+sektor "GUCLU" sayildigi gunler dusuk-ayrisma ("TEMIZ/uyumlu") ve
+yuksek-ayrisma ("BASKIN/tek hisse") olarak ikiye ayrildi, ileri
+getirileri karsilastirildi (n=3216 temiz, n=1746 baskin).
+
+SONUC: Genel toplamda TEMIZ tutarli sekilde daha iyi (T+10 isabet
+%59,5 vs %55,7; getiri 1,736% vs 1,183%). Sembol bazinda saglamlik
+kontrolu: 6 sektorden 5'i (4 net + 1 notr) AYNI yonde - Otomotiv
+(+12,5pp), Savunma (+10,7pp), Rafineri (+3,8pp), Ulastirma (+0,9pp)
+temiz lehine, Telekom notr (-0,3pp). TEK istisna: Enerji Uretim
+(ENJSA+AKSEN) ters yonde (-6,6pp, baskin lehine) - muhtemelen bu ikili
+ayni temaya (enerji santralleri) cok sıkı bagli, "ayrisma" gercek
+uyari degil gurultu.
+
+KARAR: Sikilastirma KORUNUYOR - lateEntry testinin aksine (23 sembolden
+10'u ters, tutarsiz) bu sonuc COGUNLUKLA tutarli. Enerji Uretim'in
+esigi ayri gevsetilebilir ama bu, genel karari cürütmuyor.
+```
