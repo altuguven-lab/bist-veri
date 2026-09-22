@@ -1,10 +1,10 @@
 {
-  "son_guncelleme_utc": "2026-09-22T15:11:12.315Z",
+  "son_guncelleme_utc": "2026-09-22T15:11:13.488Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 156
+    "adet": 157
   },
   "son_sinyal": {
     "zaman_utc": "2026-09-22T15:11:06.146Z",
@@ -43,6 +43,25 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "SISE|15|GUNLUK_OZET|2026-09-22T15:00:00Z",
+      "carrierLagBars": "1"
+    },
+    {
+      "zaman_utc": "2026-09-22T15:11:05.088Z",
+      "sembol": "TTKOM",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "54.10",
+      "skor": "20.41",
+      "kgs": "21",
+      "stop": "54.75",
+      "rejim": "0",
+      "relvol": "0.52",
+      "v112n": "184",
+      "v112wr": "?",
+      "p3ozet": "102032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TTKOM|15|GUNLUK_OZET|2026-09-22T15:00:00Z",
       "carrierLagBars": "1"
     },
     {
@@ -1640,20 +1659,6 @@
       "rejim": "0",
       "relvol": "1.2599825070486155",
       "v112n": "?",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-03T15:11:03.977Z",
-      "sembol": "TTKOM",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "50.80",
-      "skor": "11.354889097077205",
-      "kgs": "10",
-      "stop": "50.61856322128137",
-      "rejim": "0",
-      "relvol": "0.8010273791704502",
-      "v112n": "184",
       "v112wr": "?"
     }
   ]
