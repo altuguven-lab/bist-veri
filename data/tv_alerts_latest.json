@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-23T14:45:19.878Z",
+  "son_guncelleme_utc": "2026-09-23T15:01:03.817Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 209
+    "adet": 210
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-23T14:45:18.475Z",
-    "sembol": "BIMAS",
-    "sinyal": "SEKTOR_ROTASYONU",
+    "zaman_utc": "2026-09-23T15:01:02.654Z",
+    "sembol": "OTKAR",
+    "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "433.75",
-    "skor": "21.88",
-    "kgs": "40",
-    "stop": "435.25",
-    "rejim": "1",
-    "relvol": "0.56",
+    "fiyat": "315.00",
+    "skor": "17.45",
+    "kgs": "25",
+    "stop": "317.5",
+    "rejim": "0",
+    "relvol": "0.32",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "2702032",
+    "p3ozet": "1602032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "BIMAS|15|SEKTOR_ROTASYONU|2026-09-23T14:30:00Z",
+    "eventId": "OTKAR|15|P4_HAZIRLIK|2026-09-23T14:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-23T15:01:02.654Z",
+      "sembol": "OTKAR",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "315.00",
+      "skor": "17.45",
+      "kgs": "25",
+      "stop": "317.5",
+      "rejim": "0",
+      "relvol": "0.32",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "1602032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "OTKAR|15|P4_HAZIRLIK|2026-09-23T14:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-23T14:45:18.475Z",
       "sembol": "BIMAS",
@@ -1906,25 +1925,6 @@
       "schemaVersion": "v162.2",
       "eventId": "ASELS|15|P4_HAZIRLIK|2026-09-22T06:45:00Z",
       "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-22T06:07:54.982Z",
-      "sembol": "THYAO",
-      "sinyal": "P1_KALITELI_AL",
-      "interval": "15",
-      "fiyat": "348.50",
-      "skor": "?",
-      "kgs": "?",
-      "stop": "?",
-      "rejim": "?",
-      "relvol": "?",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "?",
-      "pozsebep": "?",
-      "schemaVersion": "?",
-      "eventId": "?",
-      "carrierLagBars": "?"
     }
   ]
 }
