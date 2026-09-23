@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-23T15:11:19.456Z",
+  "son_guncelleme_utc": "2026-09-23T15:11:20.349Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 224
+    "adet": 225
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-23T15:11:05.147Z",
-    "sembol": "AKBNK",
+    "zaman_utc": "2026-09-23T15:11:06.552Z",
+    "sembol": "TUPRS",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "72.95",
-    "skor": "44.14",
-    "kgs": "33",
-    "stop": "72.75",
+    "fiyat": "411.00",
+    "skor": "16.55",
+    "kgs": "54",
+    "stop": "422",
     "rejim": "0",
-    "relvol": "0.45",
-    "v112n": "72",
+    "relvol": "0.78",
+    "v112n": "160",
     "v112wr": "?",
-    "p3ozet": "3502032",
+    "p3ozet": "3902032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "AKBNK|15|GUNLUK_OZET|2026-09-23T15:00:00Z",
+    "eventId": "TUPRS|15|GUNLUK_OZET|2026-09-23T15:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-23T15:11:06.552Z",
+      "sembol": "TUPRS",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "411.00",
+      "skor": "16.55",
+      "kgs": "54",
+      "stop": "422",
+      "rejim": "0",
+      "relvol": "0.78",
+      "v112n": "160",
+      "v112wr": "?",
+      "p3ozet": "3902032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TUPRS|15|GUNLUK_OZET|2026-09-23T15:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-23T15:11:05.147Z",
       "sembol": "AKBNK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "HALKB|15|P3_SKOR_AL|2026-09-22T11:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-22T11:45:11.897Z",
-      "sembol": "TTKOM",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "54.60",
-      "skor": "26.04",
-      "kgs": "61",
-      "stop": "54.150000000000006",
-      "rejim": "0",
-      "relvol": "0.74",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "5002032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TTKOM|15|P3_RADAR|2026-09-22T11:30:00Z",
       "carrierLagBars": "1"
     }
   ]
