@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-23T14:15:16.621Z",
+  "son_guncelleme_utc": "2026-09-23T14:30:26.759Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 206
+    "adet": 207
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-23T14:15:13.417Z",
-    "sembol": "ASELS",
+    "zaman_utc": "2026-09-23T14:30:24.259Z",
+    "sembol": "KCHOL",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "383.00",
-    "skor": "76.9",
-    "kgs": "66",
-    "stop": "383.75",
+    "fiyat": "221.5",
+    "skor": "28.12",
+    "kgs": "46",
+    "stop": "222.70000000000002",
     "rejim": "1",
-    "relvol": "1",
+    "relvol": "1.25",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "6802032",
+    "p3ozet": "2300032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ASELS|15|P4_HAZIRLIK|2026-09-23T14:00:00Z",
+    "eventId": "KCHOL|15|P4_HAZIRLIK|2026-09-23T14:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-23T14:30:24.259Z",
+      "sembol": "KCHOL",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "221.5",
+      "skor": "28.12",
+      "kgs": "46",
+      "stop": "222.70000000000002",
+      "rejim": "1",
+      "relvol": "1.25",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2300032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "KCHOL|15|P4_HAZIRLIK|2026-09-23T14:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-23T14:15:13.417Z",
       "sembol": "ASELS",
@@ -1895,20 +1914,6 @@
       "rejim": "1",
       "relvol": "2.12",
       "v112n": "62",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-21T15:11:07.099Z",
-      "sembol": "TRMET",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "129.7",
-      "skor": "28.16",
-      "kgs": "52",
-      "stop": "131.20000000000002",
-      "rejim": "1",
-      "relvol": "0.94",
-      "v112n": "264",
       "v112wr": "?"
     }
   ]
