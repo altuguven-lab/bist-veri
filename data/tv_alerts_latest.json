@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-23T13:00:06.417Z",
+  "son_guncelleme_utc": "2026-09-23T13:00:08.495Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 191
+    "adet": 192
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-23T13:00:04.640Z",
-    "sembol": "ISCTR",
+    "zaman_utc": "2026-09-23T13:00:05.271Z",
+    "sembol": "THYAO",
     "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "13.60",
-    "skor": "31.17",
-    "kgs": "30",
-    "stop": "13.59",
+    "fiyat": "301.00",
+    "skor": "23.78",
+    "kgs": "38",
+    "stop": "300.25",
     "rejim": "0",
-    "relvol": "0.2",
+    "relvol": "0.46",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "2402032",
+    "p3ozet": "2302032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ISCTR|15|P3_RADAR|2026-09-23T12:45:00Z",
+    "eventId": "THYAO|15|P3_RADAR|2026-09-23T12:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-23T13:00:05.271Z",
+      "sembol": "THYAO",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "301.00",
+      "skor": "23.78",
+      "kgs": "38",
+      "stop": "300.25",
+      "rejim": "0",
+      "relvol": "0.46",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2302032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "THYAO|15|P3_RADAR|2026-09-23T12:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-23T13:00:04.640Z",
       "sembol": "ISCTR",
@@ -1820,20 +1839,6 @@
       "rejim": "1",
       "relvol": "1.01",
       "v112n": "103",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-21T15:11:04.004Z",
-      "sembol": "MGROS",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "538.0",
-      "skor": "70.27",
-      "kgs": "56",
-      "stop": "535",
-      "rejim": "1",
-      "relvol": "0.97",
-      "v112n": "228",
       "v112wr": "?"
     }
   ]
