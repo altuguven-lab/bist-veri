@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-23T10:30:28.645Z",
+  "son_guncelleme_utc": "2026-09-23T11:00:20.655Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 183
+    "adet": 184
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-23T10:30:25.182Z",
-    "sembol": "AEFES",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-09-23T11:00:18.649Z",
+    "sembol": "ASELS",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "18.97",
-    "skor": "22.56",
-    "kgs": "32",
-    "stop": "18.87",
+    "fiyat": "381.25",
+    "skor": "48.9",
+    "kgs": "49",
+    "stop": "382",
     "rejim": "1",
-    "relvol": "0.42",
+    "relvol": "0.32",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "1800032",
+    "p3ozet": "3502032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "AEFES|15|P4_HAZIRLIK|2026-09-23T10:15:00Z",
+    "eventId": "ASELS|15|P3_RADAR|2026-09-23T10:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-23T11:00:18.649Z",
+      "sembol": "ASELS",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "381.25",
+      "skor": "48.9",
+      "kgs": "49",
+      "stop": "382",
+      "rejim": "1",
+      "relvol": "0.32",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "3502032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ASELS|15|P3_RADAR|2026-09-23T10:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-23T10:30:25.182Z",
       "sembol": "AEFES",
@@ -1780,20 +1799,6 @@
       "rejim": "1",
       "relvol": "0.64",
       "v112n": "120",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-21T15:01:04.572Z",
-      "sembol": "EKGYO",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "19.16",
-      "skor": "28.06",
-      "kgs": "50",
-      "stop": "19.19",
-      "rejim": "1",
-      "relvol": "0.59",
-      "v112n": "?",
       "v112wr": "?"
     }
   ]
