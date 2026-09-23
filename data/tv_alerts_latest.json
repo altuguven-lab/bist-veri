@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-23T07:30:24.545Z",
+  "son_guncelleme_utc": "2026-09-23T08:15:23.851Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 179
+    "adet": 180
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-23T07:30:22.975Z",
-    "sembol": "ASELS",
+    "zaman_utc": "2026-09-23T08:15:21.307Z",
+    "sembol": "PETKM",
     "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "381.00",
-    "skor": "30.16",
-    "kgs": "68",
-    "stop": "381.5",
+    "fiyat": "23.00",
+    "skor": "58.58",
+    "kgs": "77",
+    "stop": "22.740000000000002",
     "rejim": "2",
-    "relvol": "0.9",
+    "relvol": "0.15",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "5801032",
+    "p3ozet": "3800032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ASELS|15|P3_RADAR|2026-09-23T07:15:00Z",
+    "eventId": "PETKM|15|P3_RADAR|2026-09-23T08:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-23T08:15:21.307Z",
+      "sembol": "PETKM",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "23.00",
+      "skor": "58.58",
+      "kgs": "77",
+      "stop": "22.740000000000002",
+      "rejim": "2",
+      "relvol": "0.15",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "3800032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "PETKM|15|P3_RADAR|2026-09-23T08:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-23T07:30:22.975Z",
       "sembol": "ASELS",
@@ -1759,20 +1778,6 @@
       "stop": "291",
       "rejim": "1",
       "relvol": "1.11",
-      "v112n": "?",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-09-21T14:30:13.567Z",
-      "sembol": "TOASO",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "285.00",
-      "skor": "21.52",
-      "kgs": "53",
-      "stop": "284.25",
-      "rejim": "2",
-      "relvol": "1.21",
       "v112n": "?",
       "v112wr": "?"
     }
