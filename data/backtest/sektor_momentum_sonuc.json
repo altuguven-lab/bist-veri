@@ -1,0 +1,702 @@
+{
+  "calisma": "Sektor Momentumu Testi",
+  "uretim_zamani_utc": "2026-09-25T10:42:15.500843+00:00",
+  "durustluk_notu": "GUNLUK BAR yaklasikligi. Sektor uyeligi 9 sektor/21 hisse ile KISITLI - Elektrik Ekipmani ve Demir-Celik sektorleri TAM uyelik netligi olmadigi icin DISLANDI, IP-8'in TAM 11-sektor listesini birebir replike ETMIYOR.",
+  "sektorler_kullanilan": {
+    "Banka": [
+      "AKBNK",
+      "GARAN",
+      "ISCTR",
+      "YKBNK",
+      "HALKB",
+      "VAKBN"
+    ],
+    "Holding": [
+      "KCHOL",
+      "SAHOL",
+      "ENKAI"
+    ],
+    "Savunma": [
+      "ASELS",
+      "OTKAR"
+    ],
+    "Rafineri": [
+      "TUPRS",
+      "PETKM"
+    ],
+    "EnerjiUretim": [
+      "ENJSA",
+      "AKSEN"
+    ],
+    "Otomotiv": [
+      "FROTO",
+      "TOASO"
+    ],
+    "Telekom": [
+      "TCELL",
+      "TTKOM"
+    ],
+    "Ulastirma": [
+      "THYAO",
+      "TAVHL"
+    ],
+    "Tuketim": [
+      "BIMAS",
+      "MGROS",
+      "ULKER"
+    ]
+  },
+  "genel": {
+    "guclu_sektor": {
+      "t5": {
+        "adet": 16476,
+        "isabet_pct": 53.6,
+        "ort_getiri_pct": 0.771
+      },
+      "t10": {
+        "adet": 16423,
+        "isabet_pct": 55.4,
+        "ort_getiri_pct": 1.581
+      }
+    },
+    "zayif_sektor": {
+      "t5": {
+        "adet": 16969,
+        "isabet_pct": 55.6,
+        "ort_getiri_pct": 0.871
+      },
+      "t10": {
+        "adet": 16938,
+        "isabet_pct": 57.4,
+        "ort_getiri_pct": 1.843
+      }
+    }
+  },
+  "guclu_sektor_lehine_sembol_orani_T10": 33.3,
+  "sembol_bazli": {
+    "AKBNK": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 714,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 0.352
+        },
+        "t10": {
+          "adet": 709,
+          "isabet_pct": 50.8,
+          "ort_getiri_pct": 0.79
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 852,
+          "isabet_pct": 55.6,
+          "ort_getiri_pct": 0.702
+        },
+        "t10": {
+          "adet": 852,
+          "isabet_pct": 58.6,
+          "ort_getiri_pct": 1.892
+        }
+      }
+    },
+    "GARAN": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 714,
+          "isabet_pct": 55.0,
+          "ort_getiri_pct": 0.741
+        },
+        "t10": {
+          "adet": 709,
+          "isabet_pct": 55.9,
+          "ort_getiri_pct": 1.672
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 852,
+          "isabet_pct": 53.6,
+          "ort_getiri_pct": 0.456
+        },
+        "t10": {
+          "adet": 852,
+          "isabet_pct": 58.1,
+          "ort_getiri_pct": 1.372
+        }
+      }
+    },
+    "ISCTR": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 714,
+          "isabet_pct": 52.0,
+          "ort_getiri_pct": 0.395
+        },
+        "t10": {
+          "adet": 709,
+          "isabet_pct": 50.6,
+          "ort_getiri_pct": 1.121
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 852,
+          "isabet_pct": 53.5,
+          "ort_getiri_pct": 0.384
+        },
+        "t10": {
+          "adet": 852,
+          "isabet_pct": 58.5,
+          "ort_getiri_pct": 1.465
+        }
+      }
+    },
+    "YKBNK": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 714,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.348
+        },
+        "t10": {
+          "adet": 709,
+          "isabet_pct": 50.9,
+          "ort_getiri_pct": 0.792
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 852,
+          "isabet_pct": 53.9,
+          "ort_getiri_pct": 0.731
+        },
+        "t10": {
+          "adet": 852,
+          "isabet_pct": 57.2,
+          "ort_getiri_pct": 2.068
+        }
+      }
+    },
+    "HALKB": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 714,
+          "isabet_pct": 48.6,
+          "ort_getiri_pct": 0.635
+        },
+        "t10": {
+          "adet": 709,
+          "isabet_pct": 50.1,
+          "ort_getiri_pct": 1.559
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 852,
+          "isabet_pct": 52.2,
+          "ort_getiri_pct": 0.221
+        },
+        "t10": {
+          "adet": 852,
+          "isabet_pct": 54.7,
+          "ort_getiri_pct": 0.599
+        }
+      }
+    },
+    "VAKBN": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 714,
+          "isabet_pct": 52.2,
+          "ort_getiri_pct": 0.957
+        },
+        "t10": {
+          "adet": 709,
+          "isabet_pct": 53.5,
+          "ort_getiri_pct": 2.104
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 852,
+          "isabet_pct": 52.1,
+          "ort_getiri_pct": 0.078
+        },
+        "t10": {
+          "adet": 852,
+          "isabet_pct": 52.6,
+          "ort_getiri_pct": 0.552
+        }
+      }
+    },
+    "KCHOL": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 512,
+          "isabet_pct": 53.7,
+          "ort_getiri_pct": 0.224
+        },
+        "t10": {
+          "adet": 509,
+          "isabet_pct": 52.8,
+          "ort_getiri_pct": 0.683
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 427,
+          "isabet_pct": 58.5,
+          "ort_getiri_pct": 1.496
+        },
+        "t10": {
+          "adet": 427,
+          "isabet_pct": 61.1,
+          "ort_getiri_pct": 2.697
+        }
+      }
+    },
+    "SAHOL": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 512,
+          "isabet_pct": 48.2,
+          "ort_getiri_pct": -0.518
+        },
+        "t10": {
+          "adet": 509,
+          "isabet_pct": 46.6,
+          "ort_getiri_pct": -0.164
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 427,
+          "isabet_pct": 63.2,
+          "ort_getiri_pct": 1.846
+        },
+        "t10": {
+          "adet": 427,
+          "isabet_pct": 67.2,
+          "ort_getiri_pct": 3.33
+        }
+      }
+    },
+    "ENKAI": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 512,
+          "isabet_pct": 53.5,
+          "ort_getiri_pct": 0.411
+        },
+        "t10": {
+          "adet": 509,
+          "isabet_pct": 55.4,
+          "ort_getiri_pct": 1.285
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 427,
+          "isabet_pct": 59.7,
+          "ort_getiri_pct": 1.328
+        },
+        "t10": {
+          "adet": 427,
+          "isabet_pct": 62.3,
+          "ort_getiri_pct": 2.404
+        }
+      }
+    },
+    "ASELS": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 778,
+          "isabet_pct": 55.7,
+          "ort_getiri_pct": 1.166
+        },
+        "t10": {
+          "adet": 778,
+          "isabet_pct": 57.2,
+          "ort_getiri_pct": 2.37
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 640,
+          "isabet_pct": 59.8,
+          "ort_getiri_pct": 1.257
+        },
+        "t10": {
+          "adet": 636,
+          "isabet_pct": 58.5,
+          "ort_getiri_pct": 2.76
+        }
+      }
+    },
+    "OTKAR": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 777,
+          "isabet_pct": 52.8,
+          "ort_getiri_pct": 0.751
+        },
+        "t10": {
+          "adet": 777,
+          "isabet_pct": 50.8,
+          "ort_getiri_pct": 1.009
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 640,
+          "isabet_pct": 54.8,
+          "ort_getiri_pct": 1.006
+        },
+        "t10": {
+          "adet": 636,
+          "isabet_pct": 58.0,
+          "ort_getiri_pct": 2.35
+        }
+      }
+    },
+    "TUPRS": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 646,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.992
+        },
+        "t10": {
+          "adet": 641,
+          "isabet_pct": 54.6,
+          "ort_getiri_pct": 1.989
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 838,
+          "isabet_pct": 54.4,
+          "ort_getiri_pct": 1.045
+        },
+        "t10": {
+          "adet": 838,
+          "isabet_pct": 57.5,
+          "ort_getiri_pct": 2.192
+        }
+      }
+    },
+    "PETKM": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 646,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.497
+        },
+        "t10": {
+          "adet": 641,
+          "isabet_pct": 52.9,
+          "ort_getiri_pct": 0.677
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 838,
+          "isabet_pct": 55.5,
+          "ort_getiri_pct": 0.996
+        },
+        "t10": {
+          "adet": 838,
+          "isabet_pct": 58.6,
+          "ort_getiri_pct": 2.049
+        }
+      }
+    },
+    "ENJSA": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 731,
+          "isabet_pct": 52.9,
+          "ort_getiri_pct": 0.666
+        },
+        "t10": {
+          "adet": 731,
+          "isabet_pct": 54.4,
+          "ort_getiri_pct": 1.219
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 632,
+          "isabet_pct": 60.3,
+          "ort_getiri_pct": 1.506
+        },
+        "t10": {
+          "adet": 627,
+          "isabet_pct": 66.5,
+          "ort_getiri_pct": 3.149
+        }
+      }
+    },
+    "AKSEN": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 731,
+          "isabet_pct": 56.5,
+          "ort_getiri_pct": 1.757
+        },
+        "t10": {
+          "adet": 731,
+          "isabet_pct": 62.2,
+          "ort_getiri_pct": 2.982
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 632,
+          "isabet_pct": 51.6,
+          "ort_getiri_pct": 0.501
+        },
+        "t10": {
+          "adet": 627,
+          "isabet_pct": 50.9,
+          "ort_getiri_pct": 1.16
+        }
+      }
+    },
+    "FROTO": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 772,
+          "isabet_pct": 52.6,
+          "ort_getiri_pct": 0.774
+        },
+        "t10": {
+          "adet": 770,
+          "isabet_pct": 58.1,
+          "ort_getiri_pct": 1.619
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 699,
+          "isabet_pct": 52.8,
+          "ort_getiri_pct": 0.832
+        },
+        "t10": {
+          "adet": 699,
+          "isabet_pct": 53.9,
+          "ort_getiri_pct": 1.382
+        }
+      }
+    },
+    "TOASO": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 771,
+          "isabet_pct": 56.9,
+          "ort_getiri_pct": 0.714
+        },
+        "t10": {
+          "adet": 769,
+          "isabet_pct": 61.4,
+          "ort_getiri_pct": 1.62
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 699,
+          "isabet_pct": 57.7,
+          "ort_getiri_pct": 1.219
+        },
+        "t10": {
+          "adet": 699,
+          "isabet_pct": 56.5,
+          "ort_getiri_pct": 2.227
+        }
+      }
+    },
+    "TCELL": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 650,
+          "isabet_pct": 54.6,
+          "ort_getiri_pct": 0.261
+        },
+        "t10": {
+          "adet": 650,
+          "isabet_pct": 54.8,
+          "ort_getiri_pct": 0.72
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 708,
+          "isabet_pct": 59.2,
+          "ort_getiri_pct": 1.272
+        },
+        "t10": {
+          "adet": 706,
+          "isabet_pct": 59.2,
+          "ort_getiri_pct": 2.045
+        }
+      }
+    },
+    "TTKOM": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 650,
+          "isabet_pct": 52.0,
+          "ort_getiri_pct": 0.57
+        },
+        "t10": {
+          "adet": 650,
+          "isabet_pct": 57.4,
+          "ort_getiri_pct": 1.352
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 708,
+          "isabet_pct": 56.9,
+          "ort_getiri_pct": 1.035
+        },
+        "t10": {
+          "adet": 706,
+          "isabet_pct": 55.4,
+          "ort_getiri_pct": 1.745
+        }
+      }
+    },
+    "THYAO": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 759,
+          "isabet_pct": 60.5,
+          "ort_getiri_pct": 1.698
+        },
+        "t10": {
+          "adet": 759,
+          "isabet_pct": 60.7,
+          "ort_getiri_pct": 2.921
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 736,
+          "isabet_pct": 53.8,
+          "ort_getiri_pct": 0.656
+        },
+        "t10": {
+          "adet": 733,
+          "isabet_pct": 52.5,
+          "ort_getiri_pct": 1.452
+        }
+      }
+    },
+    "TAVHL": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 759,
+          "isabet_pct": 53.8,
+          "ort_getiri_pct": 1.128
+        },
+        "t10": {
+          "adet": 759,
+          "isabet_pct": 55.3,
+          "ort_getiri_pct": 1.696
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 736,
+          "isabet_pct": 54.9,
+          "ort_getiri_pct": 1.021
+        },
+        "t10": {
+          "adet": 733,
+          "isabet_pct": 56.6,
+          "ort_getiri_pct": 1.861
+        }
+      }
+    },
+    "BIMAS": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 664,
+          "isabet_pct": 56.2,
+          "ort_getiri_pct": 0.877
+        },
+        "t10": {
+          "adet": 664,
+          "isabet_pct": 59.8,
+          "ort_getiri_pct": 1.796
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 690,
+          "isabet_pct": 62.5,
+          "ort_getiri_pct": 1.266
+        },
+        "t10": {
+          "adet": 689,
+          "isabet_pct": 64.0,
+          "ort_getiri_pct": 2.36
+        }
+      }
+    },
+    "MGROS": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 661,
+          "isabet_pct": 58.9,
+          "ort_getiri_pct": 1.422
+        },
+        "t10": {
+          "adet": 661,
+          "isabet_pct": 64.1,
+          "ort_getiri_pct": 2.831
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 690,
+          "isabet_pct": 54.8,
+          "ort_getiri_pct": 0.825
+        },
+        "t10": {
+          "adet": 689,
+          "isabet_pct": 54.1,
+          "ort_getiri_pct": 1.789
+        }
+      }
+    },
+    "ULKER": {
+      "guclu_sektor": {
+        "t5": {
+          "adet": 661,
+          "isabet_pct": 52.5,
+          "ort_getiri_pct": 0.936
+        },
+        "t10": {
+          "adet": 661,
+          "isabet_pct": 56.9,
+          "ort_getiri_pct": 2.315
+        }
+      },
+      "zayif_sektor": {
+        "t5": {
+          "adet": 690,
+          "isabet_pct": 51.3,
+          "ort_getiri_pct": 0.62
+        },
+        "t10": {
+          "adet": 689,
+          "isabet_pct": 53.6,
+          "ort_getiri_pct": 1.23
+        }
+      }
+    }
+  }
+}
