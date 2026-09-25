@@ -1,0 +1,39 @@
+# DEVRE KESICI SONRASI DAVRANIS TESTI (25.09.2026)
+# Konum: .github/workflows/devre_kesici_sonrasi_test.yml
+# ELLE tetiklenir - SALT OLCUM. Pine'a dokunmaz.
+# ON KOSUL: kgs_gunluk_port.py depoda olmali (import ediyor).
+name: Devre Kesici Sonrasi Testi
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  devre-kesici-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy
+      - name: On kosul - kgs_gunluk_port.py depoda mi
+        run: |
+          test -f kgs_gunluk_port.py || { echo "HATA: kgs_gunluk_port.py depoda yok"; exit 1; }
+      - name: Testi calistir
+        run: python devre_kesici_sonrasi_test.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "devre-kesici-test-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/backtest/devre_kesici_sonrasi_sonuc.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Devre kesici sonrasi testi sonucu $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili ($i)"; exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
