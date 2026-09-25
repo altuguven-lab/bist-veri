@@ -951,3 +951,46 @@ birlestirilip (gercek rejim mantigiyla, bu testteki basitlestirilmis
 XU100/EMA60 vekili degil) ileride bir MANTIK onerisine donusturulebilir
 - ama bu, ayri bir B1-capinda proje, bugun yapilmadi.
 ```
+
+---
+
+## Dört Ek Test — Sektör Momentumu, Devre Kesici, Gap, 52-Hafta Zirve (25.09.2026)
+
+```
+25.09.2026: "En onemliden baslayarak hepsini yap" talebiyle dort test
+yapildi.
+
+[A] SEKTOR MOMENTUMU: IP-8'in temel onermesi (guclu sektoru al) test
+edildi - DESTEKLENMEDI. T+10: zayif sektor (%57,4/1,843) guclu
+sektorden (%55,4/1,581) daha iyi. Sembol tutarliligi %33,3 (sembolerin
+%66,7'sinde zayif sektor daha iyi) - rastgele degil, tutarli bir
+ters-yon sinyali.
+
+[B] DEVRE KESICI SONRASI (448 olay, esik <=-%8 gunluk degisim vekili):
+Ilk hafta (T+1 ila T+5) zayiflik DEVAM ediyor (T+5 isabet %48,9, kosulsuz
+ortalamanin ALTINDA). T+10'da GUCLU toparlanma (%58,7 isabet, 2,636%
+getiri) - kosulsuz ortalamayi GECIYOR. PRATIK: sert dususun hemen
+ardindan degil, ~2 hafta sonrasina odaklanmak daha dogru olabilir.
+
+[C] ACILIS GAP'I SONRASI: Gap-yukari gunlerin %53,8'i GUN ICI tersine
+donuyor (fade) - kovalamamak mantikli. Ama COK-GUNLU ileri getiride
+gap-yukari (T10: %56,2/1,684) gap-asagidan (T10: %55,5/1,462) TUTARLI
+sekilde daha iyi.
+
+[D] 52-HAFTALIK ZIRVEYE YAKINLIK: George&Hwang'in ABD bulgusunun TERSI
+cikti - zirveden uzak (%61,4/3,002) zirveye yakindan (%56,0/1,954) DAHA
+IYI. Sembol tutarliligi %36,7.
+
+ONEMLI META-BULGU: [A] ve [D] BIRLIKTE, BIST'in yakin donemde (fon
+tasfiye krizi) "guc/zirve yakinligi" sinyallerinin BEKLENENIN TERSINE
+calistigini gosteriyor - guclu/popular pozisyonlar zorunlu-satis
+riskine daha acik olabilir. Bu, onceki dip-vs-kovalama testinin
+60-gunluk bulgusuyla (uzun vadede mean-reversion baskin) VE rejim-
+kosullu bulgusuyla (RISK-OFF'ta dip cok guclu) AYNI TEMAYI destekliyor.
+
+KARAR: Kod degisikligi degil - dorduncusu de DOGRULAYICI/YOL GOSTERICI
+bulgular. En degerli aday sonraki adim: bu "momentum-karsiti" temanin
+KRIZE OZGU mu yoksa BIST'in genel yapisal bir ozelligi mi oldugunu
+ayirt etmek icin REJIM-KOSULLU tekrar (RISK-ON doneminde de [A]/[D]
+gecerli mi?).
+```
