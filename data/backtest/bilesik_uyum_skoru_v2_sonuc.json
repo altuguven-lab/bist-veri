@@ -1,0 +1,313 @@
+{
+  "calisma": "Bilesik Uyum Skoru v2 - KGS Kalite Kontrollu",
+  "uretim_zamani_utc": "2026-09-25T11:56:23.332991+00:00",
+  "guncel_rejim": "RISK_OFF",
+  "kullanilan_agirliklar": {
+    "zirve52h_uzakligi": 0.65,
+    "sektor_zayifligi": 0.35
+  },
+  "v1den_degisiklik": "60-gunluk getiri bileseni KALDIRILDI (52-hafta zirve ile asiri korelasyonlu oldugu icin - kullanicinin dogru gozlemi). KGS kalite kontrolu EKLENDI - fiyat zayifligina ragmen KGS COK dusukse (<40) ayri bir uyari bayragi kaldiriliyor, 'saglikli dip' ile 'gercekten bozulan hisse' ayirt edilmeye calisiliyor.",
+  "durustluk_notu": "Bu BIR BACKTEST DEGIL - tarama. KGS esigi (40) sezgisel, ayrica optimize edilmedi. Kompozit skorun kendisi ileri-getiri testine AYRICA tabi tutulmadi.",
+  "siralama_en_yuksek_uyumdan": [
+    {
+      "sembol": "PGSUS",
+      "sektor": null,
+      "guncel_fiyat": 146.8,
+      "zirve52h_uzaklik_pct": 35.53,
+      "sektor_guc_percentile": null,
+      "kgs_bugun": null,
+      "bilesik_uyum_skoru": 100.0,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "ASTOR",
+      "sektor": null,
+      "guncel_fiyat": 257.0,
+      "zirve52h_uzaklik_pct": 33.38,
+      "sektor_guc_percentile": null,
+      "kgs_bugun": null,
+      "bilesik_uyum_skoru": 100.0,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "OTKAR",
+      "sektor": "Savunma",
+      "guncel_fiyat": 304.25,
+      "zirve52h_uzaklik_pct": 43.66,
+      "sektor_guc_percentile": 12.5,
+      "kgs_bugun": 5.0,
+      "bilesik_uyum_skoru": 95.6,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ULKER",
+      "sektor": "Tuketim",
+      "guncel_fiyat": 87.7,
+      "zirve52h_uzaklik_pct": 34.92,
+      "sektor_guc_percentile": 37.5,
+      "kgs_bugun": 22.0,
+      "bilesik_uyum_skoru": 86.9,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "EKGYO",
+      "sektor": null,
+      "guncel_fiyat": 19.26,
+      "zirve52h_uzaklik_pct": 26.95,
+      "sektor_guc_percentile": null,
+      "kgs_bugun": null,
+      "bilesik_uyum_skoru": 80.8,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "SISE",
+      "sektor": null,
+      "guncel_fiyat": 39.18,
+      "zirve52h_uzaklik_pct": 26.64,
+      "sektor_guc_percentile": null,
+      "kgs_bugun": null,
+      "bilesik_uyum_skoru": 79.9,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "TAVHL",
+      "sektor": "Ulastirma",
+      "guncel_fiyat": 272.25,
+      "zirve52h_uzaklik_pct": 25.24,
+      "sektor_guc_percentile": 25.0,
+      "kgs_bugun": 29.0,
+      "bilesik_uyum_skoru": 75.5,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "MGROS",
+      "sektor": "Tuketim",
+      "guncel_fiyat": 530.0,
+      "zirve52h_uzaklik_pct": 27.1,
+      "sektor_guc_percentile": 37.5,
+      "kgs_bugun": 25.0,
+      "bilesik_uyum_skoru": 74.7,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "FROTO",
+      "sektor": "Otomotiv",
+      "guncel_fiyat": 77.55,
+      "zirve52h_uzaklik_pct": 40.76,
+      "sektor_guc_percentile": 87.5,
+      "kgs_bugun": 33.0,
+      "bilesik_uyum_skoru": 69.4,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ENJSA",
+      "sektor": "EnerjiUretim",
+      "guncel_fiyat": 107.7,
+      "zirve52h_uzaklik_pct": 15.79,
+      "sektor_guc_percentile": 0.0,
+      "kgs_bugun": 22.0,
+      "bilesik_uyum_skoru": 65.8,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ASELS",
+      "sektor": "Savunma",
+      "guncel_fiyat": 371.5,
+      "zirve52h_uzaklik_pct": 17.44,
+      "sektor_guc_percentile": 12.5,
+      "kgs_bugun": 18.0,
+      "bilesik_uyum_skoru": 64.6,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ENKAI",
+      "sektor": "Holding",
+      "guncel_fiyat": 87.2,
+      "zirve52h_uzaklik_pct": 23.71,
+      "sektor_guc_percentile": 50.0,
+      "kgs_bugun": 41.0,
+      "bilesik_uyum_skoru": 63.7,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "TTKOM",
+      "sektor": "Telekom",
+      "guncel_fiyat": 54.5,
+      "zirve52h_uzaklik_pct": 27.96,
+      "sektor_guc_percentile": 75.0,
+      "kgs_bugun": 43.0,
+      "bilesik_uyum_skoru": 63.3,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "ISCTR",
+      "sektor": "Banka",
+      "guncel_fiyat": 13.09,
+      "zirve52h_uzaklik_pct": 25.05,
+      "sektor_guc_percentile": 62.5,
+      "kgs_bugun": 17.0,
+      "bilesik_uyum_skoru": 62.0,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "THYAO",
+      "sektor": "Ulastirma",
+      "guncel_fiyat": 291.25,
+      "zirve52h_uzaklik_pct": 18.07,
+      "sektor_guc_percentile": 25.0,
+      "kgs_bugun": 16.0,
+      "bilesik_uyum_skoru": 61.5,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "SAHOL",
+      "sektor": "Holding",
+      "guncel_fiyat": 88.7,
+      "zirve52h_uzaklik_pct": 21.63,
+      "sektor_guc_percentile": 50.0,
+      "kgs_bugun": 15.0,
+      "bilesik_uyum_skoru": 59.7,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "TRMET",
+      "sektor": null,
+      "guncel_fiyat": 140.3,
+      "zirve52h_uzaklik_pct": 19.46,
+      "sektor_guc_percentile": null,
+      "kgs_bugun": null,
+      "bilesik_uyum_skoru": 58.4,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "AEFES",
+      "sektor": null,
+      "guncel_fiyat": 18.73,
+      "zirve52h_uzaklik_pct": 18.87,
+      "sektor_guc_percentile": null,
+      "kgs_bugun": null,
+      "bilesik_uyum_skoru": 56.6,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "AKBNK",
+      "sektor": "Banka",
+      "guncel_fiyat": 71.05,
+      "zirve52h_uzaklik_pct": 21.58,
+      "sektor_guc_percentile": 62.5,
+      "kgs_bugun": 30.0,
+      "bilesik_uyum_skoru": 55.2,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "VAKBN",
+      "sektor": "Banka",
+      "guncel_fiyat": 33.92,
+      "zirve52h_uzaklik_pct": 21.23,
+      "sektor_guc_percentile": 62.5,
+      "kgs_bugun": 49.0,
+      "bilesik_uyum_skoru": 54.5,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "GARAN",
+      "sektor": "Banka",
+      "guncel_fiyat": 130.3,
+      "zirve52h_uzaklik_pct": 20.11,
+      "sektor_guc_percentile": 62.5,
+      "kgs_bugun": 8.0,
+      "bilesik_uyum_skoru": 52.3,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "YKBNK",
+      "sektor": "Banka",
+      "guncel_fiyat": 35.84,
+      "zirve52h_uzaklik_pct": 19.46,
+      "sektor_guc_percentile": 62.5,
+      "kgs_bugun": 33.0,
+      "bilesik_uyum_skoru": 51.1,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "PETKM",
+      "sektor": "Rafineri",
+      "guncel_fiyat": 20.98,
+      "zirve52h_uzaklik_pct": 25.23,
+      "sektor_guc_percentile": 100.0,
+      "kgs_bugun": 30.0,
+      "bilesik_uyum_skoru": 49.2,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "EREGL",
+      "sektor": null,
+      "guncel_fiyat": 37.92,
+      "zirve52h_uzaklik_pct": 15.92,
+      "sektor_guc_percentile": null,
+      "kgs_bugun": null,
+      "bilesik_uyum_skoru": 47.8,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "HALKB",
+      "sektor": "Banka",
+      "guncel_fiyat": 44.8,
+      "zirve52h_uzaklik_pct": 17.57,
+      "sektor_guc_percentile": 62.5,
+      "kgs_bugun": 30.0,
+      "bilesik_uyum_skoru": 47.4,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "TOASO",
+      "sektor": "Otomotiv",
+      "guncel_fiyat": 289.0,
+      "zirve52h_uzaklik_pct": 19.33,
+      "sektor_guc_percentile": 87.5,
+      "kgs_bugun": 74.0,
+      "bilesik_uyum_skoru": 42.1,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "ALARK",
+      "sektor": null,
+      "guncel_fiyat": 105.4,
+      "zirve52h_uzaklik_pct": 12.09,
+      "sektor_guc_percentile": null,
+      "kgs_bugun": null,
+      "bilesik_uyum_skoru": 36.3,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "KCHOL",
+      "sektor": "Holding",
+      "guncel_fiyat": 217.9,
+      "zirve52h_uzaklik_pct": 6.28,
+      "sektor_guc_percentile": 50.0,
+      "kgs_bugun": 47.0,
+      "bilesik_uyum_skoru": 29.7,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "BIMAS",
+      "sektor": "Tuketim",
+      "guncel_fiyat": 429.5,
+      "zirve52h_uzaklik_pct": 3.1,
+      "sektor_guc_percentile": 37.5,
+      "kgs_bugun": 70.0,
+      "bilesik_uyum_skoru": 27.9,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "TUPRS",
+      "sektor": "Rafineri",
+      "guncel_fiyat": 406.5,
+      "zirve52h_uzaklik_pct": 4.18,
+      "sektor_guc_percentile": 100.0,
+      "kgs_bugun": 34.0,
+      "bilesik_uyum_skoru": 8.2,
+      "KGS_DUSUK_UYARI": true
+    }
+  ]
+}
