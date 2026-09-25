@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-25T08:45:12.110Z",
+  "son_guncelleme_utc": "2026-09-25T09:00:11.006Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 295
+    "adet": 296
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-25T08:45:08.185Z",
-    "sembol": "TOASO",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-09-25T09:00:07.985Z",
+    "sembol": "BIMAS",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "286.00",
-    "skor": "10.72",
-    "kgs": "36",
-    "stop": "283",
+    "fiyat": "427.25",
+    "skor": "14",
+    "kgs": "52",
+    "stop": "435.25",
     "rejim": "0",
-    "relvol": "0.63",
+    "relvol": "0.59",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "400032",
+    "p3ozet": "1500032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TOASO|15|P4_HAZIRLIK|2026-09-25T08:30:00Z",
+    "eventId": "BIMAS|15|SEKTOR_ROTASYONU|2026-09-25T08:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-25T09:00:07.985Z",
+      "sembol": "BIMAS",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "427.25",
+      "skor": "14",
+      "kgs": "52",
+      "stop": "435.25",
+      "rejim": "0",
+      "relvol": "0.59",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "1500032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "BIMAS|15|SEKTOR_ROTASYONU|2026-09-25T08:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-25T08:45:08.185Z",
       "sembol": "TOASO",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ALARK|15|P4_HAZIRLIK|2026-09-23T13:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-23T13:30:32.951Z",
-      "sembol": "THYAO",
-      "sinyal": "P3_SKOR_AL",
-      "interval": "15",
-      "fiyat": "302.00",
-      "skor": "39.6",
-      "kgs": "71",
-      "stop": "300",
-      "rejim": "2",
-      "relvol": "0.92",
-      "v112n": "27",
-      "v112wr": "?",
-      "p3ozet": "6902032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "THYAO|15|P3_SKOR_AL|2026-09-23T13:15:00Z",
       "carrierLagBars": "1"
     }
   ]
