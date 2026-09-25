@@ -1,0 +1,1488 @@
+{
+  "calisma": "Devre Kesici (Sert Dusus) Sonrasi Davranis Testi",
+  "uretim_zamani_utc": "2026-09-25T10:43:19.080382+00:00",
+  "durustluk_notu": "GUNLUK BAR yaklasikligi - gercek intraday devre kesici tetiklenmesini BIREBIR YAKALAMIYOR, gunluk degisim <= -%8 bir VEKIL olarak kullanildi.",
+  "sert_dusus_esigi_pct": -8.0,
+  "genel": {
+    "sert_dusus_sonrasi": {
+      "t1": {
+        "adet": 448,
+        "isabet_pct": 51.6,
+        "ort_getiri_pct": -0.166
+      },
+      "t3": {
+        "adet": 448,
+        "isabet_pct": 52.2,
+        "ort_getiri_pct": -0.561
+      },
+      "t5": {
+        "adet": 448,
+        "isabet_pct": 48.9,
+        "ort_getiri_pct": -0.481
+      },
+      "t10": {
+        "adet": 441,
+        "isabet_pct": 58.7,
+        "ort_getiri_pct": 2.636
+      }
+    },
+    "kosulsuz_ortalama": {
+      "t1": {
+        "adet": 61798,
+        "isabet_pct": 49.9,
+        "ort_getiri_pct": 0.175
+      },
+      "t3": {
+        "adet": 61738,
+        "isabet_pct": 53.1,
+        "ort_getiri_pct": 0.532
+      },
+      "t5": {
+        "adet": 61678,
+        "isabet_pct": 54.8,
+        "ort_getiri_pct": 0.894
+      },
+      "t10": {
+        "adet": 61528,
+        "isabet_pct": 56.6,
+        "ort_getiri_pct": 1.807
+      }
+    }
+  },
+  "toparlanma_lehine_sembol_orani_T5": 30.0,
+  "toplam_sert_dusus_olayi": 448,
+  "en_son_10_ornek": [
+    {
+      "sembol": "ENKAI",
+      "tarih": "2026-08-17",
+      "degisim_pct": -8.56
+    },
+    {
+      "sembol": "HALKB",
+      "tarih": "2026-08-31",
+      "degisim_pct": -8.5
+    },
+    {
+      "sembol": "HALKB",
+      "tarih": "2026-09-07",
+      "degisim_pct": -8.15
+    },
+    {
+      "sembol": "ISCTR",
+      "tarih": "2026-09-16",
+      "degisim_pct": -8.53
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2026-09-16",
+      "degisim_pct": -8.91
+    },
+    {
+      "sembol": "TTKOM",
+      "tarih": "2026-09-16",
+      "degisim_pct": -9.13
+    },
+    {
+      "sembol": "EREGL",
+      "tarih": "2026-09-16",
+      "degisim_pct": -9.1
+    },
+    {
+      "sembol": "SISE",
+      "tarih": "2026-09-16",
+      "degisim_pct": -9.86
+    },
+    {
+      "sembol": "ASTOR",
+      "tarih": "2026-09-16",
+      "degisim_pct": -9.83
+    },
+    {
+      "sembol": "EKGYO",
+      "tarih": "2026-09-16",
+      "degisim_pct": -8.08
+    }
+  ],
+  "sembol_bazli": {
+    "AKBNK": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 22,
+          "isabet_pct": 40.9,
+          "ort_getiri_pct": -2.507
+        },
+        "t3": {
+          "adet": 22,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -3.395
+        },
+        "t5": {
+          "adet": 22,
+          "isabet_pct": 40.9,
+          "ort_getiri_pct": -4.888
+        },
+        "t10": {
+          "adet": 22,
+          "isabet_pct": 45.5,
+          "ort_getiri_pct": -2.703
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 48.5,
+          "ort_getiri_pct": 0.164
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.508
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 0.859
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 56.6,
+          "ort_getiri_pct": 1.726
+        }
+      }
+    },
+    "YKBNK": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 18,
+          "isabet_pct": 44.4,
+          "ort_getiri_pct": -2.499
+        },
+        "t3": {
+          "adet": 18,
+          "isabet_pct": 38.9,
+          "ort_getiri_pct": -2.921
+        },
+        "t5": {
+          "adet": 18,
+          "isabet_pct": 38.9,
+          "ort_getiri_pct": -3.532
+        },
+        "t10": {
+          "adet": 18,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -0.056
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 48.4,
+          "ort_getiri_pct": 0.175
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.54
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 0.907
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 55.2,
+          "ort_getiri_pct": 1.842
+        }
+      }
+    },
+    "GARAN": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 18,
+          "isabet_pct": 44.4,
+          "ort_getiri_pct": -2.903
+        },
+        "t3": {
+          "adet": 18,
+          "isabet_pct": 22.2,
+          "ort_getiri_pct": -6.397
+        },
+        "t5": {
+          "adet": 18,
+          "isabet_pct": 27.8,
+          "ort_getiri_pct": -6.997
+        },
+        "t10": {
+          "adet": 18,
+          "isabet_pct": 38.9,
+          "ort_getiri_pct": -3.518
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 48.8,
+          "ort_getiri_pct": 0.179
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 53.1,
+          "ort_getiri_pct": 0.548
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 55.4,
+          "ort_getiri_pct": 0.915
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 58.0,
+          "ort_getiri_pct": 1.828
+        }
+      }
+    },
+    "ISCTR": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 17,
+          "isabet_pct": 35.3,
+          "ort_getiri_pct": -3.16
+        },
+        "t3": {
+          "adet": 17,
+          "isabet_pct": 35.3,
+          "ort_getiri_pct": -5.032
+        },
+        "t5": {
+          "adet": 17,
+          "isabet_pct": 23.5,
+          "ort_getiri_pct": -6.698
+        },
+        "t10": {
+          "adet": 16,
+          "isabet_pct": 37.5,
+          "ort_getiri_pct": -3.893
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 49.7,
+          "ort_getiri_pct": 0.168
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 51.7,
+          "ort_getiri_pct": 0.525
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.8,
+          "ort_getiri_pct": 0.889
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 56.7,
+          "ort_getiri_pct": 1.799
+        }
+      }
+    },
+    "HALKB": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 24,
+          "isabet_pct": 41.7,
+          "ort_getiri_pct": -1.642
+        },
+        "t3": {
+          "adet": 24,
+          "isabet_pct": 54.2,
+          "ort_getiri_pct": -2.057
+        },
+        "t5": {
+          "adet": 24,
+          "isabet_pct": 41.7,
+          "ort_getiri_pct": -3.338
+        },
+        "t10": {
+          "adet": 24,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -3.875
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 48.2,
+          "ort_getiri_pct": 0.13
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 51.6,
+          "ort_getiri_pct": 0.413
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 52.0,
+          "ort_getiri_pct": 0.704
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 54.1,
+          "ort_getiri_pct": 1.463
+        }
+      }
+    },
+    "VAKBN": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 18,
+          "isabet_pct": 38.9,
+          "ort_getiri_pct": -2.572
+        },
+        "t3": {
+          "adet": 18,
+          "isabet_pct": 38.9,
+          "ort_getiri_pct": -5.149
+        },
+        "t5": {
+          "adet": 18,
+          "isabet_pct": 38.9,
+          "ort_getiri_pct": -4.959
+        },
+        "t10": {
+          "adet": 17,
+          "isabet_pct": 41.2,
+          "ort_getiri_pct": -7.403
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 48.8,
+          "ort_getiri_pct": 0.13
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 51.1,
+          "ort_getiri_pct": 0.411
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 53.7,
+          "ort_getiri_pct": 0.709
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 54.4,
+          "ort_getiri_pct": 1.501
+        }
+      }
+    },
+    "KCHOL": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 10,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -1.185
+        },
+        "t3": {
+          "adet": 10,
+          "isabet_pct": 30.0,
+          "ort_getiri_pct": -2.79
+        },
+        "t5": {
+          "adet": 10,
+          "isabet_pct": 30.0,
+          "ort_getiri_pct": -2.67
+        },
+        "t10": {
+          "adet": 10,
+          "isabet_pct": 40.0,
+          "ort_getiri_pct": 0.112
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.169
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 53.5,
+          "ort_getiri_pct": 0.513
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 56.1,
+          "ort_getiri_pct": 0.862
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 56.7,
+          "ort_getiri_pct": 1.726
+        }
+      }
+    },
+    "SAHOL": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 9,
+          "isabet_pct": 33.3,
+          "ort_getiri_pct": -0.695
+        },
+        "t3": {
+          "adet": 9,
+          "isabet_pct": 44.4,
+          "ort_getiri_pct": -2.126
+        },
+        "t5": {
+          "adet": 9,
+          "isabet_pct": 33.3,
+          "ort_getiri_pct": -1.924
+        },
+        "t10": {
+          "adet": 9,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 0.439
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 50.1,
+          "ort_getiri_pct": 0.151
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 53.5,
+          "ort_getiri_pct": 0.458
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 55.8,
+          "ort_getiri_pct": 0.768
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 56.9,
+          "ort_getiri_pct": 1.538
+        }
+      }
+    },
+    "BIMAS": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 7,
+          "isabet_pct": 42.9,
+          "ort_getiri_pct": -1.299
+        },
+        "t3": {
+          "adet": 7,
+          "isabet_pct": 28.6,
+          "ort_getiri_pct": -2.495
+        },
+        "t5": {
+          "adet": 7,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": -1.758
+        },
+        "t10": {
+          "adet": 7,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": -1.193
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2102,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.191
+        },
+        "t3": {
+          "adet": 2100,
+          "isabet_pct": 55.3,
+          "ort_getiri_pct": 0.576
+        },
+        "t5": {
+          "adet": 2098,
+          "isabet_pct": 58.1,
+          "ort_getiri_pct": 0.961
+        },
+        "t10": {
+          "adet": 2093,
+          "isabet_pct": 60.5,
+          "ort_getiri_pct": 1.903
+        }
+      }
+    },
+    "MGROS": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 14,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 0.491
+        },
+        "t3": {
+          "adet": 14,
+          "isabet_pct": 71.4,
+          "ort_getiri_pct": 1.234
+        },
+        "t5": {
+          "adet": 14,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 2.106
+        },
+        "t10": {
+          "adet": 14,
+          "isabet_pct": 64.3,
+          "ort_getiri_pct": 5.38
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 51.4,
+          "ort_getiri_pct": 0.191
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 54.8,
+          "ort_getiri_pct": 0.578
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 56.6,
+          "ort_getiri_pct": 0.971
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 58.0,
+          "ort_getiri_pct": 1.958
+        }
+      }
+    },
+    "ASELS": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 14,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 2.258
+        },
+        "t3": {
+          "adet": 14,
+          "isabet_pct": 71.4,
+          "ort_getiri_pct": 5.254
+        },
+        "t5": {
+          "adet": 14,
+          "isabet_pct": 64.3,
+          "ort_getiri_pct": 4.221
+        },
+        "t10": {
+          "adet": 14,
+          "isabet_pct": 78.6,
+          "ort_getiri_pct": 6.683
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 50.3,
+          "ort_getiri_pct": 0.237
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 0.706
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 57.2,
+          "ort_getiri_pct": 1.186
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 57.2,
+          "ort_getiri_pct": 2.419
+        }
+      }
+    },
+    "THYAO": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 10,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 2.098
+        },
+        "t3": {
+          "adet": 10,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 1.752
+        },
+        "t5": {
+          "adet": 10,
+          "isabet_pct": 60.0,
+          "ort_getiri_pct": 2.19
+        },
+        "t10": {
+          "adet": 10,
+          "isabet_pct": 80.0,
+          "ort_getiri_pct": 8.85
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 49.1,
+          "ort_getiri_pct": 0.171
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 53.0,
+          "ort_getiri_pct": 0.519
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.7,
+          "ort_getiri_pct": 0.877
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 55.6,
+          "ort_getiri_pct": 1.824
+        }
+      }
+    },
+    "PGSUS": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 20,
+          "isabet_pct": 65.0,
+          "ort_getiri_pct": 1.162
+        },
+        "t3": {
+          "adet": 20,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -0.509
+        },
+        "t5": {
+          "adet": 20,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -0.032
+        },
+        "t10": {
+          "adet": 20,
+          "isabet_pct": 70.0,
+          "ort_getiri_pct": 11.486
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2100,
+          "isabet_pct": 49.6,
+          "ort_getiri_pct": 0.203
+        },
+        "t3": {
+          "adet": 2098,
+          "isabet_pct": 52.4,
+          "ort_getiri_pct": 0.628
+        },
+        "t5": {
+          "adet": 2096,
+          "isabet_pct": 52.2,
+          "ort_getiri_pct": 1.064
+        },
+        "t10": {
+          "adet": 2091,
+          "isabet_pct": 53.8,
+          "ort_getiri_pct": 2.2
+        }
+      }
+    },
+    "TAVHL": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 9,
+          "isabet_pct": 44.4,
+          "ort_getiri_pct": -0.583
+        },
+        "t3": {
+          "adet": 9,
+          "isabet_pct": 44.4,
+          "ort_getiri_pct": 1.207
+        },
+        "t5": {
+          "adet": 9,
+          "isabet_pct": 44.4,
+          "ort_getiri_pct": 1.61
+        },
+        "t10": {
+          "adet": 9,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 5.667
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 50.9,
+          "ort_getiri_pct": 0.163
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 52.6,
+          "ort_getiri_pct": 0.498
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 53.0,
+          "ort_getiri_pct": 0.832
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 56.1,
+          "ort_getiri_pct": 1.68
+        }
+      }
+    },
+    "TTKOM": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 15,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 1.868
+        },
+        "t3": {
+          "adet": 15,
+          "isabet_pct": 60.0,
+          "ort_getiri_pct": 1.436
+        },
+        "t5": {
+          "adet": 15,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 2.697
+        },
+        "t10": {
+          "adet": 14,
+          "isabet_pct": 71.4,
+          "ort_getiri_pct": 4.402
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 50.9,
+          "ort_getiri_pct": 0.156
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 53.2,
+          "ort_getiri_pct": 0.471
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.6,
+          "ort_getiri_pct": 0.786
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 1.57
+        }
+      }
+    },
+    "EREGL": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 12,
+          "isabet_pct": 75.0,
+          "ort_getiri_pct": 1.583
+        },
+        "t3": {
+          "adet": 12,
+          "isabet_pct": 75.0,
+          "ort_getiri_pct": 2.043
+        },
+        "t5": {
+          "adet": 12,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 3.396
+        },
+        "t10": {
+          "adet": 11,
+          "isabet_pct": 45.5,
+          "ort_getiri_pct": 3.506
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2100,
+          "isabet_pct": 49.1,
+          "ort_getiri_pct": 0.144
+        },
+        "t3": {
+          "adet": 2098,
+          "isabet_pct": 52.5,
+          "ort_getiri_pct": 0.43
+        },
+        "t5": {
+          "adet": 2096,
+          "isabet_pct": 54.4,
+          "ort_getiri_pct": 0.717
+        },
+        "t10": {
+          "adet": 2091,
+          "isabet_pct": 55.8,
+          "ort_getiri_pct": 1.438
+        }
+      }
+    },
+    "SISE": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 11,
+          "isabet_pct": 72.7,
+          "ort_getiri_pct": 1.165
+        },
+        "t3": {
+          "adet": 11,
+          "isabet_pct": 72.7,
+          "ort_getiri_pct": 1.861
+        },
+        "t5": {
+          "adet": 11,
+          "isabet_pct": 72.7,
+          "ort_getiri_pct": 2.958
+        },
+        "t10": {
+          "adet": 10,
+          "isabet_pct": 80.0,
+          "ort_getiri_pct": 5.982
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 49.4,
+          "ort_getiri_pct": 0.145
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 52.5,
+          "ort_getiri_pct": 0.435
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.1,
+          "ort_getiri_pct": 0.725
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 1.445
+        }
+      }
+    },
+    "TRMET": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 22,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 0.865
+        },
+        "t3": {
+          "adet": 22,
+          "isabet_pct": 59.1,
+          "ort_getiri_pct": 1.166
+        },
+        "t5": {
+          "adet": 22,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 0.427
+        },
+        "t10": {
+          "adet": 22,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 3.848
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.184
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 53.9,
+          "ort_getiri_pct": 0.556
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.6,
+          "ort_getiri_pct": 0.939
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 56.5,
+          "ort_getiri_pct": 1.905
+        }
+      }
+    },
+    "TUPRS": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 10,
+          "isabet_pct": 40.0,
+          "ort_getiri_pct": -1.334
+        },
+        "t3": {
+          "adet": 10,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 0.057
+        },
+        "t5": {
+          "adet": 10,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -0.624
+        },
+        "t10": {
+          "adet": 10,
+          "isabet_pct": 60.0,
+          "ort_getiri_pct": 4.122
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 49.9,
+          "ort_getiri_pct": 0.214
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 53.1,
+          "ort_getiri_pct": 0.648
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.2,
+          "ort_getiri_pct": 1.08
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 56.6,
+          "ort_getiri_pct": 2.179
+        }
+      }
+    },
+    "PETKM": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 20,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 0.378
+        },
+        "t3": {
+          "adet": 20,
+          "isabet_pct": 55.0,
+          "ort_getiri_pct": -0.124
+        },
+        "t5": {
+          "adet": 20,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 0.252
+        },
+        "t10": {
+          "adet": 20,
+          "isabet_pct": 55.0,
+          "ort_getiri_pct": 2.74
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 49.9,
+          "ort_getiri_pct": 0.134
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 52.2,
+          "ort_getiri_pct": 0.415
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.2,
+          "ort_getiri_pct": 0.695
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 55.0,
+          "ort_getiri_pct": 1.39
+        }
+      }
+    },
+    "ASTOR": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 13,
+          "isabet_pct": 61.5,
+          "ort_getiri_pct": 3.601
+        },
+        "t3": {
+          "adet": 13,
+          "isabet_pct": 61.5,
+          "ort_getiri_pct": 3.911
+        },
+        "t5": {
+          "adet": 13,
+          "isabet_pct": 69.2,
+          "ort_getiri_pct": 6.231
+        },
+        "t10": {
+          "adet": 12,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 7.205
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 922,
+          "isabet_pct": 49.6,
+          "ort_getiri_pct": 0.389
+        },
+        "t3": {
+          "adet": 920,
+          "isabet_pct": 52.0,
+          "ort_getiri_pct": 1.175
+        },
+        "t5": {
+          "adet": 918,
+          "isabet_pct": 53.8,
+          "ort_getiri_pct": 1.951
+        },
+        "t10": {
+          "adet": 913,
+          "isabet_pct": 56.6,
+          "ort_getiri_pct": 3.75
+        }
+      }
+    },
+    "ENJSA": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 12,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 2.355
+        },
+        "t3": {
+          "adet": 12,
+          "isabet_pct": 66.7,
+          "ort_getiri_pct": 3.026
+        },
+        "t5": {
+          "adet": 12,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 2.844
+        },
+        "t10": {
+          "adet": 12,
+          "isabet_pct": 83.3,
+          "ort_getiri_pct": 8.24
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 51.1,
+          "ort_getiri_pct": 0.187
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 55.2,
+          "ort_getiri_pct": 0.558
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 56.2,
+          "ort_getiri_pct": 0.932
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 58.6,
+          "ort_getiri_pct": 1.869
+        }
+      }
+    },
+    "ENKAI": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 9,
+          "isabet_pct": 55.6,
+          "ort_getiri_pct": 1.423
+        },
+        "t3": {
+          "adet": 9,
+          "isabet_pct": 77.8,
+          "ort_getiri_pct": 2.882
+        },
+        "t5": {
+          "adet": 9,
+          "isabet_pct": 77.8,
+          "ort_getiri_pct": 3.716
+        },
+        "t10": {
+          "adet": 9,
+          "isabet_pct": 77.8,
+          "ort_getiri_pct": 12.609
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 50.2,
+          "ort_getiri_pct": 0.195
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 55.4,
+          "ort_getiri_pct": 0.576
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 56.6,
+          "ort_getiri_pct": 0.963
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 59.2,
+          "ort_getiri_pct": 1.935
+        }
+      }
+    },
+    "EKGYO": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 22,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 0.26
+        },
+        "t3": {
+          "adet": 22,
+          "isabet_pct": 59.1,
+          "ort_getiri_pct": 0.328
+        },
+        "t5": {
+          "adet": 22,
+          "isabet_pct": 54.5,
+          "ort_getiri_pct": 1.857
+        },
+        "t10": {
+          "adet": 21,
+          "isabet_pct": 71.4,
+          "ort_getiri_pct": 5.352
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 47.5,
+          "ort_getiri_pct": 0.157
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 52.3,
+          "ort_getiri_pct": 0.478
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 54.1,
+          "ort_getiri_pct": 0.81
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 55.5,
+          "ort_getiri_pct": 1.636
+        }
+      }
+    },
+    "FROTO": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 14,
+          "isabet_pct": 35.7,
+          "ort_getiri_pct": -1.857
+        },
+        "t3": {
+          "adet": 14,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -1.341
+        },
+        "t5": {
+          "adet": 14,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 2.156
+        },
+        "t10": {
+          "adet": 14,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 2.996
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2100,
+          "isabet_pct": 49.4,
+          "ort_getiri_pct": 0.175
+        },
+        "t3": {
+          "adet": 2098,
+          "isabet_pct": 51.9,
+          "ort_getiri_pct": 0.532
+        },
+        "t5": {
+          "adet": 2096,
+          "isabet_pct": 52.9,
+          "ort_getiri_pct": 0.885
+        },
+        "t10": {
+          "adet": 2091,
+          "isabet_pct": 55.9,
+          "ort_getiri_pct": 1.775
+        }
+      }
+    },
+    "TOASO": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 16,
+          "isabet_pct": 43.8,
+          "ort_getiri_pct": -0.15
+        },
+        "t3": {
+          "adet": 16,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -1.227
+        },
+        "t5": {
+          "adet": 16,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": -1.841
+        },
+        "t10": {
+          "adet": 16,
+          "isabet_pct": 56.2,
+          "ort_getiri_pct": 2.442
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 51.0,
+          "ort_getiri_pct": 0.185
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 54.1,
+          "ort_getiri_pct": 0.56
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 56.9,
+          "ort_getiri_pct": 0.942
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 58.7,
+          "ort_getiri_pct": 1.905
+        }
+      }
+    },
+    "OTKAR": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 14,
+          "isabet_pct": 64.3,
+          "ort_getiri_pct": 1.722
+        },
+        "t3": {
+          "adet": 14,
+          "isabet_pct": 57.1,
+          "ort_getiri_pct": 1.59
+        },
+        "t5": {
+          "adet": 14,
+          "isabet_pct": 42.9,
+          "ort_getiri_pct": 0.42
+        },
+        "t10": {
+          "adet": 14,
+          "isabet_pct": 64.3,
+          "ort_getiri_pct": 3.978
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2097,
+          "isabet_pct": 50.1,
+          "ort_getiri_pct": 0.19
+        },
+        "t3": {
+          "adet": 2095,
+          "isabet_pct": 53.4,
+          "ort_getiri_pct": 0.575
+        },
+        "t5": {
+          "adet": 2093,
+          "isabet_pct": 54.7,
+          "ort_getiri_pct": 0.966
+        },
+        "t10": {
+          "adet": 2088,
+          "isabet_pct": 56.3,
+          "ort_getiri_pct": 1.994
+        }
+      }
+    },
+    "AEFES": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 17,
+          "isabet_pct": 41.2,
+          "ort_getiri_pct": -2.098
+        },
+        "t3": {
+          "adet": 17,
+          "isabet_pct": 29.4,
+          "ort_getiri_pct": -3.535
+        },
+        "t5": {
+          "adet": 17,
+          "isabet_pct": 47.1,
+          "ort_getiri_pct": -3.237
+        },
+        "t10": {
+          "adet": 17,
+          "isabet_pct": 41.2,
+          "ort_getiri_pct": -2.278
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2100,
+          "isabet_pct": 51.6,
+          "ort_getiri_pct": 0.146
+        },
+        "t3": {
+          "adet": 2098,
+          "isabet_pct": 54.1,
+          "ort_getiri_pct": 0.442
+        },
+        "t5": {
+          "adet": 2096,
+          "isabet_pct": 55.9,
+          "ort_getiri_pct": 0.739
+        },
+        "t10": {
+          "adet": 2091,
+          "isabet_pct": 57.3,
+          "ort_getiri_pct": 1.491
+        }
+      }
+    },
+    "ALARK": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 14,
+          "isabet_pct": 78.6,
+          "ort_getiri_pct": 3.602
+        },
+        "t3": {
+          "adet": 14,
+          "isabet_pct": 78.6,
+          "ort_getiri_pct": 3.607
+        },
+        "t5": {
+          "adet": 14,
+          "isabet_pct": 50.0,
+          "ort_getiri_pct": 2.52
+        },
+        "t10": {
+          "adet": 14,
+          "isabet_pct": 78.6,
+          "ort_getiri_pct": 10.922
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 49.9,
+          "ort_getiri_pct": 0.227
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 54.7,
+          "ort_getiri_pct": 0.685
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 56.9,
+          "ort_getiri_pct": 1.151
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 59.4,
+          "ort_getiri_pct": 2.351
+        }
+      }
+    },
+    "ULKER": {
+      "sert_dusus_sonrasi": {
+        "t1": {
+          "adet": 17,
+          "isabet_pct": 52.9,
+          "ort_getiri_pct": -0.584
+        },
+        "t3": {
+          "adet": 17,
+          "isabet_pct": 47.1,
+          "ort_getiri_pct": -0.629
+        },
+        "t5": {
+          "adet": 17,
+          "isabet_pct": 58.8,
+          "ort_getiri_pct": -0.088
+        },
+        "t10": {
+          "adet": 17,
+          "isabet_pct": 58.8,
+          "ort_getiri_pct": 1.761
+        }
+      },
+      "kosulsuz_ortalama": {
+        "t1": {
+          "adet": 2099,
+          "isabet_pct": 50.1,
+          "ort_getiri_pct": 0.122
+        },
+        "t3": {
+          "adet": 2097,
+          "isabet_pct": 51.1,
+          "ort_getiri_pct": 0.371
+        },
+        "t5": {
+          "adet": 2095,
+          "isabet_pct": 51.5,
+          "ort_getiri_pct": 0.623
+        },
+        "t10": {
+          "adet": 2090,
+          "isabet_pct": 53.5,
+          "ort_getiri_pct": 1.252
+        }
+      }
+    }
+  }
+}
