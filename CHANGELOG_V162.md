@@ -1050,3 +1050,50 @@ KARAR: Arac calisiyor ve degerli bir filtre sagliyor - ama "al listesi"
 degil, "dikkatli incelenmesi gereken alan" gosteriyor. Sektor kapsami
 genisletilmesi (kullanici talebi) asagida ele alindi.
 ```
+
+---
+
+## Bileşik Uyum Skoru v5 — Tam 30/30 Kapsam Sonucu (25.09.2026)
+
+```
+25.09.2026: Kullanicinin arastirdigi tam 30-hisse resmi BIST alt-sektor
+haritasi uygulandi, ilk kez TAM KAPSAMLA calistirildi.
+
+BULGU: XMESY (Metal Esya Makina) sektorunun 4 uyesinden 3'u (FROTO 95,0
+OTKAR 95,0 ASTOR 93,2) en yuksek uyum skorlarinda - sektor-duzeyinde
+tutarli bir zayiflik/dip sinyali. TEK ISTISNA: TOASO (uyum 68,1) - ayni
+sektorde ama KGS'si SAGLAM (65,0), digerlerinden ayrisiyor.
+
+XBANK sikica kumelendi (44-59 arasi dar bant) - beklenen davranis.
+
+"Saglikli dip" (fiyat zayif + KGS saglam) profiline en yakin: TOASO(65),
+VAKBN(49), KCHOL(45), TTKOM(43), ENKAI(41), TRMET(60), BIMAS(63),
+TAVHL(46). TUPRS yine en dipte (skor 9,0, zirveye %4,6 uzaklikta).
+
+KARAR: Arac artik tam kapsamli calisiyor. Sektor-duzeyi teyit (XMESY
+ornegi), tekil hisse bulgularini destekliyor.
+```
+
+---
+
+## Sektör Momentumu — IP-8'in Gerçek Tanımıyla Tekrar Test (25.09.2026)
+
+```
+25.09.2026: Ilk sektor momentumu testi (bu oturumun basinda context'ten
+TAHMIN edilen 9 sektorle) IP-8'in kod-ici GERCEK 11 sektoruyle
+(f_liderSec cagrilarindan birebir cikarildi - ISCTR Banka'da YOK,
+Holding'de AGHOL var ENKAI/ALARK yok, Elektrik Ekipmani sektoru ilk
+kez test edildi, Demir-Celik'e KCAER/BRSAN eklendi) tekrarlandi.
+
+SONUC: Genel toplam (aggregate) NEREDEYSE AYNI kaldi (guclu %55,1/1,48
+vs zayif %57,1/1,945 - onceki testle cok yakin). AMA sembol bazinda
+tutarlilik COKTU: %33,3'ten %45,5'e (neredeyse yazi-tura, rastgele
+dagilima yakin).
+
+YORUM: IP-8'in sektorlerinin cogu (6/11) 2 uyeli - bu, DAHA ONCE
+bulunan "2-uyeli sektorlerde guven dusuk" sonucuyla ORTUSUYOR. Aggregate
+yon degismedi ama guvenilirlik zayifladi.
+
+KARAR: "Zayif sektor kazanir" bulgusu TAM CURUTULMEDI ama artik daha
+temkinli okunmali - guclu bir aksiyon onerisi degil, zayif bir egilim.
+```
