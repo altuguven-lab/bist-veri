@@ -1,0 +1,314 @@
+{
+  "calisma": "Bilesik Uyum Skoru v5 - KGS Kalite Kontrollu",
+  "uretim_zamani_utc": "2026-09-25T13:20:43.023900+00:00",
+  "guncel_rejim": "RISK_OFF",
+  "kullanilan_agirliklar": {
+    "zirve52h_uzakligi": 0.65,
+    "sektor_zayifligi": 0.35
+  },
+  "v4den_degisiklik": "TAM KAPSAM (kullanicinin kendi arastirdigi, 30 hissenin tamaminin resmi ALT sektor endeksiyle eslestigi tablo uygulandi). Iki en yeni/beklenmedik iddia AYRICA arastirilip DOGRULANDI: ASELS->XUTEK (iki bagimsiz kaynak, XUTEK bilesen listesinde ASELS acikca var) ve XPTIC'in VARLIGI (BIST Perakende Ticaret, 2026'da olusturulmus, gercek izlenen bir endeks). TAVHL/SISE bu surumde XHOLD'dan XULAS/XTAST'a TASINDI - kullanicinin FAALIYET BAZLI gerekcesi (orn. TAVHL hava limani isletmeciligi yapiyor, adinda 'Holding' gecmesine RAGMEN) goreceli guc olcumu icin daha ANLAMLI kabul edildi. TCELL ve AKSEN bu listede YOK - kullanicinin 30 sembollük tam listesinde bulunmadiklari icin cikarildi, onceki surumlerde YANLISLIKLA eklenmislerdi.",
+  "kapsam_durumu": "ARTIK TAM KAPSAM - SEMBOLLER'deki 30 hissenin TAMAMI 15 resmi BIST alt-sektor endeksine atandi. Bazi gruplar TEK UYELI (XMADN/TRMET, XUTEK/ASELS, XTAST/SISE, XILTM/TTKOM, XINSA/ENKAI, XELKT/ENJSA, XGMYO/EKGYO) - bu semboller icin sektor gucu fiilen kendi bireysel goreli guclerine esittir (cesitlendirme faydasi yok), ama en azindan skorlaniyorlar.",
+  "durustluk_notu": "Bu BIR BACKTEST DEGIL - tarama. KGS esigi (40) sezgisel, ayrica optimize edilmedi. Kompozit skorun kendisi ileri-getiri testine AYRICA tabi tutulmadi.",
+  "siralama_en_yuksek_uyumdan": [
+    {
+      "sembol": "FROTO",
+      "sektor": "XMESY",
+      "guncel_fiyat": 77.15,
+      "zirve52h_uzaklik_pct": 41.07,
+      "sektor_guc_percentile": 14.3,
+      "kgs_bugun": 18.0,
+      "bilesik_uyum_skoru": 95.0,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "OTKAR",
+      "sektor": "XMESY",
+      "guncel_fiyat": 303.5,
+      "zirve52h_uzaklik_pct": 43.8,
+      "sektor_guc_percentile": 14.3,
+      "kgs_bugun": 5.0,
+      "bilesik_uyum_skoru": 95.0,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ASTOR",
+      "sektor": "XMESY",
+      "guncel_fiyat": 260.75,
+      "zirve52h_uzaklik_pct": 32.4,
+      "sektor_guc_percentile": 14.3,
+      "kgs_bugun": 11.0,
+      "bilesik_uyum_skoru": 93.2,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "PGSUS",
+      "sektor": "XULAS",
+      "guncel_fiyat": 147.0,
+      "zirve52h_uzaklik_pct": 35.44,
+      "sektor_guc_percentile": 35.7,
+      "kgs_bugun": 26.0,
+      "bilesik_uyum_skoru": 87.5,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "EKGYO",
+      "sektor": "XGMYO",
+      "guncel_fiyat": 19.25,
+      "zirve52h_uzaklik_pct": 26.99,
+      "sektor_guc_percentile": 21.4,
+      "kgs_bugun": 12.0,
+      "bilesik_uyum_skoru": 80.1,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ULKER",
+      "sektor": "XGIDA",
+      "guncel_fiyat": 87.6,
+      "zirve52h_uzaklik_pct": 34.99,
+      "sektor_guc_percentile": 78.6,
+      "kgs_bugun": 15.0,
+      "bilesik_uyum_skoru": 72.5,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "SISE",
+      "sektor": "XTAST",
+      "guncel_fiyat": 39.14,
+      "zirve52h_uzaklik_pct": 26.71,
+      "sektor_guc_percentile": 42.9,
+      "kgs_bugun": 15.0,
+      "bilesik_uyum_skoru": 72.1,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "TAVHL",
+      "sektor": "XULAS",
+      "guncel_fiyat": 273.75,
+      "zirve52h_uzaklik_pct": 24.83,
+      "sektor_guc_percentile": 35.7,
+      "kgs_bugun": 46.0,
+      "bilesik_uyum_skoru": 70.9,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "TOASO",
+      "sektor": "XMESY",
+      "guncel_fiyat": 288.25,
+      "zirve52h_uzaklik_pct": 19.54,
+      "sektor_guc_percentile": 14.3,
+      "kgs_bugun": 65.0,
+      "bilesik_uyum_skoru": 68.1,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "ENJSA",
+      "sektor": "XELKT",
+      "guncel_fiyat": 107.3,
+      "zirve52h_uzaklik_pct": 16.11,
+      "sektor_guc_percentile": 0.0,
+      "kgs_bugun": 22.0,
+      "bilesik_uyum_skoru": 66.4,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ASELS",
+      "sektor": "XUTEK",
+      "guncel_fiyat": 372.0,
+      "zirve52h_uzaklik_pct": 17.33,
+      "sektor_guc_percentile": 7.1,
+      "kgs_bugun": 25.0,
+      "bilesik_uyum_skoru": 66.3,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "TRMET",
+      "sektor": "XMADN",
+      "guncel_fiyat": 139.9,
+      "zirve52h_uzaklik_pct": 19.69,
+      "sektor_guc_percentile": 28.6,
+      "kgs_bugun": 60.0,
+      "bilesik_uyum_skoru": 63.4,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "ENKAI",
+      "sektor": "XINSA",
+      "guncel_fiyat": 87.0,
+      "zirve52h_uzaklik_pct": 23.88,
+      "sektor_guc_percentile": 57.1,
+      "kgs_bugun": 41.0,
+      "bilesik_uyum_skoru": 61.6,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "SAHOL",
+      "sektor": "XHOLD",
+      "guncel_fiyat": 88.8,
+      "zirve52h_uzaklik_pct": 21.54,
+      "sektor_guc_percentile": 50.0,
+      "kgs_bugun": 15.0,
+      "bilesik_uyum_skoru": 59.5,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ISCTR",
+      "sektor": "XBANK",
+      "guncel_fiyat": 13.08,
+      "zirve52h_uzaklik_pct": 25.1,
+      "sektor_guc_percentile": 71.4,
+      "kgs_bugun": 17.0,
+      "bilesik_uyum_skoru": 58.9,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "MGROS",
+      "sektor": "XPTIC",
+      "guncel_fiyat": 530.0,
+      "zirve52h_uzaklik_pct": 27.1,
+      "sektor_guc_percentile": 85.7,
+      "kgs_bugun": 25.0,
+      "bilesik_uyum_skoru": 57.8,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "TTKOM",
+      "sektor": "XILTM",
+      "guncel_fiyat": 54.4,
+      "zirve52h_uzaklik_pct": 28.09,
+      "sektor_guc_percentile": 92.9,
+      "kgs_bugun": 43.0,
+      "bilesik_uyum_skoru": 57.3,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "THYAO",
+      "sektor": "XULAS",
+      "guncel_fiyat": 292.25,
+      "zirve52h_uzaklik_pct": 17.79,
+      "sektor_guc_percentile": 35.7,
+      "kgs_bugun": 23.0,
+      "bilesik_uyum_skoru": 57.2,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "AKBNK",
+      "sektor": "XBANK",
+      "guncel_fiyat": 71.15,
+      "zirve52h_uzaklik_pct": 21.46,
+      "sektor_guc_percentile": 71.4,
+      "kgs_bugun": 30.0,
+      "bilesik_uyum_skoru": 51.8,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "VAKBN",
+      "sektor": "XBANK",
+      "guncel_fiyat": 33.86,
+      "zirve52h_uzaklik_pct": 21.37,
+      "sektor_guc_percentile": 71.4,
+      "kgs_bugun": 49.0,
+      "bilesik_uyum_skoru": 51.7,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "GARAN",
+      "sektor": "XBANK",
+      "guncel_fiyat": 130.0,
+      "zirve52h_uzaklik_pct": 20.3,
+      "sektor_guc_percentile": 71.4,
+      "kgs_bugun": 8.0,
+      "bilesik_uyum_skoru": 49.6,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "PETKM",
+      "sektor": "XKMYA",
+      "guncel_fiyat": 21.0,
+      "zirve52h_uzaklik_pct": 25.16,
+      "sektor_guc_percentile": 100.0,
+      "kgs_bugun": 30.0,
+      "bilesik_uyum_skoru": 49.1,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "YKBNK",
+      "sektor": "XBANK",
+      "guncel_fiyat": 35.88,
+      "zirve52h_uzaklik_pct": 19.37,
+      "sektor_guc_percentile": 71.4,
+      "kgs_bugun": 33.0,
+      "bilesik_uyum_skoru": 47.8,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "AEFES",
+      "sektor": "XGIDA",
+      "guncel_fiyat": 18.75,
+      "zirve52h_uzaklik_pct": 18.79,
+      "sektor_guc_percentile": 78.6,
+      "kgs_bugun": 16.0,
+      "bilesik_uyum_skoru": 44.1,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "EREGL",
+      "sektor": "XMANA",
+      "guncel_fiyat": 37.82,
+      "zirve52h_uzaklik_pct": 16.14,
+      "sektor_guc_percentile": 64.3,
+      "kgs_bugun": 20.0,
+      "bilesik_uyum_skoru": 44.0,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "HALKB",
+      "sektor": "XBANK",
+      "guncel_fiyat": 44.96,
+      "zirve52h_uzaklik_pct": 17.28,
+      "sektor_guc_percentile": 71.4,
+      "kgs_bugun": 30.0,
+      "bilesik_uyum_skoru": 43.7,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "ALARK",
+      "sektor": "XHOLD",
+      "guncel_fiyat": 106.4,
+      "zirve52h_uzaklik_pct": 11.26,
+      "sektor_guc_percentile": 50.0,
+      "kgs_bugun": 27.0,
+      "bilesik_uyum_skoru": 39.5,
+      "KGS_DUSUK_UYARI": true
+    },
+    {
+      "sembol": "KCHOL",
+      "sektor": "XHOLD",
+      "guncel_fiyat": 217.4,
+      "zirve52h_uzaklik_pct": 6.49,
+      "sektor_guc_percentile": 50.0,
+      "kgs_bugun": 45.0,
+      "bilesik_uyum_skoru": 30.2,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "BIMAS",
+      "sektor": "XPTIC",
+      "guncel_fiyat": 428.0,
+      "zirve52h_uzaklik_pct": 3.44,
+      "sektor_guc_percentile": 85.7,
+      "kgs_bugun": 63.0,
+      "bilesik_uyum_skoru": 11.7,
+      "KGS_DUSUK_UYARI": false
+    },
+    {
+      "sembol": "TUPRS",
+      "sektor": "XKMYA",
+      "guncel_fiyat": 404.75,
+      "zirve52h_uzaklik_pct": 4.6,
+      "sektor_guc_percentile": 100.0,
+      "kgs_bugun": 34.0,
+      "bilesik_uyum_skoru": 9.0,
+      "KGS_DUSUK_UYARI": true
+    }
+  ]
+}
