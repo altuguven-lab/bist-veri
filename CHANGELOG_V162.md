@@ -872,3 +872,40 @@ KARAR: Sikilastirma KORUNUYOR - lateEntry testinin aksine (23 sembolden
 10'u ters, tutarsiz) bu sonuc COGUNLUKLA tutarli. Enerji Uretim'in
 esigi ayri gevsetilebilir ama bu, genel karari cürütmuyor.
 ```
+
+---
+
+## Düşüş Sonrası Alım vs Yükseliş Kovalama Testi — SONUÇ: ufka bağlı, ama gerçek kanıt var (24.09.2026)
+
+```
+24.09.2026: Soru - BIST'te dusus-sonrasi alim (dip/mean-reversion),
+yukselis-sonrasi alim (momentum/kovalama) stratejisinden daha mi karli?
+
+TEST: Iki oncul pencere (5 ve 10 gunluk getiri), her birinin alt/ust
+%20'si "DIP"/"KOVALAMA" olarak etiketlendi, uc ufukta (T+3/5/10) ileri
+getiriler karsilastirildi (n~12.300 her grup, her pencere).
+
+SONUC (5-gunluk oncul, en net):
+  T+3:  DIP %53,4/0,486  KOVALAMA %54,7/0,782  -> kovalama hafif iyi
+  T+5:  DIP %56,0/0,992  KOVALAMA %56,8/1,189  -> kovalama hafif iyi
+  T+10: DIP %59,2/2,266  KOVALAMA %56,4/2,091  -> DIP NET IYI
+  Sembol bazinda DIP lehine oran (T+10 isabet): %76,7 - COK GUCLU
+  tutarlilik (lateEntry testinin aksine, burada aggregate SAGLAM).
+
+SONUC (10-gunluk oncul): ayni yon ama daha zayif (sembol tutarliligi
+%56,7).
+
+YORUM: Klasik finans orguntusuyle tutarli - KISA vadede (T+3) momentum
+devam etme egilimi (kovalama hafif rekabetci), ORTA-UZUN vadede (T+5,
+ozellikle T+10) mean-reversion baskin (dip NET daha iyi, GUCLU sembol
+bazinda tutarlilikla).
+
+KARAR: Kod degisikligi degil, DOGRULAYICI bir bulgu - V162'nin mevcut
+tasarimi (dipHunter_any, P2_DIP_DONUS modulleri + lateEntry/kovalama-
+karsiti filtre) bu istatistiksel orguntuyle ZATEN AYNI yonde. Pratik
+cikarim: kisa vadeli (birkac gunluk) islem tasarimlarinda kovalama o
+kadar kotu degil, orta vadeli (1-2 haftalik) tutma niyetinde dusus-
+sonrasi girisler istatistiksel olarak one cikiyor. Gercek alarm
+verisiyle (P2_DIP_DONUS vs P1/momentum sinyalleri) dogrulama, yeterli
+orneklem biriktiginde (birkac hafta) ikinci bir tur olarak yapilacak.
+```
