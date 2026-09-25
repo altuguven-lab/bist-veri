@@ -909,3 +909,45 @@ sonrasi girisler istatistiksel olarak one cikiyor. Gercek alarm
 verisiyle (P2_DIP_DONUS vs P1/momentum sinyalleri) dogrulama, yeterli
 orneklem biriktiginde (birkac hafta) ikinci bir tur olarak yapilacak.
 ```
+
+---
+
+## Dip vs Kovalama — Üç Ek Varyasyon (25.09.2026)
+
+```
+25.09.2026: Onceki testin (dip_vs_kovalama_test.py) devami - literatur
+taramasindan uc ek boyut test edildi.
+
+[A] FORMASYON PENCERESI TARAMASI (5/20/60 gun oncul, T+10 sonucu):
+  5 gun  (onceki test): DIP kazanir  (%59,2 vs %56,4) - sembol tutarliligi %76,7
+  20 gun (1 ay):         KOVALAMA kazanir (%59,3/2,67 vs %58,7/2,08) - tutarlilik %46,7 (belirsiz)
+  60 gun (3 ay):         DIP kazanir  (%60,8 vs %55,9) - sembol tutarliligi %66,7
+  YORUM: U-sekli bir orguntu - kisa (5g) ve uzun (60g) ufukta mean-
+  reversion, ORTA ufukta (20g/1 ay) momentum/kovalama kazaniyor. Bu,
+  Jegadeesh&Titman'in 3-12 aylik momentum bulgusunun KISA ucuyla ve
+  Jegadeesh(1990)/Lehmann(1990)'in kisa-vadeli reversal bulgusuyla TAM
+  ORTUSUYOR. Tek bir "dip her zaman kazanir" hikayesi YANLIS olurdu.
+
+[B] HACIM-KOSULLU DUSUS (kapitulasyon/yuksek hacim vs sessiz dip/dusuk
+hacim, 5-gun oncul, T+10): Genel toplamda NEREDEYSE FARK YOK (%59,6 vs
+%58,8), sembol tutarliligi sinirda (%56,7). Hacim bu ayrimda
+BELIRLEYICI DEGIL (en azindan relVol medyan-esikli bu basit tanimla).
+
+[C] REJIM-KOSULLU TEST (XU100 EMA60 ustunde/altinda vekili, 5-gun
+oncul, T+10):
+  RISK-ON:  KOVALAMA hafif kazanir (%56,7/2,215 vs %55,1/1,687)
+  RISK-OFF: DIP COK GUCLU kazanir  (%63,1/2,803 vs %54,9/1,512)
+  YORUM: En carpici bulgu. RISK-OFF ortaminda dusus-sonrasi alimin
+  avantaji BELIRGIN sekilde artiyor - Daniel&Moskowitz(2016) "momentum
+  cokusleri ozellikle piyasa gerilemesi sonrasi" bulgusuyla tutarli.
+  PRATIK: BIST su an RISK-OFF/kriz modunda (fon tasfiyesi) - bu
+  bulguya gore mevcut rejimde dusus-sonrasi alim stratejisi normalden
+  daha guclu bir istatistiksel zemine sahip.
+
+KARAR: Kod degisikligi degil, DOGRULAYICI/YOL GOSTERICI bulgular.
+[A] ve [C] gercek, kullanilabilir orguntuler - ozellikle [C]'nin
+rejim-kosullu sonucu V162/IP-8'in KENDI rejim siniflandirmasiyla
+birlestirilip (gercek rejim mantigiyla, bu testteki basitlestirilmis
+XU100/EMA60 vekili degil) ileride bir MANTIK onerisine donusturulebilir
+- ama bu, ayri bir B1-capinda proje, bugun yapilmadi.
+```
