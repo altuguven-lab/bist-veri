@@ -1,15 +1,15 @@
 {
-  "son_guncelleme_utc": "2026-09-25T14:00:20.289Z",
+  "son_guncelleme_utc": "2026-09-25T14:00:22.881Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 313
+    "adet": 314
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-25T14:00:17.564Z",
+    "zaman_utc": "2026-09-25T14:00:18.805Z",
     "sembol": "TRMET",
-    "sinyal": "P3_RADAR",
+    "sinyal": "P2_ADAY",
     "interval": "15",
     "fiyat": "140.9",
     "skor": "10.13",
@@ -22,10 +22,29 @@
     "p3ozet": "202032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TRMET|15|P3_RADAR|2026-09-25T13:45:00Z",
+    "eventId": "TRMET|15|P2_ADAY|2026-09-25T13:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-25T14:00:18.805Z",
+      "sembol": "TRMET",
+      "sinyal": "P2_ADAY",
+      "interval": "15",
+      "fiyat": "140.9",
+      "skor": "10.13",
+      "kgs": "21",
+      "stop": "140.20000000000002",
+      "rejim": "0",
+      "relvol": "0.95",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "202032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TRMET|15|P2_ADAY|2026-09-25T13:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-25T14:00:17.564Z",
       "sembol": "TRMET",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "EREGL|15|GUNLUK_OZET|2026-09-23T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-23T15:11:03.653Z",
-      "sembol": "PGSUS",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "150.3",
-      "skor": "21.48",
-      "kgs": "12",
-      "stop": "153",
-      "rejim": "0",
-      "relvol": "0.81",
-      "v112n": "104",
-      "v112wr": "?",
-      "p3ozet": "400032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "PGSUS|15|GUNLUK_OZET|2026-09-23T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
