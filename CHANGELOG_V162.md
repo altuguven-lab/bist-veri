@@ -994,3 +994,59 @@ KRIZE OZGU mu yoksa BIST'in genel yapisal bir ozelligi mi oldugunu
 ayirt etmek icin REJIM-KOSULLU tekrar (RISK-ON doneminde de [A]/[D]
 gecerli mi?).
 ```
+
+---
+
+## Rejim-Koşullu Doğrulama — Sektör vs 52-Hafta Zirve Farklı Kategoriler (25.09.2026)
+
+```
+25.09.2026: Onceki iki testin ("momentum-karsiti" gorunumlu bulgular)
+krize mi ozgu yoksa genel mi oldugu ayirt edildi.
+
+SEKTOR MOMENTUMU - her iki rejimde TUTARLI:
+  RISK-ON:  guclu %54,3/1,413 vs zayif %56,3/1,757
+  RISK-OFF: guclu %55,4/1,581 vs zayif %57,4/1,843
+  Fark buyuklugu BENZER iki rejimde - KRIZE OZGU DEGIL, muhtemelen
+  BIST'in GENEL/YAPISAL bir ozelligi.
+
+52-HAFTA ZIRVE YAKINLIGI - neredeyse tamamen KRIZE OZGU:
+  RISK-ON:  yakin %55,9/1,853 vs uzak %57,0/2,505 (kucuk fark)
+  RISK-OFF: yakin %46,8/-0,07 vs uzak %66,2/3,53 (MUAZZAM fark, yakin
+  grubun ortalama getirisi NEGATIF)
+  RISK-OFF'a MAHSUS, guclu bir etki - fon tasfiye krizinin "yuksek
+  pozisyonlu/populer hisseler zorunlu satisa daha acik" dinamigiyle
+  ORTUSUYOR. Kriz gecince bu etkinin de buyuk olcude kaybolmasi
+  beklenir.
+
+KARAR: Iki "momentum-karsiti" gorunumlu bulgu FARKLI koklerden geliyor
+- biri (sektor) kalici/genel, digeri (52h zirve) gecici/krize bagli.
+Bu ayrim yapilmadan "BIST'te momentum hic islemiyor" sonucuna varmak
+YANILTICI olurdu.
+```
+
+---
+
+## Bileşik Uyum Skoru v2 — KGS Kalite Kontrolü Sonucu (25.09.2026)
+
+```
+25.09.2026: v2 taramasi (60-gun bileseni kaldirildi, KGS kalite
+kontrolu eklendi) calistirildi.
+
+BULGU: Yuksek fiyat-zayifligi (uyum skoru) gosteren hisselerin
+COGUNLUGUNDA KGS de dusuk cikti - OTKAR (KGS=5,0!), ULKER (22), TAVHL
+(29), MGROS (25), FROTO (33), ASELS (18) hepsi ⚠KGS DUSUK isaretiyle
+geldi. Bu, "saglikli duzeltme" ile "gercekten bozulan hisse" ayrimini
+somutlastirdi - cogu yuksek-uyumlu aday GERCEKTEN zayif gorunuyor.
+
+ISTISNALAR (fiyat zayifligi + KGS SAGLAM = "saglikli dip" profiline
+daha yakin): TOASO (uyum 42,1, KGS 74), VAKBN (uyum 54,5, KGS 49),
+ENKAI/TTKOM (orta uyum, KGS 40+, uyarisiz).
+
+KAPSAM SINIRI: PGSUS ve ASTOR (en yuksek 2 skor) sektor eslemesi
+disinda kaldigi icin KGS HIC hesaplanamadi - en cok merak edilen iki
+isim icin kalite kontrolu YAPILAMADI.
+
+KARAR: Arac calisiyor ve degerli bir filtre sagliyor - ama "al listesi"
+degil, "dikkatli incelenmesi gereken alan" gosteriyor. Sektor kapsami
+genisletilmesi (kullanici talebi) asagida ele alindi.
+```
