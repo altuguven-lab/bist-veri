@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-28T07:15:10.284Z",
+  "son_guncelleme_utc": "2026-09-28T08:15:06.426Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 343
+    "adet": 344
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-28T07:15:07.436Z",
-    "sembol": "ENKAI",
+    "zaman_utc": "2026-09-28T08:15:04.228Z",
+    "sembol": "TRALT",
     "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "86.40",
-    "skor": "23.42",
-    "kgs": "12",
-    "stop": "87.60000000000001",
+    "fiyat": "47.10",
+    "skor": "10.25",
+    "kgs": "11",
+    "stop": "50.95",
     "rejim": "0",
-    "relvol": "1",
+    "relvol": "1.53",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "100032",
+    "p3ozet": "1032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ENKAI|15|SEKTOR_ROTASYONU|2026-09-28T07:00:00Z",
+    "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-09-28T08:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-28T08:15:04.228Z",
+      "sembol": "TRALT",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "47.10",
+      "skor": "10.25",
+      "kgs": "11",
+      "stop": "50.95",
+      "rejim": "0",
+      "relvol": "1.53",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "1032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-09-28T08:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-28T07:15:07.436Z",
       "sembol": "ENKAI",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ENKAI|15|SEKTOR_ROTASYONU|2026-09-24T11:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-24T11:45:08.977Z",
-      "sembol": "EKGYO",
-      "sinyal": "SEKTOR_ROTASYONU",
-      "interval": "15",
-      "fiyat": "19.75",
-      "skor": "28.88",
-      "kgs": "26",
-      "stop": "20.1",
-      "rejim": "0",
-      "relvol": "0.61",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "900032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-09-24T11:30:00Z",
       "carrierLagBars": "1"
     }
   ]
