@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-28T14:00:30.258Z",
+  "son_guncelleme_utc": "2026-09-28T14:30:32.661Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 358
+    "adet": 359
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-28T14:00:28.154Z",
-    "sembol": "TRMET",
+    "zaman_utc": "2026-09-28T14:30:30.981Z",
+    "sembol": "OTKAR",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "135.9",
-    "skor": "26.05",
-    "kgs": "58",
-    "stop": "140.1",
+    "fiyat": "299.00",
+    "skor": "22.31",
+    "kgs": "46",
+    "stop": "303.5",
     "rejim": "0",
-    "relvol": "1.45",
+    "relvol": "1.42",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "3700032",
+    "p3ozet": "2900032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TRMET|15|P4_HAZIRLIK|2026-09-28T13:45:00Z",
+    "eventId": "OTKAR|15|P4_HAZIRLIK|2026-09-28T14:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-28T14:30:30.981Z",
+      "sembol": "OTKAR",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "299.00",
+      "skor": "22.31",
+      "kgs": "46",
+      "stop": "303.5",
+      "rejim": "0",
+      "relvol": "1.42",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2900032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "OTKAR|15|P4_HAZIRLIK|2026-09-28T14:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-28T14:00:28.154Z",
       "sembol": "TRMET",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ENKAI|15|SEKTOR_ROTASYONU|2026-09-24T14:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-24T14:30:30.519Z",
-      "sembol": "TRALT",
-      "sinyal": "SEKTOR_ROTASYONU",
-      "interval": "15",
-      "fiyat": "48.95",
-      "skor": "14.34",
-      "kgs": "41",
-      "stop": "51.1",
-      "rejim": "0",
-      "relvol": "0.65",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "900032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-09-24T14:00:00Z",
       "carrierLagBars": "1"
     }
   ]
