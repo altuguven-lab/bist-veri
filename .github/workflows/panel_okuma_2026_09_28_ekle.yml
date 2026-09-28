@@ -1,0 +1,40 @@
+# PANEL OKUMASI EKLE - 28.09.2026
+# Konum: .github/workflows/panel_okuma_2026_09_28_ekle.yml
+# ELLE tetiklenir. ON KOSUL: panel_okuma_arsivi.py ve json_atomik_yaz.py depo
+# kokunde olmali (zaten var). Upsert - iki kez calistirilirsa cift kayit olmaz.
+name: Panel Okumasi Ekle 2026-09-28
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  panel-okuma-ekle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: On kosul kontrolu
+        run: |
+          test -f panel_okuma_arsivi.py || { echo "HATA: panel_okuma_arsivi.py yok"; exit 1; }
+          test -f json_atomik_yaz.py || { echo "HATA: json_atomik_yaz.py yok"; exit 1; }
+          test -f data/panel_okuma_arsivi.json || { echo "HATA: data/panel_okuma_arsivi.json yok"; exit 1; }
+      - name: Okumalari ekle
+        run: python panel_okuma_2026_09_28_ekle.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "panel-okuma-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/panel_okuma_arsivi.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Panel okumasi 2026-09-28 (7 sembol, V162.1c)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili ($i)"; exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
