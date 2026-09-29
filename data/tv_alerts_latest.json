@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-29T09:45:20.152Z",
+  "son_guncelleme_utc": "2026-09-29T09:45:21.228Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 393
+    "adet": 394
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-29T09:45:19.054Z",
-    "sembol": "THYAO",
-    "sinyal": "P3_RADAR",
+    "zaman_utc": "2026-09-29T09:45:19.205Z",
+    "sembol": "TOASO",
+    "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "293.50",
-    "skor": "47.02",
-    "kgs": "82",
-    "stop": "300",
+    "fiyat": "280.75",
+    "skor": "27.28",
+    "kgs": "30",
+    "stop": "289.5",
     "rejim": "0",
-    "relvol": "0.92",
+    "relvol": "0.57",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "5500032",
+    "p3ozet": "1700032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "THYAO|15|P3_RADAR|2026-09-29T09:30:00Z",
+    "eventId": "TOASO|15|P4_HAZIRLIK|2026-09-29T09:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-29T09:45:19.205Z",
+      "sembol": "TOASO",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "280.75",
+      "skor": "27.28",
+      "kgs": "30",
+      "stop": "289.5",
+      "rejim": "0",
+      "relvol": "0.57",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "1700032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TOASO|15|P4_HAZIRLIK|2026-09-29T09:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-29T09:45:19.054Z",
       "sembol": "THYAO",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "BIMAS|15|SEKTOR_ROTASYONU|2026-09-25T08:45:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-25T08:45:08.185Z",
-      "sembol": "TOASO",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "286.00",
-      "skor": "10.72",
-      "kgs": "36",
-      "stop": "283",
-      "rejim": "0",
-      "relvol": "0.63",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "400032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TOASO|15|P4_HAZIRLIK|2026-09-25T08:30:00Z",
       "carrierLagBars": "1"
     }
   ]
