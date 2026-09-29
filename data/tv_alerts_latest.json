@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-29T09:15:17.154Z",
+  "son_guncelleme_utc": "2026-09-29T09:30:15.777Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 391
+    "adet": 392
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-29T09:15:15.131Z",
-    "sembol": "TRALT",
-    "sinyal": "SEKTOR_ROTASYONU",
+    "zaman_utc": "2026-09-29T09:30:12.815Z",
+    "sembol": "AEFES",
+    "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "46.20",
-    "skor": "10.53",
-    "kgs": "9",
-    "stop": "46.82",
+    "fiyat": "18.22",
+    "skor": "16.14",
+    "kgs": "23",
+    "stop": "18.84",
     "rejim": "0",
-    "relvol": "0.83",
+    "relvol": "0.69",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "32",
+    "p3ozet": "900032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-09-29T09:00:00Z",
+    "eventId": "AEFES|15|P4_HAZIRLIK|2026-09-29T09:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-29T09:30:12.815Z",
+      "sembol": "AEFES",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "18.22",
+      "skor": "16.14",
+      "kgs": "23",
+      "stop": "18.84",
+      "rejim": "0",
+      "relvol": "0.69",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "900032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "AEFES|15|P4_HAZIRLIK|2026-09-29T09:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-29T09:15:15.131Z",
       "sembol": "TRALT",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-09-25T08:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-25T08:45:05.088Z",
-      "sembol": "TTKOM",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "54.90",
-      "skor": "22.05",
-      "kgs": "45",
-      "stop": "54.75",
-      "rejim": "0",
-      "relvol": "0.33",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "2702032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TTKOM|15|P3_RADAR|2026-09-25T08:30:00Z",
       "carrierLagBars": "1"
     }
   ]
