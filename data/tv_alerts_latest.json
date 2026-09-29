@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-29T07:00:38.355Z",
+  "son_guncelleme_utc": "2026-09-29T07:15:07.692Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 385
+    "adet": 386
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-29T07:00:36.675Z",
-    "sembol": "KCHOL",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-09-29T07:15:06.054Z",
+    "sembol": "PGSUS",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "214.7",
-    "skor": "26.33",
-    "kgs": "23",
-    "stop": "217.3",
+    "fiyat": "144.1",
+    "skor": "14.11",
+    "kgs": "30",
+    "stop": "147",
     "rejim": "0",
-    "relvol": "0.28",
+    "relvol": "0.32",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "100032",
+    "p3ozet": "400032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "KCHOL|15|P4_HAZIRLIK|2026-09-29T06:45:00Z",
+    "eventId": "PGSUS|15|SEKTOR_ROTASYONU|2026-09-29T07:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-29T07:15:06.054Z",
+      "sembol": "PGSUS",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "144.1",
+      "skor": "14.11",
+      "kgs": "30",
+      "stop": "147",
+      "rejim": "0",
+      "relvol": "0.32",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "400032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "PGSUS|15|SEKTOR_ROTASYONU|2026-09-29T07:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-29T07:00:36.675Z",
       "sembol": "KCHOL",
@@ -1906,25 +1925,6 @@
       "schemaVersion": "?",
       "eventId": "?",
       "carrierLagBars": "?"
-    },
-    {
-      "zaman_utc": "2026-09-24T15:26:04.340Z",
-      "sembol": "TRALT",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "48.40",
-      "skor": "11.26",
-      "kgs": "26",
-      "stop": "51.1",
-      "rejim": "0",
-      "relvol": "0.66",
-      "v112n": "214",
-      "v112wr": "?",
-      "p3ozet": "32",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TRALT|15|GUNLUK_OZET|2026-09-24T15:00:00Z",
-      "carrierLagBars": "1"
     }
   ]
 }
