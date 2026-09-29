@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-29T10:00:24.282Z",
+  "son_guncelleme_utc": "2026-09-29T10:45:05.198Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 397
+    "adet": 398
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-29T10:00:21.000Z",
-    "sembol": "EKGYO",
-    "sinyal": "SEKTOR_ROTASYONU",
+    "zaman_utc": "2026-09-29T10:45:03.260Z",
+    "sembol": "GARAN",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "18.89",
-    "skor": "24.76",
-    "kgs": "48",
-    "stop": "19.23",
+    "fiyat": "129.8",
+    "skor": "22.99",
+    "kgs": "60",
+    "stop": "130",
     "rejim": "0",
-    "relvol": "0.44",
+    "relvol": "0.72",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "3200032",
+    "p3ozet": "5402032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-09-29T09:45:00Z",
+    "eventId": "GARAN|15|P3_RADAR|2026-09-29T10:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-29T10:45:03.260Z",
+      "sembol": "GARAN",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "129.8",
+      "skor": "22.99",
+      "kgs": "60",
+      "stop": "130",
+      "rejim": "0",
+      "relvol": "0.72",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "5402032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "GARAN|15|P3_RADAR|2026-09-29T10:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-29T10:00:21.000Z",
       "sembol": "EKGYO",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "TTKOM|15|P4_HAZIRLIK|2026-09-25T09:45:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-25T09:45:11.689Z",
-      "sembol": "TRMET",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "139.7",
-      "skor": "26.05",
-      "kgs": "60",
-      "stop": "142.9",
-      "rejim": "0",
-      "relvol": "1.81",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "3900032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TRMET|15|P4_HAZIRLIK|2026-09-25T09:30:00Z",
       "carrierLagBars": "1"
     }
   ]
