@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-29T10:45:05.198Z",
+  "son_guncelleme_utc": "2026-09-29T11:00:29.960Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 398
+    "adet": 399
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-29T10:45:03.260Z",
-    "sembol": "GARAN",
-    "sinyal": "P3_RADAR",
+    "zaman_utc": "2026-09-29T11:00:27.040Z",
+    "sembol": "AKBNK",
+    "sinyal": "P2_ADAY",
     "interval": "15",
-    "fiyat": "129.8",
-    "skor": "22.99",
-    "kgs": "60",
-    "stop": "130",
+    "fiyat": "71.00",
+    "skor": "16.93",
+    "kgs": "49",
+    "stop": "70.7",
     "rejim": "0",
-    "relvol": "0.72",
+    "relvol": "0.9",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "5402032",
+    "p3ozet": "4102032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "GARAN|15|P3_RADAR|2026-09-29T10:30:00Z",
+    "eventId": "AKBNK|15|P2_ADAY|2026-09-29T10:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-29T11:00:27.040Z",
+      "sembol": "AKBNK",
+      "sinyal": "P2_ADAY",
+      "interval": "15",
+      "fiyat": "71.00",
+      "skor": "16.93",
+      "kgs": "49",
+      "stop": "70.7",
+      "rejim": "0",
+      "relvol": "0.9",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "4102032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "AKBNK|15|P2_ADAY|2026-09-29T10:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-29T10:45:03.260Z",
       "sembol": "GARAN",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "PGSUS|15|SEKTOR_ROTASYONU|2026-09-25T10:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-25T10:00:40.399Z",
-      "sembol": "TTKOM",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "54.70",
-      "skor": "34.02",
-      "kgs": "52",
-      "stop": "54.7",
-      "rejim": "0",
-      "relvol": "1.29",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "3602032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TTKOM|15|P4_HAZIRLIK|2026-09-25T09:45:00Z",
       "carrierLagBars": "1"
     }
   ]
