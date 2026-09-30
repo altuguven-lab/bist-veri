@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-30T08:15:09.827Z",
+  "son_guncelleme_utc": "2026-09-30T08:15:14.651Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 438
+    "adet": 439
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-30T08:15:06.726Z",
-    "sembol": "TAVHL",
+    "zaman_utc": "2026-09-30T08:15:12.091Z",
+    "sembol": "TRALT",
     "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "269.75",
-    "skor": "19.6",
-    "kgs": "39",
-    "stop": "273.75",
+    "fiyat": "45.62",
+    "skor": "23.18",
+    "kgs": "32",
+    "stop": "46.76",
     "rejim": "0",
-    "relvol": "2.42",
+    "relvol": "1.79",
     "v112n": "?",
     "v112wr": "?",
     "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TAVHL|15|P3_RADAR|2026-09-30T08:00:00Z",
+    "eventId": "TRALT|15|P3_RADAR|2026-09-30T08:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-30T08:15:12.091Z",
+      "sembol": "TRALT",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "45.62",
+      "skor": "23.18",
+      "kgs": "32",
+      "stop": "46.76",
+      "rejim": "0",
+      "relvol": "1.79",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TRALT|15|P3_RADAR|2026-09-30T08:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-30T08:15:06.726Z",
       "sembol": "TAVHL",
@@ -1906,25 +1925,6 @@
       "schemaVersion": "v162.2",
       "eventId": "PGSUS|15|SEKTOR_ROTASYONU|2026-09-28T06:45:00Z",
       "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-28T07:00:23.128Z",
-      "sembol": "?",
-      "sinyal": "?",
-      "interval": "?",
-      "fiyat": "?",
-      "skor": "?",
-      "kgs": "?",
-      "stop": "?",
-      "rejim": "?",
-      "relvol": "?",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "?",
-      "pozsebep": "?",
-      "schemaVersion": "?",
-      "eventId": "?",
-      "carrierLagBars": "?"
     }
   ]
 }
