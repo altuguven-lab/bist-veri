@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-30T15:11:03.557Z",
+  "son_guncelleme_utc": "2026-09-30T15:11:04.966Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 457
+    "adet": 458
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-30T15:11:02.575Z",
-    "sembol": "SAHOL",
+    "zaman_utc": "2026-09-30T15:11:03.183Z",
+    "sembol": "PGSUS",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "84.80",
-    "skor": "18.22",
-    "kgs": "11",
-    "stop": "86.7",
+    "fiyat": "136.1",
+    "skor": "10.1",
+    "kgs": "10",
+    "stop": "142.70000000000002",
     "rejim": "0",
-    "relvol": "1",
-    "v112n": "163",
+    "relvol": "1.71",
+    "v112n": "104",
     "v112wr": "?",
     "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "SAHOL|15|GUNLUK_OZET|2026-09-30T15:00:00Z",
+    "eventId": "PGSUS|15|GUNLUK_OZET|2026-09-30T15:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-30T15:11:03.183Z",
+      "sembol": "PGSUS",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "136.1",
+      "skor": "10.1",
+      "kgs": "10",
+      "stop": "142.70000000000002",
+      "rejim": "0",
+      "relvol": "1.71",
+      "v112n": "104",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "PGSUS|15|GUNLUK_OZET|2026-09-30T15:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-30T15:11:02.575Z",
       "sembol": "SAHOL",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "SISE|15|GUNLUK_OZET|2026-09-28T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-09-28T14:45:16.015Z",
-      "sembol": "ENJSA",
-      "sinyal": "SEKTOR_ROTASYONU",
-      "interval": "15",
-      "fiyat": "106.8",
-      "skor": "19.01",
-      "kgs": "45",
-      "stop": "107.4",
-      "rejim": "0",
-      "relvol": "0.31",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "3301032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ENJSA|15|SEKTOR_ROTASYONU|2026-09-28T14:30:00Z",
       "carrierLagBars": "1"
     }
   ]
