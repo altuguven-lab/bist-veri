@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-09-30T07:30:27.731Z",
+  "son_guncelleme_utc": "2026-09-30T08:15:09.827Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-09",
-    "adet": 437
+    "adet": 438
   },
   "son_sinyal": {
-    "zaman_utc": "2026-09-30T07:30:25.282Z",
-    "sembol": "KCHOL",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-09-30T08:15:06.726Z",
+    "sembol": "TAVHL",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "214.0",
-    "skor": "20.67",
-    "kgs": "28",
-    "stop": "217.20000000000002",
+    "fiyat": "269.75",
+    "skor": "19.6",
+    "kgs": "39",
+    "stop": "273.75",
     "rejim": "0",
-    "relvol": "1.12",
+    "relvol": "2.42",
     "v112n": "?",
     "v112wr": "?",
     "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "KCHOL|15|P4_HAZIRLIK|2026-09-30T07:15:00Z",
+    "eventId": "TAVHL|15|P3_RADAR|2026-09-30T08:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-09-30T08:15:06.726Z",
+      "sembol": "TAVHL",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "269.75",
+      "skor": "19.6",
+      "kgs": "39",
+      "stop": "273.75",
+      "rejim": "0",
+      "relvol": "2.42",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TAVHL|15|P3_RADAR|2026-09-30T08:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-09-30T07:30:25.282Z",
       "sembol": "KCHOL",
@@ -1906,25 +1925,6 @@
       "schemaVersion": "?",
       "eventId": "?",
       "carrierLagBars": "?"
-    },
-    {
-      "zaman_utc": "2026-09-25T15:11:05.694Z",
-      "sembol": "TOASO",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "290.00",
-      "skor": "11.75",
-      "kgs": "53",
-      "stop": "290",
-      "rejim": "0",
-      "relvol": "0.43",
-      "v112n": "188",
-      "v112wr": "?",
-      "p3ozet": "3502032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TOASO|15|GUNLUK_OZET|2026-09-25T15:00:00Z",
-      "carrierLagBars": "1"
     }
   ]
 }
