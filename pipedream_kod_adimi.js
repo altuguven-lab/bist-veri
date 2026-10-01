@@ -1,14 +1,30 @@
-// PIPEDREAM CODE ADIMI - v2 (15.07.2026)
-// v1'den fark (KAPANIS PATLAMASI DUZELTMESI - yalniz yaris yonetimi):
-//  1. Ilk okumadan ONCE rastgele 0-2500ms gecikme (suru kirici):
-//     14 es zamanli event ayni milisaniyede okumaya girmesin.
+// PIPEDREAM CODE ADIMI - v3 (01.10.2026)
+// v2'den fark (01.11 PM 409 HATASI KOK NEDEN DUZELTMESI):
+//  5. GUNLUK_OZET anindaki 30-sembollu patlamada ("suru kirici"
+//     penceresi yetersiz kaliyordu) sure 0-2500ms -> 0-6000ms'ye
+//     cikarildi; 30 es zamanli istek daha genis bir pencereye
+//     yayilir, ana yazmanin ilk denemede basarili olma ihtimali artar.
+//  6. KOK NEDEN: son care (inbox) yazmasi TEK denemeydi. GitHub
+//     Contents API, AYNI BRANCH'E farkli dosya yollarina yapilan
+//     es zamanli PUT'larda bile (her PUT ref HEAD'i uzerine yeni
+//     commit actigindan) 409 verebiliyor. 30'luk patlamada 8 ana
+//     deneme TUKENIP de inbox'un TEK denemesi de bu ikinci dalgaya
+//     denk gelirse, sinyal GERCEKTEN KAYBOLUYOR ve atilan hata
+//     e-postasi aslinda ana yazmanin EN SON hatasiydi (throw sonHata).
+//     Duzeltme: inbox yazmasina da 3 denemelik kisa jitter'li
+//     retry eklendi - sha gondermedigi icin (yeni dosya) cakisma
+//     ihtimali zaten dusuk, birkac deneme pratikte yeterli.
+// v2'nin orijinal notlari (hala gecerli):
+//  1. Ilk okumadan ONCE rastgele gecikme (suru kirici):
+//     es zamanli event ayni milisaniyede okumaya girmesin.
 //  2. Deneme sayisi 3 -> 8; bekleme deterministik degil RASTGELE
 //     (jitter'li ustel): kaybedenler senkronize geri donup yeniden
 //     carpismasin.
 //  3. Tum denemeler biterse throw YOK: son care olarak sinyal
 //     data/inbox/ altina kendi benzersiz dosyasina yazilir
-//     (cakismasi imkansiz) - event asla kaybolmaz. Brifing/denetim
-//     inbox'i da okur; bos kalmasi beklenir.
+//     (cakismasi onceden imkansiz saniliyordu - v3'te bu da retry'landi)
+//     - event asla kaybolmaz. Brifing/denetim inbox'i da okur;
+//     bos kalmasi beklenir.
 //  4. Tekrar-kayit korumasi: yazma basarili olup yanit kaybolduysa
 //     retry ayni sinyali ikinci kez eklemesin diye 60sn penceresinde
 //     ayni sembol+sinyal+fiyat varsa eklenmez.
@@ -88,7 +104,9 @@ export default defineComponent({
     };
 
     // (1) SURU KIRICI: es zamanli patlamada okumalari dagit
-    await bekle(Math.floor(Math.random() * 2500));
+    // v3: 2500 -> 6000ms. 30 sembollu GUNLUK_OZET patlamasinda eski
+    // pencere yetersiz kaliyordu (bkz. basliktaki v3 notu).
+    await bekle(Math.floor(Math.random() * 6000));
 
     let sonHata = null;
     for (let deneme = 1; deneme <= MAX_DENEME; deneme++) {
@@ -150,14 +168,28 @@ export default defineComponent({
     }
 
     // (3) SON CARE: event'i ASLA kaybetme - benzersiz inbox dosyasina yaz
+    // v3: inbox yazmasi da artik 3 denemelik jitter'li retry iceriyor.
+    // Eskiden tek denemeydi; 30'luk patlamada ana dosyanin 8 denemesi
+    // TUKENDIGI anda (en yogun saniyeler) inbox'in TEK denemesi de
+    // es zamanli baska bir inbox-dosyasi commit'iyle cakisabiliyordu
+    // (GitHub ayni branch'teki es zamanli PUT'larda farkli yollarda
+    // bile 409 verebiliyor) - bu da sinyalin GERCEKTEN kaybolmasina
+    // ve atilan hatanin kullaniciya e-posta olarak dusmesine yol aciyordu.
     const kimlik = `${yeniSinyal.zaman_utc.replace(/[:.]/g, "-")}_${yeniSinyal.sembol}_${Math.floor(Math.random() * 1e6)}`;
     const inboxYol = `data/inbox/${kimlik}.json`;
-    try {
-      await dosyaYaz(inboxYol, yeniSinyal,
-        `INBOX (yaris kaybi): ${yeniSinyal.sembol} ${yeniSinyal.sinyal}`);
-      return { inbox: inboxYol, not: "ana dosya yazilamadi, inbox'a birakildi", sonHata: String(sonHata) };
-    } catch (e2) {
-      throw sonHata; // inbox bile yazilamadiysa gercek ariza - failed gorunsun
+    const INBOX_DENEME = 3;
+    let inboxHata = null;
+    for (let d2 = 1; d2 <= INBOX_DENEME; d2++) {
+      try {
+        await dosyaYaz(inboxYol, yeniSinyal,
+          `INBOX (yaris kaybi): ${yeniSinyal.sembol} ${yeniSinyal.sinyal}`);
+        return { inbox: inboxYol, not: "ana dosya yazilamadi, inbox'a birakildi", sonHata: String(sonHata) };
+      } catch (e2) {
+        inboxHata = e2;
+        const taban2 = 400 * d2;
+        await bekle(taban2 + Math.floor(Math.random() * taban2));
+      }
     }
+    throw sonHata; // inbox 3 denemede de yazilamadiysa gercek ariza - failed gorunsun
   },
 });
