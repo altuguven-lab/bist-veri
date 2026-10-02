@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-02T10:30:21.550Z",
+  "son_guncelleme_utc": "2026-10-02T10:30:26.045Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 70
+    "adet": 71
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-02T10:30:20.648Z",
-    "sembol": "TRMET",
+    "zaman_utc": "2026-10-02T10:30:23.263Z",
+    "sembol": "AEFES",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "129.9",
-    "skor": "15.95",
-    "kgs": "33",
-    "stop": "129.1",
+    "fiyat": "17.99",
+    "skor": "13.15",
+    "kgs": "48",
+    "stop": "18.07",
     "rejim": "1",
-    "relvol": "0.77",
+    "relvol": "1.25",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "1000032",
+    "p3ozet": "3902032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TRMET|15|P4_HAZIRLIK|2026-10-02T10:15:00Z",
+    "eventId": "AEFES|15|P4_HAZIRLIK|2026-10-02T10:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-02T10:30:23.263Z",
+      "sembol": "AEFES",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "17.99",
+      "skor": "13.15",
+      "kgs": "48",
+      "stop": "18.07",
+      "rejim": "1",
+      "relvol": "1.25",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "3902032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "AEFES|15|P4_HAZIRLIK|2026-10-02T10:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-02T10:30:20.648Z",
       "sembol": "TRMET",
@@ -1820,20 +1839,6 @@
       "rejim": "0",
       "relvol": "1.108446464440178",
       "v112n": "129",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-08-24T15:11:06.840Z",
-      "sembol": "TTKOM",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "53.40",
-      "skor": "10.00823461869103",
-      "kgs": "3",
-      "stop": "53.20893734740932",
-      "rejim": "0",
-      "relvol": "0.9891971527813933",
-      "v112n": "185",
       "v112wr": "?"
     }
   ]
