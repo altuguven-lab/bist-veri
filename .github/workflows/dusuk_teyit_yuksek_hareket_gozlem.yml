@@ -1,0 +1,42 @@
+# DUSUK TEYIT x YUKSEK HAREKET GOZLEM DEFTERI (02.10.2026)
+# Konum: .github/workflows/dusuk_teyit_yuksek_hareket_gozlem.yml
+# OTOMATIK + ELLE tetiklenir. SALT OLCUM - Pine'a dokunmaz, alarm uretmez.
+# AG BAGLANTISI GEREKMEZ (yfinance yok) - yalniz data/tv_alerts_latest.json
+# okur, bu yuzden GUNLUK_OZET burst'unden (15:11 UTC) hemen sonra, ayni
+# saatte calisan seans_kapanisi.yml ile ayni cron'u kullanir.
+name: Dusuk Teyit x Yuksek Hareket Gozlem
+
+on:
+  schedule:
+    - cron: "25 15 * * 1-5"   # GUNLUK_OZET (15:11) ve inbox/arsiv (15:20) sonrasi
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  gozlem:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: On kosul - girdi dosyasi depoda mi
+        run: |
+          test -f data/tv_alerts_latest.json || { echo "HATA: data/tv_alerts_latest.json depoda yok"; exit 1; }
+      - name: Gozlem defterini guncelle
+        run: python dusuk_teyit_yuksek_hareket_gozlem.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "dusuk-teyit-gozlem-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/dusuk_teyit_gozlem.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Dusuk teyit x yuksek hareket gozlem guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili ($i)"; exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
