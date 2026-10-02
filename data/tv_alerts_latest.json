@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-02T11:00:36.822Z",
+  "son_guncelleme_utc": "2026-10-02T11:00:38.828Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 73
+    "adet": 74
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-02T11:00:30.557Z",
-    "sembol": "GARAN",
+    "zaman_utc": "2026-10-02T11:00:32.114Z",
+    "sembol": "TTKOM",
     "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "126.4",
-    "skor": "14.67",
-    "kgs": "1",
-    "stop": "127.4",
+    "fiyat": "53.20",
+    "skor": "21.77",
+    "kgs": "63",
+    "stop": "53.1",
     "rejim": "1",
-    "relvol": "0.58",
+    "relvol": "0.46",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "1032",
+    "p3ozet": "4002032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "GARAN|15|P3_RADAR|2026-10-02T10:45:00Z",
+    "eventId": "TTKOM|15|P3_RADAR|2026-10-02T10:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-02T11:00:32.114Z",
+      "sembol": "TTKOM",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "53.20",
+      "skor": "21.77",
+      "kgs": "63",
+      "stop": "53.1",
+      "rejim": "1",
+      "relvol": "0.46",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "4002032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TTKOM|15|P3_RADAR|2026-10-02T10:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-02T11:00:30.557Z",
       "sembol": "GARAN",
@@ -1835,20 +1854,6 @@
       "rejim": "1",
       "relvol": "1.7904179398816262",
       "v112n": "181",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-08-25T15:11:04.647Z",
-      "sembol": "BIMAS",
-      "sinyal": "P3_SKOR_AL",
-      "interval": "15",
-      "fiyat": "417.50",
-      "skor": "80.04242037540112",
-      "kgs": "97",
-      "stop": "413.78618077161417",
-      "rejim": "2",
-      "relvol": "1.53155871020352",
-      "v112n": "231",
       "v112wr": "?"
     }
   ]
