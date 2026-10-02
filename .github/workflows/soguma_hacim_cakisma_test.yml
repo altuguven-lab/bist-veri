@@ -1,0 +1,43 @@
+# SOGUMA x HACIM ZIRVESI CAKISMA TESTI (02.10.2026)
+# Konum: .github/workflows/soguma_hacim_cakisma_test.yml
+# ELLE tetiklenir - SALT OLCUM. Pine'a dokunmaz.
+# ON KOSUL: data/sinyal_arsiv.json depoda olmali (ACIL_CIK olay listesi icin).
+# NOT: Bu test gunluk degil 15 DAKIKALIK yfinance verisi kullanir - yfinance
+# bu araligi yalnizca ~60 gun geriye tutar, bu yuzden eski ACIL_CIK
+# olaylarinin bir kismi "veri_yok" olarak dislanabilir (script bunu
+# raporlar, hata vermez).
+name: Soguma x Hacim Cakisma Testi
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  soguma-hacim-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy
+      - name: On kosul - sinyal_arsiv.json depoda mi
+        run: |
+          test -f data/sinyal_arsiv.json || { echo "HATA: data/sinyal_arsiv.json depoda yok"; exit 1; }
+      - name: Testi calistir
+        run: python soguma_hacim_cakisma_test.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "soguma-hacim-test-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/backtest/soguma_hacim_cakisma_test.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Soguma x hacim cakisma testi sonucu $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili ($i)"; exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
