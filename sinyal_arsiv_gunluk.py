@@ -300,6 +300,14 @@ def main():
         izleme_mi = s["sinyal"] in IZLEME_SINYALLERI
         kayit = {
             "sembol": s["sembol"], "sinyal": s["sinyal"], "tarih": str(sinyal_tarih),
+            # 02.10.2026 EKLENDI (kurul karari - "soguma x hacim cakismasi"
+            # backtest'inin ortaya cikardigi acik): GUNLUK sadece tarih
+            # tasiyordu, saat/dakika atiliyordu. Ileride ayni turden bir
+            # olay-zamanlamasi testi (orn. ACIL_CIK sonrasi soguma penceresi)
+            # yapmak icin TAM zaman damgasi artik KALICI arsive de yaziliyor.
+            # Bu alan gunluk (daily-bar) olcumlerde KULLANILMAZ - yalniz
+            # intraday/zamanlama analizleri icindir.
+            "zaman_utc": s["zaman_utc"],
             "sinyal_fiyat": float(s["fiyat"]),
             # IZLEME de YUKARI bekler - AL_SINYALLERI'nin ONCUSU, ayni yon.
             "yon_beklentisi": "ASAGI_VEYA_NOTR" if s["sinyal"] in RISK_OFF_SINYALLERI
@@ -312,7 +320,8 @@ def main():
         # v2: alarm mesajinda skor/kgs/rejim varsa sakla - esik testinin
         # girdisi budur. P3_SKOR_AL'de su an "?" geliyor (17.08 bulgusu);
         # mesaj sablonu duzeltilince kendiliginden dolmaya baslar.
-        for alan in ("skor", "kgs", "rejim"):
+        # 02.10.2026: relvol da ayni gerekceyle eklendi (bkz. zaman_utc notu).
+        for alan in ("skor", "kgs", "rejim", "relvol"):
             if _sayi_mi(s.get(alan)):
                 kayit[alan] = float(s[alan])
         arsiv["kayitlar"].append(kayit)
