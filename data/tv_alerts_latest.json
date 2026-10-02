@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-02T15:11:06.866Z",
+  "son_guncelleme_utc": "2026-10-02T15:11:07.808Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 98
+    "adet": 99
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-02T15:11:03.250Z",
-    "sembol": "KCHOL",
+    "zaman_utc": "2026-10-02T15:11:03.279Z",
+    "sembol": "ENKAI",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "206.8",
-    "skor": "14",
-    "kgs": "5",
-    "stop": "211.20000000000002",
+    "fiyat": "84.00",
+    "skor": "11.94",
+    "kgs": "15",
+    "stop": "84.25",
     "rejim": "0",
-    "relvol": "1.18",
-    "v112n": "145",
+    "relvol": "0.55",
+    "v112n": "143",
     "v112wr": "?",
-    "p3ozet": "32",
+    "p3ozet": "702032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "KCHOL|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
+    "eventId": "ENKAI|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-02T15:11:03.279Z",
+      "sembol": "ENKAI",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "84.00",
+      "skor": "11.94",
+      "kgs": "15",
+      "stop": "84.25",
+      "rejim": "0",
+      "relvol": "0.55",
+      "v112n": "143",
+      "v112wr": "?",
+      "p3ozet": "702032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ENKAI|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-02T15:11:03.250Z",
       "sembol": "KCHOL",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "OTKAR|15|P4_HAZIRLIK|2026-10-01T06:45:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-01T07:00:28.205Z",
-      "sembol": "ASTOR",
-      "sinyal": "ACIL_CIK",
-      "interval": "15",
-      "fiyat": "174.2",
-      "skor": "19",
-      "kgs": "33",
-      "stop": "211.5",
-      "rejim": "0",
-      "relvol": "0.76",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "1500032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ASTOR|15|ACIL_CIK|2026-10-01T06:45:00Z",
       "carrierLagBars": "1"
     }
   ]
