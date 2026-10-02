@@ -1,0 +1,119 @@
+{
+  "olusturma_utc": "2026-10-02T08:25:18.501610Z",
+  "parametreler": {
+    "SOGUMA_BAR": 20,
+    "HACIM_ESIGI": 1.2,
+    "FIYAT_TOLERANS_PCT": 0.3
+  },
+  "toplam_acil_cik_kaydi": 15,
+  "kullanilabilir_olay_sayisi": 3,
+  "dislanma_detayi": {
+    "veri_yok": 12,
+    "fiyat_eslesmedi": 0,
+    "yetersiz_gecmis": 0
+  },
+  "cakisma_goruldugu_olay_sayisi": 3,
+  "tam_kacirilan_firsat_sayisi (B var, A hic gelmedi)": 0,
+  "karsilastirilabilir_olay_sayisi (hem A hem B var)": 3,
+  "karsilastirma_ozet (B_hipotetik_erken_giris - A_gercek_sistem, pp)": {
+    "T+1saat": {
+      "adet": 3,
+      "b_minus_a_ortalama_pp": 0.613,
+      "b_daha_iyi_oran_pct": 66.7
+    },
+    "T+1gun": {
+      "adet": 1,
+      "b_minus_a_ortalama_pp": 0.835,
+      "b_daha_iyi_oran_pct": 100.0
+    },
+    "T+3gun": {
+      "adet": 1,
+      "b_minus_a_ortalama_pp": 1.316,
+      "b_daha_iyi_oran_pct": 100.0
+    }
+  },
+  "olay_detaylari": [
+    {
+      "sembol": "TUPRS",
+      "tarih": "2026-09-22",
+      "acil_cik_fiyat": 399.25,
+      "tahmini_tetik_bari_utc": "2026-09-22 10:15:00+00:00",
+      "cakisma_var_mi": true,
+      "senaryo_b_hipotetik": {
+        "giris_bari_utc": "2026-09-22 10:15:00+00:00",
+        "relvol": 5.01,
+        "giris_fiyat": 399.25,
+        "ileri_getiri_pct": {
+          "T+1saat": -1.44,
+          "T+1gun": 2.63,
+          "T+3gun": 1.44
+        }
+      },
+      "senaryo_a_gercek_sistem": {
+        "giris_bari_utc": "2026-09-23 07:00:00+00:00",
+        "relvol": 1.29,
+        "giris_fiyat": 404.0,
+        "ileri_getiri_pct": {
+          "T+1saat": 0.619,
+          "T+1gun": 1.795,
+          "T+3gun": 0.124
+        }
+      }
+    },
+    {
+      "sembol": "HALKB",
+      "tarih": "2026-09-30",
+      "acil_cik_fiyat": 43.94,
+      "tahmini_tetik_bari_utc": "2026-09-30 12:15:00+00:00",
+      "cakisma_var_mi": true,
+      "senaryo_b_hipotetik": {
+        "giris_bari_utc": "2026-09-30 12:15:00+00:00",
+        "relvol": 2.41,
+        "giris_fiyat": 43.94,
+        "ileri_getiri_pct": {
+          "T+1saat": 0.0,
+          "T+1gun": 3.095,
+          "T+3gun": null
+        }
+      },
+      "senaryo_a_gercek_sistem": {
+        "giris_bari_utc": "2026-10-01 11:45:00+00:00",
+        "relvol": 1.97,
+        "giris_fiyat": 45.36,
+        "ileri_getiri_pct": {
+          "T+1saat": -0.176,
+          "T+1gun": null,
+          "T+3gun": null
+        }
+      }
+    },
+    {
+      "sembol": "ASTOR",
+      "tarih": "2026-10-01",
+      "acil_cik_fiyat": 174.2,
+      "tahmini_tetik_bari_utc": "2026-10-01 06:45:00+00:00",
+      "cakisma_var_mi": true,
+      "senaryo_b_hipotetik": {
+        "giris_bari_utc": "2026-10-01 07:00:00+00:00",
+        "relvol": 6.96,
+        "giris_fiyat": 176.1,
+        "ileri_getiri_pct": {
+          "T+1saat": 3.918,
+          "T+1gun": 19.08,
+          "T+3gun": null
+        }
+      },
+      "senaryo_a_gercek_sistem": {
+        "giris_bari_utc": "2026-10-01 11:45:00+00:00",
+        "relvol": 4.67,
+        "giris_fiyat": 205.4,
+        "ileri_getiri_pct": {
+          "T+1saat": 0.195,
+          "T+1gun": null,
+          "T+3gun": null
+        }
+      }
+    }
+  ],
+  "_durustluk_notu": "SALT OLCUM, Pine'a dokunulmadi. relVol, Pine'daki gercek zaman-dilimi EMA'sinin BASIT ORTALAMA yaklasigidir, birebir ayni sayiyi uretmez. Tetik bari, GUNLUK kayittaki fiyattan GERIYE DOGRU eslestirilerek tahmin edildi (saat bilgisi arsivde yok) - yanlis bar secimi riski vardir. Kucuk orneklemden (bkz. kullanilabilir_olay_sayisi) KESIN HUKUM CIKARILAMAZ, sadece on-bulgu olarak okunmalidir."
+}
