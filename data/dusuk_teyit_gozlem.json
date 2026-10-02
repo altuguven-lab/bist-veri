@@ -1,0 +1,682 @@
+{
+  "aciklama": "Dusuk teyit x yuksek hareket gozlem defteri - SALT OLCUM. Pine'a dokunmaz, alarm uretmez. bkz. dosyanin basindaki docstring (betigin kendisinde).",
+  "esikler": {
+    "gunluk_degisim_esigi_pct": 5.0,
+    "relvol_esigi": 1.2,
+    "skor_esigi": 32.0
+  },
+  "gunluk_kapanis_defteri": {
+    "EREGL": [
+      {
+        "tarih": "2026-08-19",
+        "fiyat": 37.76,
+        "relvol": 1.2812657511907306,
+        "skor": 20.671298714796663,
+        "kgs": 39.0,
+        "rejim": 1.0
+      },
+      {
+        "tarih": "2026-08-20",
+        "fiyat": 38.1,
+        "relvol": 1.1461430342044103,
+        "skor": 55.855549778112234,
+        "kgs": 92.0,
+        "rejim": 1.0
+      },
+      {
+        "tarih": "2026-08-27",
+        "fiyat": 38.6,
+        "relvol": 2.5358615784916263,
+        "skor": 13.446528917716263,
+        "kgs": 18.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 36.62,
+        "relvol": 0.51,
+        "skor": 12.0,
+        "kgs": 11.0,
+        "rejim": 1.0
+      }
+    ],
+    "ENJSA": [
+      {
+        "tarih": "2026-08-20",
+        "fiyat": 109.1,
+        "relvol": 0.8962838029106204,
+        "skor": 27.235724133471024,
+        "kgs": 15.0,
+        "rejim": 1.0
+      },
+      {
+        "tarih": "2026-08-28",
+        "fiyat": 117.9,
+        "relvol": 1.5006833738199228,
+        "skor": 57.998133127931,
+        "kgs": 75.0,
+        "rejim": 2.0
+      }
+    ],
+    "ALARK": [
+      {
+        "tarih": "2026-08-21",
+        "fiyat": 106.3,
+        "relvol": 2.186664515980616,
+        "skor": 12.491083695885685,
+        "kgs": 11.0,
+        "rejim": 1.0
+      },
+      {
+        "tarih": "2026-08-24",
+        "fiyat": 104.0,
+        "relvol": 1.3593148030159454,
+        "skor": 21.563938772479325,
+        "kgs": 38.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-08-25",
+        "fiyat": 105.9,
+        "relvol": 1.7904179398816262,
+        "skor": 32.946576646979,
+        "kgs": 86.0,
+        "rejim": 1.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 101.9,
+        "relvol": 0.74,
+        "skor": 25.6,
+        "kgs": 60.0,
+        "rejim": 1.0
+      }
+    ],
+    "TTKOM": [
+      {
+        "tarih": "2026-08-24",
+        "fiyat": 53.4,
+        "relvol": 0.9891971527813933,
+        "skor": 10.00823461869103,
+        "kgs": 3.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-08-26",
+        "fiyat": 53.85,
+        "relvol": 0.9880813789287083,
+        "skor": 10.700071305913701,
+        "kgs": 19.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-08-31",
+        "fiyat": 51.1,
+        "relvol": 3.040675660601334,
+        "skor": 20.666698106204194,
+        "kgs": 19.0,
+        "rejim": 0.0
+      }
+    ],
+    "BIMAS": [
+      {
+        "tarih": "2026-08-24",
+        "fiyat": 412.25,
+        "relvol": 0.6278030355112254,
+        "skor": 23.870412708089894,
+        "kgs": 45.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-09-01",
+        "fiyat": 408.25,
+        "relvol": 1.1595558523933258,
+        "skor": 25.706447986016418,
+        "kgs": 58.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 408.0,
+        "relvol": 1.88,
+        "skor": 12.0,
+        "kgs": 16.0,
+        "rejim": 1.0
+      }
+    ],
+    "VAKBN": [
+      {
+        "tarih": "2026-08-25",
+        "fiyat": 31.5,
+        "relvol": 0.5650514421690849,
+        "skor": 34.7264675852517,
+        "kgs": 24.0,
+        "rejim": 1.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 33.92,
+        "relvol": 0.61,
+        "skor": 39.8,
+        "kgs": 76.0,
+        "rejim": 1.0
+      }
+    ],
+    "FROTO": [
+      {
+        "tarih": "2026-08-25",
+        "fiyat": 78.6,
+        "relvol": 1.108446464440178,
+        "skor": 18.233500990788205,
+        "kgs": 28.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 75.45,
+        "relvol": 0.77,
+        "skor": 12.04,
+        "kgs": 26.0,
+        "rejim": 1.0
+      }
+    ],
+    "HALKB": [
+      {
+        "tarih": "2026-08-26",
+        "fiyat": 38.12,
+        "relvol": 0.0443327779236512,
+        "skor": 68.23449406425172,
+        "kgs": 53.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-09-23",
+        "fiyat": 46.06,
+        "relvol": 0.63,
+        "skor": 14.23,
+        "kgs": 21.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-09-28",
+        "fiyat": 45.12,
+        "relvol": 0.76,
+        "skor": 22.54,
+        "kgs": 51.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 45.04,
+        "relvol": 0.54,
+        "skor": 14.81,
+        "kgs": 20.0,
+        "rejim": 1.0
+      }
+    ],
+    "KCHOL": [
+      {
+        "tarih": "2026-08-27",
+        "fiyat": 214.2,
+        "relvol": 0.9756151798774454,
+        "skor": 34.43941820017028,
+        "kgs": 47.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-08-28",
+        "fiyat": 214.0,
+        "relvol": 1.498761734184762,
+        "skor": 18.083278995056755,
+        "kgs": 20.0,
+        "rejim": 2.0
+      },
+      {
+        "tarih": "2026-08-31",
+        "fiyat": 214.9,
+        "relvol": 1.1144160824946159,
+        "skor": 28.032581691185502,
+        "kgs": 33.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 209.9,
+        "relvol": 1.15,
+        "skor": 19.06,
+        "kgs": 26.0,
+        "rejim": 1.0
+      }
+    ],
+    "ULKER": [
+      {
+        "tarih": "2026-09-01",
+        "fiyat": 90.3,
+        "relvol": 0.5895402788151944,
+        "skor": 10.00042034948596,
+        "kgs": 10.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 85.75,
+        "relvol": 1.0,
+        "skor": 12.96,
+        "kgs": 17.0,
+        "rejim": 1.0
+      }
+    ],
+    "YKBNK": [
+      {
+        "tarih": "2026-09-01",
+        "fiyat": 36.82,
+        "relvol": 1.0618087446483753,
+        "skor": 32.163604326563416,
+        "kgs": 56.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 34.82,
+        "relvol": 0.61,
+        "skor": 12.51,
+        "kgs": 53.0,
+        "rejim": 1.0
+      }
+    ],
+    "TRMET": [
+      {
+        "tarih": "2026-09-02",
+        "fiyat": 137.7,
+        "relvol": 1.1107295055438622,
+        "skor": 36.72559544584264,
+        "kgs": 60.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 127.3,
+        "relvol": 1.85,
+        "skor": 12.0,
+        "kgs": 15.0,
+        "rejim": 1.0
+      }
+    ],
+    "THYAO": [
+      {
+        "tarih": "2026-09-02",
+        "fiyat": 291.5,
+        "relvol": 2.4000467445832325,
+        "skor": 10.46281336969871,
+        "kgs": 7.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 286.5,
+        "relvol": 0.5,
+        "skor": 12.97,
+        "kgs": 10.0,
+        "rejim": 1.0
+      }
+    ],
+    "TRALT": [
+      {
+        "tarih": "2026-09-22",
+        "fiyat": 50.05,
+        "relvol": 0.99,
+        "skor": 10.17,
+        "kgs": 16.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 43.42,
+        "relvol": 1.51,
+        "skor": 12.0,
+        "kgs": 17.0,
+        "rejim": 1.0
+      }
+    ],
+    "EKGYO": [
+      {
+        "tarih": "2026-09-23",
+        "fiyat": 19.9,
+        "relvol": 0.91,
+        "skor": 29.4,
+        "kgs": 38.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 19.03,
+        "relvol": 0.54,
+        "skor": 17.36,
+        "kgs": 45.0,
+        "rejim": 1.0
+      }
+    ],
+    "GARAN": [
+      {
+        "tarih": "2026-09-24",
+        "fiyat": 129.4,
+        "relvol": 0.81,
+        "skor": 12.72,
+        "kgs": 2.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 126.2,
+        "relvol": 0.66,
+        "skor": 16.61,
+        "kgs": 37.0,
+        "rejim": 1.0
+      }
+    ],
+    "TOASO": [
+      {
+        "tarih": "2026-09-24",
+        "fiyat": 279.5,
+        "relvol": 0.52,
+        "skor": 12.41,
+        "kgs": 19.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 265.25,
+        "relvol": 0.78,
+        "skor": 12.0,
+        "kgs": 15.0,
+        "rejim": 1.0
+      }
+    ],
+    "AEFES": [
+      {
+        "tarih": "2026-09-25",
+        "fiyat": 18.83,
+        "relvol": 0.34,
+        "skor": 22.55,
+        "kgs": 50.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-09-29",
+        "fiyat": 18.12,
+        "relvol": 0.94,
+        "skor": 25.72,
+        "kgs": 34.0,
+        "rejim": 0.0
+      }
+    ],
+    "ASELS": [
+      {
+        "tarih": "2026-09-30",
+        "fiyat": 336.5,
+        "relvol": 2.0,
+        "skor": 16.44,
+        "kgs": 18.0,
+        "rejim": 0.0
+      },
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 370.0,
+        "relvol": 1.69,
+        "skor": 51.91,
+        "kgs": 69.0,
+        "rejim": 1.0
+      }
+    ],
+    "ASTOR": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 209.6,
+        "relvol": 0.49,
+        "skor": 66.17,
+        "kgs": 60.0,
+        "rejim": 1.0
+      }
+    ],
+    "MGROS": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 500.0,
+        "relvol": 1.62,
+        "skor": 12.03,
+        "kgs": 17.0,
+        "rejim": 1.0
+      }
+    ],
+    "AKBNK": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 67.55,
+        "relvol": 1.29,
+        "skor": 12.02,
+        "kgs": 33.0,
+        "rejim": 1.0
+      }
+    ],
+    "OTKAR": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 309.5,
+        "relvol": 0.01,
+        "skor": 23.21,
+        "kgs": 55.0,
+        "rejim": 1.0
+      }
+    ],
+    "PGSUS": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 140.5,
+        "relvol": 0.66,
+        "skor": 14.0,
+        "kgs": 14.0,
+        "rejim": 1.0
+      }
+    ],
+    "PETKM": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 19.26,
+        "relvol": 0.76,
+        "skor": 15.35,
+        "kgs": 26.0,
+        "rejim": 1.0
+      }
+    ],
+    "SAHOL": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 86.1,
+        "relvol": 1.15,
+        "skor": 20.06,
+        "kgs": 36.0,
+        "rejim": 1.0
+      }
+    ],
+    "ENKAI": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 82.65,
+        "relvol": 1.75,
+        "skor": 12.14,
+        "kgs": 25.0,
+        "rejim": 1.0
+      }
+    ],
+    "ISCTR": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 12.51,
+        "relvol": 1.1,
+        "skor": 17.53,
+        "kgs": 48.0,
+        "rejim": 1.0
+      }
+    ],
+    "TAVHL": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 262.0,
+        "relvol": 0.98,
+        "skor": 18.06,
+        "kgs": 34.0,
+        "rejim": 1.0
+      }
+    ],
+    "TUPRS": [
+      {
+        "tarih": "2026-10-01",
+        "fiyat": 387.0,
+        "relvol": 0.55,
+        "skor": 24.76,
+        "kgs": 60.0,
+        "rejim": 1.0
+      }
+    ]
+  },
+  "gozlem_kayitlari": [
+    {
+      "sembol": "TTKOM",
+      "tarih": "2026-08-31",
+      "gunluk_degisim_pct": -5.107,
+      "onceki_gun_fiyat": 53.85,
+      "fiyat": 51.1,
+      "relvol": 3.040675660601334,
+      "skor": 20.666698106204194,
+      "kgs": 19.0,
+      "rejim": 0.0,
+      "dusuk_hacim_mi": false,
+      "dusuk_skor_mu": true,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu."
+    },
+    {
+      "sembol": "HALKB",
+      "tarih": "2026-09-23",
+      "gunluk_degisim_pct": 20.829,
+      "onceki_gun_fiyat": 38.12,
+      "fiyat": 46.06,
+      "relvol": 0.63,
+      "skor": 14.23,
+      "kgs": 21.0,
+      "rejim": 0.0,
+      "dusuk_hacim_mi": true,
+      "dusuk_skor_mu": true,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu.",
+      "ileri_getiri_t1_pct": -2.041
+    },
+    {
+      "sembol": "TRMET",
+      "tarih": "2026-10-01",
+      "gunluk_degisim_pct": -7.553,
+      "onceki_gun_fiyat": 137.7,
+      "fiyat": 127.3,
+      "relvol": 1.85,
+      "skor": 12.0,
+      "kgs": 15.0,
+      "rejim": 1.0,
+      "dusuk_hacim_mi": false,
+      "dusuk_skor_mu": true,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu."
+    },
+    {
+      "sembol": "TOASO",
+      "tarih": "2026-10-01",
+      "gunluk_degisim_pct": -5.098,
+      "onceki_gun_fiyat": 279.5,
+      "fiyat": 265.25,
+      "relvol": 0.78,
+      "skor": 12.0,
+      "kgs": 15.0,
+      "rejim": 1.0,
+      "dusuk_hacim_mi": true,
+      "dusuk_skor_mu": true,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu."
+    },
+    {
+      "sembol": "ULKER",
+      "tarih": "2026-10-01",
+      "gunluk_degisim_pct": -5.039,
+      "onceki_gun_fiyat": 90.3,
+      "fiyat": 85.75,
+      "relvol": 1.0,
+      "skor": 12.96,
+      "kgs": 17.0,
+      "rejim": 1.0,
+      "dusuk_hacim_mi": true,
+      "dusuk_skor_mu": true,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu."
+    },
+    {
+      "sembol": "YKBNK",
+      "tarih": "2026-10-01",
+      "gunluk_degisim_pct": -5.432,
+      "onceki_gun_fiyat": 36.82,
+      "fiyat": 34.82,
+      "relvol": 0.61,
+      "skor": 12.51,
+      "kgs": 53.0,
+      "rejim": 1.0,
+      "dusuk_hacim_mi": true,
+      "dusuk_skor_mu": true,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu."
+    },
+    {
+      "sembol": "VAKBN",
+      "tarih": "2026-10-01",
+      "gunluk_degisim_pct": 7.683,
+      "onceki_gun_fiyat": 31.5,
+      "fiyat": 33.92,
+      "relvol": 0.61,
+      "skor": 39.8,
+      "kgs": 76.0,
+      "rejim": 1.0,
+      "dusuk_hacim_mi": true,
+      "dusuk_skor_mu": false,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu."
+    },
+    {
+      "sembol": "TRALT",
+      "tarih": "2026-10-01",
+      "gunluk_degisim_pct": -13.247,
+      "onceki_gun_fiyat": 50.05,
+      "fiyat": 43.42,
+      "relvol": 1.51,
+      "skor": 12.0,
+      "kgs": 17.0,
+      "rejim": 1.0,
+      "dusuk_hacim_mi": false,
+      "dusuk_skor_mu": true,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu."
+    },
+    {
+      "sembol": "EREGL",
+      "tarih": "2026-10-01",
+      "gunluk_degisim_pct": -5.13,
+      "onceki_gun_fiyat": 38.6,
+      "fiyat": 36.62,
+      "relvol": 0.51,
+      "skor": 12.0,
+      "kgs": 11.0,
+      "rejim": 1.0,
+      "dusuk_hacim_mi": true,
+      "dusuk_skor_mu": true,
+      "o_gun_al_sinyali_geldi_mi": false,
+      "not": "GUNLUK_OZET kapanistan-kapanisa olcum - gun ICI zirve daha yuksek/dusuk olabilir, bkz. durustluk notu."
+    }
+  ],
+  "son_calisma_utc": "2026-10-02T09:06:34.838344Z",
+  "toplam_gozlem_kaydi": 9
+}
