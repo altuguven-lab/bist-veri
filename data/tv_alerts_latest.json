@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-02T15:11:09.021Z",
+  "son_guncelleme_utc": "2026-10-02T15:11:10.221Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 100
+    "adet": 101
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-02T15:11:03.279Z",
-    "sembol": "ENKAI",
+    "zaman_utc": "2026-10-02T15:11:05.458Z",
+    "sembol": "MGROS",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "84.00",
-    "skor": "11.94",
-    "kgs": "15",
-    "stop": "84.25",
+    "fiyat": "515.0",
+    "skor": "11.41",
+    "kgs": "21",
+    "stop": "516",
     "rejim": "0",
-    "relvol": "0.55",
-    "v112n": "143",
+    "relvol": "0.61",
+    "v112n": "232",
     "v112wr": "?",
-    "p3ozet": "702032",
+    "p3ozet": "1102032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ENKAI|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
+    "eventId": "MGROS|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-02T15:11:05.458Z",
+      "sembol": "MGROS",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "515.0",
+      "skor": "11.41",
+      "kgs": "21",
+      "stop": "516",
+      "rejim": "0",
+      "relvol": "0.61",
+      "v112n": "232",
+      "v112wr": "?",
+      "p3ozet": "1102032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "MGROS|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-02T15:11:03.279Z",
       "sembol": "ENKAI",
@@ -1906,25 +1925,6 @@
       "schemaVersion": "v162.2",
       "eventId": "ASELS|15|P4_HAZIRLIK|2026-10-01T07:00:00Z",
       "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-01T07:02:35.308Z",
-      "sembol": "THYAO",
-      "sinyal": "P1_KALITELI_AL",
-      "interval": "15",
-      "fiyat": "348.50",
-      "skor": "?",
-      "kgs": "?",
-      "stop": "?",
-      "rejim": "?",
-      "relvol": "?",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "?",
-      "pozsebep": "?",
-      "schemaVersion": "?",
-      "eventId": "?",
-      "carrierLagBars": "?"
     }
   ]
 }
