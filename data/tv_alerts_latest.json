@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-05T12:15:09.604Z",
+  "son_guncelleme_utc": "2026-10-05T12:15:20.932Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 154
+    "adet": 155
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-05T12:15:04.875Z",
-    "sembol": "SISE",
+    "zaman_utc": "2026-10-05T12:15:17.896Z",
+    "sembol": "PGSUS",
     "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "38.08",
-    "skor": "13.48",
-    "kgs": "60",
-    "stop": "37.92",
-    "rejim": "2",
-    "relvol": "0.26",
+    "fiyat": "143.0",
+    "skor": "18.37",
+    "kgs": "40",
+    "stop": "143.1",
+    "rejim": "1",
+    "relvol": "0.2",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "5602032",
+    "p3ozet": "3002032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "SISE|15|P3_RADAR|2026-10-05T12:00:00Z",
+    "eventId": "PGSUS|15|P3_RADAR|2026-10-05T12:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-05T12:15:17.896Z",
+      "sembol": "PGSUS",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "143.0",
+      "skor": "18.37",
+      "kgs": "40",
+      "stop": "143.1",
+      "rejim": "1",
+      "relvol": "0.2",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "3002032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "PGSUS|15|P3_RADAR|2026-10-05T12:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-05T12:15:04.875Z",
       "sembol": "SISE",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ASTOR|15|GUNLUK_OZET|2026-10-01T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-01T15:11:05.611Z",
-      "sembol": "TRMET",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "127.3",
-      "skor": "12",
-      "kgs": "15",
-      "stop": "128.8",
-      "rejim": "1",
-      "relvol": "1.85",
-      "v112n": "267",
-      "v112wr": "?",
-      "p3ozet": "32",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TRMET|15|GUNLUK_OZET|2026-10-01T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
