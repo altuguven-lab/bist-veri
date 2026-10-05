@@ -1,5 +1,5 @@
 """
-DUSUK TEYIT x YUKSEK HAREKET GOZLEM DEFTERI (02.10.2026)
+DUSUK TEYIT x YUKSEK HAREKET GOZLEM DEFTERI (02.10.2026, v2 05.10.2026)
 =============================================================
 Gerekce (kurul karari, 02.10.2026 - ASTOR ve OTKAR vakalari): Son
 gunlerde iki sembol (ASTOR 01.10, OTKAR 01-02.10) gun icinde %8-10
@@ -67,6 +67,17 @@ GUNLUK_DEGISIM_ESIGI_PCT = 5.0   # bu veya daha fazla |degisim| -> "yuksek harek
 RELVOL_ESIGI = 1.2               # Pine pTetikHacim ile AYNI
 SKOR_ESIGI = 32.0                # Pine pSkorTaban ile AYNI
 ILERI_TAKIP_GUN = [1, 3]         # GUNLUK_OZET bazinda ileri takip (islem gunu)
+# 05.10.2026 v2 (haftalik denetimde bulunan HATA): defter, halka tamponun
+# eski/eksik donemlerinden dolayi SEYREK olabilir. v1 "bir onceki kayit"i
+# otomatik "onceki gun" saydi -> ASTOR 12.08 "+%58" (gercekte 50 gunluk
+# fark), T+1 getirileri de ayni sekilde bozuktu. Artik ardisik iki kayit
+# arasi takvim farki bu sinirdan buyukse ARADA GUN EKSIK demektir ve
+# o karsilastirma YAPILMAZ (hafta sonu=3, tatil=4 gun kabul).
+MAX_ARDISIK_GUN_FARKI = 4
+
+
+def _gun_farki(a, b):
+    return (datetime.date.fromisoformat(b) - datetime.date.fromisoformat(a)).days
 
 
 def _sayi(v):
@@ -143,6 +154,12 @@ def main():
             })
             gunluk_liste.sort(key=lambda k: k["tarih"])
 
+        # v2: onceki kayit cok eskiyse (aradaki gunler eksik) "gunluk degisim"
+        # hesaplanamaz - uydurma buyuk hareket uretmemek icin atla.
+        if (onceki_girdi is not None
+                and _gun_farki(onceki_girdi["tarih"], tarih) > MAX_ARDISIK_GUN_FARKI):
+            onceki_girdi = None
+
         if onceki_girdi is None or (sembol, tarih) in mevcut_gozlem_anahtarlari:
             continue
 
@@ -175,26 +192,44 @@ def main():
             mevcut_gozlem_anahtarlari.add((sembol, tarih))
             yeni_gozlem += 1
 
-    # --- (C) Eski gozlem kayitlarinin ileri getirisini KENDI defterinden doldur
+    # --- (B2) v2 TEMIZLIK: v1'in bosluk-kontrolsuz urettigi kayitlari
+    # SILMEDEN "elenen_kayitlar"a tasi (gerekce yazili) - defter denetlenebilir kalir.
+    elenen = defter.setdefault("elenen_kayitlar", [])
+    temiz = []
+    for g in defter["gozlem_kayitlari"]:
+        tarihler = [k["tarih"] for k in defter["gunluk_kapanis_defteri"].get(g["sembol"], [])]
+        idx = tarihler.index(g["tarih"]) if g["tarih"] in tarihler else -1
+        if idx <= 0:
+            g["elenme_nedeni"] = "onceki gun kaydi defterde yok"
+            elenen.append(g)
+        elif _gun_farki(tarihler[idx - 1], g["tarih"]) > MAX_ARDISIK_GUN_FARKI:
+            g["elenme_nedeni"] = (f"onceki kayit {tarihler[idx - 1]} - "
+                                  f"{_gun_farki(tarihler[idx - 1], g['tarih'])} gunluk bosluk; "
+                                  f"'gunluk degisim' gecersiz (v1 hatasi, 05.10.2026)")
+            elenen.append(g)
+        else:
+            temiz.append(g)
+    defter["gozlem_kayitlari"] = temiz
+
+    # --- (C) Ileri getiriyi KENDI defterinden, HER KOSUDA yeniden hesapla;
+    # yol boyunca ardisik kayitlar arasi bosluk varsa o alan BOS birakilir.
     dolduruldu = 0
     for g in defter["gozlem_kayitlari"]:
-        sembol = g["sembol"]
-        gunluk_liste = defter["gunluk_kapanis_defteri"].get(sembol, [])
+        gunluk_liste = defter["gunluk_kapanis_defteri"].get(g["sembol"], [])
         tarihler = [k["tarih"] for k in gunluk_liste]
-        if g["tarih"] not in tarihler:
-            continue
         idx = tarihler.index(g["tarih"])
         for n in ILERI_TAKIP_GUN:
             alan = f"ileri_getiri_t{n}_pct"
-            if alan in g:
-                continue
-            if idx + n < len(gunluk_liste):
-                hedef_fiyat = gunluk_liste[idx + n]["fiyat"]
-                g[alan] = round((hedef_fiyat / g["fiyat"] - 1) * 100, 3)
+            g.pop(alan, None)
+            if idx + n < len(gunluk_liste) and all(
+                    _gun_farki(tarihler[j], tarihler[j + 1]) <= MAX_ARDISIK_GUN_FARKI
+                    for j in range(idx, idx + n)):
+                g[alan] = round((gunluk_liste[idx + n]["fiyat"] / g["fiyat"] - 1) * 100, 3)
                 dolduruldu += 1
 
     defter["son_calisma_utc"] = datetime.datetime.utcnow().isoformat() + "Z"
     defter["toplam_gozlem_kaydi"] = len(defter["gozlem_kayitlari"])
+    defter["toplam_elenen_kayit"] = len(defter["elenen_kayitlar"])
 
     os.makedirs(os.path.dirname(CIKTI_YOL), exist_ok=True)
     with open(CIKTI_YOL, "w", encoding="utf-8") as f:
