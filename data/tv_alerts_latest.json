@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-05T11:00:49.454Z",
+  "son_guncelleme_utc": "2026-10-05T11:45:22.354Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 149
+    "adet": 150
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-05T11:00:43.575Z",
-    "sembol": "TTKOM",
-    "sinyal": "P2_ADAY",
+    "zaman_utc": "2026-10-05T11:45:20.136Z",
+    "sembol": "ULKER",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "53.35",
-    "skor": "31.68",
-    "kgs": "75",
-    "stop": "53.150000000000006",
+    "fiyat": "86.80",
+    "skor": "25.93",
+    "kgs": "66",
+    "stop": "86.7",
     "rejim": "1",
-    "relvol": "0.84",
+    "relvol": "0.52",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "6702032",
+    "p3ozet": "6202032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TTKOM|15|P2_ADAY|2026-10-05T10:45:00Z",
+    "eventId": "ULKER|15|P3_RADAR|2026-10-05T11:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-05T11:45:20.136Z",
+      "sembol": "ULKER",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "86.80",
+      "skor": "25.93",
+      "kgs": "66",
+      "stop": "86.7",
+      "rejim": "1",
+      "relvol": "0.52",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "6202032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ULKER|15|P3_RADAR|2026-10-05T11:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-05T11:00:43.575Z",
       "sembol": "TTKOM",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "AKBNK|15|GUNLUK_OZET|2026-10-01T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-01T15:11:04.140Z",
-      "sembol": "ASELS",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "370.00",
-      "skor": "51.91",
-      "kgs": "69",
-      "stop": "368",
-      "rejim": "1",
-      "relvol": "1.69",
-      "v112n": "258",
-      "v112wr": "?",
-      "p3ozet": "7402032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ASELS|15|GUNLUK_OZET|2026-10-01T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
