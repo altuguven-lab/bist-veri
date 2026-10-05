@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-05T13:15:20.976Z",
+  "son_guncelleme_utc": "2026-10-05T13:15:30.188Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 158
+    "adet": 159
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-05T13:15:15.732Z",
-    "sembol": "TTKOM",
+    "zaman_utc": "2026-10-05T13:15:24.629Z",
+    "sembol": "AKBNK",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "53.65",
-    "skor": "58.42",
-    "kgs": "85",
-    "stop": "53.45",
+    "fiyat": "69.35",
+    "skor": "53.37",
+    "kgs": "84",
+    "stop": "69.15",
     "rejim": "2",
-    "relvol": "0.21",
+    "relvol": "1.37",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "8702032",
+    "p3ozet": "10002032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TTKOM|15|P4_HAZIRLIK|2026-10-05T13:00:00Z",
+    "eventId": "AKBNK|15|P4_HAZIRLIK|2026-10-05T13:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-05T13:15:24.629Z",
+      "sembol": "AKBNK",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "69.35",
+      "skor": "53.37",
+      "kgs": "84",
+      "stop": "69.15",
+      "rejim": "2",
+      "relvol": "1.37",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "10002032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "AKBNK|15|P4_HAZIRLIK|2026-10-05T13:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-05T13:15:15.732Z",
       "sembol": "TTKOM",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "AKBNK|15|P4_HAZIRLIK|2026-10-02T08:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-02T08:00:24.965Z",
-      "sembol": "KCHOL",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "211.5",
-      "skor": "36.45",
-      "kgs": "39",
-      "stop": "210.9",
-      "rejim": "1",
-      "relvol": "0.38",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "2800032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "KCHOL|15|P4_HAZIRLIK|2026-10-02T07:45:00Z",
       "carrierLagBars": "1"
     }
   ]
