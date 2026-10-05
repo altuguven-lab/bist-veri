@@ -55,3 +55,60 @@ Ilk veri noktalari (kayit)
 08.07.2026 11:30 YKBNK + AKBNK ACIL_CIK (36.44 / 71.35): endeks ayni gun
 -%2.16 kapatti -> M1 icin iki erken pozitif aday (T+3 hukmu 11.07'de).
 
+
+======================================================================
+*** HUKUM KAYDI - DONEM 2 (08.08 -> 19.09.2026): "HUKUMSUZ" ***
+Kayit tarihi: 05.10.2026 | Karar mercii: Baskan (Altug) | Komite tavsiyesi
+dogrultusunda. Sayac 05.10.2026 itibariyla 56/43'tedir; hukum gunu (19.09)
+karar verilmeden gecmistir - bu kayit o boslugu kapatir.
+
+OLCUM (kaynak: data/sinyal_arsiv.json, 08.08-19.09; data/denetim/hafta_2026-W40):
+  M1 ACIL_CIK isabeti (esik >%60): 4/11 = %36 (ham T+3, n=11). Esigin ALTINDA.
+     Piyasa-goreli okuma (M7, tum donem): n=13, isabet %53.8, t=0.78 - anlamli
+     degil. Hafta denetim betigi M1'i "HESAPLANAMADI" yazdi; yukaridaki
+     rakam arsivden ELLE hesaplandi.
+  M2 P1/P1Q isabeti (esik >%55): pencerede P1/P1Q sinyali YOK (n=0). OLCULEMEZ.
+  M3 Sinyal-uyum (esik >%80): islem_gunlugu.json'da 12 olay; metrik uretilmedi.
+     W40'taki "%0.0 KALDI" veri yoklugu artefakti kabul edilir, basarisizlik
+     sayilmaz. OLCULEMEZ.
+
+HUKUM: HUKUMSUZ. Gerekce:
+  1. Protokolun "ornek yetersizligi" maddesi: P1/P1Q n=0, M3 uretilmedi.
+     "Hicbiri gecmezse -> revizyon + sifirdan" satiri, ancak uc metrik de
+     OLCULEBILIR olsaydi isletilebilirdi; olculmeyen metrik basarisiz
+     sayilmaz.
+  2. Olcum penceresi fiilen bos kaldi: 03-04.09 webhook arizasi (alarm
+     sil-yeniden-kur sirasinda checkbox bos kaldi); GUNLUK_OZET kapsami 01.10'a
+     kadar eksik (30 sembolun 1'i), 02.10'da 22/30.
+  3. Mantik dondurmasi 17.09.2026'da Baskan karariyla zaten kaldirildi
+     (bu hukum kod kararini baglamaz; yalniz olcum donemini kapatir).
+  GERCEK BOYUTA GECIS: YOK. Mevcut boyutla izleme devam eder.
+  Notlar (karari degistirmez, kaydedilir): P3_SKOR_AL goreli T+3 -%0.57
+  (n=208, t=-1.79, anlamli degil ama negatife yakin); P2_DIP_DONUS +%4.01
+  (n=13, anlamli degil).
+
+ACIK SORU (18.08'den beri cevapsiz): P3_SKOR_AL'in GERCEK esigi
+  pSkorTaban=32 (input, grafik basina kayitli) HIC OLCULMEDI. 08.08'deki
+  "30->40" duzeltmesi bu sinyale degil P3_RADAR/P4_HAZIRLIK'a inmisti.
+
+*** DONEM 3 - YENI OLCUM DONEMI ***
+BASLANGIC: [BASKAN: tarih yaz - oneri: duzeltilmis arsiv/gozlem betikleri
+            repoya yuklendigi gun]  | SURE: 6 hafta  | BITIS: [baslangic + 42 gun]
+ON KOSULLAR (donem baslamadan TAMAMLANMALI):
+  O1. sinyal_arsiv_gunluk.py (zaman_utc + relvol alanli surum) repoda - TAMAM
+      (05.10: arsivde 13 kayit zaman_utc/relvol tasiyor).
+  O2. dusuk_teyit_yuksek_hareket_gozlem.py v2 (bosluk korumali) repoda.
+  O3. M1'e IKINCI OKUMA eklenir: piyasa-goreli T+3 (XU100/XU30). Birincil
+      hukum okumasi hangisi olacak, donem BASLAMADAN Baskan ilan eder
+      (ham okuma yukselen piyasada ACIL_CIK'i yapisal cezalandirir).
+  O4. M3'un veri kaynagi duzeltilir (islem_gunlugu olay tanimi / sinyal-uyum
+      hesabi); hafta_denetim.py M3'u 0/0 iken "OLCULEMEDI" basar.
+  O5. GUNLUK_OZET kapsami 30/30'a ulasmali: 02.10'daki 8 eksik sembolun
+      (AKBNK, EKGYO, EREGL, ISCTR, OTKAR, TOASO, VAKBN, YKBNK) kok nedeni
+      (TradingView mi Pipedream mi) Pipedream loglariyla belirlenir.
+  O6. pSkorTaban'in sembol/grafik bazinda gercek degeri okunur ve kayda gecer.
+ESIKLER: M1/M2/M3 esikleri (%60/%55/%80) donem BASINDA yeniden gozden
+  gecirilir; Seytanin Avukati'nin itirazi (esikler veriden turetilmedi)
+  Baskan tarafindan yanitlanir ve buraya islenir.
+DONDURMA: Donem 3 boyunca ayni kural gecerli; mantik degisikligi sayaci
+  sifirlar. (Boru hatti/olcum kodu dondurmadan muaftir.)
