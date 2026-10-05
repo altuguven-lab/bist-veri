@@ -1,15 +1,15 @@
 {
-  "son_guncelleme_utc": "2026-10-05T07:00:29.324Z",
+  "son_guncelleme_utc": "2026-10-05T07:00:33.251Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 118
+    "adet": 119
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-05T07:00:28.061Z",
+    "zaman_utc": "2026-10-05T07:00:29.871Z",
     "sembol": "YKBNK",
-    "sinyal": "P3_RADAR",
+    "sinyal": "P3_SKOR_AL",
     "interval": "15",
     "fiyat": "35.16",
     "skor": "28.68",
@@ -17,15 +17,34 @@
     "stop": "35.28",
     "rejim": "0",
     "relvol": "0.74",
-    "v112n": "?",
+    "v112n": "63",
     "v112wr": "?",
     "p3ozet": "6602032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "YKBNK|15|P3_RADAR|2026-10-05T06:45:00Z",
+    "eventId": "YKBNK|15|P3_SKOR_AL|2026-10-05T06:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-05T07:00:29.871Z",
+      "sembol": "YKBNK",
+      "sinyal": "P3_SKOR_AL",
+      "interval": "15",
+      "fiyat": "35.16",
+      "skor": "28.68",
+      "kgs": "64",
+      "stop": "35.28",
+      "rejim": "0",
+      "relvol": "0.74",
+      "v112n": "63",
+      "v112wr": "?",
+      "p3ozet": "6602032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "YKBNK|15|P3_SKOR_AL|2026-10-05T06:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-05T07:00:28.061Z",
       "sembol": "YKBNK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "HALKB|15|P3_SKOR_AL|2026-10-01T11:45:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-01T11:45:14.780Z",
-      "sembol": "KCHOL",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "211.5",
-      "skor": "23.59",
-      "kgs": "7",
-      "stop": "211",
-      "rejim": "1",
-      "relvol": "0.64",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "32",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "KCHOL|15|P4_HAZIRLIK|2026-10-01T11:30:00Z",
       "carrierLagBars": "1"
     }
   ]
