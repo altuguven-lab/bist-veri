@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-05T15:11:14.471Z",
+  "son_guncelleme_utc": "2026-10-05T15:11:16.641Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 168
+    "adet": 169
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-05T15:11:05.228Z",
-    "sembol": "TTKOM",
+    "zaman_utc": "2026-10-05T15:11:05.641Z",
+    "sembol": "SAHOL",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "53.65",
-    "skor": "24.43",
-    "kgs": "53",
-    "stop": "53.45",
+    "fiyat": "88.80",
+    "skor": "37.8",
+    "kgs": "43",
+    "stop": "88.85000000000001",
     "rejim": "1",
-    "relvol": "0.32",
-    "v112n": "186",
+    "relvol": "0.6",
+    "v112n": "163",
     "v112wr": "?",
-    "p3ozet": "3502032",
+    "p3ozet": "3902032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TTKOM|15|GUNLUK_OZET|2026-10-05T15:00:00Z",
+    "eventId": "SAHOL|15|GUNLUK_OZET|2026-10-05T15:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-05T15:11:05.641Z",
+      "sembol": "SAHOL",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "88.80",
+      "skor": "37.8",
+      "kgs": "43",
+      "stop": "88.85000000000001",
+      "rejim": "1",
+      "relvol": "0.6",
+      "v112n": "163",
+      "v112wr": "?",
+      "p3ozet": "3902032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "SAHOL|15|GUNLUK_OZET|2026-10-05T15:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-05T15:11:05.228Z",
       "sembol": "TTKOM",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "AEFES|15|P4_HAZIRLIK|2026-10-02T10:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-02T10:30:20.648Z",
-      "sembol": "TRMET",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "129.9",
-      "skor": "15.95",
-      "kgs": "33",
-      "stop": "129.1",
-      "rejim": "1",
-      "relvol": "0.77",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "1000032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TRMET|15|P4_HAZIRLIK|2026-10-02T10:15:00Z",
       "carrierLagBars": "1"
     }
   ]
