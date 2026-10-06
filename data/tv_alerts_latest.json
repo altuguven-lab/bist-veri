@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-06T13:30:26.767Z",
+  "son_guncelleme_utc": "2026-10-06T13:30:31.725Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 215
+    "adet": 216
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-06T13:30:26.183Z",
-    "sembol": "AKBNK",
+    "zaman_utc": "2026-10-06T13:30:31.066Z",
+    "sembol": "GARAN",
     "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "69.25",
-    "skor": "48.32",
-    "kgs": "59",
-    "stop": "69.2",
+    "fiyat": "131.0",
+    "skor": "44.4",
+    "kgs": "65",
+    "stop": "130.6",
     "rejim": "2",
-    "relvol": "2.37",
+    "relvol": "1.58",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "3202032",
+    "p3ozet": "3402032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "AKBNK|15|P3_RADAR|2026-10-06T13:15:00Z",
+    "eventId": "GARAN|15|P3_RADAR|2026-10-06T13:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-06T13:30:31.066Z",
+      "sembol": "GARAN",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "131.0",
+      "skor": "44.4",
+      "kgs": "65",
+      "stop": "130.6",
+      "rejim": "2",
+      "relvol": "1.58",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "3402032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "GARAN|15|P3_RADAR|2026-10-06T13:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-06T13:30:26.183Z",
       "sembol": "AKBNK",
@@ -1906,25 +1925,6 @@
       "schemaVersion": "?",
       "eventId": "?",
       "carrierLagBars": "?"
-    },
-    {
-      "zaman_utc": "2026-10-02T15:11:05.562Z",
-      "sembol": "AEFES",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "18.04",
-      "skor": "11.17",
-      "kgs": "41",
-      "stop": "18.1",
-      "rejim": "0",
-      "relvol": "0.52",
-      "v112n": "215",
-      "v112wr": "?",
-      "p3ozet": "3602032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "AEFES|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
-      "carrierLagBars": "1"
     }
   ]
 }
