@@ -133,6 +133,14 @@ def bilgi_cek(ticker):
                 cikti[k] = float(v)
     except Exception as e:
         print(f"UYARI(info): {ticker} -> {e}", file=sys.stderr)
+    # AKLI BASINDA FILTRE: yfinance birim/para birimi hatalari (06.10: YKBNK F/K 604,
+    # ENKAI PD/DD 55, THYAO PD/DD 18). Aralik disi -> None + bayrak (ham deger saklanir).
+    cikti["degerleme_supheli"] = []
+    for k, (lo, hi) in {"fk": (0.5, 100), "ileri_fk": (0.5, 100), "pd_dd": (0.05, 15)}.items():
+        v = cikti.get(k)
+        if v is not None and not (lo < v <= hi):
+            cikti["degerleme_supheli"].append(f"{k}={v:.2f}")
+            cikti[k] = None
     return cikti
 
 
@@ -149,7 +157,12 @@ def metrikler(df, xu_getiri):
         g = getiri(c, n)
         m[f"getiri_{ad}_pct"] = None if g is None else round(g, 2)
         xg = xu_getiri.get(ad)
-        m[f"goreli_{ad}_pct"] = None if (g is None or xg is None) else round(g - xg, 2)
+        m[f"goreli_xu_{ad}_pct"] = None if (g is None or xg is None) else round(g - xg, 2)
+    # VERI SAGLIGI: BIST gunluk fiyat limiti %10 - ustu tek-gun hareket buyuk
+    # olasilikla bolunme/duzeltme/veri hatasidir (06.10 ASTOR -%35 suphesi)
+    gunluk = c.pct_change().iloc[-130:].abs()
+    m["supheli_veri"] = bool((gunluk > 0.11).any())
+    m["supheli_veri_tarih"] = str(gunluk.idxmax().date()) if m["supheli_veri"] else None
     son252 = c.iloc[-252:]
     m["zirveden_uzaklik_pct"] = round(float(c.iloc[-1] / son252.max() - 1) * 100, 2)
     ma50 = c.rolling(50).mean().iloc[-1] if len(c) >= 50 else np.nan
@@ -227,6 +240,24 @@ def main():
         m.update(sistem.get(s, {}))
         hisseler.append(m)
 
+    # EVREN BENCHMARK: 30 hissenin MEDYANI (ayni veri kaynagi, ayni tarihler -> ic tutarli).
+    # 06.10 sorunu: XU100.IS 1a -%12.7 iken hisse medyani ~ -%1.5 -> XU100'e goreli
+    # sutunlar yapay sisti. Goreli okuma artik evren medyanina gore; XU100 yalniz referans.
+    evren = {}
+    for ad in GUN:
+        v = medyan([h.get(f"getiri_{ad}_pct") for h in hisseler])
+        evren[ad] = v
+        for h in hisseler:
+            g = h.get(f"getiri_{ad}_pct")
+            h[f"goreli_{ad}_pct"] = None if (g is None or v is None) else round(g - v, 2)
+    xu_ozet["evren_medyan_getiri"] = {ad: evren[ad] for ad in GUN}
+    tutarsiz = []
+    for ad in GUN:
+        a, b = xu_getiri.get(ad), evren.get(ad)
+        if a is not None and b is not None and abs(a - b) > 5:
+            tutarsiz.append(f"{ad}: XU100 {a:.1f}% vs evren medyan {b:.1f}%")
+    xu_ozet["xu100_tutarsizlik"] = tutarsiz
+
     sektorler = []
     for sek in sorted(set(SEKTOR.values())):
         uyeler = [h for h in hisseler if h["sektor"] == sek]
@@ -242,6 +273,8 @@ def main():
             "medyan_kriz_oncesine_gore_pct": medyan([h.get("kriz_oncesine_gore_pct") for h in uyeler]),
             "medyan_dipten_toparlanma_pct": medyan([h.get("dipten_toparlanma_pct") for h in uyeler]),
             "sektor_endeksi_3a_pct": None if ind_3a is None else round(ind_3a, 2),
+            "medyan_getiri_3a_pct": medyan([h.get("getiri_3a_pct") for h in uyeler]),
+            "supheli_veri_hisseleri": [h["sembol"] for h in uyeler if h.get("supheli_veri")],
             "uyeler": [h["sembol"] for h in uyeler],
         })
     sektorler.sort(key=lambda r: (-r["sektor_duyarlilik_ort"],
@@ -255,6 +288,7 @@ def main():
         "ayak_agirliklari": list(AYAK_AGIRLIK),
         "xu100": xu_ozet, "sektorler": sektorler, "hisseler": hisseler,
         "veri_alinamayan_semboller": eksik,
+        "supheli_veri_hisseleri": [h["sembol"] for h in hisseler if h.get("supheli_veri")],
         "durustluk_notu": "SENARYO_DUYARLILIK elle yazilmis nitel varsayimdir, olcum degildir; "
                           "momentum/toparlanma/degerleme ayri sutundur ve tek skora INDIRGENMEZ. "
                           "AL/SAT tavsiyesi degildir. Bkz. betik docstring.",
@@ -270,23 +304,34 @@ def main():
          "> Duyarlilik puani ELLE YAZILMIS varsayimdir (olcum degil); momentum/toparlanma/degerleme "
          "veridir ve ayri sutundur. AL/SAT tavsiyesi degildir.", "",
          f"XU100: son {xu_ozet['son']} ({xu_ozet['son_tarih']}) | 1a {f(xu_ozet.get('getiri_1a_pct'))}% | "
-         f"3a {f(xu_ozet.get('getiri_3a_pct'))}% | kriz oncesine gore {f(xu_ozet.get('kriz_oncesine_gore_pct'))}%", "",
+         f"3a {f(xu_ozet.get('getiri_3a_pct'))}% | kriz oncesine gore {f(xu_ozet.get('kriz_oncesine_gore_pct'))}%",
+         f"Evren (30 hisse) medyan getiri: 1a {f(evren.get('1a'))}% | 3a {f(evren.get('3a'))}% | 6a {f(evren.get('6a'))}% "
+         "(goreli sutunlar BU referansa gore)", ""]
+    if xu_ozet["xu100_tutarsizlik"]:
+        L += ["> UYARI: XU100.IS serisi hisse evreniyle TUTARSIZ (" + "; ".join(xu_ozet["xu100_tutarsizlik"]) +
+              "). XU100'e goreli okuma guvenilmez; evren medyani kullanildi.", ""]
+    L += [
          "## Sektorler (duyarliliga gore, esitlikte 3a goreli getiri)",
-         "| Sektor | Duyarlilik | Med. goreli 1a% | Med. goreli 3a% | Kriz oncesine gore% | Dipten toparlanma% | Sektor endeksi 3a% |",
-         "|---|---|---|---|---|---|---|"]
+         "| Sektor | Duyarlilik | Med. goreli 1a% | Med. goreli 3a% | Med. mutlak 3a% | Kriz oncesine gore% | Dipten toparlanma% | Sektor endeksi 3a% |",
+         "|---|---|---|---|---|---|---|---|"]
     for r in sektorler:
         L.append(f"| {r['sektor']} | {r['sektor_duyarlilik_ort']:+.1f} | {f(r['medyan_goreli_1a_pct'])} | "
-                 f"{f(r['medyan_goreli_3a_pct'])} | {f(r['medyan_kriz_oncesine_gore_pct'])} | "
+                 f"{f(r['medyan_goreli_3a_pct'])} | {f(r['medyan_getiri_3a_pct'])} | {f(r['medyan_kriz_oncesine_gore_pct'])} | "
                  f"{f(r['medyan_dipten_toparlanma_pct'])} | {f(r['sektor_endeksi_3a_pct'])} |")
     L += ["", "## Hisseler",
-          "| Sektor | Hisse | Duyarlilik | 1a% | 3a% | Goreli 3a% | Zirveden% | >MA50 | MA50>MA200 | Kriz oncesine% | Hacim 20g (mn TL) | F/K | PD/DD | Sistem skor/kgs/rejim |",
-          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+          "| Sektor | Hisse | Duyarlilik | 1a% | 3a% | Goreli 3a% | Zirveden% | >MA50 | MA50>MA200 | Kriz oncesine% | Hacim 20g (mn TL) | F/K | PD/DD | Sistem skor/kgs/rejim | Veri bayragi |",
+          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+    def bayrak(h):
+        b = []
+        if h.get("supheli_veri"): b.append(f"SICRAMA {h.get('supheli_veri_tarih')}")
+        if h.get("degerleme_supheli"): b.append("DEGERLEME: " + ",".join(h["degerleme_supheli"]))
+        return "; ".join(b) or "-"
     for h in hisseler:
         sis = "-" if h.get("sistem_skor") is None else f"{f(h.get('sistem_skor'))}/{f(h.get('sistem_kgs'),0)}/{f(h.get('sistem_rejim'),0)} ({h.get('sistem_tarih')})"
         L.append(f"| {h['sektor']} | {h['sembol']} | {h['senaryo_duyarlilik']:+.1f} | {f(h.get('getiri_1a_pct'))} | "
                  f"{f(h.get('getiri_3a_pct'))} | {f(h.get('goreli_3a_pct'))} | {f(h.get('zirveden_uzaklik_pct'))} | "
                  f"{h.get('ustunde_ma50')} | {h.get('ma50_ustunde_ma200')} | {f(h.get('kriz_oncesine_gore_pct'))} | "
-                 f"{f(h.get('ort_gunluk_hacim_tl_20g_milyon'),0)} | {f(h.get('fk'))} | {f(h.get('pd_dd'),2)} | {sis} |")
+                 f"{f(h.get('ort_gunluk_hacim_tl_20g_milyon'),0)} | {f(h.get('fk'))} | {f(h.get('pd_dd'),2)} | {sis} | {bayrak(h)} |")
     if eksik:
         L += ["", f"Veri alinamayan: {', '.join(eksik)}"]
     with open(f"{CIKTI_KLASOR}/senaryo_sektor_ekrani.md", "w", encoding="utf-8") as fh:
