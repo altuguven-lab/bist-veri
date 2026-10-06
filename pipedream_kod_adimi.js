@@ -1,3 +1,24 @@
+// PIPEDREAM CODE ADIMI - v4 (06.10.2026)
+// v3'ten fark (05.10 15:11:01 GMT "TIMEOUT" hatasi + 02.10 eksik 8 sembol):
+//  KOK NEDEN (KANITLI): GitHub ayni branch'e gelen commit'leri SIRAYLA
+//  isliyor (02.10 patlamasinda ~1.1 sn/commit, 26 commit +34 sn'de bitti).
+//  30+ eszamanli webhook = en az ~35 sn'lik kuyruk. Pipedream adim
+//  zaman asimi (varsayilan 30 sn) dolunca yurutme SESSIZCE OLUR: ne ana
+//  dosya ne inbox yazilir, TradingView ise "basariyla iletildi" gorur
+//  (Pipedream 200'u hemen doner). v2/v3'un rastgele gecikme + retry
+//  yapisi kuyrugu kisaltamaz, sadece toplam sureyi uzatir - v3 bunu
+//  KOTULESTIRMISTI (en kotu durum ~40 sn).
+//  DUZELTME:
+//   a) GUNLUK_OZET icin SEMBOL-SIRALI zaman dilimi (rastgele degil):
+//      her sembol kendi ~1.4 sn'lik diliminde yazar -> carpisma yok,
+//      kuyruk olusmaz. Diger sinyaller icin kisa rastgele gecikme.
+//   b) Tum yurutme SURE BUTCESINE bagli (ZAMAN_ASIMI_MS): ana yazma
+//      butceyi asmadan birakilir, inbox'a HER ZAMAN sure ayrilir.
+//   c) Her HTTP cagrisina 8 sn timeout - tek takili cagri butceyi yemez.
+//  *** ZORUNLU AYAR: Pipedream workflow > Settings > Execution Controls >
+//  Timeout en az 120 sn olmali (ZAMAN_ASIMI_MS=110000 buna gore). Bu
+//  ayar 30 sn kalirsa dilim mantigi SON sembolleri yine oldurur. ***
+// ---- v3 notlari (asagida, bilgi icin) ----
 // PIPEDREAM CODE ADIMI - v3 (01.10.2026)
 // v2'den fark (01.11 PM 409 HATASI KOK NEDEN DUZELTMESI):
 //  5. GUNLUK_OZET anindaki 30-sembollu patlamada ("suru kirici"
@@ -41,7 +62,17 @@ export default defineComponent({
     const REPO = "bist-veri";
     const PATH = "data/tv_alerts_latest.json";
     const MAX_SINYAL = 100;
-    const MAX_DENEME = 8;
+    const MAX_DENEME = 12;
+    const BASLANGIC = Date.now();
+    const ZAMAN_ASIMI_MS = 110000;  // Pipedream Timeout (>=120 sn) - 10 sn pay
+    const ANA_BUTCE_MS = 75000;     // ana dosya denemeleri bu sureyi asmaz
+    const INBOX_BITIS_MS = ZAMAN_ASIMI_MS - 8000;
+    const HTTP_TIMEOUT_MS = 8000;
+    const SEMBOL_SIRASI = ["AKBNK","YKBNK","GARAN","ISCTR","HALKB","VAKBN","KCHOL","SAHOL",
+      "BIMAS","MGROS","ASELS","THYAO","PGSUS","TAVHL","TTKOM","EREGL","SISE","TRMET","TUPRS",
+      "PETKM","ASTOR","ENJSA","ENKAI","EKGYO","FROTO","TOASO","OTKAR","AEFES","ALARK","ULKER","TRALT"];
+    const DILIM_MS = 1400;
+    const gecen = () => Date.now() - BASLANGIC;
 
     const bekle = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -85,7 +116,7 @@ export default defineComponent({
     const dosyaOku = async (yol) => {
       const r = await axios($, {
         url: `https://api.github.com/repos/${OWNER}/${REPO}/contents/${yol}?ref=main`,
-        headers,
+        headers, timeout: HTTP_TIMEOUT_MS,
       });
       return { sha: r.sha, icerik: JSON.parse(Buffer.from(r.content, "base64").toString("utf8")) };
     };
@@ -99,17 +130,22 @@ export default defineComponent({
       await axios($, {
         method: "PUT",
         url: `https://api.github.com/repos/${OWNER}/${REPO}/contents/${yol}`,
-        headers, data,
+        headers, data, timeout: HTTP_TIMEOUT_MS,
       });
     };
 
-    // (1) SURU KIRICI: es zamanli patlamada okumalari dagit
-    // v3: 2500 -> 6000ms. 30 sembollu GUNLUK_OZET patlamasinda eski
-    // pencere yetersiz kaliyordu (bkz. basliktaki v3 notu).
-    await bekle(Math.floor(Math.random() * 6000));
+    // (1) v4: GUNLUK_OZET icin SEMBOL-SIRALI dilim (kuyruk olusmasin);
+    // digerleri icin kisa rastgele gecikme.
+    if (yeniSinyal.sinyal === "GUNLUK_OZET") {
+      const idx = SEMBOL_SIRASI.indexOf(yeniSinyal.sembol);
+      const dilim = idx >= 0 ? idx : SEMBOL_SIRASI.length;
+      await bekle(dilim * DILIM_MS + Math.floor(Math.random() * 400));
+    } else {
+      await bekle(Math.floor(Math.random() * 2500));
+    }
 
     let sonHata = null;
-    for (let deneme = 1; deneme <= MAX_DENEME; deneme++) {
+    for (let deneme = 1; deneme <= MAX_DENEME && gecen() < ANA_BUTCE_MS; deneme++) {
       let sha, gecmis = [], sayac = { ay: buAy, adet: 0 }, dosyaAy = buAy;
       try {
         const m = await dosyaOku(PATH);
@@ -162,7 +198,7 @@ export default defineComponent({
       } catch (e) {
         sonHata = e;
         // (2) JITTER'LI USTEL BEKLEME: 300-900, 600-1800, 900-2700ms...
-        const taban = 300 * deneme;
+        const taban = Math.min(300 * deneme, 2000);
         await bekle(taban + Math.floor(Math.random() * taban * 2));
       }
     }
@@ -177,16 +213,16 @@ export default defineComponent({
     // ve atilan hatanin kullaniciya e-posta olarak dusmesine yol aciyordu.
     const kimlik = `${yeniSinyal.zaman_utc.replace(/[:.]/g, "-")}_${yeniSinyal.sembol}_${Math.floor(Math.random() * 1e6)}`;
     const inboxYol = `data/inbox/${kimlik}.json`;
-    const INBOX_DENEME = 3;
+    const INBOX_DENEME = 8;
     let inboxHata = null;
-    for (let d2 = 1; d2 <= INBOX_DENEME; d2++) {
+    for (let d2 = 1; d2 <= INBOX_DENEME && (d2 === 1 || gecen() < INBOX_BITIS_MS); d2++) {
       try {
         await dosyaYaz(inboxYol, yeniSinyal,
           `INBOX (yaris kaybi): ${yeniSinyal.sembol} ${yeniSinyal.sinyal}`);
         return { inbox: inboxYol, not: "ana dosya yazilamadi, inbox'a birakildi", sonHata: String(sonHata) };
       } catch (e2) {
         inboxHata = e2;
-        const taban2 = 400 * d2;
+        const taban2 = Math.min(400 * d2, 1500);
         await bekle(taban2 + Math.floor(Math.random() * taban2));
       }
     }
