@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-06T07:00:19.931Z",
+  "son_guncelleme_utc": "2026-10-06T07:00:22.464Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 184
+    "adet": 185
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-06T07:00:16.784Z",
-    "sembol": "AEFES",
+    "zaman_utc": "2026-10-06T07:00:21.104Z",
+    "sembol": "HALKB",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "18.10",
-    "skor": "28.35",
-    "kgs": "34",
-    "stop": "18.18",
+    "fiyat": "45.00",
+    "skor": "21.94",
+    "kgs": "19",
+    "stop": "45.24",
     "rejim": "1",
-    "relvol": "0.45",
+    "relvol": "1.16",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "3902032",
+    "p3ozet": "2501032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "AEFES|15|P4_HAZIRLIK|2026-10-06T06:45:00Z",
+    "eventId": "HALKB|15|P4_HAZIRLIK|2026-10-06T06:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-06T07:00:21.104Z",
+      "sembol": "HALKB",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "45.00",
+      "skor": "21.94",
+      "kgs": "19",
+      "stop": "45.24",
+      "rejim": "1",
+      "relvol": "1.16",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2501032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "HALKB|15|P4_HAZIRLIK|2026-10-06T06:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-06T07:00:16.784Z",
       "sembol": "AEFES",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ASELS|15|P2_DIP_DONUS|2026-10-02T14:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-02T14:00:54.231Z",
-      "sembol": "TAVHL",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "267.75",
-      "skor": "31.34",
-      "kgs": "70",
-      "stop": "269.25",
-      "rejim": "1",
-      "relvol": "0.28",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "5302032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TAVHL|15|P3_RADAR|2026-10-02T13:45:00Z",
       "carrierLagBars": "1"
     }
   ]
