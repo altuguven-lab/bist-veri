@@ -31,8 +31,23 @@ jobs:
 
       - name: Degisiklikleri commit'le
         run: |
+          # 06.10 DUZELTME: data/ip8_sinyal_arsiv.json YOKKEN (IP8 webhook'u
+          # henuz data/ip8_sinyal_latest.json yazmadiysa betik dosyayi olusturmaz)
+          # `git add <olmayan yol>` "fatal: pathspec" ile exit 128 veriyordu.
+          # Artik dosya yoksa temiz cikis; push da rebase+5 deneme ile.
+          if [ ! -f data/ip8_sinyal_arsiv.json ]; then
+            echo "data/ip8_sinyal_arsiv.json yok - IP8 verisi henuz gelmemis, commit atlandi"
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/ip8_sinyal_arsiv.json
-          git diff --cached --quiet || git commit -m "IP8 gunluk arsiv guncellemesi $(date -u +%Y-%m-%d)"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "IP8 gunluk arsiv guncellemesi $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili (deneme $i)"; exit 0; fi
+            echo "push reddedildi, rebase + tekrar ($i/5)"
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
