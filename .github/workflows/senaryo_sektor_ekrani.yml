@@ -1,0 +1,37 @@
+# SENARYO x SEKTOR EKRANI (06.10.2026)
+# Konum: .github/workflows/senaryo_sektor_ekrani.yml
+# ELLE tetiklenir - SALT OLCUM. Pine'a dokunmaz, alarm uretmez.
+# yfinance (gunluk veri + .info degerleme) kullanir: GitHub runner'larinda
+# ag acik, sandbox'ta degil. Cikti: data/senaryo_ekrani/ (.json + .md)
+name: Senaryo Sektor Ekrani
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  ekran:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy
+      - name: Ekrani calistir
+        run: python senaryo_sektor_ekrani.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "senaryo-ekrani-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/senaryo_ekrani/
+          git diff --staged --quiet && exit 0
+          git commit -m "Senaryo sektor ekrani $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "push basarili ($i)"; exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          echo "5 denemeden sonra push basarisiz"; exit 1
