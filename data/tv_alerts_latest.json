@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-06T12:01:11.869Z",
+  "son_guncelleme_utc": "2026-10-06T12:30:34.213Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 206
+    "adet": 207
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-06T12:01:09.524Z",
-    "sembol": "ALARK",
+    "zaman_utc": "2026-10-06T12:30:33.234Z",
+    "sembol": "OTKAR",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "105.9",
-    "skor": "25.34",
-    "kgs": "30",
-    "stop": "106.2",
-    "rejim": "0",
-    "relvol": "1.5",
+    "fiyat": "336.50",
+    "skor": "15.12",
+    "kgs": "48",
+    "stop": "343.5",
+    "rejim": "2",
+    "relvol": "1.65",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "2100032",
+    "p3ozet": "2601032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ALARK|15|P4_HAZIRLIK|2026-10-06T11:45:00Z",
+    "eventId": "OTKAR|15|P4_HAZIRLIK|2026-10-06T12:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-06T12:30:33.234Z",
+      "sembol": "OTKAR",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "336.50",
+      "skor": "15.12",
+      "kgs": "48",
+      "stop": "343.5",
+      "rejim": "2",
+      "relvol": "1.65",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2601032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "OTKAR|15|P4_HAZIRLIK|2026-10-06T12:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-06T12:01:09.524Z",
       "sembol": "ALARK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ASTOR|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-02T15:11:03.756Z",
-      "sembol": "FROTO",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "74.15",
-      "skor": "22.57",
-      "kgs": "50",
-      "stop": "76.45",
-      "rejim": "0",
-      "relvol": "1.18",
-      "v112n": "136",
-      "v112wr": "?",
-      "p3ozet": "3700032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "FROTO|15|GUNLUK_OZET|2026-10-02T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
