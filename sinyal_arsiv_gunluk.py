@@ -283,8 +283,30 @@ def _ozet_hesapla(alt, alan_kalibi, tip):
     return sonuc
 
 
+# 07.10.2026 EKLENDI: TEST/REPLAY KAYDI PARMAK IZI. KULUCKA_PROTOKOLU.md "KAYIT"
+# maddesi (fiyat=348.50 parmak izli THYAO kayitlari denetim disi) bu betikte
+# hic uygulanmiyordu - 06.10 09:37 TR'deki webhook testi (THYAO P1_KALITELI_AL,
+# fiyat 348.50) ve eski iki benzeri arsive girip M2 (P1/P1Q isabeti) ile
+# P1_KALITELI_AL ozetini kirletiyordu. Artik (a) yeni girisler elenir,
+# (b) arsivde kalmis olanlar her kosuda temizlenir ve sayilir.
+TEST_PARMAK_IZI = {("THYAO", 348.5)}
+
+
+def _test_kaydi_mi(sembol, fiyat):
+    try:
+        return (str(sembol), round(float(fiyat), 2)) in TEST_PARMAK_IZI
+    except (TypeError, ValueError):
+        return False
+
+
 def main():
     arsiv = _oku_arsiv()
+    _once = len(arsiv["kayitlar"])
+    arsiv["kayitlar"] = [k for k in arsiv["kayitlar"]
+                         if not _test_kaydi_mi(k.get("sembol"), k.get("sinyal_fiyat"))]
+    if len(arsiv["kayitlar"]) != _once:
+        print(f"{_once - len(arsiv['kayitlar'])} TEST/REPLAY kaydi arsivden temizlendi "
+              f"(parmak izi: {sorted(TEST_PARMAK_IZI)})")
     mevcut_anahtarlar = {(k["sembol"], k["sinyal"], k["tarih"]) for k in arsiv["kayitlar"]}
 
     veri = json.load(open(GIRIS_YOL, encoding="utf-8"))
@@ -297,6 +319,8 @@ def main():
         anahtar = (s["sembol"], s["sinyal"], str(sinyal_tarih))
         if anahtar in mevcut_anahtarlar:
             continue
+        if _test_kaydi_mi(s["sembol"], s["fiyat"]):
+            continue  # test/replay kaydi - denetim disi (bkz. TEST_PARMAK_IZI)
         izleme_mi = s["sinyal"] in IZLEME_SINYALLERI
         kayit = {
             "sembol": s["sembol"], "sinyal": s["sinyal"], "tarih": str(sinyal_tarih),
