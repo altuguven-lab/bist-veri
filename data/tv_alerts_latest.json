@@ -1,10 +1,10 @@
 {
-  "son_guncelleme_utc": "2026-10-08T12:30:10.641Z",
+  "son_guncelleme_utc": "2026-10-08T12:30:12.450Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 302
+    "adet": 303
   },
   "son_sinyal": {
     "zaman_utc": "2026-10-08T12:30:08.817Z",
@@ -43,6 +43,25 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "AKBNK|15|P4_HAZIRLIK|2026-10-08T12:15:00Z",
+      "carrierLagBars": "1"
+    },
+    {
+      "zaman_utc": "2026-10-08T12:30:08.776Z",
+      "sembol": "TOASO",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "265.75",
+      "skor": "19.63",
+      "kgs": "25",
+      "stop": "264.25",
+      "rejim": "0",
+      "relvol": "0.43",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "1300032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TOASO|15|P4_HAZIRLIK|2026-10-08T12:15:00Z",
       "carrierLagBars": "1"
     },
     {
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "TRMET|15|P4_HAZIRLIK|2026-10-06T11:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-06T11:30:20.908Z",
-      "sembol": "HALKB",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "44.98",
-      "skor": "10.44",
-      "kgs": "41",
-      "stop": "45.9",
-      "rejim": "0",
-      "relvol": "0.79",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "1401032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "HALKB|15|P4_HAZIRLIK|2026-10-06T11:15:00Z",
       "carrierLagBars": "1"
     }
   ]
