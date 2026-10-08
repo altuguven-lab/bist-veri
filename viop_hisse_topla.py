@@ -88,8 +88,8 @@ def indir(g):
         for sablon in URL_SABLONLARI:
             url = sablon.format(tarih=f"{d:%Y%m%d}")
             try:
-                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (bist-veri viop)"})
-                veri = urllib.request.urlopen(req, timeout=20).read()
+                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (bist-veri fetch_viop)"})
+                veri = urllib.request.urlopen(req, timeout=30).read()
             except Exception as e:
                 hatalar[f"{url.split('/')[3]}: {type(e).__name__} {getattr(e, 'code', '')}"] += 1; continue
             if len(veri) < 1000:
