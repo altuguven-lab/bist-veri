@@ -24,6 +24,23 @@ SON_GUN_KONTROL = 7    # sonraki çalıştırmalarda eksik gün kontrolü
 MAX_GUN = 250
 UA = {"User-Agent": "Mozilla/5.0 (compatible; bist-veri/1.0)"}
 KOD = re.compile(r"^[A-Z][A-Z0-9]{2,5}$")
+# Kaynak PDF'te 21.09.2026 öncesi oranlar ~2 kat yüksek (medyan ~%22 -> ~%9): ölçüm tanımı değişmiş görünüyor.
+# Seriler homojen olmadığı için z/trend yalnızca bu tarihten itibaren hesaplanır.
+REJIM_BASLANGIC = os.environ.get("AS_REJIM", "2026-09-21")
+
+
+def duzelt(v):
+    """Kaynak birim tutarsızlıklarını giderir (idempotent). Kopya döner."""
+    v = dict(v)
+    a, t = v.get("as_hacmi_mn"), v.get("islem_hacmi_mn")
+    if a and t and t < a:            # bazı günlerde toplam hacim milyar TL cinsinden ('1,177')
+        t = t * 1000
+        v["islem_hacmi_mn"] = t
+    if a and t: v["as_oran_pct"] = round(a / t * 100, 2)
+    ao, d1 = v.get("as_ort"), v.get("destek1")
+    if ao and d1 and ao / d1 > 100:  # AOF çoğu günde x1000 ölçekli ('369.865,00' = 369,865 TL)
+        v["as_ort"] = ao / 1000
+    return v
 
 
 def tr_sayi(s):
@@ -135,12 +152,12 @@ def inbox_oku(gecmis):
 
 
 def skorla(gecmis):
-    gun = sorted(gecmis["gunler"])
+    veri = {g: {k: duzelt(v) for k, v in t.items()} for g, t in gecmis["gunler"].items() if g >= REJIM_BASLANGIC}
+    gun = sorted(veri)
     if not gun: return None
     son = gun[-1]; rows = []
-    for kod, s in gecmis["gunler"][son].items():
-        ser = [(g, gecmis["gunler"][g][kod]) for g in gun if kod in gecmis["gunler"][g]
-               and gecmis["gunler"][g][kod].get("as_oran_pct") is not None]
+    for kod, s in veri[son].items():
+        ser = [(g, veri[g][kod]) for g in gun if kod in veri[g] and veri[g][kod].get("as_oran_pct") is not None]
         o = [x[1]["as_oran_pct"] for x in ser]; bugun = s["as_oran_pct"]
         z = trend = None
         if len(o) >= 10:
@@ -165,16 +182,16 @@ def skorla(gecmis):
     # piyasa geneli: listelenen hisselerde toplam AS hacmi / toplam işlem hacmi
     piyasa = []
     for g in gun[-30:]:
-        a = sum(v.get("as_hacmi_mn") or 0 for v in gecmis["gunler"][g].values())
-        t = sum(v.get("islem_hacmi_mn") or 0 for v in gecmis["gunler"][g].values())
+        a = sum(v.get("as_hacmi_mn") or 0 for v in veri[g].values())
+        t = sum(v.get("islem_hacmi_mn") or 0 for v in veri[g].values())
         if t > 0: piyasa.append((g, round(a / t * 100, 2)))
-    return {"tarih": son, "gun_sayisi": len(gun), "adaylar": rows, "liste_toplam_oran_son30": piyasa,
+    return {"tarih": son, "gun_sayisi": len(gun), "rejim_baslangic": REJIM_BASLANGIC, "adaylar": rows, "liste_toplam_oran_son30": piyasa,
             "uyari": "Geçmiş < 10 gün ise z/trend yok. Liste tavsiye değil, aday taramasıdır."}
 
 
 def rapor(r):
     f = lambda v: "–" if v is None else f"{v:.2f}"
-    L = [f"# Açığa satış / short squeeze taraması — {r['tarih']}", "", f"Geçmiş: {r['gun_sayisi']} gün. {r['uyari']}", ""]
+    L = [f"# Açığa satış / short squeeze taraması — {r['tarih']}", "", f"Geçmiş: {r['gun_sayisi']} gün ({r['rejim_baslangic']} sonrası; öncesinde kaynak oranları ~2 kat yüksek, homojen değil). {r['uyari']}", ""]
     if r["liste_toplam_oran_son30"]:
         L.append("**Listelenen hisselerde toplam açığa satış / işlem hacmi % (son günler):** " +
                  ", ".join(f"{g[5:]}: {v:.2f}" for g, v in r["liste_toplam_oran_son30"][-15:]))
