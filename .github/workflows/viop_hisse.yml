@@ -1,0 +1,42 @@
+name: VIOP Hisse Vadeli Özet
+
+on:
+  push:
+    paths:
+      - "data/viop_inbox/**"
+  schedule:
+    - cron: "30 16,18 * * 1-5"   # 19:30 ve 21:30 TR
+    - cron: "40 6 * * 2-6"       # 09:40 TR — önceki günü yakalar
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viop-hisse
+  cancel-in-progress: false
+
+jobs:
+  ozet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: VIOP özetini üret
+        run: python viop_hisse_topla.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/viop_hisse_gunluk.json data/viop_inbox 2>/dev/null || git add -A data/
+          [ -f viop_hisse_sinyal.md ] && git add viop_hisse_sinyal.md || true
+          git diff --cached --quiet && { echo "değişiklik yok"; exit 0; }
+          git commit -m "VIOP hisse vadeli özeti [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((RANDOM % 8 + 3))
+          done
+          exit 1
