@@ -95,6 +95,7 @@ def kesfet():
             h = al(LISTE % n)
         except Exception as e:
             print(f"  liste {n}: {e}"); continue
+        print(f"  liste {n}: {len(h)} bayt, 'aciga' geçen: {h.lower().count('aciga')}")
         for url, g, a, y in SLUG.findall(h):
             iso = f"20{y}-{a}-{g}"
             if url.startswith("/"): url = "https://www.foreks.com" + url
