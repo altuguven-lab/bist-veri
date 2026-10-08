@@ -7,6 +7,15 @@ Toplam APS: 82.1 mlr TL (gün içi değişim +1.47 mlr TL) · hacim 35.3 mlr TL 
 **long tasfiyesi:** EKGYO (fiyat -0.7%, APS -2.5% / -49 mn TL), AEFES (fiyat -2.8%, APS -6.5% / -32 mn TL), ODAS (fiyat -0.8%, APS -1.4% / -4 mn TL), ARCLK (fiyat -0.8%, APS -1.1% / -4 mn TL)
 **yeni long:** ISCTR (fiyat +0.8%, APS +4.3% / +177 mn TL), PETKM (fiyat +1.9%, APS +1.7% / +14 mn TL)
 
+**Son 3 gün birikim (APS % değişim, kümülatif fiyat %)** — fiyat düşerken APS sürekli artıyorsa short birikiyor:
+
+- ASELS: fiyat -4.0%, APS +19.7% (+1054 mn TL)
+- THYAO: fiyat -2.0%, APS +3.7% (+365 mn TL)
+- TRALT: fiyat -5.1%, APS +26.7% (+305 mn TL)
+- EREGL: fiyat -1.0%, APS +8.2% (+150 mn TL)
+- GUBRF: fiyat -5.7%, APS +15.2% (+140 mn TL)
+- ASTOR: fiyat -16.4%, APS +13.1% (+116 mn TL)
+
 **Açığa satış taramasıyla kesişim (2026-10-08):** BIMAS (AS pay 8.7%, skor 1/4), ENKAI (AS pay 7.5%, skor 1/4), EREGL (AS pay 16.7%, skor 2/4), MGROS (AS pay 9.6%, skor 1/4), SASA (AS pay 9.9%, skor 1/4)
 
 | Hisse | APS mlr TL | APS Δ% | Fiyat Δ% | Devir % | Takvim faizi % | Sinyal |
