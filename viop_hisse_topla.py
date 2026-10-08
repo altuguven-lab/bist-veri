@@ -39,6 +39,13 @@ def ayrac_bul(metin):
     return max([";", "\t", ","], key=ilk.count)
 
 
+def _tarih(t):
+    t = t.strip()
+    for f in ("%d/%m/%Y", "%Y-%m-%d", "%d.%m.%Y", "%Y/%m/%d", "%Y%m%d"):
+        try: return dt.datetime.strptime(t, f)
+        except ValueError: pass
+    raise ValueError(f"tarih biçimi tanınmadı: {t!r}")
+
 def gun_ozeti(metin):
     rows = list(csv.reader(io.StringIO(metin, newline=""), delimiter=ayrac_bul(metin)))
     h = [x.strip() for x in rows[0]]
@@ -48,18 +55,18 @@ def gun_ozeti(metin):
         if len(r) < 22: continue
         d = dict(zip(h, r))
         if d["PAZAR SEGMENTI"] != "SSF": continue
-        tarih = tarih or dt.datetime.strptime(d["TARIH"], "%d/%m/%Y").date().isoformat()
+        tarih = tarih or _tarih(d["TARIH"]).date().isoformat()
         g[d["DAYANAK VARLIK"].split(".")[0]].append(d)
     out = {}
     for kod, rs in g.items():
-        rs.sort(key=lambda r: dt.datetime.strptime(r["VADE TARIHI"], "%d/%m/%Y"))
+        rs.sort(key=lambda r: _tarih(r["VADE TARIHI"]))
         oi_adet = sum(f(r["ACIK POZISYON"]) for r in rs)
         oi_tl = sum(f(r["ACIK POZISYON"]) * f(r["UZLASMA FIYATI"]) * CARPAN for r in rs)
         d_adet = sum(f(r["ACIK POZISYON DEGISIMI"]) for r in rs)
         d_tl = sum(f(r["ACIK POZISYON DEGISIMI"]) * f(r["UZLASMA FIYATI"]) * CARPAN for r in rs)
         n = rs[0]; sp = None
         if len(rs) > 1 and f(n["UZLASMA FIYATI"]) > 0:
-            gun = (dt.datetime.strptime(rs[1]["VADE TARIHI"], "%d/%m/%Y") - dt.datetime.strptime(n["VADE TARIHI"], "%d/%m/%Y")).days
+            gun = (_tarih(rs[1]["VADE TARIHI"]) - _tarih(n["VADE TARIHI"])).days
             if gun > 0: sp = round((f(rs[1]["UZLASMA FIYATI"]) / f(n["UZLASMA FIYATI"]) - 1) * 365 / gun * 100, 2)
         hacim = sum(f(r["ISLEM HACMI"]) for r in rs)
         out[kod] = {"uzlasma": f(n["UZLASMA FIYATI"]), "fiyat_degisim_pct": f(n["UZLASMA FIYATI DEGISIMI (%)"]),
