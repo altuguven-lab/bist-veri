@@ -28,7 +28,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/aciga_satis_gunluk.json data/aciga_satis_squeeze.json aciga_satis_squeeze.md data/aciga_satis_inbox 2>/dev/null || true
+          git add -A data/
+          [ -f aciga_satis_squeeze.md ] && git add aciga_satis_squeeze.md || true
           git diff --cached --quiet && { echo "değişiklik yok"; exit 0; }
           git commit -m "Açığa satış verisi + squeeze taraması [skip ci]"
           for i in 1 2 3 4 5; do
