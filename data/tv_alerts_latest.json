@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-08T13:45:25.684Z",
+  "son_guncelleme_utc": "2026-10-08T13:45:28.119Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 311
+    "adet": 312
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-08T13:45:23.457Z",
-    "sembol": "OTKAR",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-10-08T13:45:25.223Z",
+    "sembol": "ULKER",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "343.50",
-    "skor": "10.5",
-    "kgs": "32",
-    "stop": "342.75",
+    "fiyat": "85.70",
+    "skor": "29.3",
+    "kgs": "61",
+    "stop": "86.4",
     "rejim": "0",
-    "relvol": "0.16",
+    "relvol": "0.72",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "1032",
+    "p3ozet": "4501032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "OTKAR|15|P4_HAZIRLIK|2026-10-08T13:30:00Z",
+    "eventId": "ULKER|15|P3_RADAR|2026-10-08T13:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-08T13:45:25.223Z",
+      "sembol": "ULKER",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "85.70",
+      "skor": "29.3",
+      "kgs": "61",
+      "stop": "86.4",
+      "rejim": "0",
+      "relvol": "0.72",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "4501032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ULKER|15|P3_RADAR|2026-10-08T13:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-08T13:45:23.457Z",
       "sembol": "OTKAR",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ISCTR|15|P3_SKOR_AL|2026-10-06T13:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-06T13:15:09.184Z",
-      "sembol": "SAHOL",
-      "sinyal": "P3_SKOR_AL",
-      "interval": "15",
-      "fiyat": "89.40",
-      "skor": "46.92",
-      "kgs": "61",
-      "stop": "88.95",
-      "rejim": "0",
-      "relvol": "1.42",
-      "v112n": "164",
-      "v112wr": "?",
-      "p3ozet": "7202032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "SAHOL|15|P3_SKOR_AL|2026-10-06T13:00:00Z",
       "carrierLagBars": "1"
     }
   ]
