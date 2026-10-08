@@ -1,0 +1,38 @@
+name: Açığa Satış Topla
+
+on:
+  schedule:
+    - cron: "40 16,18 * * 1-5"   # 19:40 ve 21:40 TR — İnfo bülteni seans sonrası yayımlanır
+    - cron: "15 6 * * 2-6"       # sabah yakalama (önceki gün)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aciga-satis
+  cancel-in-progress: false
+
+jobs:
+  topla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Veriyi topla ve tarama üret
+        run: python acigasatis_topla.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/aciga_satis_gunluk.json data/aciga_satis_squeeze.json aciga_satis_squeeze.md data/aciga_satis_inbox 2>/dev/null || true
+          git diff --cached --quiet && { echo "değişiklik yok"; exit 0; }
+          git commit -m "Açığa satış verisi + squeeze taraması [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((RANDOM % 8 + 3))
+          done
+          exit 1
