@@ -34,8 +34,13 @@ def f(x):
     except ValueError: return 0.0
 
 
+def ayrac_bul(metin):
+    ilk = metin.split("\n", 1)[0]
+    return max([";", "\t", ","], key=ilk.count)
+
+
 def gun_ozeti(metin):
-    rows = list(csv.reader(io.StringIO(metin, newline=""), delimiter=";"))
+    rows = list(csv.reader(io.StringIO(metin, newline=""), delimiter=ayrac_bul(metin)))
     h = [x.strip() for x in rows[0]]
     g = collections.defaultdict(list)
     tarih = None
@@ -75,20 +80,29 @@ def indir(g):
     """Eksik iş günlerini indirip özetler (ham dosya saklanmaz). Dönüş: eklenen gün sayısı."""
     n = 0; bugun = dt.datetime.now(dt.timezone(dt.timedelta(hours=3))).date()
     geri = GERI_GUN if len(g["gunler"]) < 10 else SON_GUN
+    hatalar = collections.Counter(); ardisik_basarisiz = 0; denenen = 0
     for i in range(0, geri + 1):
         d = bugun - dt.timedelta(days=i)
         if d.weekday() >= 5 or d.isoformat() in g["gunler"]: continue
+        denenen += 1; bulundu = False
         for sablon in URL_SABLONLARI:
+            url = sablon.format(tarih=f"{d:%Y%m%d}")
             try:
-                req = urllib.request.Request(sablon.format(tarih=f"{d:%Y%m%d}"), headers={"User-Agent": "Mozilla/5.0 (bist-veri viop)"})
-                veri = urllib.request.urlopen(req, timeout=40).read()
-            except Exception:
-                continue
-            if len(veri) < 1000: continue
+                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (bist-veri viop)"})
+                veri = urllib.request.urlopen(req, timeout=20).read()
+            except Exception as e:
+                hatalar[f"{url.split('/')[3]}: {type(e).__name__} {getattr(e, 'code', '')}"] += 1; continue
+            if len(veri) < 1000:
+                hatalar[f"{url.split('/')[3]}: kısa yanıt {len(veri)} bayt"] += 1; continue
             try: tarih, o = gun_ozeti(veri.decode("latin-1"))
-            except Exception as e: print(f"  {d}: ayrıştırma hatası {e}"); continue
+            except Exception as e: hatalar[f"ayrıştırma: {e}"] += 1; continue
             if tarih == d.isoformat() and len(o) >= 20:
-                g["gunler"][tarih] = o; n += 1; print(f"  indirildi {tarih}: {len(o)} hisse"); break
+                g["gunler"][tarih] = o; n += 1; bulundu = True; print(f"  indirildi {tarih}: {len(o)} hisse"); break
+            hatalar[f"tarih/satır uyuşmadı ({tarih}, {len(o)} satır)"] += 1
+        ardisik_basarisiz = 0 if bulundu else ardisik_basarisiz + 1
+        if n == 0 and ardisik_basarisiz >= 6:
+            print("  ilk 6 gün hiç indirilemedi, geri doldurma durduruldu"); break
+    print(f"  indirme özeti: denenen gün {denenen}, eklenen {n}; hatalar: {dict(hatalar) or '-'}")
     return n
 
 
