@@ -103,6 +103,7 @@ def indir(g):
         if n == 0 and ardisik_basarisiz >= 6:
             print("  ilk 6 gün hiç indirilemedi, geri doldurma durduruldu"); break
     print(f"  indirme özeti: denenen gün {denenen}, eklenen {n}; hatalar: {dict(hatalar) or '-'}")
+    g["indirme_log"] = f"{dt.datetime.now(dt.timezone(dt.timedelta(hours=3))):%Y-%m-%d %H:%M} TR | denenen {denenen}, eklenen {n} | hatalar: {dict(hatalar) or '-'}"
     return n
 
 
