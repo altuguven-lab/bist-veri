@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-09T13:15:14.550Z",
+  "son_guncelleme_utc": "2026-10-09T13:15:17.949Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 386
+    "adet": 387
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-09T13:15:11.812Z",
-    "sembol": "ALARK",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-10-09T13:15:15.280Z",
+    "sembol": "PETKM",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "109.4",
-    "skor": "30.06",
-    "kgs": "49",
-    "stop": "109.2",
+    "fiyat": "20.60",
+    "skor": "25.92",
+    "kgs": "46",
+    "stop": "20.7",
     "rejim": "1",
-    "relvol": "0.75",
+    "relvol": "0.66",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "4902032",
+    "p3ozet": "3402032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ALARK|15|P4_HAZIRLIK|2026-10-09T13:00:00Z",
+    "eventId": "PETKM|15|P3_RADAR|2026-10-09T13:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-09T13:15:15.280Z",
+      "sembol": "PETKM",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "20.60",
+      "skor": "25.92",
+      "kgs": "46",
+      "stop": "20.7",
+      "rejim": "1",
+      "relvol": "0.66",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "3402032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "PETKM|15|P3_RADAR|2026-10-09T13:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-09T13:15:11.812Z",
       "sembol": "ALARK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "TRMET|15|P4_HAZIRLIK|2026-10-08T08:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-08T08:30:22.944Z",
-      "sembol": "PETKM",
-      "sinyal": "P2_ADAY",
-      "interval": "15",
-      "fiyat": "20.32",
-      "skor": "23.2",
-      "kgs": "64",
-      "stop": "20.18",
-      "rejim": "0",
-      "relvol": "0.59",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "6102032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "PETKM|15|P2_ADAY|2026-10-08T08:15:00Z",
       "carrierLagBars": "1"
     }
   ]
