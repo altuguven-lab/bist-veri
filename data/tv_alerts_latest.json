@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-09T12:15:16.614Z",
+  "son_guncelleme_utc": "2026-10-09T12:15:18.512Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 375
+    "adet": 376
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-09T12:15:14.459Z",
-    "sembol": "ASELS",
-    "sinyal": "P2_ADAY",
+    "zaman_utc": "2026-10-09T12:15:16.395Z",
+    "sembol": "MGROS",
+    "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "354.50",
-    "skor": "28.05",
-    "kgs": "58",
-    "stop": "352.25",
+    "fiyat": "502.5",
+    "skor": "15.11",
+    "kgs": "37",
+    "stop": "504.5",
     "rejim": "2",
-    "relvol": "1.04",
+    "relvol": "0.8",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "4300032",
+    "p3ozet": "3302032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ASELS|15|P2_ADAY|2026-10-09T12:00:00Z",
+    "eventId": "MGROS|15|P4_HAZIRLIK|2026-10-09T12:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-09T12:15:16.395Z",
+      "sembol": "MGROS",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "502.5",
+      "skor": "15.11",
+      "kgs": "37",
+      "stop": "504.5",
+      "rejim": "2",
+      "relvol": "0.8",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "3302032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "MGROS|15|P4_HAZIRLIK|2026-10-09T12:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-09T12:15:14.459Z",
       "sembol": "ASELS",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ENJSA|15|P3_RADAR|2026-10-07T14:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-07T14:15:07.002Z",
-      "sembol": "ISCTR",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "12.89",
-      "skor": "40.85",
-      "kgs": "95",
-      "stop": "12.93",
-      "rejim": "0",
-      "relvol": "1.8",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "7900032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ISCTR|15|P3_RADAR|2026-10-07T14:00:00Z",
       "carrierLagBars": "1"
     }
   ]
