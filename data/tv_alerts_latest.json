@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-09T14:00:12.794Z",
+  "son_guncelleme_utc": "2026-10-09T14:00:25.762Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 389
+    "adet": 390
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-09T14:00:10.411Z",
-    "sembol": "YKBNK",
-    "sinyal": "SEKTOR_ROTASYONU",
+    "zaman_utc": "2026-10-09T14:00:23.969Z",
+    "sembol": "THYAO",
+    "sinyal": "P2_ADAY",
     "interval": "15",
-    "fiyat": "35.26",
-    "skor": "17",
-    "kgs": "16",
-    "stop": "35.74",
+    "fiyat": "287.75",
+    "skor": "38.52",
+    "kgs": "36",
+    "stop": "292.75",
     "rejim": "1",
-    "relvol": "0.94",
+    "relvol": "0.79",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "32",
+    "p3ozet": "2302032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "YKBNK|15|SEKTOR_ROTASYONU|2026-10-09T13:45:00Z",
+    "eventId": "THYAO|15|P2_ADAY|2026-10-09T13:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-09T14:00:23.969Z",
+      "sembol": "THYAO",
+      "sinyal": "P2_ADAY",
+      "interval": "15",
+      "fiyat": "287.75",
+      "skor": "38.52",
+      "kgs": "36",
+      "stop": "292.75",
+      "rejim": "1",
+      "relvol": "0.79",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2302032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "THYAO|15|P2_ADAY|2026-10-09T13:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-09T14:00:10.411Z",
       "sembol": "YKBNK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ENKAI|15|P4_HAZIRLIK|2026-10-08T09:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-08T09:15:24.858Z",
-      "sembol": "ASTOR",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "187.7",
-      "skor": "24.45",
-      "kgs": "56",
-      "stop": "195.20000000000002",
-      "rejim": "0",
-      "relvol": "0.33",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "4000032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ASTOR|15|P4_HAZIRLIK|2026-10-08T09:00:00Z",
       "carrierLagBars": "1"
     }
   ]
