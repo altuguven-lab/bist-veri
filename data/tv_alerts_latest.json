@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-12T12:15:17.897Z",
+  "son_guncelleme_utc": "2026-10-12T13:15:17.596Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 462
+    "adet": 463
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-12T12:15:17.448Z",
-    "sembol": "YKBNK",
-    "sinyal": "P3_RADAR",
+    "zaman_utc": "2026-10-12T13:15:15.158Z",
+    "sembol": "BIMAS",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "35.84",
-    "skor": "14.42",
-    "kgs": "54",
-    "stop": "35.76",
+    "fiyat": "398.00",
+    "skor": "14.39",
+    "kgs": "24",
+    "stop": "404.75",
     "rejim": "0",
-    "relvol": "0.18",
+    "relvol": "0.07",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "3702032",
+    "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "YKBNK|15|P3_RADAR|2026-10-12T12:00:00Z",
+    "eventId": "BIMAS|15|SEKTOR_ROTASYONU|2026-10-12T13:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-12T13:15:15.158Z",
+      "sembol": "BIMAS",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "398.00",
+      "skor": "14.39",
+      "kgs": "24",
+      "stop": "404.75",
+      "rejim": "0",
+      "relvol": "0.07",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "BIMAS|15|SEKTOR_ROTASYONU|2026-10-12T13:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-12T12:15:17.448Z",
       "sembol": "YKBNK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ASELS|15|P4_HAZIRLIK|2026-10-09T08:45:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-09T08:45:15.206Z",
-      "sembol": "ENKAI",
-      "sinyal": "P2_ADAY",
-      "interval": "15",
-      "fiyat": "82.50",
-      "skor": "17.1",
-      "kgs": "50",
-      "stop": "83.4",
-      "rejim": "1",
-      "relvol": "0.65",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "4102032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ENKAI|15|P2_ADAY|2026-10-09T08:30:00Z",
       "carrierLagBars": "1"
     }
   ]
