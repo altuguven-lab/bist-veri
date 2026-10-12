@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-12T11:45:22.459Z",
+  "son_guncelleme_utc": "2026-10-12T12:15:07.485Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 460
+    "adet": 461
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-12T11:45:19.835Z",
-    "sembol": "ALARK",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-10-12T12:15:04.610Z",
+    "sembol": "AKBNK",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "109.1",
-    "skor": "27.34",
-    "kgs": "31",
-    "stop": "109.60000000000001",
+    "fiyat": "68.45",
+    "skor": "17.23",
+    "kgs": "52",
+    "stop": "68.3",
     "rejim": "0",
-    "relvol": "0.12",
+    "relvol": "0.27",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "1700032",
+    "p3ozet": "4202032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ALARK|15|P4_HAZIRLIK|2026-10-12T11:30:00Z",
+    "eventId": "AKBNK|15|P3_RADAR|2026-10-12T12:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-12T12:15:04.610Z",
+      "sembol": "AKBNK",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "68.45",
+      "skor": "17.23",
+      "kgs": "52",
+      "stop": "68.3",
+      "rejim": "0",
+      "relvol": "0.27",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "4202032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "AKBNK|15|P3_RADAR|2026-10-12T12:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-12T11:45:19.835Z",
       "sembol": "ALARK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "EKGYO|15|P4_HAZIRLIK|2026-10-09T08:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-09T08:30:05.102Z",
-      "sembol": "SAHOL",
-      "sinyal": "ACIL_CIK",
-      "interval": "15",
-      "fiyat": "86.35",
-      "skor": "27.73",
-      "kgs": "36",
-      "stop": "88.60000000000001",
-      "rejim": "1",
-      "relvol": "0.46",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "1802032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "SAHOL|15|ACIL_CIK|2026-10-09T08:15:00Z",
       "carrierLagBars": "1"
     }
   ]
