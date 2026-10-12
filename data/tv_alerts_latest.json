@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-12T11:00:16.666Z",
+  "son_guncelleme_utc": "2026-10-12T11:00:36.778Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 454
+    "adet": 455
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-12T11:00:14.921Z",
-    "sembol": "AKBNK",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-10-12T11:00:33.452Z",
+    "sembol": "EKGYO",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "68.20",
-    "skor": "29.35",
-    "kgs": "79",
-    "stop": "68.3",
+    "fiyat": "19.65",
+    "skor": "23.96",
+    "kgs": "16",
+    "stop": "20.06",
     "rejim": "0",
-    "relvol": "0.81",
+    "relvol": "0.29",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "8602032",
+    "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "AKBNK|15|P4_HAZIRLIK|2026-10-12T10:45:00Z",
+    "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-10-12T10:45:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-12T11:00:33.452Z",
+      "sembol": "EKGYO",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "19.65",
+      "skor": "23.96",
+      "kgs": "16",
+      "stop": "20.06",
+      "rejim": "0",
+      "relvol": "0.29",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-10-12T10:45:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-12T11:00:14.921Z",
       "sembol": "AKBNK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "TRALT|15|P3_SKOR_AL|2026-10-09T07:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-09T07:00:27.178Z",
-      "sembol": "TOASO",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "272.00",
-      "skor": "32.49",
-      "kgs": "70",
-      "stop": "272",
-      "rejim": "1",
-      "relvol": "0.92",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "2900032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TOASO|15|P3_RADAR|2026-10-09T06:45:00Z",
       "carrierLagBars": "1"
     }
   ]
