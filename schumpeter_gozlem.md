@@ -1,55 +1,45 @@
-# SCHUMPETER GÖZLEM KATMANI — ÖN KAYIT (sürüm 2)
+# Schumpeter gözlem katmanı (SALT ÖLÇÜM)
 
-Tarih: 11.10.2026 (v1) · 12.10.2026 (v2) · Karar mercii: Başkan (Altuğ) · Hazırlayan: Claude
-Kod: `schumpeter_gozlem.py` · Workflow: `schumpeter_gozlem.yml` · Çıktı: `data/schumpeter_gozlem.json`, `schumpeter_gozlem.md`, `data/schumpeter_kap_defter.json`
-
-## Kuluçka (İP-3) uyumu
-
-- Bu katman SALT ÖLÇÜMDÜR. V151/V195 sinyal mantığına, Pine'a ve alarmlara DOKUNMAZ; hiçbir sinyalle birleştirilmez. Ölçüm/boru hattı kodu dondurmadan muaftır (Dönem 3 maddesi).
-- Sonuçların herhangi bir sinyal kuralına dönüşmesi ayrı bir Başkan kararı ve ayrı bir ön kayıt gerektirir; bu belge bunu yetkilendirmez.
-
-## Teorik dayanak (kısa)
-
-Schumpeter: yenilik kümeler hâlinde gelir (yığılma), kredi bu dalgayı finanse eder, rekabet rantı eritir ve "yaratıcı yıkım" eskiyi eler. Bu belge yalnız bu fikirlerin BIST'te ölçülebilir iki vekilini sınar. Teori tanımlayıcıdır; sonuç "kenar yok" çıkarsa çürüyen teori değil, bu veri ve bu pencerede bu vekildir.
+Önkayıt sürümü 2 · önkayıt tarihi 2026-10-11 · α=0.0125 · min olay 30
+Pine'a dokunmaz, alarm üretmez. Tavsiye değildir.
 
 ## H1 — Yığılma (sektör içi yayılma)
 
-- Evren: ≥3 üyeli sektörler — BANKACILIK (6), HAVACILIK (3), SINAI (3), ENERJI (4), OTOMOTIV (3). Diğer sektörler dışarıda.
-- RS5(hisse, t) = 5 günlük hisse getirisi − 5 günlük XU100 getirisi.
-- breadth(sektör, t) = RS5 > 0 olan üye oranı.
-- **Olay (yayılma başlangıcı):** breadth(t) ≥ 2/3 VE breadth(t−5) ≤ 1/3 VE sektör ortalama RS5 > 0. Aynı sektörde iki olay arası en az 10 işlem günü.
-- **Sonuç ölçümü:** olaydan sonraki 5 ve 10 işlem günü için sektörün (eşit ağırlık) XU100'e göreli getirisi.
-- **Karşılaştırma tabanı (v2):** AYNI SEKTÖRÜN aynı ölçümünün tüm günlerdeki ortalaması. Her olayın getirisinden kendi sektörünün tabanı çıkarılır, sonra sektörler havuzlanır.
-- **İstatistik:** (olay ortalaması − taban) üzerinde tek örneklem t, normal yaklaşık p (çift yönlü).
-- Betimleyici ek (teste girmez): son VİOP gününde sektörde yeni long (fiyat↑, APS↑) / yeni short (fiyat↓, APS↑) sayısı.
+| Sektör | Breadth şimdi | 5g önce | Sektör RS5 % | Durum | VİOP yeni long/short |
+|---|---|---|---|---|---|
+| BANKACILIK | 0.83 | 0.83 | 1.36 | GUCLU-YAYILMIS | 3/3 (6 üye) |
+| HAVACILIK | 0.33 | 1.0 | -1.11 | DAGILIYOR | 0/1 (3 üye) |
+| SINAI | 1.0 | 0.33 | 3.24 | YAYILIYOR | 1/0 (3 üye) |
+| ENERJI | 0.75 | 0.25 | 0.82 | YAYILIYOR | 0/2 (4 üye) |
+| OTOMOTIV | 1.0 | 0.67 | 1.66 | GUCLU-YAYILMIS | 1/1 (2 üye) |
+
+Olay çalışması (yayılma başlangıcı sonrası sektörün XU100'e göreli getirisi − koşulsuz ortalama):
+
+| Test | n | Olay ort % | Taban % | Fark % | t | p | Verdikt |
+|---|---|---|---|---|---|---|---|
+| H1 t5_kesif | 84 | -0.277 | 0.108 | -0.346 | -1.0 | 0.3161 | KESIFSEL (verdikt yok) |
+| H1 t5_teyit | 0 | None | 0.108 | None | None | None | ORNEK YETERSIZ |
+| H1 t10_kesif | 85 | 0.407 | 0.168 | 0.319 | 0.59 | 0.5526 | KESIFSEL (verdikt yok) |
+| H1 t10_teyit | 0 | None | 0.168 | None | None | None | ORNEK YETERSIZ |
 
 ## H2 — Yenilik yoğunluğu (KAP)
 
-- Kaynak: `data/kap_bildirimleri.json` içindeki "Özel Durum" türü kayıtlar; KAP 45 gün sakladığı için kayıtlar `data/schumpeter_kap_defter.json` defterine eklenir (tekrarsız, disclosureIndex ile).
-- **Yenilik sayılma kuralı (anahtar kelime, küçük harf):** sözleşme, yatırım (yatırımcı hariç), kapasite, sipariş, ihracat, tesis, proje, mutabakat zaptı, ortak girişim, satın alma, ihale ilanı/sonucu, "yeni ". **Dışlama:** iptal, alacak, geri alım, trafik, bağımsız yönetim, rekabet kurulu, mahkeme, basında yer alan, finans başkanı/CFO, eurobond, rıza talebi, ruhsat, yatırımcılarımız.
-- Sektör yenilik yoğunluğu = son 20 takvim gününde yenilik olayı sayısı. **Olay:** sayı ≥ 2 olduğu gün (aynı sektörde en az 20 işlem günü arayla).
-- **Sonuç:** olaydan sonraki 10 ve 20 işlem günü sektör göreli getirisi, taban: aynı sektörün tüm günleri (v2'de sektör bazlı).
-- **Bilinen zayıflık:** anahtar kelime sınıflandırıcı kabadır (GYO sektörü tek hisse EKGYO'nun ihale/sözleşme bildirimleriyle şişer). Sınıflandırıcı sonuçlara bakıldıktan sonra DEĞİŞTİRİLEMEZ.
+Defter: 69 Özel Durum kaydı, bunun 7'i yenilik türü · ilk kayıt 2026-08-25
+Son 20 gün sektör sayacı: {'GYO': 2, 'HAVACILIK': 1, 'OTOMOTIV': 1}
+Eşik üstü (>= 2): ['GYO']
 
-## Ortak kurallar
+- H2 t10: n=0, fark=None%, t=None, p=None → **ORNEK YETERSIZ**
+- H2 t20: n=0, fark=None%, t=None, p=None → **ORNEK YETERSIZ**
 
-- **Teyit olayı:** ön kayıt tarihinden (11.10.2026) sonraki olay. Önceki olaylar KEŞİFSELDİR, verdikt taşımaz.
-- **Alfa:** 0,05 / 4 = **0,0125** (dört hipotezlik aile: H1–H4; H3/H4 henüz kodlanmadı, alfa payı ayrıldı).
-- **Minimum örnek:** teyit olayı ≥ 30 olmadan verdikt "ÖRNEK YETERSİZ".
-- **Verdikt:** p < 0,0125 → ANLAMLI; aksi → KENAR YOK (anlamsız). "Kenar yok" ≠ "zarar var".
-- **Değişiklik kuralı:** tanım/eşik/anahtar listesi değişirse `ON_KAYIT_SURUMU` artar; önceki sonuçlar "eski tanım" diye etiketlenir ve yeni sürümün teyit sayacı sıfırdan başlar.
-- **Örnek büyüklüğü beklentisi:** H1 sektör başına haftada en fazla birkaç olay üretir; 30 teyit olayı aylar alabilir. H2 defter yeni olduğundan 30 olay için çok daha uzun sürer. Bu normaldir; erken yorum yapılmaz.
+Son yenilik olayları:
+- 2026-08-26 EKGYO (GYO): İstanbul Küçükçekmece Halkalı Batı 1. Etap Sözleşme İmzalanması
+- 2026-09-14 EKGYO (GYO): İstanbul Ümraniye Tepeüstü Sözleşme İmzalanması
+- 2026-09-18 ASELS (SAVUNMA): Devreye Alınan Yatırımımız Hakkında
+- 2026-09-23 THYAO (HAVACILIK): Ortaklığımızın Stratejik Planı Çerçevesindeki Uçak Siparişleri
+- 2026-09-28 EKGYO (GYO): Eyüpsultan Kemerburgaz 3. Etap Sözleşme İmzalanması
+- 2026-10-01 OTKAR (OTOMOTIV): Askeri araç tedariğine yönelik yeni ihracat sözleşmesi imzalanması
+- 2026-10-08 EKGYO (GYO): Umman Sultanlığı Konut ve Kentsel Planlama Bakanlığı ile Mutabakat Zaptı İmzalanması
 
-## Durdurma ve yayma kuralları
-
-- 26 hafta sonunda (≈ 11.04.2027) her iki hipotez hâlâ ÖRNEK YETERSİZ ise katman sonlandırılır veya sürüm 2 ile yeniden tanımlanır.
-- Herhangi bir sonucun sinyal kuralına dönüşmesi için: (a) teyit olayı ≥ 30, (b) p < 0,0125, (c) etki işlem maliyeti sonrası pozitif, (d) Başkan kararı + ayrı ön kayıt.
-
-## Sürüm geçmişi
-
-- v1 (11.10.2026): ilk ön kayıt; taban tüm sektörlerde ortak havuzdu.
-- v2 (12.10.2026): taban SEKTÖR BAZINA çevrildi (H1 ve H2). Gerekçe: sektörlerin sürüklenmesi farklıysa ortak taban karşılaştırmayı bulandırır. Teyit olayı sayısı v1'de 0 idi, bu yüzden sayaç kaybı yok; v1'in ilk çalışma çıktısı (12.10) "eski tanım" etiketiyle kalır.
-
-## Açık iş
-
-- H3 (kâr sürprizi sonrası rant erimesi) ve H4 (kredi ivmesi → banka göreli performansı) için ayrı ön kayıt, veri kaynakları netleşince yazılacaktır (H4 için TCMB/BDDK haftalık kredi serisi gerekir).
+---
+H3 (rant erimesi) ve H4 (kredi dalgası) bu sürümde yok.
+Keşifsel (önkayıt öncesi) sonuçlar verdikt taşımaz; yalnız teyit olayları değerlendirilir.
