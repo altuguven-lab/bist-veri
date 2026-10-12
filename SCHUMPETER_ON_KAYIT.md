@@ -1,6 +1,6 @@
-# SCHUMPETER GÖZLEM KATMANI — ÖN KAYIT (sürüm 1)
+# SCHUMPETER GÖZLEM KATMANI — ÖN KAYIT (sürüm 2)
 
-Tarih: 11.10.2026 · Karar mercii: Başkan (Altuğ) · Hazırlayan: Claude
+Tarih: 11.10.2026 (v1) · 12.10.2026 (v2) · Karar mercii: Başkan (Altuğ) · Hazırlayan: Claude
 Kod: `schumpeter_gozlem.py` · Workflow: `schumpeter_gozlem.yml` · Çıktı: `data/schumpeter_gozlem.json`, `schumpeter_gozlem.md`, `data/schumpeter_kap_defter.json`
 
 ## Kuluçka (İP-3) uyumu
@@ -19,7 +19,7 @@ Schumpeter: yenilik kümeler hâlinde gelir (yığılma), kredi bu dalgayı fina
 - breadth(sektör, t) = RS5 > 0 olan üye oranı.
 - **Olay (yayılma başlangıcı):** breadth(t) ≥ 2/3 VE breadth(t−5) ≤ 1/3 VE sektör ortalama RS5 > 0. Aynı sektörde iki olay arası en az 10 işlem günü.
 - **Sonuç ölçümü:** olaydan sonraki 5 ve 10 işlem günü için sektörün (eşit ağırlık) XU100'e göreli getirisi.
-- **Karşılaştırma tabanı:** aynı ölçümün tüm günlerdeki ortalaması (kâğıt üstü olay olmayan günler dahil).
+- **Karşılaştırma tabanı (v2):** AYNI SEKTÖRÜN aynı ölçümünün tüm günlerdeki ortalaması. Her olayın getirisinden kendi sektörünün tabanı çıkarılır, sonra sektörler havuzlanır.
 - **İstatistik:** (olay ortalaması − taban) üzerinde tek örneklem t, normal yaklaşık p (çift yönlü).
 - Betimleyici ek (teste girmez): son VİOP gününde sektörde yeni long (fiyat↑, APS↑) / yeni short (fiyat↓, APS↑) sayısı.
 
@@ -28,7 +28,7 @@ Schumpeter: yenilik kümeler hâlinde gelir (yığılma), kredi bu dalgayı fina
 - Kaynak: `data/kap_bildirimleri.json` içindeki "Özel Durum" türü kayıtlar; KAP 45 gün sakladığı için kayıtlar `data/schumpeter_kap_defter.json` defterine eklenir (tekrarsız, disclosureIndex ile).
 - **Yenilik sayılma kuralı (anahtar kelime, küçük harf):** sözleşme, yatırım (yatırımcı hariç), kapasite, sipariş, ihracat, tesis, proje, mutabakat zaptı, ortak girişim, satın alma, ihale ilanı/sonucu, "yeni ". **Dışlama:** iptal, alacak, geri alım, trafik, bağımsız yönetim, rekabet kurulu, mahkeme, basında yer alan, finans başkanı/CFO, eurobond, rıza talebi, ruhsat, yatırımcılarımız.
 - Sektör yenilik yoğunluğu = son 20 takvim gününde yenilik olayı sayısı. **Olay:** sayı ≥ 2 olduğu gün (aynı sektörde en az 20 işlem günü arayla).
-- **Sonuç:** olaydan sonraki 10 ve 20 işlem günü sektör göreli getirisi, taban: aynı sektörün tüm günleri.
+- **Sonuç:** olaydan sonraki 10 ve 20 işlem günü sektör göreli getirisi, taban: aynı sektörün tüm günleri (v2'de sektör bazlı).
 - **Bilinen zayıflık:** anahtar kelime sınıflandırıcı kabadır (GYO sektörü tek hisse EKGYO'nun ihale/sözleşme bildirimleriyle şişer). Sınıflandırıcı sonuçlara bakıldıktan sonra DEĞİŞTİRİLEMEZ.
 
 ## Ortak kurallar
@@ -44,6 +44,11 @@ Schumpeter: yenilik kümeler hâlinde gelir (yığılma), kredi bu dalgayı fina
 
 - 26 hafta sonunda (≈ 11.04.2027) her iki hipotez hâlâ ÖRNEK YETERSİZ ise katman sonlandırılır veya sürüm 2 ile yeniden tanımlanır.
 - Herhangi bir sonucun sinyal kuralına dönüşmesi için: (a) teyit olayı ≥ 30, (b) p < 0,0125, (c) etki işlem maliyeti sonrası pozitif, (d) Başkan kararı + ayrı ön kayıt.
+
+## Sürüm geçmişi
+
+- v1 (11.10.2026): ilk ön kayıt; taban tüm sektörlerde ortak havuzdu.
+- v2 (12.10.2026): taban SEKTÖR BAZINA çevrildi (H1 ve H2). Gerekçe: sektörlerin sürüklenmesi farklıysa ortak taban karşılaştırmayı bulandırır. Teyit olayı sayısı v1'de 0 idi, bu yüzden sayaç kaybı yok; v1'in ilk çalışma çıktısı (12.10) "eski tanım" etiketiyle kalır.
 
 ## Açık iş
 
