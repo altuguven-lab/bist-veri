@@ -37,7 +37,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-ON_KAYIT_SURUMU = 1
+ON_KAYIT_SURUMU = 2   # v2 (12.10.2026): taban SEKTOR BAZINDA (v1: tum sektorler ortak taban)
 ON_KAYIT_TARIHI = "2026-10-11"
 ALFA = 0.0125
 MIN_OLAY = 30
@@ -151,8 +151,9 @@ def h1_hesapla(fiyat):
     getiri_ileri = {h: fiyat.shift(-h) / fiyat - 1 for h in ILERI}
     rs_geri = fiyat.pct_change(RS_PENCERE).sub(fiyat["XU100"].pct_change(RS_PENCERE), axis=0)
     sonuc = {"eksik_semboller": eksik, "sektorler": {}, "guncel": {}}
-    tum_olaylar = {h: {"kesif": [], "teyit": []} for h in ILERI}
-    tum_taban = {h: [] for h in ILERI}
+    fazla = {h: {"kesif": [], "teyit": []} for h in ILERI}    # olay getirisi - AYNI SEKTORUN tabani
+    ham = {h: {"kesif": [], "teyit": []} for h in ILERI}
+    taban_havuz = {h: [] for h in ILERI}
     for sek in H1_SEKTORLER:
         uyeler = [s for s in SEKTOR if SEKTOR[s] == sek and s in fiyat.columns]
         if len(uyeler) < 3:
@@ -173,12 +174,18 @@ def h1_hesapla(fiyat):
                     son_olay = i
         satir = {"uye_sayisi": len(uyeler), "olay_sayisi": len(olay_gunleri), "olaylar": [str(d.date()) for d in olay_gunleri[-5:]]}
         for h in ILERI:
-            kesif = [gelecek[h].get(g) for g in olay_gunleri if str(g.date()) < ON_KAYIT_TARIHI]
-            teyit = [gelecek[h].get(g) for g in olay_gunleri if str(g.date()) >= ON_KAYIT_TARIHI]
-            tum_olaylar[h]["kesif"] += [v for v in kesif if v is not None and not pd.isna(v)]
-            tum_olaylar[h]["teyit"] += [v for v in teyit if v is not None and not pd.isna(v)]
-            tum_taban[h] += list(taban[h].values)
-            satir[f"taban_ort_t{h}_pct"] = round(float(taban[h].mean()) * 100, 3) if len(taban[h]) else None
+            sek_taban = float(taban[h].mean()) if len(taban[h]) else 0.0
+            for ad, secici in (("kesif", lambda g: str(g.date()) < ON_KAYIT_TARIHI), ("teyit", lambda g: str(g.date()) >= ON_KAYIT_TARIHI)):
+                for g in olay_gunleri:
+                    if not secici(g):
+                        continue
+                    v = gelecek[h].get(g)
+                    if v is None or pd.isna(v):
+                        continue
+                    ham[h][ad].append(float(v))
+                    fazla[h][ad].append(float(v) - sek_taban)   # sektor-ozgu taban
+            taban_havuz[h] += list(taban[h].values)
+            satir[f"taban_ort_t{h}_pct"] = round(sek_taban * 100, 3) if len(taban[h]) else None
         sonuc["sektorler"][sek] = satir
         # guncel durum
         son = gun_listesi[-1]
@@ -192,12 +199,11 @@ def h1_hesapla(fiyat):
                                 "uyeler": uyeler}
     sonuc["test"] = {}
     for h in ILERI:
-        taban_ort = float(np.mean(tum_taban[h])) if tum_taban[h] else 0.0
+        taban_ort = float(np.mean(taban_havuz[h])) if taban_havuz[h] else 0.0   # yalniz bilgi icin (havuz)
         for ad in ("kesif", "teyit"):
-            fark = [v - taban_ort for v in tum_olaylar[h][ad]]
-            n, ort, t, p = tstat(fark)
+            n, ort, t, p = tstat(fazla[h][ad])
             sonuc["test"][f"t{h}_{ad}"] = {
-                "n_olay": n, "olay_ort_pct": round(float(np.mean(tum_olaylar[h][ad])) * 100, 3) if n else None,
+                "n_olay": n, "olay_ort_pct": round(float(np.mean(ham[h][ad])) * 100, 3) if n else None,
                 "taban_ort_pct": round(taban_ort * 100, 3),
                 "fark_ort_pct": round(ort * 100, 3) if ort is not None else None,
                 "t": round(t, 2) if t is not None else None, "p": round(p, 4) if p is not None else None,
@@ -257,8 +263,7 @@ def h2_hesapla(defter, fiyat):
         sonuc["test"]["not"] = "fiyat verisi yok"
         return sonuc
     gunler = fiyat.index
-    olaylar = {h: [] for h in H2_ILERI}
-    taban = {h: [] for h in H2_ILERI}
+    fazla = {h: [] for h in H2_ILERI}   # olay getirisi - AYNI SEKTORUN tabani (v2)
     sektorler = sorted({k["sektor"] for k in yenilik})
     for sek in sektorler:
         uyeler = [s for s in SEKTOR if SEKTOR[s] == sek and s in fiyat.columns]
@@ -266,19 +271,23 @@ def h2_hesapla(defter, fiyat):
             continue
         tarihler = sorted(pd.Timestamp(k["tarih"]) for k in yenilik if k["sektor"] == sek)
         son_i = None
+        sek_taban = {h: [] for h in H2_ILERI}
+        sek_olay = {h: [] for h in H2_ILERI}
         for i, g in enumerate(gunler):
             sayi = sum(1 for t in tarihler if g - pd.Timedelta(days=H2_PENCERE) < t <= g)
             for h in H2_ILERI:
                 if i + h < len(gunler):
                     gel = (fiyat[uyeler].iloc[i + h] / fiyat[uyeler].iloc[i] - 1).mean() - (fiyat["XU100"].iloc[i + h] / fiyat["XU100"].iloc[i] - 1)
-                    taban[h].append(gel)
+                    sek_taban[h].append(gel)
                     if sayi >= H2_ESIK and str(g.date()) >= (ilk or "9999") and (son_i is None or i - son_i >= H2_PENCERE):
-                        olaylar[h].append(gel)
+                        sek_olay[h].append(gel)
             if sayi >= H2_ESIK and (son_i is None or i - son_i >= H2_PENCERE):
                 son_i = i
+        for h in H2_ILERI:
+            tb = float(np.mean(sek_taban[h])) if sek_taban[h] else 0.0
+            fazla[h] += [v - tb for v in sek_olay[h]]
     for h in H2_ILERI:
-        tb = float(np.mean(taban[h])) if taban[h] else 0.0
-        n, ort, t, p = tstat([v - tb for v in olaylar[h]])
+        n, ort, t, p = tstat(fazla[h])
         sonuc["test"][f"t{h}"] = {"n_olay": n, "fark_ort_pct": round(ort * 100, 3) if ort is not None else None,
                                   "t": round(t, 2) if t is not None else None, "p": round(p, 4) if p is not None else None,
                                   "verdikt": verdikt(n, p),
