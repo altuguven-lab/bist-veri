@@ -16,7 +16,7 @@ Toplam APS: 83.8 mlr TL (gün içi değişim +0.68 mlr TL) · hacim 25.1 mlr TL 
 - ASELS: fiyat -2.7%, APS +3.5% (+211 mn TL)
 - TCELL: fiyat -2.8%, APS +4.8% (+102 mn TL)
 
-**Açığa satış taramasıyla kesişim (2026-10-09):** FROTO (AS pay 7.0%, skor 1/4), PETKM (AS pay 13.5%, skor 1/4), TAVHL (AS pay 12.4%, skor 2/4), TCELL (AS pay 10.6%, skor 1/4), TTKOM (AS pay 8.0%, skor 1/4)
+**Açığa satış taramasıyla kesişim (2026-10-13):** CIMSA (AS pay 15.2%, skor 1/4), EKGYO (AS pay 10.7%, skor 3/4), FROTO (AS pay 13.9%, skor 1/4), PGSUS (AS pay 14.9%, skor 2/4), SISE (AS pay 14.0%, skor 2/4), TCELL (AS pay 3.7%, skor 1/4), TTKOM (AS pay 7.8%, skor 2/4)
 
 | Hisse | APS mlr TL | APS Δ% | Fiyat Δ% | Devir % | Takvim faizi % | Sinyal |
 |---|---|---|---|---|---|---|
