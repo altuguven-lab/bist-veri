@@ -1,31 +1,63 @@
 {
- "tarih": "2026-10-12",
- "gun_sayisi": 15,
+ "tarih": "2026-10-13",
+ "gun_sayisi": 16,
  "rejim_baslangic": "2026-09-21",
  "adaylar": [
   {
-   "kod": "AEFES",
-   "oran_pct": 7.49,
-   "as_hacmi_mn": 37.0,
-   "z_oran": -0.79,
-   "trend_3g_10g": 0.8,
-   "short_ort_5g_pct": 4.47,
-   "gecmis_gun": 14,
+   "kod": "EKGYO",
+   "oran_pct": 10.67,
+   "as_hacmi_mn": 127.0,
+   "z_oran": 1.68,
+   "trend_3g_10g": 1.08,
+   "short_ort_5g_pct": 5.42,
+   "gecmis_gun": 12,
    "kosullar": {
-    "yuksek_oran": false,
+    "yuksek_oran": true,
     "oran_artiyor": true,
     "short_ort_5g_yukari": true,
-    "dirence_yakin": true
+    "dirence_yakin": false
    },
    "skor": 3
   },
   {
-   "kod": "ISCTR",
-   "oran_pct": 19.14,
-   "as_hacmi_mn": 963.0,
-   "z_oran": 3.23,
-   "trend_3g_10g": 2.65,
-   "short_ort_5g_pct": 2.13,
+   "kod": "TURSG",
+   "oran_pct": 23.81,
+   "as_hacmi_mn": 45.0,
+   "z_oran": 3.15,
+   "trend_3g_10g": 3.05,
+   "short_ort_5g_pct": 0.73,
+   "gecmis_gun": 16,
+   "kosullar": {
+    "yuksek_oran": true,
+    "oran_artiyor": true,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": false
+   },
+   "skor": 2
+  },
+  {
+   "kod": "SISE",
+   "oran_pct": 13.97,
+   "as_hacmi_mn": 106.0,
+   "z_oran": 2.57,
+   "trend_3g_10g": 0.32,
+   "short_ort_5g_pct": -0.29,
+   "gecmis_gun": 16,
+   "kosullar": {
+    "yuksek_oran": true,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 2
+  },
+  {
+   "kod": "BRSAN",
+   "oran_pct": 11.27,
+   "as_hacmi_mn": 89.0,
+   "z_oran": 2.52,
+   "trend_3g_10g": 1.54,
+   "short_ort_5g_pct": 0.49,
    "gecmis_gun": 15,
    "kosullar": {
     "yuksek_oran": true,
@@ -36,76 +68,60 @@
    "skor": 2
   },
   {
-   "kod": "BRSAN",
-   "oran_pct": 9.38,
-   "as_hacmi_mn": 106.0,
-   "z_oran": 1.03,
-   "trend_3g_10g": 1.3,
-   "short_ort_5g_pct": 4.04,
-   "gecmis_gun": 14,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": true,
-    "short_ort_5g_yukari": true,
-    "dirence_yakin": false
-   },
-   "skor": 2
-  },
-  {
-   "kod": "CCOLA",
-   "oran_pct": 12.53,
-   "as_hacmi_mn": 55.0,
-   "z_oran": 0.7,
-   "trend_3g_10g": 2.54,
-   "short_ort_5g_pct": 4.81,
-   "gecmis_gun": 15,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": true,
-    "short_ort_5g_yukari": true,
-    "dirence_yakin": false
-   },
-   "skor": 2
-  },
-  {
-   "kod": "TCELL",
-   "oran_pct": 17.77,
-   "as_hacmi_mn": 180.0,
-   "z_oran": 0.6,
-   "trend_3g_10g": 1.1,
-   "short_ort_5g_pct": 1.75,
-   "gecmis_gun": 13,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": true,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": true
-   },
-   "skor": 2
-  },
-  {
-   "kod": "PETKM",
-   "oran_pct": 14.0,
-   "as_hacmi_mn": 125.0,
-   "z_oran": 0.27,
-   "trend_3g_10g": 1.03,
-   "short_ort_5g_pct": 7.33,
-   "gecmis_gun": 15,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": true,
-    "short_ort_5g_yukari": true,
-    "dirence_yakin": false
-   },
-   "skor": 2
-  },
-  {
    "kod": "TTKOM",
-   "oran_pct": 7.43,
-   "as_hacmi_mn": 60.0,
-   "z_oran": 0.27,
-   "trend_3g_10g": 1.18,
-   "short_ort_5g_pct": 0.02,
+   "oran_pct": 7.81,
+   "as_hacmi_mn": 41.0,
+   "z_oran": 0.51,
+   "trend_3g_10g": 0.79,
+   "short_ort_5g_pct": -2.08,
+   "gecmis_gun": 15,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": true,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 2
+  },
+  {
+   "kod": "PGSUS",
+   "oran_pct": 14.9,
+   "as_hacmi_mn": 86.0,
+   "z_oran": 0.26,
+   "trend_3g_10g": 2.4,
+   "short_ort_5g_pct": -4.42,
+   "gecmis_gun": 10,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": true,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 2
+  },
+  {
+   "kod": "MGROS",
+   "oran_pct": 7.54,
+   "as_hacmi_mn": 58.0,
+   "z_oran": 0.23,
+   "trend_3g_10g": 1.02,
+   "short_ort_5g_pct": -2.55,
+   "gecmis_gun": 16,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": true,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 2
+  },
+  {
+   "kod": "EREGL",
+   "oran_pct": 8.85,
+   "as_hacmi_mn": 219.0,
+   "z_oran": -0.64,
+   "trend_3g_10g": 1.26,
+   "short_ort_5g_pct": 2.97,
    "gecmis_gun": 14,
    "kosullar": {
     "yuksek_oran": false,
@@ -116,13 +132,13 @@
    "skor": 2
   },
   {
-   "kod": "TAVHL",
-   "oran_pct": 7.47,
-   "as_hacmi_mn": 68.0,
-   "z_oran": -1.03,
-   "trend_3g_10g": 0.44,
-   "short_ort_5g_pct": 5.28,
-   "gecmis_gun": 13,
+   "kod": "YKBNK",
+   "oran_pct": 9.49,
+   "as_hacmi_mn": 306.0,
+   "z_oran": -0.8,
+   "trend_3g_10g": -1.46,
+   "short_ort_5g_pct": 3.5,
+   "gecmis_gun": 14,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -132,61 +148,77 @@
    "skor": 2
   },
   {
-   "kod": "ENERY",
-   "oran_pct": 10.45,
-   "as_hacmi_mn": 58.0,
-   "z_oran": null,
-   "trend_3g_10g": null,
-   "short_ort_5g_pct": 7.96,
-   "gecmis_gun": 6,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": true,
-    "dirence_yakin": true
-   },
-   "skor": 2
-  },
-  {
-   "kod": "SAHOL",
-   "oran_pct": 14.5,
-   "as_hacmi_mn": 1283.0,
-   "z_oran": 1.4,
-   "trend_3g_10g": 2.42,
-   "short_ort_5g_pct": -1.52,
-   "gecmis_gun": 15,
+   "kod": "ISCTR",
+   "oran_pct": 7.23,
+   "as_hacmi_mn": 285.0,
+   "z_oran": -1.13,
+   "trend_3g_10g": 2.14,
+   "short_ort_5g_pct": -0.67,
+   "gecmis_gun": 16,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": true,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 2
+  },
+  {
+   "kod": "BIMAS",
+   "oran_pct": 14.69,
+   "as_hacmi_mn": 272.0,
+   "z_oran": 3.06,
+   "trend_3g_10g": -0.16,
+   "short_ort_5g_pct": -3.59,
+   "gecmis_gun": 10,
+   "kosullar": {
+    "yuksek_oran": true,
+    "oran_artiyor": false,
     "short_ort_5g_yukari": false,
     "dirence_yakin": false
    },
    "skor": 1
   },
   {
-   "kod": "EKGYO",
-   "oran_pct": 9.3,
-   "as_hacmi_mn": 189.0,
-   "z_oran": 0.73,
-   "trend_3g_10g": 0.32,
-   "short_ort_5g_pct": 4.62,
-   "gecmis_gun": 11,
+   "kod": "FROTO",
+   "oran_pct": 13.92,
+   "as_hacmi_mn": 162.0,
+   "z_oran": 2.05,
+   "trend_3g_10g": -0.18,
+   "short_ort_5g_pct": -2.05,
+   "gecmis_gun": 15,
+   "kosullar": {
+    "yuksek_oran": true,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": false
+   },
+   "skor": 1
+  },
+  {
+   "kod": "AKSEN",
+   "oran_pct": 8.65,
+   "as_hacmi_mn": 23.0,
+   "z_oran": 1.37,
+   "trend_3g_10g": -0.09,
+   "short_ort_5g_pct": -0.4,
+   "gecmis_gun": 15,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
-    "short_ort_5g_yukari": true,
-    "dirence_yakin": false
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
    },
    "skor": 1
   },
   {
    "kod": "HEKTS",
-   "oran_pct": 12.17,
-   "as_hacmi_mn": 32.0,
-   "z_oran": 0.48,
-   "trend_3g_10g": 4.03,
-   "short_ort_5g_pct": 1.91,
-   "gecmis_gun": 15,
+   "oran_pct": 11.18,
+   "as_hacmi_mn": 17.0,
+   "z_oran": 0.2,
+   "trend_3g_10g": 2.17,
+   "short_ort_5g_pct": -1.83,
+   "gecmis_gun": 16,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": true,
@@ -196,12 +228,44 @@
    "skor": 1
   },
   {
-   "kod": "BTCIM",
-   "oran_pct": 4.61,
-   "as_hacmi_mn": 38.0,
-   "z_oran": 0.15,
-   "trend_3g_10g": -0.65,
-   "short_ort_5g_pct": 4.32,
+   "kod": "TOASO",
+   "oran_pct": 16.24,
+   "as_hacmi_mn": 64.0,
+   "z_oran": 0.18,
+   "trend_3g_10g": -0.34,
+   "short_ort_5g_pct": -1.11,
+   "gecmis_gun": 14,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 1
+  },
+  {
+   "kod": "CIMSA",
+   "oran_pct": 15.15,
+   "as_hacmi_mn": 30.0,
+   "z_oran": -0.17,
+   "trend_3g_10g": -5.62,
+   "short_ort_5g_pct": -4.04,
+   "gecmis_gun": 15,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 1
+  },
+  {
+   "kod": "ALARK",
+   "oran_pct": 5.76,
+   "as_hacmi_mn": 17.0,
+   "z_oran": -0.24,
+   "trend_3g_10g": 0.29,
+   "short_ort_5g_pct": 3.69,
    "gecmis_gun": 15,
    "kosullar": {
     "yuksek_oran": false,
@@ -213,92 +277,12 @@
   },
   {
    "kod": "GLRMK",
-   "oran_pct": 3.96,
-   "as_hacmi_mn": 20.0,
-   "z_oran": 0.15,
-   "trend_3g_10g": 1.09,
-   "short_ort_5g_pct": -1.17,
-   "gecmis_gun": 14,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": true,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 1
-  },
-  {
-   "kod": "MGROS",
-   "oran_pct": 7.14,
-   "as_hacmi_mn": 88.0,
-   "z_oran": 0.09,
-   "trend_3g_10g": 2.09,
-   "short_ort_5g_pct": -0.9,
+   "oran_pct": 3.38,
+   "as_hacmi_mn": 12.0,
+   "z_oran": -0.37,
+   "trend_3g_10g": 0.11,
+   "short_ort_5g_pct": -5.02,
    "gecmis_gun": 15,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": true,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 1
-  },
-  {
-   "kod": "ALARK",
-   "oran_pct": 6.08,
-   "as_hacmi_mn": 18.0,
-   "z_oran": -0.02,
-   "trend_3g_10g": 0.48,
-   "short_ort_5g_pct": 8.32,
-   "gecmis_gun": 14,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": true,
-    "dirence_yakin": false
-   },
-   "skor": 1
-  },
-  {
-   "kod": "CIMSA",
-   "oran_pct": 13.18,
-   "as_hacmi_mn": 34.0,
-   "z_oran": -0.47,
-   "trend_3g_10g": -6.83,
-   "short_ort_5g_pct": -0.14,
-   "gecmis_gun": 14,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": true
-   },
-   "skor": 1
-  },
-  {
-   "kod": "HALKB",
-   "oran_pct": 6.41,
-   "as_hacmi_mn": 41.0,
-   "z_oran": -0.47,
-   "trend_3g_10g": 0.28,
-   "short_ort_5g_pct": -2.5,
-   "gecmis_gun": 13,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": true
-   },
-   "skor": 1
-  },
-  {
-   "kod": "AKBNK",
-   "oran_pct": 9.27,
-   "as_hacmi_mn": 613.0,
-   "z_oran": -0.54,
-   "trend_3g_10g": -0.78,
-   "short_ort_5g_pct": -0.03,
-   "gecmis_gun": 13,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -309,28 +293,12 @@
   },
   {
    "kod": "OYAKC",
-   "oran_pct": 7.47,
-   "as_hacmi_mn": 18.0,
-   "z_oran": -0.73,
-   "trend_3g_10g": 5.85,
-   "short_ort_5g_pct": -0.26,
-   "gecmis_gun": 15,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": true,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 1
-  },
-  {
-   "kod": "ECILC",
-   "oran_pct": 4.76,
-   "as_hacmi_mn": 8.0,
-   "z_oran": -0.86,
-   "trend_3g_10g": -1.42,
-   "short_ort_5g_pct": -0.9,
-   "gecmis_gun": 12,
+   "oran_pct": 7.14,
+   "as_hacmi_mn": 10.0,
+   "z_oran": -0.75,
+   "trend_3g_10g": -1.29,
+   "short_ort_5g_pct": -2.5,
+   "gecmis_gun": 16,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -340,12 +308,12 @@
    "skor": 1
   },
   {
-   "kod": "FROTO",
-   "oran_pct": 8.12,
-   "as_hacmi_mn": 65.0,
-   "z_oran": -0.94,
-   "trend_3g_10g": -1.54,
-   "short_ort_5g_pct": 0.53,
+   "kod": "HALKB",
+   "oran_pct": 4.97,
+   "as_hacmi_mn": 27.0,
+   "z_oran": -0.89,
+   "trend_3g_10g": -1.38,
+   "short_ort_5g_pct": -1.95,
    "gecmis_gun": 14,
    "kosullar": {
     "yuksek_oran": false,
@@ -356,45 +324,77 @@
    "skor": 1
   },
   {
-   "kod": "CANTE",
-   "oran_pct": 0.43,
-   "as_hacmi_mn": 1.0,
-   "z_oran": -1.22,
-   "trend_3g_10g": 0.57,
-   "short_ort_5g_pct": 0.46,
-   "gecmis_gun": 14,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": true,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 1
-  },
-  {
-   "kod": "SISE",
-   "oran_pct": 5.67,
-   "as_hacmi_mn": 52.0,
-   "z_oran": -2.21,
-   "trend_3g_10g": -1.31,
-   "short_ort_5g_pct": 1.63,
-   "gecmis_gun": 15,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": true
-   },
-   "skor": 1
-  },
-  {
-   "kod": "KRDMD",
-   "oran_pct": 6.47,
-   "as_hacmi_mn": 69.0,
-   "z_oran": -2.22,
-   "trend_3g_10g": -2.96,
-   "short_ort_5g_pct": -3.22,
+   "kod": "GUBRF",
+   "oran_pct": 7.64,
+   "as_hacmi_mn": 44.0,
+   "z_oran": -1.18,
+   "trend_3g_10g": 0.09,
+   "short_ort_5g_pct": -1.0,
    "gecmis_gun": 13,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 1
+  },
+  {
+   "kod": "CCOLA",
+   "oran_pct": 6.13,
+   "as_hacmi_mn": 22.0,
+   "z_oran": -1.26,
+   "trend_3g_10g": -1.1,
+   "short_ort_5g_pct": 4.12,
+   "gecmis_gun": 16,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": true,
+    "dirence_yakin": false
+   },
+   "skor": 1
+  },
+  {
+   "kod": "AKBNK",
+   "oran_pct": 4.88,
+   "as_hacmi_mn": 286.0,
+   "z_oran": -2.34,
+   "trend_3g_10g": -1.38,
+   "short_ort_5g_pct": 0.87,
+   "gecmis_gun": 14,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 1
+  },
+  {
+   "kod": "TCELL",
+   "oran_pct": 3.67,
+   "as_hacmi_mn": 87.0,
+   "z_oran": -2.34,
+   "trend_3g_10g": -1.51,
+   "short_ort_5g_pct": -1.77,
+   "gecmis_gun": 14,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 1
+  },
+  {
+   "kod": "DOAS",
+   "oran_pct": 18.31,
+   "as_hacmi_mn": 13.0,
+   "z_oran": null,
+   "trend_3g_10g": null,
+   "short_ort_5g_pct": -1.25,
+   "gecmis_gun": 7,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -405,12 +405,12 @@
   },
   {
    "kod": "CVKMD",
-   "oran_pct": 11.47,
-   "as_hacmi_mn": 109.0,
+   "oran_pct": 18.2,
+   "as_hacmi_mn": 107.0,
    "z_oran": null,
    "trend_3g_10g": null,
-   "short_ort_5g_pct": 7.81,
-   "gecmis_gun": 6,
+   "short_ort_5g_pct": 5.38,
+   "gecmis_gun": 7,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -420,12 +420,28 @@
    "skor": 1
   },
   {
-   "kod": "DOAS",
-   "oran_pct": 10.84,
-   "as_hacmi_mn": 9.0,
+   "kod": "TSKB",
+   "oran_pct": 5.17,
+   "as_hacmi_mn": 6.0,
    "z_oran": null,
    "trend_3g_10g": null,
-   "short_ort_5g_pct": -0.52,
+   "short_ort_5g_pct": -1.01,
+   "gecmis_gun": 7,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": true
+   },
+   "skor": 1
+  },
+  {
+   "kod": "MAVI",
+   "oran_pct": 5.15,
+   "as_hacmi_mn": 7.0,
+   "z_oran": null,
+   "trend_3g_10g": null,
+   "short_ort_5g_pct": 0.92,
    "gecmis_gun": 6,
    "kosullar": {
     "yuksek_oran": false,
@@ -436,61 +452,13 @@
    "skor": 1
   },
   {
-   "kod": "BIMAS",
-   "oran_pct": 8.04,
-   "as_hacmi_mn": 225.0,
-   "z_oran": null,
-   "trend_3g_10g": null,
-   "short_ort_5g_pct": -4.52,
-   "gecmis_gun": 9,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": true
-   },
-   "skor": 1
-  },
-  {
-   "kod": "AKSEN",
-   "oran_pct": 5.56,
-   "as_hacmi_mn": 16.0,
-   "z_oran": 0.14,
-   "trend_3g_10g": -1.21,
-   "short_ort_5g_pct": -0.65,
-   "gecmis_gun": 14,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 0
-  },
-  {
-   "kod": "VAKBN",
-   "oran_pct": 9.78,
-   "as_hacmi_mn": 83.0,
-   "z_oran": 0.07,
-   "trend_3g_10g": -0.99,
-   "short_ort_5g_pct": 0.82,
-   "gecmis_gun": 13,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 0
-  },
-  {
-   "kod": "ENKAI",
-   "oran_pct": 9.54,
-   "as_hacmi_mn": 65.0,
-   "z_oran": -0.35,
-   "trend_3g_10g": -1.4,
-   "short_ort_5g_pct": -1.87,
-   "gecmis_gun": 13,
+   "kod": "SASA",
+   "oran_pct": 10.45,
+   "as_hacmi_mn": 211.0,
+   "z_oran": 0.46,
+   "trend_3g_10g": -0.92,
+   "short_ort_5g_pct": -4.7,
+   "gecmis_gun": 16,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -501,12 +469,12 @@
   },
   {
    "kod": "TRMET",
-   "oran_pct": 9.45,
-   "as_hacmi_mn": 72.0,
-   "z_oran": -0.93,
-   "trend_3g_10g": -0.91,
-   "short_ort_5g_pct": 0.31,
-   "gecmis_gun": 11,
+   "oran_pct": 12.93,
+   "as_hacmi_mn": 60.0,
+   "z_oran": -0.25,
+   "trend_3g_10g": -0.12,
+   "short_ort_5g_pct": 1.72,
+   "gecmis_gun": 12,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -516,28 +484,12 @@
    "skor": 0
   },
   {
-   "kod": "TURSG",
-   "oran_pct": 8.3,
-   "as_hacmi_mn": 20.0,
-   "z_oran": -1.17,
-   "trend_3g_10g": -0.23,
-   "short_ort_5g_pct": 1.56,
-   "gecmis_gun": 15,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 0
-  },
-  {
-   "kod": "ULKER",
-   "oran_pct": 9.43,
-   "as_hacmi_mn": 23.0,
-   "z_oran": -1.4,
-   "trend_3g_10g": -0.98,
-   "short_ort_5g_pct": 2.49,
+   "kod": "VAKBN",
+   "oran_pct": 9.22,
+   "as_hacmi_mn": 116.0,
+   "z_oran": -0.31,
+   "trend_3g_10g": -0.42,
+   "short_ort_5g_pct": 1.24,
    "gecmis_gun": 14,
    "kosullar": {
     "yuksek_oran": false,
@@ -548,28 +500,12 @@
    "skor": 0
   },
   {
-   "kod": "TOASO",
-   "oran_pct": 10.37,
-   "as_hacmi_mn": 51.0,
-   "z_oran": -1.55,
-   "trend_3g_10g": 0.2,
-   "short_ort_5g_pct": -0.77,
-   "gecmis_gun": 13,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 0
-  },
-  {
-   "kod": "SASA",
-   "oran_pct": 7.24,
-   "as_hacmi_mn": 234.0,
-   "z_oran": -1.81,
-   "trend_3g_10g": -1.25,
-   "short_ort_5g_pct": 2.0,
+   "kod": "CANTE",
+   "oran_pct": 2.64,
+   "as_hacmi_mn": 6.0,
+   "z_oran": -0.46,
+   "trend_3g_10g": -0.01,
+   "short_ort_5g_pct": -2.02,
    "gecmis_gun": 15,
    "kosullar": {
     "yuksek_oran": false,
@@ -581,12 +517,92 @@
   },
   {
    "kod": "TRALT",
-   "oran_pct": 5.28,
-   "as_hacmi_mn": 234.0,
-   "z_oran": -2.27,
-   "trend_3g_10g": -1.04,
-   "short_ort_5g_pct": -0.73,
-   "gecmis_gun": 15,
+   "oran_pct": 7.53,
+   "as_hacmi_mn": 193.0,
+   "z_oran": -0.77,
+   "trend_3g_10g": -2.02,
+   "short_ort_5g_pct": -0.79,
+   "gecmis_gun": 16,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": false
+   },
+   "skor": 0
+  },
+  {
+   "kod": "TAVHL",
+   "oran_pct": 7.03,
+   "as_hacmi_mn": 102.0,
+   "z_oran": -1.15,
+   "trend_3g_10g": -0.03,
+   "short_ort_5g_pct": -1.85,
+   "gecmis_gun": 14,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": false
+   },
+   "skor": 0
+  },
+  {
+   "kod": "ECILC",
+   "oran_pct": 3.57,
+   "as_hacmi_mn": 10.0,
+   "z_oran": -1.23,
+   "trend_3g_10g": -1.08,
+   "short_ort_5g_pct": -5.46,
+   "gecmis_gun": 13,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": false
+   },
+   "skor": 0
+  },
+  {
+   "kod": "BTCIM",
+   "oran_pct": 2.3,
+   "as_hacmi_mn": 17.0,
+   "z_oran": -1.24,
+   "trend_3g_10g": -0.7,
+   "short_ort_5g_pct": 2.78,
+   "gecmis_gun": 16,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": false
+   },
+   "skor": 0
+  },
+  {
+   "kod": "SAHOL",
+   "oran_pct": 7.28,
+   "as_hacmi_mn": 273.0,
+   "z_oran": -1.28,
+   "trend_3g_10g": -0.32,
+   "short_ort_5g_pct": -5.12,
+   "gecmis_gun": 16,
+   "kosullar": {
+    "yuksek_oran": false,
+    "oran_artiyor": false,
+    "short_ort_5g_yukari": false,
+    "dirence_yakin": false
+   },
+   "skor": 0
+  },
+  {
+   "kod": "PETKM",
+   "oran_pct": 7.32,
+   "as_hacmi_mn": 61.0,
+   "z_oran": -2.82,
+   "trend_3g_10g": -1.02,
+   "short_ort_5g_pct": 0.98,
+   "gecmis_gun": 16,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -597,28 +613,12 @@
   },
   {
    "kod": "CWENE",
-   "oran_pct": 14.02,
-   "as_hacmi_mn": 99.0,
+   "oran_pct": 13.8,
+   "as_hacmi_mn": 45.0,
    "z_oran": null,
    "trend_3g_10g": null,
-   "short_ort_5g_pct": 1.65,
-   "gecmis_gun": 6,
-   "kosullar": {
-    "yuksek_oran": false,
-    "oran_artiyor": false,
-    "short_ort_5g_yukari": false,
-    "dirence_yakin": false
-   },
-   "skor": 0
-  },
-  {
-   "kod": "TSKB",
-   "oran_pct": 2.05,
-   "as_hacmi_mn": 4.0,
-   "z_oran": null,
-   "trend_3g_10g": null,
-   "short_ort_5g_pct": 1.4,
-   "gecmis_gun": 6,
+   "short_ort_5g_pct": -2.77,
+   "gecmis_gun": 7,
    "kosullar": {
     "yuksek_oran": false,
     "oran_artiyor": false,
@@ -688,6 +688,10 @@
   [
    "2026-10-12",
    10.48
+  ],
+  [
+   "2026-10-13",
+   8.36
   ]
  ],
  "uyari": "Geçmiş < 10 gün ise z/trend yok. Liste tavsiye değil, aday taramasıdır."
