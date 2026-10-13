@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-13T13:30:38.260Z",
+  "son_guncelleme_utc": "2026-10-13T13:30:40.326Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 536
+    "adet": 537
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-13T13:30:36.186Z",
-    "sembol": "TRMET",
+    "zaman_utc": "2026-10-13T13:30:37.296Z",
+    "sembol": "TOASO",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "136.5",
-    "skor": "19.44",
-    "kgs": "23",
-    "stop": "136.20000000000002",
+    "fiyat": "260.25",
+    "skor": "12",
+    "kgs": "22",
+    "stop": "267",
     "rejim": "1",
-    "relvol": "0.53",
+    "relvol": "1.52",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "1032",
+    "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TRMET|15|P4_HAZIRLIK|2026-10-13T13:15:00Z",
+    "eventId": "TOASO|15|P4_HAZIRLIK|2026-10-13T13:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-13T13:30:37.296Z",
+      "sembol": "TOASO",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "260.25",
+      "skor": "12",
+      "kgs": "22",
+      "stop": "267",
+      "rejim": "1",
+      "relvol": "1.52",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TOASO|15|P4_HAZIRLIK|2026-10-13T13:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-13T13:30:36.186Z",
       "sembol": "TRMET",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "EKGYO|15|P4_HAZIRLIK|2026-10-12T07:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-12T07:15:08.417Z",
-      "sembol": "YKBNK",
-      "sinyal": "SEKTOR_ROTASYONU",
-      "interval": "15",
-      "fiyat": "35.66",
-      "skor": "25.04",
-      "kgs": "37",
-      "stop": "35.76",
-      "rejim": "2",
-      "relvol": "0.77",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "3200032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "YKBNK|15|SEKTOR_ROTASYONU|2026-10-12T07:00:00Z",
       "carrierLagBars": "1"
     }
   ]
