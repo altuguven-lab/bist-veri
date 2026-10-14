@@ -13,6 +13,10 @@ SEMBOLLER = ["AKBNK","YKBNK","GARAN","ISCTR","SAHOL","KCHOL","THYAO","TAVHL","ER
  "EKGYO","TRMET","ALARK","ENJSA","ULKER"]
 KESIF_SEMBOLLER = ["AKBNK","KCHOL","THYAO","EREGL"]   # banka, holding, sanayi, havacilik
 GRUPLAR = ["XI_29","UFRS","UFRS_K"]                   # sirket tipine gore denenir
+# hesapta kullanilan kalemler (ilk kesifte dogrulandi, XI_29 sablonu): 3Z net kar(ana ortaklik), 2O/2N ozkaynak (ana/toplam),
+# 2OA odenmis sermaye, 3C satis, 3DF faaliyet kari, 4B/4CAB amortisman, 2AA/2BA/2AAG/2BB finansal borc, 1AA nakit, 1AB finansal yatirim,
+# 4C isletme nakit akisi, 4CAI sabit sermaye yatirimi, 4CB serbest nakit akim
+KALEMLER = ("3Z","2O","2OA","2N","3C","3DF","4B","4CAB","2AA","2BA","2AAG","2BB","1AA","1AB","4C","4CAI","4CB")
 BANKALAR = {"AKBNK","YKBNK","GARAN","ISCTR","HALKB","VAKBN"}
 URL = "https://www.isyatirim.com.tr/_layouts/15/IsYatirim.Website/Common/Data.aspx/MaliTablo"
 UA = "Mozilla/5.0 (bist-veri temel_veri_topla)"
@@ -93,7 +97,7 @@ def main():
                        for b in ham}
         else:
             for b in ham:   # repoyu hafif tut: yalniz hesapta kullanilan 3 kalem
-                ham[b]["kalemler"] = {k: v for k, v in ham[b]["kalemler"].items() if k in ("3Z", "2O", "2OA")}
+                ham[b]["kalemler"] = {k: v for k, v in ham[b]["kalemler"].items() if k in KALEMLER}
             json.dump(ham, open(f"{CIKTI}/ham_{s}.json", "w", encoding="utf-8"), ensure_ascii=False)
             ozet[s] = {b: {"grup": ham[b]["grup"], "kalemler": list(ham[b]["kalemler"])} for b in ham}
     kayit = {"olusturma_utc": datetime.now(timezone.utc).isoformat(), "mod": "KESIF" if KESIF else "TAM",
