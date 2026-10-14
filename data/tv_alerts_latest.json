@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-14T12:45:18.686Z",
+  "son_guncelleme_utc": "2026-10-14T12:45:23.481Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 586
+    "adet": 587
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-14T12:45:16.808Z",
-    "sembol": "ENKAI",
+    "zaman_utc": "2026-10-14T12:45:21.356Z",
+    "sembol": "TRALT",
     "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "79.90",
-    "skor": "28.98",
-    "kgs": "30",
-    "stop": "80.60000000000001",
+    "fiyat": "42.76",
+    "skor": "32.16",
+    "kgs": "52",
+    "stop": "43.4",
     "rejim": "2",
-    "relvol": "0.64",
+    "relvol": "0.92",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "500032",
+    "p3ozet": "2600032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ENKAI|15|SEKTOR_ROTASYONU|2026-10-14T12:30:00Z",
+    "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-10-14T12:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-14T12:45:21.356Z",
+      "sembol": "TRALT",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "42.76",
+      "skor": "32.16",
+      "kgs": "52",
+      "stop": "43.4",
+      "rejim": "2",
+      "relvol": "0.92",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2600032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-10-14T12:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-14T12:45:16.808Z",
       "sembol": "ENKAI",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "YKBNK|15|GUNLUK_OZET|2026-10-12T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-12T15:11:03.683Z",
-      "sembol": "ULKER",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "87.40",
-      "skor": "46.96",
-      "kgs": "74",
-      "stop": "88.2",
-      "rejim": "0",
-      "relvol": "3.21",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "2400032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ULKER|15|P3_RADAR|2026-10-12T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
