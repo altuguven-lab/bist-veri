@@ -1,6 +1,6 @@
 {
- "olusturma_utc": "2026-10-14T13:38:46.934796+00:00",
- "usdtry": 49.38679885864258,
+ "olusturma_utc": "2026-10-14T14:30:29.405578+00:00",
+ "usdtry": 49.387550354003906,
  "mod": "GERCEK",
  "holdingler": {
   "KCHOL": {
@@ -8,37 +8,37 @@
     {
      "kod": "YKBNK",
      "pay_pct": 54.8,
-     "pay_degeri_usd_mn": 3374
+     "pay_degeri_usd_mn": 3370
     },
     {
      "kod": "TUPRS",
      "pay_pct": 40.0,
-     "pay_degeri_usd_mn": 6133
+     "pay_degeri_usd_mn": 6125
     },
     {
      "kod": "FROTO",
      "pay_pct": 39.0,
-     "pay_degeri_usd_mn": 1997
+     "pay_degeri_usd_mn": 2001
     },
     {
      "kod": "ARCLK",
      "pay_pct": 49.0,
-     "pay_degeri_usd_mn": 514
+     "pay_degeri_usd_mn": 513
     },
     {
      "kod": "TOASO",
      "pay_pct": 38.0,
-     "pay_degeri_usd_mn": 972
+     "pay_degeri_usd_mn": 971
     },
     {
      "kod": "OTKAR",
      "pay_pct": 47.0,
-     "pay_degeri_usd_mn": 375
+     "pay_degeri_usd_mn": 374
     },
     {
      "kod": "TTRAK",
      "pay_pct": 37.5,
-     "pay_degeri_usd_mn": 288
+     "pay_degeri_usd_mn": 289
     },
     {
      "kod": "AYGAZ",
@@ -48,11 +48,11 @@
    ],
    "eksik": [],
    "sabit_usd_mn": 139,
-   "halka_acik_toplam_usd_mn": 14325,
-   "holding_piyasa_degeri_usd_mn": 10896,
+   "halka_acik_toplam_usd_mn": 14316,
+   "holding_piyasa_degeri_usd_mn": 10886,
    "tam": true,
-   "iskonto_halka_acik_pct": -23.9,
-   "iskonto_net_nakit_dahil_pct": -28.8,
+   "iskonto_halka_acik_pct": -24.0,
+   "iskonto_net_nakit_dahil_pct": -28.9,
    "sirket_beyani": {
     "iskonto_halka_acik_pct": -22,
     "iskonto_net_nakit_dahil_pct": -27,
@@ -71,9 +71,19 @@
      "pay_degeri_usd_mn": 2888
     },
     {
+     "kod": "ENJSA",
+     "pay_pct": 40.0,
+     "pay_degeri_usd_mn": 1079
+    },
+    {
      "kod": "CIMSA",
      "pay_pct": 54.54,
-     "pay_degeri_usd_mn": 422
+     "pay_degeri_usd_mn": 424
+    },
+    {
+     "kod": "BRISA",
+     "pay_pct": 43.63,
+     "pay_degeri_usd_mn": 188
     },
     {
      "kod": "KORDS",
@@ -88,29 +98,27 @@
     {
      "kod": "AGESA",
      "pay_pct": 40.37,
-     "pay_degeri_usd_mn": 341
+     "pay_degeri_usd_mn": 342
     },
     {
      "kod": "TKNSA",
      "pay_pct": 50.0,
-     "pay_degeri_usd_mn": 28
+     "pay_degeri_usd_mn": 27
     }
    ],
-   "eksik": [
-    "ENJSA (pay yok)",
-    "BRISA (pay yok)"
-   ],
+   "eksik": [],
    "sabit_usd_mn": 0,
-   "halka_acik_toplam_usd_mn": 3894,
-   "holding_piyasa_degeri_usd_mn": 3628,
-   "tam": false,
-   "iskonto_halka_acik_pct": -6.8,
+   "halka_acik_toplam_usd_mn": 5164,
+   "holding_piyasa_degeri_usd_mn": 3617,
+   "tam": true,
+   "iskonto_halka_acik_pct": -30.0,
+   "iskonto_net_nakit_dahil_pct": -38.5,
    "sirket_beyani": {
     "iskonto_pct": -58,
     "tarih": "toplanti tarihi (2026/06 notlari)",
     "not": "Yonetim beyani 'yaklasik %58'; NAD tutari TL olarak sayfada yok"
    },
-   "kaynak": "Sabancı Holding 30.06.2026 konsolide finansal rapor, Not 4a (Bağlı Ortaklıklar: doğrudan+dolaylı pay). Enerjisa ve Brisa iş ortaklığı/iştirak bölümünde olduğundan bu alıntıda YOK -> null.",
+   "kaynak": "Sabancı Holding 30.06.2026 konsolide finansal rapor, Not 4a: bağlı ortaklıklar (Akbank, Çimsa, Kordsa, Teknosa, Aksigorta, Agesa) ve iş ortaklıkları (Enerjisa Enerji %40, Brisa %43,63).",
    "kaynak_tarihi": "2026-06-30"
   }
  }
