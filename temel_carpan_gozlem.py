@@ -171,6 +171,46 @@ def ek_olcular(res, bilgi, fiyat_son, temettu_12ay):
     out["temettu_verimi"] = None if (temettu_12ay is None or not fiyat_son) else round(100.0 * temettu_12ay / fiyat_son, 2)
     return out
 
+BORC_ATLA = {"AKBNK","YKBNK","GARAN","ISCTR","HALKB","VAKBN","SAHOL","KCHOL"}   # banka + finans kolu konsolide holding: FD anlamsiz
+
+def borc_nakit_olculer(ham, mcap_tl, mcap_usd):
+    """Banka disi / holding disi: FD/FAVOK, net borc/FAVOK, FD/Satis, FAVOK ve net kar marji, FCF verimi, kar kalitesi.
+    Akis kalemleri YTD -> TTM; bakiye kalemleri son donem. FD = piyasa degeri + net borc + azinlik.
+    UYARI: finansal borc kira (TFRS16) borclarini icerir; FAVOK TFRS16 sonrasi (kira gideri amortismanda). Tutarlidir ama
+    'kira oncesi FAVOK' karsilastirmasi icin yanlis olur. FCF = isletme nakit akisi + sabit sermaye yatirimi."""
+    out = {}
+    for borsa, mc in (("TRY", mcap_tl), ("USD", mcap_usd)):
+        def ser(k): return seri(ham, borsa, k)
+        fa, am, st, ni = ser("3DF"), ser("4B") or ser("4CAB"), ser("3C"), ser("3Z")
+        ocf, capex = ser("4C"), ser("4CAI")
+        if not fa or not mc: continue
+        q = max(fa)
+        def t(k):
+            y, p = q
+            if p == 12: return k.get(q)
+            a, b, c2 = k.get(q), k.get((y - 1, 12)), k.get((y - 1, p))
+            return None if None in (a, b, c2) else a + b - c2
+        def stok(kod): return ser(kod).get(q)
+        fav = None if t(fa) is None or t(am) is None else t(fa) + t(am)
+        borc = sum(stok(k) or 0.0 for k in ("2AA", "2BA", "2AAG", "2BB"))
+        nakit = (stok("1AA") or 0.0) + (stok("1AB") or 0.0)
+        oz_top, oz_ana = stok("2N"), stok("2O")
+        azn = (oz_top - oz_ana) if (oz_top is not None and oz_ana is not None) else 0.0
+        netborc = borc - nakit
+        fd = mc + netborc + azn
+        satis, nk, o, cx = t(st), t(ni), t(ocf), t(capex)
+        sfx = "tl" if borsa == "TRY" else "usd"
+        out[f"fd_favok_{sfx}"] = None if not fav or fav <= 0 or fd <= 0 else round(fd / fav, 1)
+        if borsa == "USD":
+            out["net_borc_favok"] = None if not fav or fav <= 0 else round(netborc / fav, 1)
+            out["fd_satis"] = None if not satis or satis <= 0 or fd <= 0 else round(fd / satis, 2)
+            out["favok_marji"] = None if not fav or not satis or satis <= 0 else round(100 * fav / satis, 1)
+            out["net_kar_marji"] = None if nk is None or not satis or satis <= 0 else round(100 * nk / satis, 1)
+            out["fcf_verimi"] = None if o is None or cx is None or mc <= 0 else round(100 * (o + cx) / mc, 1)
+            out["nakit_kar_orani"] = None if o is None or not nk or nk <= 0 else round(o / nk, 2)
+            out["bilanco_donemi"] = f"{q[0]}/{q[1]:02d}"
+    return out
+
 def temettu_cek():
     """Son 12 ay hisse basi brut temettu toplami (TL). Alinamazsa None; sessizce 0 sayilmaz."""
     out = {}
@@ -238,6 +278,13 @@ def main():
         ist2 = {k: istat([x for g, x in zip(tg, v) if g >= TMS29_BAS]) for k, v in res.items()}
         ok_kar, ok_oz = kalite(bilgi)
         ek = ek_olcular(res, bilgi, fiyatlar[s][max(fiyatlar[s])], temettu.get(s) if temettu else None)
+        if s not in BORC_ATLA:
+            try:
+                fson = fiyatlar[s][max(fiyatlar[s])]; kson = kur[max(kur)] if kur else None
+                mc_tl = fson * bilgi["adet"]; mc_usd = (mc_tl / kson) if kson else None
+                ek["borc_nakit"] = borc_nakit_olculer(hamlar[s], mc_tl, mc_usd)
+            except Exception as ex:
+                ek["borc_nakit"] = {"hata": str(ex)[:100]}
         banka = s in BANKALAR
         def dip(k): return ist.get(k) and ist[k]["yuzdelik"] <= DIP_YUZDELIK
         dip_pd = bool(dip("pddd_tl") and dip("pddd_usd"))
@@ -303,6 +350,16 @@ def rapor(kayit):
             v = e.get(k); return "-" if v is None else v
         nf = g("norm_fk_usd"); nf = nf if e.get("norm_fk_yil_sayisi", 0) == 3 or nf == "-" else f"{nf}*"
         L.append(f"| {s} | {g('roe_usd')} | {g('pddd_roe')} | {nf} | {g('kazanc_getirisi')} | {g('kazanc_getirisi_eksi_faiz')} | {g('temettu_verimi')} |")
+    L += ["", "## Borç ve nakit akışı ölçüleri (açıklayıcı; banka ve finans kolu konsolide holding hariç)", "",
+          "FD = piyasa değeri + net borç + azınlık. Net borç = finansal borç (kira dahil) − (nakit + kısa vadeli finansal yatırım). FAVÖK = faaliyet kârı + amortisman (TFRS 16 sonrası). "
+          "FCF verimi = (işletme nakit akışı + sabit sermaye yatırımı) / piyasa değeri. Nakit/kâr = işletme nakit akışı / net kâr (kâr kalitesi; <1 zayıf). Son 12 ay.", "",
+          "| Hisse | FD/FAVÖK USD | Net borç/FAVÖK | FD/Satış | FAVÖK marjı % | Net kâr marjı % | FCF verimi % | Nakit/kâr | Bilanço |", "|---|---|---|---|---|---|---|---|---|"]
+    for s, d in sorted(S.items(), key=lambda x: (((x[1].get("ek_olculer") or {}).get("borc_nakit") or {}).get("fd_favok_usd") is None, ((x[1].get("ek_olculer") or {}).get("borc_nakit") or {}).get("fd_favok_usd") or 0)):
+        b = ((d.get("ek_olculer") or {}).get("borc_nakit")) or {}
+        if not b or "hata" in b: continue
+        def g(k):
+            v = b.get(k); return "-" if v is None else v
+        L.append(f"| {s} | {g('fd_favok_usd')} | {g('net_borc_favok')} | {g('fd_satis')} | {g('favok_marji')} | {g('net_kar_marji')} | {g('fcf_verimi')} | {g('nakit_kar_orani')} | {g('bilanco_donemi')} |")
     if kayit["atlanan"]: L += ["", "Atlanan: " + "; ".join(kayit["atlanan"])]
     L += ["", "Hücre biçimi: değer (kendi tarihinde yüzdelik dilim, log z-skoru)."]
     return "\n".join(L) + "\n"
