@@ -1,0 +1,125 @@
+{
+  "_amac": "Holding net aktif deger (NAD) iskontosu icin iştirak payi tablosu. SALT OLCUM. Pay oranlari BIRINCIL kaynaktan (holding sunumu/KAP) elle guncellenir; bos (null) pay hesaba GIRMEZ.",
+  "_kural": "Pay orani tahmin edilmez. Kaynak ve tarih her holding icin yazilir. Halka acik olmayanlar (Opet vb.) ve net nakit AYRI satirlarda, hesap iki surumde gosterilir: yalniz halka acik / halka acik + net nakit.",
+  "KCHOL": {
+    "holding_borsa_kodu": "KCHOL",
+    "kaynak": "Koc Holding 1Y26 Finansal Sonuclar Sunumu (rotaborsa.com kopyasi, kaynak sunum 30.06.2026), hissedar yapisi semasi",
+    "kaynak_tarihi": "2026-06-30",
+    "paylar": [
+      {
+        "ad": "Yapi Kredi",
+        "kod": "YKBNK",
+        "pay_pct": 54.8,
+        "not": "doğrudan 20,22; etkin (dolayli dahil) 54,8"
+      },
+      {
+        "ad": "Tupras",
+        "kod": "TUPRS",
+        "pay_pct": 40.0,
+        "not": "doğrudan 4,27; etkin 40,0"
+      },
+      {
+        "ad": "Ford Otosan",
+        "kod": "FROTO",
+        "pay_pct": 39.0
+      },
+      {
+        "ad": "Arcelik",
+        "kod": "ARCLK",
+        "pay_pct": 49.0
+      },
+      {
+        "ad": "Tofas",
+        "kod": "TOASO",
+        "pay_pct": 38.0
+      },
+      {
+        "ad": "Otokar",
+        "kod": "OTKAR",
+        "pay_pct": 47.0
+      },
+      {
+        "ad": "Turk Traktor",
+        "kod": "TTRAK",
+        "pay_pct": 37.5
+      },
+      {
+        "ad": "Aygaz",
+        "kod": "AYGAZ",
+        "pay_pct": 41.0
+      }
+    ],
+    "sabit_degerler_usd_mn": [
+      {
+        "ad": "M. Altinyunus (sunumdaki deger)",
+        "deger": 139,
+        "not": "sunumda Koc payi olarak 30.06.2026 degeri; canli fiyatla guncellenmez"
+      }
+    ],
+    "net_nakit_usd_mn": 989,
+    "net_nakit_not": "Koc Holding solo net nakit, 30.06.2026 (sunum)",
+    "sirket_beyani": {
+      "iskonto_halka_acik_pct": -22,
+      "iskonto_net_nakit_dahil_pct": -27,
+      "tarihsel_ort_iskonto_pct": 15,
+      "tarih": "2026-06-30",
+      "not": "Sunumda iskonto yuzdeleri negatif ('-22') yazilmis; tarihsel ortalama %15 olarak verilmis"
+    }
+  },
+  "SAHOL": {
+    "holding_borsa_kodu": "SAHOL",
+    "kaynak": "Sabancı Holding 30.06.2026 konsolide finansal rapor, Not 4a (Bağlı Ortaklıklar: doğrudan+dolaylı pay). Enerjisa ve Brisa iş ortaklığı/iştirak bölümünde olduğundan bu alıntıda YOK -> null.",
+    "kaynak_tarihi": "2026-06-30",
+    "paylar": [
+      {
+        "ad": "Akbank",
+        "kod": "AKBNK",
+        "pay_pct": 40.75
+      },
+      {
+        "ad": "Enerjisa Enerji",
+        "kod": "ENJSA",
+        "pay_pct": null
+      },
+      {
+        "ad": "Cimsa",
+        "kod": "CIMSA",
+        "pay_pct": 54.54
+      },
+      {
+        "ad": "Brisa",
+        "kod": "BRISA",
+        "pay_pct": null
+      },
+      {
+        "ad": "Kordsa",
+        "kod": "KORDS",
+        "pay_pct": 71.11
+      },
+      {
+        "ad": "Aksigorta",
+        "kod": "AKGRT",
+        "pay_pct": 36.0
+      },
+      {
+        "ad": "Agesa",
+        "kod": "AGESA",
+        "pay_pct": 40.37
+      },
+      {
+        "ad": "Teknosa",
+        "kod": "TKNSA",
+        "pay_pct": 50.0
+      }
+    ],
+    "sabit_degerler_usd_mn": [],
+    "net_nakit_usd_mn": null,
+    "net_nakit_not": "Holding solo net nakit 35,3 milyar TL (fintables SAHOL analist toplantisi notu 2026/06; CarrefourSA kapanis etkisi haric). USD'ye cevirip girilecek.",
+    "sirket_beyani": {
+      "iskonto_pct": -58,
+      "tarih": "toplanti tarihi (2026/06 notlari)",
+      "not": "Yonetim beyani 'yaklasik %58'; NAD tutari TL olarak sayfada yok"
+    },
+    "dikkat": "Akçansa payı 18.06.2026'da tamamen devredildi (tablodan çıkarıldı); CarrefourSA %57,12 TFRS5 satış amaçlı, 31.07.2026 devir (tablodan çıkarıldı, satış nakdi net nakde yansıyacak). Çimsa'da etkin pay %54,54 kullanıldı. Enerjisa/Brisa payları ayrı iş ortaklıkları notundan eklenmeli."
+  }
+}
