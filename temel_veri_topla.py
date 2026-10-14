@@ -5,6 +5,7 @@ KESIF=1 (varsayilan): yalniz 4 sembol, ham kalemleri + hatalari data/temel/kesif
 (sandbox servise erisemedigi icin kalem kodlari ve yanit bicimi buradan dogrulanir).
 KESIF=0: 30 sembol, ham veriyi data/temel/ham_<SEMBOL>.json'a yazar."""
 import json, os, sys, time, urllib.request, urllib.parse
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 
 SEMBOLLER = ["AKBNK","YKBNK","GARAN","ISCTR","SAHOL","KCHOL","THYAO","TAVHL","EREGL","ASELS","ASTOR","MGROS",
@@ -12,9 +13,10 @@ SEMBOLLER = ["AKBNK","YKBNK","GARAN","ISCTR","SAHOL","KCHOL","THYAO","TAVHL","ER
  "EKGYO","TRMET","ALARK","ENJSA","ULKER"]
 KESIF_SEMBOLLER = ["AKBNK","KCHOL","THYAO","EREGL"]   # banka, holding, sanayi, havacilik
 GRUPLAR = ["XI_29","UFRS","UFRS_K"]                   # sirket tipine gore denenir
+BANKALAR = {"AKBNK","YKBNK","GARAN","ISCTR","HALKB","VAKBN"}
 URL = "https://www.isyatirim.com.tr/_layouts/15/IsYatirim.Website/Common/Data.aspx/MaliTablo"
 UA = "Mozilla/5.0 (bist-veri temel_veri_topla)"
-BASLANGIC_YIL = 2021
+BASLANGIC_YIL = 2020   # TTM icin bir onceki yil sonu gerekir; carpanlar 2021'den itibaren uretilir
 KESIF = os.environ.get("KESIF", "1") == "1"
 CIKTI = "data/temel"
 
@@ -32,8 +34,15 @@ def cek(sembol, borsa, grup, donemler):
     for i, (y, p) in enumerate(donemler, 1):
         q[f"year{i}"] = y; q[f"period{i}"] = p
     req = urllib.request.Request(URL + "?" + urllib.parse.urlencode(q), headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read().decode("utf-8"))
+    son = None
+    for deneme in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=45) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except Exception as ex:
+            son = ex
+            time.sleep(1.5 * (deneme + 1))
+    raise son
 
 def sembol_ham(sembol, hata_log):
     """Her borsa (TRY/USD) icin tum ceyrekleri 4'lu paketlerle ceker; ilk islevsel grubu secer."""
@@ -41,7 +50,7 @@ def sembol_ham(sembol, hata_log):
     donemler = ceyrekler()
     for borsa in ("TRY", "USD"):
         secilen, kalemler = None, {}
-        for grup in GRUPLAR:
+        for grup in (["UFRS","XI_29","UFRS_K"] if sembol in BANKALAR else GRUPLAR):
             deneme, ok = {}, False
             for i in range(0, len(donemler), 4):
                 paket = donemler[i:i+4]
@@ -59,7 +68,7 @@ def sembol_ham(sembol, hata_log):
                         ok = ok or bool(d.get("value"))
                 except Exception as ex:
                     hata_log.append(f"{sembol} {borsa} {grup} {paket[0]}: {type(ex).__name__}: {str(ex)[:120]}")
-                time.sleep(0.4)
+                time.sleep(0.2)
             if ok and deneme:
                 secilen, kalemler = grup, deneme
                 break
@@ -70,16 +79,23 @@ def main():
     os.makedirs(CIKTI, exist_ok=True)
     liste = KESIF_SEMBOLLER if KESIF else SEMBOLLER
     hata_log, ozet = [], {}
-    for s in liste:
-        ham = sembol_ham(s, hata_log)
+    def isle(s):
+        hl = []
+        return s, sembol_ham(s, hl), hl
+    with ThreadPoolExecutor(max_workers=4) as ex:
+        sonuclar = list(ex.map(isle, liste))
+    for s, ham, hl in sonuclar:
+        hata_log.extend(hl)
         if KESIF:
             ozet[s] = {b: {"grup": ham[b]["grup"], "kalem_sayisi": ham[b]["kalem_sayisi"],
                            "ornek_kalemler": [{"kod": k, "ad": v["ad"], "ornek": dict(list(v["v"].items())[-2:])}
                                               for k, v in list(ham[b]["kalemler"].items())]}
                        for b in ham}
         else:
+            for b in ham:   # repoyu hafif tut: yalniz hesapta kullanilan 3 kalem
+                ham[b]["kalemler"] = {k: v for k, v in ham[b]["kalemler"].items() if k in ("3Z", "2O", "2OA")}
             json.dump(ham, open(f"{CIKTI}/ham_{s}.json", "w", encoding="utf-8"), ensure_ascii=False)
-            ozet[s] = {b: ham[b]["kalem_sayisi"] for b in ham}
+            ozet[s] = {b: {"grup": ham[b]["grup"], "kalemler": list(ham[b]["kalemler"])} for b in ham}
     kayit = {"olusturma_utc": datetime.now(timezone.utc).isoformat(), "mod": "KESIF" if KESIF else "TAM",
              "ceyrek_sayisi": len(ceyrekler()), "hatalar": hata_log[:60], "ozet": ozet}
     json.dump(kayit, open(f"{CIKTI}/kesif.json" if KESIF else f"{CIKTI}/toplama_ozeti.json", "w", encoding="utf-8"),
