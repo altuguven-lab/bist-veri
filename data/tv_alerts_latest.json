@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-14T07:45:22.391Z",
+  "son_guncelleme_utc": "2026-10-14T08:15:11.074Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 574
+    "adet": 575
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-14T07:45:19.209Z",
-    "sembol": "GARAN",
-    "sinyal": "P3_RADAR",
+    "zaman_utc": "2026-10-14T08:15:08.299Z",
+    "sembol": "TRALT",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "131.1",
-    "skor": "54.81",
-    "kgs": "62",
-    "stop": "131.1",
+    "fiyat": "43.34",
+    "skor": "11.32",
+    "kgs": "12",
+    "stop": "44.42",
     "rejim": "0",
-    "relvol": "1.21",
+    "relvol": "1.85",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "5702032",
+    "p3ozet": "2032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "GARAN|15|P3_RADAR|2026-10-14T07:30:00Z",
+    "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-10-14T08:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-14T08:15:08.299Z",
+      "sembol": "TRALT",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "43.34",
+      "skor": "11.32",
+      "kgs": "12",
+      "stop": "44.42",
+      "rejim": "0",
+      "relvol": "1.85",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-10-14T08:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-14T07:45:19.209Z",
       "sembol": "GARAN",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "PETKM|15|GUNLUK_OZET|2026-10-12T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-12T15:01:08.191Z",
-      "sembol": "TUPRS",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "383.75",
-      "skor": "15.1",
-      "kgs": "58",
-      "stop": "383.75",
-      "rejim": "0",
-      "relvol": "1.91",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "4700032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TUPRS|15|P3_RADAR|2026-10-12T14:45:00Z",
       "carrierLagBars": "1"
     }
   ]
