@@ -58,6 +58,7 @@ def hesapla(cfg, hold_mc_usd_mn, kur, test=False):
         satirlar.append({"kod": p["kod"], "pay_pct": p["pay_pct"], "pay_degeri_usd_mn": round(v)})
     sabit = sum(x["deger"] for x in cfg.get("sabit_degerler_usd_mn", []))
     nn = cfg.get("net_nakit_usd_mn")
+    if nn is None and cfg.get("net_nakit_tl_mn") is not None and kur: nn = cfg["net_nakit_tl_mn"] / kur
     liste = top + sabit
     out = {"satirlar": satirlar, "eksik": eksik, "sabit_usd_mn": sabit, "halka_acik_toplam_usd_mn": round(liste),
            "holding_piyasa_degeri_usd_mn": round(hold_mc_usd_mn) if hold_mc_usd_mn else None,
