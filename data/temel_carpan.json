@@ -1,5 +1,5 @@
 {
- "olusturma_utc": "2026-10-14T08:11:41.387454+00:00",
+ "olusturma_utc": "2026-10-14T08:49:02.093270+00:00",
  "mod": "GERCEK",
  "dip_yuzdelik_esigi": 20.0,
  "atlanan": [],
@@ -7,15 +7,24 @@
   "AKBNK": {
    "banka": true,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 23.1,
+    "pddd_roe": 4.5,
+    "norm_fk_usd": 3.9,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 18.9,
+    "kazanc_getirisi_eksi_faiz": -18.1,
+    "temettu_verimi": 3.24
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 5.29,
-     "medyan": 4.26,
+     "son": 5.3,
+     "medyan": 4.27,
      "min": 1.21,
      "maks": 10.04,
-     "yuzdelik": 66.4,
+     "yuzdelik": 66.5,
      "z": 0.53,
-     "n": 1397
+     "n": 1398
     },
     "fk_usd": {
      "son": 4.61,
@@ -24,7 +33,7 @@
      "maks": 8.76,
      "yuzdelik": 65.9,
      "z": 0.65,
-     "n": 1394
+     "n": 1395
     },
     "pddd_tl": {
      "son": 1.09,
@@ -33,45 +42,45 @@
      "maks": 1.74,
      "yuzdelik": 55.0,
      "z": 0.49,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
      "son": 1.03,
      "medyan": 0.92,
      "min": 0.29,
      "maks": 1.67,
-     "yuzdelik": 58.3,
+     "yuzdelik": 58.2,
      "z": 0.52,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 5.29,
+     "son": 5.3,
      "medyan": 6.48,
      "min": 3.74,
      "maks": 10.04,
-     "yuzdelik": 25.7,
-     "z": -0.81,
-     "n": 631
+     "yuzdelik": 25.8,
+     "z": -0.8,
+     "n": 632
     },
     "fk_usd": {
      "son": 4.61,
      "medyan": 5.73,
      "min": 2.75,
      "maks": 8.76,
-     "yuzdelik": 25.5,
+     "yuzdelik": 25.4,
      "z": -0.64,
-     "n": 628
+     "n": 629
     },
     "pddd_tl": {
      "son": 1.09,
      "medyan": 1.33,
      "min": 1.04,
      "maks": 1.74,
-     "yuzdelik": 4.3,
-     "z": -1.6,
-     "n": 631
+     "yuzdelik": 4.4,
+     "z": -1.58,
+     "n": 632
     },
     "pddd_usd": {
      "son": 1.03,
@@ -79,8 +88,8 @@
      "min": 0.96,
      "maks": 1.67,
      "yuzdelik": 6.2,
-     "z": -1.57,
-     "n": 628
+     "z": -1.56,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -97,24 +106,33 @@
   "YKBNK": {
    "banka": true,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 21.8,
+    "pddd_roe": 4.6,
+    "norm_fk_usd": 3.8,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 18.1,
+    "kazanc_getirisi_eksi_faiz": -18.9,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": {
      "son": 5.52,
      "medyan": 3.86,
      "min": 1.39,
      "maks": 9.89,
-     "yuzdelik": 70.9,
+     "yuzdelik": 70.8,
      "z": 0.7,
-     "n": 1397
+     "n": 1398
     },
     "fk_usd": {
-     "son": 4.84,
+     "son": 4.83,
      "medyan": 2.95,
      "min": 1.17,
      "maks": 8.86,
-     "yuzdelik": 71.1,
-     "z": 0.83,
-     "n": 1394
+     "yuzdelik": 71.0,
+     "z": 0.82,
+     "n": 1395
     },
     "pddd_tl": {
      "son": 1.07,
@@ -123,16 +141,16 @@
      "maks": 1.79,
      "yuzdelik": 54.3,
      "z": 0.46,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
      "son": 1.01,
      "medyan": 0.96,
      "min": 0.28,
      "maks": 1.64,
-     "yuzdelik": 55.7,
+     "yuzdelik": 55.5,
      "z": 0.5,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
@@ -141,18 +159,18 @@
      "medyan": 6.26,
      "min": 3.18,
      "maks": 9.89,
-     "yuzdelik": 35.5,
+     "yuzdelik": 35.4,
      "z": -0.26,
-     "n": 631
+     "n": 632
     },
     "fk_usd": {
-     "son": 4.84,
+     "son": 4.83,
      "medyan": 5.51,
      "min": 2.54,
      "maks": 8.86,
      "yuzdelik": 35.8,
-     "z": -0.13,
-     "n": 628
+     "z": -0.14,
+     "n": 629
     },
     "pddd_tl": {
      "son": 1.07,
@@ -160,17 +178,17 @@
      "min": 0.95,
      "maks": 1.79,
      "yuzdelik": 10.9,
-     "z": -1.42,
-     "n": 631
+     "z": -1.41,
+     "n": 632
     },
     "pddd_usd": {
      "son": 1.01,
      "medyan": 1.23,
      "min": 0.9,
      "maks": 1.64,
-     "yuzdelik": 10.5,
-     "z": -1.4,
-     "n": 628
+     "yuzdelik": 10.3,
+     "z": -1.41,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -187,24 +205,33 @@
   "GARAN": {
    "banka": true,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 28.0,
+    "pddd_roe": 3.8,
+    "norm_fk_usd": 3.6,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 21.9,
+    "kazanc_getirisi_eksi_faiz": -15.1,
+    "temettu_verimi": 4.02
+   },
    "istatistik": {
     "fk_tl": {
      "son": 4.56,
      "medyan": 4.64,
      "min": 1.69,
      "maks": 6.7,
-     "yuzdelik": 43.7,
+     "yuzdelik": 43.9,
      "z": 0.28,
-     "n": 1397
+     "n": 1398
     },
     "fk_usd": {
      "son": 3.99,
      "medyan": 3.92,
      "min": 1.36,
      "maks": 5.87,
-     "yuzdelik": 54.7,
+     "yuzdelik": 54.6,
      "z": 0.54,
-     "n": 1394
+     "n": 1395
     },
     "pddd_tl": {
      "son": 1.13,
@@ -213,16 +240,16 @@
      "maks": 2.19,
      "yuzdelik": 49.6,
      "z": 0.2,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
      "son": 1.07,
      "medyan": 1.04,
      "min": 0.37,
      "maks": 2.14,
-     "yuzdelik": 51.9,
+     "yuzdelik": 51.6,
      "z": 0.26,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
@@ -231,18 +258,18 @@
      "medyan": 5.19,
      "min": 3.35,
      "maks": 6.7,
-     "yuzdelik": 12.2,
+     "yuzdelik": 12.5,
      "z": -1.04,
-     "n": 631
+     "n": 632
     },
     "fk_usd": {
      "son": 3.99,
-     "medyan": 4.48,
+     "medyan": 4.47,
      "min": 2.47,
      "maks": 5.87,
-     "yuzdelik": 20.5,
+     "yuzdelik": 20.3,
      "z": -0.68,
-     "n": 628
+     "n": 629
     },
     "pddd_tl": {
      "son": 1.13,
@@ -250,17 +277,17 @@
      "min": 1.04,
      "maks": 2.19,
      "yuzdelik": 2.5,
-     "z": -1.79,
-     "n": 631
+     "z": -1.78,
+     "n": 632
     },
     "pddd_usd": {
      "son": 1.07,
      "medyan": 1.45,
      "min": 1.0,
      "maks": 2.14,
-     "yuzdelik": 2.5,
+     "yuzdelik": 2.4,
      "z": -1.74,
-     "n": 628
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -277,33 +304,42 @@
   "ISCTR": {
    "banka": true,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 16.9,
+    "pddd_roe": 4.0,
+    "norm_fk_usd": 3.2,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 20.8,
+    "kazanc_getirisi_eksi_faiz": -16.2,
+    "temettu_verimi": 4.14
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 4.8,
-     "medyan": 3.95,
+     "son": 4.81,
+     "medyan": 3.97,
      "min": 1.66,
      "maks": 8.96,
-     "yuzdelik": 66.6,
-     "z": 0.44,
-     "n": 1397
+     "yuzdelik": 66.7,
+     "z": 0.45,
+     "n": 1398
     },
     "fk_usd": {
      "son": 4.16,
      "medyan": 2.85,
      "min": 1.36,
      "maks": 8.04,
-     "yuzdelik": 67.7,
+     "yuzdelik": 67.8,
      "z": 0.61,
-     "n": 1394
+     "n": 1395
     },
     "pddd_tl": {
      "son": 0.72,
      "medyan": 0.82,
      "min": 0.32,
      "maks": 1.6,
-     "yuzdelik": 36.8,
-     "z": -0.11,
-     "n": 1445
+     "yuzdelik": 36.9,
+     "z": -0.1,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.68,
@@ -312,27 +348,27 @@
      "maks": 1.57,
      "yuzdelik": 39.4,
      "z": -0.03,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 4.8,
+     "son": 4.81,
      "medyan": 5.84,
      "min": 3.93,
      "maks": 8.96,
-     "yuzdelik": 26.6,
-     "z": -0.86,
-     "n": 631
+     "yuzdelik": 26.7,
+     "z": -0.85,
+     "n": 632
     },
     "fk_usd": {
      "son": 4.16,
-     "medyan": 4.86,
+     "medyan": 4.85,
      "min": 2.92,
      "maks": 8.04,
-     "yuzdelik": 28.3,
-     "z": -0.73,
-     "n": 628
+     "yuzdelik": 28.6,
+     "z": -0.72,
+     "n": 629
     },
     "pddd_tl": {
      "son": 0.72,
@@ -340,8 +376,8 @@
      "min": 0.67,
      "maks": 1.6,
      "yuzdelik": 2.4,
-     "z": -1.7,
-     "n": 631
+     "z": -1.68,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.68,
@@ -349,8 +385,8 @@
      "min": 0.64,
      "maks": 1.57,
      "yuzdelik": 2.1,
-     "z": -1.68,
-     "n": 628
+     "z": -1.67,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -367,24 +403,33 @@
   "SAHOL": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 5.7,
+    "pddd_roe": 7.0,
+    "norm_fk_usd": 25.2,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 11.6,
+    "kazanc_getirisi_eksi_faiz": -25.4,
+    "temettu_verimi": 1.66
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 8.58,
+     "son": 8.61,
      "medyan": 4.04,
      "min": 1.83,
      "maks": 183.43,
      "yuzdelik": 63.2,
      "z": 0.15,
-     "n": 1146
+     "n": 1147
     },
     "fk_usd": {
-     "son": 7.43,
+     "son": 7.45,
      "medyan": 3.11,
      "min": 1.28,
      "maks": 98.86,
      "yuzdelik": 73.8,
      "z": 0.37,
-     "n": 1146
+     "n": 1147
     },
     "pddd_tl": {
      "son": 0.43,
@@ -392,37 +437,37 @@
      "min": 0.33,
      "maks": 1.31,
      "yuzdelik": 4.6,
-     "z": -1.49,
-     "n": 1445
+     "z": -1.48,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.4,
      "medyan": 0.61,
      "min": 0.31,
      "maks": 1.18,
-     "yuzdelik": 5.3,
-     "z": -1.43,
-     "n": 1442
+     "yuzdelik": 5.5,
+     "z": -1.42,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 8.58,
-     "medyan": 23.74,
+     "son": 8.61,
+     "medyan": 23.72,
      "min": 7.69,
      "maks": 183.43,
-     "yuzdelik": 5.0,
+     "yuzdelik": 5.2,
      "z": -1.27,
-     "n": 380
+     "n": 381
     },
     "fk_usd": {
-     "son": 7.43,
-     "medyan": 17.09,
+     "son": 7.45,
+     "medyan": 17.08,
      "min": 5.72,
      "maks": 98.86,
-     "yuzdelik": 21.1,
-     "z": -1.04,
-     "n": 380
+     "yuzdelik": 21.3,
+     "z": -1.03,
+     "n": 381
     },
     "pddd_tl": {
      "son": 0.43,
@@ -430,8 +475,8 @@
      "min": 0.41,
      "maks": 0.92,
      "yuzdelik": 2.2,
-     "z": -1.66,
-     "n": 631
+     "z": -1.63,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.4,
@@ -439,8 +484,8 @@
      "min": 0.37,
      "maks": 0.91,
      "yuzdelik": 3.3,
-     "z": -1.62,
-     "n": 628
+     "z": -1.6,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -457,80 +502,89 @@
   "KCHOL": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 5.6,
+    "pddd_roe": 11.5,
+    "norm_fk_usd": 6.2,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 7.1,
+    "kazanc_getirisi_eksi_faiz": -29.9,
+    "temettu_verimi": 3.22
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 14.1,
+     "son": 14.16,
      "medyan": 5.69,
      "min": 2.53,
      "maks": 273.12,
-     "yuzdelik": 79.3,
-     "z": 0.56,
-     "n": 1270
+     "yuzdelik": 79.2,
+     "z": 0.57,
+     "n": 1271
     },
     "fk_usd": {
-     "son": 12.2,
+     "son": 12.23,
      "medyan": 4.2,
      "min": 2.12,
      "maks": 245.09,
-     "yuzdelik": 79.5,
+     "yuzdelik": 79.4,
      "z": 0.64,
-     "n": 1267
+     "n": 1268
     },
     "pddd_tl": {
      "son": 0.68,
      "medyan": 1.06,
      "min": 0.49,
      "maks": 2.32,
-     "yuzdelik": 14.5,
-     "z": -1.17,
-     "n": 1445
+     "yuzdelik": 14.8,
+     "z": -1.15,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.64,
      "medyan": 0.97,
      "min": 0.45,
      "maks": 2.08,
-     "yuzdelik": 12.8,
-     "z": -1.17,
-     "n": 1442
+     "yuzdelik": 13.1,
+     "z": -1.16,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 14.1,
+     "son": 14.16,
      "medyan": 14.76,
      "min": 4.63,
      "maks": 273.12,
-     "yuzdelik": 47.8,
+     "yuzdelik": 47.7,
      "z": -0.14,
-     "n": 504
+     "n": 505
     },
     "fk_usd": {
-     "son": 12.2,
+     "son": 12.23,
      "medyan": 12.82,
      "min": 3.38,
      "maks": 245.09,
-     "yuzdelik": 48.1,
+     "yuzdelik": 48.0,
      "z": -0.11,
-     "n": 501
+     "n": 502
     },
     "pddd_tl": {
      "son": 0.68,
      "medyan": 0.75,
      "min": 0.49,
      "maks": 1.37,
-     "yuzdelik": 24.7,
-     "z": -0.71,
-     "n": 631
+     "yuzdelik": 25.5,
+     "z": -0.69,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.64,
      "medyan": 0.71,
      "min": 0.45,
      "maks": 1.38,
-     "yuzdelik": 21.2,
-     "z": -0.71,
-     "n": 628
+     "yuzdelik": 21.9,
+     "z": -0.7,
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -547,33 +601,42 @@
   "THYAO": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 16.1,
+    "pddd_roe": 2.3,
+    "norm_fk_usd": 1.6,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 34.1,
+    "kazanc_getirisi_eksi_faiz": -2.9,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 2.93,
+     "son": 2.94,
      "medyan": 3.22,
      "min": 1.95,
      "maks": 10.38,
-     "yuzdelik": 37.6,
-     "z": -0.64,
-     "n": 1221
+     "yuzdelik": 37.9,
+     "z": -0.63,
+     "n": 1222
     },
     "fk_usd": {
      "son": 2.42,
      "medyan": 2.69,
      "min": 1.46,
      "maks": 5.58,
-     "yuzdelik": 34.3,
-     "z": -0.48,
-     "n": 1218
+     "yuzdelik": 34.4,
+     "z": -0.47,
+     "n": 1219
     },
     "pddd_tl": {
      "son": 0.38,
      "medyan": 0.64,
      "min": 0.35,
      "maks": 1.93,
-     "yuzdelik": 6.0,
-     "z": -1.32,
-     "n": 1445
+     "yuzdelik": 6.2,
+     "z": -1.31,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.36,
@@ -582,18 +645,18 @@
      "maks": 1.37,
      "yuzdelik": 4.2,
      "z": -1.29,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 2.93,
+     "son": 2.94,
      "medyan": 2.76,
      "min": 1.95,
      "maks": 3.41,
-     "yuzdelik": 70.4,
-     "z": 0.63,
-     "n": 631
+     "yuzdelik": 70.9,
+     "z": 0.64,
+     "n": 632
     },
     "fk_usd": {
      "son": 2.42,
@@ -602,25 +665,25 @@
      "maks": 2.88,
      "yuzdelik": 64.2,
      "z": 0.59,
-     "n": 628
+     "n": 629
     },
     "pddd_tl": {
      "son": 0.38,
      "medyan": 0.55,
      "min": 0.35,
      "maks": 1.0,
-     "yuzdelik": 4.0,
-     "z": -1.5,
-     "n": 631
+     "yuzdelik": 4.1,
+     "z": -1.49,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.36,
      "medyan": 0.52,
      "min": 0.33,
      "maks": 0.91,
-     "yuzdelik": 1.8,
+     "yuzdelik": 1.7,
      "z": -1.51,
-     "n": 628
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -637,80 +700,89 @@
   "TAVHL": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 8.3,
+    "pddd_roe": 13.5,
+    "norm_fk_usd": 9.0,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 5.9,
+    "kazanc_getirisi_eksi_faiz": -31.1,
+    "temettu_verimi": 1.34
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 16.81,
-     "medyan": 19.24,
+     "son": 16.89,
+     "medyan": 19.17,
      "min": 6.9,
      "maks": 175.55,
-     "yuzdelik": 43.7,
+     "yuzdelik": 43.9,
      "z": -0.29,
-     "n": 1152
+     "n": 1153
     },
     "fk_usd": {
-     "son": 13.38,
+     "son": 13.42,
      "medyan": 16.05,
      "min": 5.32,
      "maks": 202.78,
-     "yuzdelik": 42.5,
+     "yuzdelik": 42.8,
      "z": -0.26,
-     "n": 1149
+     "n": 1150
     },
     "pddd_tl": {
-     "son": 1.18,
+     "son": 1.19,
      "medyan": 1.29,
      "min": 0.79,
      "maks": 2.11,
-     "yuzdelik": 34.3,
-     "z": -0.36,
-     "n": 1445
+     "yuzdelik": 35.1,
+     "z": -0.34,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 1.12,
      "medyan": 1.2,
      "min": 0.63,
      "maks": 2.06,
-     "yuzdelik": 39.3,
-     "z": -0.19,
-     "n": 1442
+     "yuzdelik": 39.4,
+     "z": -0.18,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 16.81,
-     "medyan": 13.97,
+     "son": 16.89,
+     "medyan": 13.98,
      "min": 7.36,
      "maks": 53.59,
-     "yuzdelik": 57.4,
-     "z": 0.06,
-     "n": 631
+     "yuzdelik": 57.8,
+     "z": 0.07,
+     "n": 632
     },
     "fk_usd": {
-     "son": 13.38,
+     "son": 13.42,
      "medyan": 11.13,
      "min": 5.48,
      "maks": 37.63,
-     "yuzdelik": 57.0,
-     "z": 0.07,
-     "n": 628
+     "yuzdelik": 57.1,
+     "z": 0.08,
+     "n": 629
     },
     "pddd_tl": {
-     "son": 1.18,
+     "son": 1.19,
      "medyan": 1.43,
      "min": 0.95,
      "maks": 2.11,
-     "yuzdelik": 14.4,
-     "z": -1.1,
-     "n": 631
+     "yuzdelik": 15.2,
+     "z": -1.07,
+     "n": 632
     },
     "pddd_usd": {
      "son": 1.12,
      "medyan": 1.35,
      "min": 0.89,
      "maks": 2.06,
-     "yuzdelik": 13.4,
-     "z": -1.09,
-     "n": 628
+     "yuzdelik": 13.8,
+     "z": -1.07,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -727,80 +799,89 @@
   "EREGL": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 2.5,
+    "pddd_roe": 31.1,
+    "norm_fk_usd": 22.2,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 3.0,
+    "kazanc_getirisi_eksi_faiz": -34.0,
+    "temettu_verimi": 1.46
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 33.3,
+     "son": 33.73,
      "medyan": 11.21,
      "min": 4.57,
      "maks": 552.35,
-     "yuzdelik": 81.4,
-     "z": 0.55,
-     "n": 1326
+     "yuzdelik": 81.8,
+     "z": 0.56,
+     "n": 1327
     },
     "fk_usd": {
-     "son": 31.11,
+     "son": 31.46,
      "medyan": 8.37,
      "min": 2.92,
      "maks": 535.14,
-     "yuzdelik": 84.8,
-     "z": 0.64,
-     "n": 1323
+     "yuzdelik": 85.2,
+     "z": 0.65,
+     "n": 1324
     },
     "pddd_tl": {
-     "son": 0.82,
+     "son": 0.83,
      "medyan": 0.97,
      "min": 0.47,
      "maks": 2.38,
-     "yuzdelik": 30.8,
-     "z": -0.63,
-     "n": 1446
+     "yuzdelik": 32.8,
+     "z": -0.6,
+     "n": 1447
     },
     "pddd_usd": {
-     "son": 0.77,
+     "son": 0.78,
      "medyan": 0.89,
      "min": 0.44,
      "maks": 1.74,
-     "yuzdelik": 30.1,
-     "z": -0.59,
-     "n": 1443
+     "yuzdelik": 31.9,
+     "z": -0.56,
+     "n": 1444
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 33.3,
+     "son": 33.73,
      "medyan": 18.56,
      "min": 8.12,
      "maks": 552.35,
-     "yuzdelik": 72.6,
-     "z": 0.08,
-     "n": 632
+     "yuzdelik": 73.3,
+     "z": 0.09,
+     "n": 633
     },
     "fk_usd": {
-     "son": 31.11,
-     "medyan": 15.26,
+     "son": 31.46,
+     "medyan": 15.27,
      "min": 6.19,
      "maks": 535.14,
-     "yuzdelik": 77.3,
-     "z": 0.15,
-     "n": 629
+     "yuzdelik": 78.1,
+     "z": 0.16,
+     "n": 630
     },
     "pddd_tl": {
-     "son": 0.82,
+     "son": 0.83,
      "medyan": 0.77,
      "min": 0.47,
      "maks": 1.05,
-     "yuzdelik": 69.5,
-     "z": 0.51,
-     "n": 632
+     "yuzdelik": 73.6,
+     "z": 0.59,
+     "n": 633
     },
     "pddd_usd": {
-     "son": 0.77,
+     "son": 0.78,
      "medyan": 0.73,
      "min": 0.44,
      "maks": 0.99,
-     "yuzdelik": 66.9,
-     "z": 0.46,
-     "n": 629
+     "yuzdelik": 70.3,
+     "z": 0.53,
+     "n": 630
     }
    },
    "dip_pddd_tms29": false,
@@ -817,80 +898,89 @@
   "ASELS": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 18.3,
+    "pddd_roe": 26.7,
+    "norm_fk_usd": 49.6,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 2.6,
+    "kazanc_getirisi_eksi_faiz": -34.4,
+    "temettu_verimi": 0.07
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 38.11,
+     "son": 38.42,
      "medyan": 21.29,
      "min": 6.48,
      "maks": 103.07,
-     "yuzdelik": 73.4,
-     "z": 0.86,
-     "n": 1198
+     "yuzdelik": 73.5,
+     "z": 0.87,
+     "n": 1199
     },
     "fk_usd": {
-     "son": 32.22,
-     "medyan": 15.81,
+     "son": 32.43,
+     "medyan": 15.82,
      "min": 3.74,
      "maks": 90.27,
-     "yuzdelik": 74.6,
-     "z": 0.89,
-     "n": 1195
+     "yuzdelik": 74.9,
+     "z": 0.9,
+     "n": 1196
     },
     "pddd_tl": {
-     "son": 5.12,
+     "son": 5.17,
      "medyan": 2.85,
      "min": 1.11,
      "maks": 8.44,
-     "yuzdelik": 81.2,
-     "z": 1.08,
-     "n": 1445
+     "yuzdelik": 81.3,
+     "z": 1.1,
+     "n": 1446
     },
     "pddd_usd": {
-     "son": 4.85,
+     "son": 4.88,
      "medyan": 2.72,
      "min": 1.07,
      "maks": 7.99,
-     "yuzdelik": 81.6,
-     "z": 1.11,
-     "n": 1442
+     "yuzdelik": 82.0,
+     "z": 1.12,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 38.11,
-     "medyan": 33.98,
+     "son": 38.42,
+     "medyan": 34.2,
      "min": 17.96,
      "maks": 66.98,
-     "yuzdelik": 57.8,
-     "z": 0.43,
-     "n": 631
+     "yuzdelik": 58.1,
+     "z": 0.45,
+     "n": 632
     },
     "fk_usd": {
-     "son": 32.22,
+     "son": 32.43,
      "medyan": 28.51,
      "min": 12.94,
      "maks": 54.49,
-     "yuzdelik": 60.0,
-     "z": 0.47,
-     "n": 628
+     "yuzdelik": 60.7,
+     "z": 0.49,
+     "n": 629
     },
     "pddd_tl": {
-     "son": 5.12,
+     "son": 5.17,
      "medyan": 4.53,
      "min": 1.9,
      "maks": 8.44,
-     "yuzdelik": 59.4,
-     "z": 0.59,
-     "n": 631
+     "yuzdelik": 59.8,
+     "z": 0.61,
+     "n": 632
     },
     "pddd_usd": {
-     "son": 4.85,
+     "son": 4.88,
      "medyan": 4.42,
      "min": 1.73,
      "maks": 7.99,
-     "yuzdelik": 59.2,
-     "z": 0.58,
-     "n": 628
+     "yuzdelik": 60.1,
+     "z": 0.59,
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -907,80 +997,89 @@
   "ASTOR": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 33.4,
+    "pddd_roe": 12.4,
+    "norm_fk_usd": 16.5,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 5.8,
+    "kazanc_getirisi_eksi_faiz": -31.2,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 17.08,
+     "son": 17.19,
      "medyan": 17.9,
      "min": 8.57,
      "maks": 74.23,
      "yuzdelik": 48.3,
-     "z": -0.39,
-     "n": 932
+     "z": -0.37,
+     "n": 933
     },
     "fk_usd": {
-     "son": 14.57,
+     "son": 14.63,
      "medyan": 15.09,
      "min": 6.45,
      "maks": 47.95,
-     "yuzdelik": 48.2,
-     "z": -0.24,
-     "n": 929
+     "yuzdelik": 48.5,
+     "z": -0.23,
+     "n": 930
     },
     "pddd_tl": {
-     "son": 4.37,
-     "medyan": 6.2,
+     "son": 4.4,
+     "medyan": 6.19,
      "min": 3.24,
      "maks": 28.8,
-     "yuzdelik": 20.9,
-     "z": -0.87,
-     "n": 932
+     "yuzdelik": 21.7,
+     "z": -0.86,
+     "n": 933
     },
     "pddd_usd": {
-     "son": 4.13,
+     "son": 4.15,
      "medyan": 5.9,
      "min": 3.06,
      "maks": 22.39,
-     "yuzdelik": 20.5,
-     "z": -0.91,
-     "n": 929
+     "yuzdelik": 20.6,
+     "z": -0.9,
+     "n": 930
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 17.08,
-     "medyan": 14.69,
+     "son": 17.19,
+     "medyan": 14.7,
      "min": 8.57,
      "maks": 38.13,
      "yuzdelik": 68.0,
-     "z": 0.1,
-     "n": 631
+     "z": 0.12,
+     "n": 632
     },
     "fk_usd": {
-     "son": 14.57,
+     "son": 14.63,
      "medyan": 11.98,
      "min": 6.45,
      "maks": 33.34,
-     "yuzdelik": 67.0,
-     "z": 0.19,
-     "n": 628
+     "yuzdelik": 67.4,
+     "z": 0.2,
+     "n": 629
     },
     "pddd_tl": {
-     "son": 4.37,
+     "son": 4.4,
      "medyan": 5.26,
      "min": 3.24,
      "maks": 9.45,
-     "yuzdelik": 30.9,
-     "z": -0.67,
-     "n": 631
+     "yuzdelik": 32.0,
+     "z": -0.65,
+     "n": 632
     },
     "pddd_usd": {
-     "son": 4.13,
+     "son": 4.15,
      "medyan": 5.01,
      "min": 3.06,
      "maks": 9.15,
-     "yuzdelik": 30.3,
-     "z": -0.69,
-     "n": 628
+     "yuzdelik": 30.5,
+     "z": -0.67,
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -997,24 +1096,33 @@
   "MGROS": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 9.2,
+    "pddd_roe": 9.9,
+    "norm_fk_usd": 5.5,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 7.7,
+    "kazanc_getirisi_eksi_faiz": -29.3,
+    "temettu_verimi": 1.65
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 13.0,
+     "son": 12.96,
      "medyan": 11.88,
      "min": 2.7,
      "maks": 94.16,
-     "yuzdelik": 54.5,
+     "yuzdelik": 54.4,
      "z": 0.07,
-     "n": 1278
+     "n": 1279
     },
     "fk_usd": {
-     "son": 10.76,
+     "son": 10.71,
      "medyan": 10.49,
      "min": 2.12,
      "maks": 61.42,
-     "yuzdelik": 51.8,
+     "yuzdelik": 51.5,
      "z": 0.15,
-     "n": 1275
+     "n": 1276
     },
     "pddd_tl": {
      "son": 0.96,
@@ -1023,36 +1131,36 @@
      "maks": 530.56,
      "yuzdelik": 0.1,
      "z": -1.11,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.91,
-     "medyan": 6.89,
+     "medyan": 6.76,
      "min": 0.91,
      "maks": 429.54,
      "yuzdelik": 0.1,
      "z": -1.11,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 13.0,
-     "medyan": 11.34,
+     "son": 12.96,
+     "medyan": 11.35,
      "min": 5.85,
      "maks": 18.98,
-     "yuzdelik": 68.1,
-     "z": 0.53,
-     "n": 631
+     "yuzdelik": 67.9,
+     "z": 0.52,
+     "n": 632
     },
     "fk_usd": {
-     "son": 10.76,
+     "son": 10.71,
      "medyan": 10.0,
      "min": 4.29,
      "maks": 16.62,
-     "yuzdelik": 62.7,
-     "z": 0.37,
-     "n": 628
+     "yuzdelik": 62.0,
+     "z": 0.36,
+     "n": 629
     },
     "pddd_tl": {
      "son": 0.96,
@@ -1060,8 +1168,8 @@
      "min": 0.96,
      "maks": 2.47,
      "yuzdelik": 0.2,
-     "z": -1.96,
-     "n": 631
+     "z": -1.97,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.91,
@@ -1069,8 +1177,8 @@
      "min": 0.91,
      "maks": 2.44,
      "yuzdelik": 0.2,
-     "z": -1.91,
-     "n": 628
+     "z": -1.93,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -1087,80 +1195,89 @@
   "BIMAS": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 18.0,
+    "pddd_roe": 12.8,
+    "norm_fk_usd": 13.3,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 6.0,
+    "kazanc_getirisi_eksi_faiz": -31.0,
+    "temettu_verimi": 1.72
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 16.53,
+     "son": 16.58,
      "medyan": 13.62,
      "min": 4.81,
      "maks": 25.1,
-     "yuzdelik": 76.5,
-     "z": 0.73,
-     "n": 1398
+     "yuzdelik": 76.8,
+     "z": 0.74,
+     "n": 1399
     },
     "fk_usd": {
-     "son": 14.27,
+     "son": 14.3,
      "medyan": 10.36,
      "min": 4.01,
      "maks": 21.41,
-     "yuzdelik": 83.6,
+     "yuzdelik": 83.5,
      "z": 0.94,
-     "n": 1395
+     "n": 1396
     },
     "pddd_tl": {
-     "son": 2.42,
+     "son": 2.43,
      "medyan": 4.4,
      "min": 1.38,
      "maks": 10.05,
-     "yuzdelik": 24.6,
-     "z": -1.01,
-     "n": 1446
+     "yuzdelik": 25.2,
+     "z": -1.0,
+     "n": 1447
     },
     "pddd_usd": {
-     "son": 2.29,
+     "son": 2.3,
      "medyan": 3.94,
      "min": 1.3,
      "maks": 9.14,
-     "yuzdelik": 24.5,
+     "yuzdelik": 24.8,
      "z": -0.98,
-     "n": 1443
+     "n": 1444
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 16.53,
+     "son": 16.58,
      "medyan": 13.73,
      "min": 9.24,
      "maks": 25.1,
-     "yuzdelik": 63.8,
-     "z": 0.5,
-     "n": 632
+     "yuzdelik": 64.0,
+     "z": 0.51,
+     "n": 633
     },
     "fk_usd": {
-     "son": 14.27,
-     "medyan": 11.41,
+     "son": 14.3,
+     "medyan": 11.45,
      "min": 7.17,
      "maks": 21.41,
-     "yuzdelik": 65.0,
-     "z": 0.55,
-     "n": 629
+     "yuzdelik": 64.9,
+     "z": 0.56,
+     "n": 630
     },
     "pddd_tl": {
-     "son": 2.42,
+     "son": 2.43,
      "medyan": 2.45,
      "min": 1.6,
      "maks": 4.5,
-     "yuzdelik": 45.4,
-     "z": -0.36,
-     "n": 632
+     "yuzdelik": 46.9,
+     "z": -0.35,
+     "n": 633
     },
     "pddd_usd": {
-     "son": 2.29,
+     "son": 2.3,
      "medyan": 2.32,
      "min": 1.49,
      "maks": 4.42,
-     "yuzdelik": 45.3,
-     "z": -0.38,
-     "n": 629
+     "yuzdelik": 46.0,
+     "z": -0.37,
+     "n": 630
     }
    },
    "dip_pddd_tms29": false,
@@ -1177,80 +1294,89 @@
   "TUPRS": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 19.2,
+    "pddd_roe": 8.2,
+    "norm_fk_usd": 9.5,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 9.6,
+    "kazanc_getirisi_eksi_faiz": -27.4,
+    "temettu_verimi": 4.36
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 10.29,
+     "son": 10.42,
      "medyan": 10.04,
      "min": 2.01,
      "maks": 47.25,
-     "yuzdelik": 51.5,
-     "z": 0.31,
-     "n": 1278
+     "yuzdelik": 52.5,
+     "z": 0.33,
+     "n": 1279
     },
     "fk_usd": {
-     "son": 9.04,
+     "son": 9.13,
      "medyan": 7.06,
      "min": 1.56,
      "maks": 29.11,
-     "yuzdelik": 57.5,
-     "z": 0.56,
-     "n": 1275
+     "yuzdelik": 58.2,
+     "z": 0.58,
+     "n": 1276
     },
     "pddd_tl": {
-     "son": 1.64,
+     "son": 1.66,
      "medyan": 2.09,
      "min": 0.61,
      "maks": 6.35,
-     "yuzdelik": 45.2,
-     "z": -0.34,
-     "n": 1445
+     "yuzdelik": 45.5,
+     "z": -0.31,
+     "n": 1446
     },
     "pddd_usd": {
-     "son": 1.55,
+     "son": 1.57,
      "medyan": 1.87,
      "min": 0.56,
      "maks": 5.12,
-     "yuzdelik": 45.1,
-     "z": -0.3,
-     "n": 1442
+     "yuzdelik": 45.3,
+     "z": -0.28,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 10.29,
+     "son": 10.42,
      "medyan": 11.05,
      "min": 3.3,
      "maks": 20.44,
-     "yuzdelik": 41.7,
-     "z": 0.33,
-     "n": 631
+     "yuzdelik": 43.8,
+     "z": 0.35,
+     "n": 632
     },
     "fk_usd": {
-     "son": 9.04,
-     "medyan": 9.6,
+     "son": 9.13,
+     "medyan": 9.59,
      "min": 2.37,
      "maks": 17.0,
-     "yuzdelik": 44.6,
-     "z": 0.43,
-     "n": 628
+     "yuzdelik": 45.3,
+     "z": 0.44,
+     "n": 629
     },
     "pddd_tl": {
-     "son": 1.64,
+     "son": 1.66,
      "medyan": 1.21,
      "min": 0.61,
      "maks": 2.22,
-     "yuzdelik": 92.7,
-     "z": 1.39,
-     "n": 631
+     "yuzdelik": 93.4,
+     "z": 1.44,
+     "n": 632
     },
     "pddd_usd": {
-     "son": 1.55,
+     "son": 1.57,
      "medyan": 1.15,
      "min": 0.56,
      "maks": 2.05,
-     "yuzdelik": 92.7,
-     "z": 1.34,
-     "n": 628
+     "yuzdelik": 93.2,
+     "z": 1.38,
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -1267,80 +1393,89 @@
   "TOASO": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 25.4,
+    "pddd_roe": 7.2,
+    "norm_fk_usd": 5.6,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 11.0,
+    "kazanc_getirisi_eksi_faiz": -26.0,
+    "temettu_verimi": 7.87
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 9.1,
+     "son": 9.07,
      "medyan": 10.51,
      "min": 4.87,
      "maks": 56.82,
-     "yuzdelik": 34.9,
-     "z": -0.43,
-     "n": 1397
+     "yuzdelik": 34.5,
+     "z": -0.44,
+     "n": 1398
     },
     "fk_usd": {
-     "son": 7.76,
+     "son": 7.72,
      "medyan": 8.08,
      "min": 3.68,
      "maks": 52.32,
-     "yuzdelik": 46.2,
-     "z": -0.24,
-     "n": 1394
+     "yuzdelik": 46.0,
+     "z": -0.25,
+     "n": 1395
     },
     "pddd_tl": {
-     "son": 1.94,
+     "son": 1.93,
      "medyan": 4.22,
      "min": 1.23,
      "maks": 13.8,
-     "yuzdelik": 4.4,
+     "yuzdelik": 4.3,
      "z": -1.34,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
-     "son": 1.84,
-     "medyan": 4.14,
+     "son": 1.83,
+     "medyan": 4.12,
      "min": 1.14,
      "maks": 12.44,
      "yuzdelik": 3.8,
-     "z": -1.38,
-     "n": 1442
+     "z": -1.39,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 9.1,
+     "son": 9.07,
      "medyan": 11.64,
      "min": 4.87,
      "maks": 56.82,
-     "yuzdelik": 37.1,
+     "yuzdelik": 37.0,
      "z": -0.55,
-     "n": 631
+     "n": 632
     },
     "fk_usd": {
-     "son": 7.76,
-     "medyan": 10.07,
+     "son": 7.72,
+     "medyan": 10.06,
      "min": 3.68,
      "maks": 52.32,
-     "yuzdelik": 37.3,
+     "yuzdelik": 37.2,
      "z": -0.52,
-     "n": 628
+     "n": 629
     },
     "pddd_tl": {
-     "son": 1.94,
+     "son": 1.93,
      "medyan": 2.42,
      "min": 1.23,
      "maks": 4.9,
-     "yuzdelik": 10.0,
-     "z": -1.01,
-     "n": 631
+     "yuzdelik": 9.8,
+     "z": -1.02,
+     "n": 632
     },
     "pddd_usd": {
-     "son": 1.84,
+     "son": 1.83,
      "medyan": 2.31,
      "min": 1.14,
      "maks": 4.87,
-     "yuzdelik": 8.8,
-     "z": -1.0,
-     "n": 628
+     "yuzdelik": 8.7,
+     "z": -1.01,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -1357,15 +1492,24 @@
   "FROTO": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 21.3,
+    "pddd_roe": 6.3,
+    "norm_fk_usd": 2.8,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 13.1,
+    "kazanc_getirisi_eksi_faiz": -23.9,
+    "temettu_verimi": 13.42
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 7.62,
+     "son": 7.63,
      "medyan": 8.12,
      "min": 4.07,
      "maks": 19.17,
-     "yuzdelik": 43.8,
-     "z": -0.21,
-     "n": 1398
+     "yuzdelik": 44.0,
+     "z": -0.2,
+     "n": 1399
     },
     "fk_usd": {
      "son": 6.53,
@@ -1374,16 +1518,16 @@
      "maks": 18.34,
      "yuzdelik": 54.1,
      "z": 0.15,
-     "n": 1395
+     "n": 1396
     },
     "pddd_tl": {
      "son": 1.41,
-     "medyan": 6.9,
+     "medyan": 6.88,
      "min": 1.41,
      "maks": 15.53,
      "yuzdelik": 0.1,
      "z": -1.88,
-     "n": 1446
+     "n": 1447
     },
     "pddd_usd": {
      "son": 1.34,
@@ -1392,27 +1536,27 @@
      "maks": 17.27,
      "yuzdelik": 0.1,
      "z": -1.92,
-     "n": 1443
+     "n": 1444
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 7.62,
+     "son": 7.63,
      "medyan": 7.07,
      "min": 4.07,
      "maks": 12.08,
-     "yuzdelik": 65.8,
-     "z": 0.54,
-     "n": 632
+     "yuzdelik": 66.0,
+     "z": 0.55,
+     "n": 633
     },
     "fk_usd": {
      "son": 6.53,
      "medyan": 5.93,
      "min": 3.11,
      "maks": 10.11,
-     "yuzdelik": 65.8,
-     "z": 0.58,
-     "n": 629
+     "yuzdelik": 65.7,
+     "z": 0.59,
+     "n": 630
     },
     "pddd_tl": {
      "son": 1.41,
@@ -1420,8 +1564,8 @@
      "min": 1.41,
      "maks": 4.49,
      "yuzdelik": 0.2,
-     "z": -2.05,
-     "n": 632
+     "z": -2.03,
+     "n": 633
     },
     "pddd_usd": {
      "son": 1.34,
@@ -1429,8 +1573,8 @@
      "min": 1.34,
      "maks": 4.37,
      "yuzdelik": 0.2,
-     "z": -2.03,
-     "n": 629
+     "z": -2.02,
+     "n": 630
     }
    },
    "dip_pddd_tms29": true,
@@ -1447,15 +1591,24 @@
   "ENKAI": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 12.6,
+    "pddd_roe": 8.8,
+    "norm_fk_usd": 10.6,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 9.4,
+    "kazanc_getirisi_eksi_faiz": -27.6,
+    "temettu_verimi": 3.67
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 10.58,
+     "son": 10.59,
      "medyan": 13.31,
      "min": 7.57,
      "maks": 99.6,
-     "yuzdelik": 12.5,
-     "z": -0.74,
-     "n": 1269
+     "yuzdelik": 12.7,
+     "z": -0.73,
+     "n": 1270
     },
     "fk_usd": {
      "son": 9.07,
@@ -1464,16 +1617,16 @@
      "maks": 87.27,
      "yuzdelik": 21.8,
      "z": -0.5,
-     "n": 1266
+     "n": 1267
     },
     "pddd_tl": {
      "son": 1.17,
      "medyan": 1.22,
      "min": 0.81,
      "maks": 1.82,
-     "yuzdelik": 40.6,
-     "z": -0.17,
-     "n": 1445
+     "yuzdelik": 40.9,
+     "z": -0.16,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 1.11,
@@ -1482,45 +1635,45 @@
      "maks": 1.8,
      "yuzdelik": 52.0,
      "z": 0.03,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 10.58,
+     "son": 10.59,
      "medyan": 12.81,
      "min": 10.24,
      "maks": 17.44,
-     "yuzdelik": 0.6,
-     "z": -2.11,
-     "n": 631
+     "yuzdelik": 0.8,
+     "z": -2.08,
+     "n": 632
     },
     "fk_usd": {
      "son": 9.07,
-     "medyan": 10.73,
+     "medyan": 10.72,
      "min": 8.82,
      "maks": 13.82,
      "yuzdelik": 0.8,
      "z": -1.96,
-     "n": 628
+     "n": 629
     },
     "pddd_tl": {
      "son": 1.17,
      "medyan": 1.26,
      "min": 0.9,
      "maks": 1.75,
-     "yuzdelik": 31.9,
+     "yuzdelik": 32.4,
      "z": -0.48,
-     "n": 631
+     "n": 632
     },
     "pddd_usd": {
      "son": 1.11,
      "medyan": 1.21,
      "min": 0.86,
      "maks": 1.66,
-     "yuzdelik": 28.7,
+     "yuzdelik": 28.6,
      "z": -0.52,
-     "n": 628
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -1537,71 +1690,80 @@
   "TTKOM": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 13.8,
+    "pddd_roe": 4.7,
+    "norm_fk_usd": 5.5,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 16.9,
+    "kazanc_getirisi_eksi_faiz": -20.1,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 5.92,
+     "son": 5.93,
      "medyan": 7.51,
      "min": 4.24,
      "maks": 35.17,
-     "yuzdelik": 17.0,
+     "yuzdelik": 17.4,
      "z": -0.81,
-     "n": 1397
+     "n": 1398
     },
     "fk_usd": {
      "son": 5.21,
      "medyan": 5.97,
      "min": 2.87,
      "maks": 20.68,
-     "yuzdelik": 36.1,
-     "z": -0.48,
-     "n": 1394
+     "yuzdelik": 36.5,
+     "z": -0.47,
+     "n": 1395
     },
     "pddd_tl": {
      "son": 0.68,
      "medyan": 1.95,
      "min": 0.57,
      "maks": 5.0,
-     "yuzdelik": 1.5,
+     "yuzdelik": 1.6,
      "z": -1.67,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.65,
-     "medyan": 1.53,
+     "medyan": 1.52,
      "min": 0.55,
      "maks": 4.73,
      "yuzdelik": 1.5,
-     "z": -1.69,
-     "n": 1442
+     "z": -1.68,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 5.92,
+     "son": 5.93,
      "medyan": 7.14,
      "min": 4.26,
      "maks": 19.61,
-     "yuzdelik": 25.0,
-     "z": -0.74,
-     "n": 631
+     "yuzdelik": 25.2,
+     "z": -0.73,
+     "n": 632
     },
     "fk_usd": {
      "son": 5.21,
      "medyan": 6.34,
      "min": 3.17,
      "maks": 16.6,
-     "yuzdelik": 36.5,
-     "z": -0.52,
-     "n": 628
+     "yuzdelik": 36.7,
+     "z": -0.51,
+     "n": 629
     },
     "pddd_tl": {
      "son": 0.68,
      "medyan": 1.1,
      "min": 0.66,
      "maks": 1.67,
-     "yuzdelik": 0.5,
-     "z": -2.15,
-     "n": 631
+     "yuzdelik": 0.6,
+     "z": -2.13,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.65,
@@ -1609,8 +1771,8 @@
      "min": 0.63,
      "maks": 1.6,
      "yuzdelik": 0.3,
-     "z": -2.09,
-     "n": 628
+     "z": -2.08,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -1627,33 +1789,42 @@
   "AEFES": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 8.8,
+    "pddd_roe": 9.3,
+    "norm_fk_usd": 3.1,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 9.3,
+    "kazanc_getirisi_eksi_faiz": -27.7,
+    "temettu_verimi": 1.85
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 10.8,
+     "son": 10.81,
      "medyan": 9.03,
      "min": 1.83,
      "maks": 39.21,
-     "yuzdelik": 65.7,
+     "yuzdelik": 66.0,
      "z": 0.58,
-     "n": 1398
+     "n": 1399
     },
     "fk_usd": {
-     "son": 9.9,
-     "medyan": 7.06,
+     "son": 9.89,
+     "medyan": 7.09,
      "min": 1.27,
      "maks": 19.66,
-     "yuzdelik": 76.2,
+     "yuzdelik": 76.1,
      "z": 0.8,
-     "n": 1395
+     "n": 1396
     },
     "pddd_tl": {
      "son": 0.86,
      "medyan": 1.09,
      "min": 0.53,
      "maks": 2.75,
-     "yuzdelik": 9.9,
-     "z": -0.93,
-     "n": 1446
+     "yuzdelik": 10.0,
+     "z": -0.92,
+     "n": 1447
     },
     "pddd_usd": {
      "son": 0.82,
@@ -1661,37 +1832,37 @@
      "min": 0.49,
      "maks": 2.4,
      "yuzdelik": 15.9,
-     "z": -0.83,
-     "n": 1443
+     "z": -0.84,
+     "n": 1444
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 10.8,
+     "son": 10.81,
      "medyan": 5.71,
      "min": 2.83,
      "maks": 12.79,
-     "yuzdelik": 81.5,
+     "yuzdelik": 81.7,
      "z": 1.26,
-     "n": 632
+     "n": 633
     },
     "fk_usd": {
-     "son": 9.9,
-     "medyan": 4.91,
+     "son": 9.89,
+     "medyan": 4.92,
      "min": 2.09,
      "maks": 11.41,
-     "yuzdelik": 84.9,
-     "z": 1.28,
-     "n": 629
+     "yuzdelik": 84.8,
+     "z": 1.27,
+     "n": 630
     },
     "pddd_tl": {
      "son": 0.86,
      "medyan": 1.04,
      "min": 0.75,
      "maks": 2.45,
-     "yuzdelik": 8.7,
-     "z": -1.0,
-     "n": 632
+     "yuzdelik": 8.8,
+     "z": -0.99,
+     "n": 633
     },
     "pddd_usd": {
      "son": 0.82,
@@ -1700,7 +1871,7 @@
      "maks": 2.4,
      "yuzdelik": 8.9,
      "z": -0.98,
-     "n": 629
+     "n": 630
     }
    },
    "dip_pddd_tms29": true,
@@ -1717,24 +1888,33 @@
   "PGSUS": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 2.5,
+    "pddd_roe": 22.0,
+    "norm_fk_usd": 2.2,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 1.7,
+    "kazanc_getirisi_eksi_faiz": -35.3,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 57.42,
+     "son": 57.51,
      "medyan": 6.36,
      "min": 3.79,
      "maks": 68.54,
-     "yuzdelik": 97.4,
-     "z": 3.77,
-     "n": 969
+     "yuzdelik": 97.3,
+     "z": 3.74,
+     "n": 970
     },
     "fk_usd": {
      "son": 21.84,
      "medyan": 4.74,
      "min": 2.8,
      "maks": 33.96,
-     "yuzdelik": 90.2,
-     "z": 2.39,
-     "n": 966
+     "yuzdelik": 90.1,
+     "z": 2.38,
+     "n": 967
     },
     "pddd_tl": {
      "son": 0.58,
@@ -1743,7 +1923,7 @@
      "maks": 5.59,
      "yuzdelik": 0.1,
      "z": -2.11,
-     "n": 1446
+     "n": 1447
     },
     "pddd_usd": {
      "son": 0.55,
@@ -1752,27 +1932,27 @@
      "maks": 5.03,
      "yuzdelik": 0.1,
      "z": -2.13,
-     "n": 1443
+     "n": 1444
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 57.42,
+     "son": 57.51,
      "medyan": 5.86,
      "min": 3.88,
      "maks": 68.54,
-     "yuzdelik": 96.0,
-     "z": 4.38,
-     "n": 632
+     "yuzdelik": 95.9,
+     "z": 4.32,
+     "n": 633
     },
     "fk_usd": {
      "son": 21.84,
      "medyan": 4.57,
      "min": 2.9,
      "maks": 26.45,
-     "yuzdelik": 96.0,
-     "z": 3.99,
-     "n": 629
+     "yuzdelik": 95.9,
+     "z": 3.93,
+     "n": 630
     },
     "pddd_tl": {
      "son": 0.58,
@@ -1780,8 +1960,8 @@
      "min": 0.58,
      "maks": 2.33,
      "yuzdelik": 0.2,
-     "z": -1.8,
-     "n": 632
+     "z": -1.79,
+     "n": 633
     },
     "pddd_usd": {
      "son": 0.55,
@@ -1789,8 +1969,8 @@
      "min": 0.55,
      "maks": 2.28,
      "yuzdelik": 0.2,
-     "z": -1.8,
-     "n": 629
+     "z": -1.79,
+     "n": 630
     }
    },
    "dip_pddd_tms29": true,
@@ -1807,80 +1987,89 @@
   "HALKB": {
    "banka": true,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 16.1,
+    "pddd_roe": 7.8,
+    "norm_fk_usd": 10.7,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 10.3,
+    "kazanc_getirisi_eksi_faiz": -26.7,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 9.74,
+     "son": 9.71,
      "medyan": 9.6,
      "min": 4.71,
      "maks": 56.39,
-     "yuzdelik": 51.8,
+     "yuzdelik": 51.4,
      "z": -0.17,
-     "n": 1397
+     "n": 1398
     },
     "fk_usd": {
-     "son": 8.53,
+     "son": 8.5,
      "medyan": 7.62,
      "min": 3.46,
      "maks": 36.27,
-     "yuzdelik": 58.9,
-     "z": 0.02,
-     "n": 1394
+     "yuzdelik": 58.6,
+     "z": 0.01,
+     "n": 1395
     },
     "pddd_tl": {
-     "son": 1.34,
+     "son": 1.33,
      "medyan": 0.9,
      "min": 0.51,
      "maks": 1.83,
-     "yuzdelik": 90.1,
-     "z": 1.51,
-     "n": 1445
+     "yuzdelik": 89.8,
+     "z": 1.5,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 1.26,
      "medyan": 0.84,
      "min": 0.45,
      "maks": 1.73,
-     "yuzdelik": 89.0,
-     "z": 1.35,
-     "n": 1442
+     "yuzdelik": 88.7,
+     "z": 1.34,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 9.74,
-     "medyan": 8.88,
+     "son": 9.71,
+     "medyan": 8.89,
      "min": 5.91,
      "maks": 13.64,
-     "yuzdelik": 58.2,
-     "z": 0.34,
-     "n": 631
+     "yuzdelik": 57.4,
+     "z": 0.33,
+     "n": 632
     },
     "fk_usd": {
-     "son": 8.53,
+     "son": 8.5,
      "medyan": 7.79,
      "min": 5.15,
      "maks": 12.32,
-     "yuzdelik": 59.7,
-     "z": 0.36,
-     "n": 628
+     "yuzdelik": 59.1,
+     "z": 0.34,
+     "n": 629
     },
     "pddd_tl": {
-     "son": 1.34,
+     "son": 1.33,
      "medyan": 1.09,
      "min": 0.73,
      "maks": 1.83,
-     "yuzdelik": 78.6,
-     "z": 0.91,
-     "n": 631
+     "yuzdelik": 78.2,
+     "z": 0.89,
+     "n": 632
     },
     "pddd_usd": {
      "son": 1.26,
      "medyan": 1.03,
      "min": 0.66,
      "maks": 1.73,
-     "yuzdelik": 76.9,
-     "z": 0.87,
-     "n": 628
+     "yuzdelik": 76.5,
+     "z": 0.85,
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -1897,62 +2086,71 @@
   "VAKBN": {
    "banka": true,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 23.9,
+    "pddd_roe": 3.8,
+    "norm_fk_usd": 5.1,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 20.7,
+    "kazanc_getirisi_eksi_faiz": -16.3,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 4.83,
+     "son": 4.82,
      "medyan": 6.05,
      "min": 3.27,
      "maks": 16.52,
      "yuzdelik": 16.2,
      "z": -0.92,
-     "n": 1397
+     "n": 1398
     },
     "fk_usd": {
      "son": 4.17,
      "medyan": 4.85,
      "min": 2.58,
      "maks": 10.62,
-     "yuzdelik": 26.1,
-     "z": -0.64,
-     "n": 1394
+     "yuzdelik": 25.6,
+     "z": -0.65,
+     "n": 1395
     },
     "pddd_tl": {
      "son": 0.96,
      "medyan": 0.97,
      "min": 0.45,
      "maks": 1.75,
-     "yuzdelik": 47.9,
+     "yuzdelik": 47.7,
      "z": 0.05,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
-     "son": 0.91,
+     "son": 0.9,
      "medyan": 0.92,
      "min": 0.39,
      "maks": 1.61,
-     "yuzdelik": 48.4,
-     "z": 0.16,
-     "n": 1442
+     "yuzdelik": 47.9,
+     "z": 0.15,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 4.83,
+     "son": 4.82,
      "medyan": 5.62,
      "min": 4.21,
      "maks": 9.15,
      "yuzdelik": 19.0,
      "z": -1.0,
-     "n": 631
+     "n": 632
     },
     "fk_usd": {
      "son": 4.17,
      "medyan": 4.76,
      "min": 3.65,
      "maks": 6.79,
-     "yuzdelik": 17.0,
-     "z": -1.03,
-     "n": 628
+     "yuzdelik": 16.1,
+     "z": -1.05,
+     "n": 629
     },
     "pddd_tl": {
      "son": 0.96,
@@ -1961,16 +2159,16 @@
      "maks": 1.59,
      "yuzdelik": 15.8,
      "z": -1.12,
-     "n": 631
+     "n": 632
     },
     "pddd_usd": {
-     "son": 0.91,
+     "son": 0.9,
      "medyan": 1.05,
      "min": 0.75,
      "maks": 1.51,
-     "yuzdelik": 15.9,
-     "z": -1.11,
-     "n": 628
+     "yuzdelik": 14.8,
+     "z": -1.12,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -1987,48 +2185,57 @@
   "OTKAR": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": -82.6,
+    "pddd_roe": null,
+    "norm_fk_usd": null,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 2.0,
+    "kazanc_getirisi_eksi_faiz": -35.0,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": null,
     "fk_usd": null,
     "pddd_tl": {
-     "son": 7.09,
+     "son": 7.05,
      "medyan": 7.82,
      "min": 2.72,
      "maks": 30.15,
-     "yuzdelik": 43.4,
-     "z": -0.32,
-     "n": 1443
+     "yuzdelik": 42.9,
+     "z": -0.33,
+     "n": 1444
     },
     "pddd_usd": {
-     "son": 6.71,
+     "son": 6.66,
      "medyan": 6.79,
      "min": 2.6,
      "maks": 27.34,
-     "yuzdelik": 48.8,
-     "z": -0.27,
-     "n": 1440
+     "yuzdelik": 48.3,
+     "z": -0.28,
+     "n": 1441
     }
    },
    "istatistik_tms29": {
     "fk_tl": null,
     "fk_usd": null,
     "pddd_tl": {
-     "son": 7.09,
+     "son": 7.05,
      "medyan": 6.04,
      "min": 4.03,
      "maks": 9.34,
-     "yuzdelik": 83.1,
-     "z": 0.89,
-     "n": 629
+     "yuzdelik": 82.5,
+     "z": 0.86,
+     "n": 630
     },
     "pddd_usd": {
-     "son": 6.71,
+     "son": 6.66,
      "medyan": 5.73,
      "min": 3.7,
      "maks": 9.24,
-     "yuzdelik": 80.2,
-     "z": 0.82,
-     "n": 626
+     "yuzdelik": 79.1,
+     "z": 0.78,
+     "n": 627
     }
    },
    "dip_pddd_tms29": false,
@@ -2045,48 +2252,57 @@
   "PETKM": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": -5.5,
+    "pddd_roe": null,
+    "norm_fk_usd": null,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 43.7,
+    "kazanc_getirisi_eksi_faiz": 6.7,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": null,
     "fk_usd": null,
     "pddd_tl": {
-     "son": 0.7,
+     "son": 0.71,
      "medyan": 1.57,
      "min": 0.52,
      "maks": 3.26,
-     "yuzdelik": 17.6,
-     "z": -1.08,
-     "n": 1445
+     "yuzdelik": 18.9,
+     "z": -1.06,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.67,
      "medyan": 1.2,
      "min": 0.49,
      "maks": 3.15,
-     "yuzdelik": 16.9,
-     "z": -1.06,
-     "n": 1442
+     "yuzdelik": 18.4,
+     "z": -1.05,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": null,
     "fk_usd": null,
     "pddd_tl": {
-     "son": 0.7,
+     "son": 0.71,
      "medyan": 0.73,
      "min": 0.52,
      "maks": 1.15,
-     "yuzdelik": 39.1,
-     "z": -0.3,
-     "n": 631
+     "yuzdelik": 42.1,
+     "z": -0.25,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.67,
      "medyan": 0.69,
      "min": 0.49,
      "maks": 1.13,
-     "yuzdelik": 38.1,
-     "z": -0.32,
-     "n": 628
+     "yuzdelik": 41.0,
+     "z": -0.28,
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -2103,24 +2319,33 @@
   "SISE": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 4.9,
+    "pddd_roe": 8.3,
+    "norm_fk_usd": 4.6,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 10.2,
+    "kazanc_getirisi_eksi_faiz": -26.8,
+    "temettu_verimi": 1.56
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 9.81,
-     "medyan": 7.13,
+     "son": 9.85,
+     "medyan": 7.14,
      "min": 4.56,
      "maks": 37.34,
-     "yuzdelik": 67.6,
-     "z": 0.21,
-     "n": 1397
+     "yuzdelik": 67.7,
+     "z": 0.22,
+     "n": 1398
     },
     "fk_usd": {
-     "son": 8.53,
+     "son": 8.54,
      "medyan": 5.15,
      "min": 2.76,
      "maks": 37.04,
      "yuzdelik": 68.7,
-     "z": 0.37,
-     "n": 1394
+     "z": 0.38,
+     "n": 1395
     },
     "pddd_tl": {
      "son": 0.43,
@@ -2128,37 +2353,37 @@
      "min": 0.42,
      "maks": 2.6,
      "yuzdelik": 0.7,
-     "z": -1.62,
-     "n": 1445
+     "z": -1.61,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.4,
      "medyan": 0.94,
      "min": 0.38,
      "maks": 2.55,
-     "yuzdelik": 1.2,
-     "z": -1.67,
-     "n": 1442
+     "yuzdelik": 1.3,
+     "z": -1.66,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 9.81,
+     "son": 9.85,
      "medyan": 11.55,
      "min": 4.92,
      "maks": 37.34,
-     "yuzdelik": 37.9,
-     "z": -0.31,
-     "n": 631
+     "yuzdelik": 38.0,
+     "z": -0.3,
+     "n": 632
     },
     "fk_usd": {
-     "son": 8.53,
-     "medyan": 10.12,
+     "son": 8.54,
+     "medyan": 10.11,
      "min": 3.71,
      "maks": 37.04,
-     "yuzdelik": 38.9,
-     "z": -0.26,
-     "n": 628
+     "yuzdelik": 39.0,
+     "z": -0.25,
+     "n": 629
     },
     "pddd_tl": {
      "son": 0.43,
@@ -2166,17 +2391,17 @@
      "min": 0.42,
      "maks": 1.04,
      "yuzdelik": 1.6,
-     "z": -1.48,
-     "n": 631
+     "z": -1.46,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.4,
      "medyan": 0.52,
      "min": 0.38,
      "maks": 1.04,
-     "yuzdelik": 2.9,
-     "z": -1.45,
-     "n": 628
+     "yuzdelik": 3.0,
+     "z": -1.44,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -2193,6 +2418,15 @@
   "EKGYO": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": -2.6,
+    "pddd_roe": null,
+    "norm_fk_usd": 10.8,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 4.8,
+    "kazanc_getirisi_eksi_faiz": -32.2,
+    "temettu_verimi": 3.06
+   },
    "istatistik": {
     "fk_tl": null,
     "fk_usd": null,
@@ -2201,18 +2435,18 @@
      "medyan": 0.61,
      "min": 0.32,
      "maks": 2.05,
-     "yuzdelik": 18.0,
+     "yuzdelik": 18.6,
      "z": -0.78,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.46,
      "medyan": 0.58,
      "min": 0.31,
      "maks": 2.04,
-     "yuzdelik": 23.2,
+     "yuzdelik": 23.3,
      "z": -0.72,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
@@ -2223,18 +2457,18 @@
      "medyan": 0.58,
      "min": 0.34,
      "maks": 0.77,
-     "yuzdelik": 18.7,
-     "z": -0.81,
-     "n": 631
+     "yuzdelik": 19.5,
+     "z": -0.8,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.46,
      "medyan": 0.56,
      "min": 0.32,
      "maks": 0.73,
-     "yuzdelik": 18.3,
-     "z": -0.82,
-     "n": 628
+     "yuzdelik": 18.4,
+     "z": -0.81,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -2251,80 +2485,89 @@
   "TRMET": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 8.8,
+    "pddd_roe": 18.6,
+    "norm_fk_usd": 881.7,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 4.3,
+    "kazanc_getirisi_eksi_faiz": -32.7,
+    "temettu_verimi": 0.0
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 22.9,
+     "son": 23.21,
      "medyan": 12.27,
      "min": 5.12,
      "maks": 406.45,
-     "yuzdelik": 76.6,
-     "z": 0.32,
-     "n": 894
+     "yuzdelik": 77.0,
+     "z": 0.33,
+     "n": 895
     },
     "fk_usd": {
-     "son": 20.16,
+     "son": 20.4,
      "medyan": 11.17,
      "min": 3.87,
      "maks": 100.61,
-     "yuzdelik": 70.5,
-     "z": 0.44,
-     "n": 964
+     "yuzdelik": 71.2,
+     "z": 0.45,
+     "n": 965
     },
     "pddd_tl": {
-     "son": 1.72,
+     "son": 1.74,
      "medyan": 1.77,
      "min": 0.89,
      "maks": 4.28,
-     "yuzdelik": 44.6,
-     "z": -0.27,
-     "n": 1445
+     "yuzdelik": 46.5,
+     "z": -0.23,
+     "n": 1446
     },
     "pddd_usd": {
-     "son": 1.62,
+     "son": 1.64,
      "medyan": 1.63,
      "min": 0.84,
      "maks": 3.96,
-     "yuzdelik": 48.5,
-     "z": -0.17,
-     "n": 1442
+     "yuzdelik": 51.1,
+     "z": -0.13,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 22.9,
-     "medyan": 23.33,
+     "son": 23.21,
+     "medyan": 23.28,
      "min": 13.77,
      "maks": 406.45,
-     "yuzdelik": 48.9,
-     "z": -0.53,
-     "n": 380
+     "yuzdelik": 49.9,
+     "z": -0.51,
+     "n": 381
     },
     "fk_usd": {
-     "son": 20.16,
-     "medyan": 24.79,
+     "son": 20.4,
+     "medyan": 24.57,
      "min": 12.17,
      "maks": 100.61,
-     "yuzdelik": 40.2,
-     "z": -0.6,
-     "n": 450
+     "yuzdelik": 41.7,
+     "z": -0.58,
+     "n": 451
     },
     "pddd_tl": {
-     "son": 1.72,
+     "son": 1.74,
      "medyan": 1.66,
      "min": 0.93,
      "maks": 2.71,
-     "yuzdelik": 62.9,
-     "z": 0.28,
-     "n": 631
+     "yuzdelik": 66.3,
+     "z": 0.36,
+     "n": 632
     },
     "pddd_usd": {
-     "son": 1.62,
+     "son": 1.64,
      "medyan": 1.59,
      "min": 0.86,
      "maks": 2.56,
-     "yuzdelik": 58.9,
-     "z": 0.24,
-     "n": 628
+     "yuzdelik": 63.8,
+     "z": 0.3,
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -2341,24 +2584,33 @@
   "ALARK": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 9.4,
+    "pddd_roe": 4.9,
+    "norm_fk_usd": 6.2,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 15.6,
+    "kazanc_getirisi_eksi_faiz": -21.4,
+    "temettu_verimi": 2.98
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 6.44,
+     "son": 6.43,
      "medyan": 6.02,
      "min": 1.29,
      "maks": 34.4,
-     "yuzdelik": 58.6,
+     "yuzdelik": 58.5,
      "z": -0.05,
-     "n": 1287
+     "n": 1288
     },
     "fk_usd": {
-     "son": 5.37,
+     "son": 5.35,
      "medyan": 4.26,
      "min": 1.1,
      "maks": 71.81,
-     "yuzdelik": 68.3,
-     "z": 0.02,
-     "n": 1343
+     "yuzdelik": 68.0,
+     "z": 0.01,
+     "n": 1344
     },
     "pddd_tl": {
      "son": 0.49,
@@ -2367,36 +2619,36 @@
      "maks": 5.09,
      "yuzdelik": 6.5,
      "z": -1.31,
-     "n": 1445
+     "n": 1446
     },
     "pddd_usd": {
      "son": 0.46,
-     "medyan": 1.3,
+     "medyan": 1.27,
      "min": 0.4,
      "maks": 4.59,
      "yuzdelik": 6.4,
      "z": -1.32,
-     "n": 1442
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 6.44,
+     "son": 6.43,
      "medyan": 14.94,
      "min": 4.98,
      "maks": 34.4,
-     "yuzdelik": 24.4,
+     "yuzdelik": 24.1,
      "z": -1.03,
-     "n": 521
+     "n": 522
     },
     "fk_usd": {
-     "son": 5.37,
+     "son": 5.35,
      "medyan": 14.6,
      "min": 3.65,
      "maks": 71.81,
-     "yuzdelik": 30.8,
+     "yuzdelik": 30.4,
      "z": -0.89,
-     "n": 577
+     "n": 578
     },
     "pddd_tl": {
      "son": 0.49,
@@ -2404,17 +2656,17 @@
      "min": 0.41,
      "maks": 1.11,
      "yuzdelik": 14.9,
-     "z": -0.97,
-     "n": 631
+     "z": -0.98,
+     "n": 632
     },
     "pddd_usd": {
      "son": 0.46,
      "medyan": 0.55,
      "min": 0.4,
      "maks": 1.11,
-     "yuzdelik": 14.8,
-     "z": -0.97,
-     "n": 628
+     "yuzdelik": 14.6,
+     "z": -0.98,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
@@ -2431,80 +2683,89 @@
   "ENJSA": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 7.5,
+    "pddd_roe": 15.5,
+    "norm_fk_usd": 46.6,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 5.1,
+    "kazanc_getirisi_eksi_faiz": -31.9,
+    "temettu_verimi": 4.47
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 19.51,
+     "son": 19.61,
      "medyan": 10.42,
      "min": 1.52,
      "maks": 40.17,
-     "yuzdelik": 84.2,
-     "z": 0.98,
-     "n": 1075
+     "yuzdelik": 84.7,
+     "z": 0.99,
+     "n": 1076
     },
     "fk_usd": {
-     "son": 16.34,
+     "son": 16.41,
      "medyan": 8.18,
      "min": 1.24,
      "maks": 35.51,
-     "yuzdelik": 87.9,
+     "yuzdelik": 88.0,
      "z": 1.14,
-     "n": 1075
+     "n": 1076
     },
     "pddd_tl": {
-     "son": 1.22,
+     "son": 1.23,
      "medyan": 1.7,
      "min": 0.53,
      "maks": 4.46,
-     "yuzdelik": 37.2,
-     "z": -0.48,
-     "n": 1445
+     "yuzdelik": 37.7,
+     "z": -0.47,
+     "n": 1446
     },
     "pddd_usd": {
      "son": 1.16,
      "medyan": 1.4,
      "min": 0.5,
      "maks": 4.44,
-     "yuzdelik": 35.0,
-     "z": -0.43,
-     "n": 1442
+     "yuzdelik": 35.6,
+     "z": -0.42,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 19.51,
+     "son": 19.61,
      "medyan": 19.97,
      "min": 10.08,
      "maks": 40.17,
-     "yuzdelik": 45.0,
-     "z": -0.01,
-     "n": 309
+     "yuzdelik": 46.8,
+     "z": 0.0,
+     "n": 310
     },
     "fk_usd": {
-     "son": 16.34,
-     "medyan": 10.73,
+     "son": 16.41,
+     "medyan": 10.75,
      "min": 6.97,
      "maks": 35.51,
-     "yuzdelik": 57.9,
-     "z": 0.35,
-     "n": 309
+     "yuzdelik": 58.4,
+     "z": 0.36,
+     "n": 310
     },
     "pddd_tl": {
-     "son": 1.22,
+     "son": 1.23,
      "medyan": 1.1,
      "min": 0.63,
      "maks": 1.48,
-     "yuzdelik": 74.5,
-     "z": 0.72,
-     "n": 631
+     "yuzdelik": 75.5,
+     "z": 0.75,
+     "n": 632
     },
     "pddd_usd": {
      "son": 1.16,
      "medyan": 1.06,
      "min": 0.57,
      "maks": 1.41,
-     "yuzdelik": 69.3,
-     "z": 0.65,
-     "n": 628
+     "yuzdelik": 70.7,
+     "z": 0.67,
+     "n": 629
     }
    },
    "dip_pddd_tms29": false,
@@ -2521,24 +2782,33 @@
   "ULKER": {
    "banka": false,
    "son_tarih": "2026-10-14",
+   "ek_olculer": {
+    "roe_usd": 9.9,
+    "pddd_roe": 5.8,
+    "norm_fk_usd": 2.9,
+    "norm_fk_yil_sayisi": 3,
+    "kazanc_getirisi": 14.5,
+    "kazanc_getirisi_eksi_faiz": -22.5,
+    "temettu_verimi": 6.84
+   },
    "istatistik": {
     "fk_tl": {
-     "son": 6.92,
+     "son": 6.89,
      "medyan": 5.76,
      "min": 3.08,
      "maks": 17.69,
-     "yuzdelik": 59.3,
-     "z": 0.2,
-     "n": 1148
+     "yuzdelik": 59.1,
+     "z": 0.19,
+     "n": 1149
     },
     "fk_usd": {
-     "son": 6.39,
-     "medyan": 4.55,
+     "son": 6.35,
+     "medyan": 4.56,
      "min": 2.23,
      "maks": 12.26,
-     "yuzdelik": 67.1,
-     "z": 0.57,
-     "n": 1145
+     "yuzdelik": 66.4,
+     "z": 0.56,
+     "n": 1146
     },
     "pddd_tl": {
      "son": 0.61,
@@ -2546,37 +2816,37 @@
      "min": 0.6,
      "maks": 6.4,
      "yuzdelik": 0.1,
-     "z": -1.85,
-     "n": 1445
+     "z": -1.86,
+     "n": 1446
     },
     "pddd_usd": {
-     "son": 0.58,
+     "son": 0.57,
      "medyan": 1.5,
-     "min": 0.58,
+     "min": 0.57,
      "maks": 6.33,
      "yuzdelik": 0.1,
-     "z": -1.84,
-     "n": 1442
+     "z": -1.85,
+     "n": 1443
     }
    },
    "istatistik_tms29": {
     "fk_tl": {
-     "son": 6.92,
+     "son": 6.89,
      "medyan": 5.6,
      "min": 3.73,
      "maks": 12.67,
-     "yuzdelik": 60.5,
-     "z": 0.37,
-     "n": 631
+     "yuzdelik": 60.4,
+     "z": 0.36,
+     "n": 632
     },
     "fk_usd": {
-     "son": 6.39,
+     "son": 6.35,
      "medyan": 4.79,
      "min": 2.95,
      "maks": 12.06,
-     "yuzdelik": 64.0,
-     "z": 0.51,
-     "n": 628
+     "yuzdelik": 63.1,
+     "z": 0.49,
+     "n": 629
     },
     "pddd_tl": {
      "son": 0.61,
@@ -2584,17 +2854,17 @@
      "min": 0.6,
      "maks": 3.23,
      "yuzdelik": 0.3,
-     "z": -1.74,
-     "n": 631
+     "z": -1.75,
+     "n": 632
     },
     "pddd_usd": {
-     "son": 0.58,
+     "son": 0.57,
      "medyan": 1.07,
-     "min": 0.58,
+     "min": 0.57,
      "maks": 3.16,
-     "yuzdelik": 0.3,
-     "z": -1.72,
-     "n": 628
+     "yuzdelik": 0.2,
+     "z": -1.73,
+     "n": 629
     }
    },
    "dip_pddd_tms29": true,
