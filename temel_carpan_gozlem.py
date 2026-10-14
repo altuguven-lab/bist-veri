@@ -30,6 +30,7 @@ DIP_YUZDELIK = 20.0
 MIN_GUN = 250
 CIKTI = "data/temel"
 BAS = date(2021, 1, 1)
+TMS29_BAS = date(2024, 4, 1)   # FY2023 enflasyon duzeltmeli bilanco sonrasi: ikinci (kararli) pencere
 
 def f(x):
     try: return float(x)
@@ -178,13 +179,18 @@ def main():
         if not r: atlanan.append(f"{s}: sermaye kalemi yok"); continue
         tg, res, bilgi = r
         ist = {k: istat(v) for k, v in res.items()}
+        ist2 = {k: istat([x for g, x in zip(tg, v) if g >= TMS29_BAS]) for k, v in res.items()}
         ok_kar, ok_oz = kalite(bilgi)
         banka = s in BANKALAR
         def dip(k): return ist.get(k) and ist[k]["yuzdelik"] <= DIP_YUZDELIK
         dip_pd = bool(dip("pddd_tl") and dip("pddd_usd"))
         dip_fk = bool(dip("fk_tl") and dip("fk_usd"))
+        def dip2(k): return ist2.get(k) and ist2[k]["yuzdelik"] <= DIP_YUZDELIK
+        dip_pd2 = bool(dip2("pddd_tl") and dip2("pddd_usd"))
+        dip_fk2 = bool(dip2("fk_tl") and dip2("fk_usd"))
         aday = dip_pd and (banka or dip_fk)
-        sonuc[s] = {"banka": banka, "son_tarih": str(tg[-1]) if tg else None, "istatistik": ist,
+        aday2 = dip_pd2 and (banka or dip_fk2)
+        sonuc[s] = {"banka": banka, "son_tarih": str(tg[-1]) if tg else None, "istatistik": ist, "istatistik_tms29": ist2, "dip_pddd_tms29": dip_pd2, "dip_fk_tms29": dip_fk2, "aday_tms29": aday2,
                     "kalite_kar_usd": ok_kar, "kalite_ozkaynak_usd": ok_oz,
                     "dip_pddd": dip_pd, "dip_fk": dip_fk, "aday": aday,
                     "aday_kaliteli": bool(aday and ok_kar is not False and ok_oz is not False),
@@ -214,9 +220,21 @@ def rapor(kayit):
         L.append(f"| {s} | {sat(s,d,'pddd_tl')} | {sat(s,d,'pddd_usd')} | {sat(s,d,'fk_tl')} | {sat(s,d,'fk_usd')} | "
                  f"{d['kalite_kar_usd']} | {d['kalite_ozkaynak_usd']} | {'EVET' if d['aday_kaliteli'] else 'HAYIR'} |")
     if not ad: L.append("| (aday yok) | | | | | | | |")
-    L += ["", "## Tüm evren", "", "| Hisse | PD/DD TL | PD/DD USD | F/K TL | F/K USD | Son bilanço | Dip PD | Dip F/K |", "|---|---|---|---|---|---|---|---|"]
+    ad2 = [(s, d) for s, d in S.items() if d.get("aday_tms29")]
+    L += ["", "## Dip adayları, yalnız TMS 29 sonrası pencere (04.2024+)", "",
+          "Özkaynak 2024 öncesi enflasyon düzeltmesizdi, bu yüzden 2021-23 PD/DD yapay yüksek olabilir ve bugünkü değer olduğundan 'ucuz' görünür. Bu pencere o yanlılığı azaltır.", "",
+          "| Hisse | PD/DD USD (2024+) | F/K USD (2024+) | Kâr trendi | Özkaynak trendi |", "|---|---|---|---|---|"]
+    for s, d in sorted(ad2, key=lambda x: x[1]["istatistik_tms29"]["pddd_usd"]["yuzdelik"]):
+        t = d["istatistik_tms29"]; fk = t.get("fk_usd")
+        L.append(f"| {s} | {t['pddd_usd']['son']} (%{t['pddd_usd']['yuzdelik']:.0f}, z {t['pddd_usd']['z']}) | "
+                 f"{(str(fk['son']) + ' (%' + format(fk['yuzdelik'], '.0f') + ')') if fk else '-'} | {d['kalite_kar_usd']} | {d['kalite_ozkaynak_usd']} |")
+    if not ad2: L.append("| (aday yok) | | | | |")
+    def t2(d, k):
+        x = (d.get("istatistik_tms29") or {}).get(k)
+        return f"%{x['yuzdelik']:.0f}" if x else "-"
+    L += ["", "## Tüm evren", "", "| Hisse | PD/DD TL | PD/DD USD | F/K TL | F/K USD | PD/DD USD yüzdelik 2024+ | F/K USD yüzdelik 2024+ | Son bilanço | Dip PD | Dip PD 2024+ |", "|---|---|---|---|---|---|---|---|---|---|"]
     for s, d in sorted(S.items(), key=lambda x: (x[1]["istatistik"].get("pddd_usd") or {"yuzdelik": 999})["yuzdelik"]):
-        L.append(f"| {s} | {sat(s,d,'pddd_tl')} | {sat(s,d,'pddd_usd')} | {sat(s,d,'fk_tl')} | {sat(s,d,'fk_usd')} | {d['son_bilanco']} | {'x' if d['dip_pddd'] else ''} | {'x' if d['dip_fk'] else ''} |")
+        L.append(f"| {s} | {sat(s,d,'pddd_tl')} | {sat(s,d,'pddd_usd')} | {sat(s,d,'fk_tl')} | {sat(s,d,'fk_usd')} | {t2(d,'pddd_usd')} | {t2(d,'fk_usd')} | {d['son_bilanco']} | {'x' if d['dip_pddd'] else ''} | {'x' if d.get('dip_pddd_tms29') else ''} |")
     if kayit["atlanan"]: L += ["", "Atlanan: " + "; ".join(kayit["atlanan"])]
     L += ["", "Hücre biçimi: değer (kendi tarihinde yüzdelik dilim, log z-skoru)."]
     return "\n".join(L) + "\n"
