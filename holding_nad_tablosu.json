@@ -68,7 +68,7 @@
   },
   "SAHOL": {
     "holding_borsa_kodu": "SAHOL",
-    "kaynak": "Sabancı Holding 30.06.2026 konsolide finansal rapor, Not 4a (Bağlı Ortaklıklar: doğrudan+dolaylı pay). Enerjisa ve Brisa iş ortaklığı/iştirak bölümünde olduğundan bu alıntıda YOK -> null.",
+    "kaynak": "Sabancı Holding 30.06.2026 konsolide finansal rapor, Not 4a: bağlı ortaklıklar (Akbank, Çimsa, Kordsa, Teknosa, Aksigorta, Agesa) ve iş ortaklıkları (Enerjisa Enerji %40, Brisa %43,63).",
     "kaynak_tarihi": "2026-06-30",
     "paylar": [
       {
@@ -79,7 +79,7 @@
       {
         "ad": "Enerjisa Enerji",
         "kod": "ENJSA",
-        "pay_pct": null
+        "pay_pct": 40.0
       },
       {
         "ad": "Cimsa",
@@ -89,7 +89,7 @@
       {
         "ad": "Brisa",
         "kod": "BRISA",
-        "pay_pct": null
+        "pay_pct": 43.63
       },
       {
         "ad": "Kordsa",
@@ -114,12 +114,13 @@
     ],
     "sabit_degerler_usd_mn": [],
     "net_nakit_usd_mn": null,
-    "net_nakit_not": "Holding solo net nakit 35,3 milyar TL (fintables SAHOL analist toplantisi notu 2026/06; CarrefourSA kapanis etkisi haric). USD'ye cevirip girilecek.",
+    "net_nakit_not": "Holding solo net nakit 35,3 mlr TL (Fintables SAHOL analist notu 2026/06; Akçansa satışı 427,9 mn $ 18.06.2026'da tahsil edildi, CarrefourSA kapanış etkisi HARİÇ). Güncel USDTRY ile çevrilir; bilanço tarihi kuruyla değil, yaklaşık.",
     "sirket_beyani": {
       "iskonto_pct": -58,
       "tarih": "toplanti tarihi (2026/06 notlari)",
       "not": "Yonetim beyani 'yaklasik %58'; NAD tutari TL olarak sayfada yok"
     },
-    "dikkat": "Akçansa payı 18.06.2026'da tamamen devredildi (tablodan çıkarıldı); CarrefourSA %57,12 TFRS5 satış amaçlı, 31.07.2026 devir (tablodan çıkarıldı, satış nakdi net nakde yansıyacak). Çimsa'da etkin pay %54,54 kullanıldı. Enerjisa/Brisa payları ayrı iş ortaklıkları notundan eklenmeli."
+    "dikkat": "Akçansa (18.06.2026) ve CarrefourSA (31.07.2026 devir) tablodan çıkarıldı. Halka açık olmayan değerler (Enerjisa Üretim %50, Temsa Skoda %50, Sabancı Renewables, Bulutistan vb.) ve CarrefourSA satış bedeli hesapta YOK; şirketin -%58'i bunları içerebilir.",
+    "net_nakit_tl_mn": 35300
   }
 }
