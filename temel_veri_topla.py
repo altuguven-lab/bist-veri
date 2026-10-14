@@ -16,7 +16,10 @@ GRUPLAR = ["XI_29","UFRS","UFRS_K"]                   # sirket tipine gore denen
 # hesapta kullanilan kalemler (ilk kesifte dogrulandi, XI_29 sablonu): 3Z net kar(ana ortaklik), 2O/2N ozkaynak (ana/toplam),
 # 2OA odenmis sermaye, 3C satis, 3DF faaliyet kari, 4B/4CAB amortisman, 2AA/2BA/2AAG/2BB finansal borc, 1AA nakit, 1AB finansal yatirim,
 # 4C isletme nakit akisi, 4CAI sabit sermaye yatirimi, 4CB serbest nakit akim
-KALEMLER = ("3Z","2O","2OA","2N","3C","3DF","4B","4CAB","2AA","2BA","2AAG","2BB","1AA","1AB","4C","4CAI","4CB")
+KALEMLER = ("3Z","2O","2OA","2N","3C","3DF","4B","4CAB","2AA","2BA","2AAG","2BB","1AA","1AB","4C","4CAI","4CB",
+            # banka sablonu (UFRS): 1Z aktif, 1AFA krediler, 2A mevduat, 3C net faiz geliri, 3CA net ucret/komisyon, 3CE faaliyet geliri toplami,
+            # 3CF kredi ve diger alacaklar deger dusus karsiligi (risk maliyeti vekili), 3CG diger faaliyet giderleri
+            "1Z","1AFA","2A","3C","3CA","3CE","3CF","3CG")
 BANKALAR = {"AKBNK","YKBNK","GARAN","ISCTR","HALKB","VAKBN"}
 URL = "https://www.isyatirim.com.tr/_layouts/15/IsYatirim.Website/Common/Data.aspx/MaliTablo"
 UA = "Mozilla/5.0 (bist-veri temel_veri_topla)"
