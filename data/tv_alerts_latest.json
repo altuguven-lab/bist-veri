@@ -1,10 +1,10 @@
 {
-  "son_guncelleme_utc": "2026-10-14T15:11:11.341Z",
+  "son_guncelleme_utc": "2026-10-14T15:11:13.225Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 597
+    "adet": 598
   },
   "son_sinyal": {
     "zaman_utc": "2026-10-14T15:11:06.438Z",
@@ -100,6 +100,25 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "HALKB|15|GUNLUK_OZET|2026-10-14T15:00:00Z",
+      "carrierLagBars": "1"
+    },
+    {
+      "zaman_utc": "2026-10-14T15:11:02.637Z",
+      "sembol": "VAKBN",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "34.24",
+      "skor": "44.73",
+      "kgs": "54",
+      "stop": "34.14",
+      "rejim": "0",
+      "relvol": "0.87",
+      "v112n": "173",
+      "v112wr": "?",
+      "p3ozet": "3100032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "VAKBN|15|GUNLUK_OZET|2026-10-14T15:00:00Z",
       "carrierLagBars": "1"
     },
     {
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ALARK|15|GUNLUK_OZET|2026-10-12T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-12T15:11:05.652Z",
-      "sembol": "ULKER",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "87.40",
-      "skor": "46.96",
-      "kgs": "74",
-      "stop": "88.2",
-      "rejim": "0",
-      "relvol": "3.21",
-      "v112n": "167",
-      "v112wr": "?",
-      "p3ozet": "2400032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ULKER|15|GUNLUK_OZET|2026-10-12T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
