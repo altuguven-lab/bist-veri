@@ -28,6 +28,7 @@ YEDEK = {"TRMET": "KOZAA", "TRALT": "KOZAL"}
 GECIKME = {3: 60, 6: 70, 9: 60, 12: 70}
 DIP_YUZDELIK = 20.0
 MIN_GUN = 250
+POLITIKA_FAIZI = 37.0   # % (TCMB politika faizi, PPK 22.10.2026 sonrasi elle guncellenir); kazanc getirisi farki icin
 CIKTI = "data/temel"
 BAS = date(2021, 1, 1)
 TMS29_BAS = date(2024, 4, 1)   # FY2023 enflasyon duzeltmeli bilanco sonrasi: ikinci (kararli) pencere
@@ -136,6 +137,61 @@ def fiyatlari_cek():
         print("usdtry hata", ex, file=sys.stderr)
     return out, usd
 
+
+def son_deger(v):
+    for x in reversed(v):
+        if x is not None: return x
+    return None
+
+def ek_olcular(res, bilgi, fiyat_son, temettu_12ay):
+    """ACIKLAYICI sutunlar (aday kriterine GIRMEZ). Tumu son gune ait anlik degerler."""
+    us = bilgi["usd"]
+    out = {}
+    ttm_l = [x for x in us if x["ttm"] is not None]
+    oz_l = [x for x in us if x["oz"] is not None]
+    roe = None
+    if ttm_l and oz_l:
+        oz_son = oz_l[-1]["oz"]
+        oz_once = next((x["oz"] for x in reversed(oz_l[:-1]) if x["donem"][:4] == str(int(oz_l[-1]["donem"][:4]) - 1)
+                        and x["donem"][5:] == oz_l[-1]["donem"][5:]), None)
+        ort = (oz_son + oz_once) / 2 if oz_once else oz_son
+        if ort > 0: roe = 100.0 * ttm_l[-1]["ttm"] / ort
+    out["roe_usd"] = None if roe is None else round(roe, 1)
+    pd_usd = son_deger(res["pddd_usd"])
+    out["pddd_roe"] = round(pd_usd / (roe / 100.0), 1) if (pd_usd and roe and roe > 0) else None
+    # normalize F/K: son piyasa degeri(USD) / son 3 yillik (12. ay) TTM USD kar ortalamasi
+    yillik = [x["ttm"] for x in us if x["donem"].endswith("/12") and x["ttm"] is not None][-3:]
+    fk_usd = son_deger(res["fk_usd"]); 
+    mcu = (pd_usd * oz_l[-1]["oz"]) if (pd_usd and oz_l) else None
+    out["norm_fk_usd"] = round(mcu / (sum(yillik) / len(yillik)), 1) if (mcu and len(yillik) == 3 and sum(yillik) > 0) else None
+    out["norm_fk_yil_sayisi"] = len(yillik)
+    fk_tl = son_deger(res["fk_tl"])
+    kg = 100.0 / fk_tl if fk_tl else None
+    out["kazanc_getirisi"] = None if kg is None else round(kg, 1)
+    out["kazanc_getirisi_eksi_faiz"] = None if kg is None else round(kg - POLITIKA_FAIZI, 1)
+    out["temettu_verimi"] = None if (temettu_12ay is None or not fiyat_son) else round(100.0 * temettu_12ay / fiyat_son, 2)
+    return out
+
+def temettu_cek():
+    """Son 12 ay hisse basi brut temettu toplami (TL). Alinamazsa None; sessizce 0 sayilmaz."""
+    out = {}
+    try:
+        import yfinance as yf
+    except Exception:
+        return out
+    bitis = datetime.now(timezone.utc).date(); bas = bitis - timedelta(days=365)
+    for s in SEMBOLLER:
+        try:
+            d = yf.Ticker(f"{s}.IS").dividends
+            if d is None: continue
+            tops = 0.0
+            for t, v in d.items():
+                if bas <= t.date() <= bitis: tops += float(v)
+            out[s] = tops
+        except Exception as ex:
+            print("temettu hata", s, ex, file=sys.stderr)
+    return out
+
 def test_verisi():
     """SCHUMPETER-benzeri test modu: sentetik fiyat/kur ve ham veri."""
     import random
@@ -171,6 +227,7 @@ def main():
         for s in SEMBOLLER:
             yol = f"{CIKTI}/ham_{s}.json"
             if os.path.exists(yol): hamlar[s] = json.load(open(yol, encoding="utf-8"))
+    temettu = {} if test else temettu_cek()
     sonuc, atlanan = {}, []
     for s in SEMBOLLER:
         if s not in hamlar or s not in fiyatlar:
@@ -181,6 +238,7 @@ def main():
         ist = {k: istat(v) for k, v in res.items()}
         ist2 = {k: istat([x for g, x in zip(tg, v) if g >= TMS29_BAS]) for k, v in res.items()}
         ok_kar, ok_oz = kalite(bilgi)
+        ek = ek_olcular(res, bilgi, fiyatlar[s][max(fiyatlar[s])], temettu.get(s) if temettu else None)
         banka = s in BANKALAR
         def dip(k): return ist.get(k) and ist[k]["yuzdelik"] <= DIP_YUZDELIK
         dip_pd = bool(dip("pddd_tl") and dip("pddd_usd"))
@@ -190,7 +248,7 @@ def main():
         dip_fk2 = bool(dip2("fk_tl") and dip2("fk_usd"))
         aday = dip_pd and (banka or dip_fk)
         aday2 = dip_pd2 and (banka or dip_fk2)
-        sonuc[s] = {"banka": banka, "son_tarih": str(tg[-1]) if tg else None, "istatistik": ist, "istatistik_tms29": ist2, "dip_pddd_tms29": dip_pd2, "dip_fk_tms29": dip_fk2, "aday_tms29": aday2,
+        sonuc[s] = {"banka": banka, "son_tarih": str(tg[-1]) if tg else None, "ek_olculer": ek, "istatistik": ist, "istatistik_tms29": ist2, "dip_pddd_tms29": dip_pd2, "dip_fk_tms29": dip_fk2, "aday_tms29": aday2,
                     "kalite_kar_usd": ok_kar, "kalite_ozkaynak_usd": ok_oz,
                     "dip_pddd": dip_pd, "dip_fk": dip_fk, "aday": aday,
                     "aday_kaliteli": bool(aday and ok_kar is not False and ok_oz is not False),
@@ -235,6 +293,17 @@ def rapor(kayit):
     L += ["", "## Tüm evren", "", "| Hisse | PD/DD TL | PD/DD USD | F/K TL | F/K USD | PD/DD USD yüzdelik 2024+ | F/K USD yüzdelik 2024+ | Son bilanço | Dip PD | Dip PD 2024+ |", "|---|---|---|---|---|---|---|---|---|---|"]
     for s, d in sorted(S.items(), key=lambda x: (x[1]["istatistik"].get("pddd_usd") or {"yuzdelik": 999})["yuzdelik"]):
         L.append(f"| {s} | {sat(s,d,'pddd_tl')} | {sat(s,d,'pddd_usd')} | {sat(s,d,'fk_tl')} | {sat(s,d,'fk_usd')} | {t2(d,'pddd_usd')} | {t2(d,'fk_usd')} | {d['son_bilanco']} | {'x' if d['dip_pddd'] else ''} | {'x' if d.get('dip_pddd_tms29') else ''} |")
+    L += ["", "## Açıklayıcı ek ölçüler (aday kriterine GİRMEZ)", "",
+          "ROE: son 12 ay USD net kâr / ortalama USD özkaynak. PD/DD÷ROE: düşük = kârlılığa göre ucuz. Normalize F/K: USD piyasa değeri / son 3 yıl ortalama USD kâr. "
+          f"Kazanç getirisi farkı: 100/F/K(TL) eksi politika faizi ({POLITIKA_FAIZI:g}%). Temettü verimi: son 12 ay brüt temettü / fiyat. "
+          "2024 öncesi özkaynak düzeltmesiz olduğu için ROE yalnız GÜNCEL dönemde yorumlanmalı.", "",
+          "| Hisse | ROE USD % | PD/DD÷ROE | Norm. F/K USD | Kazanç get. % | Kazanç get. − faiz | Temettü verimi % |", "|---|---|---|---|---|---|---|"]
+    for s, d in sorted(S.items(), key=lambda x: ((x[1].get("ek_olculer") or {}).get("pddd_roe") is None, (x[1].get("ek_olculer") or {}).get("pddd_roe") or 0)):
+        e = d.get("ek_olculer") or {}
+        def g(k):
+            v = e.get(k); return "-" if v is None else v
+        nf = g("norm_fk_usd"); nf = nf if e.get("norm_fk_yil_sayisi", 0) == 3 or nf == "-" else f"{nf}*"
+        L.append(f"| {s} | {g('roe_usd')} | {g('pddd_roe')} | {nf} | {g('kazanc_getirisi')} | {g('kazanc_getirisi_eksi_faiz')} | {g('temettu_verimi')} |")
     if kayit["atlanan"]: L += ["", "Atlanan: " + "; ".join(kayit["atlanan"])]
     L += ["", "Hücre biçimi: değer (kendi tarihinde yüzdelik dilim, log z-skoru)."]
     return "\n".join(L) + "\n"
