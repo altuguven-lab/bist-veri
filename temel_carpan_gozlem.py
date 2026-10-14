@@ -139,9 +139,8 @@ def fiyatlari_cek():
 
 
 def son_deger(v):
-    for x in reversed(v):
-        if x is not None: return x
-    return None
+    """YALNIZ son gunun degeri; yoksa None (eski degere sessizce dusmez)."""
+    return v[-1] if v else None
 
 def ek_olcular(res, bilgi, fiyat_son, temettu_12ay):
     """ACIKLAYICI sutunlar (aday kriterine GIRMEZ). Tumu son gune ait anlik degerler."""
@@ -187,7 +186,7 @@ def temettu_cek():
             tops = 0.0
             for t, v in d.items():
                 if bas <= t.date() <= bitis: tops += float(v)
-            out[s] = tops
+            out[s] = tops if tops > 0 else None   # 0 = Yahoo'da kayit yok; 'temettu yok' diye YAZILMAZ
         except Exception as ex:
             print("temettu hata", s, ex, file=sys.stderr)
     return out
@@ -295,7 +294,7 @@ def rapor(kayit):
         L.append(f"| {s} | {sat(s,d,'pddd_tl')} | {sat(s,d,'pddd_usd')} | {sat(s,d,'fk_tl')} | {sat(s,d,'fk_usd')} | {t2(d,'pddd_usd')} | {t2(d,'fk_usd')} | {d['son_bilanco']} | {'x' if d['dip_pddd'] else ''} | {'x' if d.get('dip_pddd_tms29') else ''} |")
     L += ["", "## Açıklayıcı ek ölçüler (aday kriterine GİRMEZ)", "",
           "ROE: son 12 ay USD net kâr / ortalama USD özkaynak. PD/DD÷ROE: düşük = kârlılığa göre ucuz. Normalize F/K: USD piyasa değeri / son 3 yıl ortalama USD kâr. "
-          f"Kazanç getirisi farkı: 100/F/K(TL) eksi politika faizi ({POLITIKA_FAIZI:g}%). Temettü verimi: son 12 ay brüt temettü / fiyat. "
+          f"Kazanç getirisi farkı: 100/F/K(TL) eksi politika faizi ({POLITIKA_FAIZI:g}%). Temettü verimi: son 12 ay brüt temettü / fiyat (Yahoo; '-' = kayıt yok, temettü dağıtılmadı demek DEĞİL). "
           "2024 öncesi özkaynak düzeltmesiz olduğu için ROE yalnız GÜNCEL dönemde yorumlanmalı.", "",
           "| Hisse | ROE USD % | PD/DD÷ROE | Norm. F/K USD | Kazanç get. % | Kazanç get. − faiz | Temettü verimi % |", "|---|---|---|---|---|---|---|"]
     for s, d in sorted(S.items(), key=lambda x: ((x[1].get("ek_olculer") or {}).get("pddd_roe") is None, (x[1].get("ek_olculer") or {}).get("pddd_roe") or 0)):
