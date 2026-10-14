@@ -211,6 +211,34 @@ def borc_nakit_olculer(ham, mcap_tl, mcap_usd):
             out["bilanco_donemi"] = f"{q[0]}/{q[1]:02d}"
     return out
 
+def banka_olculer(ham):
+    """Banka sablonu (TRY): oranlar para biriminden bagimsiz. NPL ve SYR bu servisten GELMEZ (takipteki kredi kalemi 0 doner);
+    risk maliyeti = karsilik gideri / ortalama krediler, ozkaynak/aktif SYR icin yalniz kaba vekildir."""
+    k = lambda kod: seri(ham, "TRY", kod)
+    z, kr, mev, nfg, uc, gel, kars, gid, ni = k("1Z"), k("1AFA"), k("2A"), k("3C"), k("3CA"), k("3CE"), k("3CF"), k("3CG"), k("3Z")
+    if not nfg or not z: return None
+    q = max(nfg)
+    def t(s_):
+        y, p = q
+        if p == 12: return s_.get(q)
+        a, b, c2 = s_.get(q), s_.get((y - 1, 12)), s_.get((y - 1, p))
+        return None if None in (a, b, c2) else a + b - c2
+    def ort(s_):
+        a, b = s_.get(q), s_.get((q[0] - 1, q[1]))
+        return (a + b) / 2 if (a is not None and b is not None) else s_.get(q)
+    o = {}
+    nim = t(nfg); za = ort(z); kra = ort(kr)
+    o["nim_vekil"] = None if nim is None or not za else round(100 * nim / za, 2)
+    o["risk_maliyeti"] = None if t(kars) is None or not kra else round(100 * t(kars) / kra, 2)
+    o["ucret_payi"] = None if t(uc) is None or not t(gel) else round(100 * t(uc) / t(gel), 1)
+    o["maliyet_gelir"] = None if t(gid) is None or not t(gel) else round(100 * t(gid) / t(gel), 1)
+    o["kredi_mevduat"] = None if not kr.get(q) or not mev.get(q) else round(100 * kr[q] / mev[q], 1)
+    oz = seri(ham, "TRY", "2O").get(q)
+    o["ozkaynak_aktif"] = None if not oz or not z.get(q) else round(100 * oz / z[q], 1)
+    o["roa"] = None if t(ni) is None or not za else round(100 * t(ni) / za, 2)
+    o["bilanco_donemi"] = f"{q[0]}/{q[1]:02d}"
+    return o
+
 def temettu_cek():
     """Son 12 ay hisse basi brut temettu toplami (TL). Alinamazsa None; sessizce 0 sayilmaz."""
     out = {}
@@ -278,6 +306,9 @@ def main():
         ist2 = {k: istat([x for g, x in zip(tg, v) if g >= TMS29_BAS]) for k, v in res.items()}
         ok_kar, ok_oz = kalite(bilgi)
         ek = ek_olcular(res, bilgi, fiyatlar[s][max(fiyatlar[s])], temettu.get(s) if temettu else None)
+        if s in BANKALAR:
+            try: ek["banka"] = banka_olculer(hamlar[s])
+            except Exception as ex: ek["banka"] = {"hata": str(ex)[:100]}
         if s not in BORC_ATLA:
             try:
                 fson = fiyatlar[s][max(fiyatlar[s])]; kson = kur[max(kur)] if kur else None
@@ -360,6 +391,16 @@ def rapor(kayit):
         def g(k):
             v = b.get(k); return "-" if v is None else v
         L.append(f"| {s} | {g('fd_favok_usd')} | {g('net_borc_favok')} | {g('fd_satis')} | {g('favok_marji')} | {g('net_kar_marji')} | {g('fcf_verimi')} | {g('nakit_kar_orani')} | {g('bilanco_donemi')} |")
+    L += ["", "## Banka ölçüleri (açıklayıcı)", "",
+          "Kaynak: banka şablonu (UFRS), son 12 ay. NIM vekili = net faiz geliri / ortalama aktif. Risk maliyeti = kredi ve diğer alacak değer düşüş karşılığı / ortalama krediler. "
+          "Maliyet/gelir = diğer faaliyet giderleri / faaliyet gelirleri (personel dahil olmayabilir, banka arası yaklaşık karşılaştırma). **Takipteki kredi oranı ve sermaye yeterlilik oranı bu servisten gelmez** (BDDK bülteni/KAP gerekir); özkaynak/aktif yalnız kaba vekildir.", "",
+          "| Banka | NIM vekili % | Risk maliyeti % | Ücret payı % | Maliyet/gelir % | Kredi/mevduat % | Özkaynak/aktif % | ROA % | Bilanço |", "|---|---|---|---|---|---|---|---|---|"]
+    for s, d in sorted(S.items()):
+        b = (d.get("ek_olculer") or {}).get("banka")
+        if not b or "hata" in b: continue
+        def g(k):
+            v = b.get(k); return "-" if v is None else v
+        L.append(f"| {s} | {g('nim_vekil')} | {g('risk_maliyeti')} | {g('ucret_payi')} | {g('maliyet_gelir')} | {g('kredi_mevduat')} | {g('ozkaynak_aktif')} | {g('roa')} | {g('bilanco_donemi')} |")
     if kayit["atlanan"]: L += ["", "Atlanan: " + "; ".join(kayit["atlanan"])]
     L += ["", "Hücre biçimi: değer (kendi tarihinde yüzdelik dilim, log z-skoru)."]
     return "\n".join(L) + "\n"
