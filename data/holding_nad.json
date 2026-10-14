@@ -1,13 +1,117 @@
 {
- "olusturma_utc": "2026-10-14T12:48:54.382372+00:00",
- "usdtry": 49.38869857788086,
+ "olusturma_utc": "2026-10-14T13:38:46.934796+00:00",
+ "usdtry": 49.38679885864258,
  "mod": "GERCEK",
  "holdingler": {
   "KCHOL": {
-   "hata": "unsupported operand type(s) for *: 'NoneType' and 'float'"
+   "satirlar": [
+    {
+     "kod": "YKBNK",
+     "pay_pct": 54.8,
+     "pay_degeri_usd_mn": 3374
+    },
+    {
+     "kod": "TUPRS",
+     "pay_pct": 40.0,
+     "pay_degeri_usd_mn": 6133
+    },
+    {
+     "kod": "FROTO",
+     "pay_pct": 39.0,
+     "pay_degeri_usd_mn": 1997
+    },
+    {
+     "kod": "ARCLK",
+     "pay_pct": 49.0,
+     "pay_degeri_usd_mn": 514
+    },
+    {
+     "kod": "TOASO",
+     "pay_pct": 38.0,
+     "pay_degeri_usd_mn": 972
+    },
+    {
+     "kod": "OTKAR",
+     "pay_pct": 47.0,
+     "pay_degeri_usd_mn": 375
+    },
+    {
+     "kod": "TTRAK",
+     "pay_pct": 37.5,
+     "pay_degeri_usd_mn": 288
+    },
+    {
+     "kod": "AYGAZ",
+     "pay_pct": 41.0,
+     "pay_degeri_usd_mn": 533
+    }
+   ],
+   "eksik": [],
+   "sabit_usd_mn": 139,
+   "halka_acik_toplam_usd_mn": 14325,
+   "holding_piyasa_degeri_usd_mn": 10896,
+   "tam": true,
+   "iskonto_halka_acik_pct": -23.9,
+   "iskonto_net_nakit_dahil_pct": -28.8,
+   "sirket_beyani": {
+    "iskonto_halka_acik_pct": -22,
+    "iskonto_net_nakit_dahil_pct": -27,
+    "tarihsel_ort_iskonto_pct": 15,
+    "tarih": "2026-06-30",
+    "not": "Sunumda iskonto yuzdeleri negatif ('-22') yazilmis; tarihsel ortalama %15 olarak verilmis"
+   },
+   "kaynak": "Koc Holding 1Y26 Finansal Sonuclar Sunumu (rotaborsa.com kopyasi, kaynak sunum 30.06.2026), hissedar yapisi semasi",
+   "kaynak_tarihi": "2026-06-30"
   },
   "SAHOL": {
-   "hata": "unsupported operand type(s) for *: 'NoneType' and 'float'"
+   "satirlar": [
+    {
+     "kod": "AKBNK",
+     "pay_pct": 40.75,
+     "pay_degeri_usd_mn": 2888
+    },
+    {
+     "kod": "CIMSA",
+     "pay_pct": 54.54,
+     "pay_degeri_usd_mn": 422
+    },
+    {
+     "kod": "KORDS",
+     "pay_pct": 71.11,
+     "pay_degeri_usd_mn": 154
+    },
+    {
+     "kod": "AKGRT",
+     "pay_pct": 36.0,
+     "pay_degeri_usd_mn": 62
+    },
+    {
+     "kod": "AGESA",
+     "pay_pct": 40.37,
+     "pay_degeri_usd_mn": 341
+    },
+    {
+     "kod": "TKNSA",
+     "pay_pct": 50.0,
+     "pay_degeri_usd_mn": 28
+    }
+   ],
+   "eksik": [
+    "ENJSA (pay yok)",
+    "BRISA (pay yok)"
+   ],
+   "sabit_usd_mn": 0,
+   "halka_acik_toplam_usd_mn": 3894,
+   "holding_piyasa_degeri_usd_mn": 3628,
+   "tam": false,
+   "iskonto_halka_acik_pct": -6.8,
+   "sirket_beyani": {
+    "iskonto_pct": -58,
+    "tarih": "toplanti tarihi (2026/06 notlari)",
+    "not": "Yonetim beyani 'yaklasik %58'; NAD tutari TL olarak sayfada yok"
+   },
+   "kaynak": "Sabancı Holding 30.06.2026 konsolide finansal rapor, Not 4a (Bağlı Ortaklıklar: doğrudan+dolaylı pay). Enerjisa ve Brisa iş ortaklığı/iştirak bölümünde olduğundan bu alıntıda YOK -> null.",
+   "kaynak_tarihi": "2026-06-30"
   }
  }
 }
