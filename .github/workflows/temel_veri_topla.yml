@@ -31,6 +31,10 @@ jobs:
       - name: Carpan hesapla
         if: ${{ (github.event.inputs.kesif || '0') == '0' }}
         run: python temel_carpan_gozlem.py
+      - name: Holding NAD hesapla
+        if: ${{ (github.event.inputs.kesif || '0') == '0' }}
+        continue-on-error: true
+        run: python holding_nad_gozlem.py
       - name: Commit
         run: |
           git config user.name "temel-bot"
@@ -38,6 +42,8 @@ jobs:
           git add -A data/temel
           [ -f data/temel_carpan.json ] && git add data/temel_carpan.json || true
           [ -f temel_carpan.md ] && git add temel_carpan.md || true
+          [ -f data/holding_nad.json ] && git add data/holding_nad.json || true
+          [ -f holding_nad.md ] && git add holding_nad.md || true
           git diff --staged --quiet && exit 0
           git commit -m "Temel veri ve carpan $(date -u +%Y-%m-%d) [skip ci]"
           for i in 1 2 3 4 5; do
