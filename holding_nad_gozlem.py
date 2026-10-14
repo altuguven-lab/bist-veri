@@ -8,11 +8,40 @@ Pay orani null olan iştirak HESABA GIRMEZ ve 'eksik' listesinde yazilir; eksik 
 import json, os, sys
 from datetime import datetime, timezone
 
+def _fi(fi, *anahtarlar):
+    """fast_info'dan ilk gecerli degeri dondurur (snake/camel, item/attr/get)."""
+    for a in anahtarlar:
+        for getter in (lambda: fi[a], lambda: getattr(fi, a), lambda: fi.get(a)):
+            try:
+                v = getter()
+                if v is not None and float(v) > 0: return float(v)
+            except Exception:
+                pass
+    return None
+
+def son_fiyat(kod):
+    import yfinance as yf
+    try:
+        df = yf.download(f"{kod}.IS", period="10d", progress=False, threads=False, auto_adjust=False)
+        c = df["Close"]; c = c.iloc[:, 0] if hasattr(c, "columns") else c
+        return float(c.dropna().iloc[-1])
+    except Exception as ex:
+        print("fiyat hata", kod, ex, file=sys.stderr); return None
+
 def piyasa_degeri_usd(kod, kur, test=False):
     if test: return {"YKBNK": 7280, "TUPRS": 9410, "FROTO": 6313, "ARCLK": 1429, "TOASO": 3274, "OTKAR": 977, "TTRAK": 941, "AYGAZ": 1000}.get(kod)
     import yfinance as yf
     try:
-        mc = yf.Ticker(f"{kod}.IS").fast_info.get("market_cap")
+        t = yf.Ticker(f"{kod}.IS"); fi = t.fast_info
+        mc = _fi(fi, "market_cap", "marketCap")
+        if not mc:
+            adet = _fi(fi, "shares", "sharesOutstanding")
+            if not adet:
+                try: adet = float(t.info.get("sharesOutstanding") or 0) or None
+                except Exception: adet = None
+            fy = _fi(fi, "last_price", "lastPrice") or son_fiyat(kod)
+            mc = adet * fy if adet and fy else None
+            print("mc yedek yol", kod, adet, fy, file=sys.stderr)
         return (float(mc) / kur / 1e6) if mc and kur else None
     except Exception as ex:
         print("mc hata", kod, ex, file=sys.stderr); return None
@@ -56,7 +85,8 @@ def main():
             if test: hold_mc = 10100.0
             else:
                 import yfinance as yf
-                p = yf.Ticker(f"{h}.IS").fast_info.get("last_price")
+                p = son_fiyat(h)
+                if not p: raise ValueError("holding fiyati alinamadi")
                 ham = json.load(open(f"data/temel/ham_{h}.json", encoding="utf-8"))
                 oa = ham["TRY"]["kalemler"]["2OA"]["v"]; adet = float(oa[max(oa)])
                 hold_mc = p * adet / kur / 1e6
