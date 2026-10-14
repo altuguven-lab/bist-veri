@@ -16,7 +16,7 @@ Toplam APS: 84.5 mlr TL (gün içi değişim -0.01 mlr TL) · hacim 34.6 mlr TL 
 - SASA: fiyat -1.6%, APS +3.5% (+48 mn TL)
 - TKFEN: fiyat -9.5%, APS +7.0% (+41 mn TL)
 
-**Açığa satış taramasıyla kesişim (2026-10-13):** CIMSA (AS pay 15.2%, skor 1/4), EREGL (AS pay 8.8%, skor 2/4), FROTO (AS pay 13.9%, skor 1/4), MGROS (AS pay 7.5%, skor 2/4)
+**Açığa satış taramasıyla kesişim (2026-10-14):** CIMSA (AS pay 13.4%, skor 1/4), FROTO (AS pay 15.1%, skor 3/4), MGROS (AS pay 10.9%, skor 1/4)
 
 | Hisse | APS mlr TL | APS Δ% | Fiyat Δ% | Devir % | Takvim faizi % | Sinyal |
 |---|---|---|---|---|---|---|
