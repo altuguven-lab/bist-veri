@@ -316,6 +316,12 @@ def main():
                 ek["borc_nakit"] = borc_nakit_olculer(hamlar[s], mc_tl, mc_usd)
             except Exception as ex:
                 ek["borc_nakit"] = {"hata": str(ex)[:100]}
+        yillik = {}
+        for yil in range(2021, tg[-1].year + 1):
+            idx = [i for i, g in enumerate(tg) if g.year == yil]
+            if not idx: continue
+            i = idx[-1]
+            yillik[str(yil) if yil < tg[-1].year else f"{yil} (güncel)"] = {k: (round(v[i], 2) if v[i] is not None else None) for k, v in res.items() if k in ("fk_tl", "fk_usd", "pddd_tl", "pddd_usd")}
         banka = s in BANKALAR
         def dip(k): return ist.get(k) and ist[k]["yuzdelik"] <= DIP_YUZDELIK
         dip_pd = bool(dip("pddd_tl") and dip("pddd_usd"))
@@ -325,7 +331,7 @@ def main():
         dip_fk2 = bool(dip2("fk_tl") and dip2("fk_usd"))
         aday = dip_pd and (banka or dip_fk)
         aday2 = dip_pd2 and (banka or dip_fk2)
-        sonuc[s] = {"banka": banka, "son_tarih": str(tg[-1]) if tg else None, "ek_olculer": ek, "istatistik": ist, "istatistik_tms29": ist2, "dip_pddd_tms29": dip_pd2, "dip_fk_tms29": dip_fk2, "aday_tms29": aday2,
+        sonuc[s] = {"banka": banka, "son_tarih": str(tg[-1]) if tg else None, "ek_olculer": ek, "yillik": yillik, "istatistik": ist, "istatistik_tms29": ist2, "dip_pddd_tms29": dip_pd2, "dip_fk_tms29": dip_fk2, "aday_tms29": aday2,
                     "kalite_kar_usd": ok_kar, "kalite_ozkaynak_usd": ok_oz,
                     "dip_pddd": dip_pd, "dip_fk": dip_fk, "aday": aday,
                     "aday_kaliteli": bool(aday and ok_kar is not False and ok_oz is not False),
