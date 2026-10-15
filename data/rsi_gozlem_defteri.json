@@ -24,14 +24,6 @@
       "sektor": "Gida-Icecek",
       "pozisyon_birim_yuzde": 12.0
     },
-    "MGROS": {
-      "giris_tarih": "2026-09-04",
-      "giris_fiyat": 527.0,
-      "giris_rsi": 33.3,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Perakende",
-      "pozisyon_birim_yuzde": 12.0
-    },
     "THYAO": {
       "giris_tarih": "2026-09-17",
       "giris_fiyat": 289.25,
@@ -117,13 +109,25 @@
       "net_getiri_pct": -12.25,
       "kurumsal_teyit": "AZALIS",
       "sektor": "Enerji-Ekipman"
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2026-09-04",
+      "cikis_tarih": "2026-10-15",
+      "tutma_gun": 41,
+      "giris_fiyat": 527.0,
+      "cikis_fiyat": 470.0,
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -11.066,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Perakende"
     }
   ],
-  "son_guncelleme_utc": "2026-10-14T19:28:05.900042+00:00",
+  "son_guncelleme_utc": "2026-10-15T19:14:14.573925+00:00",
   "reddedilen_sinyaller": [],
   "ozet": {
-    "toplam_kapanan": 5,
-    "isabet_pct": 40.0,
-    "ort_net_getiri_pct": 6.016
+    "toplam_kapanan": 6,
+    "isabet_pct": 33.3,
+    "ort_net_getiri_pct": 3.169
   }
 }
