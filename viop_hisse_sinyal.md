@@ -16,7 +16,7 @@ Toplam APS: 84.0 mlr TL (gün içi değişim +0.55 mlr TL) · hacim 27.9 mlr TL 
 - ENKAI: fiyat -4.0%, APS +14.5% (+73 mn TL)
 - SASA: fiyat -5.6%, APS +4.6% (+62 mn TL)
 
-**Açığa satış taramasıyla kesişim (2026-10-14):** AEFES (AS pay 11.9%, skor 1/4), AKBNK (AS pay 6.9%, skor 1/4), ENKAI (AS pay 9.4%, skor 1/4), MGROS (AS pay 10.9%, skor 1/4), PGSUS (AS pay 13.5%, skor 2/4), TOASO (AS pay 20.4%, skor 1/4), TRMET (AS pay 12.0%, skor 2/4)
+**Açığa satış taramasıyla kesişim (2026-10-15):** AEFES (AS pay 12.0%, skor 1/4), AKBNK (AS pay 14.8%, skor 2/4), ENKAI (AS pay 7.5%, skor 1/4), MGROS (AS pay 8.0%, skor 1/4), PGSUS (AS pay 9.9%, skor 1/4), SASA (AS pay 5.7%, skor 2/4), TRMET (AS pay 7.9%, skor 2/4)
 
 | Hisse | APS mlr TL | APS Δ% | Fiyat Δ% | Devir % | Takvim faizi % | Sinyal |
 |---|---|---|---|---|---|---|
