@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-15T14:30:24.018Z",
+  "son_guncelleme_utc": "2026-10-15T14:45:11.329Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 650
+    "adet": 651
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-15T14:30:22.118Z",
-    "sembol": "TRMET",
+    "zaman_utc": "2026-10-15T14:45:08.344Z",
+    "sembol": "AKBNK",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "127.8",
-    "skor": "19.56",
-    "kgs": "42",
-    "stop": "136.3",
+    "fiyat": "67.65",
+    "skor": "22.8",
+    "kgs": "11",
+    "stop": "67.9",
     "rejim": "0",
-    "relvol": "0.77",
+    "relvol": "0.79",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "3100032",
+    "p3ozet": "1900032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TRMET|15|P4_HAZIRLIK|2026-10-15T14:15:00Z",
+    "eventId": "AKBNK|15|P4_HAZIRLIK|2026-10-15T14:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-15T14:45:08.344Z",
+      "sembol": "AKBNK",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "67.65",
+      "skor": "22.8",
+      "kgs": "11",
+      "stop": "67.9",
+      "rejim": "0",
+      "relvol": "0.79",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "1900032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "AKBNK|15|P4_HAZIRLIK|2026-10-15T14:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-15T14:30:22.118Z",
       "sembol": "TRMET",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "EREGL|15|GUNLUK_OZET|2026-10-13T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-13T15:11:03.401Z",
-      "sembol": "BIMAS",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "411.25",
-      "skor": "67.96",
-      "kgs": "78",
-      "stop": "409.25",
-      "rejim": "2",
-      "relvol": "0.98",
-      "v112n": "239",
-      "v112wr": "?",
-      "p3ozet": "7002032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "BIMAS|15|GUNLUK_OZET|2026-10-13T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
