@@ -363,8 +363,22 @@ def m7_alarm_dogrulugu():
             "isabet_pct": round(100 * isabet / n, 1),
             "guven_araligi_95": [round(ort - 1.96 * se, 3), round(ort + 1.96 * se, 3)],
         }
+    # 15.10.2026 ON-KAYITLI OLU SINYAL KURALI (kurul, veri gorulmeden kilitlendi):
+    # n>=250 VE goreli T+3 ortalamasi negatif VE t<-1.96 -> tur "TERS SINYAL" ilan
+    # edilir (alarm SILINMEZ - ASLA kurali; kategori IZLEME'ye kalici dusurulur).
+    olu_kural = {}
+    for tur in ("P3_SKOR_AL", "P3_RADAR", "P2_ADAY"):
+        r = sonuc.get(tur, {})
+        n_ = r.get("n", 0)
+        if n_ < 250:
+            olu_kural[tur] = f"BEKLEMEDE (n={n_}/250)"
+        elif r.get("goreli_t3_ortalama_pct", 0) < 0 and r.get("t_istatistigi", 0) < -1.96:
+            olu_kural[tur] = f"TETIKLENDI (n={n_}, t={r.get('t_istatistigi')})"
+        else:
+            olu_kural[tur] = f"TETIKLENMEDI (n={n_}, t={r.get('t_istatistigi')})"
     return {
         "turler": sonuc,
+        "olu_sinyal_kurali": olu_kural,
         "izleme_donusum": arsiv.get("izleme_donusum_ozet", {}),
         "not": ("Yon beklentisi YUKARI icin isabet=goreli>0, ASAGI_VEYA_NOTR "
                 "icin isabet=goreli<0. |t|>1.96 -> yaklasik %5 anlamlilikta "
