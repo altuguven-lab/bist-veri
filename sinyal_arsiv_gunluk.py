@@ -208,6 +208,41 @@ def _goreli_yaz(kayit, piyasa_seri, uzerine_yaz=False):
     return yazildi
 
 
+def _p3ozet_coz(ham):
+    """P3Ozet kodunu coz. Gecersiz/'?' -> None. Pine'daki kodlamayla birebir."""
+    try:
+        v = int(float(ham))
+    except (TypeError, ValueError):
+        return None
+    if v < 0:
+        return None
+    return {
+        "p3_skor_tabani": v % 100,
+        "p3_dna_defensive": (v // 100) % 10,
+        "p3_htf": (v // 1000) % 10,
+        "p3_yari_boyut": (v // 10000) % 10,
+        "p3_entry_score": v // 100000,
+    }
+
+
+def _seans_fazi(zaman_utc):
+    """Webhook zaman damgasindan (UTC) Istanbul seans dilimi. Kesin bar zamani
+    degil, gelis zamani (bir bar gecikmeli olabilir) - dilim kaba olculur.
+    Gece/gunduz bulgusu (OLCUM_EKI_ENDEKS_KONTROLU.md) dilim kirilimini gerektirir."""
+    try:
+        sa = int(str(zaman_utc)[11:13]); dk = int(str(zaman_utc)[14:16])
+    except (TypeError, ValueError):
+        return None
+    dakika = (sa + 3) * 60 + dk          # Istanbul = UTC+3
+    if dakika < 10 * 60 + 45:
+        return "ACILIS"                   # 10:00-10:45
+    if dakika < 12 * 60 + 30:
+        return "SABAH"
+    if dakika < 16 * 60 + 15:
+        return "OGLE"
+    return "KAPANISA_YAKIN"               # 16:15 ve sonrasi
+
+
 def _sayi_mi(deger):
     try:
         float(deger)
@@ -348,6 +383,16 @@ def main():
         for alan in ("skor", "kgs", "rejim", "relvol"):
             if _sayi_mi(s.get(alan)):
                 kayit[alan] = float(s[alan])
+        # 15.10.2026 (kurul, OLCUM KODU - Pine'a dokunmaz): P3Ozet webhook'ta
+        # 04.09'dan beri geliyordu ama arsive HIC yazilmiyordu; B3 yari-boyut
+        # biti ve entryScore bu yuzden hic analiz edilemedi. Kodlama (Pine
+        # satir ~3631/3678): entry*100000 + yari*10000 + htf*1000 + dna*100 + skortb
+        _p3 = _p3ozet_coz(s.get("p3ozet"))
+        if _p3:
+            kayit.update(_p3)
+        _faz = _seans_fazi(s.get("zaman_utc"))
+        if _faz:
+            kayit["seans_fazi"] = _faz
         arsiv["kayitlar"].append(kayit)
         mevcut_anahtarlar.add(anahtar)
         yeni_sayisi += 1
