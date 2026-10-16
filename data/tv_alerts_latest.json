@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-16T15:11:35.700Z",
+  "son_guncelleme_utc": "2026-10-16T15:11:37.106Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 718
+    "adet": 719
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-16T15:11:06.882Z",
-    "sembol": "TRMET",
+    "zaman_utc": "2026-10-16T15:11:07.420Z",
+    "sembol": "ASTOR",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "120.0",
-    "skor": "12.1",
-    "kgs": "23",
-    "stop": "127.60000000000001",
+    "fiyat": "164.9",
+    "skor": "10",
+    "kgs": "12",
+    "stop": "189.9",
     "rejim": "0",
-    "relvol": "0.91",
-    "v112n": "261",
+    "relvol": "0.08",
+    "v112n": "204",
     "v112wr": "?",
     "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TRMET|15|GUNLUK_OZET|2026-10-16T15:00:00Z",
+    "eventId": "ASTOR|15|GUNLUK_OZET|2026-10-16T15:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-16T15:11:07.420Z",
+      "sembol": "ASTOR",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "164.9",
+      "skor": "10",
+      "kgs": "12",
+      "stop": "189.9",
+      "rejim": "0",
+      "relvol": "0.08",
+      "v112n": "204",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ASTOR|15|GUNLUK_OZET|2026-10-16T15:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-16T15:11:06.882Z",
       "sembol": "TRMET",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "AEFES|15|GUNLUK_OZET|2026-10-14T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-14T15:11:07.266Z",
-      "sembol": "ASTOR",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "193.0",
-      "skor": "13.94",
-      "kgs": "23",
-      "stop": "197.10000000000002",
-      "rejim": "0",
-      "relvol": "0.83",
-      "v112n": "209",
-      "v112wr": "?",
-      "p3ozet": "32",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ASTOR|15|GUNLUK_OZET|2026-10-14T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
