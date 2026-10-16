@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-16T14:15:16.958Z",
+  "son_guncelleme_utc": "2026-10-16T14:15:21.040Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 698
+    "adet": 699
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-16T14:15:13.800Z",
-    "sembol": "TAVHL",
-    "sinyal": "P3_RADAR",
+    "zaman_utc": "2026-10-16T14:15:18.099Z",
+    "sembol": "EKGYO",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "275.25",
-    "skor": "41.4",
-    "kgs": "84",
-    "stop": "273.5",
+    "fiyat": "19.13",
+    "skor": "25",
+    "kgs": "10",
+    "stop": "19.72",
     "rejim": "0",
-    "relvol": "1.27",
+    "relvol": "0.55",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "5600032",
+    "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "TAVHL|15|P3_RADAR|2026-10-16T14:00:00Z",
+    "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-10-16T14:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-16T14:15:18.099Z",
+      "sembol": "EKGYO",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "19.13",
+      "skor": "25",
+      "kgs": "10",
+      "stop": "19.72",
+      "rejim": "0",
+      "relvol": "0.55",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-10-16T14:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-16T14:15:13.800Z",
       "sembol": "TAVHL",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "GARAN|15|GUNLUK_OZET|2026-10-14T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-14T15:11:03.437Z",
-      "sembol": "YKBNK",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "35.94",
-      "skor": "20.51",
-      "kgs": "7",
-      "stop": "36.4",
-      "rejim": "0",
-      "relvol": "1.17",
-      "v112n": "64",
-      "v112wr": "?",
-      "p3ozet": "32",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "YKBNK|15|GUNLUK_OZET|2026-10-14T15:00:00Z",
       "carrierLagBars": "1"
     }
   ]
