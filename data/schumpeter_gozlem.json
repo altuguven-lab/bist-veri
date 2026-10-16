@@ -1,5 +1,5 @@
 {
- "olusturma_utc": "2026-10-12T06:35:43.688294Z",
+ "olusturma_utc": "2026-10-16T20:00:24.766660Z",
  "on_kayit_surumu": 2,
  "on_kayit_tarihi": "2026-10-11",
  "h1": {
@@ -7,16 +7,16 @@
   "sektorler": {
    "BANKACILIK": {
     "uye_sayisi": 6,
-    "olay_sayisi": 16,
+    "olay_sayisi": 17,
     "olaylar": [
-     "2026-05-11",
      "2026-06-03",
      "2026-07-27",
      "2026-08-25",
-     "2026-09-17"
+     "2026-09-17",
+     "2026-10-13"
     ],
-    "taban_ort_t5_pct": 0.192,
-    "taban_ort_t10_pct": 0.358
+    "taban_ort_t5_pct": 0.217,
+    "taban_ort_t10_pct": 0.404
    },
    "HAVACILIK": {
     "uye_sayisi": 3,
@@ -28,8 +28,8 @@
      "2026-08-26",
      "2026-09-09"
     ],
-    "taban_ort_t5_pct": -0.493,
-    "taban_ort_t10_pct": -1.041
+    "taban_ort_t5_pct": -0.512,
+    "taban_ort_t10_pct": -1.042
    },
    "SINAI": {
     "uye_sayisi": 3,
@@ -41,8 +41,8 @@
      "2026-09-11",
      "2026-10-09"
     ],
-    "taban_ort_t5_pct": 0.383,
-    "taban_ort_t10_pct": 0.763
+    "taban_ort_t5_pct": 0.397,
+    "taban_ort_t10_pct": 0.771
    },
    "ENERJI": {
     "uye_sayisi": 4,
@@ -54,8 +54,8 @@
      "2026-09-01",
      "2026-10-09"
     ],
-    "taban_ort_t5_pct": 0.874,
-    "taban_ort_t10_pct": 1.763
+    "taban_ort_t5_pct": 0.876,
+    "taban_ort_t10_pct": 1.757
    },
    "OTOMOTIV": {
     "uye_sayisi": 3,
@@ -67,16 +67,16 @@
      "2026-09-07",
      "2026-09-21"
     ],
-    "taban_ort_t5_pct": -0.417,
-    "taban_ort_t10_pct": -1.001
+    "taban_ort_t5_pct": -0.459,
+    "taban_ort_t10_pct": -0.962
    }
   },
   "guncel": {
    "BANKACILIK": {
-    "tarih": "2026-10-09",
-    "breadth_simdi": 0.83,
+    "tarih": "2026-10-16",
+    "breadth_simdi": 1.0,
     "breadth_5g_once": 0.83,
-    "sektor_rs5_pct": 1.36,
+    "sektor_rs5_pct": 3.76,
     "durum": "GUCLU-YAYILMIS",
     "uyeler": [
      "AKBNK",
@@ -88,11 +88,11 @@
     ]
    },
    "HAVACILIK": {
-    "tarih": "2026-10-09",
+    "tarih": "2026-10-16",
     "breadth_simdi": 0.33,
-    "breadth_5g_once": 1.0,
-    "sektor_rs5_pct": -1.11,
-    "durum": "DAGILIYOR",
+    "breadth_5g_once": 0.33,
+    "sektor_rs5_pct": 0.64,
+    "durum": "NORMAL",
     "uyeler": [
      "THYAO",
      "PGSUS",
@@ -100,11 +100,11 @@
     ]
    },
    "SINAI": {
-    "tarih": "2026-10-09",
-    "breadth_simdi": 1.0,
-    "breadth_5g_once": 0.33,
-    "sektor_rs5_pct": 3.24,
-    "durum": "YAYILIYOR",
+    "tarih": "2026-10-16",
+    "breadth_simdi": 0.33,
+    "breadth_5g_once": 1.0,
+    "sektor_rs5_pct": -2.36,
+    "durum": "DAGILIYOR",
     "uyeler": [
      "EREGL",
      "SISE",
@@ -112,11 +112,11 @@
     ]
    },
    "ENERJI": {
-    "tarih": "2026-10-09",
+    "tarih": "2026-10-16",
     "breadth_simdi": 0.75,
-    "breadth_5g_once": 0.25,
-    "sektor_rs5_pct": 0.82,
-    "durum": "YAYILIYOR",
+    "breadth_5g_once": 0.75,
+    "sektor_rs5_pct": -2.35,
+    "durum": "GUCLU-YAYILMIS",
     "uyeler": [
      "TUPRS",
      "PETKM",
@@ -125,11 +125,11 @@
     ]
    },
    "OTOMOTIV": {
-    "tarih": "2026-10-09",
-    "breadth_simdi": 1.0,
-    "breadth_5g_once": 0.67,
-    "sektor_rs5_pct": 1.66,
-    "durum": "GUCLU-YAYILMIS",
+    "tarih": "2026-10-16",
+    "breadth_simdi": 0.0,
+    "breadth_5g_once": 1.0,
+    "sektor_rs5_pct": -4.1,
+    "durum": "DAGILIYOR",
     "uyeler": [
      "FROTO",
      "TOASO",
@@ -139,18 +139,18 @@
   },
   "test": {
    "t5_kesif": {
-    "n_olay": 84,
-    "olay_ort_pct": -0.277,
-    "taban_ort_pct": 0.108,
-    "fark_ort_pct": -0.346,
-    "t": -1.0,
-    "p": 0.3161,
+    "n_olay": 86,
+    "olay_ort_pct": -0.326,
+    "taban_ort_pct": 0.104,
+    "fark_ort_pct": -0.402,
+    "t": -1.18,
+    "p": 0.2369,
     "verdikt": "KESIFSEL (verdikt yok)"
    },
    "t5_teyit": {
     "n_olay": 0,
     "olay_ort_pct": null,
-    "taban_ort_pct": 0.108,
+    "taban_ort_pct": 0.104,
     "fark_ort_pct": null,
     "t": null,
     "p": null,
@@ -159,16 +159,16 @@
    "t10_kesif": {
     "n_olay": 85,
     "olay_ort_pct": 0.407,
-    "taban_ort_pct": 0.168,
-    "fark_ort_pct": 0.319,
-    "t": 0.59,
-    "p": 0.5526,
+    "taban_ort_pct": 0.186,
+    "fark_ort_pct": 0.301,
+    "t": 0.56,
+    "p": 0.5756,
     "verdikt": "KESIFSEL (verdikt yok)"
    },
    "t10_teyit": {
     "n_olay": 0,
     "olay_ort_pct": null,
-    "taban_ort_pct": 0.168,
+    "taban_ort_pct": 0.186,
     "fark_ort_pct": null,
     "t": null,
     "p": null,
@@ -177,13 +177,13 @@
   }
  },
  "h2": {
-  "defter_kayit": 69,
-  "yenilik_kayit": 7,
+  "defter_kayit": 81,
+  "yenilik_kayit": 8,
   "defter_ilk_tarih": "2026-08-25",
   "son20g_sektor_sayac": {
    "GYO": 2,
-   "HAVACILIK": 1,
-   "OTOMOTIV": 1
+   "OTOMOTIV": 1,
+   "HAVACILIK": 1
   },
   "esik_ustu_sektorler": [
    "GYO"
@@ -237,6 +237,13 @@
     "sektor": "GYO",
     "ozet": "Umman Sultanlığı Konut ve Kentsel Planlama Bakanlığı ile Mutabakat Zaptı İmzalanması",
     "yenilik": true
+   },
+   {
+    "tarih": "2026-10-16",
+    "sembol": "THYAO",
+    "sektor": "HAVACILIK",
+    "ozet": "CFM International ile LEAP-1B Motor Mutabakat Zaptı",
+    "yenilik": true
    }
   ],
   "test": {
@@ -259,34 +266,34 @@
   }
  },
  "viop_teyit": {
-  "tarih": "2026-10-09",
+  "tarih": "2026-10-16",
   "sektorler": {
    "BANKACILIK": {
     "viop_uye": 6,
-    "yeni_long": 3,
-    "yeni_short": 3
+    "yeni_long": 0,
+    "yeni_short": 2
    },
    "HAVACILIK": {
     "viop_uye": 3,
     "yeni_long": 0,
-    "yeni_short": 1
+    "yeni_short": 2
    },
    "SINAI": {
     "viop_uye": 3,
-    "yeni_long": 1,
-    "yeni_short": 0
+    "yeni_long": 0,
+    "yeni_short": 3
    },
    "ENERJI": {
     "viop_uye": 4,
     "yeni_long": 0,
-    "yeni_short": 2
+    "yeni_short": 4
    },
    "OTOMOTIV": {
     "viop_uye": 2,
-    "yeni_long": 1,
-    "yeni_short": 1
+    "yeni_long": 0,
+    "yeni_short": 0
    }
   }
  },
- "kap_yeni_kayit": 0
+ "kap_yeni_kayit": 12
 }
