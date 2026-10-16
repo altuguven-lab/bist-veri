@@ -16,7 +16,7 @@ Toplam APS: 83.1 mlr TL (gün içi değişim -0.59 mlr TL) · hacim 33.4 mlr TL 
 - MGROS: fiyat -6.5%, APS +6.9% (+74 mn TL)
 - ASTOR: fiyat -6.3%, APS +6.8% (+71 mn TL)
 
-**Açığa satış taramasıyla kesişim (2026-10-15):** AEFES (AS pay 12.0%, skor 1/4), BIMAS (AS pay 8.0%, skor 2/4), ENKAI (AS pay 7.5%, skor 1/4), MGROS (AS pay 8.0%, skor 1/4), SASA (AS pay 5.7%, skor 2/4), TRMET (AS pay 7.9%, skor 2/4), TSKB (AS pay 3.3%, skor 1/4)
+**Açığa satış taramasıyla kesişim (2026-10-16):** AEFES (AS pay 12.6%, skor 2/4), CIMSA (AS pay 20.3%, skor 1/4), ENKAI (AS pay 8.2%, skor 1/4)
 
 | Hisse | APS mlr TL | APS Δ% | Fiyat Δ% | Devir % | Takvim faizi % | Sinyal |
 |---|---|---|---|---|---|---|
