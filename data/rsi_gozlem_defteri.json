@@ -1,13 +1,5 @@
 {
   "acik_pozisyonlar": {
-    "ULKER": {
-      "giris_tarih": "2026-08-07",
-      "giris_fiyat": 89.19999694824219,
-      "giris_rsi": 32.2,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Gida-Icecek",
-      "pozisyon_birim_yuzde": 12.0
-    },
     "OTKAR": {
       "giris_tarih": "2026-08-10",
       "giris_fiyat": 290.5,
@@ -38,14 +30,6 @@
       "giris_rsi": 41.2,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Holding",
-      "pozisyon_birim_yuzde": 12.0
-    },
-    "ASTOR": {
-      "giris_tarih": "2026-10-08",
-      "giris_fiyat": 197.5,
-      "giris_rsi": 34.5,
-      "kurumsal_teyit": "AZALIS",
-      "sektor": "Enerji-Ekipman",
       "pozisyon_birim_yuzde": 12.0
     }
   },
@@ -121,13 +105,37 @@
       "net_getiri_pct": -11.066,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Perakende"
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2026-10-08",
+      "cikis_tarih": "2026-10-16",
+      "tutma_gun": 8,
+      "giris_fiyat": 197.5,
+      "cikis_fiyat": 173.8,
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25,
+      "kurumsal_teyit": "AZALIS",
+      "sektor": "Enerji-Ekipman"
+    },
+    {
+      "sembol": "ULKER",
+      "giris_tarih": "2026-08-07",
+      "cikis_tarih": "2026-10-16",
+      "tutma_gun": 70,
+      "giris_fiyat": 89.19999694824219,
+      "cikis_fiyat": 78.49599731445312,
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Gida-Icecek"
     }
   ],
-  "son_guncelleme_utc": "2026-10-15T19:14:14.573925+00:00",
+  "son_guncelleme_utc": "2026-10-16T18:50:17.305527+00:00",
   "reddedilen_sinyaller": [],
   "ozet": {
-    "toplam_kapanan": 6,
-    "isabet_pct": 33.3,
-    "ort_net_getiri_pct": 3.169
+    "toplam_kapanan": 8,
+    "isabet_pct": 25.0,
+    "ort_net_getiri_pct": -0.686
   }
 }
