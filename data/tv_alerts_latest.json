@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-19T12:15:28.262Z",
+  "son_guncelleme_utc": "2026-10-19T12:45:14.530Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 746
+    "adet": 747
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-19T12:15:25.080Z",
-    "sembol": "EKGYO",
-    "sinyal": "SEKTOR_ROTASYONU",
+    "zaman_utc": "2026-10-19T12:45:12.985Z",
+    "sembol": "ASTOR",
+    "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "18.94",
-    "skor": "11.34",
-    "kgs": "33",
-    "stop": "19.12",
+    "fiyat": "162.0",
+    "skor": "15.19",
+    "kgs": "41",
+    "stop": "188.60000000000002",
     "rejim": "0",
-    "relvol": "0.22",
+    "relvol": "0.67",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "300032",
+    "p3ozet": "1500032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-10-19T12:00:00Z",
+    "eventId": "ASTOR|15|P4_HAZIRLIK|2026-10-19T12:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-19T12:45:12.985Z",
+      "sembol": "ASTOR",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "162.0",
+      "skor": "15.19",
+      "kgs": "41",
+      "stop": "188.60000000000002",
+      "rejim": "0",
+      "relvol": "0.67",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "1500032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ASTOR|15|P4_HAZIRLIK|2026-10-19T12:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-19T12:15:25.080Z",
       "sembol": "EKGYO",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-10-15T14:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-15T13:15:28.361Z",
-      "sembol": "ISCTR",
-      "sinyal": "P2_DIP_DONUS",
-      "interval": "15",
-      "fiyat": "13.03",
-      "skor": "27.61",
-      "kgs": "22",
-      "stop": "13.24",
-      "rejim": "0",
-      "relvol": "2.76",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "602032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "ISCTR|15|P2_DIP_DONUS|2026-10-15T13:00:00Z",
       "carrierLagBars": "1"
     }
   ]
