@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-19T09:15:08.901Z",
+  "son_guncelleme_utc": "2026-10-19T09:15:14.397Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 741
+    "adet": 742
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-19T09:15:05.957Z",
-    "sembol": "ASTOR",
-    "sinyal": "P2_DIP_DONUS",
+    "zaman_utc": "2026-10-19T09:15:13.718Z",
+    "sembol": "ENJSA",
+    "sinyal": "P3_RADAR",
     "interval": "15",
-    "fiyat": "161.9",
-    "skor": "10",
-    "kgs": "33",
-    "stop": "187.70000000000002",
+    "fiyat": "114.8",
+    "skor": "62.21",
+    "kgs": "90",
+    "stop": "114",
     "rejim": "0",
-    "relvol": "3.64",
+    "relvol": "5.72",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "800032",
+    "p3ozet": "7900032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ASTOR|15|P2_DIP_DONUS|2026-10-19T09:00:00Z",
+    "eventId": "ENJSA|15|P3_RADAR|2026-10-19T09:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-19T09:15:13.718Z",
+      "sembol": "ENJSA",
+      "sinyal": "P3_RADAR",
+      "interval": "15",
+      "fiyat": "114.8",
+      "skor": "62.21",
+      "kgs": "90",
+      "stop": "114",
+      "rejim": "0",
+      "relvol": "5.72",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "7900032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ENJSA|15|P3_RADAR|2026-10-19T09:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-19T09:15:05.957Z",
       "sembol": "ASTOR",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "TTKOM|15|P4_HAZIRLIK|2026-10-15T11:30:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-15T11:30:26.552Z",
-      "sembol": "EKGYO",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "19.67",
-      "skor": "31.49",
-      "kgs": "52",
-      "stop": "19.650000000000002",
-      "rejim": "0",
-      "relvol": "0.34",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "3702032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "EKGYO|15|P4_HAZIRLIK|2026-10-15T11:15:00Z",
       "carrierLagBars": "1"
     }
   ]
