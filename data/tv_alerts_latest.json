@@ -1,15 +1,15 @@
 {
-  "son_guncelleme_utc": "2026-10-19T09:15:06.426Z",
+  "son_guncelleme_utc": "2026-10-19T09:15:08.901Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 740
+    "adet": 741
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-19T09:15:04.305Z",
+    "zaman_utc": "2026-10-19T09:15:05.957Z",
     "sembol": "ASTOR",
-    "sinyal": "P4_HAZIRLIK",
+    "sinyal": "P2_DIP_DONUS",
     "interval": "15",
     "fiyat": "161.9",
     "skor": "10",
@@ -22,10 +22,29 @@
     "p3ozet": "800032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ASTOR|15|P4_HAZIRLIK|2026-10-19T09:00:00Z",
+    "eventId": "ASTOR|15|P2_DIP_DONUS|2026-10-19T09:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-19T09:15:05.957Z",
+      "sembol": "ASTOR",
+      "sinyal": "P2_DIP_DONUS",
+      "interval": "15",
+      "fiyat": "161.9",
+      "skor": "10",
+      "kgs": "33",
+      "stop": "187.70000000000002",
+      "rejim": "0",
+      "relvol": "3.64",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "800032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ASTOR|15|P2_DIP_DONUS|2026-10-19T09:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-19T09:15:04.305Z",
       "sembol": "ASTOR",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "EKGYO|15|P4_HAZIRLIK|2026-10-15T11:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-15T11:00:07.019Z",
-      "sembol": "TRALT",
-      "sinyal": "SEKTOR_ROTASYONU",
-      "interval": "15",
-      "fiyat": "42.50",
-      "skor": "11.14",
-      "kgs": "15",
-      "stop": "42.94",
-      "rejim": "0",
-      "relvol": "0.72",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "32",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TRALT|15|SEKTOR_ROTASYONU|2026-10-15T10:45:00Z",
       "carrierLagBars": "1"
     }
   ]
