@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-19T13:30:32.669Z",
+  "son_guncelleme_utc": "2026-10-19T13:30:42.543Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 751
+    "adet": 752
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-19T13:30:31.578Z",
-    "sembol": "YKBNK",
-    "sinyal": "P3_RADAR",
+    "zaman_utc": "2026-10-19T13:30:41.078Z",
+    "sembol": "ENKAI",
+    "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "36.14",
-    "skor": "24.73",
-    "kgs": "59",
-    "stop": "36.1",
+    "fiyat": "76.70",
+    "skor": "22.07",
+    "kgs": "10",
+    "stop": "77.35000000000001",
     "rejim": "0",
-    "relvol": "0.31",
+    "relvol": "0.47",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "4302032",
+    "p3ozet": "800032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "YKBNK|15|P3_RADAR|2026-10-19T13:15:00Z",
+    "eventId": "ENKAI|15|P4_HAZIRLIK|2026-10-19T13:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-19T13:30:41.078Z",
+      "sembol": "ENKAI",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "76.70",
+      "skor": "22.07",
+      "kgs": "10",
+      "stop": "77.35000000000001",
+      "rejim": "0",
+      "relvol": "0.47",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "800032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ENKAI|15|P4_HAZIRLIK|2026-10-19T13:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-19T13:30:31.578Z",
       "sembol": "YKBNK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "TAVHL|15|GUNLUK_OZET|2026-10-15T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-15T14:45:19.901Z",
-      "sembol": "TTKOM",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "52.50",
-      "skor": "10.75",
-      "kgs": "20",
-      "stop": "52.900000000000006",
-      "rejim": "0",
-      "relvol": "0.23",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "32",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TTKOM|15|P4_HAZIRLIK|2026-10-15T14:30:00Z",
       "carrierLagBars": "1"
     }
   ]
