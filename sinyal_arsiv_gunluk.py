@@ -134,7 +134,12 @@ def _donem_sec(en_eski_tarih):
 def _seri_cek(ticker, donem="3mo"):
     try:
         df = yf.Ticker(ticker).history(period=donem, interval="1d")
-        seri = [(idx.date(), float(v)) for idx, v in df["Close"].items()]
+        # 19.10 YAMA: yfinance bazen guncel/yarim barda Close=NaN doner. NaN
+        # "dolu" sayilip getiriye girer ve _ozet_hesapla'da pstdev cokerdi
+        # (Pazartesi Seans Kapanisi hatasi supheli: 28.09/05.10/12.10).
+        # NaN/<=0 kapanislar seriden atilir; o bara bagli kayit BEKLIYOR kalir.
+        seri = [(idx.date(), float(v)) for idx, v in df["Close"].items()
+                if v == v and float(v) > 0]
         return sorted(seri, key=lambda x: x[0])
     except Exception as e:
         print(f"UYARI: {ticker} veri cekilemedi -> {e}", file=sys.stderr)
