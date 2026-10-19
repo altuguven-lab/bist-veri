@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-19T10:15:15.746Z",
+  "son_guncelleme_utc": "2026-10-19T11:30:24.370Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 743
+    "adet": 744
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-19T10:15:13.426Z",
-    "sembol": "AKBNK",
+    "zaman_utc": "2026-10-19T11:30:21.184Z",
+    "sembol": "AEFES",
     "sinyal": "P4_HAZIRLIK",
     "interval": "15",
-    "fiyat": "67.15",
-    "skor": "14.34",
-    "kgs": "43",
-    "stop": "67.9",
+    "fiyat": "17.35",
+    "skor": "18.96",
+    "kgs": "22",
+    "stop": "17.56",
     "rejim": "0",
-    "relvol": "0.37",
+    "relvol": "0.69",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "2100032",
+    "p3ozet": "2000032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "AKBNK|15|P4_HAZIRLIK|2026-10-19T10:00:00Z",
+    "eventId": "AEFES|15|P4_HAZIRLIK|2026-10-19T11:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-19T11:30:21.184Z",
+      "sembol": "AEFES",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "17.35",
+      "skor": "18.96",
+      "kgs": "22",
+      "stop": "17.56",
+      "rejim": "0",
+      "relvol": "0.69",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "2000032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "AEFES|15|P4_HAZIRLIK|2026-10-19T11:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-19T10:15:13.426Z",
       "sembol": "AKBNK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-10-15T12:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-15T12:15:20.141Z",
-      "sembol": "TOASO",
-      "sinyal": "SEKTOR_ROTASYONU",
-      "interval": "15",
-      "fiyat": "247.00",
-      "skor": "10.01",
-      "kgs": "16",
-      "stop": "254.75",
-      "rejim": "0",
-      "relvol": "0.76",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "32",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "TOASO|15|SEKTOR_ROTASYONU|2026-10-15T12:00:00Z",
       "carrierLagBars": "1"
     }
   ]
