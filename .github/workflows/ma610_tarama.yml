@@ -21,7 +21,9 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install yfinance==0.2.66 pandas
-      - run: test -f config/bist100_uyeler.txt || { echo "HATA: config/bist100_uyeler.txt yok"; exit 1; }
+      - name: On kosul - uye listesi depoda mi
+        run: |
+          test -f config/bist100_uyeler.txt || { echo "HATA uye listesi yok: config/bist100_uyeler.txt"; exit 1; }
       - run: python ma610_tarama.py
         env:
           MA_PERIYOT: ${{ inputs.periyot }}
