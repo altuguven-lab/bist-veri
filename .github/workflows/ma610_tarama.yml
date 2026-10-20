@@ -33,11 +33,13 @@ jobs:
             echo "=== periyot $p ==="
             MA_PERIYOT=$p python ma610_tarama.py
           done
+      - name: Matrisi guncelle
+        run: python ma_matris.py
       - name: Sonucu commit'le
         run: |
           git config user.name "ma610-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/ma*_tarama.json data/ma*_tarama.md
+          git add data/ma*_tarama.json data/ma*_tarama.md data/ma_matris.json data/ma_matris.csv
           git diff --staged --quiet && exit 0
           git commit -m "MA tarama ${{ inputs.tip }}${{ inputs.periyot }} $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           for i in 1 2 3 4 5; do
