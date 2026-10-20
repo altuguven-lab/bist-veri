@@ -1,7 +1,7 @@
 """
 610 GUNLUK ORTALAMA TARAMASI (20.10.2026) - SALT OLCUM, Pine'a dokunmaz.
 Girdi : config/bist100_uyeler.txt  (her satirda bir kod, '#' yorum; .IS yazilmaz)
-Cikti : data/ma610_tarama.json + data/ma610_tarama.md
+Cikti : data/ma<PERIYOT>_tarama.json + .md (ornek: ma610_tarama.md, ma377_tarama.md)
 v2 (20.10): duzeltilmemis bolunme/bedelsiz tespiti ve yaklasik duzeltme eklendi (bolunme_duzelt).
 Yontem: gunluk kapanis, BASIT hareketli ortalama (SMA) son 610 islem gunu.
         yfinance auto_adjust=True (bolunme/temettu duzeltmeli kapanis) - TradingView'in
@@ -73,7 +73,7 @@ def main():
              "ma_alti_sayisi": len(alti), "ma_ustu_sayisi": len(ustu),
              "yetersiz_veri": yetersiz, "hata": hata, "ma_alti": alti, "ma_ustu": ustu}
     os.makedirs("data", exist_ok=True)
-    with open("data/ma610_tarama.json", "w", encoding="utf-8") as f:
+    with open(f"data/ma{N}_tarama.json", "w", encoding="utf-8") as f:
         json.dump(sonuc, f, ensure_ascii=False, indent=1)
     sat = [f"# {TIP}{N} taramasi", f"Uye: {len(kodlar)} | Altinda: {len(alti)} | Ustunde: {len(ustu)} | "
            f"Yetersiz veri: {len(yetersiz)} | Hata: {len(hata)}", "",
@@ -83,7 +83,7 @@ def main():
     if yetersiz: sat += ["", "Yetersiz veri (<%d bar): " % N + ", ".join(f"{r['kod']}({r['bar']})" for r in yetersiz)]
     if hata: sat += ["", "Cekilemedi: " + ", ".join(r["kod"] for r in hata)]
     sat += ["", "Gozlem ve olcumdur, yatirim tavsiyesi degildir."]
-    open("data/ma610_tarama.md", "w", encoding="utf-8").write("\n".join(sat) + "\n")
+    open(f"data/ma{N}_tarama.md", "w", encoding="utf-8").write("\n".join(sat) + "\n")
     print("\n".join(sat))
 
 if __name__ == "__main__":
