@@ -16,7 +16,7 @@ Toplam APS: 79.5 mlr TL (gün içi değişim -1.07 mlr TL) · hacim 36.7 mlr TL 
 - AEFES: fiyat -6.2%, APS +10.6% (+50 mn TL)
 - TRALT: fiyat -5.2%, APS +4.1% (+45 mn TL)
 
-**Açığa satış taramasıyla kesişim (2026-10-16):** AEFES (AS pay 12.6%, skor 2/4), EKGYO (AS pay 8.7%, skor 1/4), TTKOM (AS pay 4.0%, skor 1/4), VAKBN (AS pay 9.7%, skor 1/4)
+**Açığa satış taramasıyla kesişim (2026-10-19):** AEFES (AS pay 10.6%, skor 1/4), EKGYO (AS pay 12.2%, skor 2/4), VAKBN (AS pay 7.7%, skor 2/4)
 
 | Hisse | APS mlr TL | APS Δ% | Fiyat Δ% | Devir % | Takvim faizi % | Sinyal |
 |---|---|---|---|---|---|---|
