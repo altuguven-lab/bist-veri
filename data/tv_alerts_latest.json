@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-20T15:11:31.556Z",
+  "son_guncelleme_utc": "2026-10-20T15:11:33.689Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 860
+    "adet": 861
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-20T15:11:06.307Z",
-    "sembol": "MGROS",
+    "zaman_utc": "2026-10-20T15:11:06.672Z",
+    "sembol": "TUPRS",
     "sinyal": "GUNLUK_OZET",
     "interval": "15",
-    "fiyat": "465.25",
-    "skor": "19.96",
-    "kgs": "29",
-    "stop": "462.25",
+    "fiyat": "362.00",
+    "skor": "12.49",
+    "kgs": "14",
+    "stop": "376.75",
     "rejim": "1",
-    "relvol": "0.41",
-    "v112n": "226",
+    "relvol": "1.23",
+    "v112n": "163",
     "v112wr": "?",
-    "p3ozet": "2602032",
+    "p3ozet": "1032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "MGROS|15|GUNLUK_OZET|2026-10-20T15:00:00Z",
+    "eventId": "TUPRS|15|GUNLUK_OZET|2026-10-20T15:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-20T15:11:06.672Z",
+      "sembol": "TUPRS",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "362.00",
+      "skor": "12.49",
+      "kgs": "14",
+      "stop": "376.75",
+      "rejim": "1",
+      "relvol": "1.23",
+      "v112n": "163",
+      "v112wr": "?",
+      "p3ozet": "1032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TUPRS|15|GUNLUK_OZET|2026-10-20T15:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-20T15:11:06.307Z",
       "sembol": "MGROS",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "VAKBN|15|GUNLUK_OZET|2026-10-19T15:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-19T14:45:16.017Z",
-      "sembol": "AEFES",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "17.46",
-      "skor": "12.36",
-      "kgs": "34",
-      "stop": "17.55",
-      "rejim": "0",
-      "relvol": "1.22",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "2001032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "AEFES|15|P4_HAZIRLIK|2026-10-19T14:30:00Z",
       "carrierLagBars": "1"
     }
   ]
