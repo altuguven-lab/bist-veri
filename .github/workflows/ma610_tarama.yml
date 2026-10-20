@@ -1,0 +1,41 @@
+# 610 GUNLUK ORTALAMA TARAMASI - ELLE tetiklenir, SALT OLCUM.
+# On kosul: config/bist100_uyeler.txt depoda (100 kod, satir satir).
+name: MA610 Tarama
+on:
+  workflow_dispatch:
+    inputs:
+      periyot:
+        description: "Ortalama periyodu (gun)"
+        default: "610"
+      tip:
+        description: "SMA veya EMA"
+        default: "SMA"
+permissions:
+  contents: write
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas
+      - run: test -f config/bist100_uyeler.txt || { echo "HATA: config/bist100_uyeler.txt yok"; exit 1; }
+      - run: python ma610_tarama.py
+        env:
+          MA_PERIYOT: ${{ inputs.periyot }}
+          MA_TIP: ${{ inputs.tip }}
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "ma610-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/ma610_tarama.json data/ma610_tarama.md
+          git diff --staged --quiet && exit 0
+          git commit -m "MA610 tarama $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          exit 1
