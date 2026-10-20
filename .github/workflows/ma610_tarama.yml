@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       periyot:
-        description: "Ortalama periyodu (gun)"
+        description: "Periyot (gun); birden cok icin virgul: 144,233"
         default: "610"
       tip:
         description: "SMA veya EMA"
@@ -24,10 +24,15 @@ jobs:
       - name: On kosul - uye listesi depoda mi
         run: |
           test -f config/bist100_uyeler.txt || { echo "HATA uye listesi yok: config/bist100_uyeler.txt"; exit 1; }
-      - run: python ma610_tarama.py
+      - name: Taramayi calistir (virgullu birden cok periyot olabilir, ornek 144,233)
         env:
-          MA_PERIYOT: ${{ inputs.periyot }}
+          PERIYOTLAR: ${{ inputs.periyot }}
           MA_TIP: ${{ inputs.tip }}
+        run: |
+          for p in $(echo "$PERIYOTLAR" | tr ',' ' '); do
+            echo "=== periyot $p ==="
+            MA_PERIYOT=$p python ma610_tarama.py
+          done
       - name: Sonucu commit'le
         run: |
           git config user.name "ma610-bot"
