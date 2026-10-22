@@ -32,14 +32,6 @@
       "sektor": "Holding",
       "pozisyon_birim_yuzde": 12.0
     },
-    "MGROS": {
-      "giris_tarih": "2026-10-20",
-      "giris_fiyat": 465.25,
-      "giris_rsi": 33.2,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Perakende",
-      "pozisyon_birim_yuzde": 12.0
-    },
     "PGSUS": {
       "giris_tarih": "2026-10-20",
       "giris_fiyat": 132.0,
@@ -169,13 +161,25 @@
       "net_getiri_pct": -2.587,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Otomotiv"
+    },
+    {
+      "sembol": "MGROS",
+      "giris_tarih": "2026-10-20",
+      "cikis_tarih": "2026-10-22",
+      "tutma_gun": 2,
+      "giris_fiyat": 465.25,
+      "cikis_fiyat": 440.5,
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.57,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Perakende"
     }
   ],
-  "son_guncelleme_utc": "2026-10-21T19:21:29.207680+00:00",
+  "son_guncelleme_utc": "2026-10-22T19:16:30.512708+00:00",
   "reddedilen_sinyaller": [],
   "ozet": {
-    "toplam_kapanan": 10,
-    "isabet_pct": 20.0,
-    "ort_net_getiri_pct": -1.393
+    "toplam_kapanan": 11,
+    "isabet_pct": 18.2,
+    "ort_net_getiri_pct": -1.772
   }
 }
