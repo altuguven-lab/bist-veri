@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-22T12:15:19.513Z",
+  "son_guncelleme_utc": "2026-10-22T12:30:21.003Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 937
+    "adet": 938
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-22T12:15:16.109Z",
-    "sembol": "YKBNK",
+    "zaman_utc": "2026-10-22T12:30:17.901Z",
+    "sembol": "TOASO",
     "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "36.06",
-    "skor": "15.87",
-    "kgs": "19",
-    "stop": "36.46",
+    "fiyat": "224.7",
+    "skor": "10",
+    "kgs": "25",
+    "stop": "234",
     "rejim": "0",
-    "relvol": "4.89",
+    "relvol": "0.67",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "401032",
+    "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "YKBNK|15|SEKTOR_ROTASYONU|2026-10-22T12:00:00Z",
+    "eventId": "TOASO|15|SEKTOR_ROTASYONU|2026-10-22T12:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-22T12:30:17.901Z",
+      "sembol": "TOASO",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "224.7",
+      "skor": "10",
+      "kgs": "25",
+      "stop": "234",
+      "rejim": "0",
+      "relvol": "0.67",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "TOASO|15|SEKTOR_ROTASYONU|2026-10-22T12:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-22T12:15:16.109Z",
       "sembol": "YKBNK",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "KCHOL|15|P3_SKOR_AL|2026-10-20T14:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-20T14:30:25.795Z",
-      "sembol": "EKGYO",
-      "sinyal": "P2_ADAY",
-      "interval": "15",
-      "fiyat": "19.11",
-      "skor": "30.93",
-      "kgs": "66",
-      "stop": "19.080000000000002",
-      "rejim": "2",
-      "relvol": "0.62",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "5801032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "EKGYO|15|P2_ADAY|2026-10-20T14:15:00Z",
       "carrierLagBars": "1"
     }
   ]
