@@ -1,9 +1,11 @@
 """
-FON KRIZI DIRENC TARAMASI (23.10.2026) - SALT OLCUM, Pine'a dokunmaz.
+FON KRIZI DIRENC TARAMASI v2 (23.10.2026) - SALT OLCUM, Pine'a dokunmaz.
 Girdi : config/bist100_uyeler.txt, data/viop_hisse_gunluk.json (varsa)
 Cikti : data/direnc_tarama.json + data/direnc_tarama.csv
-Yontem: yfinance gunluk kapanis (auto_adjust=True) + ma610_tarama.bolunme_duzelt ile
-        duzeltilmemis bedelsiz tespiti. Endeks referansi XU100.IS.
+Yontem: yfinance gunluk kapanis, FIYAT bazli (auto_adjust=False -> Close yalniz bolunme duzeltmeli,
+        temettu dahil DEGIL). v1 temettu duzeltmeli kapanis kullaniyordu; XU100 bir FIYAT endeksi
+        oldugu icin yuksek temettulu hisselerin endekse gore farki sisiyordu (v2 duzeltmesi).
+        ma610_tarama.bolunme_duzelt ile duzeltilmemis bedelsiz tespiti. Endeks referansi XU100.IS.
 Olculer (hepsi %):
   r_2y, r_1y, r_1a      : 504 / 252 / 21 islem gunu getiri
   r_ytd                 : 2025 son kapanisina gore
@@ -29,7 +31,7 @@ AGIRLIK = {"r_kriz_rel": 0.30, "dd_kriz_rel": 0.20, "r_1a_rel": 0.20, "r_1y_rel"
 
 
 def seri(kod):
-    df = yf.Ticker(kod).history(period="3y", interval="1d", auto_adjust=True)
+    df = yf.Ticker(kod).history(period="3y", interval="1d", auto_adjust=False)
     c = df["Close"].dropna()
     c = c[c > 0]
     c.index = pd.to_datetime(c.index).tz_localize(None).normalize()
@@ -103,8 +105,15 @@ def yuzdelik(degerler):
 
 def main():
     x = seri("XU100.IS")
+    xg = x.pct_change().abs().max()
+    if xg > 0.25:   # endeks serisinde kirilma (or. 2020 iki sifir) -> duzelt
+        x, _ = bolunme_duzelt(x)
     xo = olc(x)
+    xo["en_buyuk_gunluk_degisim_pct"] = round(float(xg) * 100, 2)
     viop, viop_gun = viop_oi()
+    kd = set()
+    if os.path.exists("config/kapsam_disi.txt"):
+        kd = {l.split("#")[0].strip().upper() for l in open("config/kapsam_disi.txt", encoding="utf-8") if l.split("#")[0].strip()}
     satir, hata = [], []
     for kod in uyeler():
         try:
@@ -116,6 +125,7 @@ def main():
             for k in ("r_2y", "r_1y", "r_1a", "r_ytd", "r_kriz", "dd_kriz"):
                 o[k + "_rel"] = round(o[k] - xo[k], 2) if o.get(k) is not None and xo.get(k) is not None else None
             o.update(viop.get(kod, {}))
+            o["kapsam_disi"] = kod in kd
             satir.append(o)
         except Exception as e:  # sessizce atlanmaz, listelenir
             hata.append({"kod": kod, "neden": str(e)[:160]})
@@ -135,7 +145,7 @@ def main():
     out = {"uretim_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
            "kriz_oncesi_referans": str(KRIZ.date()), "agirliklar": AGIRLIK,
            "viop_gunleri": viop_gun, "xu100": xo, "uye_sayisi": len(satir), "hata": hata,
-           "not": "Salt olcum. Direnc skoru gecmis goreli fiyat davranisidir; yon tahmini veya tavsiye degildir. "
+           "surum": "v2-fiyat-bazli", "not": "Salt olcum. Getiriler fiyat bazli (temettu haric), XU100 fiyat endeksiyle tutarli. Direnc skoru gecmis goreli fiyat davranisidir; yon tahmini veya tavsiye degildir. "
                   "Seans icinde calisirsa son bar anliktir.",
            "satirlar": satir}
     os.makedirs("data", exist_ok=True)
