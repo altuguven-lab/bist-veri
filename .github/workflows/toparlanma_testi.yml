@@ -1,0 +1,41 @@
+# SERT DUSUS SONRASI TOPARLANMA TESTI - ELLE tetiklenir, SALT OLCUM.
+# On kosul: config/bist100_uyeler.txt, ma610_tarama.py; istege bagli config/bist50_uyeler.txt, config/fon_krizi_baglantili.txt
+name: Toparlanma Testi
+on:
+  workflow_dispatch:
+    inputs:
+      esik:
+        description: "Epizot esigi (XU100 60 gunluk zirveden dusus, ornek 0.15)"
+        default: "0.15"
+      kriz_oncesi:
+        description: "Bugunku krizin referans gunu"
+        default: "2026-09-15"
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy
+      - name: Testi calistir
+        env:
+          ESIK: ${{ inputs.esik }}
+          KRIZ_ONCESI: ${{ inputs.kriz_oncesi }}
+        run: python toparlanma_testi.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "toparlanma-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/toparlanma_testi.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Toparlanma testi $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          exit 1
