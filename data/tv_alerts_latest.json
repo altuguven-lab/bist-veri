@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-23T07:15:24.243Z",
+  "son_guncelleme_utc": "2026-10-23T07:30:15.519Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 979
+    "adet": 980
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-23T07:15:22.984Z",
-    "sembol": "ENJSA",
-    "sinyal": "SEKTOR_ROTASYONU",
+    "zaman_utc": "2026-10-23T07:30:14.320Z",
+    "sembol": "EREGL",
+    "sinyal": "ACIL_CIK",
     "interval": "15",
-    "fiyat": "112.7",
+    "fiyat": "32.28",
     "skor": "10",
-    "kgs": "6",
-    "stop": "117",
+    "kgs": "7",
+    "stop": "36.12",
     "rejim": "0",
-    "relvol": "0.89",
+    "relvol": "2",
     "v112n": "?",
     "v112wr": "?",
     "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ENJSA|15|SEKTOR_ROTASYONU|2026-10-23T07:00:00Z",
+    "eventId": "EREGL|15|ACIL_CIK|2026-10-23T07:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-23T07:30:14.320Z",
+      "sembol": "EREGL",
+      "sinyal": "ACIL_CIK",
+      "interval": "15",
+      "fiyat": "32.28",
+      "skor": "10",
+      "kgs": "7",
+      "stop": "36.12",
+      "rejim": "0",
+      "relvol": "2",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "EREGL|15|ACIL_CIK|2026-10-23T07:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-23T07:15:22.984Z",
       "sembol": "ENJSA",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "VAKBN|15|P3_RADAR|2026-10-21T09:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-21T09:30:07.398Z",
-      "sembol": "YKBNK",
-      "sinyal": "P3_SKOR_AL",
-      "interval": "15",
-      "fiyat": "36.62",
-      "skor": "37.02",
-      "kgs": "71",
-      "stop": "36.480000000000004",
-      "rejim": "1",
-      "relvol": "1.81",
-      "v112n": "64",
-      "v112wr": "?",
-      "p3ozet": "7902032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "YKBNK|15|P3_SKOR_AL|2026-10-21T09:15:00Z",
       "carrierLagBars": "1"
     }
   ]
