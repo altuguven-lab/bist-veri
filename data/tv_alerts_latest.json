@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-23T12:15:11.189Z",
+  "son_guncelleme_utc": "2026-10-23T12:30:26.030Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 985
+    "adet": 986
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-23T12:15:07.869Z",
-    "sembol": "ASELS",
-    "sinyal": "P4_HAZIRLIK",
+    "zaman_utc": "2026-10-23T12:30:24.350Z",
+    "sembol": "ENJSA",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "329.00",
-    "skor": "11.67",
-    "kgs": "16",
-    "stop": "338.25",
+    "fiyat": "109.7",
+    "skor": "18.67",
+    "kgs": "19",
+    "stop": "116.80000000000001",
     "rejim": "0",
-    "relvol": "1.34",
+    "relvol": "1.25",
     "v112n": "?",
     "v112wr": "?",
-    "p3ozet": "32",
+    "p3ozet": "1200032",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "ASELS|15|P4_HAZIRLIK|2026-10-23T12:00:00Z",
+    "eventId": "ENJSA|15|SEKTOR_ROTASYONU|2026-10-23T12:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-23T12:30:24.350Z",
+      "sembol": "ENJSA",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "109.7",
+      "skor": "18.67",
+      "kgs": "19",
+      "stop": "116.80000000000001",
+      "rejim": "0",
+      "relvol": "1.25",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "1200032",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ENJSA|15|SEKTOR_ROTASYONU|2026-10-23T12:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-23T12:15:07.869Z",
       "sembol": "ASELS",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "PGSUS|15|SEKTOR_ROTASYONU|2026-10-21T13:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-21T12:45:26.567Z",
-      "sembol": "KCHOL",
-      "sinyal": "P4_HAZIRLIK",
-      "interval": "15",
-      "fiyat": "204.7",
-      "skor": "35.58",
-      "kgs": "52",
-      "stop": "207.3",
-      "rejim": "0",
-      "relvol": "1.17",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "3800032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "KCHOL|15|P4_HAZIRLIK|2026-10-21T12:30:00Z",
       "carrierLagBars": "1"
     }
   ]
