@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-23T10:00:40.293Z",
+  "son_guncelleme_utc": "2026-10-23T11:30:21.907Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 982
+    "adet": 983
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-23T10:00:37.371Z",
+    "zaman_utc": "2026-10-23T11:30:20.624Z",
     "sembol": "PGSUS",
     "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "122.6",
-    "skor": "10",
-    "kgs": "11",
-    "stop": "129.8",
+    "fiyat": "121.7",
+    "skor": "10.26",
+    "kgs": "6",
+    "stop": "129.9",
     "rejim": "0",
-    "relvol": "1.01",
+    "relvol": "1.12",
     "v112n": "?",
     "v112wr": "?",
     "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "PGSUS|15|SEKTOR_ROTASYONU|2026-10-23T09:45:00Z",
+    "eventId": "PGSUS|15|SEKTOR_ROTASYONU|2026-10-23T11:15:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-23T11:30:20.624Z",
+      "sembol": "PGSUS",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "121.7",
+      "skor": "10.26",
+      "kgs": "6",
+      "stop": "129.9",
+      "rejim": "0",
+      "relvol": "1.12",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "PGSUS|15|SEKTOR_ROTASYONU|2026-10-23T11:15:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-23T10:00:37.371Z",
       "sembol": "PGSUS",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "YKBNK|15|P3_RADAR|2026-10-21T10:00:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-21T09:45:14.763Z",
-      "sembol": "GARAN",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "134.2",
-      "skor": "43.79",
-      "kgs": "70",
-      "stop": "133.4",
-      "rejim": "2",
-      "relvol": "0.71",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "6102032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "GARAN|15|P3_RADAR|2026-10-21T09:30:00Z",
       "carrierLagBars": "1"
     }
   ]
