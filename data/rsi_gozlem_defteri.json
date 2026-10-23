@@ -8,36 +8,12 @@
       "sektor": "Otomotiv",
       "pozisyon_birim_yuzde": 12.0
     },
-    "AEFES": {
-      "giris_tarih": "2026-09-01",
-      "giris_fiyat": 18.079999923706055,
-      "giris_rsi": 31.5,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Gida-Icecek",
-      "pozisyon_birim_yuzde": 12.0
-    },
-    "THYAO": {
-      "giris_tarih": "2026-09-17",
-      "giris_fiyat": 289.25,
-      "giris_rsi": 42.9,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Havacilik",
-      "pozisyon_birim_yuzde": 12.0
-    },
     "SAHOL": {
       "giris_tarih": "2026-09-18",
       "giris_fiyat": 88.05000305175781,
       "giris_rsi": 41.2,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Holding",
-      "pozisyon_birim_yuzde": 12.0
-    },
-    "PGSUS": {
-      "giris_tarih": "2026-10-20",
-      "giris_fiyat": 132.0,
-      "giris_rsi": 37.6,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Havacilik",
       "pozisyon_birim_yuzde": 12.0
     }
   },
@@ -173,13 +149,49 @@
       "net_getiri_pct": -5.57,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Perakende"
+    },
+    {
+      "sembol": "THYAO",
+      "giris_tarih": "2026-09-17",
+      "cikis_tarih": "2026-10-23",
+      "tutma_gun": 36,
+      "giris_fiyat": 289.25,
+      "cikis_fiyat": 254.54,
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Havacilik"
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2026-09-01",
+      "cikis_tarih": "2026-10-23",
+      "tutma_gun": 52,
+      "giris_fiyat": 18.079999923706055,
+      "cikis_fiyat": 15.910399932861328,
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Gida-Icecek"
+    },
+    {
+      "sembol": "PGSUS",
+      "giris_tarih": "2026-10-20",
+      "cikis_tarih": "2026-10-23",
+      "tutma_gun": 3,
+      "giris_fiyat": 132.0,
+      "cikis_fiyat": 124.69999694824219,
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.78,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Havacilik"
     }
   ],
-  "son_guncelleme_utc": "2026-10-22T19:16:30.512708+00:00",
+  "son_guncelleme_utc": "2026-10-23T19:20:04.002425+00:00",
   "reddedilen_sinyaller": [],
   "ozet": {
-    "toplam_kapanan": 11,
-    "isabet_pct": 18.2,
-    "ort_net_getiri_pct": -1.772
+    "toplam_kapanan": 14,
+    "isabet_pct": 14.3,
+    "ort_net_getiri_pct": -3.556
   }
 }
