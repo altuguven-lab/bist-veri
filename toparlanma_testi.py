@@ -1,5 +1,5 @@
 """
-SERT DUSUS SONRASI TOPARLANMA TESTI (23.10.2026) - SALT OLCUM, Pine'a dokunmaz.
+SERT DUSUS SONRASI TOPARLANMA TESTI v2 (23.10.2026) - SALT OLCUM, Pine'a dokunmaz.
 Soru: BIST'te gecmis sert dususlerden sonraki ilk toparlanmayi, dususte en cok kaybeden /
       yuksek betali hisseler mi cekti?
 Girdi : config/bist100_uyeler.txt (bugunku uyeler -> hayatta kalma yanliligi VAR, raporda yazilir)
@@ -8,7 +8,10 @@ Girdi : config/bist100_uyeler.txt (bugunku uyeler -> hayatta kalma yanliligi VAR
 Cikti : data/toparlanma_testi.json
 Yontem:
   1) XU100 10 yillik gunluk kapanis. Epizot = kapanisin onceki 60 islem gunu zirvesinden
-     en az ESIK (%15) dustugu bolgelerin dibi; epizotlar arasi en az 120 gun.
+     en az ESIK (%15) dustugu bolge. v2: dip, endeks bolge icindeki en dusuk kapanistan %15
+     toparlanana (veya 250 gun dolana) kadar aranir; v1 sabit 60 gunluk pencere kullaniyordu ve
+     2018'de Agustos kur sokunu disarida birakip dibi erken isaretliyordu. Epizotlar arasi en az 120 gun.
+     Fiyat bazli kapanis (auto_adjust=False): XU100 fiyat endeksiyle tutarli, temettu haric.
      Zirve = dipten onceki 60 gunun en yuksek kapanisi. Dip ex-post belirlenir (gercek zamanda bilinmez).
   2) Her epizot ve hisse icin: dusus (zirve->dip), beta (zirveden onceki 252 gun),
      toparlanma T+10/T+20/T+60 (dipten sonra), XU100'e gore fark.
@@ -40,7 +43,7 @@ def oku_liste(yol):
 
 
 def seri(kod, tam=False):
-    df = yf.Ticker(kod).history(period="10y", interval="1d", auto_adjust=True)
+    df = yf.Ticker(kod).history(period="10y", interval="1d", auto_adjust=False)
     df = df[df["Close"] > 0].dropna(subset=["Close"])
     df.index = pd.to_datetime(df.index).tz_localize(None).normalize()
     return df if tam else df["Close"]
@@ -51,10 +54,18 @@ def epizotlar(x):
     secilen, i, n = [], 0, len(x)
     while i < n:
         if dd[i] <= -ESIK:
-            p = i + int(np.argmin(x.values[i:i + PENCERE]))      # bu bolgenin dibi
+            # dip: en dusuk kapanistan %15 toparlanana ya da 250 gun dolana kadar ara
+            j, p = i, i
+            while j < n and j - i <= 250:
+                if x.values[j] < x.values[p]:
+                    p = j
+                elif x.values[j] >= x.values[p] * (1 + ESIK):
+                    break
+                j += 1
             if p + max(UFUK) >= n:                              # sonrasi yetersiz: bugunku epizot, test disi
                 break
-            z = max(0, p - PENCERE) + int(np.argmax(x.values[max(0, p - PENCERE):p + 1]))
+            z0 = max(0, i - PENCERE)                             # zirve: tetik oncesi 60 gun ile dip arasi
+            z = z0 + int(np.argmax(x.values[z0:p + 1]))
             secilen.append({"zirve": x.index[z], "dip": x.index[p],
                             "xu_dusus": round((x.iloc[p] / x.iloc[z] - 1) * 100, 2)})
             i = p + ARA
@@ -89,7 +100,11 @@ def main():
     uyeler = oku_liste("config/bist100_uyeler.txt")
     b50 = set(oku_liste("config/bist50_uyeler.txt") or [])
     fon = set(oku_liste("config/fon_krizi_baglantili.txt") or [])
+    kd = set(oku_liste("config/kapsam_disi.txt") or [])
     x = seri("XU100.IS")
+    xg = float(x.pct_change().abs().max())
+    if xg > 0.25:   # endeks serisinde kirilma (or. 2020 iki sifir) -> duzelt
+        x, _ = bolunme_duzelt(x)
     xi = list(x.index)
     eps = epizotlar(x)
     veri, hata = {}, []
@@ -165,13 +180,13 @@ def main():
         b = beta(c, x, x.index[-1])
         r = {"kod": k, "dusus_zirveden": round(d, 2), "dusus_rel": round(d - xu_simdi, 2),
              "beta_1y": None if b is None else round(b, 2), "tl_hacim_60_mn": round(v["tl_hacim_60"] / 1e6, 1),
-             "bist50": (k in b50) if b50 else None, "fon_krizi": k in fon}
+             "bist50": (k in b50) if b50 else None, "fon_krizi": k in fon, "kapsam_disi": k in kd}
         if model and b is not None:
             r["model_rel_T20"] = round(model["sabit"] + model["b_dusus_rel"] * r["dusus_rel"] + model["c_beta"] * b, 2)
         simdi.append(r)
     simdi.sort(key=lambda r: -(r.get("model_rel_T20") if r.get("model_rel_T20") is not None else -999))
 
-    out = {"uretim_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(), "esik": ESIK,
+    out = {"uretim_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(), "esik": ESIK, "surum": "v2", "xu100_en_buyuk_gunluk_degisim_pct": round(xg * 100, 2),
            "kriz_oncesi_referans": str(zt.date()), "xu100_zirveden_dusus": round(xu_simdi, 2),
            "epizotlar": ep_ozet, "havuz_model": model, "bugun": simdi, "hata": hata,
            "uyari": ["Hayatta kalma yanliligi: bugunku BIST 100 uyeleri gecmise uygulandi.",
