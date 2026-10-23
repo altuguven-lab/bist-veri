@@ -1,31 +1,50 @@
 {
-  "son_guncelleme_utc": "2026-10-23T07:30:15.519Z",
+  "son_guncelleme_utc": "2026-10-23T09:15:18.409Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 100,
   "ay_sayac": {
     "ay": "2026-10",
-    "adet": 980
+    "adet": 981
   },
   "son_sinyal": {
-    "zaman_utc": "2026-10-23T07:30:14.320Z",
-    "sembol": "EREGL",
-    "sinyal": "ACIL_CIK",
+    "zaman_utc": "2026-10-23T09:15:17.468Z",
+    "sembol": "BIMAS",
+    "sinyal": "SEKTOR_ROTASYONU",
     "interval": "15",
-    "fiyat": "32.28",
-    "skor": "10",
-    "kgs": "7",
-    "stop": "36.12",
+    "fiyat": "370.50",
+    "skor": "12.4",
+    "kgs": "32",
+    "stop": "381.25",
     "rejim": "0",
-    "relvol": "2",
+    "relvol": "1.15",
     "v112n": "?",
     "v112wr": "?",
     "p3ozet": "32",
     "pozsebep": "?",
     "schemaVersion": "v162.2",
-    "eventId": "EREGL|15|ACIL_CIK|2026-10-23T07:15:00Z",
+    "eventId": "BIMAS|15|SEKTOR_ROTASYONU|2026-10-23T09:00:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-10-23T09:15:17.468Z",
+      "sembol": "BIMAS",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "interval": "15",
+      "fiyat": "370.50",
+      "skor": "12.4",
+      "kgs": "32",
+      "stop": "381.25",
+      "rejim": "0",
+      "relvol": "1.15",
+      "v112n": "?",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "BIMAS|15|SEKTOR_ROTASYONU|2026-10-23T09:00:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-10-23T07:30:14.320Z",
       "sembol": "EREGL",
@@ -1905,25 +1924,6 @@
       "pozsebep": "?",
       "schemaVersion": "v162.2",
       "eventId": "ALARK|15|P4_HAZIRLIK|2026-10-21T09:15:00Z",
-      "carrierLagBars": "1"
-    },
-    {
-      "zaman_utc": "2026-10-21T09:30:16.799Z",
-      "sembol": "VAKBN",
-      "sinyal": "P3_RADAR",
-      "interval": "15",
-      "fiyat": "33.02",
-      "skor": "17.9",
-      "kgs": "49",
-      "stop": "33.14",
-      "rejim": "1",
-      "relvol": "0.85",
-      "v112n": "?",
-      "v112wr": "?",
-      "p3ozet": "3702032",
-      "pozsebep": "?",
-      "schemaVersion": "v162.2",
-      "eventId": "VAKBN|15|P3_RADAR|2026-10-21T09:15:00Z",
       "carrierLagBars": "1"
     }
   ]
