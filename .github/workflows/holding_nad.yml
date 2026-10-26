@@ -1,0 +1,31 @@
+# HOLDING NAD ISKONTO - ELLE tetiklenir, SALT OLCUM. Mevcut holding_nad_gozlem.py'yi tek basina calistirir
+# (temel_veri_topla.yml'nin agir temel veri adimlarini beklemeden).
+name: Holding NAD
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  nad:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas
+      - name: Holding NAD hesapla
+        run: python holding_nad_gozlem.py
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "nad-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/holding_nad.json holding_nad.md
+          git diff --staged --quiet && exit 0
+          git commit -m "Holding NAD $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          exit 1
