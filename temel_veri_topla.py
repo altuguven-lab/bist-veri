@@ -21,6 +21,12 @@ KALEMLER = ("3Z","2O","2OA","2N","3C","3DF","4B","4CAB","2AA","2BA","2AAG","2BB"
             # 3CF kredi ve diger alacaklar deger dusus karsiligi (risk maliyeti vekili), 3CG diger faaliyet giderleri
             "1Z","1AFA","2A","3C","3CA","3CE","3CF","3CG")
 BANKALAR = {"AKBNK","YKBNK","GARAN","ISCTR","HALKB","VAKBN"}
+
+# 26.10 EKI: EVREN=BIST100 ortam degiskeniyle 100 sembol (config/bist100_uyeler.txt). Varsayilan davranis (30 sembol) DEGISMEDI.
+_EVREN = os.environ.get("EVREN", "")
+if _EVREN == "BIST100":
+    SEMBOLLER = [l.split("#")[0].strip().upper().replace(".IS", "") for l in open("config/bist100_uyeler.txt", encoding="utf-8") if l.split("#")[0].strip()]
+    BANKALAR = BANKALAR | {"TSKB", "ALBRK"}
 URL = "https://www.isyatirim.com.tr/_layouts/15/IsYatirim.Website/Common/Data.aspx/MaliTablo"
 UA = "Mozilla/5.0 (bist-veri temel_veri_topla)"
 BASLANGIC_YIL = 2020   # TTM icin bir onceki yil sonu gerekir; carpanlar 2021'den itibaren uretilir
