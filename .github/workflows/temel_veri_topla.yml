@@ -14,6 +14,11 @@ on:
 permissions:
   contents: write
 
+# 26.10 EKI: Deger Tarama ile ayni dosyalara yazar; ayni anda calismasinlar.
+concurrency:
+  group: temel-veri
+  cancel-in-progress: false
+
 jobs:
   topla:
     runs-on: ubuntu-latest
