@@ -1,0 +1,56 @@
+# DEGERLEME TARAMASI (BIST 100) - ELLE tetiklenir, SALT OLCUM, TAVSIYE DEGILDIR.
+# 1) Is Yatirim mali tablolari 100 sembol (EVREN=BIST100) 2) F/K-PD/DD carpanlari 3) uc yontemli tahmini deger.
+# Varsayilan 30 sembollu temel_veri_topla.yml AKISI ETKILENMEZ (ayri cikti dosyalari).
+name: Deger Tarama
+on:
+  workflow_dispatch:
+    inputs:
+      rf_usd:
+        description: "ABD 10 yillik faiz (%)"
+        default: "4.97"
+      cds_tr:
+        description: "Turkiye 5 yillik CDS (puan/100, ornek 2.58)"
+        default: "2.58"
+      erp:
+        description: "Hisse risk primi (%)"
+        default: "5.0"
+permissions:
+  contents: write
+jobs:
+  deger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy
+      - name: Mali tablolar (100 sembol)
+        env:
+          EVREN: BIST100
+          KESIF: "0"
+        run: python temel_veri_topla.py
+      - name: Carpanlar (100 sembol)
+        env:
+          EVREN: BIST100
+        run: python temel_carpan_gozlem.py
+      - name: Degerleme
+        env:
+          RF_USD: ${{ inputs.rf_usd }}
+          CDS_TR: ${{ inputs.cds_tr }}
+          ERP: ${{ inputs.erp }}
+        run: python deger_tarama.py
+      - name: Commit
+        run: |
+          git config user.name "deger-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data/temel data/temel_carpan_bist100.json temel_carpan_bist100.md data/deger_tarama.json data/deger_tarama.csv
+          git diff --staged --quiet && exit 0
+          git commit -m "Deger tarama BIST100 $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          exit 1
