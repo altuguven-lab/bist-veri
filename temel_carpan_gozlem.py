@@ -24,6 +24,12 @@ SEMBOLLER = ["AKBNK","YKBNK","GARAN","ISCTR","SAHOL","KCHOL","THYAO","TAVHL","ER
  "BIMAS","TUPRS","TOASO","FROTO","ENKAI","TTKOM","AEFES","PGSUS","HALKB","VAKBN","OTKAR","PETKM","SISE",
  "EKGYO","TRMET","ALARK","ENJSA","ULKER"]
 BANKALAR = {"AKBNK","YKBNK","GARAN","ISCTR","HALKB","VAKBN"}
+
+# 26.10 EKI: EVREN=BIST100 ortam degiskeniyle 100 sembol (config/bist100_uyeler.txt). Varsayilan davranis (30 sembol) DEGISMEDI.
+_EVREN = os.environ.get("EVREN", "")
+if _EVREN == "BIST100":
+    SEMBOLLER = [l.split("#")[0].strip().upper().replace(".IS", "") for l in open("config/bist100_uyeler.txt", encoding="utf-8") if l.split("#")[0].strip()]
+    BANKALAR = BANKALAR | {"TSKB", "ALBRK"}
 YEDEK = {"TRMET": "KOZAA", "TRALT": "KOZAL"}
 GECIKME = {3: 60, 6: 70, 9: 60, 12: 70}
 DIP_YUZDELIK = 20.0
@@ -172,6 +178,8 @@ def ek_olcular(res, bilgi, fiyat_son, temettu_12ay):
     return out
 
 BORC_ATLA = {"AKBNK","YKBNK","GARAN","ISCTR","HALKB","VAKBN","SAHOL","KCHOL"}   # banka + finans kolu konsolide holding: FD anlamsiz
+if _EVREN == "BIST100":
+    BORC_ATLA = BORC_ATLA | {"TSKB", "ALBRK", "ANSGR", "TURSG", "ISMEN", "AGHOL", "DOHOL"}
 
 def borc_nakit_olculer(ham, mcap_tl, mcap_usd):
     """Banka disi / holding disi: FD/FAVOK, net borc/FAVOK, FD/Satis, FAVOK ve net kar marji, FCF verimi, kar kalitesi.
@@ -338,10 +346,10 @@ def main():
                     "son_bilanco": (bilgi["tl"][-1]["donem"] if bilgi["tl"] else None)}
     kayit = {"olusturma_utc": datetime.now(timezone.utc).isoformat(), "mod": "TEST" if test else "GERCEK",
              "dip_yuzdelik_esigi": DIP_YUZDELIK, "atlanan": atlanan, "semboller": sonuc}
-    json.dump(kayit, open("data/temel_carpan.json" if not test else "/tmp/temel_carpan_test.json", "w", encoding="utf-8"),
+    json.dump(kayit, open(("data/temel_carpan_bist100.json" if _EVREN == "BIST100" else "data/temel_carpan.json") if not test else "/tmp/temel_carpan_test.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
     md = rapor(kayit)
-    open("temel_carpan.md" if not test else "/tmp/temel_carpan_test.md", "w", encoding="utf-8").write(md)
+    open(("temel_carpan_bist100.md" if _EVREN == "BIST100" else "temel_carpan.md") if not test else "/tmp/temel_carpan_test.md", "w", encoding="utf-8").write(md)
     print(md[:3000])
 
 def sat(s, d, k):
