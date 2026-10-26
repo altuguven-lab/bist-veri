@@ -16,6 +16,9 @@ on:
         default: "5.0"
 permissions:
   contents: write
+concurrency:
+  group: temel-veri
+  cancel-in-progress: false
 jobs:
   deger:
     runs-on: ubuntu-latest
@@ -51,6 +54,8 @@ jobs:
           for i in 1 2 3 4 5; do
             if git push; then exit 0; fi
             sleep $(( (RANDOM % 8) + 3 ))
-            git pull --rebase origin main
+            # 26.10 DUZELTME: ayni dosyalara (data/temel) yazan haftalik Temel Veri Topla ile cakisirsa
+            # bu calismanin (daha yeni) surumu korunur: rebase sirasinda -X theirs = bizim commit.
+            git pull --rebase -X theirs origin main
           done
           exit 1
