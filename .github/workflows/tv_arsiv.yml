@@ -1,0 +1,33 @@
+# TV SINYAL ARSIVI - latest'teki sinyalleri aylik arsive tekil ekler (veri kaybini onler). SALT VERI KORUMA.
+name: TV Arsiv Birlestir
+on:
+  schedule:
+    - cron: "17 10,16,20 * * 1-5"   # 13:17, 19:17, 23:17 TSI
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tv-arsiv
+  cancel-in-progress: false
+jobs:
+  birlestir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python tv_arsiv_birlestir.py
+      - name: Commit
+        run: |
+          git config user.name "arsiv-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/arsiv/tv_alerts_*.json
+          git diff --staged --quiet && exit 0
+          git commit -m "TV sinyal arsivi birlestirme $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase origin main
+          done
+          exit 1
