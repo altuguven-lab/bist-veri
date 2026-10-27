@@ -1,0 +1,51 @@
+# ALARM KARNESI - SALT OLCUM, Pine'a dokunmaz, TAVSIYE DEGILDIR.
+# Komite doc'u "Seytanin Avukati: sistem denetimi (27.10)" Oncelik A1-A2.
+# Her alarm turunun T+1/3/5/10 getirisini XU100'e ve sektor sepetine gore, gun/hafta kumelenmis
+# istatistikle ve maliyet dusulerek olcer; on kayitli hukum kurallariyla tur basina hukum yazar.
+# Zamanlama: hafta ici 19:40 TR (16:40 UTC) - TV Arsiv Birlestir'in 16:17 UTC calismasindan sonra.
+name: Alarm Karnesi
+on:
+  schedule:
+    - cron: "40 16 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      maliyet_pct:
+        description: "Gidis-donus maliyet + kayma (%)"
+        default: "0.25"
+      kriz_oncesi:
+        description: "Rejim ayrimi tarihi (YYYY-AA-GG)"
+        default: "2026-09-15"
+permissions:
+  contents: write
+concurrency:
+  group: alarm-karne
+  cancel-in-progress: false
+jobs:
+  karne:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy
+      - name: Alarm karnesi
+        env:
+          MALIYET_PCT: ${{ inputs.maliyet_pct || '0.25' }}
+          KRIZ_ONCESI: ${{ inputs.kriz_oncesi || '2026-09-15' }}
+        run: python alarm_karne.py
+      - name: Commit
+        run: |
+          git config user.name "karne-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/alarm_karne.json data/alarm_karne.md data/alarm_karne_olaylar.csv
+          git diff --staged --quiet && exit 0
+          git commit -m "Alarm karnesi $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            # yalniz kendi uc dosyamiza yaziyoruz: cakismada bu calismanin surumu korunur
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
