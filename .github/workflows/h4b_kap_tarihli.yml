@@ -1,0 +1,38 @@
+# H4b BILANCO SURPRIZI (KAP TARIHLI) - ELLE tetiklenir, SALT OLCUM, Pine'a dokunmaz, TAVSIYE DEGILDIR.
+# Kurallar ON_KAYIT_H4B.md'de. KAP Finansal Rapor Tarihleri toplayicisi "tamamlandi" olmadan
+# sonuc VERI_YETERSIZ yazar (hukum uretmez).
+name: H4b KAP Tarihli Test
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: h-testleri
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy PyYAML==6.0.2
+      - name: On kayit dosyasi var mi
+        run: test -f ON_KAYIT_H4B.md || { echo "ON_KAYIT_H4B.md yok"; exit 1; }
+      - name: H4b testi
+        run: python h4b_kap_tarihli.py
+      - name: Commit
+        run: |
+          git config user.name "h-test-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/h4b
+          git diff --staged --quiet && exit 0
+          git commit -m "H4b KAP tarihli test $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
