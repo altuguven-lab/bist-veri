@@ -1,0 +1,44 @@
+# H1-H3 HIPOTEZ TESTLERI - ELLE tetiklenir, SALT OLCUM, Pine'a dokunmaz, TAVSIYE DEGILDIR.
+# Kurallar ON_KAYIT_H1_H3.md'de (bu is akisindan ONCE commit edilmis olmali).
+# Her calisma data/h_testleri/deneme_kaydi.json'a eklenir; on kayit SHA-256 sonuca yazilir.
+name: H1-H3 Hipotez Testleri
+on:
+  workflow_dispatch:
+    inputs:
+      bist100_saglamlik:
+        description: "H1'i BIST100 evreninde de calistir (1/0, yalniz saglamlik)"
+        default: "1"
+permissions:
+  contents: write
+concurrency:
+  group: h-testleri
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy PyYAML==6.0.2
+      - name: On kayit dosyasi var mi
+        run: test -f ON_KAYIT_H1_H3.md || { echo "ON_KAYIT_H1_H3.md yok - once on kayit commit edilmeli"; exit 1; }
+      - name: Testler
+        env:
+          SAGLAMLIK_BIST100: ${{ inputs.bist100_saglamlik }}
+        run: python h_testleri.py
+      - name: Commit
+        run: |
+          git config user.name "h-test-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/h_testleri
+          git diff --staged --quiet && exit 0
+          git commit -m "H1-H3 testleri $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
