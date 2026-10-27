@@ -1,0 +1,46 @@
+# H4 GOLGE IZLEME - SALT OLCUM, Pine'a dokunmaz, TAVSIYE DEGILDIR.
+# Kurallar ON_KAYIT_H4_GOLGE.md'de. Her calismada BIST100 mali tablolari tazelenir, giris gunu gelen
+# ceyregin IYI/KOTU listeleri dondurulur, dondurulmus listelerin performansi guncellenir.
+# Zamanlama: her Sali 09:15 TR (06:15 UTC); Pazartesi Temel Veri Topla ile cakismaz.
+name: H4 Golge Izleme
+on:
+  schedule:
+    - cron: "15 6 * * 2"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: temel-veri
+  cancel-in-progress: false
+jobs:
+  golge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy PyYAML==6.0.2
+      - name: On kayit dosyasi var mi
+        run: test -f ON_KAYIT_H4_GOLGE.md || { echo "ON_KAYIT_H4_GOLGE.md yok"; exit 1; }
+      - name: Mali tablolar (BIST100)
+        env:
+          EVREN: BIST100
+          KESIF: "0"
+        run: python temel_veri_topla.py
+      - name: Golge izleme
+        run: python h4_golge.py
+      - name: Commit
+        run: |
+          git config user.name "h4-golge-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data/temel data/h4/golge.json data/h4/golge.md
+          git diff --staged --quiet && exit 0
+          git commit -m "H4 golge izleme $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
