@@ -1,5 +1,5 @@
 """
-DEGERLEME TARAMASI (26.10.2026) - SALT OLCUM, Pine'a dokunmaz. TAVSIYE DEGILDIR.
+DEGERLEME TARAMASI v2 (26.10.2026) - SALT OLCUM, Pine'a dokunmaz. TAVSIYE DEGILDIR.
 Soru: BIST 100 hisselerinde piyasa fiyati ile tahmini deger arasindaki fark.
 "Gercek deger" tek bir rakam degildir; uc bagimsiz yontemle tahmin edilir, medyani alinir:
   Y1 Kendi tarihsel F/K (USD, 2021+ medyan):  ima = fiyat x (F/K medyan / F/K son)      [yalniz kar > 0]
@@ -11,6 +11,10 @@ Ek gorus (degere katilmaz, yan sutun): Yahoo analist konsensus hedefi (targetMea
   ve repodaki son araci kurum hedefi (data/arastirma_hedef_fiyat.json).
 Girdi : data/temel_carpan_bist100.json (EVREN=BIST100 temel_carpan_gozlem.py), yfinance anlik fiyat
 Cikti : data/deger_tarama.json, data/deger_tarama.csv
+v2 (26.10): (1) Y1/Y2 medyanlari TMS 29 donemi (2024+) istatistiklerinden alinir; 2021+ medyan, enflasyon muhasebesi
+    oncesi dusuk ozkaynak nedeniyle PD/DD medyanini sisiriyordu. (2) Zarar eden (ROE<=0) hisse degerlenmez.
+    (3) En az iki yontem gerekir. (4) 2024 sonrasi duzeltilmemis bedelsizi olan hisse (data/direnc_tarama.json
+    bolunme_olaylari) "veri supheli" olarak disarida birakilir. (5) guven = orta yalniz yontem dagilimi <= %100.
 Sinirlar: TMS 29 enflasyon muhasebesi; dongusel hisselerde zirve/dip kar; holding ve GYO'da NAD daha anlamli;
           tarihsel medyan "adil" degil, yalniz hissenin kendi gecmisine gore goreli konumdur.
 """
@@ -72,13 +76,23 @@ def main():
     if os.path.exists("config/kapsam_disi.txt"):
         kd = {l.split("#")[0].strip().upper() for l in open("config/kapsam_disi.txt", encoding="utf-8") if l.split("#")[0].strip()}
     satir, atlanan = [], list(c.get("atlanan", []))
+    bolunme = {}
+    if os.path.exists("data/direnc_tarama.json"):
+        for x in json.load(open("data/direnc_tarama.json", encoding="utf-8")).get("satirlar", []):
+            bolunme[x["kod"]] = [e for e in x.get("bolunme_olaylari", []) if str(e[0]) >= "2024-01-01"]
     for kod, v in c["semboller"].items():
-        ist = v.get("istatistik") or {}
+        ist = v.get("istatistik_tms29") or v.get("istatistik") or {}
         fk, pd_ = ist.get("fk_usd"), ist.get("pddd_usd")
         roe = (v.get("ek_olculer") or {}).get("roe_usd")
         p, hedef, n, oneri = fiyat_ve_hedef(kod)
         if not p or not pd_:
             atlanan.append(f"{kod}: fiyat veya PD/DD yok")
+            continue
+        if bolunme.get(kod):
+            atlanan.append(f"{kod}: veri supheli (duzeltilmemis bedelsiz {bolunme[kod][0][0]})")
+            continue
+        if roe is None or roe <= 0:
+            atlanan.append(f"{kod}: zarar (ROE {roe}), degerlenmedi")
             continue
         imalar = {}
         if fk and fk.get("son") and fk["son"] > 0 and fk.get("medyan") and fk["medyan"] > 0:
@@ -87,14 +101,14 @@ def main():
             imalar["Y2_pddd"] = p * pd_["medyan"] / pd_["son"]
         if roe is not None and roe > 0 and pd_.get("son"):
             imalar["Y3_roe"] = p * (roe / 100.0 / KE) / pd_["son"]
-        if not imalar:
-            atlanan.append(f"{kod}: yontem uygulanamadi")
+        if len(imalar) < 2:
+            atlanan.append(f"{kod}: ikiden az yontem")
             continue
         deger = statistics.median(imalar.values())
         r = {"kod": kod, "fiyat": round(p, 2), "tahmini_deger": round(deger, 2),
              "potansiyel_pct": round((deger / p - 1) * 100, 1),
              "yontem_sayisi": len(imalar), "yontem_dagilimi_pct": round((max(imalar.values()) - min(imalar.values())) / p * 100, 1),
-             "guven": ("orta" if len(imalar) >= 2 and (max(imalar.values()) - min(imalar.values())) / p <= 1.0 else "dusuk"),
+             "guven": ("orta" if (max(imalar.values()) - min(imalar.values())) / p <= 1.0 else "dusuk"),
              **{k: round(x, 2) for k, x in imalar.items()},
              "fk_usd": fk and fk.get("son"), "fk_usd_medyan": fk and fk.get("medyan"),
              "pddd_usd": pd_.get("son"), "pddd_usd_medyan": pd_.get("medyan"), "pddd_yuzdelik": pd_.get("yuzdelik"),
