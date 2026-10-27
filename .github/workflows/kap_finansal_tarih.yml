@@ -1,0 +1,44 @@
+# KAP FINANSAL RAPOR TARIHLERI - SALT VERI TOPLAMA (H4b girdisi).
+# Kaldigi yerden devam eder; ilk doldurma ~1.400 gun sorgusu = birkac calisma. Doldurma bitince
+# her calisma yalniz yeni gunleri sorgular (saniyeler).
+# Zamanlama: 00:20, 03:20, 21:20 UTC (gece; KAP yogunlugu dusuk) + elle.
+name: KAP Finansal Rapor Tarihleri
+on:
+  schedule:
+    - cron: "20 0,3,21 * * *"
+  workflow_dispatch:
+    inputs:
+      max_gun:
+        description: "Bu calismada en fazla kac gun sorgulansin"
+        default: "450"
+permissions:
+  contents: write
+concurrency:
+  group: kap-finansal
+  cancel-in-progress: false
+jobs:
+  topla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Topla
+        env:
+          MAX_GUN: ${{ inputs.max_gun || '450' }}
+        run: python kap_finansal_tarih_topla.py
+      - name: Commit
+        run: |
+          git config user.name "kap-finansal-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/kap_finansal_rapor_tarihleri.json
+          git diff --staged --quiet && exit 0
+          git commit -m "KAP finansal rapor tarihleri $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
