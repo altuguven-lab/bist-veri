@@ -47,6 +47,22 @@
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Sanayi-Cam",
       "pozisyon_birim_yuzde": 12.0
+    },
+    "EREGL": {
+      "giris_tarih": "2026-10-27",
+      "giris_fiyat": 31.459999084472656,
+      "giris_rsi": 30.6,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Demir-Celik",
+      "pozisyon_birim_yuzde": 12.0
+    },
+    "AEFES": {
+      "giris_tarih": "2026-10-27",
+      "giris_fiyat": 16.260000228881836,
+      "giris_rsi": 34.2,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Gida-Icecek",
+      "pozisyon_birim_yuzde": 12.0
     }
   },
   "kapanan_pozisyonlar": [
@@ -219,8 +235,21 @@
       "sektor": "Havacilik"
     }
   ],
-  "son_guncelleme_utc": "2026-10-26T20:35:18.404245+00:00",
-  "reddedilen_sinyaller": [],
+  "son_guncelleme_utc": "2026-10-27T20:07:46.700862+00:00",
+  "reddedilen_sinyaller": [
+    {
+      "sembol": "TOASO",
+      "tarih": "2026-10-27",
+      "sebep": "SEKTOR_LIMITI",
+      "not": "Otomotiv: 2/2 pozisyon zaten acik"
+    },
+    {
+      "sembol": "TRMET",
+      "tarih": "2026-10-27",
+      "sebep": "ESZAMANLI_POZISYON_LIMITI",
+      "not": "8/8 pozisyon zaten acik"
+    }
+  ],
   "ozet": {
     "toplam_kapanan": 14,
     "isabet_pct": 14.3,
