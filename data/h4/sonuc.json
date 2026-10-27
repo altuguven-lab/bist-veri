@@ -1,0 +1,366 @@
+{
+ "uretim_utc": "2026-10-27T13:36:20.226493+00:00",
+ "surum": "v1",
+ "on_kayit_sha256": "0b119af5d93b893329561ff085d508551ba577bfaa34a3d08cfe9cec1acc4237",
+ "deneme_no": 1,
+ "parametreler": {
+  "MALIYET": 0.25,
+  "T_ESIK": 2.23,
+  "GECIKME": {
+   "3": 60,
+   "6": 70,
+   "9": 60,
+   "12": 80
+  },
+  "TUTMA": 40,
+  "MIN_SIRKET": 30,
+  "IS": [
+   [
+    2021,
+    3
+   ],
+   [
+    2023,
+    6
+   ]
+  ],
+  "OOS": [
+   [
+    2023,
+    9
+   ],
+   [
+    2026,
+    3
+   ]
+  ]
+ },
+ "birincil": {
+  "OOS": {
+   "n": 11,
+   "ort": 1.261,
+   "t": 1.55,
+   "pozitif_pct": 63.6
+  },
+  "IS": {
+   "n": 10,
+   "ort": 2.195,
+   "t": 2.65,
+   "pozitif_pct": 70.0
+  }
+ },
+ "hukum": "ZAYIF",
+ "kriterler": {
+  "K1_oos_ort_pozitif": true,
+  "K2_oos_t": false,
+  "K3_oos_donemlerin_60pct_pozitif": true,
+  "K4_sektor_cikarma": true,
+  "K5_is_ort_pozitif": true
+ },
+ "sektor_cikarma_oos": {
+  "Banka": 0.952,
+  "Cimento": 1.373,
+  "Dayanikli": 1.281,
+  "Enerji": 1.059,
+  "FinansDiger": 0.984,
+  "GYO": 0.927,
+  "Gida": 0.921,
+  "Holding": 0.958,
+  "Insaat": 1.255,
+  "Kimya": 1.304,
+  "Madencilik": 0.965,
+  "Metal": 1.177,
+  "Otomotiv": 1.389,
+  "Perakende": 1.235,
+  "Saglik": 0.999,
+  "Savunma": 1.081,
+  "Spor": 1.065,
+  "Telekom": 1.332,
+  "Ulastirma": 1.126
+ },
+ "ek": {
+  "IYI-KOTU fark brut 10g": {
+   "ufuk": 10,
+   "OOS": {
+    "n": 11,
+    "ort": 1.016,
+    "t": 2.4,
+    "pozitif_pct": 72.7
+   },
+   "IS": {
+    "n": 10,
+    "ort": 1.783,
+    "t": 1.43,
+    "pozitif_pct": 50.0
+   }
+  },
+  "KOTU sektore gore net 10g": {
+   "ufuk": 10,
+   "OOS": {
+    "n": 11,
+    "ort": -0.523,
+    "t": -2.19,
+    "pozitif_pct": 18.2
+   },
+   "IS": {
+    "n": 10,
+    "ort": -1.405,
+    "t": -2.41,
+    "pozitif_pct": 20.0
+   }
+  },
+  "IYI XU100'e gore net 10g": {
+   "ufuk": 10,
+   "OOS": {
+    "n": 11,
+    "ort": -0.921,
+    "t": -1.12,
+    "pozitif_pct": 27.3
+   },
+   "IS": {
+    "n": 10,
+    "ort": 1.09,
+    "t": 1.18,
+    "pozitif_pct": 60.0
+   }
+  },
+  "IYI sektore gore net 10g": {
+   "ufuk": 10,
+   "OOS": {
+    "n": 11,
+    "ort": -0.574,
+    "t": -1.54,
+    "pozitif_pct": 27.3
+   },
+   "IS": {
+    "n": 10,
+    "ort": 0.72,
+    "t": 1.31,
+    "pozitif_pct": 70.0
+   }
+  },
+  "IYI-KOTU fark brut 20g": {
+   "ufuk": 20,
+   "OOS": {
+    "n": 11,
+    "ort": 2.366,
+    "t": 2.38,
+    "pozitif_pct": 72.7
+   },
+   "IS": {
+    "n": 10,
+    "ort": 2.863,
+    "t": 1.48,
+    "pozitif_pct": 60.0
+   }
+  },
+  "KOTU sektore gore net 20g": {
+   "ufuk": 20,
+   "OOS": {
+    "n": 11,
+    "ort": -0.201,
+    "t": -0.37,
+    "pozitif_pct": 63.6
+   },
+   "IS": {
+    "n": 10,
+    "ort": -2.526,
+    "t": -2.66,
+    "pozitif_pct": 20.0
+   }
+  },
+  "IYI XU100'e gore net 20g": {
+   "ufuk": 20,
+   "OOS": {
+    "n": 11,
+    "ort": 0.307,
+    "t": 0.3,
+    "pozitif_pct": 45.5
+   },
+   "IS": {
+    "n": 10,
+    "ort": 2.608,
+    "t": 1.42,
+    "pozitif_pct": 50.0
+   }
+  },
+  "IYI sektore gore net 20g": {
+   "ufuk": 20,
+   "OOS": {
+    "n": 11,
+    "ort": 0.37,
+    "t": 0.65,
+    "pozitif_pct": 45.5
+   },
+   "IS": {
+    "n": 10,
+    "ort": 1.327,
+    "t": 1.61,
+    "pozitif_pct": 60.0
+   }
+  },
+  "IYI-KOTU fark brut 40g": {
+   "ufuk": 40,
+   "OOS": {
+    "n": 11,
+    "ort": 4.724,
+    "t": 5.54,
+    "pozitif_pct": 90.9
+   },
+   "IS": {
+    "n": 10,
+    "ort": 5.992,
+    "t": 2.59,
+    "pozitif_pct": 90.0
+   }
+  },
+  "KOTU sektore gore net 40g": {
+   "ufuk": 40,
+   "OOS": {
+    "n": 11,
+    "ort": -1.801,
+    "t": -3.82,
+    "pozitif_pct": 9.1
+   },
+   "IS": {
+    "n": 10,
+    "ort": -3.476,
+    "t": -2.45,
+    "pozitif_pct": 20.0
+   }
+  },
+  "IYI XU100'e gore net 40g": {
+   "ufuk": 40,
+   "OOS": {
+    "n": 11,
+    "ort": 1.895,
+    "t": 1.65,
+    "pozitif_pct": 72.7
+   },
+   "IS": {
+    "n": 10,
+    "ort": 5.633,
+    "t": 2.22,
+    "pozitif_pct": 70.0
+   }
+  },
+  "IYI-KOTU fark brut 60g": {
+   "ufuk": 60,
+   "OOS": {
+    "n": 11,
+    "ort": 7.123,
+    "t": 6.27,
+    "pozitif_pct": 100.0
+   },
+   "IS": {
+    "n": 10,
+    "ort": 11.332,
+    "t": 2.71,
+    "pozitif_pct": 90.0
+   }
+  },
+  "KOTU sektore gore net 60g": {
+   "ufuk": 60,
+   "OOS": {
+    "n": 11,
+    "ort": -1.898,
+    "t": -4.36,
+    "pozitif_pct": 9.1
+   },
+   "IS": {
+    "n": 10,
+    "ort": -6.466,
+    "t": -5.03,
+    "pozitif_pct": 20.0
+   }
+  },
+  "IYI XU100'e gore net 60g": {
+   "ufuk": 60,
+   "OOS": {
+    "n": 11,
+    "ort": 2.181,
+    "t": 1.67,
+    "pozitif_pct": 81.8
+   },
+   "IS": {
+    "n": 10,
+    "ort": 8.818,
+    "t": 2.01,
+    "pozitif_pct": 80.0
+   }
+  },
+  "IYI sektore gore net 60g": {
+   "ufuk": 60,
+   "OOS": {
+    "n": 11,
+    "ort": 2.221,
+    "t": 3.13,
+    "pozitif_pct": 81.8
+   },
+   "IS": {
+    "n": 10,
+    "ort": 3.222,
+    "t": 1.41,
+    "pozitif_pct": 70.0
+   }
+  },
+  "Bankalar haric IYI sek net 40g": {
+   "ufuk": 40,
+   "OOS": {
+    "n": 11,
+    "ort": 0.954,
+    "t": 1.04,
+    "pozitif_pct": 54.5
+   }
+  },
+  "USD tablolar IYI sek net 40g": {
+   "ufuk": 40,
+   "OOS": {
+    "n": 11,
+    "ort": 1.119,
+    "t": 1.29,
+    "pozitif_pct": 63.6
+   }
+  }
+ },
+ "taze_donem": [
+  {
+   "donem": "2026/06",
+   "y": 2026,
+   "p": 6,
+   "giris": "2026-09-08",
+   "sirket": 93,
+   "uctebir": 31,
+   "iyi_sek_net_10": 2.854195887631113,
+   "kotu_sek_net_10": -4.199158155688615,
+   "fark_brut_10": 4.518714784829173,
+   "iyi_xu_net_10": 3.3983256246754863,
+   "iyi_sek_net_20": 2.9044522532580705,
+   "kotu_sek_net_20": -4.421034609871455,
+   "fark_brut_20": 2.85939440911355,
+   "iyi_xu_net_20": 4.7307387415304305,
+   "iyi_sek_net_40": NaN,
+   "kotu_sek_net_40": NaN,
+   "fark_brut_40": NaN,
+   "iyi_xu_net_40": NaN,
+   "iyi_sek_net_60": NaN,
+   "kotu_sek_net_60": NaN,
+   "fark_brut_60": NaN,
+   "iyi_xu_net_60": NaN
+  }
+ ],
+ "veri": {
+  "evren": 95,
+  "fiyatli": 95,
+  "hata": {},
+  "eslesmeyen": [],
+  "kapsam_disi_cikarilan": [
+   "BTCIM",
+   "CWENE",
+   "GLRMK",
+   "HEKTS",
+   "SASA"
+  ],
+  "donem_sayisi": 22
+ }
+}
