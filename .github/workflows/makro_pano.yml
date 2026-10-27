@@ -1,0 +1,77 @@
+# MAKRO PANOSU - TCMB EVDS seri seti (27.10.2026). SALT OLCUM.
+# Kaynak: TCMB EVDS (evds3.tcmb.gov.tr). Brifinglerde EVDS-MCP ile, ileride tcmb_evds_veri.py ile cekilir.
+# Her seri 27.10.2026'da EVDS-MCP ile test edildi; "son_veri" o gunku son gozlem tarihidir.
+# Formul kodlari (EVDS): 0=duzey, 1=% degisim, 3=yillik % degisim.
+seriler:
+  # --- Para politikasi ve faiz ---
+  - kod: TP.APIFON4
+    ad: TCMB agirlikli ortalama fonlama maliyeti (%)
+    frekans: is gunu
+    neden: Politika faizinin fiili karsiligi. 22.10 indirimi 23.10'dan itibaren yansiyor (37 -> 36).
+    son_veri: 26.10.2026
+  - kod: TP.BISTTLREF.ORAN
+    ad: BIST TLREF gecelik referans faiz (%)
+    frekans: is gunu
+    neden: Piyasa gecelik faizi; koridor icindeki konumu likidite durusunu gosterir.
+    son_veri: 26.10.2026
+  - kod: TP.TRY.MT02
+    ad: TL mevduat faizi, 3 aya kadar (akim, %)
+    frekans: haftalik (Cuma)
+    neden: Banka fonlama maliyeti; bankalarin marji icin kritik.
+    son_veri: 16.10.2026
+  - kod: TP.KTF17
+    ad: Ticari kredi faizi (TL, akim, %)
+    frekans: haftalik (Cuma)
+    neden: Kredi-mevduat makasi = bankacilik marji vekili; sirket finansman maliyeti.
+    son_veri: 16.10.2026
+  # --- Kur ve enflasyon ---
+  - kod: TP.DK.USD.A.YTL
+    ad: USD/TRY doviz alis (TCMB)
+    frekans: gunluk
+    neden: Kur; ihracatci/ithalatci ve yabanci ilgisi.
+    son_veri: 27.10.2026
+  - kod: TP.TUKFIY2025.GENEL
+    ad: TUFE genel endeks (formul 3 = yillik %)
+    frekans: aylik
+    neden: Enflasyon gerceklesmesi; reel faiz = politika faizi - yillik TUFE.
+    son_veri: 2026-09
+  - kod: TP.ENFBEK.PKA12ENF
+    ad: Piyasa katilimcilari 12 ay sonrasi enflasyon beklentisi (%)
+    frekans: aylik
+    neden: TCMB'nin en cok izledigi beklenti; ileriye donuk reel faiz.
+    son_veri: 2026-10
+  - kod: TP.ENFBEK.HBA12ENF
+    ad: Hanehalki 12 ay sonrasi enflasyon beklentisi (%)
+    frekans: aylik
+    neden: Talep ve dolarizasyon egilimi.
+    son_veri: 2026-10
+  # --- Dis denge ve yabanci akisi ---
+  - kod: TP.AB.TOPLAM
+    ad: TCMB brut rezervleri, toplam (milyon USD)
+    frekans: haftalik (Cuma)
+    neden: Kur savunma kapasitesi; fon krizi doneminde erime izlenir.
+    son_veri: 16.10.2026
+  - kod: TP.MKNETHAR.M7
+    ad: Yurt disi yerlesiklerin hisse senedi net alimi (fiyat/kur etkisinden arindirilmis, milyon USD)
+    frekans: haftalik (Cuma)
+    neden: BIST'teki yabanci akisinin dogrudan olcusu.
+    son_veri: 16.10.2026
+  - kod: TP.MKNETHAR.M8
+    ad: Yurt disi yerlesiklerin DIBS net alimi (milyon USD)
+    frekans: haftalik (Cuma)
+    neden: Tahvil tarafinda yabanci guveni.
+    son_veri: 16.10.2026
+  # --- Reel aktivite ---
+  - kod: TP.KKO.MA
+    ad: Imalat sanayi kapasite kullanim orani, mevsimsellikten arindirilmis (%)
+    frekans: aylik
+    neden: Sanayi aktivitesi; sanayi hisseleri icin oncu.
+    son_veri: 2026-10
+  - kod: TP.KKHARTUT.KT1
+    ad: Banka ve kredi karti harcama tutari, toplam (bin TL)
+    frekans: haftalik (Cuma)
+    neden: Tuketim/ic talep; perakende hisseleri icin oncu.
+    son_veri: 16.10.2026
+notlar:
+  - "Turkiye politika faizi serisi TP.BISPOLFAIZ.TUR BIS kaynaklidir ve gecikmeli gelir (son 01-08-2026); yerine TP.APIFON4 kullanilir."
+  - "TP.MKNETHAR.M1 (hisse STOK) fiyat etkisini icerir; akis icin M7 kullanilir."
