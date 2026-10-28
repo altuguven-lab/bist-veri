@@ -13,6 +13,10 @@ YONTEM (veri gorulmeden yazildi = on kayit; degisiklik CHANGELOG'a islenir):
   Taban fiyat : alarmin yerel (TR) tarihine denk gelen ya da sonraki ILK islem gununun KAPANISI.
                 Alarm fiyati degil: kapanista islem yapilabilir, endeks icin de ayni an kullanilir.
                 Alarm fiyati ile kapanis arasindaki fark "giris_kaymasi_pct" olarak ayrica raporlanir.
+  28.10 EKI   : "af_net_T" = ALARM FIYATINDAN giris (canlida gerceklesecek dolum). Yalniz seans ici alarmlarda
+                (alarm gunu = taban gunu) alarm fiyati kullanilir, digerlerinde kapanis. Endeks getirisi yine
+                kapanistan olculur (alarm anindaki endeks seviyesi yok) - yaklasiktir. Hukum kurallari DEGISMEDI;
+                hukum hala net_T (kapanis bazli) ile verilir, af_net_T yalniz raporlanir.
   Ufuk        : T+1, T+3, T+5, T+10 islem gunu kapanisi.
   Goreli      : hisse getirisi - XU100 getirisi (ayni pencere), ve
                 hisse getirisi - SEKTOR SEPETI (evrendeki ayni sektor hisselerinin esit agirlikli
@@ -276,6 +280,8 @@ def olaylari_kur(alarmlar, fiyatlar, xu):
                                        "alarm_fiyat": afiyat, "yahoo_dusuk": round(lo, 4), "yahoo_yuksek": round(hi, 4)})
                     r["fiyat_uyusmazligi"] = True
         r["iso_hafta"] = "%d-W%02d" % g0.isocalendar()[:2]
+        seans_ici = bool(afiyat) and pd.Timestamp(s["_gun"]) == g0 and not r.get("fiyat_uyusmazligi")
+        giris_duz = afiyat * (kapanis / float(df.at[g0, "HamClose"])) if seans_ici else kapanis
         peers = [k for k in sektor_uyeleri.get(SEKTOR.get(kod), []) if k != kod]
         for h in UFUK:
             if p0 + h >= len(gunler):
@@ -290,6 +296,14 @@ def olaylari_kur(alarmlar, fiyatlar, xu):
             ps = [getiri(fiyatlar[k], g0, g1) for k in peers]
             ps = [x for x in ps if x is not None]
             r[f"sek_rel_T{h}"] = round(ri - sum(ps) / len(ps), 3) if ri is not None and ps else None
+            try:
+                ri_af = (float(df.at[g1, "Close"]) / giris_duz - 1) * 100
+            except KeyError:
+                ri_af = None
+            if ri_af is None or rx is None or yon == "BELIRSIZ":
+                r[f"af_net_T{h}"] = None
+            else:
+                r[f"af_net_T{h}"] = round(ri_af - rx - MALIYET_PCT, 3) if yon == "YUKARI" else round(-(ri_af - rx), 3)
             if rel is None or yon == "BELIRSIZ":
                 r[f"yon_T{h}"] = r[f"net_T{h}"] = None
             elif yon == "YUKARI":
@@ -331,6 +345,7 @@ def karne(olaylar):
             r[f"sek_rel_T{h}"] = ozetle(alt, f"sek_rel_T{h}", h)
             r[f"yon_T{h}"] = ozetle(alt, f"yon_T{h}", h)
             r[f"net_T{h}"] = ozetle(alt, f"net_T{h}", h)
+            r[f"af_net_T{h}"] = ozetle(alt, f"af_net_T{h}", h)
         r["rejim_donem"] = {d: {f"net_T{h}": ozetle([o for o in alt if o["donem"] == d], f"net_T{h}", h) for h in TEST_UFUK}
                             for d in ("KRIZ_ONCESI", "KRIZ_SONRASI")}
         r["rejim_alani"] = {str(ra): ozetle([o for o in alt if str(o["rejim_alani"]) == str(ra)], "net_T3", 3)
@@ -423,13 +438,14 @@ def md_rapor(out):
          "Salt olcum, tavsiye degildir. Net = yon-ayarli XU100-goreli getiri (YUKARI turlerde maliyet dusulu). "
          "t_kume = gun/hafta kumelenmis t; t_naif yalniz karsilastirma icindir.", "",
          "## Tur karnesi (net, XU100'e gore)", "",
-         "| Tur | Sinif | Yon | Olay | Brut yon T+3 (t_kume) | Net T+1 | Net T+3 (t_kume / t_naif) | Net T+5 (t_kume) | Net T+10 | Isabet T+3 | Sektore gore T+3 | Hukum |",
-         "|---|---|---|---|---|---|---|---|---|---|---|---|"]
+         "| Tur | Sinif | Yon | Olay | Brut yon T+3 (t_kume) | Net T+1 | Net T+3 (t_kume / t_naif) | Alarm fiyatindan net T+3 (t_kume) | Net T+5 (t_kume) | Net T+10 | Isabet T+3 | Sektore gore T+3 | Hukum |",
+         "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     sira = {"KALITELI": 0, "ADAY": 1, "KENAR_YOK": 2, "TERS": 3, "YETERSIZ_ORNEK": 4, "YON_TANIMSIZ": 5}
     for tur, r in sorted(out["turler"].items(), key=lambda kv: (sira.get(kv[1]["hukum"], 9), -kv[1]["olay"])):
         g = lambda k, a="ort": r[k].get(a)
         L.append(f"| {tur} | {r['sinif']} | {r['yon']} | {r['olay']} | {g('yon_T3')} ({g('yon_T3','t_kume')}) | {g('net_T1')} | "
-                 f"{g('net_T3')} ({g('net_T3','t_kume')} / {g('net_T3','t_naif')}) | {g('net_T5')} ({g('net_T5','t_kume')}) | "
+                 f"{g('net_T3')} ({g('net_T3','t_kume')} / {g('net_T3','t_naif')}) | {g('af_net_T3')} ({g('af_net_T3','t_kume')}) | "
+                 f"{g('net_T5')} ({g('net_T5','t_kume')}) | "
                  f"{g('net_T10')} | {g('net_T3','isabet_pct')} | {g('sek_rel_T3')} | **{r['hukum']}** |")
     L += ["", "## Rejim kirilimi (net T+3)", "", "| Tur | Kriz oncesi n / ort | Kriz sonrasi n / ort | relvol>=1 n / ort | relvol<1 n / ort | Zincir % |",
           "|---|---|---|---|---|---|"]
