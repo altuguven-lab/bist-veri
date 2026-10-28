@@ -48,20 +48,20 @@
       "sektor": "Sanayi-Cam",
       "pozisyon_birim_yuzde": 12.0
     },
-    "EREGL": {
-      "giris_tarih": "2026-10-27",
-      "giris_fiyat": 31.459999084472656,
-      "giris_rsi": 30.6,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Demir-Celik",
-      "pozisyon_birim_yuzde": 12.0
-    },
     "AEFES": {
       "giris_tarih": "2026-10-27",
       "giris_fiyat": 16.260000228881836,
       "giris_rsi": 34.2,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Gida-Icecek",
+      "pozisyon_birim_yuzde": 12.0
+    },
+    "TRALT": {
+      "giris_tarih": "2026-10-28",
+      "giris_fiyat": 36.0,
+      "giris_rsi": 30.1,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Madencilik",
       "pozisyon_birim_yuzde": 12.0
     }
   },
@@ -233,9 +233,21 @@
       "net_getiri_pct": -5.78,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Havacilik"
+    },
+    {
+      "sembol": "EREGL",
+      "giris_tarih": "2026-10-27",
+      "cikis_tarih": "2026-10-28",
+      "tutma_gun": 1,
+      "giris_fiyat": 31.459999084472656,
+      "cikis_fiyat": 31.219999313354492,
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -1.013,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Demir-Celik"
     }
   ],
-  "son_guncelleme_utc": "2026-10-27T20:07:46.700862+00:00",
+  "son_guncelleme_utc": "2026-10-28T20:21:48.911425+00:00",
   "reddedilen_sinyaller": [
     {
       "sembol": "TOASO",
@@ -251,8 +263,8 @@
     }
   ],
   "ozet": {
-    "toplam_kapanan": 14,
-    "isabet_pct": 14.3,
-    "ort_net_getiri_pct": -3.556
+    "toplam_kapanan": 15,
+    "isabet_pct": 13.3,
+    "ort_net_getiri_pct": -3.386
   }
 }
