@@ -27,6 +27,12 @@ on:
     types: [bist_veri_tetikle]
   workflow_dispatch: {}
 
+# 28.10 EKI: GitHub zamanlayicisi ile Pipedream tetigi ayni dakikaya denk gelirse iki calisma
+# ayni dosyaya push edip cakisiyordu. Ayni gruptaki calismalar artik SIRAYA girer (iptal yok).
+concurrency:
+  group: bist-veri-fiyat
+  cancel-in-progress: false
+
 jobs:
   guncelle:
     runs-on: ubuntu-latest
