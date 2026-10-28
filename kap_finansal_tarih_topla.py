@@ -20,7 +20,8 @@ KONU_ANAHTAR = "Finansal Rapor"
 ILK_DONEM = (2021, 3)
 SEZON_GUN = 90
 MAX_GUN = int(os.environ.get("MAX_GUN", "450"))
-BEKLE = float(os.environ.get("BEKLE_SN", "0.8"))
+BEKLE = float(os.environ.get("BEKLE_SN", "2.0"))   # 28.10: 0.8 sn KAP'ta HTTP 429 (istek siniri) uretti
+ARDISIK_HATA_DUR = 3                                # ust uste 3 basarisiz gun -> calismayi durdur, sonra devam
 TR = timedelta(hours=3)
 
 
@@ -57,7 +58,8 @@ def sorgu(gun):
                 return json.loads(r.read().decode("utf-8"))
         except Exception as e:
             hata = e
-            time.sleep(3 * (deneme + 1))
+            # 429 (istek siniri): uzun bekle; diger hatalar: kisa bekle
+            time.sleep((45 if "429" in str(e) else 3) * (deneme + 1))
     raise hata
 
 
@@ -77,12 +79,17 @@ def main():
                 break
             if g.weekday() < 5 and g.isoformat() not in islenen:
                 plan.append(((y, p), g))
-    yapilan, hata = 0, []
+    yapilan, hata, ardisik = 0, [], 0
     for (y, p), g in plan[:MAX_GUN]:
         try:
             ham = sorgu(g)
+            ardisik = 0
         except Exception as e:
             hata.append(f"{g}: {str(e)[:80]}")
+            ardisik += 1
+            if ardisik >= ARDISIK_HATA_DUR:
+                hata.append("ust uste hata - calisma durduruldu, sonraki calismada devam edecek")
+                break
             continue
         gun_sayi[g.isoformat()] = len(ham or [])
         for b in ham or []:
