@@ -1,0 +1,40 @@
+# H5 BILANCO LISTESIYLE ALARM FILTRESI - SALT OLCUM, Pine'a dokunmaz, TAVSIYE DEGILDIR.
+# Kurallar ON_KAYIT_H5.md'de. 09.01.2027'ye kadar ARA RAPOR uretir; sonra kesin hukum.
+# Zamanlama: hafta ici 20:10 TR (17:10 UTC) - Alarm Karnesi'nin 16:40 UTC calismasindan sonra.
+name: H5 Alarm Filtresi
+on:
+  schedule:
+    - cron: "10 17 * * 1-5"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: h-testleri
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy PyYAML==6.0.2
+      - name: On kayit dosyasi var mi
+        run: test -f ON_KAYIT_H5.md || { echo "ON_KAYIT_H5.md yok"; exit 1; }
+      - name: H5
+        run: python h5_alarm_filtre.py
+      - name: Commit
+        run: |
+          git config user.name "h-test-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/h5
+          git diff --staged --quiet && exit 0
+          git commit -m "H5 alarm filtresi $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
