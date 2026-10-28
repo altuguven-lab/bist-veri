@@ -344,7 +344,9 @@ def m7_alarm_dogrulugu():
     for tur in turler:
         alt = [k for k in dg if k["sinyal"] == tur]
         yon = alt[0].get("yon_beklentisi", "?")
-        vals = [k["getiri_rel_t3_pct"] for k in alt if k.get("getiri_rel_t3_pct") is not None]
+        cifti = [(k["getiri_rel_t3_pct"], k.get("tarih") or str(k.get("zaman_utc", ""))[:10])
+                 for k in alt if k.get("getiri_rel_t3_pct") is not None]
+        vals = [v for v, _ in cifti]
         if len(vals) < 2:
             sonuc[tur] = {"n": len(vals), "yon_beklentisi": yon,
                           "durum": "n COK KUCUK - guven araligi hesaplanamaz"}
@@ -355,10 +357,20 @@ def m7_alarm_dogrulugu():
         se = std / math.sqrt(n)
         t = ort / se if se else 0.0
         isabet = sum(1 for v in vals if (v > 0 if yon == "YUKARI" else v < 0))
+        # 28.10 (Baskan onayi): ayni gun gelen alarmlar bagimsiz degil -> gun kumelenmis t (CR1).
+        kume = {}
+        for v, g in cifti:
+            kume[g] = kume.get(g, 0.0) + (v - ort)
+        G = len(kume)
+        t_kume = None
+        if G >= 2:
+            se_k = math.sqrt(sum(x * x for x in kume.values()) * G / (G - 1)) / n
+            t_kume = round(ort / se_k, 2) if se_k else None
         sonuc[tur] = {
-            "n": n, "yon_beklentisi": yon,
+            "n": n, "gun_sayisi": G, "yon_beklentisi": yon,
             "goreli_t3_ortalama_pct": round(ort, 3),
             "t_istatistigi": round(t, 2),
+            "t_kume_gun": t_kume,
             "anlamli_mi": abs(t) > 1.96,
             "isabet_pct": round(100 * isabet / n, 1),
             "guven_araligi_95": [round(ort - 1.96 * se, 3), round(ort + 1.96 * se, 3)],
@@ -366,16 +378,19 @@ def m7_alarm_dogrulugu():
     # 15.10.2026 ON-KAYITLI OLU SINYAL KURALI (kurul, veri gorulmeden kilitlendi):
     # n>=250 VE goreli T+3 ortalamasi negatif VE t<-1.96 -> tur "TERS SINYAL" ilan
     # edilir (alarm SILINMEZ - ASLA kurali; kategori IZLEME'ye kalici dusurulur).
+    # 28.10.2026 DEGISIKLIK (Baskan onayi): t yerine GUN KUMELENMIS t (t_kume_gun) kullanilir.
+    # Gerekce: alarm karnesi P3_SKOR_AL'da naif t -3.48, kumelenmis t -2.4 buldu; 269 olay 39 gune
+    # sigiyor. Naif t ile kural haksiz yere tetiklenebilirdi. Naif t raporda karsilastirma icin kalir.
     olu_kural = {}
     for tur in ("P3_SKOR_AL", "P3_RADAR", "P2_ADAY"):
         r = sonuc.get(tur, {})
         n_ = r.get("n", 0)
         if n_ < 250:
             olu_kural[tur] = f"BEKLEMEDE (n={n_}/250)"
-        elif r.get("goreli_t3_ortalama_pct", 0) < 0 and r.get("t_istatistigi", 0) < -1.96:
-            olu_kural[tur] = f"TETIKLENDI (n={n_}, t={r.get('t_istatistigi')})"
+        elif r.get("goreli_t3_ortalama_pct", 0) < 0 and (r.get("t_kume_gun") or 0) < -1.96:
+            olu_kural[tur] = f"TETIKLENDI (n={n_}, gun={r.get('gun_sayisi')}, t_kume={r.get('t_kume_gun')}, naif t={r.get('t_istatistigi')})"
         else:
-            olu_kural[tur] = f"TETIKLENMEDI (n={n_}, t={r.get('t_istatistigi')})"
+            olu_kural[tur] = f"TETIKLENMEDI (n={n_}, gun={r.get('gun_sayisi')}, t_kume={r.get('t_kume_gun')}, naif t={r.get('t_istatistigi')})"
     return {
         "turler": sonuc,
         "olu_sinyal_kurali": olu_kural,
