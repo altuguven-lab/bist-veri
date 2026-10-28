@@ -78,6 +78,9 @@ SINIF = {
 }
 HARIC = {"GUNLUK_OZET"}
 HARIC_ONEK = ("GERCEK_TEST",)   # kanal test alarmlari
+# 28.10 EKI: Pipedream "Test" dugmesiyle yeniden gonderilen eski ornek olay. schemaVersion/eventId
+# tasimiyor, fiyati hep 348.50; Pine alarmi degil. (sembol, sinyal, fiyat) imzasiyla disarida tutulur.
+TEST_IMZALARI = {("THYAO", "P1_KALITELI_AL", "348.50")}
 
 
 def haric_mi(tur):
@@ -240,7 +243,7 @@ def olaylari_kur(alarmlar, fiyatlar, xu):
     olaylar, gorulen, uyusmazlik = [], set(), []
     for s in alarmlar:
         tur, kod = s.get("sinyal"), s.get("sembol")
-        if haric_mi(tur) or kod not in fiyatlar:
+        if haric_mi(tur) or kod not in fiyatlar or (kod, tur, str(s.get("fiyat"))) in TEST_IMZALARI:
             continue
         p0 = taban_poz(s["_gun"])
         if p0 is None:
