@@ -61,7 +61,7 @@ export default defineComponent({
     const OWNER = "altuguven-lab";
     const REPO = "bist-veri";
     const PATH = "data/tv_alerts_latest.json";
-    const MAX_SINYAL = 100;
+    const MAX_SINYAL = 400;   // 26.10: canli kodda 400'e cikarildi; repo kopyasi esitlendi
     const MAX_DENEME = 12;
     const BASLANGIC = Date.now();
     const ZAMAN_ASIMI_MS = 110000;  // Pipedream Timeout (>=120 sn) - 10 sn pay
@@ -77,6 +77,12 @@ export default defineComponent({
     const bekle = (ms) => new Promise((r) => setTimeout(r, ms));
 
     const body = steps.trigger.event.body || {};
+    // 28.10 EKI: schemaVersion tasimayan olay V162 alarmi degildir. 18.09'dan beri butun gercek
+    // alarmlar 'v162.2' tasiyor; tasimayan tek kaynak, Pipedream'de "Test" ile yeniden gonderilen
+    // eski ornek olay (THYAO P1_KALITELI_AL 348.50, 11 kez arsive yazilmis). Bu olaylar yazilmaz.
+    if (!body.schemaVersion) {
+      return $.flow.exit("schemaVersion yok - test/eski ornek olay, arsive yazilmadi");
+    }
     const yeniSinyal = {
       zaman_utc: new Date().toISOString(),
       sembol: String(body.symbol ?? "?"),
