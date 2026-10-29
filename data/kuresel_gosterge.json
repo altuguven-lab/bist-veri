@@ -1,83 +1,33 @@
 {
   "asya": {
-    "guncelleme_zamani_utc": "2026-10-28T13:30:31.983546+00:00",
+    "guncelleme_zamani_utc": "2026-10-29T13:41:29.784639+00:00",
     "endeksler": [
       {
         "isim": "Nikkei 225",
         "kod": "^N225",
         "bolge": "Japonya",
-        "degisim_yuzde": 1.08
+        "degisim_yuzde": 1.1
       },
       {
         "isim": "Kospi",
         "kod": "^KS11",
         "bolge": "G.Kore",
-        "degisim_yuzde": 6.63
+        "degisim_yuzde": -1.24
       },
       {
         "isim": "Sanghay Bilesik",
         "kod": "000001.SS",
         "bolge": "Cin",
-        "degisim_yuzde": 0.91
+        "degisim_yuzde": -0.82
       },
       {
         "isim": "Hang Seng",
         "kod": "^HSI",
         "bolge": "H.Kong",
-        "degisim_yuzde": 0.23
+        "degisim_yuzde": -0.59
       }
     ],
-    "ozet_yon": "RISK-ON",
-    "ozet_ortalama_yuzde": 2.21
-  },
-  "avrupa": {
-    "guncelleme_zamani_utc": "2026-10-28T15:05:01.728749+00:00",
-    "endeksler": [
-      {
-        "isim": "DAX",
-        "kod": "^GDAXI",
-        "bolge": "Almanya",
-        "degisim_yuzde": 0.3
-      },
-      {
-        "isim": "CAC 40",
-        "kod": "^FCHI",
-        "bolge": "Fransa",
-        "degisim_yuzde": -0.25
-      },
-      {
-        "isim": "FTSE 100",
-        "kod": "^FTSE",
-        "bolge": "Ingiltere",
-        "degisim_yuzde": 0.28
-      }
-    ],
-    "ozet_yon": "NOTR",
-    "ozet_ortalama_yuzde": 0.11
-  },
-  "amerika": {
-    "guncelleme_zamani_utc": "2026-10-28T19:03:41.806278+00:00",
-    "endeksler": [
-      {
-        "isim": "S&P 500",
-        "kod": "^GSPC",
-        "bolge": "ABD",
-        "degisim_yuzde": 0.07
-      },
-      {
-        "isim": "Dow Jones",
-        "kod": "^DJI",
-        "bolge": "ABD",
-        "degisim_yuzde": 0.16
-      },
-      {
-        "isim": "Nasdaq",
-        "kod": "^IXIC",
-        "bolge": "ABD",
-        "degisim_yuzde": -0.16
-      }
-    ],
-    "ozet_yon": "NOTR",
-    "ozet_ortalama_yuzde": 0.02
+    "ozet_yon": "RISK-OFF",
+    "ozet_ortalama_yuzde": -0.39
   }
 }
