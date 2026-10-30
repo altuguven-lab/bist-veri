@@ -1,10 +1,10 @@
-# Retro Firsat Envanteri (2026-06-01 -> 2026-10-23)
-Evren: 31 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 272 (haftada ort. 13.2)
+# Retro Firsat Envanteri (2026-06-01 -> 2026-10-30)
+Evren: 31 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 278 (haftada ort. 12.9)
 
 ## Donem karsilastirmasi (taban orani)
 - Kulucka ONCESI (5 hafta): 73 firsat | kova: {'5-8%': 29, '8%+': 9, '3-5%': 35}
-- KULUCKA donemi: 199 firsat | kova: {'3-5%': 110, '8%+': 25, '5-8%': 64}
-- Kuluckada SINYALSIZ kacan: 199 / 199
+- KULUCKA donemi: 205 firsat | kova: {'3-5%': 113, '8%+': 26, '5-8%': 66}
+- Kuluckada SINYALSIZ kacan: 205 / 205
 
 ## Haftalik dagilim
 - 2026-W23: 18 firsat
@@ -26,15 +26,16 @@ Evren: 31 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 272 (haftada ort. 13.2)
 - 2026-W40: 23 firsat
 - 2026-W41: 6 firsat
 - 2026-W42: 6 firsat
-- 2026-W43: 1 firsat
+- 2026-W43: 7 firsat
 
 ## Kaçan Fırsat: Olay-Tabanlı (bilanço) vs Teknik ayrımı (05.08 EKI)
-- Toplam kacan: 199 | Bilancoya yakin (+/-3 gun): 0 (%0.0) | Teknik/aciklanamayan: 199 (%100.0)
+- Toplam kacan: 205 | Bilancoya yakin (+/-3 gun): 0 (%0.0) | Teknik/aciklanamayan: 205 (%100.0)
 
 ## Kuluckada kacan pencereler (buyukten kucuge, [BILANCO] etiketli olanlar bilancoya yakin)
 - HALKB | 2026-08-31 | +17.2%
 - TRMET | 2026-07-20 | +15.9%
 - PETKM | 2026-07-14 | +15.8%
+- ASTOR | 2026-10-22 | +14.9%
 - TTKOM | 2026-09-08 | +11.7%
 - HALKB | 2026-08-21 | +11.5%
 - VAKBN | 2026-09-16 | +11.3%
@@ -51,19 +52,18 @@ Evren: 31 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 272 (haftada ort. 13.2)
 - TRMET | 2026-07-31 | +8.7%
 - TUPRS | 2026-08-07 | +8.6%
 - TAVHL | 2026-09-15 | +8.4%
-- TUPRS | 2026-08-13 | +8.1%
 
 ## En buyuk 10 pencere (tum donem)
 - HALKB | 2026-08-31 | +17.2% | KULUCKA
 - TRMET | 2026-07-20 | +15.9% | KULUCKA
 - PETKM | 2026-07-14 | +15.8% | KULUCKA
 - YKBNK | 2026-06-11 | +15.6% | ONCESI
+- ASTOR | 2026-10-22 | +14.9% | KULUCKA
 - TTKOM | 2026-09-08 | +11.7% | KULUCKA
 - HALKB | 2026-08-21 | +11.5% | KULUCKA
 - TRALT | 2026-06-01 | +11.5% | ONCESI
 - VAKBN | 2026-09-16 | +11.3% | KULUCKA
 - AKBNK | 2026-09-16 | +11.1% | KULUCKA
-- ISCTR | 2026-09-16 | +11.0% | KULUCKA
 
 ---
 Okuma kurali: taban orani, P1 uretimiyle YAN YANA okunur;
