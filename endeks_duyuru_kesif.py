@@ -15,17 +15,35 @@ import os, re, json, time, html, urllib.request, urllib.parse, datetime
 
 KOK = "https://www.borsaistanbul.com"
 CIKTI = "data/endeks_kesif"
-UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36",
-      "Accept-Language": "tr-TR,tr;q=0.9"}
+UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "tr-TR,tr;q=0.9,en;q=0.8", "Connection": "close", "Upgrade-Insecure-Requests": "1"}
+# 30.10 v2: ilk denemede site baglantiyi yanitsiz kapatti. Tam tarayici basliklari, yeniden deneme ve
+# alternatif adresler eklendi.
+ALTERNATIF_SAYFALAR = [
+    "https://www.borsaistanbul.com/tr/sayfa/44/bist-pay-endeksleri",
+    "https://borsaistanbul.com/tr/sayfa/44/bist-pay-endeksleri",
+    "https://www.borsaistanbul.com/en/indices/index-announcements",
+    "https://www.borsaistanbul.com/tr/endeksler/endeks-duyurulari",
+]
 AZAMI_DOSYA = 5 * 1024 * 1024
 BEKLE = float(os.environ.get("BEKLE_SN", "1.0"))
 
 
 def getir(url, ikili=False):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=40) as r:
-        veri = r.read(AZAMI_DOSYA + 1)
-        tur = r.headers.get("Content-Type", "")
+    son = None
+    for deneme in range(3):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=60) as r:
+                veri = r.read(AZAMI_DOSYA + 1)
+                tur = r.headers.get("Content-Type", "")
+            break
+        except Exception as e:
+            son = e
+            time.sleep(5 * (deneme + 1))
+    else:
+        raise son
     if len(veri) > AZAMI_DOSYA:
         raise ValueError("dosya cok buyuk")
     return (veri, tur) if ikili else (veri.decode("utf-8", errors="replace"), tur)
@@ -52,15 +70,18 @@ def main():
     os.makedirs(f"{CIKTI}/dosyalar", exist_ok=True)
     ozet = {"zaman_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(), "duyurular": [], "hatalar": [], "sayfa_baglantilari": []}
 
-    # 1) sayfa 44
-    try:
-        s, _ = getir(f"{KOK}/tr/sayfa/44/bist-pay-endeksleri")
-        open(f"{CIKTI}/sayfa44.html", "w", encoding="utf-8").write(s)
-        b = baglantilar(s, KOK)
-        ozet["sayfa_baglantilari"] = [{"url": u, "metin": t} for u, t in b if "/duyuru/" in u or dosya_mi(u)]
-    except Exception as e:
-        ozet["hatalar"].append(f"sayfa44: {e}")
-        b = []
+    # 1) duyuru listesi sayfalari (alternatifli)
+    b = []
+    for i, adres in enumerate(ALTERNATIF_SAYFALAR):
+        try:
+            s, _ = getir(adres)
+            open(f"{CIKTI}/liste_{i}.html", "w", encoding="utf-8").write(s)
+            bb = baglantilar(s, adres)
+            b += bb
+            ozet.setdefault("liste_durumu", []).append({"url": adres, "durum": "ok", "uzunluk": len(s), "baglanti": len(bb)})
+        except Exception as e:
+            ozet.setdefault("liste_durumu", []).append({"url": adres, "durum": "hata", "hata": str(e)[:120]})
+    ozet["sayfa_baglantilari"] = [{"url": u, "metin": t} for u, t in b if "/duyuru/" in u or dosya_mi(u)]
 
     adaylar = {u: t for u, t in b if "/duyuru/" in u}
 
