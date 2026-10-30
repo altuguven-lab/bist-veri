@@ -1,6 +1,6 @@
 # Alarm Karnesi
 
-Uretim: 2026-10-29T21:26 UTC | maliyet 0.25% (gidis-donus) | kriz esigi 2026-09-15 | BH q=0.1 | MIN_N=30
+Uretim: 2026-10-30T21:02 UTC | maliyet 0.25% (gidis-donus) | kriz esigi 2026-09-15 | BH q=0.1 | MIN_N=30
 
 Salt olcum, tavsiye degildir. Net = yon-ayarli XU100-goreli getiri (YUKARI turlerde maliyet dusulu). t_kume = gun/hafta kumelenmis t; t_naif yalniz karsilastirma icindir.
 
@@ -34,9 +34,9 @@ Salt olcum, tavsiye degildir. Net = yon-ayarli XU100-goreli getiri (YUKARI turle
 
 ## Veri butunlugu
 
-- Aralik 2026-07-07 - 2026-10-28, 80 islem gunu; gunluk alarm medyani 13.5, GUNLUK_OZET medyani 23.5.
-- Ham kayit 3048, eventId tekrari 319, tekil 2729.
-- Supheli eksik gun (alarm < medyanin yarisi ya da GUNLUK_OZET < medyanin %80'i): toplam 39, son 30 gunde 1. En yeni 15 (alarm/ozet): 2026-10-07 (25/0), 2026-09-18 (3/4), 2026-09-17 (0/0), 2026-09-16 (0/0), 2026-09-15 (0/0), 2026-09-14 (0/0), 2026-09-11 (0/0), 2026-09-10 (0/0), 2026-09-09 (0/0), 2026-09-08 (0/0), 2026-09-07 (0/0), 2026-09-04 (6/0), 2026-09-03 (3/1), 2026-09-02 (4/24), 2026-09-01 (2/26)
+- Aralik 2026-07-07 - 2026-10-30, 81 islem gunu; gunluk alarm medyani 13, GUNLUK_OZET medyani 23.
+- Ham kayit 3155, eventId tekrari 373, tekil 2782.
+- Supheli eksik gun (alarm < medyanin yarisi ya da GUNLUK_OZET < medyanin %80'i): toplam 40, son 30 gunde 2. En yeni 15 (alarm/ozet): 2026-10-28 (10/0), 2026-10-07 (25/0), 2026-09-18 (3/4), 2026-09-17 (0/0), 2026-09-16 (0/0), 2026-09-15 (0/0), 2026-09-14 (0/0), 2026-09-11 (0/0), 2026-09-10 (0/0), 2026-09-09 (0/0), 2026-09-08 (0/0), 2026-09-07 (0/0), 2026-09-04 (6/0), 2026-09-03 (3/1), 2026-09-02 (4/24)
 - Tamamen bos alanlar: v112wr, pozsebep
 - Tanimsiz sinyal adlari: {'GERCEK_TEST': 1, 'GERCEK_TEST_KANAL_KONTROL': 1, 'GERCEK_TEST_P3_KONTROL': 1, '?': 5}
 - Fiyat uyusmazligi (alarm fiyati Yahoo gun araliginin %1 disinda): 0

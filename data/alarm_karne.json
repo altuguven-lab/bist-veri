@@ -1,5 +1,5 @@
 {
- "uretim_utc": "2026-10-29T21:26:11.620345+00:00",
+ "uretim_utc": "2026-10-30T21:02:34.712924+00:00",
  "surum": "v1",
  "parametreler": {
   "MALIYET_PCT": 0.25,
@@ -37,12 +37,12 @@
    "tv_alerts_2026_07.json": 197,
    "tv_alerts_2026_08.json": 852,
    "tv_alerts_2026_09.json": 488,
-   "tv_alerts_2026_10.json": 1192,
-   "tv_alerts_latest.json": 319
+   "tv_alerts_2026_10.json": 1245,
+   "tv_alerts_latest.json": 373
   },
-  "ham": 3048,
-  "tekrar": 319,
-  "tekil": 2729
+  "ham": 3155,
+  "tekrar": 373,
+  "tekil": 2782
  },
  "xu100_son_gun": "2026-10-28",
  "turler": {
@@ -3967,11 +3967,11 @@
  "veri_butunlugu": {
   "aralik": [
    "2026-07-07",
-   "2026-10-28"
+   "2026-10-30"
   ],
-  "islem_gunu": 80,
-  "gunluk_alarm_medyan": 13.5,
-  "gunluk_ozet_medyan": 23.5,
+  "islem_gunu": 81,
+  "gunluk_alarm_medyan": 13,
+  "gunluk_ozet_medyan": 23,
   "supheli_eksik_gunler": [
    {
     "gun": "2026-07-07",
@@ -4167,22 +4167,27 @@
     "gun": "2026-10-07",
     "alarm": 25,
     "gunluk_ozet": 0
+   },
+   {
+    "gun": "2026-10-28",
+    "alarm": 10,
+    "gunluk_ozet": 0
    }
   ],
   "alan_bosluk_orani_pct": {
    "fiyat": 0.2,
-   "skor": 6.1,
-   "kgs": 6.1,
-   "stop": 6.1,
-   "rejim": 6.1,
-   "relvol": 6.1,
-   "v112n": 50.1,
+   "skor": 6.0,
+   "kgs": 6.0,
+   "stop": 6.0,
+   "rejim": 6.0,
+   "relvol": 6.0,
+   "v112n": 50.0,
    "v112wr": 100.0,
-   "p3ozet": 42.7,
+   "p3ozet": 41.9,
    "pozsebep": 100.0,
-   "schemaVersion": 42.7,
-   "eventId": 42.7,
-   "carrierLagBars": 42.7
+   "schemaVersion": 41.9,
+   "eventId": 41.9,
+   "carrierLagBars": 41.9
   },
   "tanimsiz_sinyal_adlari": {
    "GERCEK_TEST": 1,
@@ -4190,14 +4195,14 @@
    "GERCEK_TEST_P3_KONTROL": 1,
    "?": 5
   },
-  "son_30_gunde_supheli": 1,
+  "son_30_gunde_supheli": 2,
   "schemaVersion": {
    "?": 1166,
-   "v162.2": 1563
+   "v162.2": 1616
   },
   "carrierLagBars": {
    "?": 1166,
-   "1": 1563
+   "1": 1616
   }
  },
  "fiyat_uyusmazligi": [],
