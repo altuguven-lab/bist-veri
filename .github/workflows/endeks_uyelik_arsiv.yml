@@ -1,0 +1,34 @@
+# BIST ENDEKS UYELIK GECMISI (Internet Archive) - SALT VERI TOPLAMA, elle tetiklenir. Kaldigi yerden devam eder.
+name: Endeks Uyelik Arsiv
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: endeks-kesif
+  cancel-in-progress: false
+jobs:
+  topla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Topla
+        run: python endeks_uyelik_arsiv.py
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "endeks-uyelik-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/endeks_uyelik
+          git diff --staged --quiet && exit 0
+          git commit -m "Endeks uyelik arsivi $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
