@@ -7,7 +7,7 @@ Adimlar:
   2) byCriteria ile o uyenin 2015'ten bugune tum bildirimlerini 90 gunluk dilimlerle listeler (~50 istek).
   3) Konu/ozetinde endeks gecenleri secer; her birinin sayfasini ve sayfada ACIKCA baglanan eklerini indirir
      (dosya basina 5 MB, calisma basina MAX_EK). Ayristirici, ek bicimi gorulduktan sonra yazilacak.
-Kaldigi yerden devam eder. Cikti: data/endeks_kap/ (liste.json, sayfa_*.html, ekler/)
+Kaldigi yerden devam eder. Cikti: data/endeks_kap/ (liste.json: bildirimler + metinler, ekler/)
 """
 import os, re, json, time, html, datetime, urllib.request, urllib.parse, urllib.robotparser
 
@@ -18,8 +18,8 @@ UA = {"User-Agent": f"{UA_AD}/1.0 (kisisel arastirma amacli)", "Accept-Language"
 API = KOK + "/tr/api/disclosure/members/byCriteria"
 TOHUM = [1666347]                         # bilinen BIST endeks bildirimi
 BAS = datetime.date(2015, 1, 1)
-BEKLE = float(os.environ.get("BEKLE_SN", "2.5"))
-MAX_EK = int(os.environ.get("MAX_EK", "150"))
+BEKLE = float(os.environ.get("BEKLE_SN", "2.0"))
+MAX_EK = int(os.environ.get("MAX_EK", "700"))
 AZAMI = 5 * 1024 * 1024
 ENDEKS_RE = re.compile(r"endeks|index|indices", re.I)
 _rp = urllib.robotparser.RobotFileParser()
@@ -87,7 +87,20 @@ def listele(oid, d):
         time.sleep(BEKLE)
 
 
+def metin_cikar(s):
+    t = re.sub(r"<script.*?</script>|<style.*?</style>", " ", s, flags=re.S)
+    t = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", t)).split())
+    i = t.find("oda_ExplanationTextBlock")
+    return t[i: i + 6000] if i >= 0 else ""
+
+
 def ekleri_indir(d):
+    # v2 (30.10): ham HTML yerine bildirim metni saklanir (1.300 x 115 KB repoyu sisirirdi); ek adresi
+    # sayfadaki acik baglantidan alinir: href="https://www.kap.org.tr/tr/api/file/download/<objId>"
+    d.setdefault("metinler", {})
+    for idx in list(d["indirilen"]):                       # v1'de ekler inmemisti: tekrar islenecek
+        if idx not in d["metinler"]:
+            d["indirilen"].pop(idx)
     sayac = 0
     secili = {i: b for i, b in d["tum"].items() if ENDEKS_RE.search(f"{b.get('subject')} {b.get('summary')}")}
     d["secili_sayisi"] = len(secili)
@@ -96,15 +109,17 @@ def ekleri_indir(d):
             continue
         try:
             s = getir(f"{KOK}/tr/Bildirim/{idx}")[0].decode("utf-8", errors="replace")
-            open(f"{CIKTI}/sayfa_{idx}.html", "w", encoding="utf-8").write(s)
+            d["metinler"][idx] = metin_cikar(s)
             ekler = []
-            for u in sorted(set(re.findall(r'(?:href=\\?"|\\?")(/tr/api/file/download/[^"\\]+|/tr/api/BildirimPdf/[^"\\]+)', s))):
+            for u in sorted(set(re.findall(r'href="(https://www\.kap\.org\.tr/tr/api/file/download/[0-9a-f]+)"', s))):
                 try:
-                    v, tur, ad = getir(KOK + u)
+                    v, tur, ad = getir(u)
                     m = re.search(r'filename\*?=(?:UTF-8\'\')?"?([^";]+)', ad)
-                    dosya = f"{idx}_" + re.sub(r"[^A-Za-z0-9._-]", "_", urllib.parse.unquote(m.group(1)) if m else os.path.basename(u))[:90]
+                    ad_ = urllib.parse.unquote(m.group(1)) if m else os.path.basename(u)
+                    uz = os.path.splitext(ad_)[1].lower() or (".pdf" if "pdf" in tur else ".bin")
+                    dosya = f"{idx}_{len(ekler)}{uz}"
                     open(f"{CIKTI}/ekler/{dosya}", "wb").write(v)
-                    ekler.append({"url": u, "dosya": dosya, "tur": tur, "boyut": len(v)})
+                    ekler.append({"url": u, "dosya": dosya, "ad": ad_, "tur": tur, "boyut": len(v)})
                 except Exception as e:
                     ekler.append({"url": u, "hata": str(e)[:80]})
                 time.sleep(BEKLE)
@@ -112,11 +127,16 @@ def ekleri_indir(d):
         except Exception as e:
             d["hatalar"].append(f"sayfa {idx}: {str(e)[:80]}")
         sayac += 1
+        if sayac % 50 == 0:                                 # ara kayit
+            json.dump(d, open(f"{CIKTI}/liste.json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
         time.sleep(BEKLE)
 
 
 def main():
     os.makedirs(f"{CIKTI}/ekler", exist_ok=True)
+    import glob
+    for f in glob.glob(f"{CIKTI}/sayfa_*.html"):          # v1 ham sayfalari (artik metin saklaniyor)
+        os.remove(f)
     yol = f"{CIKTI}/liste.json"
     d = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {"tum": {}, "indirilen": {}}
     d["hatalar"] = []
