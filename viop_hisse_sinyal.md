@@ -1,44 +1,44 @@
-# VİOP hisse vadeli — açık pozisyon sinyalleri — 2026-10-28
+# VİOP hisse vadeli — açık pozisyon sinyalleri — 2026-10-30
 
-Toplam APS: 75.0 mlr TL (gün içi değişim +0.29 mlr TL) · hacim 31.3 mlr TL · 47 hisse
+Toplam APS: 78.7 mlr TL (gün içi değişim +6.68 mlr TL) · hacim 79.8 mlr TL · 47 hisse
 
-**yeni short / satış baskısı:** AKBNK (fiyat -2.0%, APS +5.3% / +326 mn TL), SAHOL (fiyat -2.9%, APS +3.7% / +168 mn TL), TAVHL (fiyat -2.9%, APS +4.0% / +91 mn TL), FROTO (fiyat -0.6%, APS +10.8% / +89 mn TL), YKBNK (fiyat -2.4%, APS +1.5% / +77 mn TL), ISCTR (fiyat -1.3%, APS +1.7% / +63 mn TL), AEFES (fiyat -1.6%, APS +2.0% / +9 mn TL)
-**short kapama:** KCHOL (fiyat +0.6%, APS -2.5% / -82 mn TL), TRALT (fiyat +1.7%, APS -7.5% / -77 mn TL), EKGYO (fiyat +0.8%, APS -2.5% / -48 mn TL), ASTOR (fiyat +1.1%, APS -3.2% / -37 mn TL), ENKAI (fiyat +1.5%, APS -2.3% / -12 mn TL), TKFEN (fiyat +0.6%, APS -1.7% / -9 mn TL), ARCLK (fiyat +1.2%, APS -1.6% / -5 mn TL)
-**long tasfiyesi:** TUPRS (fiyat -1.1%, APS -3.9% / -167 mn TL), ALARK (fiyat -2.8%, APS -12.3% / -76 mn TL), HALKB (fiyat -0.6%, APS -2.9% / -48 mn TL), EREGL (fiyat -0.8%, APS -1.6% / -30 mn TL), DOHOL (fiyat -1.0%, APS -2.1% / -8 mn TL)
-**yeni long:** AKSEN (fiyat +3.8%, APS +3.4% / +18 mn TL), TTKOM (fiyat +0.9%, APS +1.7% / +13 mn TL), MGROS (fiyat +1.0%, APS +1.1% / +10 mn TL), TRMET (fiyat +3.8%, APS +1.1% / +3 mn TL)
+**yeni short / satış baskısı:** YKBNK (fiyat -1.7%, APS +21.6% / +1093 mn TL), SAHOL (fiyat -2.8%, APS +19.3% / +880 mn TL), AKBNK (fiyat -3.4%, APS +10.9% / +681 mn TL), ISCTR (fiyat -3.9%, APS +17.4% / +637 mn TL), ASELS (fiyat -3.2%, APS +9.1% / +581 mn TL), TUPRS (fiyat -3.5%, APS +11.1% / +438 mn TL), THYAO (fiyat -4.2%, APS +5.0% / +428 mn TL), KCHOL (fiyat -3.6%, APS +10.2% / +310 mn TL)
+**short kapama:** –
+**long tasfiyesi:** HALKB (fiyat -8.2%, APS -14.1% / -207 mn TL), TAVHL (fiyat -2.7%, APS -3.4% / -77 mn TL), FROTO (fiyat -5.8%, APS -5.7% / -49 mn TL), BIMAS (fiyat -4.7%, APS -1.5% / -39 mn TL), TTKOM (fiyat -2.3%, APS -3.2% / -26 mn TL), GUBRF (fiyat -10.3%, APS -1.9% / -12 mn TL), ARCLK (fiyat -4.6%, APS -3.4% / -11 mn TL)
+**yeni long:** –
 
 **Son 3 gün birikim (APS % değişim, kümülatif fiyat %)** — fiyat düşerken APS sürekli artıyorsa short birikiyor:
 
-- THYAO: fiyat -2.6%, APS +6.8% (+590 mn TL)
-- BIMAS: fiyat -2.5%, APS +22.8% (+507 mn TL)
-- YKBNK: fiyat -1.3%, APS +8.4% (+413 mn TL)
-- SAHOL: fiyat -4.2%, APS +7.5% (+343 mn TL)
-- TAVHL: fiyat -3.6%, APS +13.2% (+282 mn TL)
-- GUBRF: fiyat -7.4%, APS +14.7% (+85 mn TL)
+- SAHOL: fiyat -7.5%, APS +28.8% (+1278 mn TL)
+- YKBNK: fiyat -5.3%, APS +23.9% (+1229 mn TL)
+- AKBNK: fiyat -6.6%, APS +14.4% (+918 mn TL)
+- THYAO: fiyat -6.5%, APS +7.4% (+651 mn TL)
+- ISCTR: fiyat -5.3%, APS +10.2% (+416 mn TL)
+- TUPRS: fiyat -5.9%, APS +6.6% (+283 mn TL)
 
-**Açığa satış taramasıyla kesişim (2026-10-19):** AEFES (AS pay 10.6%, skor 1/4), FROTO (AS pay 10.5%, skor 1/4), TAVHL (AS pay 10.2%, skor 1/4), YKBNK (AS pay 15.6%, skor 2/4)
+**Açığa satış taramasıyla kesişim (2026-10-19):** AEFES (AS pay 10.6%, skor 1/4), ALARK (AS pay 10.4%, skor 3/4), EKGYO (AS pay 12.2%, skor 2/4), KRDMD (AS pay 20.5%, skor 2/4), MGROS (AS pay 6.1%, skor 1/4), SISE (AS pay 9.7%, skor 1/4), TCELL (AS pay 21.2%, skor 1/4), VAKBN (AS pay 7.7%, skor 2/4), YKBNK (AS pay 15.6%, skor 2/4)
 
 | Hisse | APS mlr TL | APS Δ% | Fiyat Δ% | Devir % | Takvim faizi % | Sinyal |
 |---|---|---|---|---|---|---|
-| THYAO | 9.04 | +1.1 | -0.18 | 27 | 31.66 |  |
-| ASELS | 6.62 | -0.3 | +5.15 | 60 | 28.08 |  |
-| AKBNK | 6.47 | +5.3 | -2.04 | 45 | 30.07 | yeni short / satış baskısı |
-| YKBNK | 5.16 | +1.5 | -2.37 | 33 | 30.33 | yeni short / satış baskısı |
-| SAHOL | 4.70 | +3.7 | -2.92 | 30 | 30.07 | yeni short / satış baskısı |
-| TUPRS | 4.07 | -3.9 | -1.08 | 28 | 30.11 | long tasfiyesi |
-| ISCTR | 3.80 | +1.7 | -1.30 | 28 | 30.12 | yeni short / satış baskısı |
-| KCHOL | 3.14 | -2.5 | +0.55 | 21 | 29.44 | short kapama |
-| BIMAS | 2.66 | +0.4 | +0.47 | 31 | 28.9 |  |
-| TAVHL | 2.35 | +4.0 | -2.91 | 50 | 31.17 | yeni short / satış baskısı |
-| GARAN | 2.23 | +1.5 | -0.35 | 26 | 28.34 |  |
-| EREGL | 1.92 | -1.6 | -0.76 | 37 | 29.04 | long tasfiyesi |
-| EKGYO | 1.88 | -2.5 | +0.77 | 45 | 26.87 | short kapama |
-| HALKB | 1.58 | -2.9 | -0.58 | 25 | -19.92 | long tasfiyesi |
-| TCELL | 1.48 | -0.6 | +0.62 | 27 | 29.54 |  |
-| SISE | 1.27 | +0.1 | +0.44 | 24 | 29.11 |  |
-| TOASO | 1.16 | +0.3 | +0.55 | 36 | 29.73 |  |
-| SASA | 1.13 | -0.7 | -1.97 | 33 | 23.71 |  |
-| ASTOR | 1.12 | -3.2 | +1.12 | 358 | 24.06 | short kapama |
-| PGSUS | 1.08 | -1.3 | -0.29 | 21 | 22.25 |  |
+| THYAO | 9.05 | +5.0 | -4.21 | 84 | 24.79 | yeni short / satış baskısı |
+| ASELS | 7.00 | +9.1 | -3.21 | 142 | 30.71 | yeni short / satış baskısı |
+| AKBNK | 6.93 | +10.9 | -3.39 | 90 | 29.19 | yeni short / satış baskısı |
+| YKBNK | 6.17 | +21.6 | -1.71 | 90 | 30.16 | yeni short / satış baskısı |
+| SAHOL | 5.44 | +19.3 | -2.75 | 82 | 25.99 | yeni short / satış baskısı |
+| TUPRS | 4.38 | +11.1 | -3.47 | 96 | 32.56 | yeni short / satış baskısı |
+| ISCTR | 4.30 | +17.4 | -3.88 | 103 | 31.33 | yeni short / satış baskısı |
+| KCHOL | 3.34 | +10.2 | -3.58 | 82 | 30.53 | yeni short / satış baskısı |
+| BIMAS | 2.50 | -1.5 | -4.69 | 85 | 31.68 | long tasfiyesi |
+| GARAN | 2.40 | +9.2 | -1.18 | 107 | 29.15 | yeni short / satış baskısı |
+| TAVHL | 2.20 | -3.4 | -2.69 | 68 | 24.25 | long tasfiyesi |
+| EKGYO | 1.92 | +7.9 | -5.27 | 60 | 28.36 | yeni short / satış baskısı |
+| EREGL | 1.87 | +2.6 | -5.00 | 100 | 30.57 | yeni short / satış baskısı |
+| TCELL | 1.77 | +21.1 | -1.30 | 110 | 27.83 | yeni short / satış baskısı |
+| SISE | 1.33 | +11.5 | -5.71 | 90 | 27.93 | yeni short / satış baskısı |
+| HALKB | 1.26 | -14.1 | -8.23 | 95 | 6.24 | long tasfiyesi |
+| SASA | 1.14 | +3.9 | -2.68 | 202 | 24.36 | yeni short / satış baskısı |
+| TOASO | 1.13 | +5.3 | -8.05 | 66 | 34.01 | yeni short / satış baskısı |
+| ASTOR | 1.05 | +4.2 | -9.79 | 212 | 21.49 | yeni short / satış baskısı |
+| PGSUS | 1.04 | +1.9 | -5.51 | 90 | 22.01 | yeni short / satış baskısı |
 
 Not: APS artışı yeni pozisyon demektir, kimin short/long olduğunu söylemez; fiyat yönüyle birlikte okunur. Takvim faizi = yakın ve sonraki vade arasındaki yıllıklandırılmış fark (spot gerektirmez). Tavsiye değildir.
