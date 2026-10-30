@@ -14,7 +14,7 @@ KATEGORI = "https://arastirma.isyatirim.com.tr/category/gunluk-raporlar/gunluk-y
 UA_AD = "bist-veri-arastirma"
 UA = {"User-Agent": f"Mozilla/5.0 (compatible; {UA_AD}/1.0; kisisel arastirma)", "Accept-Language": "tr-TR,tr;q=0.9"}
 BEKLE = float(os.environ.get("BEKLE_SN", "1.5"))
-MAX_RAPOR = int(os.environ.get("MAX_RAPOR", "800"))
+MAX_RAPOR = int(os.environ.get("MAX_RAPOR", "450"))   # 30.10: 800 rapor 60 dk sinirini asti
 
 _rp = urllib.robotparser.RobotFileParser()
 
@@ -104,7 +104,7 @@ def main():
         except Exception as e:
             hata.append(f"{u[-30:]}: {str(e)[:60]}")
         sayac += 1
-        if sayac % 50 == 0:
+        if sayac % 25 == 0:
             d.update({"islenen": sorted(islenen), "rapor_adresleri": adresler})
             json.dump(d, open(DOSYA, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
         time.sleep(BEKLE)
