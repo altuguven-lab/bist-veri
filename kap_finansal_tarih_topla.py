@@ -6,6 +6,10 @@ ceyrege atiyordu. 2023 yillik raporlari (ilk TMS 29 bilancolari) icin yasal sure
 40 sirketin yillik raporu Nisan-Haziran 2024'e dustu ve v1 bunlari 2024/03'un aciklama tarihi sandi
 (2024/03'te 'sonraki' sayaci 39; diger donemlerde 16-19). Bu, H4b'de 1. ceyrek rakamlari aciklanmadan
 pozisyona girmek, yani ileriye bakma yanliligi demekti.
+v2.1 (30.10): KAP bildiriminin kendi 'period' ve 'year' alanlari bulundu; ceyrek atamasi artik dogrudan
+bunlarla yapiliyor (pencere kurali yalniz bu alanlar bossa yedek). Konu eslesmesi TAM yapiliyor; "Finansal
+Rapor Ek Sure Taleplerine Iliskin SPK Degerlendirmesi" gibi notlar rapor sayilmiyor. Toplanmis veri
+korunur (yeniden toplama gerekmez).
 v2: (1) her gun SUREKLI sorgulanir (2021-01-01'den bugune), (2) sembol basina TUM "Finansal Rapor"
 bildirimleri saklanir, (3) ceyrek atamasi pencere tabanlidir ve yillik raporlarin sure uzatmasini
 ayirt eder (ayrinti: ata() aciklamasi). Atanamayan bildirimler 'atanmamis' olarak sayilir.
@@ -23,7 +27,7 @@ KAP_HEADERS = {"Content-Type": "application/json", "Referer": "https://www.kap.o
                "User-Agent": "bist-veri/1.0 (kisisel arastirma amacli)"}
 DOSYA = "data/kap_finansal_rapor_tarihleri.json"
 SURUM = 2
-KONU_ANAHTAR = "Finansal Rapor"
+KONU_ANAHTAR = "Finansal Rapor"            # konu TAM olarak bu olmali (30.10)
 SORGU_BAS = date(2021, 1, 1)
 ATAMA_ILK = (2020, 12)          # 2020 yillik raporu da atanir ki 2021/03'e yanlis dusmesin
 ATAMA_AZAMI_GUN = 160
@@ -72,53 +76,61 @@ def sorgu(gun):
     raise hata
 
 
+def kap_donemi(metin):
+    """KAP 'Finansal Rapor' bildiriminin kendi alanlari: 'period | year' (or. '3 | 2021' = 3. ceyrek 2021).
+    Donus: (yil, ay) ya da None."""
+    try:
+        parca = [x.strip() for x in str(metin).split("|")]
+        per, yil = int(parca[-2]), int(parca[-1])
+        if per in (1, 2, 3, 4) and 2000 < yil < 2100:
+            return yil, per * 3
+    except (ValueError, IndexError):
+        pass
+    return None
+
+
 def ata(bildirimler, bugun):
-    """Pencere tabanli ceyrek atamasi (kademeli kayma YOK). Donus: (kayitlar, atanmamis_sayisi).
-    - Birincil pencere: (ceyrek sonu + 15, ceyrek sonu + 100] gun. Ceyreklerin birincil pencereleri cakismaz.
-      Pencerede atanmamis ilk bildirim o ceyrege atanir; ardindan 7 gun icindeki diger bildirimler ayni
-      ceyregin ek raporu sayilir (konsolide / konsolide olmayan, duzeltme).
-    - Uzatilmis pencere YALNIZ yillik raporlar (4. ceyrek) icin: birincil pencerede bildirim yoksa ve bir
-      sonraki ceyregin birincil penceresinde birbirinden 7 gunden fazla ayrik en az 2 bildirim varsa,
-      bunlarin ilki yillik rapor sayilir (2022 deprem ve 2023 TMS 29 sure uzatmalari).
-    - Bir ceyrekte bildirim bulunamazsa o ceyrek bos kalir; sonraki ceyrekler kaymaz."""
-    kayit, atanmamis = [], 0
+    """Ceyrek atamasi. Donus: (kayitlar, atanmamis_sayisi).
+    30.10 v2.1: KAP her finansal rapor bildiriminde donemi (period 1-4) ve yili (year) veriyor. Atama
+    BUNA gore yapilir: sembol + (yil, ceyrek) icin en erken bildirim. Sure uzatmalari ve gecikmeler
+    otomatik olarak dogru ceyrege duser. Donem alani bos olan bildirimler (gorulmedi) eski pencere
+    kuralina (ceyrek sonu +15..+100 gun) gore atanir ve 'pencere' olarak isaretlenir."""
+    kayit, atanmamis = {}, 0
     for sem, lst in bildirimler.items():
-        lst = sorted(lst)
-        gunler = [date.fromisoformat(x[0][:10]) for x in lst]
-        kullanildi = [False] * len(lst)
-
-        def ekle(i, y, p):
-            kullanildi[i] = True
-            ek = 0
-            for j in range(i + 1, len(lst)):
-                if not kullanildi[j] and (gunler[j] - gunler[i]).days <= 7:
-                    kullanildi[j] = True
-                    ek += 1
-            yerel, idx, gec = lst[i][0], lst[i][1], lst[i][2]
+        donemsiz = []
+        for x in sorted(lst):
+            yerel, idx, gec = x[0], x[1], x[2]
+            metin = x[3] if len(x) > 3 else ""
+            dp = kap_donemi(metin)
+            if dp is None:
+                if "Finansal Rapor" in str(metin):          # v2 ilk calismadan kalan SPK ek sure notlari
+                    continue
+                donemsiz.append(x)
+                continue
+            a = (sem, dp)
+            if a in kayit:
+                kayit[a]["ayni_ceyrek_ek"] += 1
+                continue
             ytl = datetime.fromisoformat(yerel)
-            kayit.append({"sembol": sem, "donem": f"{y}/{p:02d}", "yayin_yerel": yerel,
-                          "yayin_utc": (ytl - TR).replace(tzinfo=timezone.utc).isoformat(),
-                          "disclosureIndex": idx, "gec": gec, "ayni_ceyrek_ek": ek, "uzatilmis": False})
-
-        for (y, p) in ceyrekler(bugun):
-            son = ceyrek_sonu(y, p)
-            a, b = son + timedelta(days=ATAMA_ASGARI_GUN), son + timedelta(days=100)
-            aday = [i for i in range(len(lst)) if not kullanildi[i] and a < gunler[i] <= b]
-            if aday:
-                ekle(aday[0], y, p)
-                continue
-            if p != 12:
-                continue
-            ns = ceyrek_sonu(y + 1, 3)
-            na, nb = ns + timedelta(days=ATAMA_ASGARI_GUN), ns + timedelta(days=100)
-            sonraki = [i for i in range(len(lst)) if not kullanildi[i] and na < gunler[i] <= nb
-                       and gunler[i] <= son + timedelta(days=ATAMA_AZAMI_GUN)]
-            tum_sonraki = [i for i in range(len(lst)) if not kullanildi[i] and na < gunler[i] <= nb]
-            if sonraki and any((gunler[k] - gunler[sonraki[0]]).days > 7 for k in tum_sonraki):
-                ekle(sonraki[0], y, p)
-                kayit[-1]["uzatilmis"] = True
-        atanmamis += kullanildi.count(False)
-    return sorted(kayit, key=lambda k: (k["donem"], k["sembol"])), atanmamis
+            kayit[a] = {"sembol": sem, "donem": f"{dp[0]}/{dp[1]:02d}", "yayin_yerel": yerel,
+                        "yayin_utc": (ytl - TR).replace(tzinfo=timezone.utc).isoformat(),
+                        "disclosureIndex": idx, "gec": gec, "ayni_ceyrek_ek": 0, "atama": "kap_donem"}
+        for x in donemsiz:
+            gun = date.fromisoformat(x[0][:10])
+            bulundu = False
+            for (y, p) in ceyrekler(bugun):
+                son = ceyrek_sonu(y, p)
+                if son + timedelta(days=ATAMA_ASGARI_GUN) < gun <= son + timedelta(days=100):
+                    a = (sem, (y, p))
+                    if a not in kayit:
+                        ytl = datetime.fromisoformat(x[0])
+                        kayit[a] = {"sembol": sem, "donem": f"{y}/{p:02d}", "yayin_yerel": x[0],
+                                    "yayin_utc": (ytl - TR).replace(tzinfo=timezone.utc).isoformat(),
+                                    "disclosureIndex": x[1], "gec": x[2], "ayni_ceyrek_ek": 0, "atama": "pencere"}
+                        bulundu = True
+                    break
+            atanmamis += 0 if bulundu else 1
+    return sorted(kayit.values(), key=lambda k: (k["donem"], k["sembol"])), atanmamis
 
 
 def main():
@@ -168,7 +180,7 @@ def main():
         for b in ham or []:
             s = b.get("subject") or ""
             konu[s] += 1
-            if KONU_ANAHTAR not in s:
+            if s.strip() != KONU_ANAHTAR:       # 30.10: "Finansal Rapor Ek Sure ... SPK Degerlendirmesi" gibi notlar disarida
                 continue
             alan = " ".join(str(b.get(k) or "") for k in ("relatedStocks", "stockCodes")).replace(",", " ").split()
             try:
@@ -177,7 +189,7 @@ def main():
                 continue
             for sem in ev:
                 if sem in alan and (sem, b.get("disclosureIndex")) not in gorulen:
-                    metin = " | ".join(str(b.get(k)) for k in ("summary", "ruleTypeTerm", "period", "year") if b.get(k))
+                    metin = " | ".join(str(b.get(k)) for k in ("summary", "period", "year") if b.get(k))
                     bild.setdefault(sem, []).append((yerel, b.get("disclosureIndex"), bool(b.get("isLate")), metin))
                     if "ornek_finansal_rapor" not in d:
                         d["ornek_finansal_rapor"] = b      # alan yapisini gormek icin (donem bilgisi var mi?)
