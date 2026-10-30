@@ -115,8 +115,9 @@ def main():
     out = {"uretim_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(), "surum": "v1", "on_kayit_sha256": sha,
            "deneme_no": len(kayit["denemeler"]) + 1}
 
-    if not kap.get("tamamlandi"):
-        out.update({"hukum": "VERI_YETERSIZ", "neden": f"KAP toplayici tamamlanmadi (kalan gun: {kap.get('kalan_gun')})"})
+    if kap.get("surum") != 2 or not kap.get("tamamlandi"):
+        # 30.10: v1 dosyasi (donem atama hatali) "tamamlandi" gosterse de kullanilmaz; yalniz toplayici v2 verisi.
+        out.update({"hukum": "VERI_YETERSIZ", "neden": f"KAP verisi v2 degil ya da tamamlanmadi (surum: {kap.get('surum')}, kalan gun: {kap.get('kalan_gun')})"})
     else:
         C, _, _, hata = panel_kur(evren, {})
         C = C[C.index >= pd.Timestamp("2021-01-01")]
