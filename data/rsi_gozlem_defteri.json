@@ -39,30 +39,6 @@
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Telekom",
       "pozisyon_birim_yuzde": 12.0
-    },
-    "SISE": {
-      "giris_tarih": "2026-10-26",
-      "giris_fiyat": 34.400001525878906,
-      "giris_rsi": 33.5,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Sanayi-Cam",
-      "pozisyon_birim_yuzde": 12.0
-    },
-    "AEFES": {
-      "giris_tarih": "2026-10-27",
-      "giris_fiyat": 16.260000228881836,
-      "giris_rsi": 34.2,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Gida-Icecek",
-      "pozisyon_birim_yuzde": 12.0
-    },
-    "TRALT": {
-      "giris_tarih": "2026-10-28",
-      "giris_fiyat": 36.0,
-      "giris_rsi": 30.1,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Madencilik",
-      "pozisyon_birim_yuzde": 12.0
     }
   },
   "kapanan_pozisyonlar": [
@@ -245,9 +221,45 @@
       "net_getiri_pct": -1.013,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Demir-Celik"
+    },
+    {
+      "sembol": "AEFES",
+      "giris_tarih": "2026-10-27",
+      "cikis_tarih": "2026-10-30",
+      "tutma_gun": 3,
+      "giris_fiyat": 16.260000228881836,
+      "cikis_fiyat": 15.430000305175781,
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -5.355,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Gida-Icecek"
+    },
+    {
+      "sembol": "SISE",
+      "giris_tarih": "2026-10-26",
+      "cikis_tarih": "2026-10-30",
+      "tutma_gun": 4,
+      "giris_fiyat": 34.400001525878906,
+      "cikis_fiyat": 32.040000915527344,
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -7.11,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Sanayi-Cam"
+    },
+    {
+      "sembol": "TRALT",
+      "giris_tarih": "2026-10-28",
+      "cikis_tarih": "2026-10-30",
+      "tutma_gun": 2,
+      "giris_fiyat": 36.0,
+      "cikis_fiyat": 32.41999816894531,
+      "sebep": "BASARISIZ_SICRAMA",
+      "net_getiri_pct": -10.194,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Madencilik"
     }
   ],
-  "son_guncelleme_utc": "2026-10-29T20:21:07.410442+00:00",
+  "son_guncelleme_utc": "2026-10-30T19:57:02.498153+00:00",
   "reddedilen_sinyaller": [
     {
       "sembol": "TOASO",
@@ -263,8 +275,8 @@
     }
   ],
   "ozet": {
-    "toplam_kapanan": 15,
-    "isabet_pct": 13.3,
-    "ort_net_getiri_pct": -3.386
+    "toplam_kapanan": 18,
+    "isabet_pct": 11.1,
+    "ort_net_getiri_pct": -4.081
   }
 }
