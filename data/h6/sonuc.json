@@ -1,0 +1,380 @@
+{
+ "uretim_utc": "2026-10-30T07:21:42.062288+00:00",
+ "surum": "v1",
+ "on_kayit_sha256": "c1fb12c277c423079db8416c7c57bc6b2aa9856e620eeedc4e346880c16a5bb5",
+ "deneme_no": 1,
+ "hukum": "ZAYIF",
+ "kriterler": {
+  "K1_oos_ort_pozitif": true,
+  "K2_oos_t": false,
+  "K3_oos_yillarin_2si_pozitif": true,
+  "K4_sektor_cikarma": true,
+  "K5_is_ort_pozitif": true
+ },
+ "bilesik": {
+  "IS": {
+   "n": 33,
+   "ort": 1.929,
+   "t": 3.12,
+   "pozitif_pct": 69.7
+  },
+  "OOS": {
+   "n": 30,
+   "ort": 0.689,
+   "t": 1.06,
+   "pozitif_pct": 56.7
+  },
+  "oos_yillik": {
+   "2024": 0.531,
+   "2025": 0.291,
+   "2026": 1.8
+  },
+  "taze": [
+   {
+    "ay": "2026-07",
+    "net_ew": -1.656,
+    "net_xu": -4.621
+   },
+   {
+    "ay": "2026-08",
+    "net_ew": 4.246,
+    "net_xu": 10.83
+   },
+   {
+    "ay": "2026-09",
+    "net_ew": 1.648,
+    "net_xu": -1.537
+   }
+  ],
+  "xu100e_gore_IS": {
+   "n": 33,
+   "ort": 2.718,
+   "t": 3.24,
+   "pozitif_pct": 78.8
+  },
+  "xu100e_gore_OOS": {
+   "n": 30,
+   "ort": 0.8247,
+   "t": 1.23,
+   "pozitif_pct": 63.3
+  },
+  "bankalar_haric_OOS": {
+   "n": 30,
+   "ort": 0.8715,
+   "t": 1.49,
+   "pozitif_pct": 56.7
+  },
+  "ort_devir": 0.21,
+  "ort_hisse": 16.7
+ },
+ "sektor_cikarma_oos": {
+  "Banka": 0.8715,
+  "Cimento": 0.9237,
+  "Dayanikli": 0.8475,
+  "Enerji": 0.6708,
+  "FinansDiger": 0.5826,
+  "GYO": 0.6681,
+  "Gida": 0.8549,
+  "Holding": 0.7145,
+  "Insaat": 0.8458,
+  "Kimya": 0.6935,
+  "Madencilik": 0.9187,
+  "Metal": 0.9277,
+  "Otomotiv": 0.7639,
+  "Perakende": 0.8567,
+  "Saglik": 0.6762,
+  "Savunma": 0.7938,
+  "Spor": 0.8134,
+  "Telekom": 0.8724,
+  "Ulastirma": 0.9738
+ },
+ "faktorler": {
+  "F1_momentum": {
+   "donem": {
+    "IS": [
+     "2016-01",
+     "2022-12"
+    ],
+    "OOS": [
+     "2023-01",
+     "2026-06"
+    ]
+   },
+   "ust_net_ew": {
+    "IS": {
+     "n": 77,
+     "ort": 1.4876,
+     "t": 2.15,
+     "pozitif_pct": 63.6
+    },
+    "OOS": {
+     "n": 42,
+     "ort": 0.2002,
+     "t": 0.41,
+     "pozitif_pct": 57.1
+    }
+   },
+   "ust_net_xu": {
+    "IS": {
+     "n": 77,
+     "ort": 2.6432,
+     "t": 2.82,
+     "pozitif_pct": 64.9
+    },
+    "OOS": {
+     "n": 42,
+     "ort": 0.7171,
+     "t": 0.97,
+     "pozitif_pct": 47.6
+    }
+   },
+   "ust_eksi_alt_brut": {
+    "IS": {
+     "n": 77,
+     "ort": 2.1731,
+     "t": 1.99,
+     "pozitif_pct": 59.7
+    },
+    "OOS": {
+     "n": 42,
+     "ort": 1.3867,
+     "t": 1.54,
+     "pozitif_pct": 64.3
+    }
+   },
+   "bh_anlamli_oos": false
+  },
+  "F2_dusuk_oynaklik": {
+   "donem": {
+    "IS": [
+     "2016-01",
+     "2022-12"
+    ],
+    "OOS": [
+     "2023-01",
+     "2026-06"
+    ]
+   },
+   "ust_net_ew": {
+    "IS": {
+     "n": 77,
+     "ort": -0.9702,
+     "t": -2.59,
+     "pozitif_pct": 40.3
+    },
+    "OOS": {
+     "n": 42,
+     "ort": 0.0442,
+     "t": 0.12,
+     "pozitif_pct": 50.0
+    }
+   },
+   "ust_net_xu": {
+    "IS": {
+     "n": 77,
+     "ort": 0.1906,
+     "t": 0.5,
+     "pozitif_pct": 51.9
+    },
+    "OOS": {
+     "n": 42,
+     "ort": 0.5684,
+     "t": 0.99,
+     "pozitif_pct": 52.4
+    }
+   },
+   "ust_eksi_alt_brut": {
+    "IS": {
+     "n": 77,
+     "ort": -2.4608,
+     "t": -2.71,
+     "pozitif_pct": 33.8
+    },
+    "OOS": {
+     "n": 42,
+     "ort": 1.1626,
+     "t": 1.85,
+     "pozitif_pct": 61.9
+    }
+   },
+   "bh_anlamli_oos": false
+  },
+  "F3_deger": {
+   "donem": {
+    "IS": [
+     "2021-04",
+     "2023-12"
+    ],
+    "OOS": [
+     "2024-01",
+     "2026-06"
+    ]
+   },
+   "ust_net_ew": {
+    "IS": {
+     "n": 33,
+     "ort": 1.3557,
+     "t": 2.28,
+     "pozitif_pct": 69.7
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 0.2258,
+     "t": 0.45,
+     "pozitif_pct": 50.0
+    }
+   },
+   "ust_net_xu": {
+    "IS": {
+     "n": 33,
+     "ort": 2.1871,
+     "t": 3.92,
+     "pozitif_pct": 66.7
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 0.3204,
+     "t": 0.52,
+     "pozitif_pct": 56.7
+    }
+   },
+   "ust_eksi_alt_brut": {
+    "IS": {
+     "n": 33,
+     "ort": 2.9115,
+     "t": 3.56,
+     "pozitif_pct": 66.7
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 1.4142,
+     "t": 1.53,
+     "pozitif_pct": 56.7
+    }
+   },
+   "bh_anlamli_oos": false
+  },
+  "F4_kalite": {
+   "donem": {
+    "IS": [
+     "2021-04",
+     "2023-12"
+    ],
+    "OOS": [
+     "2024-01",
+     "2026-06"
+    ]
+   },
+   "ust_net_ew": {
+    "IS": {
+     "n": 33,
+     "ort": 0.386,
+     "t": 0.81,
+     "pozitif_pct": 54.5
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 0.2205,
+     "t": 0.42,
+     "pozitif_pct": 56.7
+    }
+   },
+   "ust_net_xu": {
+    "IS": {
+     "n": 33,
+     "ort": 1.2479,
+     "t": 1.78,
+     "pozitif_pct": 66.7
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 0.3812,
+     "t": 0.68,
+     "pozitif_pct": 50.0
+    }
+   },
+   "ust_eksi_alt_brut": {
+    "IS": {
+     "n": 33,
+     "ort": 1.9679,
+     "t": 1.57,
+     "pozitif_pct": 60.6
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 1.1218,
+     "t": 1.03,
+     "pozitif_pct": 56.7
+    }
+   },
+   "bh_anlamli_oos": false
+  },
+  "F5_bilanco_surprizi": {
+   "donem": {
+    "IS": [
+     "2021-04",
+     "2023-12"
+    ],
+    "OOS": [
+     "2024-01",
+     "2026-06"
+    ]
+   },
+   "ust_net_ew": {
+    "IS": {
+     "n": 32,
+     "ort": 1.0429,
+     "t": 1.4,
+     "pozitif_pct": 59.4
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 1.1791,
+     "t": 2.37,
+     "pozitif_pct": 56.7
+    }
+   },
+   "ust_net_xu": {
+    "IS": {
+     "n": 32,
+     "ort": 1.8902,
+     "t": 1.65,
+     "pozitif_pct": 56.2
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 1.3342,
+     "t": 1.99,
+     "pozitif_pct": 60.0
+    }
+   },
+   "ust_eksi_alt_brut": {
+    "IS": {
+     "n": 32,
+     "ort": 2.6826,
+     "t": 2.38,
+     "pozitif_pct": 59.4
+    },
+    "OOS": {
+     "n": 30,
+     "ort": 3.3178,
+     "t": 3.97,
+     "pozitif_pct": 80.0
+    }
+   },
+   "bh_anlamli_oos": true
+  }
+ },
+ "guncel_siralama_tarihi": "2026-10-30",
+ "veri": {
+  "evren": 95,
+  "fiyatli": 95,
+  "hata": {},
+  "adet_eksik": [
+   "TURSG",
+   "ANSGR",
+   "ALBRK",
+   "ANHYT"
+  ]
+ }
+}
