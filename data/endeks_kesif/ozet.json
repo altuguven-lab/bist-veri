@@ -1,9 +1,29 @@
 {
- "zaman_utc": "2026-10-30T08:34:05.465424+00:00",
+ "zaman_utc": "2026-10-30T08:54:13.927074+00:00",
  "duyurular": [],
- "hatalar": [
-  "sayfa44: Remote end closed connection without response",
-  "agirlik csv: <urlopen error timed out>"
- ],
- "sayfa_baglantilari": []
+ "hatalar": [],
+ "sayfa_baglantilari": [],
+ "liste_durumu": [
+  {
+   "url": "https://www.borsaistanbul.com/tr/sayfa/44/bist-pay-endeksleri",
+   "durum": "hata",
+   "hata": "<urlopen error timed out>"
+  },
+  {
+   "url": "https://borsaistanbul.com/tr/sayfa/44/bist-pay-endeksleri",
+   "durum": "hata",
+   "hata": "<urlopen error timed out>"
+  },
+  {
+   "url": "https://www.borsaistanbul.com/en/indices/index-announcements",
+   "durum": "ok",
+   "uzunluk": 644638,
+   "baglanti": 838
+  },
+  {
+   "url": "https://www.borsaistanbul.com/tr/endeksler/endeks-duyurulari",
+   "durum": "hata",
+   "hata": "HTTP Error 404: Not Found"
+  }
+ ]
 }
