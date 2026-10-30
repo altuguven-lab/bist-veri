@@ -1,0 +1,270 @@
+{
+ "uretim_utc": "2026-10-30T08:13:12.200332+00:00",
+ "surum": "v1",
+ "on_kayit_sha256": "ad6ad73645164dd6ad0108d893ed16b624800b57b29e9c8d3722c900cad0a7ee",
+ "deneme_no": 1,
+ "testler": {
+  "X1_temettu_verimi": {
+   "IS": {
+    "n": 77,
+    "ort": -0.2194,
+    "t": -0.59
+   },
+   "OOS": {
+    "n": 42,
+    "ort": 0.2049,
+    "t": 0.38
+   },
+   "beklenen": "+",
+   "p_oos": 0.7039,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "X2_1ay_donus": {
+   "IS": {
+    "n": 77,
+    "ort": -0.2106,
+    "t": -0.65
+   },
+   "OOS": {
+    "n": 42,
+    "ort": 0.0074,
+    "t": 0.01
+   },
+   "beklenen": "+",
+   "p_oos": 0.992,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "X3_52h_zirve": {
+   "IS": {
+    "n": 77,
+    "ort": 0.586,
+    "t": 1.67
+   },
+   "OOS": {
+    "n": 42,
+    "ort": 0.6438,
+    "t": 1.26
+   },
+   "beklenen": "+",
+   "p_oos": 0.2077,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "X4_momentum_6_1": {
+   "IS": {
+    "n": 77,
+    "ort": 0.6179,
+    "t": 1.03
+   },
+   "OOS": {
+    "n": 42,
+    "ort": 0.6955,
+    "t": 1.27
+   },
+   "beklenen": "+",
+   "p_oos": 0.2041,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "X5_kucuk_buyukluk": {
+   "IS": {
+    "n": 77,
+    "ort": 2.9076,
+    "t": 3.91
+   },
+   "OOS": {
+    "n": 42,
+    "ort": 0.4218,
+    "t": 0.64
+   },
+   "beklenen": "+",
+   "p_oos": 0.5222,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "X6_likidite_primi": {
+   "IS": {
+    "n": 77,
+    "ort": 1.2547,
+    "t": 2.37
+   },
+   "OOS": {
+    "n": 42,
+    "ort": 1.5096,
+    "t": 2.69
+   },
+   "beklenen": "+",
+   "p_oos": 0.0071,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "X7_dusuk_beta": {
+   "IS": {
+    "n": 77,
+    "ort": -0.4342,
+    "t": -1.1
+   },
+   "OOS": {
+    "n": 42,
+    "ort": 0.6718,
+    "t": 1.02
+   },
+   "beklenen": "+",
+   "p_oos": 0.3077,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "X8_sektor_momentum": {
+   "IS": {
+    "n": 77,
+    "ort": 0.6305,
+    "t": 1.22
+   },
+   "OOS": {
+    "n": 42,
+    "ort": 0.3881,
+    "t": 0.8
+   },
+   "beklenen": "+",
+   "p_oos": 0.4237,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "E1_bedelsiz_oncesi": {
+   "IS": {
+    "n": 57,
+    "kume": 34,
+    "ort": 8.33,
+    "t": 1.62
+   },
+   "OOS": {
+    "n": 51,
+    "kume": 44,
+    "ort": 1.659,
+    "t": 1.11
+   },
+   "beklenen": "+",
+   "p_oos": 0.267,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "E2_bedelsiz_sonrasi": {
+   "IS": {
+    "n": 58,
+    "kume": 35,
+    "ort": 4.396,
+    "t": 1.03
+   },
+   "OOS": {
+    "n": 51,
+    "kume": 44,
+    "ort": 0.741,
+    "t": 0.26
+   },
+   "beklenen": "-",
+   "p_oos": 0.7949,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "E3_temettu_oncesi": {
+   "IS": {
+    "n": 381,
+    "kume": 143,
+    "ort": 0.009,
+    "t": 0.02
+   },
+   "OOS": {
+    "n": 230,
+    "kume": 98,
+    "ort": 1.172,
+    "t": 2.34
+   },
+   "beklenen": "+",
+   "p_oos": 0.0193,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "T1_ay_donumu": {
+   "IS": {
+    "n1": 576,
+    "n2": 2437,
+    "ort": 0.0804,
+    "t": 1.03
+   },
+   "OOS": {
+    "n1": 408,
+    "n2": 1709,
+    "ort": 0.0678,
+    "t": 0.76
+   },
+   "beklenen": "+",
+   "p_oos": 0.4473,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "T2_tatil_oncesi": {
+   "IS": {
+    "n1": 73,
+    "n2": 2940,
+    "ort": -0.0251,
+    "t": -0.17
+   },
+   "OOS": {
+    "n1": 70,
+    "n2": 2047,
+    "ort": -0.3323,
+    "t": -2.12
+   },
+   "beklenen": "+",
+   "p_oos": 0.034,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "T4_pazartesi": {
+   "IS": {
+    "n1": 603,
+    "n2": 2410,
+    "ort": 0.0316,
+    "t": 0.38
+   },
+   "OOS": {
+    "n1": 425,
+    "n2": 1692,
+    "ort": 0.1389,
+    "t": 1.37
+   },
+   "beklenen": "-",
+   "p_oos": 0.1707,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  },
+  "T3_kasim_nisan": {
+   "IS": {
+    "n1": 72,
+    "n2": 72,
+    "ort": 0.7562,
+    "t": 0.6
+   },
+   "OOS": {
+    "n1": 52,
+    "n2": 50,
+    "ort": 0.6271,
+    "t": 0.37
+   },
+   "beklenen": "+",
+   "p_oos": 0.7114,
+   "bh_anlamli": false,
+   "hukum": "KENAR_YOK"
+  }
+ },
+ "veri": {
+  "evren": 95,
+  "fiyatli": 95,
+  "hata": {},
+  "bedelsiz_olay": 253,
+  "temettu_olay": 1154,
+  "xu_ilk": "2005-01-03"
+ }
+}
