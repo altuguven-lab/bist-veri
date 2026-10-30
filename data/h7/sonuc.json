@@ -1,0 +1,173 @@
+{
+ "uretim_utc": "2026-10-30T07:55:31.540471+00:00",
+ "surum": "v1",
+ "on_kayit_sha256": "8ed1bd27551d3ae9c5dbabfd05b5a85724467c9613094c07129e8ee2c197772e",
+ "hukum": "ELENDI",
+ "kriterler": {
+  "K1_oos_fark_pozitif": true,
+  "K2_oos_t": false,
+  "K3_oos_risk_kapali_ort_negatif": false,
+  "K4_strateji_altut_ustu": false,
+  "K5_is_fark_pozitif": false
+ },
+ "birincil": {
+  "IS": {
+   "n_acik": 19,
+   "n_kapali": 20,
+   "ort_acik": -1.087,
+   "ort_kapali": 0.906,
+   "fark": -1.993,
+   "t": -0.97
+  },
+  "OOS": {
+   "n_acik": 39,
+   "n_kapali": 39,
+   "ort_acik": 2.586,
+   "ort_kapali": 0.018,
+   "fark": 2.568,
+   "t": 1.22
+  }
+ },
+ "strateji_oos": {
+  "aylik_ort_fazla": 1.194,
+  "altut_aylik_ort_fazla": 1.302,
+  "risk_acik_ay_orani": 0.5,
+  "rejim_degisimi": 31,
+  "en_kotu_12_ay": -34.87
+ },
+ "tekil": {
+  "S1_kur": {
+   "IS": {
+    "n_acik": 18,
+    "n_kapali": 21,
+    "ort_acik": -1.283,
+    "ort_kapali": 0.979,
+    "fark": -2.262,
+    "t": -1.11
+   },
+   "OOS": {
+    "n_acik": 37,
+    "n_kapali": 41,
+    "ort_acik": 1.061,
+    "ort_kapali": 1.52,
+    "fark": -0.459,
+    "t": -0.22
+   }
+  },
+  "S2_faiz": {
+   "IS": {
+    "n_acik": 20,
+    "n_kapali": 29,
+    "ort_acik": -2.084,
+    "ort_kapali": 1.455,
+    "fark": -3.54,
+    "t": -2.06
+   },
+   "OOS": {
+    "n_acik": 47,
+    "n_kapali": 31,
+    "ort_acik": 0.919,
+    "ort_kapali": 1.883,
+    "fark": -0.964,
+    "t": -0.46
+   }
+  },
+  "S3_vix": {
+   "IS": {
+    "n_acik": 31,
+    "n_kapali": 21,
+    "ort_acik": -0.198,
+    "ort_kapali": 0.073,
+    "fark": -0.27,
+    "t": -0.16
+   },
+   "OOS": {
+    "n_acik": 37,
+    "n_kapali": 41,
+    "ort_acik": 2.623,
+    "ort_kapali": 0.11,
+    "fark": 2.514,
+    "t": 1.19
+   }
+  },
+  "trend": {
+   "IS": {
+    "n_acik": 23,
+    "n_kapali": 20,
+    "ort_acik": -0.677,
+    "ort_kapali": 0.632,
+    "fark": -1.308,
+    "t": -0.69
+   },
+   "OOS": {
+    "n_acik": 67,
+    "n_kapali": 11,
+    "ort_acik": 1.28,
+    "ort_kapali": 1.437,
+    "fark": -0.158,
+    "t": -0.07
+   }
+  }
+ },
+ "usd_bazli": {
+  "IS": {
+   "n_acik": 19,
+   "n_kapali": 20,
+   "ort_acik": 0.068,
+   "ort_kapali": -0.36,
+   "fark": 0.428,
+   "t": 0.14
+  },
+  "OOS": {
+   "n_acik": 39,
+   "n_kapali": 39,
+   "ort_acik": 2.447,
+   "ort_kapali": -0.667,
+   "fark": 3.114,
+   "t": 1.45
+  }
+ },
+ "taze": [
+  {
+   "ay": "2026-07",
+   "bayrak": 1.0,
+   "fazla": 3.1757580348846006
+  },
+  {
+   "ay": "2026-08",
+   "bayrak": 1.0,
+   "fazla": -19.73522971405462
+  },
+  {
+   "ay": "2026-09",
+   "bayrak": 1.0,
+   "fazla": -11.159959222979783
+  },
+  {
+   "ay": "2026-10",
+   "bayrak": 0.0,
+   "fazla": NaN
+  }
+ ],
+ "guncel": {
+  "ay_sonu": "2026-10",
+  "bayrak": "RISK_KAPALI",
+  "S1_kur": 0.0,
+  "S2_faiz": 1.0,
+  "S3_vix": 0.0,
+  "trend": 0.0,
+  "usd_1a_deg_pct": 1.61,
+  "usd_med12_pct": 1.34,
+  "faiz": 36.0,
+  "faiz_3a_deg": -4.0,
+  "vix": 17.2,
+  "vix_med": 17.13
+ },
+ "veri": {
+  "usd_ilk": "2009-01-02",
+  "faiz_ilk": "2011-01-03",
+  "vix_ilk": "2009-01-02",
+  "ay_sayisi": 134
+ },
+ "deneme_no": 1
+}
