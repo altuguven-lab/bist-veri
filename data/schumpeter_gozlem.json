@@ -1,5 +1,5 @@
 {
- "olusturma_utc": "2026-10-25T10:52:51.830936Z",
+ "olusturma_utc": "2026-10-30T21:38:18.133388Z",
  "on_kayit_surumu": 2,
  "on_kayit_tarihi": "2026-10-11",
  "h1": {
@@ -15,8 +15,8 @@
      "2026-09-17",
      "2026-10-13"
     ],
-    "taban_ort_t5_pct": 0.27,
-    "taban_ort_t10_pct": 0.481
+    "taban_ort_t5_pct": 0.263,
+    "taban_ort_t10_pct": 0.516
    },
    "HAVACILIK": {
     "uye_sayisi": 3,
@@ -28,8 +28,8 @@
      "2026-09-09",
      "2026-10-19"
     ],
-    "taban_ort_t5_pct": -0.441,
-    "taban_ort_t10_pct": -0.989
+    "taban_ort_t5_pct": -0.458,
+    "taban_ort_t10_pct": -0.959
    },
    "SINAI": {
     "uye_sayisi": 3,
@@ -41,43 +41,43 @@
      "2026-09-11",
      "2026-10-09"
     ],
-    "taban_ort_t5_pct": 0.344,
-    "taban_ort_t10_pct": 0.731
+    "taban_ort_t5_pct": 0.264,
+    "taban_ort_t10_pct": 0.638
    },
    "ENERJI": {
     "uye_sayisi": 4,
-    "olay_sayisi": 16,
+    "olay_sayisi": 17,
     "olaylar": [
-     "2026-05-13",
      "2026-07-08",
      "2026-08-03",
      "2026-09-01",
-     "2026-10-09"
+     "2026-10-09",
+     "2026-10-27"
     ],
-    "taban_ort_t5_pct": 0.822,
-    "taban_ort_t10_pct": 1.704
+    "taban_ort_t5_pct": 0.838,
+    "taban_ort_t10_pct": 1.682
    },
    "OTOMOTIV": {
     "uye_sayisi": 3,
-    "olay_sayisi": 20,
+    "olay_sayisi": 21,
     "olaylar": [
-     "2026-07-16",
      "2026-07-31",
      "2026-08-24",
      "2026-09-07",
-     "2026-09-21"
+     "2026-09-21",
+     "2026-10-26"
     ],
-    "taban_ort_t5_pct": -0.489,
-    "taban_ort_t10_pct": -1.029
+    "taban_ort_t5_pct": -0.449,
+    "taban_ort_t10_pct": -1.022
    }
   },
   "guncel": {
    "BANKACILIK": {
-    "tarih": "2026-10-23",
-    "breadth_simdi": 0.5,
-    "breadth_5g_once": 1.0,
-    "sektor_rs5_pct": 1.16,
-    "durum": "NORMAL",
+    "tarih": "2026-10-28",
+    "breadth_simdi": 0.17,
+    "breadth_5g_once": 0.83,
+    "sektor_rs5_pct": -1.37,
+    "durum": "DAGILIYOR",
     "uyeler": [
      "AKBNK",
      "YKBNK",
@@ -88,11 +88,11 @@
     ]
    },
    "HAVACILIK": {
-    "tarih": "2026-10-23",
-    "breadth_simdi": 0.67,
-    "breadth_5g_once": 0.33,
-    "sektor_rs5_pct": 1.81,
-    "durum": "YAYILIYOR",
+    "tarih": "2026-10-28",
+    "breadth_simdi": 0.0,
+    "breadth_5g_once": 0.67,
+    "sektor_rs5_pct": -3.8,
+    "durum": "DAGILIYOR",
     "uyeler": [
      "THYAO",
      "PGSUS",
@@ -100,10 +100,10 @@
     ]
    },
    "SINAI": {
-    "tarih": "2026-10-23",
+    "tarih": "2026-10-28",
     "breadth_simdi": 0.0,
     "breadth_5g_once": 0.33,
-    "sektor_rs5_pct": -5.92,
+    "sektor_rs5_pct": -6.26,
     "durum": "NORMAL",
     "uyeler": [
      "EREGL",
@@ -112,11 +112,11 @@
     ]
    },
    "ENERJI": {
-    "tarih": "2026-10-23",
-    "breadth_simdi": 0.5,
-    "breadth_5g_once": 0.75,
-    "sektor_rs5_pct": -0.94,
-    "durum": "NORMAL",
+    "tarih": "2026-10-28",
+    "breadth_simdi": 0.75,
+    "breadth_5g_once": 0.25,
+    "sektor_rs5_pct": 3.93,
+    "durum": "YAYILIYOR",
     "uyeler": [
      "TUPRS",
      "PETKM",
@@ -125,11 +125,11 @@
     ]
    },
    "OTOMOTIV": {
-    "tarih": "2026-10-23",
-    "breadth_simdi": 0.33,
+    "tarih": "2026-10-28",
+    "breadth_simdi": 1.0,
     "breadth_5g_once": 0.0,
-    "sektor_rs5_pct": -0.42,
-    "durum": "NORMAL",
+    "sektor_rs5_pct": 4.98,
+    "durum": "YAYILIYOR",
     "uyeler": [
      "FROTO",
      "TOASO",
@@ -141,34 +141,34 @@
    "t5_kesif": {
     "n_olay": 86,
     "olay_ort_pct": -0.326,
-    "taban_ort_pct": 0.101,
-    "fark_ort_pct": -0.397,
-    "t": -1.17,
-    "p": 0.2433,
+    "taban_ort_pct": 0.092,
+    "fark_ort_pct": -0.388,
+    "t": -1.14,
+    "p": 0.2547,
     "verdikt": "KESIFSEL (verdikt yok)"
    },
    "t5_teyit": {
-    "n_olay": 1,
-    "olay_ort_pct": 3.734,
-    "taban_ort_pct": 0.101,
-    "fark_ort_pct": null,
-    "t": null,
-    "p": null,
+    "n_olay": 2,
+    "olay_ort_pct": 1.737,
+    "taban_ort_pct": 0.092,
+    "fark_ort_pct": 1.834,
+    "t": 1.12,
+    "p": 0.2623,
     "verdikt": "ORNEK YETERSIZ"
    },
    "t10_kesif": {
     "n_olay": 87,
     "olay_ort_pct": 0.277,
-    "taban_ort_pct": 0.18,
-    "fark_ort_pct": 0.154,
-    "t": 0.29,
-    "p": 0.7752,
+    "taban_ort_pct": 0.171,
+    "fark_ort_pct": 0.163,
+    "t": 0.3,
+    "p": 0.7618,
     "verdikt": "KESIFSEL (verdikt yok)"
    },
    "t10_teyit": {
-    "n_olay": 0,
-    "olay_ort_pct": null,
-    "taban_ort_pct": 0.18,
+    "n_olay": 1,
+    "olay_ort_pct": 4.018,
+    "taban_ort_pct": 0.171,
     "fark_ort_pct": null,
     "t": null,
     "p": null,
@@ -177,17 +177,15 @@
   }
  },
  "h2": {
-  "defter_kayit": 95,
+  "defter_kayit": 102,
   "yenilik_kayit": 10,
   "defter_ilk_tarih": "2026-08-25",
   "son20g_sektor_sayac": {
-   "GYO": 2,
    "HAVACILIK": 1,
+   "GYO": 1,
    "SINAI": 1
   },
-  "esik_ustu_sektorler": [
-   "GYO"
-  ],
+  "esik_ustu_sektorler": [],
   "son_yenilik_olaylari": [
    {
     "tarih": "2026-09-18",
@@ -266,34 +264,34 @@
   }
  },
  "viop_teyit": {
-  "tarih": "2026-10-23",
+  "tarih": "2026-10-30",
   "sektorler": {
    "BANKACILIK": {
     "viop_uye": 6,
     "yeni_long": 0,
-    "yeni_short": 1
+    "yeni_short": 5
    },
    "HAVACILIK": {
     "viop_uye": 3,
     "yeni_long": 0,
-    "yeni_short": 0
+    "yeni_short": 2
    },
    "SINAI": {
     "viop_uye": 3,
     "yeni_long": 0,
-    "yeni_short": 2
+    "yeni_short": 3
    },
    "ENERJI": {
     "viop_uye": 4,
     "yeni_long": 0,
-    "yeni_short": 1
+    "yeni_short": 3
    },
    "OTOMOTIV": {
     "viop_uye": 2,
     "yeni_long": 0,
-    "yeni_short": 0
+    "yeni_short": 1
    }
   }
  },
- "kap_yeni_kayit": 0
+ "kap_yeni_kayit": 7
 }
