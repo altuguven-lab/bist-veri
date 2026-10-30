@@ -13,7 +13,7 @@ concurrency:
 jobs:
   topla:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,7 +26,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add data/endeks_kap || true
+          git add -A data/endeks_kap || true
           git diff --cached --quiet && exit 0
           git commit -m "endeks KAP bildirimleri"
           git pull --rebase -X theirs
