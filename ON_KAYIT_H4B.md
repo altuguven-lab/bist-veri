@@ -23,7 +23,7 @@ H4b her şirkete kendi KAP açıklamasının ertesi günü girer ve **takvim zam
 
 | Konu | Tanım |
 |---|---|
-| Açıklama tarihi | `data/kap_finansal_rapor_tarihleri.json` (toplayıcı v2). KAP'ta konusu "Finansal Rapor" olan ve o çeyreğe atanan **ilk** bildirim. Atama pencere kuralıyla yapılır: çeyrek sonundan 15–100 gün sonrası; yalnızca yıllık raporlarda süre uzatması için genişletilmiş pencere. Ayrıntı toplayıcının `ata()` açıklamasında. |
+| Açıklama tarihi | `data/kap_finansal_rapor_tarihleri.json` (toplayıcı v2.1). KAP'ta konusu tam olarak "Finansal Rapor" olan bildirimlerden, KAP'ın kendi dönem (`period`) ve yıl (`year`) alanına göre o çeyreğe ait **ilk** bildirim. Bu alanlar boşsa yedek olarak pencere kuralı (çeyrek sonundan 15–100 gün sonrası) kullanılır. |
 | Kapsam şartı | S değeri hesaplanabilen şirket-çeyreklerin en az %80'inde KAP tarihi bulunmalı. Yoksa test çalışmaz, sonuç `VERI_YETERSIZ` olur. Toplayıcı tamamlanmadıysa da `VERI_YETERSIZ`. |
 | Sinyal S, evren, mali veri, fiyat, sektör sepeti, maliyet | `ON_KAYIT_H4.md` ile aynı. |
 
@@ -85,5 +85,10 @@ H4b her şirkete kendi KAP açıklamasının ertesi günü girer ve **takvim zam
 - **29.10.2026, H4b hiç çalışmadan önce** (yalnızca bir deneme dosya eksikliğinden düştü; betik hiç çalışmadı, deneme kaydı yok):
   - Açıklama tarihi tanımı "sezon penceresindeki ilk bildirim"den "pencere kuralıyla o çeyreğe atanan ilk bildirim"e çevrildi.
   - Neden: 2023 yıllık raporlarının süre uzatması yüzünden yaklaşık 40 şirketin yıllık raporu 2024/03'ün açıklama tarihi sanılıyordu. Bu, 1. çeyrek rakamları açıklanmadan pozisyona girmek, yani ileriye bakma yanlılığı demekti.
+  - Sinyal, sınıflandırma, giriş, tutma, metrik ve geçme kriterleri değişmedi.
+- **30.10.2026, H4b'nin hiçbir sonucu görülmeden** (deneme 1 "VERI_YETERSIZ" ile bitti, ölçüm yapılmadı):
+  - KAP yanıtında her finansal raporun dönemini ve yılını veren alanlar bulundu. Çeyrek ataması tahmine dayalı pencere kuralı yerine bu alanlarla yapılıyor.
+  - Konu eşleşmesi tam yapılıyor; "Finansal Rapor Ek Süre Taleplerine İlişkin SPK Değerlendirmesi" gibi duyurular rapor sayılmıyor.
+  - Bilinen istisna: hesap dönemi Haziran'da biten şirketlerde (FENER, TSPOR) KAP'ın dönem numarası şirketin kendi hesap yılına göredir; takvim çeyreğine eşlemesi kayabilir. Evrendeki yaklaşık 95 şirketten 2’si; etkisi küçük, test dışı bırakılmıyor.
   - Sinyal, sınıflandırma, giriş, tutma, metrik ve geçme kriterleri değişmedi.
 
