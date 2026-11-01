@@ -7,20 +7,20 @@ Pine'a dokunmaz, alarm üretmez. Tavsiye değildir.
 
 | Sektör | Breadth şimdi | 5g önce | Sektör RS5 % | Durum | VİOP yeni long/short |
 |---|---|---|---|---|---|
-| BANKACILIK | 0.17 | 0.83 | -1.37 | DAGILIYOR | 0/5 (6 üye) |
-| HAVACILIK | 0.0 | 0.67 | -3.8 | DAGILIYOR | 0/2 (3 üye) |
-| SINAI | 0.0 | 0.33 | -6.26 | NORMAL | 0/3 (3 üye) |
-| ENERJI | 0.75 | 0.25 | 3.93 | YAYILIYOR | 0/3 (4 üye) |
-| OTOMOTIV | 1.0 | 0.0 | 4.98 | YAYILIYOR | 0/1 (2 üye) |
+| BANKACILIK | 0.33 | 0.83 | -0.98 | DAGILIYOR | 0/5 (6 üye) |
+| HAVACILIK | 0.0 | 1.0 | -3.18 | DAGILIYOR | 0/2 (3 üye) |
+| SINAI | 0.0 | 0.33 | -6.87 | NORMAL | 0/3 (3 üye) |
+| ENERJI | 0.5 | 0.25 | 0.48 | NORMAL | 0/3 (4 üye) |
+| OTOMOTIV | 0.67 | 0.67 | 1.36 | GUCLU-YAYILMIS | 0/1 (2 üye) |
 
 Olay çalışması (yayılma başlangıcı sonrası sektörün XU100'e göreli getirisi − koşulsuz ortalama):
 
 | Test | n | Olay ort % | Taban % | Fark % | t | p | Verdikt |
 |---|---|---|---|---|---|---|---|
-| H1 t5_kesif | 86 | -0.326 | 0.092 | -0.388 | -1.14 | 0.2547 | KESIFSEL (verdikt yok) |
-| H1 t5_teyit | 2 | 1.737 | 0.092 | 1.834 | 1.12 | 0.2623 | ORNEK YETERSIZ |
-| H1 t10_kesif | 87 | 0.277 | 0.171 | 0.163 | 0.3 | 0.7618 | KESIFSEL (verdikt yok) |
-| H1 t10_teyit | 1 | 4.018 | 0.171 | None | None | None | ORNEK YETERSIZ |
+| H1 t5_kesif | 86 | -0.326 | 0.085 | -0.381 | -1.12 | 0.263 | KESIFSEL (verdikt yok) |
+| H1 t5_teyit | 2 | 1.737 | 0.085 | 1.841 | 1.13 | 0.2597 | ORNEK YETERSIZ |
+| H1 t10_kesif | 87 | 0.277 | 0.164 | 0.17 | 0.32 | 0.7522 | KESIFSEL (verdikt yok) |
+| H1 t10_teyit | 1 | 4.018 | 0.164 | None | None | None | ORNEK YETERSIZ |
 
 ## H2 — Yenilik yoğunluğu (KAP)
 
