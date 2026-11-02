@@ -1,8 +1,372 @@
 {
- "uretim_utc": "2026-10-30T06:49:07.927663+00:00",
+ "uretim_utc": "2026-11-02T11:08:59.853334+00:00",
  "surum": "v1",
- "on_kayit_sha256": "c2bb3a1ff52dea1ce95dc1f384d8815f6b75e49ed2f7a20b146cc8d29dfbf8a0",
- "deneme_no": 1,
- "hukum": "VERI_YETERSIZ",
- "neden": "KAP verisi v2 degil ya da tamamlanmadi (surum: 2, kalan gun: 1074)"
+ "on_kayit_sha256": "81e4ac5ae1c473c50652c32e9a596083ed5f5c29f773f44fcbb231b5f2a8c11b",
+ "deneme_no": 2,
+ "kapsam_orani": 0.978,
+ "kapsam_donem": {
+  "2021/03": {
+   "bulunan": 72,
+   "toplam": 73,
+   "oran": 0.986
+  },
+  "2021/06": {
+   "bulunan": 74,
+   "toplam": 75,
+   "oran": 0.987
+  },
+  "2021/09": {
+   "bulunan": 74,
+   "toplam": 75,
+   "oran": 0.987
+  },
+  "2021/12": {
+   "bulunan": 77,
+   "toplam": 85,
+   "oran": 0.906
+  },
+  "2022/03": {
+   "bulunan": 79,
+   "toplam": 79,
+   "oran": 1.0
+  },
+  "2022/06": {
+   "bulunan": 79,
+   "toplam": 80,
+   "oran": 0.988
+  },
+  "2022/09": {
+   "bulunan": 80,
+   "toplam": 80,
+   "oran": 1.0
+  },
+  "2022/12": {
+   "bulunan": 80,
+   "toplam": 88,
+   "oran": 0.909
+  },
+  "2023/03": {
+   "bulunan": 81,
+   "toplam": 81,
+   "oran": 1.0
+  },
+  "2023/06": {
+   "bulunan": 82,
+   "toplam": 82,
+   "oran": 1.0
+  },
+  "2023/09": {
+   "bulunan": 83,
+   "toplam": 83,
+   "oran": 1.0
+  },
+  "2023/12": {
+   "bulunan": 84,
+   "toplam": 93,
+   "oran": 0.903
+  },
+  "2024/03": {
+   "bulunan": 83,
+   "toplam": 85,
+   "oran": 0.976
+  },
+  "2024/06": {
+   "bulunan": 86,
+   "toplam": 87,
+   "oran": 0.989
+  },
+  "2024/09": {
+   "bulunan": 88,
+   "toplam": 88,
+   "oran": 1.0
+  },
+  "2024/12": {
+   "bulunan": 93,
+   "toplam": 94,
+   "oran": 0.989
+  },
+  "2025/03": {
+   "bulunan": 93,
+   "toplam": 94,
+   "oran": 0.989
+  },
+  "2025/06": {
+   "bulunan": 92,
+   "toplam": 94,
+   "oran": 0.979
+  },
+  "2025/09": {
+   "bulunan": 90,
+   "toplam": 91,
+   "oran": 0.989
+  },
+  "2025/12": {
+   "bulunan": 93,
+   "toplam": 94,
+   "oran": 0.989
+  },
+  "2026/03": {
+   "bulunan": 93,
+   "toplam": 94,
+   "oran": 0.989
+  },
+  "2026/06": {
+   "bulunan": 93,
+   "toplam": 93,
+   "oran": 1.0
+  },
+  "2026/09": {
+   "bulunan": 15,
+   "toplam": 15,
+   "oran": 1.0
+  }
+ },
+ "fiyat_hatalari": {},
+ "tavan_suphesi": [],
+ "hukum": "ELENDI",
+ "kriterler": {
+  "K1_oos_ort_pozitif": false,
+  "K2_oos_t": false,
+  "K3_oos_sezonlarin_60pct_pozitif": false,
+  "K4_sektor_cikarma": false,
+  "K5_is_ort_pozitif": false
+ },
+ "birincil": {
+  "IS": {
+   "gun": 594,
+   "ort_esdeger": -1.148,
+   "t": -0.6
+  },
+  "OOS": {
+   "gun": 720,
+   "ort_esdeger": -1.104,
+   "t": -0.66
+  },
+  "TAZE": {
+   "gun": 64,
+   "ort_esdeger": -2.044,
+   "t": -0.34
+  }
+ },
+ "oos_sezon_ortalamalari": {
+  "2023/09": -2.85,
+  "2023/12": 1.786,
+  "2024/03": -1.248,
+  "2024/06": 3.407,
+  "2024/09": -0.406,
+  "2024/12": -9.818,
+  "2025/03": -0.39,
+  "2025/06": -0.004,
+  "2025/09": 2.536,
+  "2025/12": 0.553,
+  "2026/03": -1.045,
+  "2026/06": 0.522
+ },
+ "sektor_cikarma_oos": {
+  "Banka": -1.08,
+  "Cimento": -0.916,
+  "Dayanikli": -1.288,
+  "Enerji": -1.572,
+  "FinansDiger": -2.092,
+  "GYO": -1.016,
+  "Gida": -1.592,
+  "Holding": -1.084,
+  "Insaat": -1.104,
+  "Kimya": -1.064,
+  "Madencilik": -0.476,
+  "Metal": -0.844,
+  "Otomotiv": -0.892,
+  "Perakende": -0.668,
+  "Saglik": -1.104,
+  "Savunma": -1.144,
+  "Spor": -0.976,
+  "Telekom": -1.044,
+  "Ulastirma": -1.308
+ },
+ "ek": {
+  "KOTU 40g IS": {
+   "gun": 543,
+   "ort_esdeger": -2.428,
+   "t": -1.27
+  },
+  "IYI-KOTU fark 40g IS": {
+   "gun": 529,
+   "ort_esdeger": 2.072,
+   "t": 1.0
+  },
+  "IYI 10g IS": {
+   "gun": 321,
+   "ort_esdeger": -1.957,
+   "t": -1.48
+  },
+  "IYI 20g IS": {
+   "gun": 476,
+   "ort_esdeger": -1.216,
+   "t": -0.63
+  },
+  "IYI bankalar haric 40g IS": {
+   "gun": 594,
+   "ort_esdeger": -1.296,
+   "t": -0.62
+  },
+  "IYI seans ici aciklama 40g IS": {
+   "gun": 121,
+   "ort_esdeger": -8.972,
+   "t": -1.12
+  },
+  "IYI seans disi aciklama 40g IS": {
+   "gun": 594,
+   "ort_esdeger": -1.04,
+   "t": -0.54
+  },
+  "KOTU 40g OOS": {
+   "gun": 687,
+   "ort_esdeger": -0.388,
+   "t": -0.19
+  },
+  "IYI-KOTU fark 40g OOS": {
+   "gun": 682,
+   "ort_esdeger": -0.14,
+   "t": -0.05
+  },
+  "IYI 10g OOS": {
+   "gun": 487,
+   "ort_esdeger": -0.84,
+   "t": -0.99
+  },
+  "IYI 20g OOS": {
+   "gun": 603,
+   "ort_esdeger": -1.486,
+   "t": -1.2
+  },
+  "IYI bankalar haric 40g OOS": {
+   "gun": 719,
+   "ort_esdeger": -1.08,
+   "t": -0.63
+  },
+  "IYI seans ici aciklama 40g OOS": {
+   "gun": 408,
+   "ort_esdeger": 5.68,
+   "t": 1.26
+  },
+  "IYI seans disi aciklama 40g OOS": {
+   "gun": 720,
+   "ort_esdeger": -0.628,
+   "t": -0.32
+  }
+ },
+ "sinif_dagilimi": {
+  "2021/06": {
+   "ORTA": 22,
+   "IYI": 40,
+   "KOTU": 12
+  },
+  "2021/09": {
+   "KOTU": 19,
+   "IYI": 31,
+   "ORTA": 24
+  },
+  "2021/12": {
+   "ORTA": 27,
+   "IYI": 29,
+   "KOTU": 21
+  },
+  "2022/03": {
+   "KOTU": 51,
+   "ORTA": 19,
+   "IYI": 9
+  },
+  "2022/06": {
+   "ORTA": 16,
+   "IYI": 49,
+   "KOTU": 14
+  },
+  "2022/09": {
+   "ORTA": 14,
+   "IYI": 43,
+   "KOTU": 23
+  },
+  "2022/12": {
+   "KOTU": 24,
+   "IYI": 40,
+   "ORTA": 16
+  },
+  "2023/03": {
+   "KOTU": 62,
+   "ORTA": 14,
+   "IYI": 5
+  },
+  "2023/06": {
+   "KOTU": 27,
+   "ORTA": 11,
+   "IYI": 44
+  },
+  "2023/09": {
+   "KOTU": 27,
+   "IYI": 33,
+   "ORTA": 23
+  },
+  "2023/12": {
+   "ORTA": 55,
+   "IYI": 13,
+   "KOTU": 16
+  },
+  "2024/03": {
+   "KOTU": 51,
+   "ORTA": 25,
+   "IYI": 7
+  },
+  "2024/06": {
+   "ORTA": 15,
+   "IYI": 28,
+   "KOTU": 43
+  },
+  "2024/09": {
+   "ORTA": 22,
+   "IYI": 32,
+   "KOTU": 34
+  },
+  "2024/12": {
+   "ORTA": 38,
+   "KOTU": 38,
+   "IYI": 17
+  },
+  "2025/03": {
+   "ORTA": 61,
+   "IYI": 25,
+   "KOTU": 7
+  },
+  "2025/06": {
+   "IYI": 43,
+   "ORTA": 14,
+   "KOTU": 35
+  },
+  "2025/09": {
+   "IYI": 35,
+   "ORTA": 23,
+   "KOTU": 32
+  },
+  "2025/12": {
+   "IYI": 36,
+   "ORTA": 31,
+   "KOTU": 26
+  },
+  "2026/03": {
+   "ORTA": 58,
+   "KOTU": 24,
+   "IYI": 11
+  },
+  "2026/06": {
+   "IYI": 46,
+   "KOTU": 36,
+   "ORTA": 11
+  },
+  "2026/09": {
+   "IYI": 8,
+   "ORTA": 3,
+   "KOTU": 4
+  }
+ },
+ "ort_gecikme_gun": 46.2,
+ "olay_sayisi": 1792
 }
