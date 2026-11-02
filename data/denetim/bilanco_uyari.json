@@ -1,17 +1,60 @@
 {
-  "zaman_utc": "2026-10-30T11:28:49.902056+00:00",
-  "bugun": "2026-10-30",
-  "bekleyen": [],
-  "aciklayan": [],
-  "donem_son_tarih_uyarisi": [
+  "zaman_utc": "2026-11-02T13:41:06.381103+00:00",
+  "bugun": "2026-11-02",
+  "bekleyen": [
     {
+      "sembol": "YKBNK",
       "donem": "2026Q3",
-      "tur": "son_tarih_konsolide_olmayan",
-      "tarih": "2026-10-30",
-      "gun_kaldi": 0
+      "tarih": "2026-11-03",
+      "gun_kaldi": 1,
+      "kaynak": "DERLEME_BEKLENTI",
+      "acik_pozisyon": true
+    },
+    {
+      "sembol": "TTKOM",
+      "donem": "2026Q3",
+      "tarih": "2026-11-04",
+      "gun_kaldi": 2,
+      "kaynak": "DERLEME_BEKLENTI",
+      "acik_pozisyon": false
+    },
+    {
+      "sembol": "THYAO",
+      "donem": "2026Q3",
+      "tarih": "2026-11-04",
+      "gun_kaldi": 2,
+      "kaynak": "DERLEME_BEKLENTI",
+      "acik_pozisyon": false
+    },
+    {
+      "sembol": "AEFES",
+      "donem": "2026Q3",
+      "tarih": "2026-11-04",
+      "gun_kaldi": 2,
+      "kaynak": "DERLEME_BEKLENTI",
+      "acik_pozisyon": false
+    },
+    {
+      "sembol": "SAHOL",
+      "donem": "2026Q3",
+      "tarih": "2026-11-04",
+      "gun_kaldi": 2,
+      "kaynak": "DERLEME_BEKLENTI",
+      "acik_pozisyon": false
     }
   ],
-  "risk_bayragi": [],
+  "aciklayan": [],
+  "donem_son_tarih_uyarisi": [],
+  "risk_bayragi": [
+    {
+      "sembol": "YKBNK",
+      "durum": "BILANCO PENCERESI",
+      "tarih": "2026-11-03",
+      "gun_kaldi": 1,
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "stop mesafesi ve pozisyon boyutu gozden gecirilmeli (MGROS 12.08: bir gunde %-9.2) | TARIH SADECE DERLEME - sirket revize edebilir"
+    }
+  ],
   "tarihi_bilinmeyen": [
     {
       "sembol": "ASTOR",
