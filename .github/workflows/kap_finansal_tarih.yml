@@ -1,6 +1,7 @@
 # KAP FINANSAL RAPOR TARIHLERI - SALT VERI TOPLAMA (H4b girdisi).
 # Kaldigi yerden devam eder; ilk doldurma ~1.400 gun sorgusu = birkac calisma. Doldurma bitince
 # her calisma yalniz yeni gunleri sorgular (saniyeler).
+# 31.10: 45 dk sinirinda iptal -> veri kayboldu; sure 110 dk, Commit 'always', MAX_GUN 300.
 # Zamanlama: 00:20, 03:20, 21:20 UTC (gece; KAP yogunlugu dusuk) + elle.
 name: KAP Finansal Rapor Tarihleri
 on:
@@ -10,7 +11,7 @@ on:
     inputs:
       max_gun:
         description: "Bu calismada en fazla kac gun sorgulansin"
-        default: "450"
+        default: "300"
 permissions:
   contents: write
 concurrency:
@@ -19,7 +20,7 @@ concurrency:
 jobs:
   topla:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 110
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,9 +28,10 @@ jobs:
           python-version: "3.11"
       - name: Topla
         env:
-          MAX_GUN: ${{ inputs.max_gun || '450' }}
+          MAX_GUN: ${{ inputs.max_gun || '300' }}
         run: python kap_finansal_tarih_topla.py
       - name: Commit
+        if: always()
         run: |
           git config user.name "kap-finansal-bot"
           git config user.email "actions@users.noreply.github.com"
