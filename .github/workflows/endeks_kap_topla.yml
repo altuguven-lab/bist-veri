@@ -1,6 +1,8 @@
 name: Endeks KAP Topla
 
 on:
+  schedule:
+    - cron: "30 5 * * 1"   # haftalik, Pazartesi 08:30 TR (KAP finansal toplayici saatlerinden uzak)
   workflow_dispatch:
 
 permissions:
