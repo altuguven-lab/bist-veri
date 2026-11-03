@@ -1,0 +1,152 @@
+{
+ "uretim_utc": "2026-11-03T06:49:06.241544+00:00",
+ "on_kayit_sha256": "16cf194138c1fcdfc85c12035ed1346687bea86d1773e52edbd2db3dbb8412ab",
+ "git_sha": "a05a2823864267890ccd2a5132bc3b1ecf4de5a0",
+ "testler": {
+  "H9a": {
+   "n": 42,
+   "ort": 1.381,
+   "t": 1.5,
+   "oos_n": 20,
+   "oos_ort": 1.603,
+   "is_ort": 1.179,
+   "hukum": "KENAR_YOK",
+   "bh_q05": false
+  },
+  "H9b": {
+   "n": 42,
+   "ort": 0.565,
+   "t": 0.66,
+   "oos_n": 20,
+   "oos_ort": -1.093,
+   "is_ort": 2.072,
+   "hukum": "KENAR_YOK",
+   "bh_q05": false
+  },
+  "H9c": {
+   "n": 42,
+   "ort": 2.71,
+   "t": 1.68,
+   "oos_n": 20,
+   "oos_ort": 3.295,
+   "is_ort": 2.179,
+   "hukum": "KENAR_YOK",
+   "bh_q05": false
+  }
+ },
+ "plasebo": {
+  "H9a": {
+   "n": 42,
+   "ort": 2.302,
+   "t": 1.91,
+   "oos_n": 20,
+   "oos_ort": 0.975,
+   "is_ort": 3.508,
+   "hukum": "ZAYIF"
+  },
+  "H9b": {
+   "n": 42,
+   "ort": 0.881,
+   "t": 1.56,
+   "oos_n": 20,
+   "oos_ort": 0.895,
+   "is_ort": 0.869,
+   "hukum": "KENAR_YOK"
+  },
+  "H9c": {
+   "n": 42,
+   "ort": 6.58,
+   "t": 3.42,
+   "oos_n": 20,
+   "oos_ort": 4.59,
+   "is_ort": 8.389,
+   "hukum": "KENAR_YOK"
+  }
+ },
+ "pozitif_kontrol_H9a": "GECTI",
+ "supheli": false,
+ "haric_2026_10": {
+  "H9a": {
+   "n": 41,
+   "ort": 1.334,
+   "t": 1.42,
+   "oos_n": 19,
+   "oos_ort": 1.515,
+   "is_ort": 1.179,
+   "hukum": "KENAR_YOK"
+  },
+  "H9b": {
+   "n": 41,
+   "ort": 1.163,
+   "t": 1.84,
+   "oos_n": 19,
+   "oos_ort": 0.111,
+   "is_ort": 2.072,
+   "hukum": "KENAR_YOK"
+  },
+  "H9c": {
+   "n": 41,
+   "ort": 2.826,
+   "t": 1.71,
+   "oos_n": 19,
+   "oos_ort": 3.576,
+   "is_ort": 2.179,
+   "hukum": "KENAR_YOK"
+  }
+ },
+ "kapsama": {
+  "al": {
+   "olay": 322,
+   "fiyatli": 310
+  },
+  "cik": {
+   "olay": 327,
+   "fiyatli": 314
+  }
+ },
+ "w0_tani": {
+  "al": 0.87,
+  "cik": 0.323
+ },
+ "en_buyuk_5_katki_H9a": [
+  {
+   "donem_bas": "2020-04-01",
+   "kod": "RYGYO",
+   "w1": 68.25
+  },
+  {
+   "donem_bas": "2025-10-01",
+   "kod": "ECILC",
+   "w1": 45.36
+  },
+  {
+   "donem_bas": "2021-07-01",
+   "kod": "ERBOS",
+   "w1": 44.94
+  },
+  {
+   "donem_bas": "2022-10-01",
+   "kod": "SMRTG",
+   "w1": 41.6
+  },
+  {
+   "donem_bas": "2018-04-02",
+   "kod": "CEMAS",
+   "w1": -33.1
+  }
+ ],
+ "fiyat_hatasi": {
+  "ADANA": "az veri (0)",
+  "ANACM": "az veri (0)",
+  "DGKLB": "az veri (0)",
+  "EFORC": "az veri (0)",
+  "GUSGR": "az veri (0)",
+  "IPEKE": "az veri (0)",
+  "ITTFH": "az veri (0)",
+  "KERVT": "az veri (0)",
+  "SODA": "az veri (0)",
+  "TRKCM": "az veri (0)",
+  "YAZIC": "az veri (0)"
+ },
+ "fiyat_hatasi_sayisi": 11
+}
