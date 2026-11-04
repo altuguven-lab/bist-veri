@@ -1,20 +1,18 @@
-# VERI ARSIVI (bir kerelik geri doldurma, elle; KAP toplayicisinin 00:20/03:20/21:20 UTC saatlerinden uzak calistirin) - SALT VERI TOPLAMA. Ayrintilar veri_arsivi.py basinda.
-name: Veri Arsivi Geri Doldurma
+# VERI ARSIVI (haber, saatlik) - SALT VERI TOPLAMA. Ayrintilar veri_arsivi.py basinda.
+name: Veri Arsivi Haber
 on:
+  schedule:
+    - cron: "28 * * * *"
   workflow_dispatch:
-    inputs:
-      max_gun:
-        description: "Bu calismada en fazla kac KAP gunu"
-        default: "900"
 permissions:
   contents: write
 concurrency:
-  group: veri-arsivi
+  group: veri-arsivi-haber
   cancel-in-progress: false
 jobs:
   arsiv:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,7 +21,7 @@ jobs:
       - run: pip install yfinance==0.2.66 pandas numpy
       - name: Arsiv
         env:
-          VERI_KIP: geri_doldur
+          VERI_KIP: haber
           MAX_GUN: ${{ inputs.max_gun || '900' }}
         run: python veri_arsivi.py
       - name: Commit
@@ -33,7 +31,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data/arsiv || true
           git diff --staged --quiet && exit 0
-          git commit -m "Veri arsivi geri_doldur $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          git commit -m "Veri arsivi haber $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
           for i in 1 2 3 4 5; do
             if git push; then exit 0; fi
             sleep $(( (RANDOM % 8) + 3 ))
