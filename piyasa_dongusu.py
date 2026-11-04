@@ -185,6 +185,48 @@ def buffett(xutum, yedek):
             "not": "Dis kaynak ortalamasi farkli tanimla hesaplanmis olabilir; kendi serimiz bugunden itibaren birikir."}
 
 
+# ------------------------------------------------------------------ genislik (hisse bazinda)
+def uyeler_bugun():
+    try:
+        u = json.load(open("data/endeks_uyelik/donemsel.json", encoding="utf-8"))["uyelik"]
+        bugun = datetime.date.today().isoformat()
+        anahtar = max(k for k in u if k[:4].isdigit() and k <= bugun)
+        return sorted(u[anahtar]["XU100"]), anahtar
+    except Exception as ex:
+        HATA.append(f"uyelik: {str(ex)[:60]}")
+        return None, None
+
+
+def genislik_panel(kodlar):
+    import yfinance as yf
+    df = yf.download([k + ".IS" for k in kodlar], period="3y", interval="1d", auto_adjust=False,
+                     progress=False, threads=True, group_by="column")["Close"]
+    df.columns = [c.replace(".IS", "") for c in df.columns]
+    df.index = pd.to_datetime(df.index).tz_localize(None).normalize()
+    return df.dropna(how="all")
+
+
+def genislik(P):
+    s50, s200 = P.rolling(50, min_periods=50).mean(), P.rolling(200, min_periods=200).mean()
+    hi = P.rolling(250, min_periods=200).max()
+    lo = P.rolling(250, min_periods=200).min()
+    dd = (P / hi - 1) * 100
+    def satir(t):
+        g = lambda m, s: round(float((P.loc[t] > s.loc[t]).sum() / s.loc[t].notna().sum() * 100), 1) if s.loc[t].notna().sum() else None
+        d = dd.loc[t].dropna()
+        return {"tarih": str(t.date()), "n": int(d.size), "sma50_ustu_pct": g(P, s50), "sma200_ustu_pct": g(P, s200),
+                "zirveden_medyan_pct": round(float(d.median()), 1) if d.size else None,
+                "zirveye_5pct_yakin_n": int((d > -5).sum()), "zirveden_40pct_derin_n": int((d < -40).sum()),
+                "52h_yeni_zirve_n": int((P.loc[t] >= hi.loc[t]).sum()), "52h_yeni_dip_n": int((P.loc[t] <= lo.loc[t]).sum())}
+    gecerli = [t for t in P.index if s200.loc[t].notna().sum() >= 20]
+    haftalik = sorted({max(t for t in gecerli if t.isocalendar()[:2] == w.isocalendar()[:2]) for w in gecerli})
+    son = dd.iloc[-1].dropna().sort_values()
+    return {"son": satir(P.index[-1]), "haftalik": [satir(t) for t in haftalik],
+            "en_derin_5": {k: round(float(v), 1) for k, v in son.head(5).items()},
+            "zirveye_en_yakin_5": {k: round(float(v), 1) for k, v in son.tail(5)[::-1].items()},
+            "not": "Bugunku XU100 uyeleri; endeksten cikmis hisseler yok (hayatta kalma yanliligi). Ham kapanis (temettu/bolunme duzeltmesiz)."}
+
+
 # ------------------------------------------------------------------ ana
 def main():
     os.makedirs(CIKTI, exist_ok=True)
@@ -214,6 +256,12 @@ def main():
         out["donguler"][ad] = dl
         out["ozet"][ad] = ozet_istatistik(dl)
     out["buffett"] = buffett(xutum, xu)
+    kodlar, uy_tarih = uyeler_bugun()
+    try:
+        out["genislik"] = genislik(genislik_panel(kodlar)) if kodlar else {"hata": "uyelik yok"}
+        out["genislik"]["uyelik_donemi"] = uy_tarih
+    except Exception as ex:
+        out["genislik"] = {"hata": str(ex)[:120]}
     out["hatalar"] = HATA[-20:]
     json.dump(out, open(f"{CIKTI}/sonuc.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
@@ -245,6 +293,16 @@ def main():
             L.append(f"| {c['zirve']} | {c['dip']} | {c['kayip_pct']} | {c['zirveden_dibe_seans']} | {c['eski_zirveye_donus'] or 'devam ediyor'} | "
                      f"{c['dipten_donus_seans'] if c['dipten_donus_seans'] is not None else '-'} | {c['toplam_seans']} | {c['dip_sonrasi_sma200_5_kapanis'] or '-'} |")
         L.append(f"\nOzet (tamamlanmis donguler): {out['ozet'][ad]}")
+    G = out["genislik"]
+    L += ["", f"## Genislik - XU100 uyeleri (uyelik donemi {G.get('uyelik_donemi')})", ""]
+    if "son" in G:
+        L += ["| Hafta sonu | n | 50g ust % | 200g ust % | Zirveden medyan % | Zirveye <%5 | Zirveden -%40 derin | 52h yeni zirve | 52h yeni dip |",
+              "|---|---|---|---|---|---|---|---|---|"]
+        for r in G["haftalik"][-26:]:
+            L.append(f"| {r['tarih']} | {r['n']} | {r['sma50_ustu_pct']} | {r['sma200_ustu_pct']} | {r['zirveden_medyan_pct']} | {r['zirveye_5pct_yakin_n']} | {r['zirveden_40pct_derin_n']} | {r['52h_yeni_zirve_n']} | {r['52h_yeni_dip_n']} |")
+        L += ["", f"Zirveye en yakin: {G['zirveye_en_yakin_5']} | En derin: {G['en_derin_5']}", "", G["not"]]
+    else:
+        L.append(f"Hata: {G.get('hata')}")
     L += ["", f"Hatalar: {out['hatalar']}"]
     open(f"{CIKTI}/sonuc.md", "w", encoding="utf-8").write("\n".join(L) + "\n")
     print("\n".join(L[:40]))
