@@ -1,20 +1,12 @@
 {
-  "zaman_utc": "2026-11-03T12:54:04.276443+00:00",
-  "bugun": "2026-11-03",
+  "zaman_utc": "2026-11-04T13:07:36.172498+00:00",
+  "bugun": "2026-11-04",
   "bekleyen": [
-    {
-      "sembol": "YKBNK",
-      "donem": "2026Q3",
-      "tarih": "2026-11-03",
-      "gun_kaldi": 0,
-      "kaynak": "DERLEME_BEKLENTI",
-      "acik_pozisyon": true
-    },
     {
       "sembol": "TTKOM",
       "donem": "2026Q3",
       "tarih": "2026-11-04",
-      "gun_kaldi": 1,
+      "gun_kaldi": 0,
       "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
     },
@@ -22,7 +14,7 @@
       "sembol": "THYAO",
       "donem": "2026Q3",
       "tarih": "2026-11-04",
-      "gun_kaldi": 1,
+      "gun_kaldi": 0,
       "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
     },
@@ -30,7 +22,7 @@
       "sembol": "AEFES",
       "donem": "2026Q3",
       "tarih": "2026-11-04",
-      "gun_kaldi": 1,
+      "gun_kaldi": 0,
       "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
     },
@@ -38,7 +30,7 @@
       "sembol": "SAHOL",
       "donem": "2026Q3",
       "tarih": "2026-11-04",
-      "gun_kaldi": 1,
+      "gun_kaldi": 0,
       "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
     },
@@ -46,7 +38,7 @@
       "sembol": "ISCTR",
       "donem": "2026Q3",
       "tarih": "2026-11-05",
-      "gun_kaldi": 2,
+      "gun_kaldi": 1,
       "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
     },
@@ -54,7 +46,7 @@
       "sembol": "FROTO",
       "donem": "2026Q3",
       "tarih": "2026-11-05",
-      "gun_kaldi": 2,
+      "gun_kaldi": 1,
       "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
     },
@@ -62,7 +54,7 @@
       "sembol": "MGROS",
       "donem": "2026Q3",
       "tarih": "2026-11-05",
-      "gun_kaldi": 2,
+      "gun_kaldi": 1,
       "kaynak": "ACIKLANDI_TEYITLI",
       "acik_pozisyon": false
     },
@@ -70,23 +62,54 @@
       "sembol": "PETKM",
       "donem": "2026Q3",
       "tarih": "2026-11-05",
-      "gun_kaldi": 2,
+      "gun_kaldi": 1,
       "kaynak": "BILINMIYOR",
+      "acik_pozisyon": false
+    },
+    {
+      "sembol": "TUPRS",
+      "donem": "2026Q3",
+      "tarih": "2026-11-06",
+      "gun_kaldi": 2,
+      "kaynak": "SIRKET_KAP",
+      "acik_pozisyon": false
+    },
+    {
+      "sembol": "ENKAI",
+      "donem": "2026Q3",
+      "tarih": "2026-11-06",
+      "gun_kaldi": 2,
+      "kaynak": "DERLEME_BEKLENTI",
+      "acik_pozisyon": false
+    },
+    {
+      "sembol": "ULKER",
+      "donem": "2026Q3",
+      "tarih": "2026-11-06",
+      "gun_kaldi": 2,
+      "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
     }
   ],
-  "aciklayan": [],
-  "donem_son_tarih_uyarisi": [],
-  "risk_bayragi": [
+  "aciklayan": [
     {
       "sembol": "YKBNK",
-      "durum": "BILANCO PENCERESI",
+      "donem": "2026Q3",
       "tarih": "2026-11-03",
-      "gun_kaldi": 0,
       "kaynak": "DERLEME_BEKLENTI",
-      "not": "stop mesafesi ve pozisyon boyutu gozden gecirilmeli (MGROS 12.08: bir gunde %-9.2) | TARIH SADECE DERLEME - sirket revize edebilir"
+      "not": "ACIK POZISYON.",
+      "acik_pozisyon": true
     }
   ],
+  "donem_son_tarih_uyarisi": [
+    {
+      "donem": "2026Q3",
+      "tur": "son_tarih_konsolide",
+      "tarih": "2026-11-09",
+      "gun_kaldi": 5
+    }
+  ],
+  "risk_bayragi": [],
   "tarihi_bilinmeyen": [
     {
       "sembol": "ASTOR",
