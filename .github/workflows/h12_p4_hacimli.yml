@@ -1,0 +1,40 @@
+# H12 YUKSEK HACIMLI P4_HAZIRLIK - ILERIYE DONUK. SALT OLCUM, TAVSIYE DEGILDIR. Kurallar ON_KAYIT_H12.md'de.
+# Her is gunu alarm karnesinden sonra ara rapor uretir; hukum yalniz bitis sartinda bir kez verilir.
+name: H12 P4 Hacimli
+on:
+  schedule:
+    - cron: "15 23 * * 1-5"   # 02:15 TR - alarm karnesi (16:40 UTC, gecikebiliyor) sonrasi
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: h-testleri
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy PyYAML==6.0.2
+      - name: On kayit dosyasi var mi
+        run: test -f ON_KAYIT_H12.md || { echo "ON_KAYIT_H12.md yok"; exit 1; }
+      - name: H12
+        run: python h12_p4_hacimli.py
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "h-test-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/h12 || true
+          git diff --staged --quiet && exit 0
+          git commit -m "H12 ara rapor $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
