@@ -1,25 +1,25 @@
 # Piyasa dongusu gostergesi (BIST 100)
 
-Uretim 2026-11-04T09:08 UTC. Betimleyici; test/hukum ve tavsiye degildir.
+Uretim 2026-11-04T09:21 UTC. Betimleyici; test/hukum ve tavsiye degildir.
 
 ## Bugunku konum
 
 | Olcu | TL | USD | Reel TL |
 |---|---|---|---|
 | Son tarih | 2026-11-04 | 2026-11-04 | 2026-11-04 |
-| Zirveden uzaklik % | -24.8 | -55.3 | -52.7 |
+| Zirveden uzaklik % | -24.9 | -55.3 | -52.7 |
 | Zirve tarihi | 2026-05-11 | 2010-11-09 | 2023-08-28 |
 | Zirveden bu yana seans | 121 | 4003 | 796 |
-| 100 g ort. uzaklik % | -15.4 | -18.9 | -20.1 |
-| 200 g ort. uzaklik % | -16.2 | -22.7 | -24.9 |
+| 100 g ort. uzaklik % | -15.5 | -18.9 | -20.1 |
+| 200 g ort. uzaklik % | -16.3 | -22.8 | -25.0 |
 | 100 g ort. altinda seri (seans) | 36 | 84 | 47 |
 | 200 g ort. altinda seri (seans) | 33 | 37 | 47 |
 
 ## Buffett rasyosu
 
-- Oran: **%None** (dis kaynak 1993-2025 ortalamasi %25.4; fark %None)
-- Piyasa degeri None trilyon TL / GSYH (son 4 ceyrek, None) None trilyon TL
-- XUTUM serisi dosya tarihini kapsamiyor
+- Oran: **%20.8** (dis kaynak 1993-2025 ortalamasi %25.4; fark %-18.2)
+- Piyasa degeri 15.17 trilyon TL / GSYH (son 4 ceyrek, 2026-06-30) 73.03 trilyon TL
+- endeks agirlik dosyasi 30/09/2026 (XUTUM 583 pay), XU100 (XUTUM serisi yetersiz, yaklasik) ile 2026-11-04'e tasindi (x0.951)
 
 ## Gecmis donguler - TL (esik %15, veri 1997-07-01'den)
 
@@ -48,7 +48,7 @@ Uretim 2026-11-04T09:08 UTC. Betimleyici; test/hukum ve tavsiye degildir.
 | 2024-07-22 | 2024-11-05 | -22.9 | 74 | 2025-08-21 | 197 | 271 | 2024-12-09 |
 | 2026-05-11 | 2026-10-30 | -28.9 | 118 | devam ediyor | - | 121 | - |
 
-Ozet (tamamlanmis donguler): {'dongu_sayisi': 21, 'kayip_medyan_pct': -23.8, 'kayip_en_derin_pct': np.float64(-63.4), 'dipten_donus_medyan_seans': 79, 'dipten_donus_aralik_seans': [5, 793], 'toplam_medyan_seans': 118}
+Ozet (tamamlanmis donguler): {'dongu_sayisi': 21, 'kayip_medyan_pct': -23.8, 'kayip_en_derin_pct': -63.4, 'dipten_donus_medyan_seans': 79, 'dipten_donus_aralik_seans': [5, 793], 'toplam_medyan_seans': 118}
 
 ## Gecmis donguler - USD (esik %25, veri 1997-07-01'den)
 
@@ -61,7 +61,7 @@ Ozet (tamamlanmis donguler): {'dongu_sayisi': 21, 'kayip_medyan_pct': -23.8, 'ka
 | 2007-10-11 | 2008-11-20 | -74.1 | 277 | 2010-10-12 | 474 | 751 | 2009-05-12 |
 | 2010-11-09 | 2021-12-21 | -78.8 | 2786 | devam ediyor | - | 4003 | 2022-04-08 |
 
-Ozet (tamamlanmis donguler): {'dongu_sayisi': 5, 'kayip_medyan_pct': -65.5, 'kayip_en_derin_pct': np.float64(-86.8), 'dipten_donus_medyan_seans': 282, 'dipten_donus_aralik_seans': [27, 1092], 'toplam_medyan_seans': 519}
+Ozet (tamamlanmis donguler): {'dongu_sayisi': 5, 'kayip_medyan_pct': -65.5, 'kayip_en_derin_pct': -86.8, 'dipten_donus_medyan_seans': 282, 'dipten_donus_aralik_seans': [27, 1092], 'toplam_medyan_seans': 519}
 
 ## Gecmis donguler - REEL_TL (esik %20, veri 2005-01-31'den)
 
@@ -73,6 +73,6 @@ Ozet (tamamlanmis donguler): {'dongu_sayisi': 5, 'kayip_medyan_pct': -65.5, 'kay
 | 2023-01-02 | 2023-05-05 | -32.5 | 83 | 2023-07-27 | 55 | 138 | 2023-06-09 |
 | 2023-08-28 | 2026-11-02 | -54.4 | 794 | devam ediyor | - | 796 | - |
 
-Ozet (tamamlanmis donguler): {'dongu_sayisi': 4, 'kayip_medyan_pct': -45.6, 'kayip_en_derin_pct': np.float64(-67.9), 'dipten_donus_medyan_seans': 464, 'dipten_donus_aralik_seans': [55, 1126], 'toplam_medyan_seans': 878}
+Ozet (tamamlanmis donguler): {'dongu_sayisi': 4, 'kayip_medyan_pct': -45.6, 'kayip_en_derin_pct': -67.9, 'dipten_donus_medyan_seans': 464, 'dipten_donus_aralik_seans': [55, 1126], 'toplam_medyan_seans': 878}
 
-Hatalar: []
+Hatalar: ['Buffett tasimasi XU100 ile']
