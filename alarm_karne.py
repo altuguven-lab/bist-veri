@@ -74,12 +74,15 @@ YON = {
 }
 # CHANGELOG_V162 alarm oncelik tablosu (P2_ADAY orada "Islem"; sinyal_arsiv_gunluk.py'de IZLEME -
 # celiski raporda belirtilir).
-SINIF = {
+# 03.11 KURUL KARARI (K1-K3): Pine yon icin kullanilmaz. Butun yon alarmlari ve POZ_AZALT (canli karnede
+# TERS) "BILGI" sinifina alindi - olcum suruyor, aksiyon cagrisi degil. Eski siniflar SINIF_ESKI'de.
+SINIF_ESKI = {
     "STOP_KIRILDI": "KRITIK", "IC_STOP": "KRITIK", "ACIL_CIK": "KRITIK", "POZ_AZALT": "KRITIK",
     "CORE_AL": "ISLEM", "CORE_CIKIS": "ISLEM", "P1_KALITELI_AL": "ISLEM", "P2_ADAY": "ISLEM",
     "P3_SKOR_AL": "ISLEM", "P2_DIP_DONUS": "ISLEM",
     "P3_RADAR": "IZLEME", "P4_HAZIRLIK": "IZLEME", "SEKTOR_ROTASYONU": "IZLEME",
 }
+SINIF = {k: ("KRITIK" if k in ("STOP_KIRILDI", "IC_STOP", "ACIL_CIK") else "BILGI") for k in SINIF_ESKI}
 HARIC = {"GUNLUK_OZET"}
 HARIC_ONEK = ("GERCEK_TEST",)   # kanal test alarmlari
 # 28.10 EKI: Pipedream "Test" dugmesiyle yeniden gonderilen eski ornek olay. schemaVersion/eventId
