@@ -1,0 +1,40 @@
+# PIYASA DONGUSU GOSTERGESI - BETIMLEYICI, TEST/HUKUM VE TAVSIYE DEGILDIR.
+# Haftalik (Cuma aksami) + elle. Cikti: data/piyasa_dongusu/
+name: Piyasa Dongusu
+on:
+  schedule:
+    - cron: "40 16 * * 5"   # Cuma 19:40 TR, kapanis ve gunluk arsiv sonrasi
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: piyasa-dongusu
+  cancel-in-progress: false
+jobs:
+  olc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install yfinance==0.2.66 pandas numpy requests
+      - name: Piyasa dongusu
+        env:
+          TCMB_EVDS_API_KEY: ${{ secrets.TCMB_EVDS_API_KEY }}
+        run: python piyasa_dongusu.py
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "dongu-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/piyasa_dongusu || true
+          git diff --staged --quiet && exit 0
+          git commit -m "Piyasa dongusu $(date -u +%Y-%m-%d) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main
+          done
+          exit 1
