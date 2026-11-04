@@ -37,8 +37,10 @@ HATA = []
 # ------------------------------------------------------------------ yardimcilar
 def yaz_gz(yol, nesne):
     os.makedirs(os.path.dirname(yol), exist_ok=True)
-    with gzip.open(yol, "wt", encoding="utf-8", compresslevel=9) as f:
-        json.dump(nesne, f, ensure_ascii=False, separators=(",", ":"))
+    # 04.11: mtime=0 -> ayni icerik ayni bayt; git'te degismeyen dosya yeni kopya uretmez.
+    veri = json.dumps(nesne, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    with open(yol, "wb") as ham, gzip.GzipFile(fileobj=ham, mode="wb", compresslevel=9, mtime=0) as f:
+        f.write(veri)
 
 
 def oku_json(yol, varsayilan):
@@ -143,12 +145,11 @@ def intraday(semboller, period, aralik, hedef_klasor, gunluk_dosya=True):
     for t, d in veri.items():
         for row in bar_listesi(d):
             gunler.setdefault(row[0][:10], {}).setdefault(t.replace(".IS", ""), []).append([row[0][11:], *row[1:]])
-    bugun = datetime.datetime.now(TR).strftime("%Y-%m-%d")
     yazilan = 0
     for g, v in gunler.items():
+        # 04.11: indirilen penceredeki gunler her zaman yeniden yazilir - seans icinde yazilmis
+        # yarim gun dosyasi sonraki calismada tamamlanir (deterministik gzip: degismeyen gun degismez).
         yol = f"{KOK}/{hedef_klasor}/{g[:4]}/{g[5:7]}/{g[8:]}.json.gz"
-        if os.path.exists(yol) and g != bugun:
-            continue
         yaz_gz(yol, {"tarih": g, "aralik": aralik, "saat_dilimi": "Europe/Istanbul", "kaynak": "yfinance", "veri": v})
         yazilan += 1
     return yazilan
@@ -162,7 +163,16 @@ def gunluk_ohlcv(xutum):
         for row in bar_listesi(d, saat=False):
             gunler.setdefault(row[0], {})[t.replace(".IS", "")] = row[1:]
     for g, v in gunler.items():
-        yaz_gz(f"{KOK}/gunluk/{g[:4]}/{g[5:7]}/{g[8:]}.json.gz",
+        yol = f"{KOK}/gunluk/{g[:4]}/{g[5:7]}/{g[8:]}.json.gz"
+        # 04.11: Yahoo gunluk bari gec yayimlayabiliyor (03.11'de 594 sembolden 10'u). Mevcut dosyada
+        # daha cok sembol varsa eksik gelen semboller korunur (birlestirme).
+        if os.path.exists(yol):
+            try:
+                eski = json.load(gzip.open(yol, "rt", encoding="utf-8"))["veri"]
+                v = {**eski, **v}
+            except Exception:
+                pass
+        yaz_gz(yol,
                {"tarih": g, "alanlar": ["acilis", "yuksek", "dusuk", "kapanis", "hacim"], "duzeltme": "yok (ham)", "kaynak": "yfinance", "veri": v})
     return len(gunler), len(veri)
 
