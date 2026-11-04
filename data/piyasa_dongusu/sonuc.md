@@ -1,25 +1,25 @@
 # Piyasa dongusu gostergesi (BIST 100)
 
-Uretim 2026-11-04T09:21 UTC. Betimleyici; test/hukum ve tavsiye degildir.
+Uretim 2026-11-04T10:43 UTC. Betimleyici; test/hukum ve tavsiye degildir.
 
 ## Bugunku konum
 
 | Olcu | TL | USD | Reel TL |
 |---|---|---|---|
 | Son tarih | 2026-11-04 | 2026-11-04 | 2026-11-04 |
-| Zirveden uzaklik % | -24.9 | -55.3 | -52.7 |
+| Zirveden uzaklik % | -23.5 | -54.5 | -51.9 |
 | Zirve tarihi | 2026-05-11 | 2010-11-09 | 2023-08-28 |
 | Zirveden bu yana seans | 121 | 4003 | 796 |
-| 100 g ort. uzaklik % | -15.5 | -18.9 | -20.1 |
-| 200 g ort. uzaklik % | -16.3 | -22.8 | -25.0 |
+| 100 g ort. uzaklik % | -14.0 | -17.5 | -18.7 |
+| 200 g ort. uzaklik % | -14.8 | -21.4 | -23.6 |
 | 100 g ort. altinda seri (seans) | 36 | 84 | 47 |
 | 200 g ort. altinda seri (seans) | 33 | 37 | 47 |
 
 ## Buffett rasyosu
 
-- Oran: **%20.8** (dis kaynak 1993-2025 ortalamasi %25.4; fark %-18.2)
-- Piyasa degeri 15.17 trilyon TL / GSYH (son 4 ceyrek, 2026-06-30) 73.03 trilyon TL
-- endeks agirlik dosyasi 30/09/2026 (XUTUM 583 pay), XU100 (XUTUM serisi yetersiz, yaklasik) ile 2026-11-04'e tasindi (x0.951)
+- Oran: **%21.1** (dis kaynak 1993-2025 ortalamasi %25.4; fark %-16.7)
+- Piyasa degeri 15.44 trilyon TL / GSYH (son 4 ceyrek, 2026-06-30) 73.03 trilyon TL
+- endeks agirlik dosyasi 30/09/2026 (XUTUM 583 pay), XU100 (XUTUM serisi yetersiz, yaklasik) ile 2026-11-04'e tasindi (x0.969)
 
 ## Gecmis donguler - TL (esik %15, veri 1997-07-01'den)
 
@@ -74,5 +74,40 @@ Ozet (tamamlanmis donguler): {'dongu_sayisi': 5, 'kayip_medyan_pct': -65.5, 'kay
 | 2023-08-28 | 2026-11-02 | -54.4 | 794 | devam ediyor | - | 796 | - |
 
 Ozet (tamamlanmis donguler): {'dongu_sayisi': 4, 'kayip_medyan_pct': -45.6, 'kayip_en_derin_pct': -67.9, 'dipten_donus_medyan_seans': 464, 'dipten_donus_aralik_seans': [55, 1126], 'toplam_medyan_seans': 878}
+
+## Genislik - XU100 uyeleri (uyelik donemi 2026-10-01)
+
+| Hafta sonu | n | 50g ust % | 200g ust % | Zirveden medyan % | Zirveye <%5 | Zirveden -%40 derin | 52h yeni zirve | 52h yeni dip |
+|---|---|---|---|---|---|---|---|---|
+| 2026-05-15 | 99 | 62.0 | 66.7 | -14.6 | 14 | 3 | 2 | 0 |
+| 2026-05-22 | 99 | 38.0 | 55.6 | -17.5 | 7 | 5 | 2 | 0 |
+| 2026-05-26 | 99 | 38.0 | 54.5 | -18.3 | 8 | 5 | 2 | 0 |
+| 2026-06-05 | 99 | 38.0 | 56.6 | -16.8 | 4 | 6 | 3 | 1 |
+| 2026-06-12 | 99 | 44.0 | 61.6 | -16.9 | 5 | 6 | 1 | 0 |
+| 2026-06-19 | 99 | 52.0 | 68.7 | -15.4 | 11 | 6 | 1 | 0 |
+| 2026-06-26 | 99 | 38.0 | 59.6 | -19.1 | 6 | 6 | 2 | 1 |
+| 2026-07-03 | 99 | 34.0 | 55.6 | -18.8 | 7 | 8 | 2 | 2 |
+| 2026-07-10 | 99 | 23.0 | 52.5 | -20.4 | 8 | 8 | 1 | 2 |
+| 2026-07-17 | 99 | 32.0 | 51.5 | -20.6 | 8 | 10 | 2 | 1 |
+| 2026-07-24 | 99 | 34.0 | 50.5 | -20.8 | 7 | 12 | 0 | 6 |
+| 2026-07-31 | 99 | 24.0 | 39.4 | -23.6 | 8 | 17 | 1 | 5 |
+| 2026-08-07 | 99 | 35.0 | 45.5 | -21.8 | 9 | 16 | 2 | 3 |
+| 2026-08-14 | 99 | 29.0 | 42.4 | -22.8 | 8 | 16 | 5 | 2 |
+| 2026-08-21 | 99 | 39.0 | 43.4 | -20.9 | 11 | 17 | 3 | 0 |
+| 2026-08-28 | 99 | 53.0 | 49.5 | -18.9 | 12 | 13 | 1 | 0 |
+| 2026-09-04 | 99 | 39.0 | 42.4 | -21.7 | 9 | 15 | 1 | 1 |
+| 2026-09-11 | 100 | 56.0 | 51.0 | -18.4 | 8 | 12 | 5 | 0 |
+| 2026-09-18 | 100 | 27.0 | 34.0 | -26.1 | 6 | 25 | 3 | 15 |
+| 2026-09-25 | 100 | 27.0 | 30.0 | -24.4 | 8 | 23 | 3 | 7 |
+| 2026-10-02 | 100 | 14.0 | 28.0 | -27.9 | 3 | 24 | 2 | 3 |
+| 2026-10-09 | 100 | 22.0 | 29.0 | -27.2 | 4 | 27 | 2 | 3 |
+| 2026-10-16 | 100 | 10.0 | 20.0 | -30.5 | 1 | 36 | 0 | 30 |
+| 2026-10-23 | 100 | 4.0 | 12.0 | -36.9 | 0 | 44 | 0 | 40 |
+| 2026-10-30 | 100 | 3.0 | 7.0 | -38.4 | 0 | 46 | 0 | 42 |
+| 2026-11-04 | 100 | 10.0 | 15.0 | -33.4 | 2 | 41 | 0 | 0 |
+
+Zirveye en yakin: {'ENERY': -2.4, 'AHGAZ': -3.2, 'RYSAS': -5.3, 'ENJSA': -6.2, 'KCHOL': -9.5} | En derin: {'FENER': -83.6, 'BTCIM': -75.0, 'CVKMD': -73.4, 'KATMR': -69.8, 'BINHO': -69.2}
+
+Bugunku XU100 uyeleri; endeksten cikmis hisseler yok (hayatta kalma yanliligi). Ham kapanis (temettu/bolunme duzeltmesiz).
 
 Hatalar: ['Buffett tasimasi XU100 ile']
