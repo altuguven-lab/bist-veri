@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: veri-arsivi
+  group: veri-arsivi-haber
   cancel-in-progress: false
 jobs:
   arsiv:
