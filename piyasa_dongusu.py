@@ -141,13 +141,13 @@ def ozet_istatistik(dl):
         return None
     f = lambda a: [d[a] for d in tam]
     return {"dongu_sayisi": len(tam), "kayip_medyan_pct": round(float(np.median(f("kayip_pct"))), 1),
-            "kayip_en_derin_pct": min(f("kayip_pct")),
+            "kayip_en_derin_pct": float(min(f("kayip_pct"))),
             "dipten_donus_medyan_seans": int(np.median(f("dipten_donus_seans"))),
-            "dipten_donus_aralik_seans": [min(f("dipten_donus_seans")), max(f("dipten_donus_seans"))],
+            "dipten_donus_aralik_seans": [int(min(f("dipten_donus_seans"))), int(max(f("dipten_donus_seans")))],
             "toplam_medyan_seans": int(np.median(f("toplam_seans")))}
 
 
-def buffett(xutum):
+def buffett(xutum, yedek):
     dosyalar = sorted(glob.glob("data/arsiv/endeks_agirlik/*.csv.gz"))
     if not dosyalar:
         return {"hata": "agirlik arsivi yok"}
@@ -164,9 +164,12 @@ def buffett(xutum):
     if not gor:
         return {"hata": "XUTUM satiri yok"}
     t0 = pd.to_datetime(tarih, format="%d/%m/%Y")
-    x0 = xutum[xutum.index <= t0]
-    if x0.empty:
-        return {"hata": "XUTUM serisi dosya tarihini kapsamiyor"}
+    tasiyici = "XUTUM"
+    x0 = xutum[xutum.index <= t0] if xutum is not None else pd.Series(dtype=float)
+    if x0.empty or (xutum.index[-1] - t0).days < 0:
+        xutum, tasiyici = yedek, "XU100 (XUTUM serisi yetersiz, yaklasik)"
+        x0 = xutum[xutum.index <= t0]
+        HATA.append("Buffett tasimasi XU100 ile")
     tasima = float(xutum.iloc[-1] / x0.iloc[-1])
     pd_bugun = pd_tl * tasima
     g = evds("TP.GSYIH20.BY.B1GQ", "2023-01-01")
@@ -175,7 +178,7 @@ def buffett(xutum):
     gsyh = float(g.iloc[-4:].sum()) * 1000                     # bin TL -> TL
     oran = pd_bugun / gsyh * 100
     return {"oran_pct": round(oran, 1), "piyasa_degeri_trilyon_tl": round(pd_bugun / 1e12, 2),
-            "piyasa_degeri_kaynak": f"endeks agirlik dosyasi {tarih} (XUTUM {len(gor)} pay), XUTUM ile {str(xutum.index[-1].date())}'e tasindi (x{tasima:.3f})",
+            "piyasa_degeri_kaynak": f"endeks agirlik dosyasi {tarih} (XUTUM {len(gor)} pay), {tasiyici} ile {str(xutum.index[-1].date())}'e tasindi (x{tasima:.3f})",
             "gsyh_son4ceyrek_trilyon_tl": round(gsyh / 1e12, 2), "gsyh_son_ceyrek": str(g.index[-1].date()),
             "dis_kaynak_karsilastirma": DIS_BUFFETT,
             "dis_ortalamaya_gore_pct": round((oran / DIS_BUFFETT["ortalama_pct"] - 1) * 100, 1),
@@ -210,7 +213,7 @@ def main():
         dl = donguler(s, ESIK[ad])
         out["donguler"][ad] = dl
         out["ozet"][ad] = ozet_istatistik(dl)
-    out["buffett"] = buffett(xutum) if xutum is not None else {"hata": "XUTUM serisi yok"}
+    out["buffett"] = buffett(xutum, xu)
     out["hatalar"] = HATA[-20:]
     json.dump(out, open(f"{CIKTI}/sonuc.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
