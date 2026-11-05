@@ -9,7 +9,7 @@ Kipler (VERI_KIP ortam degiskeni ya da ilk arguman):
                B) Tum pazar (XUTUM, ~580 hisse) gunluk OHLCV, ham (duzeltmesiz)       -> arsiv/gunluk/YYYY/MM/DD.json.gz
                C) Borsa Istanbul endeks agirlik dosyasi (pay adedi, FDPO, agirlik) - degistiyse -> arsiv/endeks_agirlik/YYYY-MM-DD.csv.gz
                D) Kuresel/makro gosterge kapanislari                                    -> arsiv/kuresel/YYYY.json
-               E) KAP'taki TUM bildirimlerin ust verisi (son 3 gun)                    -> arsiv/kap/YYYY/MM/DD.json.gz
+               E) KAP'taki TUM bildirimlerin ust verisi (son 3 gun; haber kipinde saatlik bugun)                    -> arsiv/kap/YYYY/MM/DD.json.gz
   haber        Saatlik: data/haber_akisi.json'daki haberleri aylik dosyaya ekler (tekillestirir) -> arsiv/haber/YYYY-MM.jsonl
   geri_doldur  Bir kerelik (elle, birkac calisma): 15 dk barlar son 60 gun, 60 dk barlar son ~730 gun (BIST100),
                KAP tum bildirim ust verisi 2021-01-01'den bugune (MAX_GUN gun/calisma, kaldigi yerden devam).
@@ -279,6 +279,7 @@ def main():
     rapor = {"kip": kip, "zaman_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()}
     if kip == "haber":
         rapor["haber_yeni"] = haber()
+        rapor["kap_gun"] = kap_arsivle([bugun], ustune_yaz=True)   # gun ici KAP (kurum kumesi dedektoru icin)
     elif kip == "gunluk":
         ham, xu100, xutum = evren()
         rapor["agirlik_yeni_surum"] = agirlik_arsivle(ham)
