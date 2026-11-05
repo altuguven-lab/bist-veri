@@ -1,6 +1,6 @@
 # V163.0 ADAY gölge protokolü
 
-**Kayıt tarihi:** 03.11.2026. **Güncelleme:** 04.11.2026 (11:00, hızlandırılmış plan).
+**Kayıt tarihi:** 03.11.2026. **Güncelleme:** 05.11.2026 (G2 1. gün).
 **Süre:** **3 seans, 04–06.11.2026.** Altuğ 04.11'de onayladı; ilk süre 2 haftaydı.
 **Geçiş:** Ölçütler sağlanırsa 07–08.11 hafta sonu. Piyasa kapalıyken alarmlar V163'e taşınır, V162.3 alarmları silinir. Pazartesi 09.11 açılışında webhook'ların "v163.0" ile geldiği ve sayıların normal olduğu kontrol edilir.
 **Pine kaynağı:** `V163.0_BIST_IRE_FOCUS_ADAY.txt` (repo). Kaynak 04.11'de token sınırı düzeltmesiyle kaydedildi ve derlendi.
@@ -70,16 +70,30 @@ Yeni bir özellik ancak eşdeğer kod çıkarılarak eklenebilir. İlk aday, pan
 | THYAO | KGS A+97 / A+96; RISK MID / LOW; BLOCK "GEC" / "NONE"; NOTE "GEC GIRIS / KOVALAMA" / "GUC VAR / GIRIS KAPALI"; STOP, TP ve INVALID 0,25 TL farklı; DSS %3,77 / %3,68. **Bütün farklar 0,25 TL'lik bir fiyat farkıyla tutarlı** (275,00 / 274,75). THYAO o anda hızlı hareket ediyordu ve iki gösterge aynı ekranda farklı tiklerde güncellenmiş görünüyor. **Seans kapandıktan sonra tekrar karşılaştırılacak.** |
 | BIMAS | Karar değerleri aynı. Ancak Pine'ın kendi geçmiş işlem sayaçları farklı: SH-BT N253 / N232, OOS N12 / N10, SEANS-BT N87 / N80. Diğer sembollerde bu sayaçlar birebir aynı (ASELS N263, THYAO N27, AKBNK N68). Muhtemel neden: iki göstergenin yüklendiği geçmiş bar sayısının farklı olması. **Kontrol:** sayfa yenilenir (F5) ve BIMAS yeniden karşılaştırılır. Sayaçlar eşitlenirse sebep yükleme farkıdır. Eşitlenmezse geçmişteki simüle pozisyonlar farklı demektir ve geçiş öncesinde incelenir. |
 
-**Skor Tabanı kontrolü:** Ekran görüntülerindeki 8 V162.3 grafiğinin (ASELS, THYAO, AKBNK, KCHOL, EREGL, YKBNK, BIMAS ve V162.1) durum satırında "FULL 32" görünüyor, yani skor tabanı 32. Kalan grafiklerde de kontrol edilecek.
+### G2 – resmî kapanışlarla (05.11, Claude)
 
-## Sonuç
+Yöntem: Günlük kapanışlar, 03.11'e kadar 60 dk arşivinin gün sonu barlarından türetildi. 27.10, 28.10, 30.10, 02.11 ve 03.11 için `data/arsiv/gunluk`'taki resmî kapanışlar kullanıldı (03.11 kapanışları TradeMaster "Ö.Gün.K." ile birebir aynı). Hesap: basit getiri, `ema(getiri², 32)`, α = 2/33, 729 işlem günü. Panelin 04.11 değeri, 03.11'e kadarki veriyi kullanır (`[1]` + lookahead).
+
+| Sembol | Panel 04.11 | Python (03.11'e kadar) | Fark | Sonuç |
+|---|---|---|---|---|
+| THYAO | 2,7 | 2,67 | −0,03 | Geçti |
+| AKBNK | 2,4 | 2,35 | −0,05 | Geçti |
+| KCHOL | 2,0 | 1,98 | −0,02 | Geçti |
+| EREGL | 3,2 | 3,19 | −0,01 | Geçti |
+| ASELS | 3,2 | 3,26 | +0,06 | Geçti |
+
+**G2 1. gün: 5/5 geçti** (eşik ≤ 0,15; panel tek ondalık gösterdiği için ±0,05 yuvarlama payı fark içinde).
+
+**05.11 için beklenen panel değerleri** (04.11 kapanışı yerine 17:45 barı kullanıldı; resmî kapanış bu gece arşive girince kesinleşir): THYAO ~3,5; AKBNK ~2,8; KCHOL ~2,1–2,2; EREGL ~3,2; ASELS ~3,3. THYAO'daki sıçrama 04.11'deki ~%9,6'lık yükselişten gelir; EWMA'nın beklenen davranışıdır.
+
+**Skor Tabanı kontrolü:** Ekran görüntülerindeki 8 V162.3 grafiğinin (ASELS, THYAO, AKBNK, KCHOL, EREGL, YKBNK, BIMAS ve V162.1) durum satırında "FULL 32" görünüyor, yani skor tabanı 32. Kalan grafiklerde de kontrol edilecek.
 
 ## Hızlandırılmış takvim
 
 | Gün | İş | Sorumlu |
 |---|---|---|
 | 04.11 | G1, G3, G4, G5 ekran görüntüleriyle. 30 V162.3 grafiğinde "Skor Tabanı" girdisinin 32 olduğunun kontrolü. | Altuğ |
-| 05.11 sabah | G2: resmî günlük kapanışlarla oynaklık karşılaştırması (04.11 gecesi günlük arşiv) | Claude |
+| 05.11 | G2 1. gün: **5/5 geçti.** 2. ve 3. gün için 05.11 ve 06.11 panel VOL değerleri okunur. | Claude / Altuğ |
 | 05–06.11 | THYAO kapanış sonrası G4 tekrarı; BIMAS sayfa yenileme kontrolü | Altuğ |
 | 06.11 akşam | Geçiş kararı | Altuğ |
 | 07–08.11 | Alarm taşıma | Altuğ |
