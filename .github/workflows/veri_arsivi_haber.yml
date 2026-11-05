@@ -24,12 +24,15 @@ jobs:
           VERI_KIP: haber
           MAX_GUN: ${{ inputs.max_gun || '900' }}
         run: python veri_arsivi.py
+      - name: Kurum kumesi dedektoru
+        if: always()
+        run: python kurum_kumesi.py || echo "kurum_kumesi hata"
       - name: Commit
         if: always()
         run: |
           git config user.name "veri-arsivi-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/arsiv || true
+          git add data/arsiv data/kurum_kumesi.json data/kurum_kumesi.md || true
           git diff --staged --quiet && exit 0
           git commit -m "Veri arsivi haber $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
           for i in 1 2 3 4 5; do
