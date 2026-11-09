@@ -1,75 +1,59 @@
 {
-  "zaman_utc": "2026-11-06T13:04:28.270325+00:00",
-  "bugun": "2026-11-06",
+  "zaman_utc": "2026-11-09T14:06:05.195598+00:00",
+  "bugun": "2026-11-09",
   "bekleyen": [
     {
-      "sembol": "TUPRS",
+      "sembol": "KCHOL",
       "donem": "2026Q3",
-      "tarih": "2026-11-06",
-      "gun_kaldi": 0,
-      "kaynak": "SIRKET_KAP",
-      "acik_pozisyon": false
-    },
-    {
-      "sembol": "ENKAI",
-      "donem": "2026Q3",
-      "tarih": "2026-11-06",
+      "tarih": "2026-11-09",
       "gun_kaldi": 0,
       "kaynak": "DERLEME_BEKLENTI",
-      "acik_pozisyon": false
+      "acik_pozisyon": true
     },
     {
-      "sembol": "ULKER",
+      "sembol": "PGSUS",
       "donem": "2026Q3",
-      "tarih": "2026-11-06",
+      "tarih": "2026-11-09",
       "gun_kaldi": 0,
       "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
-    }
-  ],
-  "aciklayan": [
-    {
-      "sembol": "ISCTR",
-      "donem": "2026Q3",
-      "tarih": "2026-11-05",
-      "kaynak": "DERLEME_BEKLENTI",
-      "not": "",
-      "acik_pozisyon": false
     },
     {
-      "sembol": "FROTO",
+      "sembol": "BIMAS",
       "donem": "2026Q3",
-      "tarih": "2026-11-05",
-      "kaynak": "DERLEME_BEKLENTI",
-      "not": "",
-      "acik_pozisyon": false
-    },
-    {
-      "sembol": "MGROS",
-      "donem": "2026Q3",
-      "tarih": "2026-11-05",
+      "tarih": "2026-11-09",
+      "gun_kaldi": 0,
       "kaynak": "ACIKLANDI_TEYITLI",
-      "not": "2C26: 699 mn TL net ZARAR, beklenti 407 mn TL kar. Ertesi gun %-9,2. FAVOK marji %5,45 -> %4,27. Q3 tarihi IKINCIL kaynak.",
       "acik_pozisyon": false
     },
     {
-      "sembol": "PETKM",
+      "sembol": "ALARK",
       "donem": "2026Q3",
-      "tarih": "2026-11-05",
-      "kaynak": "BILINMIYOR",
-      "not": "",
+      "tarih": "2026-11-09",
+      "gun_kaldi": 0,
+      "kaynak": "DERLEME_BEKLENTI",
       "acik_pozisyon": false
     }
   ],
+  "aciklayan": [],
   "donem_son_tarih_uyarisi": [
     {
       "donem": "2026Q3",
       "tur": "son_tarih_konsolide",
       "tarih": "2026-11-09",
-      "gun_kaldi": 3
+      "gun_kaldi": 0
     }
   ],
-  "risk_bayragi": [],
+  "risk_bayragi": [
+    {
+      "sembol": "KCHOL",
+      "durum": "BILANCO PENCERESI",
+      "tarih": "2026-11-09",
+      "gun_kaldi": 0,
+      "kaynak": "DERLEME_BEKLENTI",
+      "not": "stop mesafesi ve pozisyon boyutu gozden gecirilmeli (MGROS 12.08: bir gunde %-9.2) | TARIH SADECE DERLEME - sirket revize edebilir"
+    }
+  ],
   "tarihi_bilinmeyen": [
     {
       "sembol": "ASTOR",
