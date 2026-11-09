@@ -7,6 +7,7 @@ name: Alarm Karnesi
 on:
   schedule:
     - cron: "40 16 * * 1-5"
+    - cron: "40 7 * * 6"    # 09.11 EKI: Cumartesi 10:40 TR - Cuma alarmlari (Yahoo gecikmesi) ayni hafta karneye girsin
   workflow_dispatch:
     inputs:
       maliyet_pct:
