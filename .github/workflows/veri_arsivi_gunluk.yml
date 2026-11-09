@@ -3,6 +3,7 @@ name: Veri Arsivi Gunluk
 on:
   schedule:
     - cron: "20 16 * * 1-5"
+    - cron: "20 7 * * 6"    # 09.11 EKI: Cumartesi 10:20 TR - Yahoo gecikmesiyle eksik kalan Cuma kapanislarini tamamlar
   workflow_dispatch:
 permissions:
   contents: write
