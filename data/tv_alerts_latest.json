@@ -1,10 +1,10 @@
 {
-  "son_guncelleme_utc": "2026-11-09T15:11:40.980Z",
+  "son_guncelleme_utc": "2026-11-09T15:11:43.295Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
   "sinyal_sayisi": 400,
   "ay_sayac": {
     "ay": "2026-11",
-    "adet": 360
+    "adet": 361
   },
   "son_sinyal": {
     "zaman_utc": "2026-11-09T15:11:06.120Z",
@@ -290,6 +290,25 @@
       "pozsebep": "?",
       "schemaVersion": "v163.0",
       "eventId": "KCHOL|15|GUNLUK_OZET|2026-11-09T15:00:00Z",
+      "carrierLagBars": "1"
+    },
+    {
+      "zaman_utc": "2026-11-09T15:11:02.997Z",
+      "sembol": "ALARK",
+      "sinyal": "GUNLUK_OZET",
+      "interval": "15",
+      "fiyat": "98.7",
+      "skor": "12",
+      "kgs": "9",
+      "stop": "102.2",
+      "rejim": "1",
+      "relvol": "1.8",
+      "v112n": "173",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "?",
+      "schemaVersion": "v162.2",
+      "eventId": "ALARK|15|GUNLUK_OZET|2026-11-09T15:00:00Z",
       "carrierLagBars": "1"
     },
     {
@@ -7480,20 +7499,6 @@
       "rejim": "2",
       "relvol": "1.8575903312136068",
       "v112n": "152",
-      "v112wr": "?"
-    },
-    {
-      "zaman_utc": "2026-08-19T15:11:05.160Z",
-      "sembol": "TTKOM",
-      "sinyal": "GUNLUK_OZET",
-      "interval": "15",
-      "fiyat": "54.10",
-      "skor": "31.583939545811035",
-      "kgs": "35",
-      "stop": "53.82229828499794",
-      "rejim": "1",
-      "relvol": "1.5390938115698598",
-      "v112n": "193",
       "v112wr": "?"
     }
   ]
