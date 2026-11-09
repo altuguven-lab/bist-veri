@@ -3,6 +3,7 @@ name: Veri Arsivi Haber
 on:
   schedule:
     - cron: "28 * * * *"
+    - cron: "13,43 6-15 * * 1-5"   # 09.11 EKI: seans saatlerinde ek tetikler (GitHub saatlik zamanlamalari atliyor)
   workflow_dispatch:
 permissions:
   contents: write
@@ -12,7 +13,7 @@ concurrency:
 jobs:
   arsiv:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
