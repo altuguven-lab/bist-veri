@@ -133,34 +133,62 @@ def zenginlestir(kayitlar):
 SUPHELI_SAPMA_ESIK_PCT = 7.0  # GUNLUK_OZET referansindan bu yuzdeden fazla
                               # sapan trade-sinyali "supheli" isaretlenir.
 
+REFERANS_AZAMI_GUN = 5   # 09.11 EKI: referans bu kadar takvim gununden eskiyse kullanilmaz
+
+
+def _arsiv_kapanislari():
+    """09.11 EKI: data/arsiv/gunluk resmi gunluk kapanislari -> {sembol: [(tarih, kapanis), ...]}."""
+    import gzip
+    out = {}
+    for f in sorted(glob.glob("data/arsiv/gunluk/*/*/*.json.gz")):
+        try:
+            d = json.load(gzip.open(f))
+            t = datetime.date.fromisoformat(d["tarih"])
+            for k, v in d["veri"].items():
+                if v and len(v) > 3 and v[3]:
+                    out.setdefault(k, []).append((t, float(v[3])))
+        except Exception:
+            continue
+    return out
+
+
 def supheli_fiyat_taramasi(sinyaller):
     """05.08 EKI: THYAO-348.50 vakasi (sabit TEST_FIYAT_PARMAK_IZI disinda,
     GENEL bir anomali) - herhangi bir sinyalin fiyati, o sembolun en son
-    (sinyalden ONCEKI) GUNLUK_OZET fiyatindan asiri sapiyorsa isaretler.
+    (sinyalden ONCEKI) referans fiyatindan asiri sapiyorsa isaretler.
     OTOMATIK DISLAMAZ (gercek buyuk bir hareket de olabilir) - yalniz
-    rapora "INCELE" diye ekler, insan karar versin."""
+    rapora "INCELE" diye ekler, insan karar versin.
+    09.11 EKI: GUNLUK_OZET alarmlari 11.08.2026'dan beri gelmiyor; 3 aylik bayat referans
+    36 sahte uyari uretti. Artik referans = (a) sinyal gununden ONCEKI son resmi gunluk kapanis
+    (data/arsiv/gunluk), yoksa (b) son GUNLUK_OZET; ikisi de REFERANS_AZAMI_GUN'den eskiyse atlanir."""
     ozet_gecmisi = {}  # sembol -> [(zaman, fiyat), ...] artan sirali
     for s in sorted(sinyaller, key=lambda x: x["_t"]):
         if s.get("sinyal") == "GUNLUK_OZET" and s["_fiyat"] is not None:
             ozet_gecmisi.setdefault(s["sembol"], []).append((s["_t"], s["_fiyat"]))
+    arsiv = _arsiv_kapanislari()
 
     supheliler = []
     for s in sinyaller:
         if s.get("sinyal") == "GUNLUK_OZET" or s["_fiyat"] is None:
             continue
-        gecmis = ozet_gecmisi.get(s["sembol"], [])
-        onceki = [f for (t, f) in gecmis if t < s["_t"]]
-        if not onceki:
-            continue
-        referans = onceki[-1]
-        if referans <= 0:
+        gun = s["_t"].date()
+        aday = [(t, f) for (t, f) in arsiv.get(s["sembol"], []) if t < gun]
+        kaynak = "arsiv_gunluk"
+        if aday:
+            ref_t, referans = aday[-1]
+        else:
+            oz = [(t.date(), f) for (t, f) in ozet_gecmisi.get(s["sembol"], []) if t < s["_t"]]
+            if not oz:
+                continue
+            (ref_t, referans), kaynak = oz[-1], "GUNLUK_OZET"
+        if (gun - ref_t).days > REFERANS_AZAMI_GUN or referans <= 0:
             continue
         sapma = abs(s["_fiyat"] / referans - 1) * 100
         if sapma > SUPHELI_SAPMA_ESIK_PCT:
             supheliler.append({"zaman_utc": str(s["_t"]), "sembol": s["sembol"],
                                 "sinyal": s.get("sinyal"), "fiyat": s["_fiyat"],
-                                "referans_ozet_fiyat": referans,
-                                "sapma_pct": round(sapma, 1)})
+                                "referans_ozet_fiyat": referans, "referans_tarih": str(ref_t),
+                                "referans_kaynak": kaynak, "sapma_pct": round(sapma, 1)})
     return supheliler
 
 
@@ -555,13 +583,16 @@ def main():
                           "islem gunu")
         md.append(f"\n_{M7.get('not','')}_")
     md.append("\n## Fiyat Saglama Kontrolu (05.08 EKI - THYAO-348.50 vakasi sonrasi)\n")
+    _oz = [s["_t"] for s in sinyaller if s.get("sinyal") == "GUNLUK_OZET"]
+    if _oz and (max(_oz).date() < datetime.date.today() - datetime.timedelta(days=REFERANS_AZAMI_GUN)):
+        md.append(f"NOT: Son GUNLUK_OZET {max(_oz).date()} tarihli - alarm gelmiyor; referans olarak arsiv kapanislari kullaniliyor.\n")
     if SUPHELI:
-        md.append(f"UYARI: {len(SUPHELI)} kayit, GUNLUK_OZET referansindan "
+        md.append(f"UYARI: {len(SUPHELI)} kayit, onceki gun referansindan (arsiv kapanisi / GUNLUK_OZET) "
                   f">%{SUPHELI_SAPMA_ESIK_PCT} sapiyor - INCELE (otomatik "
                   "dislanmadi, M1/M2 hesabinda hala var):")
         for x in SUPHELI:
             md.append(f"  - {x['zaman_utc'][:16]} {x['sembol']} {x['sinyal']} "
-                      f"fiyat={x['fiyat']} (referans {x['referans_ozet_fiyat']}, "
+                      f"fiyat={x['fiyat']} (referans {x['referans_ozet_fiyat']} {x.get('referans_kaynak','')} {x.get('referans_tarih','')}, "
                       f"sapma %{x['sapma_pct']})")
     else:
         md.append("Supheli kayit yok.")
