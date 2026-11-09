@@ -3,7 +3,7 @@
 name: Piyasa Dongusu
 on:
   schedule:
-    - cron: "40 16 * * 5"   # Cuma 19:40 TR, kapanis ve gunluk arsiv sonrasi
+    - cron: "50 7 * * 6"   # 09.11: Cumartesi 10:50 TR (Cuma aksami Yahoo gunluk veriyi henuz vermiyordu)
   workflow_dispatch:
 permissions:
   contents: write
