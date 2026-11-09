@@ -158,8 +158,8 @@ def supheli_fiyat_taramasi(sinyaller):
     (sinyalden ONCEKI) referans fiyatindan asiri sapiyorsa isaretler.
     OTOMATIK DISLAMAZ (gercek buyuk bir hareket de olabilir) - yalniz
     rapora "INCELE" diye ekler, insan karar versin.
-    09.11 EKI: GUNLUK_OZET alarmlari 11.08.2026'dan beri gelmiyor; 3 aylik bayat referans
-    36 sahte uyari uretti. Artik referans = (a) sinyal gununden ONCEKI son resmi gunluk kapanis
+    09.11 EKI: Bu betigin okudugu tv_alerts_latest.json 11.08.2026'dan sonra GUNLUK_OZET
+    kaydi tutmuyor (alarmlar geliyor, aylik arsivde var); 3 aylik bayat referans 36 sahte uyari uretti. Artik referans = (a) sinyal gununden ONCEKI son resmi gunluk kapanis
     (data/arsiv/gunluk), yoksa (b) son GUNLUK_OZET; ikisi de REFERANS_AZAMI_GUN'den eskiyse atlanir."""
     ozet_gecmisi = {}  # sembol -> [(zaman, fiyat), ...] artan sirali
     for s in sorted(sinyaller, key=lambda x: x["_t"]):
@@ -585,7 +585,7 @@ def main():
     md.append("\n## Fiyat Saglama Kontrolu (05.08 EKI - THYAO-348.50 vakasi sonrasi)\n")
     _oz = [s["_t"] for s in sinyaller if s.get("sinyal") == "GUNLUK_OZET"]
     if _oz and (max(_oz).date() < datetime.date.today() - datetime.timedelta(days=REFERANS_AZAMI_GUN)):
-        md.append(f"NOT: Son GUNLUK_OZET {max(_oz).date()} tarihli - alarm gelmiyor; referans olarak arsiv kapanislari kullaniliyor.\n")
+        md.append(f"NOT: Okunan kaynakta son GUNLUK_OZET {max(_oz).date()} tarihli (aylik arsivde guncel); referans olarak arsiv kapanislari kullaniliyor.\n")
     if SUPHELI:
         md.append(f"UYARI: {len(SUPHELI)} kayit, onceki gun referansindan (arsiv kapanisi / GUNLUK_OZET) "
                   f">%{SUPHELI_SAPMA_ESIK_PCT} sapiyor - INCELE (otomatik "
