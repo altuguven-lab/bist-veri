@@ -1,15 +1,15 @@
 {
-  "son_guncelleme_utc": "2026-11-10T11:45:06.163Z",
+  "son_guncelleme_utc": "2026-11-10T11:45:08.978Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
-  "sinyal_sayisi": 205,
+  "sinyal_sayisi": 206,
   "ay_sayac": {
     "ay": "2026-11",
-    "adet": 368
+    "adet": 369
   },
   "son_sinyal": {
-    "zaman_utc": "2026-11-10T11:45:03.696Z",
+    "zaman_utc": "2026-11-10T11:45:04.239Z",
     "sembol": "ASTOR",
-    "sinyal": "P3_HACIM_BEKLE",
+    "sinyal": "P4_HAZIRLIK",
     "interval": "15",
     "fiyat": "157.7",
     "skor": "16.49",
@@ -22,10 +22,29 @@
     "p3ozet": "2200032",
     "pozsebep": "0",
     "schemaVersion": "v163.1",
-    "eventId": "ASTOR|15|P3_HACIM_BEKLE|2026-11-10T11:30:00Z",
+    "eventId": "ASTOR|15|P4_HAZIRLIK|2026-11-10T11:30:00Z",
     "carrierLagBars": "1"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-11-10T11:45:04.239Z",
+      "sembol": "ASTOR",
+      "sinyal": "P4_HAZIRLIK",
+      "interval": "15",
+      "fiyat": "157.7",
+      "skor": "16.49",
+      "kgs": "45",
+      "stop": "164.7",
+      "rejim": "1",
+      "relvol": "0.63",
+      "v112n": "201",
+      "v112wr": "?",
+      "p3ozet": "2200032",
+      "pozsebep": "0",
+      "schemaVersion": "v163.1",
+      "eventId": "ASTOR|15|P4_HAZIRLIK|2026-11-10T11:30:00Z",
+      "carrierLagBars": "1"
+    },
     {
       "zaman_utc": "2026-11-10T11:45:03.696Z",
       "sembol": "ASTOR",
