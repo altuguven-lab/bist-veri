@@ -1,6 +1,6 @@
 # V163.0 ADAY gölge protokolü
 
-**Kayıt tarihi:** 03.11.2026. **Güncelleme:** 05.11.2026 (G2 1. gün).
+**Kayıt tarihi:** 03.11.2026. **Güncelleme:** 11.11.2026 (geçiş tamamlandı; V163.1 ve V163.2 ara sürümleri).
 **Süre:** **3 seans, 04–06.11.2026.** Altuğ 04.11'de onayladı; ilk süre 2 haftaydı.
 **Geçiş:** Ölçütler sağlanırsa 07–08.11 hafta sonu. Piyasa kapalıyken alarmlar V163'e taşınır, V162.3 alarmları silinir. Pazartesi 09.11 açılışında webhook'ların "v163.0" ile geldiği ve sayıların normal olduğu kontrol edilir.
 **Pine kaynağı:** `V163.0_BIST_IRE_FOCUS_ADAY.txt` (repo). Kaynak 04.11'de token sınırı düzeltmesiyle kaydedildi ve derlendi.
@@ -86,6 +86,24 @@ Yöntem: Günlük kapanışlar, 03.11'e kadar 60 dk arşivinin gün sonu barlar�
 
 **05.11 için beklenen panel değerleri** (04.11 kapanışı yerine 17:45 barı kullanıldı; resmî kapanış bu gece arşive girince kesinleşir): THYAO ~3,5; AKBNK ~2,8; KCHOL ~2,1–2,2; EREGL ~3,2; ASELS ~3,3. THYAO'daki sıçrama 04.11'deki ~%9,6'lık yükselişten gelir; EWMA'nın beklenen davranışıdır.
 
+### G2 – 2. ve 3. gün (06.11, Claude)
+
+| Sembol | 05.11 panel | Python (04.11 resmî) | Fark | 06.11 panel | Python (05.11 17:45 barı) | Fark |
+|---|---|---|---|---|---|---|
+| THYAO | 3,6 | 3,56 | −0,04 | 3,5 | 3,47 | −0,03 |
+| AKBNK | 2,8 | 2,76 | −0,04 | 2,7 | 2,70 | 0 |
+| KCHOL | 2,2 | 2,14 | −0,06 | 2,1 | 2,08 | −0,02 |
+| EREGL | 3,2 | 3,18 | −0,02 | 3,2 | 3,20 | 0 |
+| ASELS | 3,2 | 3,26 | +0,06 | 3,6 | 3,64 | +0,04 |
+
+**G2: 3 gün × 5 sembol = 15/15 geçti.** En büyük fark 0,06. 3. gün, 05.11 resmî kapanışları arşive girince yeniden doğrulanacak (fark beklenmiyor).
+
+**G3:** VOL her gün seans açılışında değişti (örnek ASELS 3,2 → 3,6; THYAO 3,6 → 3,5), gün içinde sabit kaldı (ASELS 04.11, EREGL 05.11 13:49 → 14:11). Geçti.
+
+**G5 (06.11):** THYAO ref 289,75 → 275,25 / 266,50; ASELS ref 333,50 → 316,75 / 306,75; AKBNK ref 66,20 → 62,85 / 60,90; KCHOL ref 200,0 → 190 / 184; EREGL ref 30,60 → 29,06 / 28,14. Hepsi doğru.
+
+**G4 (05–06.11):** ASELS, THYAO (05.11), AKBNK, KCHOL, EREGL (F5 sonrası) birebir aynı. 06.11'de THYAO'da yalnızca geçmiş işlem sayaçları farklı (SH-BT N27/N30, ANA N13/N14 vb.); karar satırları aynı. BIMAS ve EREGL'de aynı durum F5 ile kapanmıştı: yükleme (geçmiş bar sayısı) farkı. Sayaçlar alarm koşullarına girmez.
+
 **Skor Tabanı kontrolü:** Ekran görüntülerindeki 8 V162.3 grafiğinin (ASELS, THYAO, AKBNK, KCHOL, EREGL, YKBNK, BIMAS ve V162.1) durum satırında "FULL 32" görünüyor, yani skor tabanı 32. Kalan grafiklerde de kontrol edilecek.
 
 ## Hızlandırılmış takvim
@@ -93,7 +111,7 @@ Yöntem: Günlük kapanışlar, 03.11'e kadar 60 dk arşivinin gün sonu barlar�
 | Gün | İş | Sorumlu |
 |---|---|---|
 | 04.11 | G1, G3, G4, G5 ekran görüntüleriyle. 30 V162.3 grafiğinde "Skor Tabanı" girdisinin 32 olduğunun kontrolü. | Altuğ |
-| 05.11 | G2 1. gün: **5/5 geçti.** 2. ve 3. gün için 05.11 ve 06.11 panel VOL değerleri okunur. | Claude / Altuğ |
+| 05–06.11 | G2: **15/15 geçti.** G3, G4, G5 geçti (THYAO 06.11 sayaç farkı için F5 kontrolü). | Claude / Altuğ |
 | 05–06.11 | THYAO kapanış sonrası G4 tekrarı; BIMAS sayfa yenileme kontrolü | Altuğ |
 | 06.11 akşam | Geçiş kararı | Altuğ |
 | 07–08.11 | Alarm taşıma | Altuğ |
@@ -108,3 +126,22 @@ Yöntem: Günlük kapanışlar, 03.11'e kadar 60 dk arşivinin gün sonu barlar�
 ## Not: %5 kriz eşiği
 
 R4'te zararlı çıkan "%5 kriz eşiği" canlı bir kural değil; yalnızca H1–H3 testlerinin bir parametresi (`h_testleri.KRIZ_ESIK`). Kaldırılacak bir şey yok. Bu kural ileride de benimsenmeyecek.
+
+
+## Geçiş ve ara sürümler (09–11.11.2026)
+
+| Tarih | Olay | Sonuç |
+|---|---|---|
+| 06.11 | G1–G5 sağlandı (G2 15/15) | Geçiş onayı |
+| 06–09.11 | V163.0 alarmları kuruldu | GUNLUK_OZET alarmlarında webhook adresi eski Pipedream adresine (`eo3ivw22…`) gidiyordu; 06.11 akşamı ~29 kayıt kayboldu. Adres `eobd0rr5ue7os4m` olarak düzeltildi. |
+| 09–10.11 | V163.0 giriş alarmları hiç gelmedi | Neden: grafiklerde "Portföyde Pozisyon Var" açıktı; TradingView alarmı kurulduğu andaki girdileri kullanır, giriş modu kapalı kaldı. |
+| 10.11 | **V163.1** | (1) Kutu artık giriş sinyallerini susturmuyor (karar ve `_newEntryMode` kutudan bağımsız; kutu kapalıyken davranış V163.0 ile birebir). (2) 22 `alertcondition` → `alert()`, sembol başına tek alarm. (3) Yeni webhook alanları: skor0, kgs0, relvol0, manuel_poz, poz_kaynak, karar, faktor. (4) Token: CORE alarm üçlüsü (FULL modda hiç üretilmiyordu), ölü istatistik kovaları, panelin VOL-BT, FAKTÖR-BT, SEANS-BT satırları çıkarıldı; panel 15 → 13 satır. Faktör/seans kırılımı Python karnesine taşındı. |
+| 10.11 | Pipedream v5 | Yeni alanlar arşive yazılıyor; aynı eventId tekrar yazılmıyor. |
+| 11.11 | V163.1 alarmları 10:00'da "çok sık tetiklenme" ile durduruldu | Neden: `alert.freq_all` + `barstate.isconfirmed`; TradingView kapanmış barı yeniden hesaplayınca aynı sinyaller tekrar gitti (10.11'deki çift gönderim de buydu). |
+| 11.11 | **V163.2** + Pipedream v6 | Sembol başına bar başına **tek webhook**; sinyaller `"signals"` alanında virgüllü liste, sıklık `alert.freq_once_per_bar_close`. Pipedream listeyi ayrı kayıtlara bölüyor (eventId = sembol\|interval\|sinyal\|barTime), tek commit'te yazıyor. 11.11 10:30'dan itibaren çalışıyor; tekrar yok. |
+
+**Doğrulanan:** 10.11 18:11 GUNLUK_OZET 32/32 sembol (ilk kez eksiksiz). V163.2 ile OTKAR'ın aynı bardaki iki sinyali (P3_HACIM_BEKLE, P4_HAZIRLIK) tek commit'te iki kayıt olarak yazıldı.
+
+**Karne ve H12 sürekliliği:** Kayıt formatı değişmedi (her sinyal ayrı kayıt, aynı alan adları). "Portföyde Pozisyon Var" kutusu kapalıyken sinyal tanımları V162.3/V163.0 ile aynı; H12 ön kaydı etkilenmez. V163.1+ ile ilk kez veri üreten türler (P3_HACIM_BEKLE, IC_STOP, TASIMA, KAR_KORU) karnede ayrı izlenir; yönleri varsayımdır.
+
+**TradingView bütçesi (V163.2):** Token sınırının altında (tam sayı yalnız aşımda görünür). Plot 64, `request.security` 17/40.
