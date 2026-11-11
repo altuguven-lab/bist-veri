@@ -45,7 +45,7 @@ Veri butunlugu (A4): gunluk alarm ve GUNLUK_OZET sayisi (eksik gun tespiti), ala
   eventId tekrarlari, tanimsiz sinyal adlari, schemaVersion dagilimi, carrierLagBars.
 Fiyat capraz kontrolu (A5, ucuz kisim): alarm fiyati o gunun Yahoo [dusuk, yuksek] araliginin
   %1 disindaysa "fiyat_uyusmazligi" (bedelsiz/veri hatasi ya da yanlis sembol isareti).
-Sinirlar: tek fiyat kaynagi Yahoo; seans ici giris modellenmez; evren 31 sembol; sonuclar gecmis
+Sinirlar: tek fiyat kaynagi Yahoo; seans ici giris modellenmez; evren 32 sembol; sonuclar gecmis
   davranistir, yon tahmini degildir.
 """
 import os, json, glob, math, random, datetime, statistics
@@ -121,7 +121,7 @@ SEKTOR = {
     "ENJSA": "Enerji", "PETKM": "Enerji", "ASTOR": "Enerji",
     "BIMAS": "Perakende", "MGROS": "Perakende", "ULKER": "Perakende",
     "TRMET": "Madencilik", "TRALT": "Madencilik",
-    "TTKOM": "Iletisim", "AEFES": "Icecek", "ENKAI": "Insaat", "EKGYO": "GYO",
+    "TTKOM": "Iletisim", "TCELL": "Iletisim", "AEFES": "Icecek", "ENKAI": "Insaat", "EKGYO": "GYO",
 }
 ALANLAR = ["fiyat", "skor", "kgs", "stop", "rejim", "relvol", "v112n", "v112wr", "p3ozet", "pozsebep",
            "schemaVersion", "eventId", "carrierLagBars"]
@@ -390,8 +390,11 @@ def karne(olaylar):
                             for d in ("KRIZ_ONCESI", "KRIZ_SONRASI")}
         r["rejim_alani"] = {str(ra): ozetle([o for o in alt if str(o["rejim_alani"]) == str(ra)], "net_T3", 3)
                             for ra in sorted({str(o["rejim_alani"]) for o in alt})}
-        hacimli = [o for o in alt if o.get("relvol") is not None and o["relvol"] >= 1]
-        hacimsiz = [o for o in alt if o.get("relvol") is not None and o["relvol"] < 1]
+        # 11.11 (Denetim 1.4): relvol0 (sinyal barinin gecikmesiz degeri, V163.1+) varsa o kullanilir
+        def _rv(o):
+            return o["relvol0"] if o.get("relvol0") is not None else o.get("relvol")
+        hacimli = [o for o in alt if _rv(o) is not None and _rv(o) >= 1]
+        hacimsiz = [o for o in alt if _rv(o) is not None and _rv(o) < 1]
         r["hacim_kirilimi"] = {"relvol>=1": ozetle(hacimli, "net_T3", 3), "relvol<1": ozetle(hacimsiz, "net_T3", 3)}
         kay = [o["giris_kaymasi_pct"] for o in alt if o.get("giris_kaymasi_pct") is not None]
         r["giris_kaymasi_ort_pct"] = round(sum(kay) / len(kay), 3) if kay else None
@@ -494,6 +497,16 @@ def md_rapor(out):
         c, d = r["hacim_kirilimi"]["relvol>=1"], r["hacim_kirilimi"]["relvol<1"]
         L.append(f"| {tur} | {a.get('n')} / {a.get('ort')} | {b.get('n')} / {b.get('ort')} | {c.get('n')} / {c.get('ort')} | "
                  f"{d.get('n')} / {d.get('ort')} | {r['zincir_orani_pct']} |")
+    if out.get("tam_gun_duyarliligi"):
+        L += ["", "## Tam gunler duyarliligi (net T+3)", "",
+              "Supheli eksik gunlerde taban alan olaylar cikarilinca sonuc degisiyor mu? Betimleyicidir; hukum kurallarina girmez. "
+              "Isaret degisiyorsa ya da t belirgin kayiyorsa o turun hukmu eksik veriden etkileniyor olabilir.", "",
+              "| Tur | Olay (tum / tam gun) | Net T+3 tum (t_kume) | Net T+3 tam gun (t_kume) | Brut yon T+3 tam gun (t_kume) | Isaret |", "|---|---|---|---|---|---|"]
+        for tur, d in out["tam_gun_duyarliligi"].items():
+            a, b, c = d["net_T3_tum"], d["net_T3_tam_gun"], d["yon_T3_tam_gun"]
+            isaret = "-" if a.get("ort") is None or b.get("ort") is None else ("AYNI" if (a["ort"] > 0) == (b["ort"] > 0) else "**DEGISTI**")
+            L.append(f"| {tur} | {d['olay_tum']} / {d['olay_tam_gun']} | {a.get('ort')} ({a.get('t_kume')}) | {b.get('ort')} ({b.get('t_kume')}) | "
+                     f"{c.get('ort')} ({c.get('t_kume')}) | {isaret} |")
     for baslik, anahtar, notu in [
             ("Seans kirilimi", "seans_kirilimi", "Alarm alis saatine gore; tum gecmis alarmlar."),
             ("Faktor kirilimi", "faktor_kirilimi", "Sinyal barinda baskin skor bileseni; yalniz V163.1 (10.11.2026+) alarmlari tasir.")]:
@@ -539,12 +552,23 @@ def main():
             hatalar[k] = str(e)[:120]
     olaylar, uyusmazlik = olaylari_kur(alarmlar, fiyatlar, xu)
     turler = karne(olaylar)
+    # 11.11 (Denetim 1.4): TAM GUNLER DUYARLILIGI - betimleyici, HUKUM KURALLARINA GIRMEZ.
+    # Supheli eksik gunlerde (butunluk()) taban alan olaylar cikarilinca ortalama ne oluyor?
+    vb = butunluk(alarmlar, xu.index)
+    eksik_gun = {x["gun"] for x in vb["supheli_eksik_gunler"]}
+    duyarlilik = {}
+    for tur in turler:
+        alt = [o for o in olaylar if o["sinyal"] == tur]
+        tam = [o for o in alt if o["taban_gun"] not in eksik_gun]
+        duyarlilik[tur] = {"olay_tum": len(alt), "olay_tam_gun": len(tam),
+                           "net_T3_tum": ozetle(alt, "net_T3", 3), "net_T3_tam_gun": ozetle(tam, "net_T3", 3),
+                           "yon_T3_tam_gun": ozetle(tam, "yon_T3", 3)}
     out = {"uretim_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(), "surum": "v1",
            "parametreler": {"MALIYET_PCT": MALIYET_PCT, "KRIZ_ONCESI": KRIZ, "MIN_N": MIN_N, "REJIM_MIN_N": REJIM_MIN_N,
                             "BH_Q": BH_Q, "BOOT_B": BOOT_B, "UFUK": UFUK, "YON": YON},
            "kaynak_ozet": {"dosya": kaynak, "ham": sum(kaynak.values()), "tekrar": tekrar, "tekil": len(alarmlar)},
            "xu100_son_gun": str(xu.index[-1].date()),
-           "turler": turler, "veri_butunlugu": butunluk(alarmlar, xu.index),
+           "turler": turler, "veri_butunlugu": vb, "tam_gun_duyarliligi": duyarlilik,
            "seans_kirilimi": kirilim(olaylar, "seans"), "faktor_kirilimi": kirilim(olaylar, "faktor"),
            "fiyat_uyusmazligi": uyusmazlik, "fiyat_hatalari": hatalar, "bolunme_olaylari": bolunme,
            "notlar": ["P2_ADAY CHANGELOG'da ISLEM, sinyal_arsiv_gunluk.py'de IZLEME siniflanmis; burada ISLEM.",
