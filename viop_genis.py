@@ -24,6 +24,7 @@ DATA = os.environ.get("VIOP_DATA_DIR", "data")
 ARSIV = os.path.join(DATA, "arsiv", "viop")
 INBOX = os.path.join(DATA, "viop_inbox")
 CIKTI_DIR = os.path.join(DATA, "viop_genis")          # yil basina bir dosya: YYYY.json
+YOK = os.path.join(DATA, "viop_genis", "yok.json")           # kesin 404 gunler (tatil / arsiv oncesi)
 MD = os.environ.get("VIOP_GENIS_MD", "viop_genis.md")
 URL = "https://www.borsaistanbul.com/viopdata/viop_{tarih}.csv"
 UA = {"User-Agent": "Mozilla/5.0 (bist-veri viop_genis)"}
@@ -96,29 +97,54 @@ def ham_dogrula(ham, g):
     return None if t == g else f"tarih uyusmadi ({t})"
 
 
-def indir(gunler, log):
+def yok_yukle():
+    try:
+        return set(json.load(open(YOK, encoding="utf-8"))["gunler"])
+    except Exception:
+        return set()
+
+
+def indir(gunler, log, yok):
+    """Kesin 404 (ve 7 gunden eski) gunler 'yok' listesine yazilir, bir daha denenmez (tatil / arsiv oncesi).
+    Zaman asimi ve baglanti hatalari gecicidir: kosum sonunda bir kez daha denenir, olmazsa sonraki kosuma kalir."""
     n, t0 = 0, time.time()
-    for g in gunler:
-        if time.time() - t0 > ZAMAN_BUTCESI:
-            log["zaman butcesi doldu, kalan gunler sonraki kosuma"] += 1
-            break
-        if os.path.exists(arsiv_yolu(g)):
-            continue
+    bugun = dt.datetime.now(TR).date()
+
+    def tek(g, tur):
         url = URL.format(tarih=f"{g:%Y%m%d}")
         try:
             ham = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=12).read()
         except Exception as e:
-            log[f"{type(e).__name__} {getattr(e, 'code', '')}".strip()] += 1
-            time.sleep(BEKLE)
-            continue
+            kod = getattr(e, "code", None)
+            if kod == 404:
+                log["404 (yok)"] += 1
+                if (bugun - g).days > 7:
+                    yok.add(g.isoformat())
+                return "yok"
+            log[f"{tur}: {type(e).__name__} {kod or ''}".strip()] += 1
+            return "gecici"
         hata = ham_dogrula(ham, g)
         if hata:
             log[hata] += 1
-        else:
-            arsive_yaz(g, ham)
-            n += 1
-            print(f"  arsivlendi {g}", flush=True)
-        time.sleep(BEKLE)
+            return "bozuk"
+        arsive_yaz(g, ham)
+        print(f"  arsivlendi {g}", flush=True)
+        return "ok"
+
+    tekrar = []
+    for tur, liste in (("ilk", gunler), ("tekrar", tekrar)):
+        for g in list(liste):
+            if time.time() - t0 > ZAMAN_BUTCESI:
+                log["zaman butcesi doldu, kalan gunler sonraki kosuma"] += 1
+                return n
+            if os.path.exists(arsiv_yolu(g)) or g.isoformat() in yok:
+                continue
+            r = tek(g, tur)
+            if r == "ok":
+                n += 1
+            elif r == "gecici" and tur == "ilk":
+                tekrar.append(g)
+            time.sleep(BEKLE)
     return n
 
 
@@ -276,7 +302,7 @@ def rapor(d):
     if u:
         zf = z([(g.get("usdtry") or {}).get("yakin_3ay_ima_faiz_pct") for g in gecmis], u["yakin_3ay_ima_faiz_pct"])
         L += ["", "## USD/TRY vadeli eğrisi", "",
-              f"Yakın→~3 ay ima yıllık faiz: **{u['yakin_3ay_ima_faiz_pct']}%** (z {zf}) · spot→yakın: {u.get('spot_yakin_ima_faiz_pct', '–')}% · toplam AP {u['toplam_ap']:,.0f}", "",
+              f"Yakın→~3 ay ima yıllık faiz: **{u['yakin_3ay_ima_faiz_pct']}%** (z {zf}) · toplam AP {u['toplam_ap']:,.0f}", "",
               "| Vade | Kalan gün | Uzlaşma | AP |", "|---|---|---|---|"]
         for e in u["egri"][:8]:
             L.append(f"| {e['vade']} | {e['kalan_gun']} | {e['uzlasma']:g} | {e['ap']:,.0f} |")
@@ -290,7 +316,8 @@ def rapor(d):
     for x in op["hisse"]["ilk10"]:
         L.append(f"| {x['dayanak']} | {x['call_ap']:,.0f} | {x['put_ap']:,.0f} | {x['pc_ap']} |")
     L += ["", "Notlar: AP = açık pozisyon (sözleşme adedi). Baz = yakın vade uzlaşma / spot kapanış − 1; uzlaşma ile spot kapanışı aynı anı "
-          "göstermeyebilir, küçük farklar gürültüdür. Put/call oranı korunma talebini betimler, yön söylemez. Hiçbir satır sinyal değildir."]
+          "göstermeyebilir, küçük farklar gürültüdür. USD/TRY için spot→yakın ima faiz rapora alınmaz (Yahoo kur kapanışı ile VİOP uzlaşma saati "
+          "farklı, vade yaklaştıkça gürültü büyür); spot gerektirmeyen yakın→3 ay ölçüsü kullanılır. Put/call oranı korunma talebini betimler, yön söylemez. Hiçbir satır sinyal değildir."]
     return "\n".join(L) + "\n"
 
 
@@ -310,11 +337,14 @@ def main():
         d["gunler"].update(json.load(open(p, encoding="utf-8"))["gunler"])
     onceki = json.dumps(d["gunler"], sort_keys=True)
     n_inbox = inbox_aktar(log)
+    yok = yok_yukle()
+    yok0 = set(yok)
     if GERI_BASLANGIC:
-        hedef = [g for g in is_gunleri(dt.date.fromisoformat(GERI_BASLANGIC), bugun) if not os.path.exists(arsiv_yolu(g))][:GERI_AZAMI]
+        hedef = [g for g in is_gunleri(dt.date.fromisoformat(GERI_BASLANGIC), bugun)
+                 if not os.path.exists(arsiv_yolu(g)) and g.isoformat() not in yok][:GERI_AZAMI]
     else:
         hedef = list(is_gunleri(bugun - dt.timedelta(days=SON_GUN), bugun))
-    n_ind = indir(hedef, log)
+    n_ind = indir(hedef, log, yok)
     arsiv = sorted(tarih_coz("".join(p.split(os.sep)[-3:])[:8]) for p in glob.glob(os.path.join(ARSIV, "*", "*", "*.csv.gz")))
     yeni = [g for g in arsiv if g.isoformat() not in d["gunler"] or "hata" in d["gunler"][g.isoformat()]]
     for g in yeni:
@@ -332,6 +362,8 @@ def main():
     d["gunler"] = dict(sorted(d["gunler"].items()))
     log_satiri = f"inbox {n_inbox}, indirilen {n_ind}/{len(hedef)}, yeni ozet {len(yeni)}, hatalar {dict(log) or '-'}"
     os.makedirs(CIKTI_DIR, exist_ok=True)
+    if yok != yok0:
+        json.dump({"not": "Bultenin bulunmadigi (HTTP 404) gunler; yeniden denenmez.", "gunler": sorted(yok)}, open(YOK, "w", encoding="utf-8"))
     eski = json.loads(onceki)
     for yil in sorted({g[:4] for g in d["gunler"]}):
         yg = {g: o for g, o in d["gunler"].items() if g[:4] == yil}
