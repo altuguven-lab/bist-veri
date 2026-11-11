@@ -12,8 +12,10 @@ Denetimler:
    ay sonu PROJEKSIYONU esigin %80'ini asarsa erken bilgi notu
 6. portfoy.json + islem_gunlugu.json : varlik + gecerli JSON + zorunlu
    alan denetimi (tazelik denetimi YOK - elle guncellenen dosyalar)
+7. (11.11) kurum_kumesi.json 26 saat, alarm_karne.json 80 saat,
+   viop_hisse_gunluk.json son bulten gunu 120 saatten eskiyse ARIZA
 
-Ayni baslikta ACIK Issue varsa yenisi ACILMAZ (tekrar onleme).
+Ayni GUN ayni baslikta ACIK Issue varsa yenisi ACILMAZ (tekrar onleme).
 GitHub Actions icinde GITHUB_TOKEN ve GITHUB_REPOSITORY ortam
 degiskenleriyle calisir; yerelde token yoksa sadece rapor basar.
 """
@@ -115,8 +117,10 @@ def acik_issue_var_mi(baslik_on_eki):
 
 
 def issue_ac(baslik, govde):
-    on_ek = baslik.split(" - ")[0]  # ayni kanal icin tekrar onleme
-    if acik_issue_var_mi(on_ek):
+    # 11.11 (Denetim 1.2): tekrar onleme artik AYNI GUN ile sinirli (tam baslik = kanal + tarih).
+    # Eski kural kanal on ekine bakiyordu; 31.08'de acilip kapatilmayan iki kayit, FIYAT ve HABER
+    # kanallarinda sonraki TUM ariza kayitlarini engelliyordu (izleyici fiilen sessizdi).
+    if acik_issue_var_mi(baslik):
         print(f"Atlandi (acik issue var): {baslik}")
         return
     r = github_api(f"/repos/{REPO}/issues", "POST",
@@ -203,6 +207,30 @@ def main():
             arizalar.append((f"SAGLIK: {kanal} semasi",
                              f"{yol} icinde eksik/yanlis tipte alan: {', '.join(eksik)} "
                              f"(sema v2 sozlesmesi - RISK_KURALLARI.md Bolum 7)."))
+
+    # 5) 11.11 (Denetim 1.2) EK KANALLAR: tazelik denetimi (hafta ici, tatil disi)
+    simdi = simdi_utc()
+    if simdi.weekday() < 5 and simdi.strftime("%Y-%m-%d") not in TATIL_GUNLERI:
+        ek_kanallar = [
+            # (dosya, kanal adi, zaman alani ya da None=gunler anahtari, esik saat, aciklama)
+            ("data/kurum_kumesi.json", "KAP ARSIV / KURUM KUMESI", "uretim_utc", 26,
+             "veri_arsivi_haber.yml calismiyor olabilir (KAP arsivi + kurum kumesi dedektoru)."),
+            ("data/alarm_karne.json", "ALARM KARNESI", "uretim_utc", 80, "alarm_karne.yml calismiyor olabilir."),
+            ("data/viop_hisse_gunluk.json", "VIOP", None, 120, "viop_hisse.yml yeni bulten ekleyemiyor olabilir."),
+        ]
+        for yol, kanal, alan, esik_saat, aciklama in ek_kanallar:
+            d = oku(yol)
+            if "_okuma_hatasi" in d:
+                arizalar.append((f"SAGLIK: {kanal} kanali", f"{yol} okunamadi: {d['_okuma_hatasi']}"))
+                continue
+            if alan:
+                yas = yas_dakika(d.get(alan))
+            else:
+                gunler = sorted(d.get("gunler", {}))
+                yas = yas_dakika(gunler[-1] + "T15:15:00+00:00") if gunler else None
+            if yas is None or yas > esik_saat * 60:
+                arizalar.append((f"SAGLIK: {kanal} kanali",
+                                 f"{yol} {yas and round(yas / 60)} saattir guncellenmiyor (esik {esik_saat} saat). {aciklama}"))
 
     # Raporla / Issue ac
     print(f"Saglik kontrolu {bugun} | ariza: {len(arizalar)} | bilgi: {len(bilgiler)}")
