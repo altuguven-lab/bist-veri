@@ -24,15 +24,44 @@ name: Kopru Sessizlik Izleyici
 on:
   schedule:
     - cron: '30 15 * * 1-5'  # Pazartesi-Cuma 15:30 UTC = 18:30 TSI (piyasa kapanisi sonrasi)
+    - cron: '50 16 * * 1-5'  # 11.11: 19:50 TSI yedek tetik (GitHub zamanlamayi atlarsa ya da ilk kosum erken kalirsa)
   workflow_dispatch: {}  # elle de calistirabilirsin
+
+# 11.11 (Denetim 1.3): GUNLUK_OZET KAPSAMA DENETIMI eklendi (gunluk_ozet_kapsama.py). Sessizlik
+# kontrolunden ONCE calisir; evrendeki her hisse icin gunluk ozet geldi mi, hepsi ayni Pine surumunde
+# mi bakar; eksikse "saglik" etiketli kayit acar, sonucu data/gunluk_ozet_kapsama.json'a yazar.
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: kopru-izleyici
+  cancel-in-progress: false
 
 jobs:
   sessizlik-kontrolu:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # TAM commit gecmisi lazim (varsayilan sadece son commit'i ceker)
+
+      - name: Gunluk ozet kapsama denetimi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 gunluk_ozet_kapsama.py || echo "::warning::kapsama denetimi hata verdi"
+          git config user.name "kapsama-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/gunluk_ozet_kapsama.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Gunluk ozet kapsama $(date -u +%Y-%m-%d) [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((RANDOM % 8 + 3))
+          done
+          echo "::warning::kapsama kaydi push edilemedi"
 
       - name: Son "TV sinyal:" commit'ini bul ve yasini olc
         run: |
