@@ -17,6 +17,10 @@ on:
         description: "Bu kosumda en cok kac gun indirilsin"
         required: false
         default: "300"
+      butce_dk:
+        description: "Indirme icin zaman butcesi (dakika)"
+        required: false
+        default: "20"
 
 permissions:
   contents: write
@@ -28,7 +32,7 @@ concurrency:
 jobs:
   ozet:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -40,6 +44,7 @@ jobs:
         env:
           VIOP_GERI_BASLANGIC: ${{ github.event.inputs.geri_baslangic }}
           VIOP_GERI_AZAMI: ${{ github.event.inputs.geri_azami || '300' }}
+          VIOP_BUTCE_DK: ${{ github.event.inputs.butce_dk || '20' }}
         run: |
           pip install -q yfinance pandas
           python viop_genis.py || echo "viop_genis hata verdi; hisse özeti etkilenmez"
@@ -49,7 +54,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A data/viop_hisse_gunluk.json data/viop_inbox 2>/dev/null || git add -A data/
           [ -f viop_hisse_sinyal.md ] && git add viop_hisse_sinyal.md || true
-          git add data/arsiv/viop data/viop_genis.json viop_genis.md 2>/dev/null || true
+          git add data/arsiv/viop data/viop_genis viop_genis.md 2>/dev/null || true
           git diff --cached --quiet && { echo "değişiklik yok"; exit 0; }
           git commit -m "VIOP hisse vadeli özeti [skip ci]"
           for i in 1 2 3 4 5; do
