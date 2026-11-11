@@ -4,7 +4,7 @@ VIOP GENIS (11.11.2026) - BETIMLEYICI VERI KATMANI, SINYAL/TAVSIYE DEGILDIR.
 
 Amac: Borsa Istanbul VIOP gunluk bulteninin (viopdata/viop_YYYYMMDD.csv) TAMAMINI
   1) ham olarak arsivlemek: data/arsiv/viop/YYYY/MM/DD.csv.gz  (gunde ~55 KB)
-  2) bugune kadar atilan kisimlardan betimleyici ozet cikarmak: data/viop_genis.json, viop_genis.md
+  2) bugune kadar atilan kisimlardan betimleyici ozet cikarmak: data/viop_genis/YYYY.json (yil basina bir dosya), viop_genis.md
      - endeks vadelileri (XU030, XLBNK): yakin/sonraki vade, uzlasma, acik pozisyon (AP), AP degisimi,
        hacim, vadeye kalan gun, takvim faizi; spot varsa baz % ve yilliklandirilmis baz
      - USD/TRY vadelileri: vade egrisi, yakin->~3 ay ima yillik faiz; spot varsa spot->yakin ima faiz
@@ -23,7 +23,7 @@ import collections, csv, datetime as dt, glob, gzip, io, json, os, statistics, s
 DATA = os.environ.get("VIOP_DATA_DIR", "data")
 ARSIV = os.path.join(DATA, "arsiv", "viop")
 INBOX = os.path.join(DATA, "viop_inbox")
-CIKTI = os.path.join(DATA, "viop_genis.json")
+CIKTI_DIR = os.path.join(DATA, "viop_genis")          # yil basina bir dosya: YYYY.json
 MD = os.environ.get("VIOP_GENIS_MD", "viop_genis.md")
 URL = "https://www.borsaistanbul.com/viopdata/viop_{tarih}.csv"
 UA = {"User-Agent": "Mozilla/5.0 (bist-veri viop_genis)"}
@@ -36,7 +36,7 @@ Z_PENCERE = 60
 ENDEKSLER = {"XU030": "D_XU030D", "XLBNK": "D_XLBNKD"}
 SPOT_YF = {"XU030": "XU030.IS", "USDTRY": "TRY=X"}
 USD_MIN_AP = 1000
-ZAMAN_BUTCESI = 20 * 60          # indirme icin; is akisi 30 dk
+ZAMAN_BUTCESI = float(os.environ.get("VIOP_BUTCE_DK") or 20) * 60   # indirme icin; is akisi suresinden kisa olmali
 TR = dt.timezone(dt.timedelta(hours=3))
 
 
@@ -228,10 +228,14 @@ def spot_ekle(gun, o, spot):
     ev = (o.get("endeks_vadeli") or {}).get("XU030")
     if xu and ev and ev["yakin"]["uzlasma"] > 0:
         y = ev["yakin"]
-        baz = (y["uzlasma"] / xu - 1) * 100
-        if abs(baz) > 15:                                       # olcek/kontrat degisikligi korumasi
-            ev["baz_not"] = f"olcek uyusmazligi (spot {xu:.0f}, vadeli {y['uzlasma']:.0f}) - baz hesaplanmadi"
+        # eski yillarda vadeli fiyat olcegi spot endeksten 10'un kati kadar farkli olabilir (sifir atma, endeks/1000)
+        carpan = next((c for c in (1, 1000, 100, 10, 0.1, 0.01, 0.001) if abs(y["uzlasma"] * c / xu - 1) < 0.15), None)
+        if carpan is None:
+            ev["baz_not"] = f"olcek uyusmazligi (spot {xu:.2f}, vadeli {y['uzlasma']:.3f}) - baz hesaplanmadi"
         else:
+            baz = (y["uzlasma"] * carpan / xu - 1) * 100
+            if carpan != 1:
+                ev["olcek_carpani"] = carpan
             ev["spot"] = round(xu, 2)
             ev["baz_pct"] = round(baz, 3)
             ev["baz_yillik_pct"] = round(baz * 365 / max(y["kalan_gun"], 1), 2)
@@ -301,7 +305,10 @@ def is_gunleri(bas, bit):
 def main():
     bugun = dt.datetime.now(TR).date()
     log = collections.Counter()
-    d = json.load(open(CIKTI, encoding="utf-8")) if os.path.exists(CIKTI) else {"gunler": {}}
+    d = {"gunler": {}}
+    for p in sorted(glob.glob(os.path.join(CIKTI_DIR, "[0-9][0-9][0-9][0-9].json"))):
+        d["gunler"].update(json.load(open(p, encoding="utf-8"))["gunler"])
+    onceki = json.dumps(d["gunler"], sort_keys=True)
     n_inbox = inbox_aktar(log)
     if GERI_BASLANGIC:
         hedef = [g for g in is_gunleri(dt.date.fromisoformat(GERI_BASLANGIC), bugun) if not os.path.exists(arsiv_yolu(g))][:GERI_AZAMI]
@@ -323,19 +330,24 @@ def main():
         for g in eksik:
             spot_ekle(g, d["gunler"][g], spot)
     d["gunler"] = dict(sorted(d["gunler"].items()))
-    d["son_guncelleme_utc"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-    d["log"] = f"inbox {n_inbox}, indirilen {n_ind}/{len(hedef)}, yeni ozet {len(yeni)}, hatalar {dict(log) or '-'}"
-    d["not"] = "Betimleyici; alarm/karar girdisi degildir. Yon iddiasi yalniz on kayit + plasebo ile sinanir."
-    os.makedirs(DATA, exist_ok=True)
-    tmp = CIKTI + ".tmp"
-    with open(tmp, "w", encoding="utf-8") as fh:
-        json.dump(d, fh, ensure_ascii=False, separators=(",", ":"))
-    os.replace(tmp, CIKTI)
+    log_satiri = f"inbox {n_inbox}, indirilen {n_ind}/{len(hedef)}, yeni ozet {len(yeni)}, hatalar {dict(log) or '-'}"
+    os.makedirs(CIKTI_DIR, exist_ok=True)
+    eski = json.loads(onceki)
+    for yil in sorted({g[:4] for g in d["gunler"]}):
+        yg = {g: o for g, o in d["gunler"].items() if g[:4] == yil}
+        if yg == {g: o for g, o in eski.items() if g[:4] == yil}:
+            continue                                            # degismeyen yil dosyasina dokunma (depo gecmisi sismesin)
+        tmp = os.path.join(CIKTI_DIR, yil + ".json.tmp")
+        with open(tmp, "w", encoding="utf-8") as fh:
+            json.dump({"not": "Betimleyici; alarm/karar girdisi degildir. Yon iddiasi yalniz on kayit + plasebo ile sinanir.",
+                       "son_guncelleme_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "gunler": yg},
+                      fh, ensure_ascii=False, separators=(",", ":"))
+        os.replace(tmp, os.path.join(CIKTI_DIR, yil + ".json"))
     gecerli = {g: o for g, o in d["gunler"].items() if "hata" not in o}
     if gecerli:
         with open(MD, "w", encoding="utf-8") as fh:
             fh.write(rapor({"gunler": gecerli}))
-    print(d["log"])
+    print(log_satiri, flush=True)
     return 0
 
 
