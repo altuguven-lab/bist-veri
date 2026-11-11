@@ -1,3 +1,22 @@
+// PIPEDREAM CODE ADIMI - v6 (11.11.2026)
+// v5'ten fark (V163.2): Pine artik sembol basina bar basina TEK webhook gonderir; o barin
+//  tum sinyalleri "signals" alaninda virgulle gelir ("P4_HAZIRLIK,P3_HACIM_BEKLE").
+//  Bu kod listeyi AYRI KAYITLARA boler (her biri eski formatta: sinyal + eventId), hepsini
+//  TEK commit'te yazar. eventId burada kurulur: sembol|interval|sinyal|barTime.
+//  Eski tek-sinyal mesajlari (body.signal) aynen desteklenir (geriye uyum).
+//  Tekrar korumasi kayit bazinda: zaten var olan eventId atlanir, hepsi varsa commit yok.
+// ---- v5 notlari (asagida, bilgi icin) ----
+// PIPEDREAM CODE ADIMI - v5 (10.11.2026)
+// v4'ten fark (V163.1 gecisi):
+//  1. V163.1 yeni alanlari ARSIVE YAZILIR: skor0, kgs0, relvol0 (sinyal barinin
+//     gecikmesiz degerleri), manuel_poz, poz_kaynak, karar, faktor. Eski
+//     mesajlarda bu alanlar "?" kalir (karne/H12 etkilenmez).
+//  2. TEKRAR KORUMASI eventId ile ve ERKEN CIKISLI: ayni eventId gecmiste
+//     varsa dosya HIC yazilmaz (v4 tekrarda da commit atiyordu - yalniz zaman
+//     damgasi degisiyordu). 10.11'de V163.1 her sinyali ~2 sn arayla iki kez
+//     gonderdi; ikinci istek artik GitHub kuyruguna girmez (18:11 GUNLUK_OZET
+//     patlamasinda kuyruk yari yariya kisalir). Eski 60 sn kurali yedek olarak duruyor.
+// ---- v4 notlari (asagida, bilgi icin) ----
 // PIPEDREAM CODE ADIMI - v4 (06.10.2026)
 // v3'ten fark (05.10 15:11:01 GMT "TIMEOUT" hatasi + 02.10 eksik 8 sembol):
 //  KOK NEDEN (KANITLI): GitHub ayni branch'e gelen commit'leri SIRAYLA
@@ -83,10 +102,9 @@ export default defineComponent({
     if (!body.schemaVersion) {
       return $.flow.exit("schemaVersion yok - test/eski ornek olay, arsive yazilmadi");
     }
-    const yeniSinyal = {
+    const sablon = {
       zaman_utc: new Date().toISOString(),
       sembol: String(body.symbol ?? "?"),
-      sinyal: String(body.signal ?? "?"),
       interval: String(body.interval ?? "?"),
       fiyat: String(body.price ?? "?"),
       skor: String(body.skor ?? "?"),
@@ -108,9 +126,29 @@ export default defineComponent({
       p3ozet: String(body.p3ozet ?? "?"),
       pozsebep: String(body.pozsebep ?? "?"),
       schemaVersion: String(body.schemaVersion ?? "?"),
-      eventId: String(body.eventId ?? "?"),
       carrierLagBars: String(body.carrierLagBars ?? "?"),
+      // 10.11 EKI (V163.1): sinyal barinin gecikmesiz degerleri + baglam
+      skor0: String(body.skor0 ?? "?"),
+      kgs0: String(body.kgs0 ?? "?"),
+      relvol0: String(body.relvol0 ?? "?"),
+      manuel_poz: String(body.manuel_poz ?? "?"),
+      poz_kaynak: String(body.poz_kaynak ?? "?"),
+      karar: String(body.karar ?? "?"),
+      faktor: String(body.faktor ?? "?"),
     };
+    // v6: "signals" (V163.2, virgullu liste) ya da "signal" (eski tekli) -> kayit listesi
+    const adlar = body.signals
+      ? String(body.signals).split(",").map((x) => x.trim()).filter(Boolean)
+      : [String(body.signal ?? "?")];
+    const yeniSinyaller = adlar.map((ad) => ({
+      ...sablon,
+      sinyal: ad,
+      eventId: body.signals
+        ? `${sablon.sembol}|${sablon.interval}|${ad}|${String(body.barTime ?? "?")}`
+        : String(body.eventId ?? "?"),
+    }));
+    const yeniSinyal = yeniSinyaller[0];   // zamanlama/ay/inbox icin temsilci
+    const adOzet = adlar.join(",");
     const buAy = yeniSinyal.zaman_utc.slice(0, 7);
 
     const headers = {
@@ -142,7 +180,7 @@ export default defineComponent({
 
     // (1) v4: GUNLUK_OZET icin SEMBOL-SIRALI dilim (kuyruk olusmasin);
     // digerleri icin kisa rastgele gecikme.
-    if (yeniSinyal.sinyal === "GUNLUK_OZET") {
+    if (adlar.includes("GUNLUK_OZET")) {
       const idx = SEMBOL_SIRASI.indexOf(yeniSinyal.sembol);
       const dilim = idx >= 0 ? idx : SEMBOL_SIRASI.length;
       await bekle(dilim * DILIM_MS + Math.floor(Math.random() * 400));
@@ -175,15 +213,19 @@ export default defineComponent({
       }
       if (sayac.ay !== buAy) sayac = { ay: buAy, adet: 0 };
 
-      // (4) TEKRAR-KAYIT KORUMASI: onceki denemede yazma aslinda
-      // basarili olduysa ayni sinyali ikinci kez ekleme.
+      // (5) v6: kayit bazinda tekrar korumasi - zaten yazilmis eventId'ler atlanir;
+      // hicbiri yeni degilse dosya HIC yazilmaz (commit yok).
       const suSaniye = Date.parse(yeniSinyal.zaman_utc);
-      const zatenVar = gecmis.some((s) =>
-        s.sembol === yeniSinyal.sembol && s.sinyal === yeniSinyal.sinyal &&
-        s.fiyat === yeniSinyal.fiyat &&
-        Math.abs(Date.parse(s.zaman_utc) - suSaniye) < 60000);
-      if (!zatenVar) {
-        gecmis.unshift(yeniSinyal);
+      const yeniler = yeniSinyaller.filter((y) =>
+        !(y.eventId !== "?" && gecmis.some((s) => s.eventId === y.eventId)) &&
+        // (4) eski 60 sn kurali (yedek)
+        !gecmis.some((s) => s.sembol === y.sembol && s.sinyal === y.sinyal && s.fiyat === y.fiyat &&
+          Math.abs(Date.parse(s.zaman_utc) - suSaniye) < 60000));
+      if (yeniler.length === 0) {
+        return $.flow.exit(`tekrar: ${yeniSinyal.sembol} ${adOzet} zaten kayitli, yazilmadi`);
+      }
+      for (const y of yeniler) {
+        gecmis.unshift(y);
         sayac.adet += 1;
       }
       gecmis.sort((a, b) => String(b.zaman_utc).localeCompare(String(a.zaman_utc)));
@@ -199,7 +241,7 @@ export default defineComponent({
       };
 
       try {
-        await dosyaYaz(PATH, dosya, `TV sinyal: ${yeniSinyal.sembol} ${yeniSinyal.sinyal}`, sha);
+        await dosyaYaz(PATH, dosya, `TV sinyal: ${yeniSinyal.sembol} ${adOzet}`, sha);
         return dosya; // basarili
       } catch (e) {
         sonHata = e;
@@ -223,8 +265,8 @@ export default defineComponent({
     let inboxHata = null;
     for (let d2 = 1; d2 <= INBOX_DENEME && (d2 === 1 || gecen() < INBOX_BITIS_MS); d2++) {
       try {
-        await dosyaYaz(inboxYol, yeniSinyal,
-          `INBOX (yaris kaybi): ${yeniSinyal.sembol} ${yeniSinyal.sinyal}`);
+        await dosyaYaz(inboxYol, yeniSinyaller.length === 1 ? yeniSinyal : { sinyaller: yeniSinyaller },
+          `INBOX (yaris kaybi): ${yeniSinyal.sembol} ${adOzet}`);
         return { inbox: inboxYol, not: "ana dosya yazilamadi, inbox'a birakildi", sonHata: String(sonHata) };
       } catch (e2) {
         inboxHata = e2;
