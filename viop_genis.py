@@ -36,6 +36,7 @@ Z_PENCERE = 60
 ENDEKSLER = {"XU030": "D_XU030D", "XLBNK": "D_XLBNKD"}
 SPOT_YF = {"XU030": "XU030.IS", "USDTRY": "TRY=X"}
 USD_MIN_AP = 1000
+ZAMAN_BUTCESI = 20 * 60          # indirme icin; is akisi 30 dk
 TR = dt.timezone(dt.timedelta(hours=3))
 
 
@@ -96,13 +97,16 @@ def ham_dogrula(ham, g):
 
 
 def indir(gunler, log):
-    n = 0
+    n, t0 = 0, time.time()
     for g in gunler:
+        if time.time() - t0 > ZAMAN_BUTCESI:
+            log["zaman butcesi doldu, kalan gunler sonraki kosuma"] += 1
+            break
         if os.path.exists(arsiv_yolu(g)):
             continue
         url = URL.format(tarih=f"{g:%Y%m%d}")
         try:
-            ham = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30).read()
+            ham = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=12).read()
         except Exception as e:
             log[f"{type(e).__name__} {getattr(e, 'code', '')}".strip()] += 1
             time.sleep(BEKLE)
@@ -113,6 +117,7 @@ def indir(gunler, log):
         else:
             arsive_yaz(g, ham)
             n += 1
+            print(f"  arsivlendi {g}", flush=True)
         time.sleep(BEKLE)
     return n
 
