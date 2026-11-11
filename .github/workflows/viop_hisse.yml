@@ -8,6 +8,15 @@ on:
     - cron: "30 16,18 * * 1-5"   # 19:30 ve 21:30 TR
     - cron: "40 6 * * 2-6"       # 09:40 TR — önceki günü yakalar
   workflow_dispatch:
+    inputs:
+      geri_baslangic:
+        description: "VIOP geri doldurma baslangici (YYYY-MM-DD); bos = normal kosum"
+        required: false
+        default: ""
+      geri_azami:
+        description: "Bu kosumda en cok kac gun indirilsin"
+        required: false
+        default: "300"
 
 permissions:
   contents: write
@@ -19,7 +28,7 @@ concurrency:
 jobs:
   ozet:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,12 +36,20 @@ jobs:
           python-version: "3.11"
       - name: VIOP özetini üret
         run: python viop_hisse_topla.py
+      - name: VIOP geniş arşiv ve özet (endeks, USD/TRY, opsiyon)
+        env:
+          VIOP_GERI_BASLANGIC: ${{ github.event.inputs.geri_baslangic }}
+          VIOP_GERI_AZAMI: ${{ github.event.inputs.geri_azami || '300' }}
+        run: |
+          pip install -q yfinance pandas
+          python viop_genis.py || echo "viop_genis hata verdi; hisse özeti etkilenmez"
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A data/viop_hisse_gunluk.json data/viop_inbox 2>/dev/null || git add -A data/
           [ -f viop_hisse_sinyal.md ] && git add viop_hisse_sinyal.md || true
+          git add data/arsiv/viop data/viop_genis.json viop_genis.md 2>/dev/null || true
           git diff --cached --quiet && { echo "değişiklik yok"; exit 0; }
           git commit -m "VIOP hisse vadeli özeti [skip ci]"
           for i in 1 2 3 4 5; do
