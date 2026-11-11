@@ -37,6 +37,7 @@ Z_PENCERE = 60
 ENDEKSLER = {"XU030": "D_XU030D", "XLBNK": "D_XLBNKD"}
 SPOT_YF = {"XU030": "XU030.IS", "USDTRY": "TRY=X"}
 USD_MIN_AP = 1000
+OZET_SURUM = 2                    # ozet mantigi degisince artir: eski gunler arsivden yeniden ozetlenir
 ZAMAN_BUTCESI = float(os.environ.get("VIOP_BUTCE_DK") or 20) * 60   # indirme icin; is akisi suresinden kisa olmali
 TR = dt.timezone(dt.timedelta(hours=3))
 
@@ -198,9 +199,13 @@ def usd_ozet(rs, g):
              "uzlasma": f(r["UZLASMA FIYATI"]), "ap": f(r["ACIK POZISYON"]), "hacim_tl": f(r["ISLEM HACMI"])} for r in fut]
     o = {"egri": egri, "toplam_ap": sum(e["ap"] for e in egri), "yakin_3ay_ima_faiz_pct": None}
     y = egri[0]
-    hedef = [e for e in egri if 75 <= e["kalan_gun"] - y["kalan_gun"] <= 110]
+    # 11.11 v2: eski yillarda likit vadeler 2 ayda bir; 75-110 gun penceresi gunlerin yarisini kaciriyordu.
+    # Yakin vadeden 45-135 gun sonraki likit vadelerden 90 gune EN YAKIN olan secilir; oran yilliklandirilir.
+    hedef = sorted((e for e in egri if 45 <= e["kalan_gun"] - y["kalan_gun"] <= 135),
+                   key=lambda e: abs(e["kalan_gun"] - y["kalan_gun"] - 90))
     if hedef:
         e = hedef[0]
+        o["ima_faiz_vade_farki_gun"] = e["kalan_gun"] - y["kalan_gun"]
         o["yakin_3ay_ima_faiz_pct"] = round((e["uzlasma"] / y["uzlasma"] - 1) * 365 / (e["kalan_gun"] - y["kalan_gun"]) * 100, 2)
     return o
 
@@ -226,7 +231,7 @@ def opsiyon_ozet(rs):
 
 def gun_ozeti(g):
     rs = satirlar(gzip.open(arsiv_yolu(g)).read().decode("latin-1"))
-    o = {"satir": len(rs), "endeks_vadeli": {}, "usdtry": usd_ozet(rs, g), "opsiyon": opsiyon_ozet(rs)}
+    o = {"s": OZET_SURUM, "satir": len(rs), "endeks_vadeli": {}, "usdtry": usd_ozet(rs, g), "opsiyon": opsiyon_ozet(rs)}
     for ad, dayanak in ENDEKSLER.items():
         o["endeks_vadeli"][ad] = vadeli_ozet([r for r in rs if r["DAYANAK VARLIK"] == dayanak and r["SOZLESME TIPI"] == "D_IX_FUT"], g)
     return o
@@ -346,7 +351,8 @@ def main():
         hedef = list(is_gunleri(bugun - dt.timedelta(days=SON_GUN), bugun))
     n_ind = indir(hedef, log, yok)
     arsiv = sorted(tarih_coz("".join(p.split(os.sep)[-3:])[:8]) for p in glob.glob(os.path.join(ARSIV, "*", "*", "*.csv.gz")))
-    yeni = [g for g in arsiv if g.isoformat() not in d["gunler"] or "hata" in d["gunler"][g.isoformat()]]
+    yeni = [g for g in arsiv if g.isoformat() not in d["gunler"] or "hata" in d["gunler"][g.isoformat()]
+            or d["gunler"][g.isoformat()].get("s") != OZET_SURUM]
     for g in yeni:
         try:
             d["gunler"][g.isoformat()] = gun_ozeti(g)
