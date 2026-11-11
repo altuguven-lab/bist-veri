@@ -62,18 +62,21 @@ def main():
             bozuk += 1
             continue
 
-        if not all(kayit.get(a) for a in ZORUNLU_ALANLAR):
-            print(f"EKSIK ALAN: {os.path.basename(yol)}")
-            bozuk += 1
-            continue
+        # 11.11 EKI (Pipedream v6 / V163.2): bir inbox dosyasi ayni barin birden fazla sinyalini
+        # {"sinyaller": [...]} olarak tasiyabilir; her biri ayri kayit olarak islenir.
+        for kayit in (kayit.get("sinyaller") if isinstance(kayit.get("sinyaller"), list) else [kayit]):
+            if not all(kayit.get(a) for a in ZORUNLU_ALANLAR):
+                print(f"EKSIK ALAN: {os.path.basename(yol)}")
+                bozuk += 1
+                continue
 
-        if _anahtar(kayit) in mevcut:
-            atlanan += 1
-            continue
+            if _anahtar(kayit) in mevcut:
+                atlanan += 1
+                continue
 
-        gecmis.append(kayit)
-        mevcut.add(_anahtar(kayit))
-        eklenen.append(kayit)
+            gecmis.append(kayit)
+            mevcut.add(_anahtar(kayit))
+            eklenen.append(kayit)
 
     if not eklenen:
         print(f"Yeni kayit yok ({len(dosyalar)} inbox dosyasi, "
