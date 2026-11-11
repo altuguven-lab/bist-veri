@@ -71,6 +71,9 @@ YON = {
     "SEKTOR_ROTASYONU": "YUKARI", "CORE_AL": "YUKARI",
     "ACIL_CIK": "ASAGI", "POZ_AZALT": "ASAGI", "STOP_KIRILDI": "ASAGI", "IC_STOP": "ASAGI",
     "CORE_CIKIS": "ASAGI",
+    # 11.11 EKI (V163.1 tek alarmla ilk kez veri ureten turler) - yonler VARSAYIMDIR:
+    "P2_DESTEK_DONUS": "YUKARI", "P3_HACIM_BEKLE": "YUKARI", "EKLEME_ADAYI": "YUKARI",
+    "TASIMA": "YUKARI", "KAR_KORU": "ASAGI",
 }
 # CHANGELOG_V162 alarm oncelik tablosu (P2_ADAY orada "Islem"; sinyal_arsiv_gunluk.py'de IZLEME -
 # celiski raporda belirtilir).
@@ -82,7 +85,24 @@ SINIF_ESKI = {
     "P3_SKOR_AL": "ISLEM", "P2_DIP_DONUS": "ISLEM",
     "P3_RADAR": "IZLEME", "P4_HAZIRLIK": "IZLEME", "SEKTOR_ROTASYONU": "IZLEME",
 }
-SINIF = {k: ("KRITIK" if k in ("STOP_KIRILDI", "IC_STOP", "ACIL_CIK") else "BILGI") for k in SINIF_ESKI}
+SINIF = {k: ("KRITIK" if k in ("STOP_KIRILDI", "IC_STOP", "ACIL_CIK") else "BILGI") for k in set(SINIF_ESKI) | set(YON)}
+# 11.11 EKI: seans ve faktor kirilimi (FAKTOR-BT/SEANS-BT Pine panelinden buraya tasindi).
+# Kirilim yalniz GIRIS ADAYI turlerinde (yon YUKARI, rotasyon/tasima/ekleme haric) havuzlanir.
+GIRIS_TURLERI = {"P1_KALITELI_AL", "P1_AL", "P2_ERKEN_AL", "P2_DIP_DONUS", "P2_DESTEK_DONUS", "P2_ADAY",
+                 "P3_SKOR_AL", "P3_RADAR", "P3_HACIM_BEKLE", "P4_HAZIRLIK"}
+
+
+def seans_dilimi(t_utc):
+    """Alarm alis zamani (TR) -> seans dilimi. Alarm bar kapanisindan ~10-30 sn sonra gelir."""
+    t = (t_utc + TR_SAAT).time()
+    hm = t.hour * 60 + t.minute
+    if hm < 10 * 60 + 15:
+        return "ACILIS (<10:15)"
+    if hm < 12 * 60 + 30:
+        return "ANA (10:15-12:30)"
+    if hm < 15 * 60 + 45:
+        return "OGLE (12:30-15:45)"
+    return "KAPANIS (>=15:45)"
 HARIC = {"GUNLUK_OZET"}
 HARIC_ONEK = ("GERCEK_TEST",)   # kanal test alarmlari
 # 28.10 EKI: Pipedream "Test" dugmesiyle yeniden gonderilen eski ornek olay. schemaVersion/eventId
@@ -267,7 +287,13 @@ def olaylari_kur(alarmlar, fiyatlar, xu):
         r = {"sembol": kod, "sinyal": tur, "sinif": SINIF.get(tur, "TANIMSIZ"), "yon": yon,
              "zaman_utc": s["zaman_utc"], "taban_gun": str(g0.date()),
              "rejim_alani": s.get("rejim"), "donem": "KRIZ_SONRASI" if g0 > kriz else "KRIZ_ONCESI",
-             "relvol": f(s.get("relvol")), "skor": f(s.get("skor")), "kgs": f(s.get("kgs"))}
+             "relvol": f(s.get("relvol")), "skor": f(s.get("skor")), "kgs": f(s.get("kgs")),
+             # 11.11 EKI: V163.1 alanlari (eski kayitlarda bos) + seans dilimi
+             "seans": seans_dilimi(s["_t_utc"]), "schemaVersion": s.get("schemaVersion"),
+             "faktor": None if bos(s.get("faktor")) else s.get("faktor"),
+             "karar": None if bos(s.get("karar")) else s.get("karar"),
+             "skor0": f(s.get("skor0")), "kgs0": f(s.get("kgs0")), "relvol0": f(s.get("relvol0")),
+             "manuel_poz": None if bos(s.get("manuel_poz")) else s.get("manuel_poz")}
         afiyat = f(s.get("fiyat"))
         kapanis = float(df.at[g0, "Close"])
         if afiyat:
@@ -331,6 +357,17 @@ def ozetle(alt, alan, h):
            "p": None if k["t"] is None else round(p_iki_yonlu(k["t"]), 4),
            "isabet_pct": round(100 * sum(v > 0 for v in vals) / len(vals), 1),
            "ga95_bootstrap": bootstrap_ga(vals, kume)}
+    return out
+
+
+def kirilim(olaylar, alan):
+    """Giris adayi turlerini havuzlayip `alan` degerine gore net T+3 / T+5 ozetler (betimleyici)."""
+    alt = [o for o in olaylar if o["sinyal"] in GIRIS_TURLERI and o.get(alan)]
+    out = {}
+    for deger in sorted({o[alan] for o in alt}):
+        g = [o for o in alt if o[alan] == deger]
+        out[deger] = {"olay": len(g), "sembol": len({o["sembol"] for o in g}),
+                      "net_T3": ozetle(g, "net_T3", 3), "net_T5": ozetle(g, "net_T5", 5)}
     return out
 
 
@@ -457,6 +494,14 @@ def md_rapor(out):
         c, d = r["hacim_kirilimi"]["relvol>=1"], r["hacim_kirilimi"]["relvol<1"]
         L.append(f"| {tur} | {a.get('n')} / {a.get('ort')} | {b.get('n')} / {b.get('ort')} | {c.get('n')} / {c.get('ort')} | "
                  f"{d.get('n')} / {d.get('ort')} | {r['zincir_orani_pct']} |")
+    for baslik, anahtar, notu in [
+            ("Seans kirilimi", "seans_kirilimi", "Alarm alis saatine gore; tum gecmis alarmlar."),
+            ("Faktor kirilimi", "faktor_kirilimi", "Sinyal barinda baskin skor bileseni; yalniz V163.1 (10.11.2026+) alarmlari tasir.")]:
+        L += ["", f"## {baslik} (giris adayi turleri havuzlu, net T+3 / T+5)", "", notu + " Betimleyicidir, hukum vermez.", "",
+              "| Dilim | Olay | Sembol | Net T+3 ort (t_kume) | Isabet T+3 | Net T+5 ort (t_kume) |", "|---|---|---|---|---|---|"]
+        for k, r in out.get(anahtar, {}).items():
+            a, b = r["net_T3"], r["net_T5"]
+            L.append(f"| {k} | {r['olay']} | {r['sembol']} | {a.get('ort')} ({a.get('t_kume')}) | {a.get('isabet_pct')} | {b.get('ort')} ({b.get('t_kume')}) |")
     v = out["veri_butunlugu"]
     L += ["", "## Veri butunlugu", "",
           f"- Aralik {v['aralik'][0]} - {v['aralik'][1]}, {v['islem_gunu']} islem gunu; gunluk alarm medyani {v['gunluk_alarm_medyan']}, "
@@ -500,9 +545,11 @@ def main():
            "kaynak_ozet": {"dosya": kaynak, "ham": sum(kaynak.values()), "tekrar": tekrar, "tekil": len(alarmlar)},
            "xu100_son_gun": str(xu.index[-1].date()),
            "turler": turler, "veri_butunlugu": butunluk(alarmlar, xu.index),
+           "seans_kirilimi": kirilim(olaylar, "seans"), "faktor_kirilimi": kirilim(olaylar, "faktor"),
            "fiyat_uyusmazligi": uyusmazlik, "fiyat_hatalari": hatalar, "bolunme_olaylari": bolunme,
            "notlar": ["P2_ADAY CHANGELOG'da ISLEM, sinyal_arsiv_gunluk.py'de IZLEME siniflanmis; burada ISLEM.",
                       "P4_HAZIRLIK ve SEKTOR_ROTASYONU icin yon YUKARI varsayimdir.",
+                      "11.11: P2_DESTEK_DONUS, P3_HACIM_BEKLE, EKLEME_ADAYI, TASIMA (YUKARI) ve KAR_KORU (ASAGI) yonleri varsayimdir.",
                       "T+5/T+10 kume = ISO hafta (ust uste binen pencereler); yine de tutucu bir yaklasiktir.",
                       "Tek fiyat kaynagi Yahoo; seans ici giris modellenmez (taban = alarm gunu kapanisi)."]}
     os.makedirs("data", exist_ok=True)
