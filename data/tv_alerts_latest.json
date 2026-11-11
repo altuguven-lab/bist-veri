@@ -1,15 +1,15 @@
 {
-  "son_guncelleme_utc": "2026-11-11T07:00:22.182Z",
+  "son_guncelleme_utc": "2026-11-11T07:00:23.733Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
-  "sinyal_sayisi": 204,
+  "sinyal_sayisi": 205,
   "ay_sayac": {
     "ay": "2026-11",
-    "adet": 460
+    "adet": 461
   },
   "son_sinyal": {
-    "zaman_utc": "2026-11-11T07:00:21.454Z",
+    "zaman_utc": "2026-11-11T07:00:21.572Z",
     "sembol": "EREGL",
-    "sinyal": "P3_SKOR_AL",
+    "sinyal": "P3_HACIM_BEKLE",
     "interval": "15",
     "fiyat": "33.00",
     "skor": "23.59",
@@ -22,7 +22,7 @@
     "p3ozet": "2201032",
     "pozsebep": "0",
     "schemaVersion": "v163.1",
-    "eventId": "EREGL|15|P3_SKOR_AL|2026-11-11T06:45:00Z",
+    "eventId": "EREGL|15|P3_HACIM_BEKLE|2026-11-11T06:45:00Z",
     "carrierLagBars": "1",
     "skor0": "33.86",
     "kgs0": "64",
@@ -33,6 +33,32 @@
     "faktor": "OBV"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-11-11T07:00:21.572Z",
+      "sembol": "EREGL",
+      "sinyal": "P3_HACIM_BEKLE",
+      "interval": "15",
+      "fiyat": "33.00",
+      "skor": "23.59",
+      "kgs": "15",
+      "stop": "33.34",
+      "rejim": "0",
+      "relvol": "0.79",
+      "v112n": "85",
+      "v112wr": "?",
+      "p3ozet": "2201032",
+      "pozsebep": "0",
+      "schemaVersion": "v163.1",
+      "eventId": "EREGL|15|P3_HACIM_BEKLE|2026-11-11T06:45:00Z",
+      "carrierLagBars": "1",
+      "skor0": "33.86",
+      "kgs0": "64",
+      "relvol0": "3.91",
+      "manuel_poz": "0",
+      "poz_kaynak": "NONE",
+      "karar": "IZLE",
+      "faktor": "OBV"
+    },
     {
       "zaman_utc": "2026-11-11T07:00:21.454Z",
       "sembol": "EREGL",
