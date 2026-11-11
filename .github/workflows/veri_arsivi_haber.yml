@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: "28 * * * *"
     - cron: "13,43 6-15 * * 1-5"   # 09.11 EKI: seans saatlerinde ek tetikler (GitHub saatlik zamanlamalari atliyor)
+  # 11.11 (Denetim 1.1): GitHub saatlik zamanlamalarin ~%90'ini atliyor. haber_update.yml'i tetikleyen
+  # harici "haber_tetikle" olayi duzenli geliyor; arsiv de ayni olayi dinler. Yeni anahtar/ayar gerekmez.
+  repository_dispatch:
+    types: [haber_tetikle]
   workflow_dispatch:
 permissions:
   contents: write
