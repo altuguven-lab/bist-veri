@@ -2,18 +2,18 @@
 
 Betimleyicidir; alarm/karar girdisi değildir. Gözlem amaçlıdır, tavsiye değildir.
 
-Arşivdeki gün: 1751 (2017-03-06 → 2026-11-11). z-skor penceresi 60 gün, en az 20 gün gerekir.
+Arşivdeki gün: 2430 (2017-03-06 → 2026-11-11). z-skor penceresi 60 gün, en az 20 gün gerekir.
 
 ## Endeks vadelileri
 
 | Endeks | Yakın vade | Kalan gün | Uzlaşma | Baz % | Baz yıllık % | Baz z | Toplam AP | AP Δ | Hacim mlr TL | Takvim faizi % |
 |---|---|---|---|---|---|---|---|---|---|---|
-| XU030 | F_XU0301226 | 50 | 15255 | – | – | VERI_YETERSIZ | 454,797 | -5,883 | 44.72 | 28.59 |
+| XU030 | F_XU0301226 | 50 | 15255 | 4.171 | 30.45 | 0.24 | 454,797 | -5,883 | 44.72 | 28.59 |
 | XLBNK | F_XLBNK1226 | 50 | 16060 | – | – | VERI_YETERSIZ | 5,890 | +278 | 0.81 | 31.54 |
 
 ## USD/TRY vadeli eğrisi
 
-Yakın→~3 ay ima yıllık faiz: **29.88%** (z -1.9) · toplam AP 5,645,049
+Yakın→~3 ay ima yıllık faiz: **29.88%** (z -1.24) · toplam AP 5,645,049
 
 | Vade | Kalan gün | Uzlaşma | AP |
 |---|---|---|---|
@@ -28,7 +28,7 @@ Yakın→~3 ay ima yıllık faiz: **29.88%** (z -1.9) · toplam AP 5,645,049
 
 ## Opsiyonlar
 
-XU030 endeks opsiyonu: put/call AP **0.715** (z -0.85), put/call hacim 0.719 · call AP 79,547, put AP 56,859
+XU030 endeks opsiyonu: put/call AP **0.715** (z -0.77), put/call hacim 0.719 · call AP 79,547, put AP 56,859
 Hisse opsiyonları toplam: put/call AP 0.9 (call 866,069, put 779,806)
 
 | Dayanak | Call AP | Put AP | P/C |
