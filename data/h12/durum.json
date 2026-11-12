@@ -1,23 +1,25 @@
 {
- "uretim_utc": "2026-11-11T02:50:18.416567+00:00",
+ "uretim_utc": "2026-11-12T03:51:13.558134+00:00",
  "on_kayit_sha256": "350ebacca31eca527ab6a4835b0f92440ad420f1aa85f64c64fbce649ff92c74",
- "git_sha": "c9bd42bcb747f63d2f36c2fc59228b408d6722e0",
+ "git_sha": "6267d7cad0c12eea20702a903308d25cd6b94d8a",
  "hukum": "ARA_RAPOR",
  "baslangic": "2026-11-05T00:00:00Z",
  "ilerleme": {
-  "ana_T3_hesaplanan": 0,
+  "ana_T3_hesaplanan": 3,
   "hedef": 100,
   "bitis_tarihi": "2027-04-30"
  },
  "ana_relvol_ge1": {
-  "n": 0,
-  "ort": null,
-  "t": null
+  "n": 3,
+  "ort": -1.64,
+  "t": null,
+  "gun": 1
  },
  "karsilastirma_relvol_lt1": {
-  "n": 0,
-  "ort": null,
-  "t": null
+  "n": 4,
+  "ort": 2.088,
+  "t": null,
+  "gun": 1
  },
  "plasebo_63g": {
   "n": 0,
@@ -26,17 +28,36 @@
  },
  "ek": {
   "sektore_gore_T3": {
-   "n": 0,
-   "ort": null,
-   "t": null
+   "n": 3,
+   "ort": -4.973,
+   "t": null,
+   "gun": 1
   },
   "net_T5": {
    "n": 0,
    "ort": null,
    "t": null
   },
-  "aylik_ort": {},
-  "en_buyuk_5": []
+  "aylik_ort": {
+   "2026-11": -1.64
+  },
+  "en_buyuk_5": [
+   {
+    "sembol": "OTKAR",
+    "gun": "2026-11-05",
+    "net_T3": -2.82
+   },
+   {
+    "sembol": "KCHOL",
+    "gun": "2026-11-05",
+    "net_T3": -1.32
+   },
+   {
+    "sembol": "TTKOM",
+    "gun": "2026-11-05",
+    "net_T3": -0.78
+   }
+  ]
  },
  "not": "Ara raporlar hukum degildir (ON_KAYIT_H12.md)."
 }
