@@ -1,0 +1,1527 @@
+//@version=5
+indicator("IP-8 Sektor Rotasyon Motoru - Faz 0.4 P2", overlay=false)
+
+// ============================================================
+// SURUM / DEGISIM GUNLUGU
+// v0.3A (14.09.2026) - KOKTEN DUZELTME (kurul denetim raporu uzerine):
+// Onceki surumde request.security() ile "D" zaman dilimi cekiliyordu AMA
+// sonraki [1]/[5]/[20]/[60] indekslemeleri ve ta.sma/ta.stdev/ta.ema gibi
+// rolling fonksiyonlar bu cagrinin DISINDA, GRAFIK BAR'LARINDA (15 dakikalik
+// chart context) calisiyordu. "RS5" gercekte 5 gun degil 5 grafik bariydi.
+// Artik TUM gecmis indeksleme ve rolling hesaplamalar request.security()
+// ifadesinin ICINDE, gercekten gunluk baglamda yapiliyor.
+//
+// VERI POLITIKASI: CONFIRMED D-1 - her metrik bir onceki TAMAMLANMIS gunluk
+// bar uzerinden hesaplanir (close[1] = dunku kapanis). lookahead_on SADECE
+// [1] gecikmeli ifadelerle kullanildi - gelecek gormuyor, repaint etmiyor.
+//
+// Faz 0.3A kapsami DISINDA (bilerek): OIFlow, ForeignFlow, AKD/takas,
+// V162/V195 entegrasyonu - IP-6'nin veri sorunu cozulmeden yapilamaz.
+// ============================================================
+
+analizTF = "D"
+
+// 15.09 EKLENTI (denetim - webhook guvenligi): webhook adresini bilen
+// HERKES sahte payload gonderebilirdi. Kullanici burada KENDI SECTIGI
+// gizli bir anahtar girer, ayni anahtari Pipedream'de ortam degiskeni
+// (IP8_WEBHOOK_KEY) olarak tanimlar - uyusmayan istekler Pipedream
+// tarafinda reddedilir. BOS BIRAKMAYIN - dolduktan sonra Pipedream'i de
+// guncelleyin, aksi halde JSON hicbir zaman kabul edilmez.
+webhookAnahtari = input.string("", "Webhook Guvenlik Anahtari (gizli tutun, Pipedream ile ayni olmali)")
+// 15.09 EKLENTI (denetim madde 5C): eskiden bos anahtarli payload'lar da
+// gonderilebiliyordu - kod yorumunda "bos birakmayin" deniyordu ama TEKNIK
+// bir engel yoktu. Artik en az 16 karakter sarti var; kisa/bos anahtarla
+// GUNLUK JSON HIC GONDERILMIYOR (asagida kullaniliyor).
+// 17.09 SIFRESIZ HALE GETIRME (kullanici talebi): anahtar sarti
+// KALDIRILDI - JSON artik anahtar doldurulmasini/Pipedream env
+// degiskeni eslemesini BEKLEMEDEN her zaman gonderiliyor. Guvenlik
+// notu: bu, webhook adresini bilen herkesin sahte payload
+// gonderebilmesi riskini GERI getiriyor (15.09'daki denetimin
+// kapatmaya calistigi ayni risk) - veri hemen birikmeye baslasin
+// diye BILINCLI bir tercih. webhookAnahtari input'unu doldurup bu
+// satiri eski haline (str.length(webhookAnahtari) >= 16) cevirerek
+// korumayi istediginde geri acabilirsin.
+webhookHazir = true
+
+// 15.09 DUZELTME: f_jsonNum burada (erken) tanimlaniyor - "rejim degisti"
+// alarm mesaji (asagida, daha erken calisan bir blokta) bunu kullaniyor,
+// eskiden f_jsonNum cok daha asagida tanimliydi ve "Could not find
+// function" hatasi veriyordu.
+f_jsonNum(x) => na(x) ? "null" : str.tostring(x, "#.##")
+
+// 14.09 EKLENTI (kurul denetimi risk maddesi): haftalik/aylik grafikte
+// gunluk request.security() alt-zaman-dilimi davranisina donusebilir, kod
+// sadece gunluk veya alti (15dk/1sa/gunluk) icin tasarlandi/test edildi.
+// Uyari gosteriliyor, hesaplama tamamen durdurulmuyor (kesin blok Pine'da
+// script genelinde zor) ama kullaniciyi acikca bilgilendiriyoruz.
+zamanDilimiUyari = timeframe.isweekly or timeframe.ismonthly
+
+// Gunluk TL-hacim agirlikli yukselen/dusen gun orani (son 10 gun), log ile
+// sikistirilip -2/+2 sinirlanmis. request.security() icinden cagrilacak.
+// 14.09 DUZELTME A6 (kurul denetimi madde 5): fiyatin degismedigi (yatay)
+// gunler eskiden "else" ile dusus hacmine yaziliyordu, hafif negatif
+// yanlilik yaratiyordu. Artik yatay gunler tamamen disarida birakiliyor.
+f_volFlowInner() =>
+    upTurn = 0.0
+    downTurn = 0.0
+    for i = 1 to 10
+        chg = close[i] - close[i+1]
+        turn = close[i] * volume[i]
+        if chg > 0
+            upTurn += turn
+        else if chg < 0
+            downTurn += turn
+    // 14.09 DUZELTME (kurul denetimi bolum 6): 10 gunun TAMAMI yataysa
+    // (upTurn=0 VE downTurn=0), eski formul log(0.10)=-2.3 -> -2 (maksimum
+    // NEGATIF) donduruyordu - tam yatay fiyat "en kotu para akisi" gibi
+    // yanlis okunuyordu. Artik bu durumda NOTR (0.0) donuyor.
+    upTurn == 0.0 and downTurn == 0.0 ? 0.0 : downTurn == 0.0 ? 2.0 : upTurn == 0.0 ? -2.0 : math.max(-2.0, math.min(2.0, math.log(upTurn / downTurn)))
+
+// ============================================================
+// TEK-SEMBOL GUNLUK VERI CEKME (CONFIRMED D-1)
+// 10 metrik: kapanis, gunluk getiri, 5/20/60-gunluk getiri, onceki-5-gunluk
+// getiri (momentum icin), hacim, RVOL20, EMA20, VolumeFlow.
+// ============================================================
+f_fetch(sym) =>
+    [c, r1, r5, r20, r60, pr5, v, rvol, ema20, vf] = request.security(sym, analizTF,
+         [close[1],
+          close[1]/close[2] - 1,
+          close[1]/close[6] - 1,
+          close[1]/close[21] - 1,
+          close[1]/close[61] - 1,
+          close[6]/close[11] - 1,
+          volume[1],
+          volume[1] / ta.sma(volume, 20)[1],
+          ta.ema(close, 20)[1],
+          f_volFlowInner()],
+         lookahead = barmerge.lookahead_on, ignore_invalid_symbol = true)
+    // 14.09 EKLENTI P0.4 (kurul denetimi - kritik, ortak gecerli-uye
+    // maskesi): eskiden R5/R20/R60/PR5/VF BAGIMSIZ na-guvenli ortalaniyordu
+    // - bir hisse R5'te varken VF'de yoksa, sektorun farkli metrikleri
+    // FARKLI hisse kumelerini temsil edebiliyordu. Artik maske BURADA, tek
+    // yerde uygulaniyor: hisse TUM 5 metrikte gecerliyse hepsi kalir,
+    // degilse HEPSI birden na olur - tutarlilik otomatik saglanir.
+    ok = not na(r5) and not na(r20) and not na(r60) and not na(pr5) and not na(vf)
+    r5m = ok ? r5 : float(na)
+    r20m = ok ? r20 : float(na)
+    r60m = ok ? r60 : float(na)
+    pr5m = ok ? pr5 : float(na)
+    vfm = ok ? vf : float(na)
+    [c, r1, r5m, r20m, r60m, pr5m, v, rvol, ema20, vfm]
+
+// XU100 - ayrica EMA50 ve 60-gunluk gunluk-getiri std sapmasi da gerekiyor
+[xuC, xuR1, xuR5, xuR20, xuR60, xuPR5, xuVol, xuRVOL, xuEMA20, xuEMA50, xuStd60, xuBarIdx] = request.security("BIST:XU100", analizTF,
+     [close[1],
+      close[1]/close[2] - 1,
+      close[1]/close[6] - 1,
+      close[1]/close[21] - 1,
+      close[1]/close[61] - 1,
+      close[6]/close[11] - 1,
+      volume[1],
+      volume[1] / ta.sma(volume, 20)[1],
+      ta.ema(close, 20)[1],
+      ta.ema(close, 50)[1],
+      ta.stdev(close/close[1] - 1, 60)[1],
+      bar_index[1]],
+     lookahead = barmerge.lookahead_on, ignore_invalid_symbol = true)
+
+// --- Banka ---
+[akbnkC, akbnkR1, akbnkR5, akbnkR20, akbnkR60, akbnkPR5, akbnkV, akbnkRVOL, akbnkEMA20, akbnkVF] = f_fetch("BIST:AKBNK")
+[garanC, garanR1, garanR5, garanR20, garanR60, garanPR5, garanV, garanRVOL, garanEMA20, garanVF] = f_fetch("BIST:GARAN")
+[ykbnkC, ykbnkR1, ykbnkR5, ykbnkR20, ykbnkR60, ykbnkPR5, ykbnkV, ykbnkRVOL, ykbnkEMA20, ykbnkVF] = f_fetch("BIST:YKBNK")
+[halkbC, halkbR1, halkbR5, halkbR20, halkbR60, halkbPR5, halkbV, halkbRVOL, halkbEMA20, halkbVF] = f_fetch("BIST:HALKB")
+[vakbnC, vakbnR1, vakbnR5, vakbnR20, vakbnR60, vakbnPR5, vakbnV, vakbnRVOL, vakbnEMA20, vakbnVF] = f_fetch("BIST:VAKBN")
+
+// --- Holding ---
+[kcholC, kcholR1, kcholR5, kcholR20, kcholR60, kcholPR5, kcholV, kcholRVOL, kcholEMA20, kcholVF] = f_fetch("BIST:KCHOL")
+[saholC, saholR1, saholR5, saholR20, saholR60, saholPR5, saholV, saholRVOL, saholEMA20, saholVF] = f_fetch("BIST:SAHOL")
+[agholC, agholR1, agholR5, agholR20, agholR60, agholPR5, agholV, agholRVOL, agholEMA20, agholVF] = f_fetch("BIST:AGHOL")
+
+// --- Savunma ---
+[aselsC, aselsR1, aselsR5, aselsR20, aselsR60, aselsPR5, aselsV, aselsRVOL, aselsEMA20, aselsVF] = f_fetch("BIST:ASELS")
+[otkarC, otkarR1, otkarR5, otkarR20, otkarR60, otkarPR5, otkarV, otkarRVOL, otkarEMA20, otkarVF] = f_fetch("BIST:OTKAR")
+
+// --- Rafineri ---
+[tuprsC, tuprsR1, tuprsR5, tuprsR20, tuprsR60, tuprsPR5, tuprsV, tuprsRVOL, tuprsEMA20, tuprsVF] = f_fetch("BIST:TUPRS")
+[petkmC, petkmR1, petkmR5, petkmR20, petkmR60, petkmPR5, petkmV, petkmRVOL, petkmEMA20, petkmVF] = f_fetch("BIST:PETKM")
+
+// --- Enerji uretimi ---
+[enjsaC, enjsaR1, enjsaR5, enjsaR20, enjsaR60, enjsaPR5, enjsaV, enjsaRVOL, enjsaEMA20, enjsaVF] = f_fetch("BIST:ENJSA")
+[aksenC, aksenR1, aksenR5, aksenR20, aksenR60, aksenPR5, aksenV, aksenRVOL, aksenEMA20, aksenVF] = f_fetch("BIST:AKSEN")
+
+// --- Elektrik ekipmani ---
+[astorC, astorR1, astorR5, astorR20, astorR60, astorPR5, astorV, astorRVOL, astorEMA20, astorVF] = f_fetch("BIST:ASTOR")
+[kontrC, kontrR1, kontrR5, kontrR20, kontrR60, kontrPR5, kontrV, kontrRVOL, kontrEMA20, kontrVF] = f_fetch("BIST:KONTR")
+[alfasC, alfasR1, alfasR5, alfasR20, alfasR60, alfasPR5, alfasV, alfasRVOL, alfasEMA20, alfasVF] = f_fetch("BIST:ALFAS")
+[cweneC, cweneR1, cweneR5, cweneR20, cweneR60, cwenePR5, cweneV, cweneRVOL, cweneEMA20, cweneVF] = f_fetch("BIST:CWENE")
+[eupwrC, eupwrR1, eupwrR5, eupwrR20, eupwrR60, eupwrPR5, eupwrV, eupwrRVOL, eupwrEMA20, eupwrVF] = f_fetch("BIST:EUPWR")
+[gesanC, gesanR1, gesanR5, gesanR20, gesanR60, gesanPR5, gesanV, gesanRVOL, gesanEMA20, gesanVF] = f_fetch("BIST:GESAN")
+
+// --- Demir-celik ---
+[ereglC, ereglR1, ereglR5, ereglR20, ereglR60, ereglPR5, ereglV, ereglRVOL, ereglEMA20, ereglVF] = f_fetch("BIST:EREGL")
+[krdmdC, krdmdR1, krdmdR5, krdmdR20, krdmdR60, krdmdPR5, krdmdV, krdmdRVOL, krdmdEMA20, krdmdVF] = f_fetch("BIST:KRDMD")
+[kcaerC, kcaerR1, kcaerR5, kcaerR20, kcaerR60, kcaerPR5, kcaerV, kcaerRVOL, kcaerEMA20, kcaerVF] = f_fetch("BIST:KCAER")
+[brsanC, brsanR1, brsanR5, brsanR20, brsanR60, brsanPR5, brsanV, brsanRVOL, brsanEMA20, brsanVF] = f_fetch("BIST:BRSAN")
+
+// --- Otomotiv ---
+[frotoC, frotoR1, frotoR5, frotoR20, frotoR60, frotoPR5, frotoV, frotoRVOL, frotoEMA20, frotoVF] = f_fetch("BIST:FROTO")
+[toasoC, toasoR1, toasoR5, toasoR20, toasoR60, toasoPR5, toasoV, toasoRVOL, toasoEMA20, toasoVF] = f_fetch("BIST:TOASO")
+
+// --- Savunmaci tuketim ---
+[bimasC, bimasR1, bimasR5, bimasR20, bimasR60, bimasPR5, bimasV, bimasRVOL, bimasEMA20, bimasVF] = f_fetch("BIST:BIMAS")
+[mgrosC, mgrosR1, mgrosR5, mgrosR20, mgrosR60, mgrosPR5, mgrosV, mgrosRVOL, mgrosEMA20, mgrosVF] = f_fetch("BIST:MGROS")
+[ulkerC, ulkerR1, ulkerR5, ulkerR20, ulkerR60, ulkerPR5, ulkerV, ulkerRVOL, ulkerEMA20, ulkerVF] = f_fetch("BIST:ULKER")
+
+// --- Telekom ---
+[tcellC, tcellR1, tcellR5, tcellR20, tcellR60, tcellPR5, tcellV, tcellRVOL, tcellEMA20, tcellVF] = f_fetch("BIST:TCELL")
+[ttkomC, ttkomR1, ttkomR5, ttkomR20, ttkomR60, ttkomPR5, ttkomV, ttkomRVOL, ttkomEMA20, ttkomVF] = f_fetch("BIST:TTKOM")
+
+// --- Ulastirma ---
+[thyaoC, thyaoR1, thyaoR5, thyaoR20, thyaoR60, thyaoPR5, thyaoV, thyaoRVOL, thyaoEMA20, thyaoVF] = f_fetch("BIST:THYAO")
+[tavhlC, tavhlR1, tavhlR5, tavhlR20, tavhlR60, tavhlPR5, tavhlV, tavhlRVOL, tavhlEMA20, tavhlVF] = f_fetch("BIST:TAVHL")
+
+// ============================================================
+// NA-GUVENLI YARDIMCI FONKSIYONLAR
+// ============================================================
+f_naSafeAvg(arr) =>
+    validSum = 0.0
+    validCount = 0
+    for v in arr
+        if not na(v)
+            validSum += v
+            validCount += 1
+    validCount >= 1 ? validSum / validCount : na
+
+f_validCount(arr) =>
+    cnt = 0
+    for v in arr
+        if not na(v)
+            cnt += 1
+    cnt
+
+// 14.09 DUZELTME B3 (kurul denetimi madde 4): eskiden "gecerli uye" sadece
+// R5'in var olup olmadigina bakiyordu - R20/R60/PR5/VolumeFlow eksik olsa
+// bile hisse "gecerli" sayilabiliyordu. Artik bir hissenin gecerli sayilmasi
+// icin GEREKEN TUM metriklerin (R5,R20,R60,PR5,VF) dolu olmasi gerekiyor.
+f_memberValidFlag(r5, r20, r60, pr5, vf) =>
+    (not na(r5) and not na(r20) and not na(r60) and not na(pr5) and not na(vf)) ? 1 : 0
+
+// 14.09 EKLENTI P0.4 (kurul denetimi - kritik): ortak gecerli-uye maskesi.
+// Eskiden her metrik (R5,R20,R60,PR5,VF) BAGIMSIZ na-guvenli ortalanidi -
+// bir hissenin R5'i varken VF'si yoksa, R5 ortalamasina girip VF
+// ortalamasindan disarida kalabiliyordu. Boylece ayni sektorun farkli
+// metrikleri FARKLI hisse kumelerini temsil edebiliyordu. Bu maske artik
+// f_fetch() icinde uygulaniyor (P0.4). NOT: burada ayrica tanimlanan bir
+// f_mask() yardimci fonksiyonu FIILEN KULLANILMIYORDU (kurul denetimi 6.
+// bolum) - kaldirildi.
+
+f_posFlag(x) => na(x) ? na : (x > 0 ? 1.0 : 0.0)
+
+// 14.09: f_confKatsayi buraya (yukariya) tasindi - breadth yumusatmasinda
+// kullanilabilmesi icin f_guven/f_srsAdj'den once tanimlanmasi gerekiyordu.
+f_confKatsayi(gecerli) => gecerli <= 2 ? 0.70 : gecerli == 3 ? 0.85 : 1.00
+
+// ============================================================
+// SEKTOR AGREGASYONU (na-guvenli - eksik uye sektoru bozmaz)
+// TERMINOLOJI NOTU (14.09 kurul denetimi madde 3): asagidaki "sektor
+// getirisi", uyelerin AYRI AYRI donemsel getirilerinin ESIT AGIRLIKLI
+// ORTALAMASIDIR - "her gun yeniden dengelenen sentetik bir sektor endeksinin
+// bilesik getirisi" DEGILDIR. Sektor rotasyon siralamasi icin yeterli ve
+// sade bir yontemdir, ama ikisini karistirmamak gerekir.
+// ============================================================
+bankaRet5   = f_naSafeAvg(array.from(akbnkR5, garanR5, ykbnkR5, halkbR5, vakbnR5))
+bankaRet20  = f_naSafeAvg(array.from(akbnkR20, garanR20, ykbnkR20, halkbR20, vakbnR20))
+bankaRet60  = f_naSafeAvg(array.from(akbnkR60, garanR60, ykbnkR60, halkbR60, vakbnR60))
+bankaPR5    = f_naSafeAvg(array.from(akbnkPR5, garanPR5, ykbnkPR5, halkbPR5, vakbnPR5))
+bankaVF     = f_naSafeAvg(array.from(akbnkVF, garanVF, ykbnkVF, halkbVF, vakbnVF))
+bankaBreadth = f_naSafeAvg(array.from(f_posFlag(akbnkR5), f_posFlag(garanR5), f_posFlag(ykbnkR5), f_posFlag(halkbR5), f_posFlag(vakbnR5))) * 100
+bankaGecerli = f_memberValidFlag(akbnkR5,akbnkR20,akbnkR60,akbnkPR5,akbnkVF) + f_memberValidFlag(garanR5,garanR20,garanR60,garanPR5,garanVF) + f_memberValidFlag(ykbnkR5,ykbnkR20,ykbnkR60,ykbnkPR5,ykbnkVF) + f_memberValidFlag(halkbR5,halkbR20,halkbR60,halkbPR5,halkbVF) + f_memberValidFlag(vakbnR5,vakbnR20,vakbnR60,vakbnPR5,vakbnVF)
+
+holdingRet5  = f_naSafeAvg(array.from(kcholR5, saholR5, agholR5))
+holdingRet20 = f_naSafeAvg(array.from(kcholR20, saholR20, agholR20))
+holdingRet60 = f_naSafeAvg(array.from(kcholR60, saholR60, agholR60))
+holdingPR5   = f_naSafeAvg(array.from(kcholPR5, saholPR5, agholPR5))
+holdingVF    = f_naSafeAvg(array.from(kcholVF, saholVF, agholVF))
+holdingBreadth = f_naSafeAvg(array.from(f_posFlag(kcholR5), f_posFlag(saholR5), f_posFlag(agholR5))) * 100
+holdingGecerli = f_memberValidFlag(kcholR5,kcholR20,kcholR60,kcholPR5,kcholVF) + f_memberValidFlag(saholR5,saholR20,saholR60,saholPR5,saholVF) + f_memberValidFlag(agholR5,agholR20,agholR60,agholPR5,agholVF)
+
+savunmaRet5  = f_naSafeAvg(array.from(aselsR5, otkarR5))
+savunmaRet20 = f_naSafeAvg(array.from(aselsR20, otkarR20))
+savunmaRet60 = f_naSafeAvg(array.from(aselsR60, otkarR60))
+savunmaPR5   = f_naSafeAvg(array.from(aselsPR5, otkarPR5))
+savunmaVF    = f_naSafeAvg(array.from(aselsVF, otkarVF))
+savunmaBreadth = f_naSafeAvg(array.from(f_posFlag(aselsR5), f_posFlag(otkarR5))) * 100
+savunmaGecerli = f_memberValidFlag(aselsR5,aselsR20,aselsR60,aselsPR5,aselsVF) + f_memberValidFlag(otkarR5,otkarR20,otkarR60,otkarPR5,otkarVF)
+
+rafineriRet5  = f_naSafeAvg(array.from(tuprsR5, petkmR5))
+rafineriRet20 = f_naSafeAvg(array.from(tuprsR20, petkmR20))
+rafineriRet60 = f_naSafeAvg(array.from(tuprsR60, petkmR60))
+rafineriPR5   = f_naSafeAvg(array.from(tuprsPR5, petkmPR5))
+rafineriVF    = f_naSafeAvg(array.from(tuprsVF, petkmVF))
+rafineriBreadth = f_naSafeAvg(array.from(f_posFlag(tuprsR5), f_posFlag(petkmR5))) * 100
+rafineriGecerli = f_memberValidFlag(tuprsR5,tuprsR20,tuprsR60,tuprsPR5,tuprsVF) + f_memberValidFlag(petkmR5,petkmR20,petkmR60,petkmPR5,petkmVF)
+
+enerjiUretimRet5  = f_naSafeAvg(array.from(enjsaR5, aksenR5))
+enerjiUretimRet20 = f_naSafeAvg(array.from(enjsaR20, aksenR20))
+enerjiUretimRet60 = f_naSafeAvg(array.from(enjsaR60, aksenR60))
+enerjiUretimPR5   = f_naSafeAvg(array.from(enjsaPR5, aksenPR5))
+enerjiUretimVF    = f_naSafeAvg(array.from(enjsaVF, aksenVF))
+enerjiUretimBreadth = f_naSafeAvg(array.from(f_posFlag(enjsaR5), f_posFlag(aksenR5))) * 100
+enerjiUretimGecerli = f_memberValidFlag(enjsaR5,enjsaR20,enjsaR60,enjsaPR5,enjsaVF) + f_memberValidFlag(aksenR5,aksenR20,aksenR60,aksenPR5,aksenVF)
+
+elektrikRet5  = f_naSafeAvg(array.from(astorR5, kontrR5, alfasR5, cweneR5, eupwrR5, gesanR5))
+elektrikRet20 = f_naSafeAvg(array.from(astorR20, kontrR20, alfasR20, cweneR20, eupwrR20, gesanR20))
+elektrikRet60 = f_naSafeAvg(array.from(astorR60, kontrR60, alfasR60, cweneR60, eupwrR60, gesanR60))
+elektrikPR5   = f_naSafeAvg(array.from(astorPR5, kontrPR5, alfasPR5, cwenePR5, eupwrPR5, gesanPR5))
+elektrikVF    = f_naSafeAvg(array.from(astorVF, kontrVF, alfasVF, cweneVF, eupwrVF, gesanVF))
+elektrikBreadth = f_naSafeAvg(array.from(f_posFlag(astorR5), f_posFlag(kontrR5), f_posFlag(alfasR5), f_posFlag(cweneR5), f_posFlag(eupwrR5), f_posFlag(gesanR5))) * 100
+elektrikGecerli = f_memberValidFlag(astorR5,astorR20,astorR60,astorPR5,astorVF) + f_memberValidFlag(kontrR5,kontrR20,kontrR60,kontrPR5,kontrVF) + f_memberValidFlag(alfasR5,alfasR20,alfasR60,alfasPR5,alfasVF) + f_memberValidFlag(cweneR5,cweneR20,cweneR60,cwenePR5,cweneVF) + f_memberValidFlag(eupwrR5,eupwrR20,eupwrR60,eupwrPR5,eupwrVF) + f_memberValidFlag(gesanR5,gesanR20,gesanR60,gesanPR5,gesanVF)
+
+demirRet5  = f_naSafeAvg(array.from(ereglR5, krdmdR5, kcaerR5, brsanR5))
+demirRet20 = f_naSafeAvg(array.from(ereglR20, krdmdR20, kcaerR20, brsanR20))
+demirRet60 = f_naSafeAvg(array.from(ereglR60, krdmdR60, kcaerR60, brsanR60))
+demirPR5   = f_naSafeAvg(array.from(ereglPR5, krdmdPR5, kcaerPR5, brsanPR5))
+demirVF    = f_naSafeAvg(array.from(ereglVF, krdmdVF, kcaerVF, brsanVF))
+demirBreadth = f_naSafeAvg(array.from(f_posFlag(ereglR5), f_posFlag(krdmdR5), f_posFlag(kcaerR5), f_posFlag(brsanR5))) * 100
+demirGecerli = f_memberValidFlag(ereglR5,ereglR20,ereglR60,ereglPR5,ereglVF) + f_memberValidFlag(krdmdR5,krdmdR20,krdmdR60,krdmdPR5,krdmdVF) + f_memberValidFlag(kcaerR5,kcaerR20,kcaerR60,kcaerPR5,kcaerVF) + f_memberValidFlag(brsanR5,brsanR20,brsanR60,brsanPR5,brsanVF)
+
+otomotivRet5  = f_naSafeAvg(array.from(frotoR5, toasoR5))
+otomotivRet20 = f_naSafeAvg(array.from(frotoR20, toasoR20))
+otomotivRet60 = f_naSafeAvg(array.from(frotoR60, toasoR60))
+otomotivPR5   = f_naSafeAvg(array.from(frotoPR5, toasoPR5))
+otomotivVF    = f_naSafeAvg(array.from(frotoVF, toasoVF))
+otomotivBreadth = f_naSafeAvg(array.from(f_posFlag(frotoR5), f_posFlag(toasoR5))) * 100
+otomotivGecerli = f_memberValidFlag(frotoR5,frotoR20,frotoR60,frotoPR5,frotoVF) + f_memberValidFlag(toasoR5,toasoR20,toasoR60,toasoPR5,toasoVF)
+
+tuketimRet5  = f_naSafeAvg(array.from(bimasR5, mgrosR5, ulkerR5))
+tuketimRet20 = f_naSafeAvg(array.from(bimasR20, mgrosR20, ulkerR20))
+tuketimRet60 = f_naSafeAvg(array.from(bimasR60, mgrosR60, ulkerR60))
+tuketimPR5   = f_naSafeAvg(array.from(bimasPR5, mgrosPR5, ulkerPR5))
+tuketimVF    = f_naSafeAvg(array.from(bimasVF, mgrosVF, ulkerVF))
+tuketimBreadth = f_naSafeAvg(array.from(f_posFlag(bimasR5), f_posFlag(mgrosR5), f_posFlag(ulkerR5))) * 100
+tuketimGecerli = f_memberValidFlag(bimasR5,bimasR20,bimasR60,bimasPR5,bimasVF) + f_memberValidFlag(mgrosR5,mgrosR20,mgrosR60,mgrosPR5,mgrosVF) + f_memberValidFlag(ulkerR5,ulkerR20,ulkerR60,ulkerPR5,ulkerVF)
+
+telekomRet5  = f_naSafeAvg(array.from(tcellR5, ttkomR5))
+telekomRet20 = f_naSafeAvg(array.from(tcellR20, ttkomR20))
+telekomRet60 = f_naSafeAvg(array.from(tcellR60, ttkomR60))
+telekomPR5   = f_naSafeAvg(array.from(tcellPR5, ttkomPR5))
+telekomVF    = f_naSafeAvg(array.from(tcellVF, ttkomVF))
+telekomBreadth = f_naSafeAvg(array.from(f_posFlag(tcellR5), f_posFlag(ttkomR5))) * 100
+telekomGecerli = f_memberValidFlag(tcellR5,tcellR20,tcellR60,tcellPR5,tcellVF) + f_memberValidFlag(ttkomR5,ttkomR20,ttkomR60,ttkomPR5,ttkomVF)
+
+ulastirRet5  = f_naSafeAvg(array.from(thyaoR5, tavhlR5))
+ulastirRet20 = f_naSafeAvg(array.from(thyaoR20, tavhlR20))
+ulastirRet60 = f_naSafeAvg(array.from(thyaoR60, tavhlR60))
+ulastirPR5   = f_naSafeAvg(array.from(thyaoPR5, tavhlPR5))
+ulastirVF    = f_naSafeAvg(array.from(thyaoVF, tavhlVF))
+ulastirBreadth = f_naSafeAvg(array.from(f_posFlag(thyaoR5), f_posFlag(tavhlR5))) * 100
+ulastirGecerli = f_memberValidFlag(thyaoR5,thyaoR20,thyaoR60,thyaoPR5,thyaoVF) + f_memberValidFlag(tavhlR5,tavhlR20,tavhlR60,tavhlPR5,tavhlVF)
+
+// ============================================================
+// RS (gross-return orani yontemi) VE MOMENTUM
+// ============================================================
+f_rsGross(sektorRet, xuRet) => ((1 + sektorRet) / (1 + xuRet) - 1) * 100
+
+bankaRS5 = f_rsGross(bankaRet5, xuR5)
+bankaRS20 = f_rsGross(bankaRet20, xuR20)
+bankaRS60 = f_rsGross(bankaRet60, xuR60)
+bankaMom = bankaRS5 - f_rsGross(bankaPR5, xuPR5)
+
+holdingRS5 = f_rsGross(holdingRet5, xuR5)
+holdingRS20 = f_rsGross(holdingRet20, xuR20)
+holdingRS60 = f_rsGross(holdingRet60, xuR60)
+holdingMom = holdingRS5 - f_rsGross(holdingPR5, xuPR5)
+
+savunmaRS5 = f_rsGross(savunmaRet5, xuR5)
+savunmaRS20 = f_rsGross(savunmaRet20, xuR20)
+savunmaRS60 = f_rsGross(savunmaRet60, xuR60)
+savunmaMom = savunmaRS5 - f_rsGross(savunmaPR5, xuPR5)
+
+rafineriRS5 = f_rsGross(rafineriRet5, xuR5)
+rafineriRS20 = f_rsGross(rafineriRet20, xuR20)
+rafineriRS60 = f_rsGross(rafineriRet60, xuR60)
+rafineriMom = rafineriRS5 - f_rsGross(rafineriPR5, xuPR5)
+
+enerjiUretimRS5 = f_rsGross(enerjiUretimRet5, xuR5)
+enerjiUretimRS20 = f_rsGross(enerjiUretimRet20, xuR20)
+enerjiUretimRS60 = f_rsGross(enerjiUretimRet60, xuR60)
+enerjiUretimMom = enerjiUretimRS5 - f_rsGross(enerjiUretimPR5, xuPR5)
+
+elektrikRS5 = f_rsGross(elektrikRet5, xuR5)
+elektrikRS20 = f_rsGross(elektrikRet20, xuR20)
+elektrikRS60 = f_rsGross(elektrikRet60, xuR60)
+elektrikMom = elektrikRS5 - f_rsGross(elektrikPR5, xuPR5)
+
+demirRS5 = f_rsGross(demirRet5, xuR5)
+demirRS20 = f_rsGross(demirRet20, xuR20)
+demirRS60 = f_rsGross(demirRet60, xuR60)
+demirMom = demirRS5 - f_rsGross(demirPR5, xuPR5)
+
+otomotivRS5 = f_rsGross(otomotivRet5, xuR5)
+otomotivRS20 = f_rsGross(otomotivRet20, xuR20)
+otomotivRS60 = f_rsGross(otomotivRet60, xuR60)
+otomotivMom = otomotivRS5 - f_rsGross(otomotivPR5, xuPR5)
+
+tuketimRS5 = f_rsGross(tuketimRet5, xuR5)
+tuketimRS20 = f_rsGross(tuketimRet20, xuR20)
+tuketimRS60 = f_rsGross(tuketimRet60, xuR60)
+tuketimMom = tuketimRS5 - f_rsGross(tuketimPR5, xuPR5)
+
+telekomRS5 = f_rsGross(telekomRet5, xuR5)
+telekomRS20 = f_rsGross(telekomRet20, xuR20)
+telekomRS60 = f_rsGross(telekomRet60, xuR60)
+telekomMom = telekomRS5 - f_rsGross(telekomPR5, xuPR5)
+
+ulastirRS5 = f_rsGross(ulastirRet5, xuR5)
+ulastirRS20 = f_rsGross(ulastirRet20, xuR20)
+ulastirRS60 = f_rsGross(ulastirRet60, xuR60)
+ulastirMom = ulastirRS5 - f_rsGross(ulastirPR5, xuPR5)
+
+// ============================================================
+// MARKET BREADTH (TUM 33 UYE UZERINDEN - sektor ortalamasi DEGIL)
+// ============================================================
+marketBreadthArr = array.from(f_posFlag(akbnkR5), f_posFlag(garanR5), f_posFlag(ykbnkR5), f_posFlag(halkbR5), f_posFlag(vakbnR5), f_posFlag(kcholR5), f_posFlag(saholR5), f_posFlag(agholR5), f_posFlag(aselsR5), f_posFlag(otkarR5), f_posFlag(tuprsR5), f_posFlag(petkmR5), f_posFlag(enjsaR5), f_posFlag(aksenR5), f_posFlag(astorR5), f_posFlag(kontrR5), f_posFlag(alfasR5), f_posFlag(cweneR5), f_posFlag(eupwrR5), f_posFlag(gesanR5), f_posFlag(ereglR5), f_posFlag(krdmdR5), f_posFlag(kcaerR5), f_posFlag(brsanR5), f_posFlag(frotoR5), f_posFlag(toasoR5), f_posFlag(bimasR5), f_posFlag(mgrosR5), f_posFlag(ulkerR5), f_posFlag(tcellR5), f_posFlag(ttkomR5), f_posFlag(thyaoR5), f_posFlag(tavhlR5))
+marketBreadth = f_naSafeAvg(marketBreadthArr) * 100
+
+// ============================================================
+// PIYASA REJIMI (gunluk confirmed XU100 verisiyle)
+// ============================================================
+negatifSok = xuR1 < -2.5 * xuStd60
+pozitifSok = xuR1 > 2.5 * xuStd60
+marketRejim = negatifSok ? "NEGATIF SOK" : pozitifSok ? "POZITIF SOK" : (xuC > xuEMA20 and xuEMA20 > xuEMA50 and marketBreadth >= 55) ? "RISK-ON" : (xuC < xuEMA20 and marketBreadth <= 45) ? "RISK-OFF" : "NOTR"
+
+f_rejimBg(r) =>
+    r == "RISK-ON" ? color.new(color.green, 60) : r == "RISK-OFF" ? color.new(color.red, 60) : (r == "NEGATIF SOK" or r == "POZITIF SOK") ? color.new(color.purple, 40) : color.new(color.gray, 60)
+
+// ============================================================
+// SRS - KESITSEL (CROSS-SECTIONAL) Z-SKOR
+// Zaman-serisi (60 gunluk rolling) z-skoru yerine, AYNI barda 11 sektor
+// ARASINDA karsilastirma yapiliyor - "bu sektor bugun digerlerine gore
+// nasil" sorusunu cevaplar. Rolling ta.sma/ta.stdev grafik-bar sorununa
+// hic girmeden guvenilir sekilde uygulanabiliyor. SRS 0-100, 50=notr.
+// ============================================================
+// 14.09 DUZELTME A4 (kurul denetimi madde 9 - CIDDI): eskiden array.avg()/
+// array.stdev() dizide TEK bir na sektor varsa TUM sonucu na yapiyordu -
+// bir sektorde veri eksikse butun 11 sektorun z-skoru/SRS'si bozulabiliyordu.
+// Artik yalnizca GECERLI (na olmayan) degerler ortalama/std hesabina giriyor.
+f_crossZ(arr, idx) =>
+    sm = 0.0
+    cnt = 0
+    for v in arr
+        if not na(v)
+            sm += v
+            cnt += 1
+    ort = cnt > 0 ? sm / cnt : na
+    sq = 0.0
+    for v in arr
+        if not na(v)
+            sq += math.pow(v - ort, 2)
+    std = cnt > 1 ? math.sqrt(sq / cnt) : na
+    deger = array.get(arr, idx)
+    // 14.09 DUZELTME P0.3 (kurul denetimi - kritik): std==0 durumu (butun
+    // sektorlerin bu bilesende AYNI deger tasidigi) onceki surumde na
+    // donduruyordu - bu VERI EKSIKLIGI degil, "bu bilesen bugun sektorleri
+    // AYIRAMIYOR" anlamina gelir, katkisi NOTR (0.0) olmali, TUM SRS'yi
+    // na yapmamali. Ayrica en az 8/11 sektorde gecerli veri sarti eklendi -
+    // kesitsel karsilastirma cok az sektorle guvenilmez.
+    // 14.09 EKLENTI P1 (kurul denetimi - "kolay ilk adim"): sadece 11
+    // sektor oldugu icin klasik z-skor TEK bir uc deger tarafindan
+    // bozulabilir (orn. bir sektor +%50 hareket ederse ortalama/std'yi
+    // domine eder). Tam robust/winsorized z-skor yerine, basit ve ucuz bir
+    // onlem olarak z-skor +-2.5 ile sinirlaniyor.
+    hamZ = (na(deger) or cnt < 8) ? float(na) : (std <= 1e-10 ? 0.0 : (deger - ort) / std)
+    na(hamZ) ? float(na) : math.max(-2.5, math.min(2.5, hamZ))
+
+rs5Arr = array.from(bankaRS5, holdingRS5, savunmaRS5, rafineriRS5, enerjiUretimRS5, elektrikRS5, demirRS5, otomotivRS5, tuketimRS5, telekomRS5, ulastirRS5)
+rs20Arr = array.from(bankaRS20, holdingRS20, savunmaRS20, rafineriRS20, enerjiUretimRS20, elektrikRS20, demirRS20, otomotivRS20, tuketimRS20, telekomRS20, ulastirRS20)
+momArr = array.from(bankaMom, holdingMom, savunmaMom, rafineriMom, enerjiUretimMom, elektrikMom, demirMom, otomotivMom, tuketimMom, telekomMom, ulastirMom)
+// 14.09 EKLENTI P1 (kurul denetimi - breadth yumusatma): kucuk (2 uyeli)
+// sektorlerde breadth sadece %0/%50/%100 olabiliyor, sert sicramalara acik.
+// Ayni guven-katsayili daraltma (srsAdj'da kullandigimiz) burada da
+// uygulaniyor - breadth 50'ye (notr) dogru cekiliyor, uye sayisi azaldikca.
+f_breadthAdj(breadth, gecerli) => na(breadth) ? float(na) : 50 + f_confKatsayi(gecerli) * (breadth - 50)
+bankaBreadthAdj = f_breadthAdj(bankaBreadth, bankaGecerli)
+holdingBreadthAdj = f_breadthAdj(holdingBreadth, holdingGecerli)
+savunmaBreadthAdj = f_breadthAdj(savunmaBreadth, savunmaGecerli)
+rafineriBreadthAdj = f_breadthAdj(rafineriBreadth, rafineriGecerli)
+enerjiUretimBreadthAdj = f_breadthAdj(enerjiUretimBreadth, enerjiUretimGecerli)
+elektrikBreadthAdj = f_breadthAdj(elektrikBreadth, elektrikGecerli)
+demirBreadthAdj = f_breadthAdj(demirBreadth, demirGecerli)
+otomotivBreadthAdj = f_breadthAdj(otomotivBreadth, otomotivGecerli)
+tuketimBreadthAdj = f_breadthAdj(tuketimBreadth, tuketimGecerli)
+telekomBreadthAdj = f_breadthAdj(telekomBreadth, telekomGecerli)
+ulastirBreadthAdj = f_breadthAdj(ulastirBreadth, ulastirGecerli)
+
+breadthArr = array.from(bankaBreadthAdj, holdingBreadthAdj, savunmaBreadthAdj, rafineriBreadthAdj, enerjiUretimBreadthAdj, elektrikBreadthAdj, demirBreadthAdj, otomotivBreadthAdj, tuketimBreadthAdj, telekomBreadthAdj, ulastirBreadthAdj)
+vfArr = array.from(bankaVF, holdingVF, savunmaVF, rafineriVF, enerjiUretimVF, elektrikVF, demirVF, otomotivVF, tuketimVF, telekomVF, ulastirVF)
+
+w_rs5  = 0.25/0.85
+w_rs20 = 0.20/0.85
+w_mom  = 0.15/0.85
+w_bre  = 0.15/0.85
+w_vol  = 0.10/0.85
+
+// 14.09 DUZELTME A5 (kurul denetimi madde 10): eskiden "gecerliSayi < 1"
+// kontrolu vardi - 6 uyeli bir sektorde sadece 1 hisseden veri gelse bile
+// skor uretilebiliyordu. Artik sektorun TOPLAM uye sayisina gore degisen
+// bir minimum esik var.
+f_minEsik(toplam) =>
+    toplam <= 2 ? 2 : toplam == 3 ? 2 : toplam == 4 ? 3 : toplam == 5 ? 3 : 4
+
+// 14.09 EKLENTI C1 (Faz 0.3B - kurul denetimi madde 6): sektor guven
+// seviyesi. Minimum veri yeterliligi ile istatistiksel guven ayni sey
+// degil - 2/2 uyeli bir sektor ile 6/6 uyeli bir sektoru ayni agirlikta
+// gostermemek icin.
+f_guven(gecerli, toplam) =>
+    gecerli < f_minEsik(toplam) ? "YETERSIZ" : gecerli <= 2 ? "DUSUK" : gecerli == 3 ? "ORTA" : "YUKSEK"
+
+f_srsCalc(idx, gecerliSayi, toplamUye) =>
+    z1 = f_crossZ(rs5Arr, idx)
+    z2 = f_crossZ(rs20Arr, idx)
+    z3 = f_crossZ(momArr, idx)
+    z4 = f_crossZ(breadthArr, idx)
+    z5 = f_crossZ(vfArr, idx)
+    weightedZ = w_rs5*z1 + w_rs20*z2 + w_mom*z3 + w_bre*z4 + w_vol*z5
+    gecerliSayi < f_minEsik(toplamUye) ? float(na) : math.max(0.0, math.min(100.0, 50 + weightedZ * 15))
+
+srsBanka    = f_srsCalc(0, bankaGecerli, 5)
+srsHolding  = f_srsCalc(1, holdingGecerli, 3)
+srsSavunma  = f_srsCalc(2, savunmaGecerli, 2)
+srsRafineri = f_srsCalc(3, rafineriGecerli, 2)
+srsEnerjiUretim = f_srsCalc(4, enerjiUretimGecerli, 2)
+srsElektrik = f_srsCalc(5, elektrikGecerli, 6)
+srsDemir    = f_srsCalc(6, demirGecerli, 4)
+srsOtomotiv = f_srsCalc(7, otomotivGecerli, 2)
+srsTuketim  = f_srsCalc(8, tuketimGecerli, 3)
+srsTelekom  = f_srsCalc(9, telekomGecerli, 2)
+srsUlastir  = f_srsCalc(10, ulastirGecerli, 2)
+
+// Guven seviyeleri (Faz 0.3B madde 6)
+guvenBanka = f_guven(bankaGecerli, 5)
+guvenHolding = f_guven(holdingGecerli, 3)
+guvenSavunma = f_guven(savunmaGecerli, 2)
+guvenRafineri = f_guven(rafineriGecerli, 2)
+guvenEnerjiUretim = f_guven(enerjiUretimGecerli, 2)
+guvenElektrik = f_guven(elektrikGecerli, 6)
+guvenDemir = f_guven(demirGecerli, 4)
+guvenOtomotiv = f_guven(otomotivGecerli, 2)
+guvenTuketim = f_guven(tuketimGecerli, 3)
+guvenTelekom = f_guven(telekomGecerli, 2)
+guvenUlastir = f_guven(ulastirGecerli, 2)
+
+// 14.09 EKLENTI C2 (Faz 0.3B madde 5): SRS Delta1/Delta3 - SRS'nin dunku
+// (1 gun onceki) ve 3 gun onceki gun-sinirindaki degerine gore degisimi.
+// ta.valuewhen(yeniGun, srs, N): yeniGun'un N once gerceklestigi andaki
+// srs degerini dondurur - srs gun icinde sabit oldugundan bu dogru "N gun
+// onceki confirmed deger" anlamina gelir. srs[N] KULLANILMADI (o grafik
+// bari sayardi, gun degil - bugune kadar defalarca gordugumuz hata).
+yeniGun = ta.change(time("D")) != 0
+
+// 14.09 EKLENTI (kurul denetimi - grafikten bagimsiz gun motoru, PRAGMATIK
+// ONLEM): TAM cozum (tum evre/histerezis motorunu request.security()
+// icine tasimak) cok buyuk bir mimari degisiklik - SRS zaten 11 sektor
+// ARASI kesitsel karsilastirma yaptigi icin tek sembolun gunluk baglamina
+// sigdirmak ciddi bir yeniden tasarim gerektirir. Bunun yerine: sembolun
+// KENDI gunluk bar_index'ini (grafigin zaman diliminden BAGIMSIZ, gercek
+// "kacinci islem gunu" sayaci) cekip, script bu grafikte ilk calistigindan
+// beri KAC GERCEK GUN gectigini olcuyoruz. Yeterli gun gecmediyse (RS60 ve
+// histerezis icin en az ~65 gun gerekli) acikca "ISINMA SURECI" uyarisi
+// gosteriliyor - state'in henuz guvenilir olmayabilecegini SAKLAMIYORUZ.
+// 14.09 DUZELTME (kurul denetimi madde F): eskiden syminfo.tickerid
+// (grafikteki sembol - orn. TRALT) referans aliniyordu, "farkli seansli
+// veya eksik barli sembolde degisebilir" riski tasiyordu. Artik zaten
+// yukarida cekilen XU100'un kendi bar_index'i kullaniliyor - hem daha
+// tutarli bir referans hem de AYRI BIR CAGRI GEREKTIRMIYOR (mevcut XU100
+// tuple'ina eklendi, toplam cagri sayisi 35->34'e dustu).
+// 15.09: sabit-tarih denemesi GERI ALINDI - "gecenGercekGun >= Ocak 2026'dan
+// bu yana gecen gun" seklinde olculdugunde, script YENI ACILSA BILE aninda
+// "isinma tamam" diyordu (bugun zaten Eylul 2026, o tarihten cok uzakta) -
+// bu, histerezis motorunun GERCEKTEN yakinsayip yakinsamadigindan tamamen
+// BAGIMSIZ, sahte bir "hazir" sinyaliydi - korumanin AMACINI yok ediyordu.
+// Dogru olcum, "bu script ornegi NE ZAMANDIR calisiyor" sorusudur - bu,
+// dogasi geregi grafigin ilk ne zaman yuklendigine baglidir; sabit bir
+// takvim tarihiyle DOGRU olarak degistirilemez. Eski (var-tabanli, "ilk
+// gorulen bar") mekanizmaya donuldu - kendi baslangic noktasi grafige
+// bagli olsa da, OLCTUGU SEY (motorun gercek calisma suresi) dogrudur.
+dailyBarIdx = xuBarIdx
+var float ilkDailyBarIdx = na
+if na(ilkDailyBarIdx) and not na(dailyBarIdx)
+    ilkDailyBarIdx := dailyBarIdx
+gecenGercekGun = na(ilkDailyBarIdx) or na(dailyBarIdx) ? 0 : dailyBarIdx - ilkDailyBarIdx
+isinmaTamamMi = gecenGercekGun >= 65
+// 15.09 DUZELTME (denetim madde 5D): JSON'a gonderilen "stateAgeDays" alani
+// yorumda "isinma tamamlandiktan SONRA motorun calisma suresi" diye
+// aciklaniyordu ama gercekte gecenGercekGun (grafigin YUKLENDIGI andan
+// itibaren TOPLAM gun, isinma dahil) gonderiliyordu. Artik aciklamayla
+// hesap ayni: isinmadan ONCEKI gunler cikariliyor.
+gercekStateYasi = math.max(0, gecenGercekGun - 65)
+f_delta1(srs) => na(srs) ? float(na) : srs - ta.valuewhen(yeniGun, srs, 1)
+f_delta3(srs) => na(srs) ? float(na) : srs - ta.valuewhen(yeniGun, srs, 3)
+f_egimOku(d1) => na(d1) ? "" : d1 > 1 ? "↑" : d1 < -1 ? "↓" : "→"
+
+// ============================================================
+// FAZ 0.4 - ENTRY QUALITY SCORE (EQS) VE BIRLESIK AKSIYON
+// SRS "sektor ne kadar guclu" sorusunu cevaplar - EQS "SU AN girmek ne
+// kadar mantikli" sorusunu cevaplar. Ikisi BILEREK ayri: yuksek SRS +
+// dusuk EQS = "gercek lider ama kovalanmaz" (orn. Rafineri +14.73% 5G).
+// ============================================================
+
+// Asiri uzama/FOMO cezasi: sektorun 5 gunluk hareketi ne kadar sertse
+// (asiri isinmis), giris kalitesi o kadar dusuruluyor.
+// 14.09 DUZELTME P0.1 (kurul denetimi - KRITIK): eski formul "ret5pct<=5"
+// kosulunu kullaniyordu - bu, +%3 ile -%30'u AYNI (100 puan) degerlendirdi.
+// Sert dususler "uygun maliyetli giris" gibi puanlaniyordu (Demir-Celik'in
+// dusuk SRS'ye ragmen GIR cikmasinin ana nedeni buydu). Artik hem asiri
+// pozitif hem asiri negatif uzama cezalandiriliyor.
+f_uzamaSkoru(ret5) =>
+    p = ret5 * 100
+    na(p) ? float(na) : p > 12 ? 0.0 : p > 5 ? 100.0 - (p - 5) * 8 : p < -12 ? 0.0 : p < -5 ? 100.0 - (math.abs(p) - 5) * 12 : 100.0
+
+f_trendHizalamaSkoru(evre) =>
+    evre == "ONCU" ? 100.0 : evre == "GUCLENIYOR" ? 75.0 : evre == "ZAYIFLIYOR" ? 40.0 : 10.0
+
+f_rejimSkoru(rejim) =>
+    rejim == "RISK-ON" ? 100.0 : rejim == "NOTR" ? 60.0 : rejim == "POZITIF SOK" ? 50.0 : rejim == "RISK-OFF" ? 25.0 : 0.0
+
+f_liderKaliteSkoru(topV, kaliteliV) =>
+    topV == "LIDER YOK" ? 0.0 : kaliteliV ? 100.0 : 50.0
+
+f_eqs(srs, ret5, evre, topV, kaliteliV) =>
+    na(srs) ? float(na) : 0.25*srs + 0.25*f_uzamaSkoru(ret5) + 0.20*f_trendHizalamaSkoru(evre) + 0.15*f_rejimSkoru(marketRejim) + 0.15*f_liderKaliteSkoru(topV, kaliteliV)
+
+// 14.09 EKLENTI (denetim - EQS hala ham SRS ile hesaplaniyordu): SRS_adj'e
+// paralel olarak EQS_adj eklendi. Karar mantigi (GIR/TEYIT BEKLE/KACIN)
+// artik EQS_ADJ kullaniyor - ham EQS sadece GOSTERIM icin ayrica tutuluyor.
+f_eqsAdj(eqs, gecerli) => na(eqs) ? float(na) : 50 + f_confKatsayi(gecerli) * (eqs - 50)
+
+// Birlesik aksiyon: EQS + evre + asiri uzama + rejimi TEK etikette birlestirir.
+// 14.09 DUZELTME P0.2/P0.5 (kurul denetimi - kritik): eskiden GIR icin
+// sadece EQS>=65 ve evre yeterliydi - dusuk guvenli (2 uyeli) sektorler ve
+// dusuk HAM SRS'ye sahip sektorler (Demir-Celik SRS 41,71 gibi) bile GIR
+// alabiliyordu. Artik guven-ayarli SRS (srsAdj), Delta1 (zayiflamiyor mu)
+// ve guven seviyesinin kendisi de GIR kapisina dahil.
+// 14.09 DUZELTME (kurul denetimi madde D): eskiden EQS>=45 olan HEMEN HER
+// durum "IZLE" oluyordu - dusuk kaliteli sektorler de (srsAdj<45) takip
+// listesine giriyordu. Artik ayrim var: srsAdj<45 -> KACIN, digerleri ->
+// TEYIT BEKLE (eski "IZLE"nin daha aciklayici adi).
+// 14.09 DUZELTME (denetim): (1) "eqs" parametresi artik CAGRI NOKTASINDA
+// EQS_ADJ olarak gecirilecek - karar mantigi guven-ayarli skorla calisiyor.
+// (2) Delta3 teyidi eklendi - tek gunluk Delta1 gurultulu olabilir, GIR
+// icin artik hem Delta1>=0 HEM Delta3>0 (3 gunluk egilim de pozitif)
+// gerekiyor.
+// 15.09 DUZELTME (denetim madde 8): "delta1 >= 0" gibi ifadeler Pine'da na
+// ile karsilastirildiginda sessizce false donuyordu - COKME riski yoktu
+// ama IMPLICIT (ortuk) davranisa guveniliyordu. Artik her kontrol ACIKCA
+// "once na mi diye bak" seklinde yaziliyor - okunurluk ve gelecekte
+// bakim yapacak kisi icin netlik amacli.
+f_valid(x) => not na(x)
+
+f_deltaOK(d1, d3) => f_valid(d1) and f_valid(d3) and d1 >= 0 and d3 > 0
+
+f_aksiyon(eqsAdj, evre, ret5, rejim, srsAdj, delta1, delta3, guven) =>
+    string sonuc = "BEKLE"
+    trendOK = evre == "ONCU" or evre == "GUCLENIYOR"
+    asiriUzamis = f_valid(ret5) and ret5 * 100 > 12
+    riskOff = rejim == "RISK-OFF"
+    dusukGuven = guven == "DUSUK" or guven == "YETERSIZ"
+    if na(eqsAdj)
+        sonuc := "VERI YETERSIZ"
+    else if rejim == "NEGATIF SOK"
+        sonuc := "BEKLE (SOK)"
+    else if asiriUzamis
+        sonuc := "IZLE (ASIRI UZAMIS)"
+    // 15.09 DUZELTME (denetim madde 4.3): RISK-OFF artik GUVEN kontrolunden
+    // ONCE calisiyor - GLOBAL bir ust sinir. Eskiden dusuk guvenli bir
+    // sektor RISK-OFF'ta bile "IZLE (DUSUK GUVEN)" gosterebiliyordu -
+    // teknik olarak yanlis degildi (GIR yine cikmiyordu) ama kullaniciya
+    // ACIK degildi. Artik ikisi TEK bir mesajda birlesiyor.
+    else if riskOff and dusukGuven
+        sonuc := "TEYIT BEKLE (RISK-OFF/DUSUK GUVEN)"
+    else if riskOff
+        sonuc := trendOK and f_valid(srsAdj) and srsAdj >= 52 and f_deltaOK(delta1, delta3) and eqsAdj >= 65 ? "TEYIT BEKLE (RISK-OFF)" : (f_valid(srsAdj) and srsAdj < 45 ? "KACIN" : "BEKLE (RISK-OFF)")
+    else if dusukGuven
+        sonuc := eqsAdj >= 65 ? "IZLE (DUSUK GUVEN)" : (f_valid(srsAdj) and srsAdj < 45 ? "KACIN" : "BEKLE")
+    else if eqsAdj >= 65 and f_valid(srsAdj) and srsAdj >= 52 and f_deltaOK(delta1, delta3) and trendOK
+        sonuc := "GIR"
+    else if f_valid(srsAdj) and srsAdj < 45
+        sonuc := "KACIN"
+    else if eqsAdj >= 45
+        sonuc := "TEYIT BEKLE"
+    sonuc
+
+f_aksiyonBg(a) =>
+    a == "GIR" ? color.new(color.green, 40) : a == "TEYIT BEKLE" ? color.new(color.yellow, 55) : (a == "TEYIT BEKLE (RISK-OFF)" or a == "TEYIT BEKLE (RISK-OFF/DUSUK GUVEN)") ? color.new(color.yellow, 65) : a == "IZLE (ASIRI UZAMIS)" ? color.new(color.orange, 45) : a == "IZLE (DUSUK GUVEN)" ? color.new(color.orange, 60) : a == "KACIN" ? color.new(color.maroon, 40) : (a == "BEKLE (SOK)" or a == "BEKLE (RISK-OFF)") ? color.new(color.purple, 40) : color.new(color.gray, 70)
+
+// Guven katsayisi (P0.2): SRS_adj = 50 + katsayi*(SRS-50) - 2 uyeli bir
+// sektorun ham SRS'si, 6 uyeli bir sektorle AYNI kesinlikteymis gibi
+// gorunmesin diye 50'ye (notr) dogru daraltiliyor. (f_confKatsayi yukariya
+// tasindi, burada sadece f_srsAdj kalıyor.)
+f_srsAdj(srs, gecerli) => na(srs) ? float(na) : 50 + f_confKatsayi(gecerli) * (srs - 50)
+
+delta1Banka = f_delta1(srsBanka)
+delta3Banka = f_delta3(srsBanka)
+delta1Holding = f_delta1(srsHolding)
+delta3Holding = f_delta3(srsHolding)
+delta1Savunma = f_delta1(srsSavunma)
+delta3Savunma = f_delta3(srsSavunma)
+delta1Rafineri = f_delta1(srsRafineri)
+delta3Rafineri = f_delta3(srsRafineri)
+delta1EnerjiUretim = f_delta1(srsEnerjiUretim)
+delta3EnerjiUretim = f_delta3(srsEnerjiUretim)
+delta1Elektrik = f_delta1(srsElektrik)
+delta3Elektrik = f_delta3(srsElektrik)
+delta1Demir = f_delta1(srsDemir)
+delta3Demir = f_delta3(srsDemir)
+delta1Otomotiv = f_delta1(srsOtomotiv)
+delta3Otomotiv = f_delta3(srsOtomotiv)
+delta1Tuketim = f_delta1(srsTuketim)
+delta3Tuketim = f_delta3(srsTuketim)
+delta1Telekom = f_delta1(srsTelekom)
+delta3Telekom = f_delta3(srsTelekom)
+delta1Ulastir = f_delta1(srsUlastir)
+delta3Ulastir = f_delta3(srsUlastir)
+
+// ============================================================
+// EVRE SINIFLANDIRMASI + GUN-SINIRI TABANLI HISTEREZIS
+// Sayac artik HER 15DK BARDA degil, sadece YENI GUN basladiginda bir kez
+// artiyor. Her sektorun histerezis durumu ayri "var" degiskenlerle,
+// fonksiyon cagri-noktasi bagimsizligina guvenmeden ACIKCA tutuluyor.
+// (yeniGun tanimi yukariya, Delta1/Delta3 fonksiyonlarindan once tasindi)
+// ============================================================
+
+f_evreHam(rs20, mom, rs60) =>
+    string sonuc = "GERIDE"
+    if rs20 > 0 and mom > 0 and rs60 > -5
+        sonuc := "ONCU"
+    else if rs20 <= 0 and mom > 0
+        sonuc := "GUCLENIYOR"
+    else if rs20 > 0 and mom <= 0
+        sonuc := "ZAYIFLIYOR"
+    sonuc
+
+f_evreBg(evreV) =>
+    evreV == "ONCU" ? color.new(color.blue, 70) : evreV == "GUCLENIYOR" ? color.new(color.green, 70) : evreV == "ZAYIFLIYOR" ? color.new(color.orange, 70) : color.new(color.red, 70)
+
+// Her sektor icin ACIKCA ayri histerezis durum degiskenleri (var, global
+// scope - fonksiyon-ici var cagri-noktasi bagimliligina guvenilmiyor)
+var string bankaOncekiHam = "GERIDE"
+var int bankaHamSayac = 0
+var string evreBanka = "GERIDE"
+var int gunBanka = 1
+var string holdingOncekiHam = "GERIDE"
+var int holdingHamSayac = 0
+var string evreHolding = "GERIDE"
+var int gunHolding = 1
+var string savunmaOncekiHam = "GERIDE"
+var int savunmaHamSayac = 0
+var string evreSavunma = "GERIDE"
+var int gunSavunma = 1
+var string rafineriOncekiHam = "GERIDE"
+var int rafineriHamSayac = 0
+var string evreRafineri = "GERIDE"
+var int gunRafineri = 1
+var string enerjiUretimOncekiHam = "GERIDE"
+var int enerjiUretimHamSayac = 0
+var string evreEnerjiUretim = "GERIDE"
+var int gunEnerjiUretim = 1
+var string elektrikOncekiHam = "GERIDE"
+var int elektrikHamSayac = 0
+var string evreElektrik = "GERIDE"
+var int gunElektrik = 1
+var string demirOncekiHam = "GERIDE"
+var int demirHamSayac = 0
+var string evreDemir = "GERIDE"
+var int gunDemir = 1
+var string otomotivOncekiHam = "GERIDE"
+var int otomotivHamSayac = 0
+var string evreOtomotiv = "GERIDE"
+var int gunOtomotiv = 1
+var string tuketimOncekiHam = "GERIDE"
+var int tuketimHamSayac = 0
+var string evreTuketim = "GERIDE"
+var int gunTuketim = 1
+var string telekomOncekiHam = "GERIDE"
+var int telekomHamSayac = 0
+var string evreTelekom = "GERIDE"
+var int gunTelekom = 1
+var string ulastirOncekiHam = "GERIDE"
+var int ulastirHamSayac = 0
+var string evreUlastir = "GERIDE"
+var int gunUlastir = 1
+
+// 14.09 EKLENTI (P1 - grafikten bagimsiz gun motoru, KISMI ama GERCEK
+// kilit): tam mimari yeniden yazim (evre motorunu tamamen gunluk baglama
+// tasimak) SRS'nin 11-sektor KESITSEL karsilastirma yapisi yuzunden asiri
+// riskli bulunmustu. Bunun yerine daha ucuz ama GERCEKTEN etkili bir onlem:
+// ISINMA TAMAMLANMADAN (gecenGercekGun>=65, grafik zaman diliminden
+// BAGIMSIZ bir sayacla olculuyor) HICBIR evre gecisi ONAYLANMIYOR. Once
+// sadece "gorunur uyari" iken artik gercekten KAPI - boylece isinma
+// tamamlandiktan SONRAKI evre durumu, hangi grafikte (15dk/1sa/1G)
+// yuklendiginden BAGIMSIZ olarak ayni sayida "gercek gun"den baslamis olur.
+if yeniGun and isinmaTamamMi
+    bankaHam = f_evreHam(bankaRS20, bankaMom, bankaRS60)
+    bankaHamSayac := bankaHam == bankaOncekiHam ? bankaHamSayac + 1 : 1
+    bankaOncekiHam := bankaHam
+    if bankaHamSayac >= 2 and bankaHam != evreBanka
+        evreBanka := bankaHam
+        gunBanka := 1
+    else
+        gunBanka := gunBanka + 1
+
+    holdingHam = f_evreHam(holdingRS20, holdingMom, holdingRS60)
+    holdingHamSayac := holdingHam == holdingOncekiHam ? holdingHamSayac + 1 : 1
+    holdingOncekiHam := holdingHam
+    if holdingHamSayac >= 2 and holdingHam != evreHolding
+        evreHolding := holdingHam
+        gunHolding := 1
+    else
+        gunHolding := gunHolding + 1
+
+    savunmaHam = f_evreHam(savunmaRS20, savunmaMom, savunmaRS60)
+    savunmaHamSayac := savunmaHam == savunmaOncekiHam ? savunmaHamSayac + 1 : 1
+    savunmaOncekiHam := savunmaHam
+    if savunmaHamSayac >= 2 and savunmaHam != evreSavunma
+        evreSavunma := savunmaHam
+        gunSavunma := 1
+    else
+        gunSavunma := gunSavunma + 1
+
+    rafineriHam = f_evreHam(rafineriRS20, rafineriMom, rafineriRS60)
+    rafineriHamSayac := rafineriHam == rafineriOncekiHam ? rafineriHamSayac + 1 : 1
+    rafineriOncekiHam := rafineriHam
+    if rafineriHamSayac >= 2 and rafineriHam != evreRafineri
+        evreRafineri := rafineriHam
+        gunRafineri := 1
+    else
+        gunRafineri := gunRafineri + 1
+
+    enerjiUretimHam = f_evreHam(enerjiUretimRS20, enerjiUretimMom, enerjiUretimRS60)
+    enerjiUretimHamSayac := enerjiUretimHam == enerjiUretimOncekiHam ? enerjiUretimHamSayac + 1 : 1
+    enerjiUretimOncekiHam := enerjiUretimHam
+    if enerjiUretimHamSayac >= 2 and enerjiUretimHam != evreEnerjiUretim
+        evreEnerjiUretim := enerjiUretimHam
+        gunEnerjiUretim := 1
+    else
+        gunEnerjiUretim := gunEnerjiUretim + 1
+
+    elektrikHam = f_evreHam(elektrikRS20, elektrikMom, elektrikRS60)
+    elektrikHamSayac := elektrikHam == elektrikOncekiHam ? elektrikHamSayac + 1 : 1
+    elektrikOncekiHam := elektrikHam
+    if elektrikHamSayac >= 2 and elektrikHam != evreElektrik
+        evreElektrik := elektrikHam
+        gunElektrik := 1
+    else
+        gunElektrik := gunElektrik + 1
+
+    demirHam = f_evreHam(demirRS20, demirMom, demirRS60)
+    demirHamSayac := demirHam == demirOncekiHam ? demirHamSayac + 1 : 1
+    demirOncekiHam := demirHam
+    if demirHamSayac >= 2 and demirHam != evreDemir
+        evreDemir := demirHam
+        gunDemir := 1
+    else
+        gunDemir := gunDemir + 1
+
+    otomotivHam = f_evreHam(otomotivRS20, otomotivMom, otomotivRS60)
+    otomotivHamSayac := otomotivHam == otomotivOncekiHam ? otomotivHamSayac + 1 : 1
+    otomotivOncekiHam := otomotivHam
+    if otomotivHamSayac >= 2 and otomotivHam != evreOtomotiv
+        evreOtomotiv := otomotivHam
+        gunOtomotiv := 1
+    else
+        gunOtomotiv := gunOtomotiv + 1
+
+    tuketimHam = f_evreHam(tuketimRS20, tuketimMom, tuketimRS60)
+    tuketimHamSayac := tuketimHam == tuketimOncekiHam ? tuketimHamSayac + 1 : 1
+    tuketimOncekiHam := tuketimHam
+    if tuketimHamSayac >= 2 and tuketimHam != evreTuketim
+        evreTuketim := tuketimHam
+        gunTuketim := 1
+    else
+        gunTuketim := gunTuketim + 1
+
+    telekomHam = f_evreHam(telekomRS20, telekomMom, telekomRS60)
+    telekomHamSayac := telekomHam == telekomOncekiHam ? telekomHamSayac + 1 : 1
+    telekomOncekiHam := telekomHam
+    if telekomHamSayac >= 2 and telekomHam != evreTelekom
+        evreTelekom := telekomHam
+        gunTelekom := 1
+    else
+        gunTelekom := gunTelekom + 1
+
+    ulastirHam = f_evreHam(ulastirRS20, ulastirMom, ulastirRS60)
+    ulastirHamSayac := ulastirHam == ulastirOncekiHam ? ulastirHamSayac + 1 : 1
+    ulastirOncekiHam := ulastirHam
+    if ulastirHamSayac >= 2 and ulastirHam != evreUlastir
+        evreUlastir := ulastirHam
+        gunUlastir := 1
+    else
+        gunUlastir := gunUlastir + 1
+
+// ============================================================
+// LIDER HISSE (confirmed gunluk RS20 vs XU100 + RVOL + trend)
+// Trend filtresini (c > EMA20) gecemeyen hicbir uye yoksa "LIDER YOK".
+// ============================================================
+// 14.09 EKLENTI D1 (Faz 0.3B madde 9 - standardize Leader Score): eskiden
+// stockRS20*0.6 + (rvol-1)*20*0.4 kullaniliyordu - RS20 (~yuzde birkac) ile
+// RVOL (0-5 araligi) FARKLI OLCEKTEYDI, RVOL sozde %40 agirliga ragmen
+// skoru domine edebiliyordu. Artik her bilesen ONCE 0-100 olcegine tasinip
+// SONRA agirliklandiriliyor. Ayrica hisse/SEKTOR RS20 eklendi (D2) - sadece
+// XU100'e gore degil, kendi sektorune gore de goreli guc olcusu.
+// 14.09 EKLENTI P1 (kurul denetimi - leave-one-out sektor lideri): eskiden
+// her aday KENDI KATKISINI ICEREN sektor ortalamasina karsi olculuyordu -
+// ozellikle 2 uyeli sektorlerde PETKM gibi bir hisse, kendi getirisiyle
+// sisirdigi ortalamaya karsi kiyaslaniyordu (haksiz avantaj/dezavantaj).
+// Artik her aday, KENDISI HARIC diger uyelerin ortalamasina gore olculuyor.
+f_leaveOneOut(sektorRet, sektorGecerli, stockRet) =>
+    (sektorGecerli <= 1 or na(stockRet)) ? float(na) : (sektorRet * sektorGecerli - stockRet) / (sektorGecerli - 1)
+
+f_leaderRaw(stockR20, rvol, c, ema20, sektorR20) =>
+    trendOK = c > ema20
+    xuRS = ((1 + stockR20) / (1 + xuR20) - 1) * 100
+    sekRS = ((1 + stockR20) / (1 + sektorR20) - 1) * 100
+    rsScore = math.max(0.0, math.min(100.0, 50 + xuRS * 4))
+    sekRsScore = math.max(0.0, math.min(100.0, 50 + sekRS * 4))
+    rvolScore = math.max(0.0, math.min(100.0, 50 + (rvol - 1) * 25))
+    trendOK ? sekRsScore * 0.4 + rsScore * 0.3 + rvolScore * 0.3 : float(na)
+
+// 14.09 EKLENTI D3 (Faz 0.3B madde 7-8 - sektor birincisi/kaliteli lider
+// ayrimi + minimum kalite esigi): artik ISIM ile birlikte, kazananin
+// standardize skorunun kalite esigini (55) gecip gecmedigi de donduruluyor.
+// Esigi gecmezse "sektor birincisi" olur ama "kaliteli/alinabilir lider"
+// SAYILMAZ - ayri bir etiketle gosterilecek.
+f_liderSec(isimArr, skorArr) =>
+    enIyiIsim = "LIDER YOK"
+    enIyiSkor = -1e10
+    bulunduMu = false
+    for i = 0 to array.size(isimArr) - 1
+        s = array.get(skorArr, i)
+        if not na(s) and (not bulunduMu or s > enIyiSkor)
+            enIyiSkor := s
+            enIyiIsim := array.get(isimArr, i)
+            bulunduMu := true
+    kaliteliMi = bulunduMu and enIyiSkor >= 55
+    // 14.09 EKLENTI (kurul denetimi madde G): artik sadece isim degil,
+    // liderin GERCEK SKORU da donduruluyor - ekranda "★PETKM -4.13%" gibi
+    // 3 farkli kavrami (kalite/isim/gunluk getiri) karistiran gosterimi
+    // duzeltebilmek icin.
+    donenSkor = bulunduMu ? enIyiSkor : float(na)
+    [enIyiIsim, donenSkor, kaliteliMi]
+
+[enGucluBanka, liderSkorBanka, kaliteliBanka] = f_liderSec(array.from("AKBNK","GARAN","YKBNK","HALKB","VAKBN"), array.from(f_leaderRaw(akbnkR20,akbnkRVOL,akbnkC,akbnkEMA20,f_leaveOneOut(bankaRet20,bankaGecerli,akbnkR20)), f_leaderRaw(garanR20,garanRVOL,garanC,garanEMA20,f_leaveOneOut(bankaRet20,bankaGecerli,garanR20)), f_leaderRaw(ykbnkR20,ykbnkRVOL,ykbnkC,ykbnkEMA20,f_leaveOneOut(bankaRet20,bankaGecerli,ykbnkR20)), f_leaderRaw(halkbR20,halkbRVOL,halkbC,halkbEMA20,f_leaveOneOut(bankaRet20,bankaGecerli,halkbR20)), f_leaderRaw(vakbnR20,vakbnRVOL,vakbnC,vakbnEMA20,f_leaveOneOut(bankaRet20,bankaGecerli,vakbnR20))))
+
+[enGucluHolding, liderSkorHolding, kaliteliHolding] = f_liderSec(array.from("KCHOL","SAHOL","AGHOL"), array.from(f_leaderRaw(kcholR20,kcholRVOL,kcholC,kcholEMA20,f_leaveOneOut(holdingRet20,holdingGecerli,kcholR20)), f_leaderRaw(saholR20,saholRVOL,saholC,saholEMA20,f_leaveOneOut(holdingRet20,holdingGecerli,saholR20)), f_leaderRaw(agholR20,agholRVOL,agholC,agholEMA20,f_leaveOneOut(holdingRet20,holdingGecerli,agholR20))))
+
+[enGucluSavunma, liderSkorSavunma, kaliteliSavunma] = f_liderSec(array.from("ASELS","OTKAR"), array.from(f_leaderRaw(aselsR20,aselsRVOL,aselsC,aselsEMA20,f_leaveOneOut(savunmaRet20,savunmaGecerli,aselsR20)), f_leaderRaw(otkarR20,otkarRVOL,otkarC,otkarEMA20,f_leaveOneOut(savunmaRet20,savunmaGecerli,otkarR20))))
+
+[enGucluRafineri, liderSkorRafineri, kaliteliRafineri] = f_liderSec(array.from("TUPRS","PETKM"), array.from(f_leaderRaw(tuprsR20,tuprsRVOL,tuprsC,tuprsEMA20,f_leaveOneOut(rafineriRet20,rafineriGecerli,tuprsR20)), f_leaderRaw(petkmR20,petkmRVOL,petkmC,petkmEMA20,f_leaveOneOut(rafineriRet20,rafineriGecerli,petkmR20))))
+
+[enGucluEnerjiUretim, liderSkorEnerjiUretim, kaliteliEnerjiUretim] = f_liderSec(array.from("ENJSA","AKSEN"), array.from(f_leaderRaw(enjsaR20,enjsaRVOL,enjsaC,enjsaEMA20,f_leaveOneOut(enerjiUretimRet20,enerjiUretimGecerli,enjsaR20)), f_leaderRaw(aksenR20,aksenRVOL,aksenC,aksenEMA20,f_leaveOneOut(enerjiUretimRet20,enerjiUretimGecerli,aksenR20))))
+
+[enGucluElektrik, liderSkorElektrik, kaliteliElektrik] = f_liderSec(array.from("ASTOR","KONTR","ALFAS","CWENE","EUPWR","GESAN"), array.from(f_leaderRaw(astorR20,astorRVOL,astorC,astorEMA20,f_leaveOneOut(elektrikRet20,elektrikGecerli,astorR20)), f_leaderRaw(kontrR20,kontrRVOL,kontrC,kontrEMA20,f_leaveOneOut(elektrikRet20,elektrikGecerli,kontrR20)), f_leaderRaw(alfasR20,alfasRVOL,alfasC,alfasEMA20,f_leaveOneOut(elektrikRet20,elektrikGecerli,alfasR20)), f_leaderRaw(cweneR20,cweneRVOL,cweneC,cweneEMA20,f_leaveOneOut(elektrikRet20,elektrikGecerli,cweneR20)), f_leaderRaw(eupwrR20,eupwrRVOL,eupwrC,eupwrEMA20,f_leaveOneOut(elektrikRet20,elektrikGecerli,eupwrR20)), f_leaderRaw(gesanR20,gesanRVOL,gesanC,gesanEMA20,f_leaveOneOut(elektrikRet20,elektrikGecerli,gesanR20))))
+
+[enGucluDemir, liderSkorDemir, kaliteliDemir] = f_liderSec(array.from("EREGL","KRDMD","KCAER","BRSAN"), array.from(f_leaderRaw(ereglR20,ereglRVOL,ereglC,ereglEMA20,f_leaveOneOut(demirRet20,demirGecerli,ereglR20)), f_leaderRaw(krdmdR20,krdmdRVOL,krdmdC,krdmdEMA20,f_leaveOneOut(demirRet20,demirGecerli,krdmdR20)), f_leaderRaw(kcaerR20,kcaerRVOL,kcaerC,kcaerEMA20,f_leaveOneOut(demirRet20,demirGecerli,kcaerR20)), f_leaderRaw(brsanR20,brsanRVOL,brsanC,brsanEMA20,f_leaveOneOut(demirRet20,demirGecerli,brsanR20))))
+
+[enGucluOtomotiv, liderSkorOtomotiv, kaliteliOtomotiv] = f_liderSec(array.from("FROTO","TOASO"), array.from(f_leaderRaw(frotoR20,frotoRVOL,frotoC,frotoEMA20,f_leaveOneOut(otomotivRet20,otomotivGecerli,frotoR20)), f_leaderRaw(toasoR20,toasoRVOL,toasoC,toasoEMA20,f_leaveOneOut(otomotivRet20,otomotivGecerli,toasoR20))))
+
+[enGucluTuketim, liderSkorTuketim, kaliteliTuketim] = f_liderSec(array.from("BIMAS","MGROS","ULKER"), array.from(f_leaderRaw(bimasR20,bimasRVOL,bimasC,bimasEMA20,f_leaveOneOut(tuketimRet20,tuketimGecerli,bimasR20)), f_leaderRaw(mgrosR20,mgrosRVOL,mgrosC,mgrosEMA20,f_leaveOneOut(tuketimRet20,tuketimGecerli,mgrosR20)), f_leaderRaw(ulkerR20,ulkerRVOL,ulkerC,ulkerEMA20,f_leaveOneOut(tuketimRet20,tuketimGecerli,ulkerR20))))
+
+[enGucluTelekom, liderSkorTelekom, kaliteliTelekom] = f_liderSec(array.from("TCELL","TTKOM"), array.from(f_leaderRaw(tcellR20,tcellRVOL,tcellC,tcellEMA20,f_leaveOneOut(telekomRet20,telekomGecerli,tcellR20)), f_leaderRaw(ttkomR20,ttkomRVOL,ttkomC,ttkomEMA20,f_leaveOneOut(telekomRet20,telekomGecerli,ttkomR20))))
+
+[enGucluUlastir, liderSkorUlastir, kaliteliUlastir] = f_liderSec(array.from("THYAO","TAVHL"), array.from(f_leaderRaw(thyaoR20,thyaoRVOL,thyaoC,thyaoEMA20,f_leaveOneOut(ulastirRet20,ulastirGecerli,thyaoR20)), f_leaderRaw(tavhlR20,tavhlRVOL,tavhlC,tavhlEMA20,f_leaveOneOut(ulastirRet20,ulastirGecerli,tavhlR20))))
+
+// Liderin gunluk (dunku confirmed) yuzdesel degisimi - "LIDER YOK" ise na
+f_liderR1(isim, i1,r1a, i2,r1b, i3,r1c, i4,r1d, i5,r1e, i6,r1f) =>
+    isim == i1 ? r1a : isim == i2 ? r1b : isim == i3 ? r1c : isim == i4 ? r1d : isim == i5 ? r1e : isim == i6 ? r1f : float(na)
+
+liderGunlukBanka = f_liderR1(enGucluBanka, "AKBNK",akbnkR1, "GARAN",garanR1, "YKBNK",ykbnkR1, "HALKB",halkbR1, "VAKBN",vakbnR1, "",float(na))
+liderGunlukHolding = f_liderR1(enGucluHolding, "KCHOL",kcholR1, "SAHOL",saholR1, "AGHOL",agholR1, "",float(na), "",float(na), "",float(na))
+liderGunlukSavunma = f_liderR1(enGucluSavunma, "ASELS",aselsR1, "OTKAR",otkarR1, "",float(na), "",float(na), "",float(na), "",float(na))
+liderGunlukRafineri = f_liderR1(enGucluRafineri, "TUPRS",tuprsR1, "PETKM",petkmR1, "",float(na), "",float(na), "",float(na), "",float(na))
+liderGunlukEnerjiUretim = f_liderR1(enGucluEnerjiUretim, "ENJSA",enjsaR1, "AKSEN",aksenR1, "",float(na), "",float(na), "",float(na), "",float(na))
+liderGunlukElektrik = f_liderR1(enGucluElektrik, "ASTOR",astorR1, "KONTR",kontrR1, "ALFAS",alfasR1, "CWENE",cweneR1, "EUPWR",eupwrR1, "GESAN",gesanR1)
+liderGunlukDemir = f_liderR1(enGucluDemir, "EREGL",ereglR1, "KRDMD",krdmdR1, "KCAER",kcaerR1, "BRSAN",brsanR1, "",float(na), "",float(na))
+liderGunlukOtomotiv = f_liderR1(enGucluOtomotiv, "FROTO",frotoR1, "TOASO",toasoR1, "",float(na), "",float(na), "",float(na), "",float(na))
+liderGunlukTuketim = f_liderR1(enGucluTuketim, "BIMAS",bimasR1, "MGROS",mgrosR1, "ULKER",ulkerR1, "",float(na), "",float(na), "",float(na))
+liderGunlukTelekom = f_liderR1(enGucluTelekom, "TCELL",tcellR1, "TTKOM",ttkomR1, "",float(na), "",float(na), "",float(na), "",float(na))
+liderGunlukUlastir = f_liderR1(enGucluUlastir, "THYAO",thyaoR1, "TAVHL",tavhlR1, "",float(na), "",float(na), "",float(na), "",float(na))
+
+// ============================================================
+// GOSTERIM TABLOSU - rejim basligi + 6 sutunlu kompakt sektor izgarasi
+// SRS na ise (yetersiz gecerli uye) "VERI YETERSIZ" gosterilir.
+// ============================================================
+var string[] isimArr = array.new_string(11)
+var float[]  srsArr  = array.new_float(11)
+var string[] evreArr = array.new_string(11)
+var string[] topArr  = array.new_string(11)
+var float[]  liderGunlukArr = array.new_float(11)
+var float[]  sektorRet5Arr = array.new_float(11)
+var int[]    gunSayisiArr = array.new_int(11)
+var string[] guvenArr = array.new_string(11)
+var float[]  delta1Arr = array.new_float(11)
+var float[]  delta3Arr = array.new_float(11)
+var bool[]   kaliteliArr = array.new_bool(11)
+var float[]  srsAdjArr = array.new_float(11)
+var float[]  liderSkorArr = array.new_float(11)
+var float[]  eqsAdjArr = array.new_float(11)
+// 14.09 DUZELTME A2 (kurul denetimi madde 12): TANI ekrani yanlislikla
+// "evrede gecirilen gun sayisi"ni (gunSayisiArr) "gecerli uye sayisi" diye
+// gosteriyordu. Ayri, dogru bir dizi eklendi.
+var int[]    gecerliUyeArr = array.new_int(11)
+var float[]  eqsArr = array.new_float(11)
+var string[] aksiyonArr = array.new_string(11)
+
+// EQS ve Aksiyon - her sektor icin (evre/lider bilgisi hazir oldugu icin
+// burada, dizi doldurma blogundan hemen once hesaplaniyor)
+eqsBanka = f_eqs(srsBanka, bankaRet5, evreBanka, enGucluBanka, kaliteliBanka)
+srsAdjBanka = f_srsAdj(srsBanka, bankaGecerli)
+eqsAdjBanka = f_eqsAdj(eqsBanka, bankaGecerli)
+aksiyonBanka = f_aksiyon(eqsAdjBanka, evreBanka, bankaRet5, marketRejim, srsAdjBanka, delta1Banka, delta3Banka, guvenBanka)
+eqsHolding = f_eqs(srsHolding, holdingRet5, evreHolding, enGucluHolding, kaliteliHolding)
+srsAdjHolding = f_srsAdj(srsHolding, holdingGecerli)
+eqsAdjHolding = f_eqsAdj(eqsHolding, holdingGecerli)
+aksiyonHolding = f_aksiyon(eqsAdjHolding, evreHolding, holdingRet5, marketRejim, srsAdjHolding, delta1Holding, delta3Holding, guvenHolding)
+eqsSavunma = f_eqs(srsSavunma, savunmaRet5, evreSavunma, enGucluSavunma, kaliteliSavunma)
+srsAdjSavunma = f_srsAdj(srsSavunma, savunmaGecerli)
+eqsAdjSavunma = f_eqsAdj(eqsSavunma, savunmaGecerli)
+aksiyonSavunma = f_aksiyon(eqsAdjSavunma, evreSavunma, savunmaRet5, marketRejim, srsAdjSavunma, delta1Savunma, delta3Savunma, guvenSavunma)
+eqsRafineri = f_eqs(srsRafineri, rafineriRet5, evreRafineri, enGucluRafineri, kaliteliRafineri)
+srsAdjRafineri = f_srsAdj(srsRafineri, rafineriGecerli)
+eqsAdjRafineri = f_eqsAdj(eqsRafineri, rafineriGecerli)
+aksiyonRafineri = f_aksiyon(eqsAdjRafineri, evreRafineri, rafineriRet5, marketRejim, srsAdjRafineri, delta1Rafineri, delta3Rafineri, guvenRafineri)
+eqsEnerjiUretim = f_eqs(srsEnerjiUretim, enerjiUretimRet5, evreEnerjiUretim, enGucluEnerjiUretim, kaliteliEnerjiUretim)
+srsAdjEnerjiUretim = f_srsAdj(srsEnerjiUretim, enerjiUretimGecerli)
+eqsAdjEnerjiUretim = f_eqsAdj(eqsEnerjiUretim, enerjiUretimGecerli)
+aksiyonEnerjiUretim = f_aksiyon(eqsAdjEnerjiUretim, evreEnerjiUretim, enerjiUretimRet5, marketRejim, srsAdjEnerjiUretim, delta1EnerjiUretim, delta3EnerjiUretim, guvenEnerjiUretim)
+eqsElektrik = f_eqs(srsElektrik, elektrikRet5, evreElektrik, enGucluElektrik, kaliteliElektrik)
+srsAdjElektrik = f_srsAdj(srsElektrik, elektrikGecerli)
+eqsAdjElektrik = f_eqsAdj(eqsElektrik, elektrikGecerli)
+aksiyonElektrik = f_aksiyon(eqsAdjElektrik, evreElektrik, elektrikRet5, marketRejim, srsAdjElektrik, delta1Elektrik, delta3Elektrik, guvenElektrik)
+eqsDemir = f_eqs(srsDemir, demirRet5, evreDemir, enGucluDemir, kaliteliDemir)
+srsAdjDemir = f_srsAdj(srsDemir, demirGecerli)
+eqsAdjDemir = f_eqsAdj(eqsDemir, demirGecerli)
+aksiyonDemir = f_aksiyon(eqsAdjDemir, evreDemir, demirRet5, marketRejim, srsAdjDemir, delta1Demir, delta3Demir, guvenDemir)
+eqsOtomotiv = f_eqs(srsOtomotiv, otomotivRet5, evreOtomotiv, enGucluOtomotiv, kaliteliOtomotiv)
+srsAdjOtomotiv = f_srsAdj(srsOtomotiv, otomotivGecerli)
+eqsAdjOtomotiv = f_eqsAdj(eqsOtomotiv, otomotivGecerli)
+aksiyonOtomotiv = f_aksiyon(eqsAdjOtomotiv, evreOtomotiv, otomotivRet5, marketRejim, srsAdjOtomotiv, delta1Otomotiv, delta3Otomotiv, guvenOtomotiv)
+eqsTuketim = f_eqs(srsTuketim, tuketimRet5, evreTuketim, enGucluTuketim, kaliteliTuketim)
+srsAdjTuketim = f_srsAdj(srsTuketim, tuketimGecerli)
+eqsAdjTuketim = f_eqsAdj(eqsTuketim, tuketimGecerli)
+aksiyonTuketim = f_aksiyon(eqsAdjTuketim, evreTuketim, tuketimRet5, marketRejim, srsAdjTuketim, delta1Tuketim, delta3Tuketim, guvenTuketim)
+eqsTelekom = f_eqs(srsTelekom, telekomRet5, evreTelekom, enGucluTelekom, kaliteliTelekom)
+srsAdjTelekom = f_srsAdj(srsTelekom, telekomGecerli)
+eqsAdjTelekom = f_eqsAdj(eqsTelekom, telekomGecerli)
+aksiyonTelekom = f_aksiyon(eqsAdjTelekom, evreTelekom, telekomRet5, marketRejim, srsAdjTelekom, delta1Telekom, delta3Telekom, guvenTelekom)
+eqsUlastir = f_eqs(srsUlastir, ulastirRet5, evreUlastir, enGucluUlastir, kaliteliUlastir)
+srsAdjUlastir = f_srsAdj(srsUlastir, ulastirGecerli)
+eqsAdjUlastir = f_eqsAdj(eqsUlastir, ulastirGecerli)
+aksiyonUlastir = f_aksiyon(eqsAdjUlastir, evreUlastir, ulastirRet5, marketRejim, srsAdjUlastir, delta1Ulastir, delta3Ulastir, guvenUlastir)
+
+// Durum degisiminde TEK alarm (Faz 0.4) - her bar degil, sadece GIR listesi
+// gun-sinirinda GERCEKTEN degisince tetiklenir.
+girListesiBugun = (aksiyonBanka=="GIR"?"B":"") + (aksiyonHolding=="GIR"?"H":"") + (aksiyonSavunma=="GIR"?"S":"") + (aksiyonRafineri=="GIR"?"R":"") + (aksiyonEnerjiUretim=="GIR"?"E":"") + (aksiyonElektrik=="GIR"?"K":"") + (aksiyonDemir=="GIR"?"D":"") + (aksiyonOtomotiv=="GIR"?"O":"") + (aksiyonTuketim=="GIR"?"T":"") + (aksiyonTelekom=="GIR"?"L":"") + (aksiyonUlastir=="GIR"?"U":"")
+var string oncekiGirListesi = ""
+var bool girDurumDegisti = false
+if yeniGun
+    girDurumDegisti := girListesiBugun != oncekiGirListesi
+    oncekiGirListesi := girListesiBugun
+else
+    girDurumDegisti := false
+
+alertcondition(girDurumDegisti, title="IP8 GIR Listesi Degisti", message="IP-8 Sektor Rotasyonu: GIR durumundaki sektor listesi degisti - kontrol edin")
+
+// 15.09 EKLENTI (denetim madde 10 - alarm turlerinin ayrilmasi): eskiden
+// sadece GIR listesi degisimi izleniyordu. REJIM degisimi (RISK-ON'dan
+// RISK-OFF/SOK'a gecis gibi) muhtemelen en ACIL olay - butun sektorlerin
+// aksiyon kararlarini bir anda etkileyebilir, ayri ve dusuk hacimli bir
+// kanal olarak izlenmeli.
+var string oncekiRejim = ""
+var bool rejimDegisti = false
+if yeniGun
+    rejimDegisti := marketRejim != oncekiRejim and oncekiRejim != ""
+    // 15.09 EKLENTI (denetim madde 5B): alertcondition()'in mesaji Pine'da
+    // STATIK olmak zorunda (dinamik "eski/yeni" gömülemez - platform
+    // kisiti). Bunun yerine alert() ile GERCEK eski/yeni degerleri iceren
+    // dinamik bir bildirim de gonderiliyor (webhookHazir sartiyla).
+    if rejimDegisti and webhookHazir
+        rejimAlertMsg = '{"tip":"IP8_REJIM_DEGISTI","tarih":"' + str.format_time(time, "yyyy-MM-dd") + '","eski":"' + oncekiRejim + '","yeni":"' + marketRejim + '","breadth":' + f_jsonNum(marketBreadth) + '}'
+        alert(rejimAlertMsg, alert.freq_once_per_bar_close)
+    oncekiRejim := marketRejim
+else
+    rejimDegisti := false
+
+alertcondition(rejimDegisti, title="IP8 Rejim Degisti", message="IP-8 Sektor Rotasyonu: Piyasa rejimi degisti - tum sektor kararlarini yeniden gozden gecirin")
+
+// 15.09 EKLENTI (denetim madde 10 devami): EN GUCLU SEKTOR (srsAdj bazli)
+// degisimi - hangi sektorun "one cikan" oldugu degisirse, bu rotasyonun
+// kendisinde bir kirilma anlamina gelebilir.
+topIsimArr = array.from("Banka","Holding","Savunma","Rafineri","EnerjiUretimi","Elektrik","DemirCelik","Otomotiv","Tuketim","Telekom","Ulastirma")
+topSkorArr = array.from(srsAdjBanka, srsAdjHolding, srsAdjSavunma, srsAdjRafineri, srsAdjEnerjiUretim, srsAdjElektrik, srsAdjDemir, srsAdjOtomotiv, srsAdjTuketim, srsAdjTelekom, srsAdjUlastir)
+
+f_enYuksekIsim(isimArr, skorArr) =>
+    enIyi = ""
+    enIyiSkor = -1e10
+    bulundu = false
+    for i = 0 to array.size(isimArr) - 1
+        s = array.get(skorArr, i)
+        if not na(s) and (not bulundu or s > enIyiSkor)
+            enIyiSkor := s
+            enIyi := array.get(isimArr, i)
+            bulundu := true
+    enIyi
+
+enGucluSektorBugun = f_enYuksekIsim(topIsimArr, topSkorArr)
+var string oncekiEnGucluSektor = ""
+var bool enGucluSektorDegisti = false
+if yeniGun
+    enGucluSektorDegisti := enGucluSektorBugun != oncekiEnGucluSektor and oncekiEnGucluSektor != ""
+    if enGucluSektorDegisti and webhookHazir
+        topSektorAlertMsg = '{"tip":"IP8_EN_GUCLU_SEKTOR_DEGISTI","tarih":"' + str.format_time(time, "yyyy-MM-dd") + '","eski":"' + oncekiEnGucluSektor + '","yeni":"' + enGucluSektorBugun + '"}'
+        alert(topSektorAlertMsg, alert.freq_once_per_bar_close)
+    oncekiEnGucluSektor := enGucluSektorBugun
+else
+    enGucluSektorDegisti := false
+
+alertcondition(enGucluSektorDegisti, title="IP8 En Guclu Sektor Degisti", message="IP-8 Sektor Rotasyonu: En guclu sektor (SRS_adj bazli) degisti")
+
+// 15.09 EKLENTI (denetim madde 10 devami): VERI KALITESI uyarisi - kesitsel
+// kapsam 8/11'in altina duserse (bircok sektorde ayni anda veri sorunu),
+// kullanici bunu ACIKCA bilsin. Isinma bitmemisse zaten basliktaki uyari
+// goruluyor - burada SADECE kesitsel kapsam dususu izleniyor, tekrar
+// eden bilgi olmasin diye.
+kesitselKapsamGlobal = f_validCount(array.from(srsBanka, srsHolding, srsSavunma, srsRafineri, srsEnerjiUretim, srsElektrik, srsDemir, srsOtomotiv, srsTuketim, srsTelekom, srsUlastir))
+veriKalitesiSorunuBugun = kesitselKapsamGlobal < 8
+var bool oncekiVeriKalitesiSorunu = false
+var bool veriKalitesiUyarisi = false
+if yeniGun
+    veriKalitesiUyarisi := veriKalitesiSorunuBugun and not oncekiVeriKalitesiSorunu
+    oncekiVeriKalitesiSorunu := veriKalitesiSorunuBugun
+else
+    veriKalitesiUyarisi := false
+
+alertcondition(veriKalitesiUyarisi, title="IP8 Veri Kalitesi Uyarisi", message="IP-8 Sektor Rotasyonu: Kesitsel kapsam 8/11'in altina dustu - SRS karsilastirmalari gunubirlik guvenilir olmayabilir")
+
+// ============================================================
+// FAZ 0.4 / P2 - GUNLUK SINYAL KAYDI (backtest altyapisi icin)
+// V162'nin sinyal_arsiv.json mimarisine benzer sekilde: Pine kendi basina
+// gecmis performansi HATIRLAYAMAZ. Bu yuzden her GUN (yeniGun'da, bir kez)
+// 11 sektorun TAM durumunu tek bir zengin JSON'da webhook ile disari
+// gonderiyoruz. Ayri bir Python script (sinyal_arsiv_gunluk.py benzeri)
+// bunu arsivleyip 1/3/5/10/20 gunluk ileri getiriyi olcmeli - bu KISIM
+// Pine'in DISINDA, ayri bir teslim gerektirir.
+// na degerler JSON'da "null" olarak yaziliyor (str.tostring NaN yazardi).
+// ============================================================
+
+// 14.09 DUZELTME (denetim madde 3): eksik alanlar eklendi - delta1, delta3,
+// sektor 5G getirisi, ham+yumusatilmis breadth, eqsAdj.
+f_sektorJson(isim, srs, srsAdj, evre, eqs, eqsAdj, aksiyon, guven, gecerli, lider, liderSkor, gunlukPct, d1, d3, ret5, breadthHam, breadthYumus) =>
+    '{"sektor":"' + isim + '","srs":' + f_jsonNum(srs) + ',"srsAdj":' + f_jsonNum(srsAdj) + ',"evre":"' + evre + '","eqs":' + f_jsonNum(eqs) + ',"eqsAdj":' + f_jsonNum(eqsAdj) + ',"aksiyon":"' + aksiyon + '","guven":"' + guven + '","gecerliUye":' + str.tostring(gecerli) + ',"lider":"' + lider + '","liderSkor":' + f_jsonNum(liderSkor) + ',"liderGunlukPct":' + f_jsonNum(gunlukPct*100) + ',"delta1":' + f_jsonNum(d1) + ',"delta3":' + f_jsonNum(d3) + ',"ret5Pct":' + f_jsonNum(ret5*100) + ',"breadthHam":' + f_jsonNum(breadthHam) + ',"breadthYumus":' + f_jsonNum(breadthYumus) + '}'
+
+var string gunlukSinyalJson = ""
+if yeniGun
+    sektorlerJson = f_sektorJson("Banka", srsBanka, srsAdjBanka, evreBanka, eqsBanka, eqsAdjBanka, aksiyonBanka, guvenBanka, bankaGecerli, enGucluBanka, liderSkorBanka, liderGunlukBanka, delta1Banka, delta3Banka, bankaRet5, bankaBreadth, bankaBreadthAdj) + "," +
+         f_sektorJson("Holding", srsHolding, srsAdjHolding, evreHolding, eqsHolding, eqsAdjHolding, aksiyonHolding, guvenHolding, holdingGecerli, enGucluHolding, liderSkorHolding, liderGunlukHolding, delta1Holding, delta3Holding, holdingRet5, holdingBreadth, holdingBreadthAdj) + "," +
+         f_sektorJson("Savunma", srsSavunma, srsAdjSavunma, evreSavunma, eqsSavunma, eqsAdjSavunma, aksiyonSavunma, guvenSavunma, savunmaGecerli, enGucluSavunma, liderSkorSavunma, liderGunlukSavunma, delta1Savunma, delta3Savunma, savunmaRet5, savunmaBreadth, savunmaBreadthAdj) + "," +
+         f_sektorJson("Rafineri", srsRafineri, srsAdjRafineri, evreRafineri, eqsRafineri, eqsAdjRafineri, aksiyonRafineri, guvenRafineri, rafineriGecerli, enGucluRafineri, liderSkorRafineri, liderGunlukRafineri, delta1Rafineri, delta3Rafineri, rafineriRet5, rafineriBreadth, rafineriBreadthAdj) + "," +
+         f_sektorJson("EnerjiUretimi", srsEnerjiUretim, srsAdjEnerjiUretim, evreEnerjiUretim, eqsEnerjiUretim, eqsAdjEnerjiUretim, aksiyonEnerjiUretim, guvenEnerjiUretim, enerjiUretimGecerli, enGucluEnerjiUretim, liderSkorEnerjiUretim, liderGunlukEnerjiUretim, delta1EnerjiUretim, delta3EnerjiUretim, enerjiUretimRet5, enerjiUretimBreadth, enerjiUretimBreadthAdj) + "," +
+         f_sektorJson("Elektrik", srsElektrik, srsAdjElektrik, evreElektrik, eqsElektrik, eqsAdjElektrik, aksiyonElektrik, guvenElektrik, elektrikGecerli, enGucluElektrik, liderSkorElektrik, liderGunlukElektrik, delta1Elektrik, delta3Elektrik, elektrikRet5, elektrikBreadth, elektrikBreadthAdj) + "," +
+         f_sektorJson("DemirCelik", srsDemir, srsAdjDemir, evreDemir, eqsDemir, eqsAdjDemir, aksiyonDemir, guvenDemir, demirGecerli, enGucluDemir, liderSkorDemir, liderGunlukDemir, delta1Demir, delta3Demir, demirRet5, demirBreadth, demirBreadthAdj) + "," +
+         f_sektorJson("Otomotiv", srsOtomotiv, srsAdjOtomotiv, evreOtomotiv, eqsOtomotiv, eqsAdjOtomotiv, aksiyonOtomotiv, guvenOtomotiv, otomotivGecerli, enGucluOtomotiv, liderSkorOtomotiv, liderGunlukOtomotiv, delta1Otomotiv, delta3Otomotiv, otomotivRet5, otomotivBreadth, otomotivBreadthAdj) + "," +
+         f_sektorJson("Tuketim", srsTuketim, srsAdjTuketim, evreTuketim, eqsTuketim, eqsAdjTuketim, aksiyonTuketim, guvenTuketim, tuketimGecerli, enGucluTuketim, liderSkorTuketim, liderGunlukTuketim, delta1Tuketim, delta3Tuketim, tuketimRet5, tuketimBreadth, tuketimBreadthAdj) + "," +
+         f_sektorJson("Telekom", srsTelekom, srsAdjTelekom, evreTelekom, eqsTelekom, eqsAdjTelekom, aksiyonTelekom, guvenTelekom, telekomGecerli, enGucluTelekom, liderSkorTelekom, liderGunlukTelekom, delta1Telekom, delta3Telekom, telekomRet5, telekomBreadth, telekomBreadthAdj) + "," +
+         f_sektorJson("Ulastirma", srsUlastir, srsAdjUlastir, evreUlastir, eqsUlastir, eqsAdjUlastir, aksiyonUlastir, guvenUlastir, ulastirGecerli, enGucluUlastir, liderSkorUlastir, liderGunlukUlastir, delta1Ulastir, delta3Ulastir, ulastirRet5, ulastirBreadth, ulastirBreadthAdj)
+    // 14.09 DUZELTME (denetim - kesitselKapsam hatasi): srsArr, sadece
+    // "if barstate.islast" blogunda doldurulan bir GOSTERIM dizisiydi -
+    // yeniGun anindaki bar barstate.islast olmayabilir, bu durumda dizi
+    // BOS/eski kalip yanlislikla 0 donebilirdi. Artik dogrudan HAM
+    // degiskenlerden (her bar guncel) hesaplaniyor.
+    // 15.09 EKLENTI (denetim madde 6+9 - veri kalitesi alanlari):
+    // universeVersion: sektor/sembol eslemesinin son degistigi tarih -
+    // (kesitselKapsamGlobal yukarida, veri kalitesi alarmi icin zaten
+    // hesaplandi - burada tekrar hesaplamiyoruz, ayni degeri kullaniyoruz)
+    // sembol degisikligi/kota cikma gibi durumlarda hangi evrenle
+    // uretildigini izlemek icin. stateAgeDays: histerezis motorunun
+    // ISINMA TAMAMLANDIKTAN sonra kac gercek gun calistigi - "bu evre
+    // gecisi baslangic durumunun bir etkisi mi yoksa olgun bir sinyal mi"
+    // sorusuna JSON uzerinden cevap verebilmek icin (madde 9).
+    universeVersion = "2026-09-14"
+    gunlukSinyalJson := '{"tip":"IP8_GUNLUK_SEKTOR_OZET","versiyon":"0.4-P2","webhookKey":"' + (webhookAnahtari != "" ? webhookAnahtari : "yok") + '","universeVersion":"' + universeVersion + '","tarih":"' + str.format_time(time, "yyyy-MM-dd") + '","rejim":"' + marketRejim + '","breadthYumusatilmamis":' + f_jsonNum(marketBreadth) + ',"xuKapanis":' + f_jsonNum(xuC) + ',"xuGunlukGetiri":' + f_jsonNum(xuR1*100) + ',"isinmaTamamMi":' + str.tostring(isinmaTamamMi) + ',"stateAgeDays":' + str.tostring(gercekStateYasi) + ',"kesitselKapsam":' + str.tostring(kesitselKapsamGlobal) + ',"sektorler":[' + sektorlerJson + ']}'
+    // 15.09 DUZELTME (denetim madde 5C): webhookHazir=false ise (anahtar
+    // bos/kisa) alert() HIC CAGRILMIYOR - artik teknik bir engel var,
+    // sadece yorumda uyari degil.
+    if webhookHazir
+        alert(gunlukSinyalJson, alert.freq_once_per_bar_close)
+
+if barstate.islast
+    // 14.09 DUZELTME B1 (kurul denetimi - CIDDI, oncelik 0): bu populasyon
+    // blogu eskiden HESAPLAMA dizilerinden (rs5Arr vb.) FARKLI bir sektor
+    // sirasi kullaniyordu (4=Elektrik,5=Demir,...,10=EnerjiUretim). f_tanroIdx
+    // hesaplama sirasina gore duzeltilince, TANI ekraninda RS5/RS20/Momentum
+    // dogru sektorden ama SRS/gecerli-uye YANLIS sektorden okunur olmustu.
+    // Artik TEK KANONIK SIRA (hesaplama dizileriyle AYNI) kullaniliyor:
+    // 0 Banka, 1 Holding, 2 Savunma, 3 Rafineri, 4 Enerji Uretimi,
+    // 5 Elektrik Ekipmani, 6 Demir-Celik, 7 Otomotiv, 8 Sav.Tuketim,
+    // 9 Telekom, 10 Ulastirma.
+    array.set(isimArr, 0, "Banka")
+    array.set(srsArr, 0, srsBanka)
+    array.set(evreArr, 0, evreBanka)
+    array.set(topArr, 0, enGucluBanka)
+    array.set(kaliteliArr, 0, kaliteliBanka)
+    array.set(srsAdjArr, 0, srsAdjBanka)
+    array.set(liderSkorArr, 0, liderSkorBanka)
+    array.set(eqsAdjArr, 0, eqsAdjBanka)
+    array.set(eqsArr, 0, eqsBanka)
+    array.set(aksiyonArr, 0, aksiyonBanka)
+    array.set(liderGunlukArr, 0, liderGunlukBanka)
+    array.set(sektorRet5Arr, 0, bankaRet5)
+    array.set(gunSayisiArr, 0, gunBanka)
+    array.set(guvenArr, 0, guvenBanka)
+    array.set(delta1Arr, 0, delta1Banka)
+    array.set(delta3Arr, 0, delta3Banka)
+    array.set(gecerliUyeArr, 0, bankaGecerli)
+
+    array.set(isimArr, 1, "Holding")
+    array.set(srsArr, 1, srsHolding)
+    array.set(evreArr, 1, evreHolding)
+    array.set(topArr, 1, enGucluHolding)
+    array.set(kaliteliArr, 1, kaliteliHolding)
+    array.set(srsAdjArr, 1, srsAdjHolding)
+    array.set(liderSkorArr, 1, liderSkorHolding)
+    array.set(eqsAdjArr, 1, eqsAdjHolding)
+    array.set(eqsArr, 1, eqsHolding)
+    array.set(aksiyonArr, 1, aksiyonHolding)
+    array.set(liderGunlukArr, 1, liderGunlukHolding)
+    array.set(sektorRet5Arr, 1, holdingRet5)
+    array.set(gunSayisiArr, 1, gunHolding)
+    array.set(guvenArr, 1, guvenHolding)
+    array.set(delta1Arr, 1, delta1Holding)
+    array.set(delta3Arr, 1, delta3Holding)
+    array.set(gecerliUyeArr, 1, holdingGecerli)
+
+    array.set(isimArr, 2, "Savunma")
+    array.set(srsArr, 2, srsSavunma)
+    array.set(evreArr, 2, evreSavunma)
+    array.set(topArr, 2, enGucluSavunma)
+    array.set(kaliteliArr, 2, kaliteliSavunma)
+    array.set(srsAdjArr, 2, srsAdjSavunma)
+    array.set(liderSkorArr, 2, liderSkorSavunma)
+    array.set(eqsAdjArr, 2, eqsAdjSavunma)
+    array.set(eqsArr, 2, eqsSavunma)
+    array.set(aksiyonArr, 2, aksiyonSavunma)
+    array.set(liderGunlukArr, 2, liderGunlukSavunma)
+    array.set(sektorRet5Arr, 2, savunmaRet5)
+    array.set(gunSayisiArr, 2, gunSavunma)
+    array.set(guvenArr, 2, guvenSavunma)
+    array.set(delta1Arr, 2, delta1Savunma)
+    array.set(delta3Arr, 2, delta3Savunma)
+    array.set(gecerliUyeArr, 2, savunmaGecerli)
+
+    array.set(isimArr, 3, "Rafineri")
+    array.set(srsArr, 3, srsRafineri)
+    array.set(evreArr, 3, evreRafineri)
+    array.set(topArr, 3, enGucluRafineri)
+    array.set(kaliteliArr, 3, kaliteliRafineri)
+    array.set(srsAdjArr, 3, srsAdjRafineri)
+    array.set(liderSkorArr, 3, liderSkorRafineri)
+    array.set(eqsAdjArr, 3, eqsAdjRafineri)
+    array.set(eqsArr, 3, eqsRafineri)
+    array.set(aksiyonArr, 3, aksiyonRafineri)
+    array.set(liderGunlukArr, 3, liderGunlukRafineri)
+    array.set(sektorRet5Arr, 3, rafineriRet5)
+    array.set(gunSayisiArr, 3, gunRafineri)
+    array.set(guvenArr, 3, guvenRafineri)
+    array.set(delta1Arr, 3, delta1Rafineri)
+    array.set(delta3Arr, 3, delta3Rafineri)
+    array.set(gecerliUyeArr, 3, rafineriGecerli)
+
+    array.set(isimArr, 4, "Enerji Uretimi")
+    array.set(srsArr, 4, srsEnerjiUretim)
+    array.set(evreArr, 4, evreEnerjiUretim)
+    array.set(topArr, 4, enGucluEnerjiUretim)
+    array.set(kaliteliArr, 4, kaliteliEnerjiUretim)
+    array.set(srsAdjArr, 4, srsAdjEnerjiUretim)
+    array.set(liderSkorArr, 4, liderSkorEnerjiUretim)
+    array.set(eqsAdjArr, 4, eqsAdjEnerjiUretim)
+    array.set(eqsArr, 4, eqsEnerjiUretim)
+    array.set(aksiyonArr, 4, aksiyonEnerjiUretim)
+    array.set(liderGunlukArr, 4, liderGunlukEnerjiUretim)
+    array.set(sektorRet5Arr, 4, enerjiUretimRet5)
+    array.set(gunSayisiArr, 4, gunEnerjiUretim)
+    array.set(guvenArr, 4, guvenEnerjiUretim)
+    array.set(delta1Arr, 4, delta1EnerjiUretim)
+    array.set(delta3Arr, 4, delta3EnerjiUretim)
+    array.set(gecerliUyeArr, 4, enerjiUretimGecerli)
+
+    array.set(isimArr, 5, "Elektrik Ekip.")
+    array.set(srsArr, 5, srsElektrik)
+    array.set(evreArr, 5, evreElektrik)
+    array.set(topArr, 5, enGucluElektrik)
+    array.set(kaliteliArr, 5, kaliteliElektrik)
+    array.set(srsAdjArr, 5, srsAdjElektrik)
+    array.set(liderSkorArr, 5, liderSkorElektrik)
+    array.set(eqsAdjArr, 5, eqsAdjElektrik)
+    array.set(eqsArr, 5, eqsElektrik)
+    array.set(aksiyonArr, 5, aksiyonElektrik)
+    array.set(liderGunlukArr, 5, liderGunlukElektrik)
+    array.set(sektorRet5Arr, 5, elektrikRet5)
+    array.set(gunSayisiArr, 5, gunElektrik)
+    array.set(guvenArr, 5, guvenElektrik)
+    array.set(delta1Arr, 5, delta1Elektrik)
+    array.set(delta3Arr, 5, delta3Elektrik)
+    array.set(gecerliUyeArr, 5, elektrikGecerli)
+
+    array.set(isimArr, 6, "Demir-Celik")
+    array.set(srsArr, 6, srsDemir)
+    array.set(evreArr, 6, evreDemir)
+    array.set(topArr, 6, enGucluDemir)
+    array.set(kaliteliArr, 6, kaliteliDemir)
+    array.set(srsAdjArr, 6, srsAdjDemir)
+    array.set(liderSkorArr, 6, liderSkorDemir)
+    array.set(eqsAdjArr, 6, eqsAdjDemir)
+    array.set(eqsArr, 6, eqsDemir)
+    array.set(aksiyonArr, 6, aksiyonDemir)
+    array.set(liderGunlukArr, 6, liderGunlukDemir)
+    array.set(sektorRet5Arr, 6, demirRet5)
+    array.set(gunSayisiArr, 6, gunDemir)
+    array.set(guvenArr, 6, guvenDemir)
+    array.set(delta1Arr, 6, delta1Demir)
+    array.set(delta3Arr, 6, delta3Demir)
+    array.set(gecerliUyeArr, 6, demirGecerli)
+
+    array.set(isimArr, 7, "Otomotiv")
+    array.set(srsArr, 7, srsOtomotiv)
+    array.set(evreArr, 7, evreOtomotiv)
+    array.set(topArr, 7, enGucluOtomotiv)
+    array.set(kaliteliArr, 7, kaliteliOtomotiv)
+    array.set(srsAdjArr, 7, srsAdjOtomotiv)
+    array.set(liderSkorArr, 7, liderSkorOtomotiv)
+    array.set(eqsAdjArr, 7, eqsAdjOtomotiv)
+    array.set(eqsArr, 7, eqsOtomotiv)
+    array.set(aksiyonArr, 7, aksiyonOtomotiv)
+    array.set(liderGunlukArr, 7, liderGunlukOtomotiv)
+    array.set(sektorRet5Arr, 7, otomotivRet5)
+    array.set(gunSayisiArr, 7, gunOtomotiv)
+    array.set(guvenArr, 7, guvenOtomotiv)
+    array.set(delta1Arr, 7, delta1Otomotiv)
+    array.set(delta3Arr, 7, delta3Otomotiv)
+    array.set(gecerliUyeArr, 7, otomotivGecerli)
+
+    array.set(isimArr, 8, "Sav. Tuketim")
+    array.set(srsArr, 8, srsTuketim)
+    array.set(evreArr, 8, evreTuketim)
+    array.set(topArr, 8, enGucluTuketim)
+    array.set(kaliteliArr, 8, kaliteliTuketim)
+    array.set(srsAdjArr, 8, srsAdjTuketim)
+    array.set(liderSkorArr, 8, liderSkorTuketim)
+    array.set(eqsAdjArr, 8, eqsAdjTuketim)
+    array.set(eqsArr, 8, eqsTuketim)
+    array.set(aksiyonArr, 8, aksiyonTuketim)
+    array.set(liderGunlukArr, 8, liderGunlukTuketim)
+    array.set(sektorRet5Arr, 8, tuketimRet5)
+    array.set(gunSayisiArr, 8, gunTuketim)
+    array.set(guvenArr, 8, guvenTuketim)
+    array.set(delta1Arr, 8, delta1Tuketim)
+    array.set(delta3Arr, 8, delta3Tuketim)
+    array.set(gecerliUyeArr, 8, tuketimGecerli)
+
+    array.set(isimArr, 9, "Telekom")
+    array.set(srsArr, 9, srsTelekom)
+    array.set(evreArr, 9, evreTelekom)
+    array.set(topArr, 9, enGucluTelekom)
+    array.set(kaliteliArr, 9, kaliteliTelekom)
+    array.set(srsAdjArr, 9, srsAdjTelekom)
+    array.set(liderSkorArr, 9, liderSkorTelekom)
+    array.set(eqsAdjArr, 9, eqsAdjTelekom)
+    array.set(eqsArr, 9, eqsTelekom)
+    array.set(aksiyonArr, 9, aksiyonTelekom)
+    array.set(liderGunlukArr, 9, liderGunlukTelekom)
+    array.set(sektorRet5Arr, 9, telekomRet5)
+    array.set(gunSayisiArr, 9, gunTelekom)
+    array.set(guvenArr, 9, guvenTelekom)
+    array.set(delta1Arr, 9, delta1Telekom)
+    array.set(delta3Arr, 9, delta3Telekom)
+    array.set(gecerliUyeArr, 9, telekomGecerli)
+
+    array.set(isimArr, 10, "Ulastirma")
+    array.set(srsArr, 10, srsUlastir)
+    array.set(evreArr, 10, evreUlastir)
+    array.set(topArr, 10, enGucluUlastir)
+    array.set(kaliteliArr, 10, kaliteliUlastir)
+    array.set(srsAdjArr, 10, srsAdjUlastir)
+    array.set(liderSkorArr, 10, liderSkorUlastir)
+    array.set(eqsAdjArr, 10, eqsAdjUlastir)
+    array.set(eqsArr, 10, eqsUlastir)
+    array.set(aksiyonArr, 10, aksiyonUlastir)
+    array.set(liderGunlukArr, 10, liderGunlukUlastir)
+    array.set(sektorRet5Arr, 10, ulastirRet5)
+    array.set(gunSayisiArr, 10, gunUlastir)
+    array.set(guvenArr, 10, guvenUlastir)
+    array.set(delta1Arr, 10, delta1Ulastir)
+    array.set(delta3Arr, 10, delta3Ulastir)
+    array.set(gecerliUyeArr, 10, ulastirGecerli)
+
+var table srsTable = table.new(position.top_right, 6, 3, border_width=1)
+
+if barstate.islast
+    // 17.09: webhookHazir artik hep true (anahtar sarti kaldirildi),
+    // bu satir fiilen hep "" donuyor - kod DEGISTIRILMEDI (baska
+    // yerde de webhookHazir kullanildigi icin degisken duruyor),
+    // sadece artik hicbir zaman uyari GOSTERMIYOR.
+    webhookUyariEki = webhookHazir ? "" : " | ⚠ WEBHOOK ANAHTARI EKSIK"
+    baslikMetni = zamanDilimiUyari ? "⚠ UYARI: Bu gosterge 1G ve alti zaman dilimleri icin tasarlandi - haftalik/aylik grafikte guvenilir degil" : not isinmaTamamMi ? "⏳ ISINMA SURECI (" + str.tostring(gecenGercekGun) + "/65 gun) - evre/gun sayaci HENUZ TAM GUVENILIR DEGIL" : "REJIM: " + marketRejim + " (5G Breadth " + str.tostring(marketBreadth, "#.#") + ") | VERI: CONFIRMED D-1" + webhookUyariEki
+    baslikBg = zamanDilimiUyari ? color.new(color.red, 20) : not isinmaTamamMi ? color.new(color.orange, 30) : not webhookHazir ? color.new(color.red, 40) : f_rejimBg(marketRejim)
+    table.cell(srsTable, 0, 0, baslikMetni, bgcolor=baslikBg, text_size=size.small)
+    table.merge_cells(srsTable, 0, 0, 5, 0)
+
+    // 14.09 DUZELTME (kurul denetimi madde A): siralama artik HAM SRS
+    // yerine GUVEN-AYARLI SRS_adj'e gore yapiliyor - karar motoru zaten
+    // srsAdj kullaniyordu, ekran tutarlilik icin ayni olcuyu esas almali.
+    srsSirali = array.new_float(11)
+    for i = 0 to 10
+        v = array.get(srsAdjArr, i)
+        array.set(srsSirali, i, na(v) ? -999.0 : v)
+    sortedIdx = array.sort_indices(srsSirali, order.descending)
+
+    for k = 0 to 10
+        origIdx = array.get(sortedIdx, k)
+        deger = array.get(srsArr, origIdx)
+        degerAdj = array.get(srsAdjArr, origIdx)
+        isim = array.get(isimArr, origIdx)
+        evreV = array.get(evreArr, origIdx)
+        topV = array.get(topArr, origIdx)
+        gunlukV = array.get(liderGunlukArr, origIdx)
+        liderSkorV = array.get(liderSkorArr, origIdx)
+        sektorRet5V = array.get(sektorRet5Arr, origIdx)
+        gunSayisiV = array.get(gunSayisiArr, origIdx)
+        bgc = f_evreBg(evreV)
+        col = k % 6
+        rowN = int(k / 6) + 1
+        guvenV = array.get(guvenArr, origIdx)
+        d1V = array.get(delta1Arr, origIdx)
+        okV = f_egimOku(d1V)
+        // 14.09 DUZELTME (kurul denetimi madde A): ham SRS yaninda
+        // guven-ayarli SRS_adj de gosteriliyor - karar SRS_adj'e dayandigi
+        // icin kullanici "neden GIR degil" sorusunu artik cevaplayabilir.
+        satir2 = na(deger) ? "VERI YETERSIZ" : str.tostring(deger, "#.##") + "→" + str.tostring(degerAdj, "#.#") + okV + " " + evreV + " " + str.tostring(gunSayisiV) + "g [" + guvenV + "]"
+        kaliteliV = array.get(kaliteliArr, origIdx)
+        // 14.09 DUZELTME (kurul denetimi madde G): lider skoru ayrica
+        // gosteriliyor - eskiden yildiz/isim/gunluk-getiri UC FARKLI kavram
+        // tek satirda karisiyordu (kalite esigi / kimlik / D-1 getiri).
+        satir3 = topV == "LIDER YOK" ? "LIDER YOK" : (kaliteliV ? "★" : "") + topV + " " + str.tostring(liderSkorV, "#.#") + " | " + str.tostring(gunlukV*100, "#.##") + "%"
+        eqsV = array.get(eqsArr, origIdx)
+        eqsAdjV = array.get(eqsAdjArr, origIdx)
+        aksiyonV = array.get(aksiyonArr, origIdx)
+        // 14.09 DUZELTME (denetim): EQS artik ham->ayarli formatinda -
+        // karar mantigi ayarli skoru kullaniyor, ekran bunu SAKLAMIYOR.
+        satir4 = "EQS " + (na(eqsV) ? "-" : str.tostring(eqsV, "#.#") + "→" + str.tostring(eqsAdjV, "#.#")) + " | " + aksiyonV
+        hucreMetni = isim + " 5G " + str.tostring(sektorRet5V*100, "#.##") + "%\n" + satir2 + "\n" + satir3 + "\n" + satir4
+        table.cell(srsTable, col, rowN, hucreMetni, bgcolor=bgc, text_size=size.small)
+
+// ============================================================
+// TANI MODU - secilen sektorun tum bilesenlerini elle dogrulama icin acar
+// ============================================================
+tanroModuAc = input.bool(false, "Tani Modu Ac")
+tanroSektor = input.string("Banka", "Tani - Sektor Sec", options=["Banka","Holding","Savunma","Rafineri","Enerji Uretimi","Elektrik Ekip.","Demir-Celik","Otomotiv","Sav. Tuketim","Telekom","Ulastirma"])
+
+// 14.09 DUZELTME A1 (kurul denetimi madde 11): f_tanroIdx "Enerji Uretimi"yi
+// hic tanimlamiyordu ve sonraki tum indeksler bir kaymisti (Elektrik Ekip.
+// aslinda Enerji Uretimi'ni gosteriyordu vb.). Dizinin gercek sirasina
+// (0=Banka,1=Holding,2=Savunma,3=Rafineri,4=EnerjiUretim,5=Elektrik,
+// 6=Demir,7=Otomotiv,8=Tuketim,9=Telekom,10=Ulastirma) gore duzeltildi.
+f_tanroIdx(isim) =>
+    isim == "Banka" ? 0 : isim == "Holding" ? 1 : isim == "Savunma" ? 2 : isim == "Rafineri" ? 3 : isim == "Enerji Uretimi" ? 4 : isim == "Elektrik Ekip." ? 5 : isim == "Demir-Celik" ? 6 : isim == "Otomotiv" ? 7 : isim == "Sav. Tuketim" ? 8 : isim == "Telekom" ? 9 : 10
+
+// 14.09 EKLENTI C3: Tani panelini renklendiriyoruz - katkilar
+// pozitif/negatife gore yesil/kirmizi, SRS seviyeye gore, guven kendi
+// seviyesine gore renkleniyor. Sadece rakam degil, RENK de anlam tasisin.
+// NOT: Pine'da fonksiyon tanimlari sadece GLOBAL kapsamda yapilabilir -
+// bunlar onceden yanlislikla "if" blogunun icinde tanimlanmisti (syntax
+// hatasi verdi), disariya tasindi.
+f_signBg(x) => na(x) ? color.new(color.gray, 80) : x > 0 ? color.new(color.green, 65) : x < 0 ? color.new(color.red, 65) : color.new(color.gray, 80)
+f_srsBg2(s) => na(s) ? color.new(color.gray, 80) : s >= 60 ? color.new(color.green, 55) : s <= 40 ? color.new(color.red, 55) : color.new(color.orange, 70)
+f_guvenBg(g) => g == "YUKSEK" ? color.new(color.green, 55) : g == "ORTA" ? color.new(color.orange, 60) : g == "DUSUK" ? color.new(color.red, 60) : color.new(color.red, 30)
+
+if tanroModuAc and barstate.islast
+    tIdx = f_tanroIdx(tanroSektor)
+    tRS5 = array.get(rs5Arr, tIdx)
+    tRS20 = array.get(rs20Arr, tIdx)
+    tMom = array.get(momArr, tIdx)
+    tBreadth = array.get(breadthArr, tIdx)
+    tVF = array.get(vfArr, tIdx)
+    tZ1 = f_crossZ(rs5Arr, tIdx)
+    tZ2 = f_crossZ(rs20Arr, tIdx)
+    tZ3 = f_crossZ(momArr, tIdx)
+    tZ4 = f_crossZ(breadthArr, tIdx)
+    tZ5 = f_crossZ(vfArr, tIdx)
+    tK1 = w_rs5*tZ1*15
+    tK2 = w_rs20*tZ2*15
+    tK3 = w_mom*tZ3*15
+    tK4 = w_bre*tZ4*15
+    tK5 = w_vol*tZ5*15
+    tSRS = array.get(srsArr, tIdx)
+    tSRSAdj = array.get(srsAdjArr, tIdx)
+    tGecerli = array.get(gecerliUyeArr, tIdx)
+    // 14.09 EKLENTI (kurul denetimi bolum 6): kesitsel kapsam - kac
+    // sektorun BUGUN gecerli SRS'si var (cnt<8 esigi calisiyorsa bu 11'den
+    // az olabilir, kullanici bunu simdi gorebiliyor).
+    kesitselKapsam = f_validCount(array.from(srsBanka, srsHolding, srsSavunma, srsRafineri, srsEnerjiUretim, srsElektrik, srsDemir, srsOtomotiv, srsTuketim, srsTelekom, srsUlastir))
+    tDelta1 = array.get(delta1Arr, tIdx)
+    tDelta3 = array.get(delta3Arr, tIdx)
+    tGuven = array.get(guvenArr, tIdx)
+
+    // 14.09 DUZELTME B3 (yerlesim): TANI tablosu once bottom_right'taydi,
+    // ana sektor tablosuyla (top_right) ayni bolgede cakisiyordu. Uzak bir
+    // koseye (middle_left) tasindi.
+    // 14.09 DUZELTME B4: 15 satir x 2 sutundan (asiri uzun) 5 satir x 3
+    // sutuna (6 gercek sutun) gecildi - ana tabloyla ayni kompakt mantik.
+    tLabelArr = array.from("RS5 (ham)","RS20 (ham)","Momentum (ham)","Breadth(yumus.%)","VolumeFlow","Z(RS5)/katki","Z(RS20)/katki","Z(Mom)/katki","Z(Br)+Z(VF)","SRS ham→adj","Delta1(d)","Delta3(3g)","Guven","Gecerli uye","Kesitsel kapsam")
+    tValArr = array.from(str.tostring(tRS5,"#.##"), str.tostring(tRS20,"#.##"), str.tostring(tMom,"#.##"), str.tostring(tBreadth,"#.##"), str.tostring(tVF,"#.##"), str.tostring(tZ1,"#.#")+"/"+str.tostring(tK1,"#.#"), str.tostring(tZ2,"#.#")+"/"+str.tostring(tK2,"#.#"), str.tostring(tZ3,"#.#")+"/"+str.tostring(tK3,"#.#"), str.tostring(tK4+tK5,"#.##"), str.tostring(tSRS,"#.##")+"→"+str.tostring(tSRSAdj,"#.#"), str.tostring(tDelta1,"#.##"), str.tostring(tDelta3,"#.##"), tGuven, str.tostring(tGecerli)+" uye", str.tostring(kesitselKapsam)+"/11 sektor")
+    tBgArr = array.from(f_signBg(tRS5), f_signBg(tRS20), f_signBg(tMom), f_signBg(tBreadth-50), f_signBg(tVF), f_signBg(tK1), f_signBg(tK2), f_signBg(tK3), f_signBg(tK4+tK5), f_srsBg2(tSRSAdj), f_signBg(tDelta1), f_signBg(tDelta3), f_guvenBg(tGuven), color.new(color.gray,80), color.new(color.gray,80))
+
+    // 14.09 DUZELTME B5: 6 sutundan (3 cift, tiny yazi) 4 sutuna (2 cift,
+    // small yazi) gecildi - daha az yer kaplayan degil, daha OKUNAKLI
+    // olmasi icin (kullanici talebi: "buyuk karakter").
+    var table tanroTable = table.new(position.middle_left, 8, 4, border_width=1)
+    for k = 0 to 14
+        tRow = int(k / 4)
+        realCol = (k % 4) * 2
+        table.cell(tanroTable, realCol, tRow, array.get(tLabelArr, k), text_size=size.small)
+        table.cell(tanroTable, realCol+1, tRow, array.get(tValArr, k), bgcolor=array.get(tBgArr, k), text_size=size.small)
+
+// ============================================================
+// KABUL TESTLERI (elle dogrulama rehberi - bu script'i degistirmez)
+// 1. Ayni tarihte 15dk/1sa/1G grafikte CONFIRMED SRS/evre/lider/rejim
+//    BIREBIR AYNI olmali - cunku tum hesap artik request.security() icinde
+//    gunluk baglamda yapiliyor, grafigin kendi zaman dilimi etkilemiyor.
+//    ISTISNA (14.09 kurul denetimi madde 15): "kac gundur bu evrede" SAYACI
+//    bu garantiye dahil DEGIL - state degiskenleri grafigin yukledigi ilk
+//    bardan basliyor, ve 15dk/1sa/1G grafiklerin yukledigi tarihsel derinlik
+//    farkli olabilir. SRS/evre/lider/rejim DEGERLERI ayni cikmali, ama gun
+//    sayaci farkli baslangic noktalarindan sayiyor olabilir - bu bilinen bir
+//    sinirlama, Faz 0.3B'de (sabit baslangic tarihi veya dogrudan gunluk
+//    seriden hesaplama ile) duzeltilmesi planlaniyor.
+//    Dogrulama: script'i uc farkli zaman diliminde ac, TANI MODU degerlerini
+//    karsilastir.
+// 2. RS5 - en az iki sektor icin, TradingView'in kendi gunluk grafiginde son
+//    5 tamamlanmis gunun kapanislarini elle hesaplayip karsilastir.
+// 3. XU100 EMA20/50 - gunluk XU100 grafiginde native EMA(20)/EMA(50)
+//    ekleyip TANI MODU disindaki degerle (xuEMA20/xuEMA50, kod icinde) elle
+//    karsilastir.
+// 4. Evre gun sayaci - islem gunu icinde (kac 15dk bar geçerse gecsin)
+//    sadece BIR KEZ artmali. Dogrulama: gun ici birkac an kontrol et, ayni
+//    kalmali; ertesi gun 1 artmali.
+// 5. Histerezis - ham evre bir gun degisip ertesi gun eski haline donerse,
+//    ONAYLI evre DEGISMEMELI (2 tamamlanmis gun ust uste gerekiyor).
+// 6. Market breadth - 33 uyenin ayri ayri pozitif/negatif sayimiyla elle
+//    karsilastir (sektor ortalamalarinin ortalamasi DEGIL).
+// 7. Bir uyede veri gelmezse (na) - sektorun geri kalan uyeleriyle hesaba
+//    devam ettigini, gecerli-uye-sayisi dusmesine ragmen sektorun "VERI
+//    YETERSIZ" olmadigini (esik altina dusmedigi surece) dogrula.
+// 8. TANI MODU'nda 5 katkinin toplaminin (50 + toplam) gosterilen nihai
+//    SRS'yi urettigini kontrol et.
+// 9. Security cagri sayisi: 34 (33 hisse + XU100) - Pine limitinin altinda.
+// 10. Sayfa yenilemesinde (F5) gecmis CONFIRMED barlardaki evre/SRS
+//     degerlerinin degismedigini gozle kontrol et (repaint yok).
+// ============================================================
+
