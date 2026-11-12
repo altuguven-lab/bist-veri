@@ -58,7 +58,10 @@ jobs:
           git diff --cached --quiet && { echo "değişiklik yok"; exit 0; }
           git commit -m "VIOP hisse vadeli özeti [skip ci]"
           for i in 1 2 3 4 5; do
-            git pull --rebase origin main && git push && exit 0
+            # 12.11: rebase catismasi (11.11 17:42 kosumu boyle dustu) -> yarim rebase'i birak, bu kosumun
+            # urettigi dosyalar kazansin (-X theirs: rebase'de "theirs" = yeniden oynatilan yerel commit)
+            git pull --rebase -X theirs origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 8 + 3))
           done
           exit 1
