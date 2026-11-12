@@ -218,6 +218,15 @@ def main():
             ("data/alarm_karne.json", "ALARM KARNESI", "uretim_utc", 80, "alarm_karne.yml calismiyor olabilir."),
             ("data/viop_hisse_gunluk.json", "VIOP", None, 120, "viop_hisse.yml yeni bulten ekleyemiyor olabilir."),
         ]
+        # 12.11 (Denetim 2.6/2.7): IP-8 ve V195 gunluk kayitlari. IP-8 kaydi iki ay boyunca hic gelmedi ve
+        # arsiv is akisi yesil kaldigi icin fark edilmedi. Kurulum payi: 17.11.2026'dan once denetlenmez.
+        if simdi.strftime("%Y-%m-%d") >= "2026-11-17":
+            ek_kanallar += [
+                ("data/ip8_sinyal_latest.json", "IP-8 GUNLUK OZET", "son_guncelleme_utc", 80,
+                 "IP-8 alarmi (alert() cagrisi) ya da Pipedream IP-8 is akisi calismiyor olabilir."),
+                ("data/v195_radar_latest.json", "V195 GUNLUK RADAR", "son_guncelleme_utc", 80,
+                 "V195 alarmi (alert() cagrisi) ya da Pipedream IP-8 is akisi calismiyor olabilir."),
+            ]
         for yol, kanal, alan, esik_saat, aciklama in ek_kanallar:
             d = oku(yol)
             if "_okuma_hatasi" in d:
