@@ -1583,5 +1583,28 @@ macroShiftConfirmed = barstate.isconfirmed and macroTxtConfirmed != "NO DATA" an
 alertcondition(bestRadarBuyEvent, title="V195 RADAR BUY CONFIRMED", message="signal=V195_RADAR_BUY_CONFIRMED")
 alertcondition(sectorShiftConfirmed, title="V195 SECTOR SHIFT CONFIRMED", message="signal=V195_SECTOR_SHIFT_CONFIRMED")
 alertcondition(macroShiftConfirmed, title="V195 MACRO SHIFT CONFIRMED", message="signal=V195_MACRO_SHIFT_CONFIRMED")
+// ============================================================
+// V195.1 (12.11.2026, Denetim 2.7) - GUNLUK RADAR KAYDI
+// SALT KAYIT: hicbir hesaba, panele ya da mevcut alertcondition'a DOKUNMAZ.
+// Gunun son seans bari kapaninca (GUNLUK_OZET ile ayni an) 30 hissenin radar
+// sirasini, kararini ve puanlarini TEK bir JSON olarak alert() ile gonderir.
+// Kurulum: bu gostergede TEK alarm - Kosul "Herhangi bir alert() fonksiyonu
+// cagrisi", web kancasi IP-8 is akisinin adresi (kopru v2 "V195_GUNLUK_RADAR"
+// tipini data/v195_radar_latest.json dosyasina yazar).
+// Alanlar: s=hisse, sr=radar sirasi (1=en ust), k=karar, p=skor, t=islem
+// uygunluk skoru, rs=goreli guc, smc=smart money, rj=red sayaci, wr=kazanma
+// orani sayaci, h=kurumsal akis/hacim anomalisi (1/0), f=baskin faktor.
+// Amac: radar sirasinin sonraki gunlerdeki getiriyle iliskisini ON KAYITLI
+// bir testle olcebilmek. Bu kayit bir sinyal ya da tavsiye DEGILDIR.
+// ============================================================
+f_jn(x) => na(x) ? "null" : str.tostring(x, "#.##")
+if session.islastbar_regular and barstate.isconfirmed
+    string _rr = ""
+    for _j = 0 to 29
+        _ix = array.get(sortedIdx, _j)
+        _dk = array.get(radarDec, _ix)
+        _df = array.get(radarDomFactor, _ix)
+        _rr := _rr + (_j == 0 ? "" : ",") + '{"s":"' + f_name(array.get(radarSym, _ix)) + '","sr":' + str.tostring(_j + 1) + ',"k":"' + (na(_dk) ? "?" : _dk) + '","p":' + f_jn(array.get(radarScore, _ix)) + ',"t":' + f_jn(array.get(radarTrade, _ix)) + ',"rs":' + f_jn(array.get(radarRs, _ix)) + ',"smc":' + f_jn(array.get(radarSmc, _ix)) + ',"rj":' + f_jn(array.get(radarRj, _ix)) + ',"wr":' + f_jn(array.get(radarWR, _ix)) + ',"h":' + (array.get(radarHot, _ix) ? "1" : "0") + ',"f":"' + (na(_df) ? "?" : _df) + '"}'
+    alert('{"tip":"V195_GUNLUK_RADAR","versiyon":"195.1","tarih":"' + str.format_time(time, "yyyy-MM-dd", "Europe/Istanbul") + '","interval":"' + timeframe.period + '","grafik":"' + syminfo.ticker + '","makro":"' + macroTxt + '","makroRisk":' + f_jn(macroRisk) + ',"piyasa":"' + marketShort + '","piyasaSkor":' + f_jn(marketScore) + ',"topSektor":"' + topSec + '","buy":' + str.tostring(buyCnt) + ',"watch":' + str.tostring(watchCnt) + ',"prep":' + str.tostring(prepCnt) + ',"hot":' + str.tostring(hotCount) + ',"avgSmc":' + f_jn(avgSmc) + ',"radar":[' + _rr + ']}', alert.freq_once_per_bar_close)
 plot(sc01, "Radar Base", display=display.none)
 
