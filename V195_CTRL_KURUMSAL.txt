@@ -1,0 +1,1587 @@
+//@version=5
+indicator("V195 CTRL KURUMSAL", shorttitle="V195 CTRL", overlay=true, max_bars_back=300, dynamic_requests=true)
+idxSym   = input.symbol("BIST:XU100", "Benchmark", display=display.none)
+panelPos = input.string("BOTTOM_LEFT", "Panel Konumu", options=["TOP_LEFT", "TOP_RIGHT", "BOTTOM_LEFT", "BOTTOM_RIGHT", "MIDDLE_RIGHT"], group="Gorunum")
+displayMode = input.string("FULL", "Goruntu Modu", options=["COMPACT", "FULL"], group="Gorunum")
+isFullMode = displayMode == "FULL"
+radarN   = input.int(30, "Radar Sembol Sayisi", minval=3, maxval=30, group="Gorunum")
+showRadar = input.bool(true, "Show Radar", display=display.none)
+showMacro = input.bool(true, "Show Macro", display=display.none)
+showPort  = false
+s01 = input.symbol("BIST:AKBNK", "R01", display=display.none)
+s02 = input.symbol("BIST:YKBNK", "R02", display=display.none)
+s03 = input.symbol("BIST:GARAN", "R03", display=display.none)
+s04 = input.symbol("BIST:ISCTR", "R04", display=display.none)
+s05 = input.symbol("BIST:SAHOL", "R05", display=display.none)
+s06 = input.symbol("BIST:KCHOL", "R06", display=display.none)
+s07 = input.symbol("BIST:THYAO", "R07", display=display.none)
+s08 = input.symbol("BIST:TAVHL", "R08", display=display.none)
+s09 = input.symbol("BIST:EREGL", "R09", display=display.none)
+s10 = input.symbol("BIST:ASELS", "R10", display=display.none)
+s11 = input.symbol("BIST:ASTOR", "R11", display=display.none)
+s12 = input.symbol("BIST:MGROS", "R12", display=display.none)
+s13 = input.symbol("BIST:BIMAS", "R13", display=display.none)
+s14 = input.symbol("BIST:TUPRS", "R14", display=display.none)
+s15 = input.symbol("BIST:TOASO", "R15", display=display.none)
+s16 = input.symbol("BIST:FROTO", "R16", display=display.none)
+s17 = input.symbol("BIST:ENKAI", "R17", display=display.none)
+s18 = input.symbol("BIST:TTKOM", "R18", display=display.none)
+s19 = input.symbol("BIST:AEFES", "R19", display=display.none)
+s20 = input.symbol("BIST:PGSUS", "R20", display=display.none)
+s21 = input.symbol("BIST:HALKB", "R21", display=display.none)
+s22 = input.symbol("BIST:VAKBN", "R22", display=display.none)
+s23 = input.symbol("BIST:OTKAR", "R23", display=display.none)
+s24 = input.symbol("BIST:PETKM", "R24", display=display.none)
+s25 = input.symbol("BIST:SISE",  "R25", display=display.none)
+s26 = input.symbol("BIST:EKGYO", "R26", display=display.none)
+s27 = input.symbol("BIST:TRMET", "R27", display=display.none)
+s28 = input.symbol("BIST:ALARK", "R28", display=display.none)
+s29 = input.symbol("BIST:ENJSA", "R29", display=display.none)
+s30 = input.symbol("BIST:ULKER", "R30", display=display.none)
+f_clamp(x, lo, hi) => math.max(lo, math.min(hi, x))
+// === V195 PATCH: confirmed / shadow helpers ===
+f_confirmed_float(_x) => barstate.isconfirmed ? _x : _x[1]
+f_confirmed_int(_x) => barstate.isconfirmed ? _x : _x[1]
+f_confirmed_string(_x) => barstate.isconfirmed ? _x : _x[1]
+f_trade_relvol_score(_rv) => _rv >= 2.50 ? 100.0 : _rv >= 1.80 ? 80.0 : _rv >= 1.30 ? 60.0 : _rv >= 0.90 ? 35.0 : _rv >= 0.70 ? 15.0 : 0.0
+f_tradeability_shadow(score, kgs, leader, rv, smc, rs, dec, extRs, extRv) =>
+    _extended = rs > extRs and rv > extRv
+    _base = score * 0.35 + kgs * 0.25 + leader * 0.20 + smc * 0.15 + f_trade_relvol_score(rv) * 0.05
+    _penalty = _extended ? 18.0 : dec == "AVOID" ? 20.0 : dec == "PREP" ? 8.0 : 0.0
+    int(f_clamp(math.round(_base - _penalty), 0, 100))
+f_pos(p) =>
+    p == "TOP_LEFT" ? position.top_left :
+     p == "TOP_RIGHT" ? position.top_right :
+     p == "BOTTOM_LEFT" ? position.bottom_left :
+     p == "MIDDLE_RIGHT" ? position.middle_right : position.bottom_right
+f_name(sym) =>
+    a = str.split(sym, ":")
+    array.size(a) > 1 ? array.get(a, 1) : sym
+f_sector(sym) =>
+    n = f_name(sym)
+    str.contains(n, "AKBNK") or str.contains(n, "YKBNK") or str.contains(n, "GARAN") or str.contains(n, "ISCTR") or str.contains(n, "HALKB") or str.contains(n, "VAKBN") ? "BANK" :
+     str.contains(n, "SAHOL") or str.contains(n, "KCHOL") or str.contains(n, "ENKAI") or str.contains(n, "ALARK") ? "HOLD" :
+     str.contains(n, "THYAO") or str.contains(n, "TAVHL") or str.contains(n, "PGSUS") ? "AIR" :
+     str.contains(n, "MGROS") or str.contains(n, "BIMAS") or str.contains(n, "ULKER") ? "RET" :
+     str.contains(n, "ASTOR") or str.contains(n, "TUPRS") or str.contains(n, "PETKM") or str.contains(n, "ENJSA") ? "ENR" :
+     str.contains(n, "EREGL") or str.contains(n, "TOASO") or str.contains(n, "FROTO") or str.contains(n, "SISE") ? "IND" :
+     str.contains(n, "ASELS") or str.contains(n, "OTKAR") or str.contains(n, "TRMET") ? "DEF" :
+     str.contains(n, "TTKOM") ? "TEL" :
+     str.contains(n, "AEFES") ? "FOD" :
+     str.contains(n, "EKGYO") ? "GYO" : "GEN"
+f_grade(score) =>
+    score >= 80 ? "A+" : score >= 68 ? "A" : score >= 55 ? "B" : score >= 40 ? "C" : "D"
+grpThresh = "Karar Esikleri (Ince Ayar)"
+thBuyScore = input.int(68, "BUY: Min Skor", minval=0, maxval=100, group=grpThresh, display=display.none)
+thBuyKgs = input.int(58, "BUY: Min KGS", minval=0, maxval=100, group=grpThresh, display=display.none)
+thBuyLeader = input.int(52, "BUY: Min Lider", minval=0, maxval=100, group=grpThresh, display=display.none)
+thBuyRelVol = input.float(0.75, "BUY: Min RelVol", minval=0.0, maxval=5.0, step=0.05, group=grpThresh, display=display.none)
+thBuySmc = input.int(45, "BUY: Min SMC", minval=0, maxval=100, group=grpThresh, display=display.none)
+thWatchScore = input.int(55, "WATCH: Min Skor", minval=0, maxval=100, group=grpThresh, display=display.none)
+thWatchKgs = input.int(48, "WATCH: Min KGS", minval=0, maxval=100, group=grpThresh, display=display.none)
+thWatchLeader = input.int(45, "WATCH: Min Lider (VEYA)", minval=0, maxval=100, group=grpThresh, display=display.none)
+thWatchSmc = input.int(55, "WATCH: Min SMC (VEYA)", minval=0, maxval=100, group=grpThresh, display=display.none)
+thPrepScore = input.int(42, "PREP: Min Skor", minval=0, maxval=100, group=grpThresh, display=display.none)
+thPrepKgs = input.int(45, "PREP: Min KGS (VE SMC ile)", minval=0, maxval=100, group=grpThresh, display=display.none)
+thPrepSmc = input.int(40, "PREP: Min SMC (VE KGS ile)", minval=0, maxval=100, group=grpThresh, display=display.none)
+// LOOP PATCH 3 (P1 - FOMO/gec giris riski): RADAR'da hicbir uzama/limit-up/patlama
+// filtresi YOKTU - "EN GUCLU" olarak one cikan sembol asiri uzanmis/tukenmis bir
+// hisse OLABILIRDI. Yeni parametre "rs" (radarRs, XU100'e karsi 10-bar GERCEK fiyat
+// gucu) zaten baska yerde hesaplaniydi - burada TEKRAR hesaplanmiyor, sadece parametre
+// olarak aliniyor.
+extremeRs = input.float(7.0, "Asiri Uzama: RS10 Esigi", minval=2.0, maxval=20.0, group="Gec Giris / FOMO Filtresi")
+extremeRv = input.float(3.0, "Asiri Uzama: Relatif Hacim Esigi", minval=1.5, maxval=6.0, group="Gec Giris / FOMO Filtresi")
+f_decision(score, kgs, leader, rv, smc, inst, rs) =>
+    _extended = rs > extremeRs and rv > extremeRv
+    score >= thBuyScore and kgs >= thBuyKgs and leader >= thBuyLeader and rv >= thBuyRelVol and smc >= thBuySmc and not _extended ? "BUY" :
+     score >= thBuyScore and kgs >= thBuyKgs and leader >= thBuyLeader and rv >= thBuyRelVol and smc >= thBuySmc and _extended ? "WATCH" :
+     score >= thWatchScore and kgs >= thWatchKgs and (leader >= thWatchLeader or smc >= thWatchSmc or inst) ? "WATCH" :
+     score >= thPrepScore or (kgs >= thPrepKgs and smc >= thPrepSmc) ? "PREP" : "AVOID"
+f_decision_txt(dec) => dec
+// PATCH 2 (kullanici onerisi, dogrulanmis): GUC (skor/kgs/lider) ile ISLEM UYGUNLUGU
+// (guc + gec-giris DEGIL + karar AVOID/PREP degil) ayrimini olcer. extremeRs/extremeRv
+// zaten mevcuttu (FOMO filtresi patch'i) - burada TEKRAR hesaplanmadi, parametre
+// olarak aliniyor. f_clamp zaten dosyanin basinda tanimli, tekrar tanimlanmadi.
+f_tradeability(score, kgs, leader, rv, smc, rs, dec) =>
+    f_tradeability_shadow(score, kgs, leader, rv, smc, rs, dec, extremeRs, extremeRv)
+f_prio(dec) =>
+    dec == "BUY" ? 0 : dec == "WATCH" ? 1 : dec == "PREP" ? 2 : 3
+idx = request.security(idxSym, timeframe.period, close, ignore_invalid_symbol=true, lookahead=barmerge.lookahead_off)
+f_dominant_factor(fValue, fMomentum, fQuality, fVolStab, fFlow) =>
+    mx = math.max(fValue, math.max(fMomentum, math.max(fQuality, math.max(fVolStab, fFlow))))
+    mx == fFlow ? "F" : mx == fMomentum ? "M" : mx == fQuality ? "Q" : mx == fVolStab ? "S" : "D"
+f_metrics(sym) =>
+    [c, o, h, l, v, e9, e21, e50, e200, vs, pdc] = request.security(sym, timeframe.period, [close, open, high, low, volume, ta.ema(close, 9), ta.ema(close, 21), ta.ema(close, 50), ta.ema(close, 200), ta.sma(volume, 20), ta.valuewhen(timeframe.change("D"), close[1], 0)], ignore_invalid_symbol=true, lookahead=barmerge.lookahead_off)
+    dChg = pdc > 0 ? 100 * (c / pdc - 1) : 0.0
+    relVol = v / math.max(vs, 1)
+    rs = ta.roc(c, 10) - ta.roc(idx, 10)
+    rsa = rs - rs[5]
+    stack = e9 > e21 and e21 > e50
+    aboveMain = c > e50
+    aboveSlow = c > e200
+    health = stack and aboveMain ? 95 : c > e21 and e21 > e50 ? 72 : c > e50 ? 48 : 20
+    htf = c > e200 and e21 > e50 ? 100 : c > e50 ? 65 : 35
+    leader = f_clamp(50 + rs * 8 + rsa * 4, 0, 100)
+    trendPts = stack and aboveMain ? 25 : c > e21 and e21 >= e50 ? 18 : c > e50 ? 10 : 0
+    emaPts = aboveSlow ? 15 : aboveMain ? 8 : 0
+    rsPts = rs > 3 ? 18 : rs > 1 ? 13 : rs > 0 ? 9 : rsa > 0 ? 5 : 0
+    volPts = relVol > 1.8 ? 15 : relVol > 1.3 ? 11 : relVol > 0.9 ? 6 : 1
+    secPts = leader >= 75 ? 15 : leader >= 60 ? 10 : leader >= 45 ? 5 : 0
+    flowPts = c > o and c > e9 ? 12 : c > e21 ? 6 : 0
+    htfPts = aboveSlow and stack ? 12 : aboveMain ? 7 : 2
+    rng = math.max(h - l, syminfo.mintick)
+    loc = (c - l) / rng
+    volAnomaly = relVol > 2.2 and c > o
+    institutionalFlow = relVol > 1.6 and loc > 0.62 and c > e21
+    smc = f_clamp((institutionalFlow ? 25 : 0) + (volAnomaly ? 15 : 0) + (stack ? 18 : c > e21 ? 10 : 0) + (rs > 1 ? 15 : rs > 0 ? 8 : 0) + (relVol > 1.3 ? 12 : relVol > 0.9 ? 6 : 0) + (loc > 0.65 ? 10 : 0), 0, 100)
+    riskPenalty = c < e50 ? 18 : c < e21 ? 10 : relVol < 0.6 and not stack ? 6 : 0
+    kgs = f_clamp(trendPts + emaPts + rsPts + volPts + secPts + flowPts + htfPts + math.round(smc * 0.12) - riskPenalty, 0, 100)
+    score = f_clamp(math.round(kgs * 0.40 + leader * 0.18 + f_clamp(50 + rs * 10 + rsa * 5, 0, 100) * 0.15 + smc * 0.14 + health * 0.07 + f_clamp(relVol * 55, 0, 100) * 0.04 + htf * 0.02 - riskPenalty * 0.10), 0, 100)
+    // === MODUL 2: COK FAKTORLU SKOR AYRISTIRMASI (BofA Quant tarzi) ===
+    fValue = aboveMain ? f_clamp(50 - (c / e200 - 1) * 200, 0, 100) : 30.0
+    fMomentum = f_clamp(50 + rs * 8 + rsa * 5, 0, 100)
+    fQuality = stack and aboveMain ? 90.0 : c > e21 ? 60.0 : 25.0
+    fVolStab = relVol > 2.5 ? 35.0 : relVol > 1.8 ? 55.0 : relVol > 0.8 ? 80.0 : 50.0
+    fFlow = smc
+    domFactor = f_dominant_factor(fValue, fMomentum, fQuality, fVolStab, fFlow)
+    // === MODUL 4: RISK-ADJUSTED SKOR (BlackRock Aladdin tarzi - risk-first) ===
+    riskMult = relVol > 2.5 ? 0.80 : relVol > 1.8 ? 0.90 : relVol > 1.2 ? 1.00 : relVol > 0.8 ? 0.95 : 0.85
+    momBonus = rsa > 2 ? 5 : rsa > 0.5 ? 2 : rsa < -1 ? -4 : 0
+    riskAdjScore = f_clamp(math.round(score * riskMult + momBonus + (smc >= 60 ? 3 : 0)), 0, 100)
+    [score, kgs, leader, rs, rsa, relVol, smc, institutionalFlow, volAnomaly, domFactor, riskAdjScore, dChg]
+[sc01, kg01, ld01, rs01, ra01, rv01, sm01, inf01, va01, df01, rj01, ch01] = f_metrics(s01)
+[sc02, kg02, ld02, rs02, ra02, rv02, sm02, inf02, va02, df02, rj02, ch02] = f_metrics(s02)
+[sc03, kg03, ld03, rs03, ra03, rv03, sm03, inf03, va03, df03, rj03, ch03] = f_metrics(s03)
+[sc04, kg04, ld04, rs04, ra04, rv04, sm04, inf04, va04, df04, rj04, ch04] = f_metrics(s04)
+[sc05, kg05, ld05, rs05, ra05, rv05, sm05, inf05, va05, df05, rj05, ch05] = f_metrics(s05)
+[sc06, kg06, ld06, rs06, ra06, rv06, sm06, inf06, va06, df06, rj06, ch06] = f_metrics(s06)
+[sc07, kg07, ld07, rs07, ra07, rv07, sm07, inf07, va07, df07, rj07, ch07] = f_metrics(s07)
+[sc08, kg08, ld08, rs08, ra08, rv08, sm08, inf08, va08, df08, rj08, ch08] = f_metrics(s08)
+[sc09, kg09, ld09, rs09, ra09, rv09, sm09, inf09, va09, df09, rj09, ch09] = f_metrics(s09)
+[sc10, kg10, ld10, rs10, ra10, rv10, sm10, inf10, va10, df10, rj10, ch10] = f_metrics(s10)
+[sc11, kg11, ld11, rs11, ra11, rv11, sm11, inf11, va11, df11, rj11, ch11] = f_metrics(s11)
+[sc12, kg12, ld12, rs12, ra12, rv12, sm12, inf12, va12, df12, rj12, ch12] = f_metrics(s12)
+[sc13, kg13, ld13, rs13, ra13, rv13, sm13, inf13, va13, df13, rj13, ch13] = f_metrics(s13)
+[sc14, kg14, ld14, rs14, ra14, rv14, sm14, inf14, va14, df14, rj14, ch14] = f_metrics(s14)
+[sc15, kg15, ld15, rs15, ra15, rv15, sm15, inf15, va15, df15, rj15, ch15] = f_metrics(s15)
+[sc16, kg16, ld16, rs16, ra16, rv16, sm16, inf16, va16, df16, rj16, ch16] = f_metrics(s16)
+[sc17, kg17, ld17, rs17, ra17, rv17, sm17, inf17, va17, df17, rj17, ch17] = f_metrics(s17)
+[sc18, kg18, ld18, rs18, ra18, rv18, sm18, inf18, va18, df18, rj18, ch18] = f_metrics(s18)
+[sc19, kg19, ld19, rs19, ra19, rv19, sm19, inf19, va19, df19, rj19, ch19] = f_metrics(s19)
+[sc20, kg20, ld20, rs20, ra20, rv20, sm20, inf20, va20, df20, rj20, ch20] = f_metrics(s20)
+[sc21, kg21, ld21, rs21, ra21, rv21, sm21, inf21, va21, df21, rj21, ch21] = f_metrics(s21)
+[sc22, kg22, ld22, rs22, ra22, rv22, sm22, inf22, va22, df22, rj22, ch22] = f_metrics(s22)
+[sc23, kg23, ld23, rs23, ra23, rv23, sm23, inf23, va23, df23, rj23, ch23] = f_metrics(s23)
+[sc24, kg24, ld24, rs24, ra24, rv24, sm24, inf24, va24, df24, rj24, ch24] = f_metrics(s24)
+[sc25, kg25, ld25, rs25, ra25, rv25, sm25, inf25, va25, df25, rj25, ch25] = f_metrics(s25)
+[sc26, kg26, ld26, rs26, ra26, rv26, sm26, inf26, va26, df26, rj26, ch26] = f_metrics(s26)
+[sc27, kg27, ld27, rs27, ra27, rv27, sm27, inf27, va27, df27, rj27, ch27] = f_metrics(s27)
+[sc28, kg28, ld28, rs28, ra28, rv28, sm28, inf28, va28, df28, rj28, ch28] = f_metrics(s28)
+[sc29, kg29, ld29, rs29, ra29, rv29, sm29, inf29, va29, df29, rj29, ch29] = f_metrics(s29)
+[sc30, kg30, ld30, rs30, ra30, rv30, sm30, inf30, va30, df30, rj30, ch30] = f_metrics(s30)
+radarChg = array.from(ch01, ch02, ch03, ch04, ch05, ch06, ch07, ch08, ch09, ch10, ch11, ch12, ch13, ch14, ch15, ch16, ch17, ch18, ch19, ch20, ch21, ch22, ch23, ch24, ch25, ch26, ch27, ch28, ch29, ch30)
+// === MODUL A: KORELASYON PROXY + MODUL 3 (sektor RS10) ICIN RS ARRAY'I ===
+var radarRs = array.new_float(30)
+array.set(radarRs, 0, rs01)
+array.set(radarRs, 1, rs02)
+array.set(radarRs, 2, rs03)
+array.set(radarRs, 3, rs04)
+array.set(radarRs, 4, rs05)
+array.set(radarRs, 5, rs06)
+array.set(radarRs, 6, rs07)
+array.set(radarRs, 7, rs08)
+array.set(radarRs, 8, rs09)
+array.set(radarRs, 9, rs10)
+array.set(radarRs, 10, rs11)
+array.set(radarRs, 11, rs12)
+array.set(radarRs, 12, rs13)
+array.set(radarRs, 13, rs14)
+array.set(radarRs, 14, rs15)
+array.set(radarRs, 15, rs16)
+array.set(radarRs, 16, rs17)
+array.set(radarRs, 17, rs18)
+array.set(radarRs, 18, rs19)
+array.set(radarRs, 19, rs20)
+array.set(radarRs, 20, rs21)
+array.set(radarRs, 21, rs22)
+array.set(radarRs, 22, rs23)
+array.set(radarRs, 23, rs24)
+array.set(radarRs, 24, rs25)
+array.set(radarRs, 25, rs26)
+array.set(radarRs, 26, rs27)
+array.set(radarRs, 27, rs28)
+array.set(radarRs, 28, rs29)
+array.set(radarRs, 29, rs30)
+var radarSym = array.new_string(30)
+array.set(radarSym, 0, s01)
+array.set(radarSym, 1, s02)
+array.set(radarSym, 2, s03)
+array.set(radarSym, 3, s04)
+array.set(radarSym, 4, s05)
+array.set(radarSym, 5, s06)
+array.set(radarSym, 6, s07)
+array.set(radarSym, 7, s08)
+array.set(radarSym, 8, s09)
+array.set(radarSym, 9, s10)
+array.set(radarSym, 10, s11)
+array.set(radarSym, 11, s12)
+array.set(radarSym, 12, s13)
+array.set(radarSym, 13, s14)
+array.set(radarSym, 14, s15)
+array.set(radarSym, 15, s16)
+array.set(radarSym, 16, s17)
+array.set(radarSym, 17, s18)
+array.set(radarSym, 18, s19)
+array.set(radarSym, 19, s20)
+array.set(radarSym, 20, s21)
+array.set(radarSym, 21, s22)
+array.set(radarSym, 22, s23)
+array.set(radarSym, 23, s24)
+array.set(radarSym, 24, s25)
+array.set(radarSym, 25, s26)
+array.set(radarSym, 26, s27)
+array.set(radarSym, 27, s28)
+array.set(radarSym, 28, s29)
+array.set(radarSym, 29, s30)
+var radarScore = array.new_int(30)
+array.set(radarScore, 0, sc01)
+array.set(radarScore, 1, sc02)
+array.set(radarScore, 2, sc03)
+array.set(radarScore, 3, sc04)
+array.set(radarScore, 4, sc05)
+array.set(radarScore, 5, sc06)
+array.set(radarScore, 6, sc07)
+array.set(radarScore, 7, sc08)
+array.set(radarScore, 8, sc09)
+array.set(radarScore, 9, sc10)
+array.set(radarScore, 10, sc11)
+array.set(radarScore, 11, sc12)
+array.set(radarScore, 12, sc13)
+array.set(radarScore, 13, sc14)
+array.set(radarScore, 14, sc15)
+array.set(radarScore, 15, sc16)
+array.set(radarScore, 16, sc17)
+array.set(radarScore, 17, sc18)
+array.set(radarScore, 18, sc19)
+array.set(radarScore, 19, sc20)
+array.set(radarScore, 20, sc21)
+array.set(radarScore, 21, sc22)
+array.set(radarScore, 22, sc23)
+array.set(radarScore, 23, sc24)
+array.set(radarScore, 24, sc25)
+array.set(radarScore, 25, sc26)
+array.set(radarScore, 26, sc27)
+array.set(radarScore, 27, sc28)
+array.set(radarScore, 28, sc29)
+array.set(radarScore, 29, sc30)
+f_head() => color.rgb(55, 64, 82)
+f_bg(score) => score >= 70 ? color.rgb(0, 210, 110) : score >= 55 ? color.rgb(40, 130, 255) : score >= 40 ? color.rgb(255, 170, 0) : color.rgb(220, 45, 55)
+f_dbg(dec) => dec == "BUY" ? color.rgb(0, 210, 110) : dec == "WATCH" ? color.rgb(40, 130, 255) : dec == "PREP" ? color.rgb(255, 170, 0) : color.rgb(220, 45, 55)
+f_pbg(st) => st == "EXIT" ? color.rgb(220,45,55) : st == "REDUCE" ? color.rgb(255,120,0) : st == "PROTECT" ? color.rgb(255,200,0) : st == "HOLD" ? color.rgb(0,200,95) : st == "WATCH" ? color.rgb(40,130,255) : color.rgb(95,100,115)
+f_sec_add(sec, sym, score) =>
+    f_sector(sym) == sec ? score : 0
+f_sec_cnt(sec, sym) =>
+    f_sector(sym) == sec ? 1 : 0
+f_sec_score(sec) =>
+    sm = 0.0
+    ct = 0
+    for i = 0 to array.size(radarSym) - 1
+        symAt = array.get(radarSym, i)
+        if f_sector(symAt) == sec
+            sm += array.get(radarScore, i)
+            ct += 1
+    math.round(sm / math.max(ct, 1))
+f_sec_flow(sec) =>
+    ss = f_sec_score(sec)
+    ss >= 58 ? "+" : ss >= 43 ? "=" : "-"
+f_sec_code(sec) =>
+    sec == "BANK" ? "B" : sec == "HOLD" ? "H" : sec == "AIR" ? "A" : sec == "RET" ? "R" : sec == "ENR" ? "E" : sec == "IND" ? "I" : sec == "DEF" ? "D" : sec == "TEL" ? "T" : sec == "FOD" ? "F" : "G"
+f_rot(sym) =>
+    sec = f_sector(sym)
+    f_sec_code(sec) + f_sec_flow(sec)
+f_dir(x) =>
+    chg = x - nz(x[1])
+    chg > 3 ? "UP" : chg > 0.5 ? "up" : chg < -3 ? "DN" : chg < -0.5 ? "dn" : "="
+f_rot_bg(sym) =>
+    ss = f_sec_score(f_sector(sym))
+    ss >= 60 ? color.rgb(0, 190, 110) : ss >= 45 ? color.rgb(255, 170, 0) : color.rgb(210, 60, 70)
+f_rot_sec_bg(sec) =>
+    ss = f_sec_score(sec)
+    ss >= 60 ? color.rgb(0, 190, 110) : ss >= 45 ? color.rgb(255, 170, 0) : color.rgb(210, 60, 70)
+f_reason(kgs, leader, rs, rv, smc, inst) =>
+    a = inst ? "F+" : smc >= 70 ? "S+" : leader >= 65 ? "L+" : rs > 1 ? "R+" : rv >= 1.3 ? "V+" : kgs < 35 ? "K-" : rs < -1 ? "R-" : rv < 0.7 ? "V-" : "-"
+    b = str.contains(a, "R") ? "" : rs > 1 ? "R+" : rs < -1 ? "R-" :
+     str.contains(a, "V") ? "" : rv >= 1.3 ? "V+" : rv < 0.7 ? "V-" :
+     str.contains(a, "L") ? "" : leader >= 65 ? "L+" :
+     str.contains(a, "S") ? "" : smc >= 70 ? "S+" :
+     str.contains(a, "F") ? "" : inst ? "F+" :
+     kgs < 35 and not str.contains(a, "K") ? "K-" : ""
+    a == "-" or b == "" ? a : a + b
+f_sec_score_rs(sec) =>
+    sm = 0.0
+    ct = 0
+    rsSm = 0.0
+    rsCt = 0
+    for i = 0 to array.size(radarSym) - 1
+        symAt = array.get(radarSym, i)
+        if f_sector(symAt) == sec
+            sm += array.get(radarScore, i)
+            ct += 1
+            rsSm += array.get(radarRs, i)
+            rsCt += 1
+    [math.round(sm / math.max(ct, 1)), rsCt > 0 ? rsSm / rsCt : 0.0]
+[bankRot, bankRs] = f_sec_score_rs("BANK")
+[holdRot, holdRs] = f_sec_score_rs("HOLD")
+[airRot, airRs] = f_sec_score_rs("AIR")
+[retRot, retRs] = f_sec_score_rs("RET")
+[enrRot, enrRs] = f_sec_score_rs("ENR")
+[indRot, indRs] = f_sec_score_rs("IND")
+[defRot, defRs] = f_sec_score_rs("DEF")
+[telRot, telRs] = f_sec_score_rs("TEL")
+[fodRot, fodRs] = f_sec_score_rs("FOD")
+[gyoRot, gyoRs] = f_sec_score_rs("GYO")
+secRsArr = array.from(bankRs, holdRs, airRs, retRs, enrRs, indRs, defRs, telRs, fodRs, gyoRs)
+f_rs_rank(val) =>
+    cnt = 0
+    for i = 0 to array.size(secRsArr) - 1
+        if array.get(secRsArr, i) < val
+            cnt += 1
+    cnt
+f_rs_clr(val) =>
+    rnk = f_rs_rank(val)
+    rnk >= 7 ? color.rgb(0,170,80) : rnk <= 2 ? color.rgb(190,50,55) : color.rgb(70,80,100)
+f_hist5(x) =>
+    var float h0 = na
+    var float h1 = na
+    var float h2 = na
+    var float h3 = na
+    var float h4 = na
+    var float h5 = na
+    if barstate.isconfirmed
+        h5 := h4
+        h4 := h3
+        h3 := h2
+        h2 := h1
+        h1 := h0
+        h0 := x
+    h5
+bankRotH5 = f_hist5(bankRot)
+holdRotH5 = f_hist5(holdRot)
+airRotH5 = f_hist5(airRot)
+retRotH5 = f_hist5(retRot)
+enrRotH5 = f_hist5(enrRot)
+indRotH5 = f_hist5(indRot)
+defRotH5 = f_hist5(defRot)
+telRotH5 = f_hist5(telRot)
+fodRotH5 = f_hist5(fodRot)
+gyoRotH5 = f_hist5(gyoRot)
+f_pctChg(cur, prev) => not na(prev) and prev > 0 ? (cur - prev) / prev * 100 : 0.0
+topSec = bankRot >= holdRot and bankRot >= airRot and bankRot >= retRot and bankRot >= enrRot and bankRot >= indRot ? "BANK" :
+     holdRot >= airRot and holdRot >= retRot and holdRot >= enrRot and holdRot >= indRot ? "HOLD" :
+     airRot >= retRot and airRot >= enrRot and airRot >= indRot ? "AIR" :
+     retRot >= enrRot and retRot >= indRot ? "RET" :
+     enrRot >= indRot ? "ENR" : "IND"
+marketScore = math.round((bankRot + holdRot + airRot + retRot + enrRot + indRot) / 6)
+marketTxt = marketScore >= 55 ? "RISK ON" : marketScore >= 42 ? "MIXED" : "RISK OFF"
+marketShort = marketScore >= 55 ? "ON" : marketScore >= 42 ? "MIX" : "OFF"
+f_daily(sym) =>
+    request.security(sym, "D", [close[1], close[2]], ignore_invalid_symbol=true, lookahead=barmerge.lookahead_off)
+f_chg(a, b) => not na(a) and not na(b) and b > 0 ? (a - b) / b * 100 : na
+f_chg_txt(x) => na(x) ? "NA" : x > 0.01 ? "+" + str.tostring(x, "#.##") + "%" : x < -0.01 ? str.tostring(x, "#.##") + "%" : "0.00%"
+f_chg_bg(x, inv) =>
+    good = not na(x) and (inv ? x < -0.15 : x > 0.15)
+    bad = not na(x) and (inv ? x > 0.15 : x < -0.15)
+    na(x) ? color.rgb(90, 90, 100) : good ? color.rgb(0, 180, 95) : bad ? color.rgb(205, 55, 65) : f_head()
+[usd, usd1] = f_daily("FX_IDC:USDTRY")
+[gold, gold1] = f_daily("TVC:GOLD")
+[brent, brent1] = f_daily("TVC:UKOIL")
+[tr05, tr051] = f_daily("TVC:TR05Y")
+[xb, xb1] = f_daily("BIST:XBANK")
+[xu100d, xu100d1] = f_daily("BIST:XU100")
+usdD = f_chg(usd, usd1)
+goldD = f_chg(gold, gold1)
+brentD = f_chg(brent, brent1)
+tr05D = f_chg(tr05, tr051)
+xbD = f_chg(xb, xb1)
+xu100D = f_chg(xu100d, xu100d1)
+bankAlfa = xbD - xu100D
+realKur = goldD - usdD
+energyCostD = f_chg(brent * usd, brent1 * usd1)
+macroDataOk = not na(tr05) and not na(usdD) and not na(xbD)
+macroRisk = not macroDataOk ? na : (tr05 > 35 ? -1 : tr05 < 28 ? 1 : 0) + (usdD > 0.5 ? -1 : usdD < -0.5 ? 1 : 0) + (xbD > 1.5 ? 2 : xbD > 0.5 ? 1 : xbD < -1.5 ? -2 : xbD < -0.5 ? -1 : 0)
+macroTxt = not macroDataOk ? "NO DATA" : macroRisk >= 2 ? "ON" : macroRisk <= -2 ? "OFF" : "MIX"
+var string _prevMacroTxt = na
+var int macroRegimeBars = 1
+if barstate.isconfirmed
+    if macroTxt != _prevMacroTxt
+        macroRegimeBars := 1
+        _prevMacroTxt := macroTxt
+    else
+        macroRegimeBars := macroRegimeBars + 1
+macroBg = not macroDataOk ? color.rgb(90, 90, 100) : macroRisk >= 2 ? color.rgb(0, 180, 95) : macroRisk <= -2 ? color.rgb(205, 55, 65) : color.rgb(245, 160, 25)
+dc01 = f_decision(sc01, kg01, ld01, rv01, sm01, inf01, rs01)
+dc02 = f_decision(sc02, kg02, ld02, rv02, sm02, inf02, rs02)
+dc03 = f_decision(sc03, kg03, ld03, rv03, sm03, inf03, rs03)
+dc04 = f_decision(sc04, kg04, ld04, rv04, sm04, inf04, rs04)
+dc05 = f_decision(sc05, kg05, ld05, rv05, sm05, inf05, rs05)
+dc06 = f_decision(sc06, kg06, ld06, rv06, sm06, inf06, rs06)
+dc07 = f_decision(sc07, kg07, ld07, rv07, sm07, inf07, rs07)
+dc08 = f_decision(sc08, kg08, ld08, rv08, sm08, inf08, rs08)
+dc09 = f_decision(sc09, kg09, ld09, rv09, sm09, inf09, rs09)
+dc10 = f_decision(sc10, kg10, ld10, rv10, sm10, inf10, rs10)
+dc11 = f_decision(sc11, kg11, ld11, rv11, sm11, inf11, rs11)
+dc12 = f_decision(sc12, kg12, ld12, rv12, sm12, inf12, rs12)
+dc13 = f_decision(sc13, kg13, ld13, rv13, sm13, inf13, rs13)
+dc14 = f_decision(sc14, kg14, ld14, rv14, sm14, inf14, rs14)
+dc15 = f_decision(sc15, kg15, ld15, rv15, sm15, inf15, rs15)
+dc16 = f_decision(sc16, kg16, ld16, rv16, sm16, inf16, rs16)
+dc17 = f_decision(sc17, kg17, ld17, rv17, sm17, inf17, rs17)
+dc18 = f_decision(sc18, kg18, ld18, rv18, sm18, inf18, rs18)
+dc19 = f_decision(sc19, kg19, ld19, rv19, sm19, inf19, rs19)
+dc20 = f_decision(sc20, kg20, ld20, rv20, sm20, inf20, rs20)
+dc21 = f_decision(sc21, kg21, ld21, rv21, sm21, inf21, rs21)
+dc22 = f_decision(sc22, kg22, ld22, rv22, sm22, inf22, rs22)
+dc23 = f_decision(sc23, kg23, ld23, rv23, sm23, inf23, rs23)
+dc24 = f_decision(sc24, kg24, ld24, rv24, sm24, inf24, rs24)
+dc25 = f_decision(sc25, kg25, ld25, rv25, sm25, inf25, rs25)
+dc26 = f_decision(sc26, kg26, ld26, rv26, sm26, inf26, rs26)
+dc27 = f_decision(sc27, kg27, ld27, rv27, sm27, inf27, rs27)
+dc28 = f_decision(sc28, kg28, ld28, rv28, sm28, inf28, rs28)
+dc29 = f_decision(sc29, kg29, ld29, rv29, sm29, inf29, rs29)
+dc30 = f_decision(sc30, kg30, ld30, rv30, sm30, inf30, rs30)
+var radarTrade = array.new_int(30)
+array.set(radarTrade, 0, f_tradeability(sc01, kg01, ld01, rv01, sm01, rs01, dc01))
+array.set(radarTrade, 1, f_tradeability(sc02, kg02, ld02, rv02, sm02, rs02, dc02))
+array.set(radarTrade, 2, f_tradeability(sc03, kg03, ld03, rv03, sm03, rs03, dc03))
+array.set(radarTrade, 3, f_tradeability(sc04, kg04, ld04, rv04, sm04, rs04, dc04))
+array.set(radarTrade, 4, f_tradeability(sc05, kg05, ld05, rv05, sm05, rs05, dc05))
+array.set(radarTrade, 5, f_tradeability(sc06, kg06, ld06, rv06, sm06, rs06, dc06))
+array.set(radarTrade, 6, f_tradeability(sc07, kg07, ld07, rv07, sm07, rs07, dc07))
+array.set(radarTrade, 7, f_tradeability(sc08, kg08, ld08, rv08, sm08, rs08, dc08))
+array.set(radarTrade, 8, f_tradeability(sc09, kg09, ld09, rv09, sm09, rs09, dc09))
+array.set(radarTrade, 9, f_tradeability(sc10, kg10, ld10, rv10, sm10, rs10, dc10))
+array.set(radarTrade, 10, f_tradeability(sc11, kg11, ld11, rv11, sm11, rs11, dc11))
+array.set(radarTrade, 11, f_tradeability(sc12, kg12, ld12, rv12, sm12, rs12, dc12))
+array.set(radarTrade, 12, f_tradeability(sc13, kg13, ld13, rv13, sm13, rs13, dc13))
+array.set(radarTrade, 13, f_tradeability(sc14, kg14, ld14, rv14, sm14, rs14, dc14))
+array.set(radarTrade, 14, f_tradeability(sc15, kg15, ld15, rv15, sm15, rs15, dc15))
+array.set(radarTrade, 15, f_tradeability(sc16, kg16, ld16, rv16, sm16, rs16, dc16))
+array.set(radarTrade, 16, f_tradeability(sc17, kg17, ld17, rv17, sm17, rs17, dc17))
+array.set(radarTrade, 17, f_tradeability(sc18, kg18, ld18, rv18, sm18, rs18, dc18))
+array.set(radarTrade, 18, f_tradeability(sc19, kg19, ld19, rv19, sm19, rs19, dc19))
+array.set(radarTrade, 19, f_tradeability(sc20, kg20, ld20, rv20, sm20, rs20, dc20))
+array.set(radarTrade, 20, f_tradeability(sc21, kg21, ld21, rv21, sm21, rs21, dc21))
+array.set(radarTrade, 21, f_tradeability(sc22, kg22, ld22, rv22, sm22, rs22, dc22))
+array.set(radarTrade, 22, f_tradeability(sc23, kg23, ld23, rv23, sm23, rs23, dc23))
+array.set(radarTrade, 23, f_tradeability(sc24, kg24, ld24, rv24, sm24, rs24, dc24))
+array.set(radarTrade, 24, f_tradeability(sc25, kg25, ld25, rv25, sm25, rs25, dc25))
+array.set(radarTrade, 25, f_tradeability(sc26, kg26, ld26, rv26, sm26, rs26, dc26))
+array.set(radarTrade, 26, f_tradeability(sc27, kg27, ld27, rv27, sm27, rs27, dc27))
+array.set(radarTrade, 27, f_tradeability(sc28, kg28, ld28, rv28, sm28, rs28, dc28))
+array.set(radarTrade, 28, f_tradeability(sc29, kg29, ld29, rv29, sm29, rs29, dc29))
+array.set(radarTrade, 29, f_tradeability(sc30, kg30, ld30, rv30, sm30, rs30, dc30))
+f_tradeTxt(_ts) => _ts >= 75 ? "ISLEM" : _ts >= 60 ? "BEKLE" : "ZAYIF"
+var int wrN01 = 0
+var int wrW01 = 0
+buyEvent01_5 = dc01[5] == "BUY" and dc01[6] != "BUY"
+if barstate.isconfirmed and buyEvent01_5
+    wrN01 += 1
+    if not na(rs01) and not na(rs01[5]) and rs01 > rs01[5]
+        wrW01 += 1
+var int wrN02 = 0
+var int wrW02 = 0
+buyEvent02_5 = dc02[5] == "BUY" and dc02[6] != "BUY"
+if barstate.isconfirmed and buyEvent02_5
+    wrN02 += 1
+    if not na(rs02) and not na(rs02[5]) and rs02 > rs02[5]
+        wrW02 += 1
+var int wrN03 = 0
+var int wrW03 = 0
+buyEvent03_5 = dc03[5] == "BUY" and dc03[6] != "BUY"
+if barstate.isconfirmed and buyEvent03_5
+    wrN03 += 1
+    if not na(rs03) and not na(rs03[5]) and rs03 > rs03[5]
+        wrW03 += 1
+var int wrN04 = 0
+var int wrW04 = 0
+buyEvent04_5 = dc04[5] == "BUY" and dc04[6] != "BUY"
+if barstate.isconfirmed and buyEvent04_5
+    wrN04 += 1
+    if not na(rs04) and not na(rs04[5]) and rs04 > rs04[5]
+        wrW04 += 1
+var int wrN05 = 0
+var int wrW05 = 0
+buyEvent05_5 = dc05[5] == "BUY" and dc05[6] != "BUY"
+if barstate.isconfirmed and buyEvent05_5
+    wrN05 += 1
+    if not na(rs05) and not na(rs05[5]) and rs05 > rs05[5]
+        wrW05 += 1
+var int wrN06 = 0
+var int wrW06 = 0
+buyEvent06_5 = dc06[5] == "BUY" and dc06[6] != "BUY"
+if barstate.isconfirmed and buyEvent06_5
+    wrN06 += 1
+    if not na(rs06) and not na(rs06[5]) and rs06 > rs06[5]
+        wrW06 += 1
+var int wrN07 = 0
+var int wrW07 = 0
+buyEvent07_5 = dc07[5] == "BUY" and dc07[6] != "BUY"
+if barstate.isconfirmed and buyEvent07_5
+    wrN07 += 1
+    if not na(rs07) and not na(rs07[5]) and rs07 > rs07[5]
+        wrW07 += 1
+var int wrN08 = 0
+var int wrW08 = 0
+buyEvent08_5 = dc08[5] == "BUY" and dc08[6] != "BUY"
+if barstate.isconfirmed and buyEvent08_5
+    wrN08 += 1
+    if not na(rs08) and not na(rs08[5]) and rs08 > rs08[5]
+        wrW08 += 1
+var int wrN09 = 0
+var int wrW09 = 0
+buyEvent09_5 = dc09[5] == "BUY" and dc09[6] != "BUY"
+if barstate.isconfirmed and buyEvent09_5
+    wrN09 += 1
+    if not na(rs09) and not na(rs09[5]) and rs09 > rs09[5]
+        wrW09 += 1
+var int wrN10 = 0
+var int wrW10 = 0
+buyEvent10_5 = dc10[5] == "BUY" and dc10[6] != "BUY"
+if barstate.isconfirmed and buyEvent10_5
+    wrN10 += 1
+    if not na(rs10) and not na(rs10[5]) and rs10 > rs10[5]
+        wrW10 += 1
+var int wrN11 = 0
+var int wrW11 = 0
+buyEvent11_5 = dc11[5] == "BUY" and dc11[6] != "BUY"
+if barstate.isconfirmed and buyEvent11_5
+    wrN11 += 1
+    if not na(rs11) and not na(rs11[5]) and rs11 > rs11[5]
+        wrW11 += 1
+var int wrN12 = 0
+var int wrW12 = 0
+buyEvent12_5 = dc12[5] == "BUY" and dc12[6] != "BUY"
+if barstate.isconfirmed and buyEvent12_5
+    wrN12 += 1
+    if not na(rs12) and not na(rs12[5]) and rs12 > rs12[5]
+        wrW12 += 1
+var int wrN13 = 0
+var int wrW13 = 0
+buyEvent13_5 = dc13[5] == "BUY" and dc13[6] != "BUY"
+if barstate.isconfirmed and buyEvent13_5
+    wrN13 += 1
+    if not na(rs13) and not na(rs13[5]) and rs13 > rs13[5]
+        wrW13 += 1
+var int wrN14 = 0
+var int wrW14 = 0
+buyEvent14_5 = dc14[5] == "BUY" and dc14[6] != "BUY"
+if barstate.isconfirmed and buyEvent14_5
+    wrN14 += 1
+    if not na(rs14) and not na(rs14[5]) and rs14 > rs14[5]
+        wrW14 += 1
+var int wrN15 = 0
+var int wrW15 = 0
+buyEvent15_5 = dc15[5] == "BUY" and dc15[6] != "BUY"
+if barstate.isconfirmed and buyEvent15_5
+    wrN15 += 1
+    if not na(rs15) and not na(rs15[5]) and rs15 > rs15[5]
+        wrW15 += 1
+var int wrN16 = 0
+var int wrW16 = 0
+buyEvent16_5 = dc16[5] == "BUY" and dc16[6] != "BUY"
+if barstate.isconfirmed and buyEvent16_5
+    wrN16 += 1
+    if not na(rs16) and not na(rs16[5]) and rs16 > rs16[5]
+        wrW16 += 1
+var int wrN17 = 0
+var int wrW17 = 0
+buyEvent17_5 = dc17[5] == "BUY" and dc17[6] != "BUY"
+if barstate.isconfirmed and buyEvent17_5
+    wrN17 += 1
+    if not na(rs17) and not na(rs17[5]) and rs17 > rs17[5]
+        wrW17 += 1
+var int wrN18 = 0
+var int wrW18 = 0
+buyEvent18_5 = dc18[5] == "BUY" and dc18[6] != "BUY"
+if barstate.isconfirmed and buyEvent18_5
+    wrN18 += 1
+    if not na(rs18) and not na(rs18[5]) and rs18 > rs18[5]
+        wrW18 += 1
+var int wrN19 = 0
+var int wrW19 = 0
+buyEvent19_5 = dc19[5] == "BUY" and dc19[6] != "BUY"
+if barstate.isconfirmed and buyEvent19_5
+    wrN19 += 1
+    if not na(rs19) and not na(rs19[5]) and rs19 > rs19[5]
+        wrW19 += 1
+var int wrN20 = 0
+var int wrW20 = 0
+buyEvent20_5 = dc20[5] == "BUY" and dc20[6] != "BUY"
+if barstate.isconfirmed and buyEvent20_5
+    wrN20 += 1
+    if not na(rs20) and not na(rs20[5]) and rs20 > rs20[5]
+        wrW20 += 1
+var int wrN21 = 0
+var int wrW21 = 0
+buyEvent21_5 = dc21[5] == "BUY" and dc21[6] != "BUY"
+if barstate.isconfirmed and buyEvent21_5
+    wrN21 += 1
+    if not na(rs21) and not na(rs21[5]) and rs21 > rs21[5]
+        wrW21 += 1
+var int wrN22 = 0
+var int wrW22 = 0
+buyEvent22_5 = dc22[5] == "BUY" and dc22[6] != "BUY"
+if barstate.isconfirmed and buyEvent22_5
+    wrN22 += 1
+    if not na(rs22) and not na(rs22[5]) and rs22 > rs22[5]
+        wrW22 += 1
+var int wrN23 = 0
+var int wrW23 = 0
+buyEvent23_5 = dc23[5] == "BUY" and dc23[6] != "BUY"
+if barstate.isconfirmed and buyEvent23_5
+    wrN23 += 1
+    if not na(rs23) and not na(rs23[5]) and rs23 > rs23[5]
+        wrW23 += 1
+var int wrN24 = 0
+var int wrW24 = 0
+buyEvent24_5 = dc24[5] == "BUY" and dc24[6] != "BUY"
+if barstate.isconfirmed and buyEvent24_5
+    wrN24 += 1
+    if not na(rs24) and not na(rs24[5]) and rs24 > rs24[5]
+        wrW24 += 1
+var int wrN25 = 0
+var int wrW25 = 0
+buyEvent25_5 = dc25[5] == "BUY" and dc25[6] != "BUY"
+if barstate.isconfirmed and buyEvent25_5
+    wrN25 += 1
+    if not na(rs25) and not na(rs25[5]) and rs25 > rs25[5]
+        wrW25 += 1
+var int wrN26 = 0
+var int wrW26 = 0
+buyEvent26_5 = dc26[5] == "BUY" and dc26[6] != "BUY"
+if barstate.isconfirmed and buyEvent26_5
+    wrN26 += 1
+    if not na(rs26) and not na(rs26[5]) and rs26 > rs26[5]
+        wrW26 += 1
+var int wrN27 = 0
+var int wrW27 = 0
+buyEvent27_5 = dc27[5] == "BUY" and dc27[6] != "BUY"
+if barstate.isconfirmed and buyEvent27_5
+    wrN27 += 1
+    if not na(rs27) and not na(rs27[5]) and rs27 > rs27[5]
+        wrW27 += 1
+var int wrN28 = 0
+var int wrW28 = 0
+buyEvent28_5 = dc28[5] == "BUY" and dc28[6] != "BUY"
+if barstate.isconfirmed and buyEvent28_5
+    wrN28 += 1
+    if not na(rs28) and not na(rs28[5]) and rs28 > rs28[5]
+        wrW28 += 1
+var int wrN29 = 0
+var int wrW29 = 0
+buyEvent29_5 = dc29[5] == "BUY" and dc29[6] != "BUY"
+if barstate.isconfirmed and buyEvent29_5
+    wrN29 += 1
+    if not na(rs29) and not na(rs29[5]) and rs29 > rs29[5]
+        wrW29 += 1
+var int wrN30 = 0
+var int wrW30 = 0
+buyEvent30_5 = dc30[5] == "BUY" and dc30[6] != "BUY"
+if barstate.isconfirmed and buyEvent30_5
+    wrN30 += 1
+    if not na(rs30) and not na(rs30[5]) and rs30 > rs30[5]
+        wrW30 += 1
+wr01 = wrN01 > 0 ? math.round(wrW01 / float(wrN01) * 100) : -1
+wr02 = wrN02 > 0 ? math.round(wrW02 / float(wrN02) * 100) : -1
+wr03 = wrN03 > 0 ? math.round(wrW03 / float(wrN03) * 100) : -1
+wr04 = wrN04 > 0 ? math.round(wrW04 / float(wrN04) * 100) : -1
+wr05 = wrN05 > 0 ? math.round(wrW05 / float(wrN05) * 100) : -1
+wr06 = wrN06 > 0 ? math.round(wrW06 / float(wrN06) * 100) : -1
+wr07 = wrN07 > 0 ? math.round(wrW07 / float(wrN07) * 100) : -1
+wr08 = wrN08 > 0 ? math.round(wrW08 / float(wrN08) * 100) : -1
+wr09 = wrN09 > 0 ? math.round(wrW09 / float(wrN09) * 100) : -1
+wr10 = wrN10 > 0 ? math.round(wrW10 / float(wrN10) * 100) : -1
+wr11 = wrN11 > 0 ? math.round(wrW11 / float(wrN11) * 100) : -1
+wr12 = wrN12 > 0 ? math.round(wrW12 / float(wrN12) * 100) : -1
+wr13 = wrN13 > 0 ? math.round(wrW13 / float(wrN13) * 100) : -1
+wr14 = wrN14 > 0 ? math.round(wrW14 / float(wrN14) * 100) : -1
+wr15 = wrN15 > 0 ? math.round(wrW15 / float(wrN15) * 100) : -1
+wr16 = wrN16 > 0 ? math.round(wrW16 / float(wrN16) * 100) : -1
+wr17 = wrN17 > 0 ? math.round(wrW17 / float(wrN17) * 100) : -1
+wr18 = wrN18 > 0 ? math.round(wrW18 / float(wrN18) * 100) : -1
+wr19 = wrN19 > 0 ? math.round(wrW19 / float(wrN19) * 100) : -1
+wr20 = wrN20 > 0 ? math.round(wrW20 / float(wrN20) * 100) : -1
+wr21 = wrN21 > 0 ? math.round(wrW21 / float(wrN21) * 100) : -1
+wr22 = wrN22 > 0 ? math.round(wrW22 / float(wrN22) * 100) : -1
+wr23 = wrN23 > 0 ? math.round(wrW23 / float(wrN23) * 100) : -1
+wr24 = wrN24 > 0 ? math.round(wrW24 / float(wrN24) * 100) : -1
+wr25 = wrN25 > 0 ? math.round(wrW25 / float(wrN25) * 100) : -1
+wr26 = wrN26 > 0 ? math.round(wrW26 / float(wrN26) * 100) : -1
+wr27 = wrN27 > 0 ? math.round(wrW27 / float(wrN27) * 100) : -1
+wr28 = wrN28 > 0 ? math.round(wrW28 / float(wrN28) * 100) : -1
+wr29 = wrN29 > 0 ? math.round(wrW29 / float(wrN29) * 100) : -1
+wr30 = wrN30 > 0 ? math.round(wrW30 / float(wrN30) * 100) : -1
+var int radarBuySignals = 0
+var int radarBuyWins = 0
+if barstate.isconfirmed
+    radarBuySignals += (buyEvent01_5 ? 1 : 0) + (buyEvent02_5 ? 1 : 0) + (buyEvent03_5 ? 1 : 0) + (buyEvent04_5 ? 1 : 0) + (buyEvent05_5 ? 1 : 0) + (buyEvent06_5 ? 1 : 0) + (buyEvent07_5 ? 1 : 0) + (buyEvent08_5 ? 1 : 0) + (buyEvent09_5 ? 1 : 0) + (buyEvent10_5 ? 1 : 0) + (buyEvent11_5 ? 1 : 0) + (buyEvent12_5 ? 1 : 0) + (buyEvent13_5 ? 1 : 0) + (buyEvent14_5 ? 1 : 0) + (buyEvent15_5 ? 1 : 0) + (buyEvent16_5 ? 1 : 0) + (buyEvent17_5 ? 1 : 0) + (buyEvent18_5 ? 1 : 0) + (buyEvent19_5 ? 1 : 0) + (buyEvent20_5 ? 1 : 0) + (buyEvent21_5 ? 1 : 0) + (buyEvent22_5 ? 1 : 0) + (buyEvent23_5 ? 1 : 0) + (buyEvent24_5 ? 1 : 0) + (buyEvent25_5 ? 1 : 0) + (buyEvent26_5 ? 1 : 0) + (buyEvent27_5 ? 1 : 0) + (buyEvent28_5 ? 1 : 0) + (buyEvent29_5 ? 1 : 0) + (buyEvent30_5 ? 1 : 0)
+    radarBuyWins += ((buyEvent01_5 and not na(rs01) and not na(rs01[5]) and rs01 > rs01[5]) ? 1 : 0) + ((buyEvent02_5 and not na(rs02) and not na(rs02[5]) and rs02 > rs02[5]) ? 1 : 0) + ((buyEvent03_5 and not na(rs03) and not na(rs03[5]) and rs03 > rs03[5]) ? 1 : 0) + ((buyEvent04_5 and not na(rs04) and not na(rs04[5]) and rs04 > rs04[5]) ? 1 : 0) + ((buyEvent05_5 and not na(rs05) and not na(rs05[5]) and rs05 > rs05[5]) ? 1 : 0) + ((buyEvent06_5 and not na(rs06) and not na(rs06[5]) and rs06 > rs06[5]) ? 1 : 0) + ((buyEvent07_5 and not na(rs07) and not na(rs07[5]) and rs07 > rs07[5]) ? 1 : 0) + ((buyEvent08_5 and not na(rs08) and not na(rs08[5]) and rs08 > rs08[5]) ? 1 : 0) + ((buyEvent09_5 and not na(rs09) and not na(rs09[5]) and rs09 > rs09[5]) ? 1 : 0) + ((buyEvent10_5 and not na(rs10) and not na(rs10[5]) and rs10 > rs10[5]) ? 1 : 0) + ((buyEvent11_5 and not na(rs11) and not na(rs11[5]) and rs11 > rs11[5]) ? 1 : 0) + ((buyEvent12_5 and not na(rs12) and not na(rs12[5]) and rs12 > rs12[5]) ? 1 : 0) + ((buyEvent13_5 and not na(rs13) and not na(rs13[5]) and rs13 > rs13[5]) ? 1 : 0) + ((buyEvent14_5 and not na(rs14) and not na(rs14[5]) and rs14 > rs14[5]) ? 1 : 0) + ((buyEvent15_5 and not na(rs15) and not na(rs15[5]) and rs15 > rs15[5]) ? 1 : 0) + ((buyEvent16_5 and not na(rs16) and not na(rs16[5]) and rs16 > rs16[5]) ? 1 : 0) + ((buyEvent17_5 and not na(rs17) and not na(rs17[5]) and rs17 > rs17[5]) ? 1 : 0) + ((buyEvent18_5 and not na(rs18) and not na(rs18[5]) and rs18 > rs18[5]) ? 1 : 0) + ((buyEvent19_5 and not na(rs19) and not na(rs19[5]) and rs19 > rs19[5]) ? 1 : 0) + ((buyEvent20_5 and not na(rs20) and not na(rs20[5]) and rs20 > rs20[5]) ? 1 : 0) + ((buyEvent21_5 and not na(rs21) and not na(rs21[5]) and rs21 > rs21[5]) ? 1 : 0) + ((buyEvent22_5 and not na(rs22) and not na(rs22[5]) and rs22 > rs22[5]) ? 1 : 0) + ((buyEvent23_5 and not na(rs23) and not na(rs23[5]) and rs23 > rs23[5]) ? 1 : 0) + ((buyEvent24_5 and not na(rs24) and not na(rs24[5]) and rs24 > rs24[5]) ? 1 : 0) + ((buyEvent25_5 and not na(rs25) and not na(rs25[5]) and rs25 > rs25[5]) ? 1 : 0) + ((buyEvent26_5 and not na(rs26) and not na(rs26[5]) and rs26 > rs26[5]) ? 1 : 0) + ((buyEvent27_5 and not na(rs27) and not na(rs27[5]) and rs27 > rs27[5]) ? 1 : 0) + ((buyEvent28_5 and not na(rs28) and not na(rs28[5]) and rs28 > rs28[5]) ? 1 : 0) + ((buyEvent29_5 and not na(rs29) and not na(rs29[5]) and rs29 > rs29[5]) ? 1 : 0) + ((buyEvent30_5 and not na(rs30) and not na(rs30[5]) and rs30 > rs30[5]) ? 1 : 0)
+radarWinRate = radarBuySignals > 0 ? math.round(radarBuyWins / float(radarBuySignals) * 100) : na
+radarWinReliability = radarBuySignals < 30 ? "N<30" : radarBuySignals < 100 ? "SINIRLI" : "DAHA ANLAMLI"
+pr01 = f_prio(dc01)
+pr02 = f_prio(dc02)
+pr03 = f_prio(dc03)
+pr04 = f_prio(dc04)
+pr05 = f_prio(dc05)
+pr06 = f_prio(dc06)
+pr07 = f_prio(dc07)
+pr08 = f_prio(dc08)
+pr09 = f_prio(dc09)
+pr10 = f_prio(dc10)
+pr11 = f_prio(dc11)
+pr12 = f_prio(dc12)
+pr13 = f_prio(dc13)
+pr14 = f_prio(dc14)
+pr15 = f_prio(dc15)
+pr16 = f_prio(dc16)
+pr17 = f_prio(dc17)
+pr18 = f_prio(dc18)
+pr19 = f_prio(dc19)
+pr20 = f_prio(dc20)
+pr21 = f_prio(dc21)
+pr22 = f_prio(dc22)
+pr23 = f_prio(dc23)
+pr24 = f_prio(dc24)
+pr25 = f_prio(dc25)
+pr26 = f_prio(dc26)
+pr27 = f_prio(dc27)
+pr28 = f_prio(dc28)
+pr29 = f_prio(dc29)
+pr30 = f_prio(dc30)
+sortKey01 = pr01 * 1000.0 - rj01
+sortKey02 = pr02 * 1000.0 - rj02
+sortKey03 = pr03 * 1000.0 - rj03
+sortKey04 = pr04 * 1000.0 - rj04
+sortKey05 = pr05 * 1000.0 - rj05
+sortKey06 = pr06 * 1000.0 - rj06
+sortKey07 = pr07 * 1000.0 - rj07
+sortKey08 = pr08 * 1000.0 - rj08
+sortKey09 = pr09 * 1000.0 - rj09
+sortKey10 = pr10 * 1000.0 - rj10
+sortKey11 = pr11 * 1000.0 - rj11
+sortKey12 = pr12 * 1000.0 - rj12
+sortKey13 = pr13 * 1000.0 - rj13
+sortKey14 = pr14 * 1000.0 - rj14
+sortKey15 = pr15 * 1000.0 - rj15
+sortKey16 = pr16 * 1000.0 - rj16
+sortKey17 = pr17 * 1000.0 - rj17
+sortKey18 = pr18 * 1000.0 - rj18
+sortKey19 = pr19 * 1000.0 - rj19
+sortKey20 = pr20 * 1000.0 - rj20
+sortKey21 = pr21 * 1000.0 - rj21
+sortKey22 = pr22 * 1000.0 - rj22
+sortKey23 = pr23 * 1000.0 - rj23
+sortKey24 = pr24 * 1000.0 - rj24
+sortKey25 = pr25 * 1000.0 - rj25
+sortKey26 = pr26 * 1000.0 - rj26
+sortKey27 = pr27 * 1000.0 - rj27
+sortKey28 = pr28 * 1000.0 - rj28
+sortKey29 = pr29 * 1000.0 - rj29
+sortKey30 = pr30 * 1000.0 - rj30
+var sortKeysArr = array.new_float(30)
+array.set(sortKeysArr, 0, sortKey01)
+array.set(sortKeysArr, 1, sortKey02)
+array.set(sortKeysArr, 2, sortKey03)
+array.set(sortKeysArr, 3, sortKey04)
+array.set(sortKeysArr, 4, sortKey05)
+array.set(sortKeysArr, 5, sortKey06)
+array.set(sortKeysArr, 6, sortKey07)
+array.set(sortKeysArr, 7, sortKey08)
+array.set(sortKeysArr, 8, sortKey09)
+array.set(sortKeysArr, 9, sortKey10)
+array.set(sortKeysArr, 10, sortKey11)
+array.set(sortKeysArr, 11, sortKey12)
+array.set(sortKeysArr, 12, sortKey13)
+array.set(sortKeysArr, 13, sortKey14)
+array.set(sortKeysArr, 14, sortKey15)
+array.set(sortKeysArr, 15, sortKey16)
+array.set(sortKeysArr, 16, sortKey17)
+array.set(sortKeysArr, 17, sortKey18)
+array.set(sortKeysArr, 18, sortKey19)
+array.set(sortKeysArr, 19, sortKey20)
+array.set(sortKeysArr, 20, sortKey21)
+array.set(sortKeysArr, 21, sortKey22)
+array.set(sortKeysArr, 22, sortKey23)
+array.set(sortKeysArr, 23, sortKey24)
+array.set(sortKeysArr, 24, sortKey25)
+array.set(sortKeysArr, 25, sortKey26)
+array.set(sortKeysArr, 26, sortKey27)
+array.set(sortKeysArr, 27, sortKey28)
+array.set(sortKeysArr, 28, sortKey29)
+array.set(sortKeysArr, 29, sortKey30)
+sortedIdx = array.sort_indices(sortKeysArr, order.ascending)
+rk01 = array.indexof(sortedIdx, 0) + 1
+rk02 = array.indexof(sortedIdx, 1) + 1
+rk03 = array.indexof(sortedIdx, 2) + 1
+rk04 = array.indexof(sortedIdx, 3) + 1
+rk05 = array.indexof(sortedIdx, 4) + 1
+rk06 = array.indexof(sortedIdx, 5) + 1
+rk07 = array.indexof(sortedIdx, 6) + 1
+rk08 = array.indexof(sortedIdx, 7) + 1
+rk09 = array.indexof(sortedIdx, 8) + 1
+rk10 = array.indexof(sortedIdx, 9) + 1
+rk11 = array.indexof(sortedIdx, 10) + 1
+rk12 = array.indexof(sortedIdx, 11) + 1
+rk13 = array.indexof(sortedIdx, 12) + 1
+rk14 = array.indexof(sortedIdx, 13) + 1
+rk15 = array.indexof(sortedIdx, 14) + 1
+rk16 = array.indexof(sortedIdx, 15) + 1
+rk17 = array.indexof(sortedIdx, 16) + 1
+rk18 = array.indexof(sortedIdx, 17) + 1
+rk19 = array.indexof(sortedIdx, 18) + 1
+rk20 = array.indexof(sortedIdx, 19) + 1
+rk21 = array.indexof(sortedIdx, 20) + 1
+rk22 = array.indexof(sortedIdx, 21) + 1
+rk23 = array.indexof(sortedIdx, 22) + 1
+rk24 = array.indexof(sortedIdx, 23) + 1
+rk25 = array.indexof(sortedIdx, 24) + 1
+rk26 = array.indexof(sortedIdx, 25) + 1
+rk27 = array.indexof(sortedIdx, 26) + 1
+rk28 = array.indexof(sortedIdx, 27) + 1
+rk29 = array.indexof(sortedIdx, 28) + 1
+rk30 = array.indexof(sortedIdx, 29) + 1
+wy01 = f_reason(kg01, ld01, rs01, rv01, sm01, inf01) + " " + f_rot(s01) + " " + df01
+wy02 = f_reason(kg02, ld02, rs02, rv02, sm02, inf02) + " " + f_rot(s02) + " " + df02
+wy03 = f_reason(kg03, ld03, rs03, rv03, sm03, inf03) + " " + f_rot(s03) + " " + df03
+wy04 = f_reason(kg04, ld04, rs04, rv04, sm04, inf04) + " " + f_rot(s04) + " " + df04
+wy05 = f_reason(kg05, ld05, rs05, rv05, sm05, inf05) + " " + f_rot(s05) + " " + df05
+wy06 = f_reason(kg06, ld06, rs06, rv06, sm06, inf06) + " " + f_rot(s06) + " " + df06
+wy07 = f_reason(kg07, ld07, rs07, rv07, sm07, inf07) + " " + f_rot(s07) + " " + df07
+wy08 = f_reason(kg08, ld08, rs08, rv08, sm08, inf08) + " " + f_rot(s08) + " " + df08
+wy09 = f_reason(kg09, ld09, rs09, rv09, sm09, inf09) + " " + f_rot(s09) + " " + df09
+wy10 = f_reason(kg10, ld10, rs10, rv10, sm10, inf10) + " " + f_rot(s10) + " " + df10
+wy11 = f_reason(kg11, ld11, rs11, rv11, sm11, inf11) + " " + f_rot(s11) + " " + df11
+wy12 = f_reason(kg12, ld12, rs12, rv12, sm12, inf12) + " " + f_rot(s12) + " " + df12
+wy13 = f_reason(kg13, ld13, rs13, rv13, sm13, inf13) + " " + f_rot(s13) + " " + df13
+wy14 = f_reason(kg14, ld14, rs14, rv14, sm14, inf14) + " " + f_rot(s14) + " " + df14
+wy15 = f_reason(kg15, ld15, rs15, rv15, sm15, inf15) + " " + f_rot(s15) + " " + df15
+wy16 = f_reason(kg16, ld16, rs16, rv16, sm16, inf16) + " " + f_rot(s16) + " " + df16
+wy17 = f_reason(kg17, ld17, rs17, rv17, sm17, inf17) + " " + f_rot(s17) + " " + df17
+wy18 = f_reason(kg18, ld18, rs18, rv18, sm18, inf18) + " " + f_rot(s18) + " " + df18
+wy19 = f_reason(kg19, ld19, rs19, rv19, sm19, inf19) + " " + f_rot(s19) + " " + df19
+wy20 = f_reason(kg20, ld20, rs20, rv20, sm20, inf20) + " " + f_rot(s20) + " " + df20
+wy21 = f_reason(kg21, ld21, rs21, rv21, sm21, inf21) + " " + f_rot(s21) + " " + df21
+wy22 = f_reason(kg22, ld22, rs22, rv22, sm22, inf22) + " " + f_rot(s22) + " " + df22
+wy23 = f_reason(kg23, ld23, rs23, rv23, sm23, inf23) + " " + f_rot(s23) + " " + df23
+wy24 = f_reason(kg24, ld24, rs24, rv24, sm24, inf24) + " " + f_rot(s24) + " " + df24
+wy25 = f_reason(kg25, ld25, rs25, rv25, sm25, inf25) + " " + f_rot(s25) + " " + df25
+wy26 = f_reason(kg26, ld26, rs26, rv26, sm26, inf26) + " " + f_rot(s26) + " " + df26
+wy27 = f_reason(kg27, ld27, rs27, rv27, sm27, inf27) + " " + f_rot(s27) + " " + df27
+wy28 = f_reason(kg28, ld28, rs28, rv28, sm28, inf28) + " " + f_rot(s28) + " " + df28
+wy29 = f_reason(kg29, ld29, rs29, rv29, sm29, inf29) + " " + f_rot(s29) + " " + df29
+wy30 = f_reason(kg30, ld30, rs30, rv30, sm30, inf30) + " " + f_rot(s30) + " " + df30
+hot01 = inf01 or va01
+hot02 = inf02 or va02
+hot03 = inf03 or va03
+hot04 = inf04 or va04
+hot05 = inf05 or va05
+hot06 = inf06 or va06
+hot07 = inf07 or va07
+hot08 = inf08 or va08
+hot09 = inf09 or va09
+hot10 = inf10 or va10
+hot11 = inf11 or va11
+hot12 = inf12 or va12
+hot13 = inf13 or va13
+hot14 = inf14 or va14
+hot15 = inf15 or va15
+hot16 = inf16 or va16
+hot17 = inf17 or va17
+hot18 = inf18 or va18
+hot19 = inf19 or va19
+hot20 = inf20 or va20
+hot21 = inf21 or va21
+hot22 = inf22 or va22
+hot23 = inf23 or va23
+hot24 = inf24 or va24
+hot25 = inf25 or va25
+hot26 = inf26 or va26
+hot27 = inf27 or va27
+hot28 = inf28 or va28
+hot29 = inf29 or va29
+hot30 = inf30 or va30
+var radarDec = array.new_string(30)
+array.set(radarDec, 0, dc01)
+array.set(radarDec, 1, dc02)
+array.set(radarDec, 2, dc03)
+array.set(radarDec, 3, dc04)
+array.set(radarDec, 4, dc05)
+array.set(radarDec, 5, dc06)
+array.set(radarDec, 6, dc07)
+array.set(radarDec, 7, dc08)
+array.set(radarDec, 8, dc09)
+array.set(radarDec, 9, dc10)
+array.set(radarDec, 10, dc11)
+array.set(radarDec, 11, dc12)
+array.set(radarDec, 12, dc13)
+array.set(radarDec, 13, dc14)
+array.set(radarDec, 14, dc15)
+array.set(radarDec, 15, dc16)
+array.set(radarDec, 16, dc17)
+array.set(radarDec, 17, dc18)
+array.set(radarDec, 18, dc19)
+array.set(radarDec, 19, dc20)
+array.set(radarDec, 20, dc21)
+array.set(radarDec, 21, dc22)
+array.set(radarDec, 22, dc23)
+array.set(radarDec, 23, dc24)
+array.set(radarDec, 24, dc25)
+array.set(radarDec, 25, dc26)
+array.set(radarDec, 26, dc27)
+array.set(radarDec, 27, dc28)
+array.set(radarDec, 28, dc29)
+array.set(radarDec, 29, dc30)
+thisChartIdx = syminfo.tickerid == s01 ? 0 : syminfo.tickerid == s02 ? 1 : syminfo.tickerid == s03 ? 2 :
+     syminfo.tickerid == s04 ? 3 : syminfo.tickerid == s05 ? 4 : syminfo.tickerid == s06 ? 5 :
+     syminfo.tickerid == s07 ? 6 : syminfo.tickerid == s08 ? 7 : syminfo.tickerid == s09 ? 8 :
+     syminfo.tickerid == s10 ? 9 : syminfo.tickerid == s11 ? 10 : syminfo.tickerid == s12 ? 11 :
+     syminfo.tickerid == s13 ? 12 : syminfo.tickerid == s14 ? 13 : syminfo.tickerid == s15 ? 14 :
+     syminfo.tickerid == s16 ? 15 : syminfo.tickerid == s17 ? 16 : syminfo.tickerid == s18 ? 17 :
+     syminfo.tickerid == s19 ? 18 : syminfo.tickerid == s20 ? 19 : syminfo.tickerid == s21 ? 20 :
+     syminfo.tickerid == s22 ? 21 : syminfo.tickerid == s23 ? 22 : syminfo.tickerid == s24 ? 23 :
+     syminfo.tickerid == s25 ? 24 : syminfo.tickerid == s26 ? 25 : syminfo.tickerid == s27 ? 26 :
+     syminfo.tickerid == s28 ? 27 : syminfo.tickerid == s29 ? 28 : syminfo.tickerid == s30 ? 29 : -1
+thisChartDecCode = thisChartIdx < 0 ? -1 :
+     array.get(radarDec, thisChartIdx) == "BUY" ? 3 : array.get(radarDec, thisChartIdx) == "WATCH" ? 2 :
+     array.get(radarDec, thisChartIdx) == "PREP" ? 1 : 0
+thisChartTradeScore = thisChartIdx < 0 ? -1 : array.get(radarTrade, thisChartIdx)
+thisChartDecCodeConfirmed = f_confirmed_int(thisChartDecCode)
+thisChartTradeScoreConfirmed = f_confirmed_int(thisChartTradeScore)
+plot(thisChartDecCode, "Bu Grafigin Radar Karari (IRE FOCUS Koprusu)", display=display.none)
+plot(thisChartTradeScore, "Bu Grafigin Islem Uygunluk Skoru (IRE FOCUS Koprusu)", display=display.none)
+plot(thisChartDecCodeConfirmed, "V195 Radar Decision Confirmed", display=display.none)
+plot(thisChartTradeScoreConfirmed, "V195 Tradeability Confirmed", display=display.none)
+var radarRj = array.new_int(30)
+array.set(radarRj, 0, rj01)
+array.set(radarRj, 1, rj02)
+array.set(radarRj, 2, rj03)
+array.set(radarRj, 3, rj04)
+array.set(radarRj, 4, rj05)
+array.set(radarRj, 5, rj06)
+array.set(radarRj, 6, rj07)
+array.set(radarRj, 7, rj08)
+array.set(radarRj, 8, rj09)
+array.set(radarRj, 9, rj10)
+array.set(radarRj, 10, rj11)
+array.set(radarRj, 11, rj12)
+array.set(radarRj, 12, rj13)
+array.set(radarRj, 13, rj14)
+array.set(radarRj, 14, rj15)
+array.set(radarRj, 15, rj16)
+array.set(radarRj, 16, rj17)
+array.set(radarRj, 17, rj18)
+array.set(radarRj, 18, rj19)
+array.set(radarRj, 19, rj20)
+array.set(radarRj, 20, rj21)
+array.set(radarRj, 21, rj22)
+array.set(radarRj, 22, rj23)
+array.set(radarRj, 23, rj24)
+array.set(radarRj, 24, rj25)
+array.set(radarRj, 25, rj26)
+array.set(radarRj, 26, rj27)
+array.set(radarRj, 27, rj28)
+array.set(radarRj, 28, rj29)
+array.set(radarRj, 29, rj30)
+var radarHot = array.new_bool(30)
+array.set(radarHot, 0, hot01)
+array.set(radarHot, 1, hot02)
+array.set(radarHot, 2, hot03)
+array.set(radarHot, 3, hot04)
+array.set(radarHot, 4, hot05)
+array.set(radarHot, 5, hot06)
+array.set(radarHot, 6, hot07)
+array.set(radarHot, 7, hot08)
+array.set(radarHot, 8, hot09)
+array.set(radarHot, 9, hot10)
+array.set(radarHot, 10, hot11)
+array.set(radarHot, 11, hot12)
+array.set(radarHot, 12, hot13)
+array.set(radarHot, 13, hot14)
+array.set(radarHot, 14, hot15)
+array.set(radarHot, 15, hot16)
+array.set(radarHot, 16, hot17)
+array.set(radarHot, 17, hot18)
+array.set(radarHot, 18, hot19)
+array.set(radarHot, 19, hot20)
+array.set(radarHot, 20, hot21)
+array.set(radarHot, 21, hot22)
+array.set(radarHot, 22, hot23)
+array.set(radarHot, 23, hot24)
+array.set(radarHot, 24, hot25)
+array.set(radarHot, 25, hot26)
+array.set(radarHot, 26, hot27)
+array.set(radarHot, 27, hot28)
+array.set(radarHot, 28, hot29)
+array.set(radarHot, 29, hot30)
+var fundTier = array.from("NPOZ","POZ","POZ","POZ","POZ","POZ","POZ","NPOZ","NPOZ","NPOZ",
+     "NTR","POZ","POZ","POZ","POZ","NTR","NPOZ","NPOZ","NPOZ","NNEG",
+     "NNEG","NTR","NPOZ","NTR","NPOZ","POZ","NPOZ","NTR","NPOZ","NTR")
+f_fundSuffix(_t) => _t == "POZ" or _t == "NPOZ" ? "+" : _t == "NTR" ? "~" : "-"
+f_fundClr(_t) => _t == "POZ" ? color.rgb(0,170,90) : _t == "NPOZ" ? color.rgb(120,180,80) :
+     _t == "NTR" ? color.rgb(150,150,150) : color.rgb(210,80,70)
+var radarSmc = array.new_int(30)
+array.set(radarSmc, 0, sm01)
+array.set(radarSmc, 1, sm02)
+array.set(radarSmc, 2, sm03)
+array.set(radarSmc, 3, sm04)
+array.set(radarSmc, 4, sm05)
+array.set(radarSmc, 5, sm06)
+array.set(radarSmc, 6, sm07)
+array.set(radarSmc, 7, sm08)
+array.set(radarSmc, 8, sm09)
+array.set(radarSmc, 9, sm10)
+array.set(radarSmc, 10, sm11)
+array.set(radarSmc, 11, sm12)
+array.set(radarSmc, 12, sm13)
+array.set(radarSmc, 13, sm14)
+array.set(radarSmc, 14, sm15)
+array.set(radarSmc, 15, sm16)
+array.set(radarSmc, 16, sm17)
+array.set(radarSmc, 17, sm18)
+array.set(radarSmc, 18, sm19)
+array.set(radarSmc, 19, sm20)
+array.set(radarSmc, 20, sm21)
+array.set(radarSmc, 21, sm22)
+array.set(radarSmc, 22, sm23)
+array.set(radarSmc, 23, sm24)
+array.set(radarSmc, 24, sm25)
+array.set(radarSmc, 25, sm26)
+array.set(radarSmc, 26, sm27)
+array.set(radarSmc, 27, sm28)
+array.set(radarSmc, 28, sm29)
+array.set(radarSmc, 29, sm30)
+var radarWR = array.new_int(30)
+array.set(radarWR, 0, wr01)
+array.set(radarWR, 1, wr02)
+array.set(radarWR, 2, wr03)
+array.set(radarWR, 3, wr04)
+array.set(radarWR, 4, wr05)
+array.set(radarWR, 5, wr06)
+array.set(radarWR, 6, wr07)
+array.set(radarWR, 7, wr08)
+array.set(radarWR, 8, wr09)
+array.set(radarWR, 9, wr10)
+array.set(radarWR, 10, wr11)
+array.set(radarWR, 11, wr12)
+array.set(radarWR, 12, wr13)
+array.set(radarWR, 13, wr14)
+array.set(radarWR, 14, wr15)
+array.set(radarWR, 15, wr16)
+array.set(radarWR, 16, wr17)
+array.set(radarWR, 17, wr18)
+array.set(radarWR, 18, wr19)
+array.set(radarWR, 19, wr20)
+array.set(radarWR, 20, wr21)
+array.set(radarWR, 21, wr22)
+array.set(radarWR, 22, wr23)
+array.set(radarWR, 23, wr24)
+array.set(radarWR, 24, wr25)
+array.set(radarWR, 25, wr26)
+array.set(radarWR, 26, wr27)
+array.set(radarWR, 27, wr28)
+array.set(radarWR, 28, wr29)
+array.set(radarWR, 29, wr30)
+var radarDomFactor = array.new_string(30)
+array.set(radarDomFactor, 0, df01)
+array.set(radarDomFactor, 1, df02)
+array.set(radarDomFactor, 2, df03)
+array.set(radarDomFactor, 3, df04)
+array.set(radarDomFactor, 4, df05)
+array.set(radarDomFactor, 5, df06)
+array.set(radarDomFactor, 6, df07)
+array.set(radarDomFactor, 7, df08)
+array.set(radarDomFactor, 8, df09)
+array.set(radarDomFactor, 9, df10)
+array.set(radarDomFactor, 10, df11)
+array.set(radarDomFactor, 11, df12)
+array.set(radarDomFactor, 12, df13)
+array.set(radarDomFactor, 13, df14)
+array.set(radarDomFactor, 14, df15)
+array.set(radarDomFactor, 15, df16)
+array.set(radarDomFactor, 16, df17)
+array.set(radarDomFactor, 17, df18)
+array.set(radarDomFactor, 18, df19)
+array.set(radarDomFactor, 19, df20)
+array.set(radarDomFactor, 20, df21)
+array.set(radarDomFactor, 21, df22)
+array.set(radarDomFactor, 22, df23)
+array.set(radarDomFactor, 23, df24)
+array.set(radarDomFactor, 24, df25)
+array.set(radarDomFactor, 25, df26)
+array.set(radarDomFactor, 26, df27)
+array.set(radarDomFactor, 27, df28)
+array.set(radarDomFactor, 28, df29)
+array.set(radarDomFactor, 29, df30)
+_fCntD = 0
+_fCntM = 0
+_fCntQ = 0
+_fCntS = 0
+_fCntF = 0
+for i = 0 to array.size(radarDomFactor) - 1
+    _dfAt = array.get(radarDomFactor, i)
+    if _dfAt == "D"
+        _fCntD += 1
+    else if _dfAt == "M"
+        _fCntM += 1
+    else if _dfAt == "Q"
+        _fCntQ += 1
+    else if _dfAt == "S"
+        _fCntS += 1
+    else
+        _fCntF += 1
+_fMax = math.max(_fCntD, math.max(_fCntM, math.max(_fCntQ, math.max(_fCntS, _fCntF))))
+factorRegimeCode = _fMax == _fCntM ? "M" : _fMax == _fCntQ ? "Q" : _fMax == _fCntS ? "S" : _fMax == _fCntF ? "F" : "D"
+factorRegimeTxt = factorRegimeCode == "M" ? "MOMENTUM" : factorRegimeCode == "Q" ? "KALITE" : factorRegimeCode == "S" ? "STABILITE" : factorRegimeCode == "F" ? "AKIS" : "DEGER"
+var radarWhy = array.new_string(30)
+array.set(radarWhy, 0, wy01)
+array.set(radarWhy, 1, wy02)
+array.set(radarWhy, 2, wy03)
+array.set(radarWhy, 3, wy04)
+array.set(radarWhy, 4, wy05)
+array.set(radarWhy, 5, wy06)
+array.set(radarWhy, 6, wy07)
+array.set(radarWhy, 7, wy08)
+array.set(radarWhy, 8, wy09)
+array.set(radarWhy, 9, wy10)
+array.set(radarWhy, 10, wy11)
+array.set(radarWhy, 11, wy12)
+array.set(radarWhy, 12, wy13)
+array.set(radarWhy, 13, wy14)
+array.set(radarWhy, 14, wy15)
+array.set(radarWhy, 15, wy16)
+array.set(radarWhy, 16, wy17)
+array.set(radarWhy, 17, wy18)
+array.set(radarWhy, 18, wy19)
+array.set(radarWhy, 19, wy20)
+array.set(radarWhy, 20, wy21)
+array.set(radarWhy, 21, wy22)
+array.set(radarWhy, 22, wy23)
+array.set(radarWhy, 23, wy24)
+array.set(radarWhy, 24, wy25)
+array.set(radarWhy, 25, wy26)
+array.set(radarWhy, 26, wy27)
+array.set(radarWhy, 27, wy28)
+array.set(radarWhy, 28, wy29)
+array.set(radarWhy, 29, wy30)
+hotCount = (hot01 ? 1 : 0) + (hot02 ? 1 : 0) + (hot03 ? 1 : 0) + (hot04 ? 1 : 0) + (hot05 ? 1 : 0) + (hot06 ? 1 : 0) + (hot07 ? 1 : 0) + (hot08 ? 1 : 0) + (hot09 ? 1 : 0) + (hot10 ? 1 : 0) + (hot11 ? 1 : 0) + (hot12 ? 1 : 0) + (hot13 ? 1 : 0) + (hot14 ? 1 : 0) + (hot15 ? 1 : 0) + (hot16 ? 1 : 0) + (hot17 ? 1 : 0) + (hot18 ? 1 : 0) + (hot19 ? 1 : 0) + (hot20 ? 1 : 0) + (hot21 ? 1 : 0) + (hot22 ? 1 : 0) + (hot23 ? 1 : 0) + (hot24 ? 1 : 0) + (hot25 ? 1 : 0) + (hot26 ? 1 : 0) + (hot27 ? 1 : 0) + (hot28 ? 1 : 0) + (hot29 ? 1 : 0) + (hot30 ? 1 : 0)
+instRegime = hotCount >= 6 ? "GENIS" : hotCount >= 3 ? "SECICI" : "PASIF"
+instBg = hotCount >= 6 ? color.rgb(0,185,90) : hotCount >= 3 ? color.rgb(255,165,0) : color.rgb(80,90,110)
+avgSmc = math.round((sm01+sm02+sm03+sm04+sm05+sm06+sm07+sm08+sm09+sm10+sm11+sm12+sm13+sm14+sm15+sm16+sm17+sm18+sm19+sm20+sm21+sm22+sm23+sm24+sm25+sm26+sm27+sm28+sm29+sm30) / 30.0)
+buyCnt = (dc01 == "BUY" ? 1 : 0) + (dc02 == "BUY" ? 1 : 0) + (dc03 == "BUY" ? 1 : 0) + (dc04 == "BUY" ? 1 : 0) + (dc05 == "BUY" ? 1 : 0) + (dc06 == "BUY" ? 1 : 0) + (dc07 == "BUY" ? 1 : 0) + (dc08 == "BUY" ? 1 : 0) + (dc09 == "BUY" ? 1 : 0) + (dc10 == "BUY" ? 1 : 0) + (dc11 == "BUY" ? 1 : 0) + (dc12 == "BUY" ? 1 : 0) + (dc13 == "BUY" ? 1 : 0) + (dc14 == "BUY" ? 1 : 0) + (dc15 == "BUY" ? 1 : 0) + (dc16 == "BUY" ? 1 : 0) + (dc17 == "BUY" ? 1 : 0) + (dc18 == "BUY" ? 1 : 0) + (dc19 == "BUY" ? 1 : 0) + (dc20 == "BUY" ? 1 : 0) + (dc21 == "BUY" ? 1 : 0) + (dc22 == "BUY" ? 1 : 0) + (dc23 == "BUY" ? 1 : 0) + (dc24 == "BUY" ? 1 : 0) + (dc25 == "BUY" ? 1 : 0) + (dc26 == "BUY" ? 1 : 0) + (dc27 == "BUY" ? 1 : 0) + (dc28 == "BUY" ? 1 : 0) + (dc29 == "BUY" ? 1 : 0) + (dc30 == "BUY" ? 1 : 0)
+watchCnt = (dc01 == "WATCH" ? 1 : 0) + (dc02 == "WATCH" ? 1 : 0) + (dc03 == "WATCH" ? 1 : 0) + (dc04 == "WATCH" ? 1 : 0) + (dc05 == "WATCH" ? 1 : 0) + (dc06 == "WATCH" ? 1 : 0) + (dc07 == "WATCH" ? 1 : 0) + (dc08 == "WATCH" ? 1 : 0) + (dc09 == "WATCH" ? 1 : 0) + (dc10 == "WATCH" ? 1 : 0) + (dc11 == "WATCH" ? 1 : 0) + (dc12 == "WATCH" ? 1 : 0) + (dc13 == "WATCH" ? 1 : 0) + (dc14 == "WATCH" ? 1 : 0) + (dc15 == "WATCH" ? 1 : 0) + (dc16 == "WATCH" ? 1 : 0) + (dc17 == "WATCH" ? 1 : 0) + (dc18 == "WATCH" ? 1 : 0) + (dc19 == "WATCH" ? 1 : 0) + (dc20 == "WATCH" ? 1 : 0) + (dc21 == "WATCH" ? 1 : 0) + (dc22 == "WATCH" ? 1 : 0) + (dc23 == "WATCH" ? 1 : 0) + (dc24 == "WATCH" ? 1 : 0) + (dc25 == "WATCH" ? 1 : 0) + (dc26 == "WATCH" ? 1 : 0) + (dc27 == "WATCH" ? 1 : 0) + (dc28 == "WATCH" ? 1 : 0) + (dc29 == "WATCH" ? 1 : 0) + (dc30 == "WATCH" ? 1 : 0)
+prepCnt = (dc01 == "PREP" ? 1 : 0) + (dc02 == "PREP" ? 1 : 0) + (dc03 == "PREP" ? 1 : 0) + (dc04 == "PREP" ? 1 : 0) + (dc05 == "PREP" ? 1 : 0) + (dc06 == "PREP" ? 1 : 0) + (dc07 == "PREP" ? 1 : 0) + (dc08 == "PREP" ? 1 : 0) + (dc09 == "PREP" ? 1 : 0) + (dc10 == "PREP" ? 1 : 0) + (dc11 == "PREP" ? 1 : 0) + (dc12 == "PREP" ? 1 : 0) + (dc13 == "PREP" ? 1 : 0) + (dc14 == "PREP" ? 1 : 0) + (dc15 == "PREP" ? 1 : 0) + (dc16 == "PREP" ? 1 : 0) + (dc17 == "PREP" ? 1 : 0) + (dc18 == "PREP" ? 1 : 0) + (dc19 == "PREP" ? 1 : 0) + (dc20 == "PREP" ? 1 : 0) + (dc21 == "PREP" ? 1 : 0) + (dc22 == "PREP" ? 1 : 0) + (dc23 == "PREP" ? 1 : 0) + (dc24 == "PREP" ? 1 : 0) + (dc25 == "PREP" ? 1 : 0) + (dc26 == "PREP" ? 1 : 0) + (dc27 == "PREP" ? 1 : 0) + (dc28 == "PREP" ? 1 : 0) + (dc29 == "PREP" ? 1 : 0) + (dc30 == "PREP" ? 1 : 0)
+bestIdx = array.get(sortedIdx, 0)
+bestSym = f_name(array.get(radarSym, bestIdx))
+bestScore = array.get(radarScore, bestIdx)
+bestDec = array.get(radarDec, bestIdx)
+bestRv = bestIdx == 0 ? rv01 : bestIdx == 1 ? rv02 : bestIdx == 2 ? rv03 : bestIdx == 3 ? rv04 : bestIdx == 4 ? rv05 : bestIdx == 5 ? rv06 : bestIdx == 6 ? rv07 : bestIdx == 7 ? rv08 : bestIdx == 8 ? rv09 : bestIdx == 9 ? rv10 : bestIdx == 10 ? rv11 : bestIdx == 11 ? rv12 : bestIdx == 12 ? rv13 : bestIdx == 13 ? rv14 : bestIdx == 14 ? rv15 : bestIdx == 15 ? rv16 : bestIdx == 16 ? rv17 : bestIdx == 17 ? rv18 : bestIdx == 18 ? rv19 : bestIdx == 19 ? rv20 : bestIdx == 20 ? rv21 : bestIdx == 21 ? rv22 : bestIdx == 22 ? rv23 : bestIdx == 23 ? rv24 : bestIdx == 24 ? rv25 : bestIdx == 25 ? rv26 : bestIdx == 26 ? rv27 : bestIdx == 27 ? rv28 : bestIdx == 28 ? rv29 : rv30
+bestSmc = array.get(radarSmc, bestIdx)
+bestRj = array.get(radarRj, bestIdx)
+bestDomFactor = array.get(radarDomFactor, bestIdx)
+bestValTxt = bestDomFactor == "D" ? "DEGER+" : bestDomFactor == "M" ? "MOM+" : bestDomFactor == "Q" ? "KALITE+" : bestDomFactor == "S" ? "STABIL+" : "AKIS+"
+bestWR = array.get(radarWR, bestIdx)
+bestWRTxt = bestWR < 0 ? "N/A" : str.tostring(bestWR) + "%"
+_dirPos = 0
+_dirNeg = 0
+for i = 0 to 9
+    _rsAt = array.get(radarRs, array.get(sortedIdx, i))
+    if _rsAt > 0
+        _dirPos += 1
+    else if _rsAt < 0
+        _dirNeg += 1
+dirAlignPct = math.round(math.max(_dirPos, _dirNeg) / 10.0 * 100)
+dirAlignWarn = dirAlignPct >= 70
+dirAlignTxt = str.tostring(dirAlignPct) + "%"
+dirAlignBg = dirAlignWarn ? color.rgb(220,45,55) : dirAlignPct >= 55 ? color.rgb(255,165,0) : color.rgb(0,170,90)
+// =====================================================================
+// 14.08 DUZELTME (kullanici talebiyle - degerlendirme sonrasi): ESKI
+// whipsaw hesabi bestDec[0]!=bestDec[1] YAPIYORDU - AMA bestIdx HER
+// BAR yeniden hesaplaniyor, yani bestDec "HANGI sembolun kararidir"
+// gun gun DEGISEBILIR. Bu, "en guclu sembolun KENDI karari ne siklikta
+// degisiyor" ile "en guclu SIRADAKI sembol degisti mi" olgularini
+// KARISTIRIYORDU. Pine'da dinamik seri secimi ([] ile gecmise erisim)
+// MUMKUN OLMADIGI ICIN (bestIdx runtime'da degisebilen bir index),
+// COZUM: HER sembol icin KENDI 10-bar whipsaw sayisini (Madde 1'deki
+// AYNI 30x-degisken deseniyle) hesaplayip array'e koymak, sonra o
+// array'den bestIdx ile OKUMAK - artik gosterilen sayi GERCEKTEN o an
+// en guclu olan sembolun KENDI karar istikrarini yansitiyor.
+// =====================================================================
+wsw01 = (dc01[0]!=dc01[1]?1:0)+(dc01[1]!=dc01[2]?1:0)+(dc01[2]!=dc01[3]?1:0)+(dc01[3]!=dc01[4]?1:0)+(dc01[4]!=dc01[5]?1:0)+(dc01[5]!=dc01[6]?1:0)+(dc01[6]!=dc01[7]?1:0)+(dc01[7]!=dc01[8]?1:0)+(dc01[8]!=dc01[9]?1:0)
+wsw02 = (dc02[0]!=dc02[1]?1:0)+(dc02[1]!=dc02[2]?1:0)+(dc02[2]!=dc02[3]?1:0)+(dc02[3]!=dc02[4]?1:0)+(dc02[4]!=dc02[5]?1:0)+(dc02[5]!=dc02[6]?1:0)+(dc02[6]!=dc02[7]?1:0)+(dc02[7]!=dc02[8]?1:0)+(dc02[8]!=dc02[9]?1:0)
+wsw03 = (dc03[0]!=dc03[1]?1:0)+(dc03[1]!=dc03[2]?1:0)+(dc03[2]!=dc03[3]?1:0)+(dc03[3]!=dc03[4]?1:0)+(dc03[4]!=dc03[5]?1:0)+(dc03[5]!=dc03[6]?1:0)+(dc03[6]!=dc03[7]?1:0)+(dc03[7]!=dc03[8]?1:0)+(dc03[8]!=dc03[9]?1:0)
+wsw04 = (dc04[0]!=dc04[1]?1:0)+(dc04[1]!=dc04[2]?1:0)+(dc04[2]!=dc04[3]?1:0)+(dc04[3]!=dc04[4]?1:0)+(dc04[4]!=dc04[5]?1:0)+(dc04[5]!=dc04[6]?1:0)+(dc04[6]!=dc04[7]?1:0)+(dc04[7]!=dc04[8]?1:0)+(dc04[8]!=dc04[9]?1:0)
+wsw05 = (dc05[0]!=dc05[1]?1:0)+(dc05[1]!=dc05[2]?1:0)+(dc05[2]!=dc05[3]?1:0)+(dc05[3]!=dc05[4]?1:0)+(dc05[4]!=dc05[5]?1:0)+(dc05[5]!=dc05[6]?1:0)+(dc05[6]!=dc05[7]?1:0)+(dc05[7]!=dc05[8]?1:0)+(dc05[8]!=dc05[9]?1:0)
+wsw06 = (dc06[0]!=dc06[1]?1:0)+(dc06[1]!=dc06[2]?1:0)+(dc06[2]!=dc06[3]?1:0)+(dc06[3]!=dc06[4]?1:0)+(dc06[4]!=dc06[5]?1:0)+(dc06[5]!=dc06[6]?1:0)+(dc06[6]!=dc06[7]?1:0)+(dc06[7]!=dc06[8]?1:0)+(dc06[8]!=dc06[9]?1:0)
+wsw07 = (dc07[0]!=dc07[1]?1:0)+(dc07[1]!=dc07[2]?1:0)+(dc07[2]!=dc07[3]?1:0)+(dc07[3]!=dc07[4]?1:0)+(dc07[4]!=dc07[5]?1:0)+(dc07[5]!=dc07[6]?1:0)+(dc07[6]!=dc07[7]?1:0)+(dc07[7]!=dc07[8]?1:0)+(dc07[8]!=dc07[9]?1:0)
+wsw08 = (dc08[0]!=dc08[1]?1:0)+(dc08[1]!=dc08[2]?1:0)+(dc08[2]!=dc08[3]?1:0)+(dc08[3]!=dc08[4]?1:0)+(dc08[4]!=dc08[5]?1:0)+(dc08[5]!=dc08[6]?1:0)+(dc08[6]!=dc08[7]?1:0)+(dc08[7]!=dc08[8]?1:0)+(dc08[8]!=dc08[9]?1:0)
+wsw09 = (dc09[0]!=dc09[1]?1:0)+(dc09[1]!=dc09[2]?1:0)+(dc09[2]!=dc09[3]?1:0)+(dc09[3]!=dc09[4]?1:0)+(dc09[4]!=dc09[5]?1:0)+(dc09[5]!=dc09[6]?1:0)+(dc09[6]!=dc09[7]?1:0)+(dc09[7]!=dc09[8]?1:0)+(dc09[8]!=dc09[9]?1:0)
+wsw10 = (dc10[0]!=dc10[1]?1:0)+(dc10[1]!=dc10[2]?1:0)+(dc10[2]!=dc10[3]?1:0)+(dc10[3]!=dc10[4]?1:0)+(dc10[4]!=dc10[5]?1:0)+(dc10[5]!=dc10[6]?1:0)+(dc10[6]!=dc10[7]?1:0)+(dc10[7]!=dc10[8]?1:0)+(dc10[8]!=dc10[9]?1:0)
+wsw11 = (dc11[0]!=dc11[1]?1:0)+(dc11[1]!=dc11[2]?1:0)+(dc11[2]!=dc11[3]?1:0)+(dc11[3]!=dc11[4]?1:0)+(dc11[4]!=dc11[5]?1:0)+(dc11[5]!=dc11[6]?1:0)+(dc11[6]!=dc11[7]?1:0)+(dc11[7]!=dc11[8]?1:0)+(dc11[8]!=dc11[9]?1:0)
+wsw12 = (dc12[0]!=dc12[1]?1:0)+(dc12[1]!=dc12[2]?1:0)+(dc12[2]!=dc12[3]?1:0)+(dc12[3]!=dc12[4]?1:0)+(dc12[4]!=dc12[5]?1:0)+(dc12[5]!=dc12[6]?1:0)+(dc12[6]!=dc12[7]?1:0)+(dc12[7]!=dc12[8]?1:0)+(dc12[8]!=dc12[9]?1:0)
+wsw13 = (dc13[0]!=dc13[1]?1:0)+(dc13[1]!=dc13[2]?1:0)+(dc13[2]!=dc13[3]?1:0)+(dc13[3]!=dc13[4]?1:0)+(dc13[4]!=dc13[5]?1:0)+(dc13[5]!=dc13[6]?1:0)+(dc13[6]!=dc13[7]?1:0)+(dc13[7]!=dc13[8]?1:0)+(dc13[8]!=dc13[9]?1:0)
+wsw14 = (dc14[0]!=dc14[1]?1:0)+(dc14[1]!=dc14[2]?1:0)+(dc14[2]!=dc14[3]?1:0)+(dc14[3]!=dc14[4]?1:0)+(dc14[4]!=dc14[5]?1:0)+(dc14[5]!=dc14[6]?1:0)+(dc14[6]!=dc14[7]?1:0)+(dc14[7]!=dc14[8]?1:0)+(dc14[8]!=dc14[9]?1:0)
+wsw15 = (dc15[0]!=dc15[1]?1:0)+(dc15[1]!=dc15[2]?1:0)+(dc15[2]!=dc15[3]?1:0)+(dc15[3]!=dc15[4]?1:0)+(dc15[4]!=dc15[5]?1:0)+(dc15[5]!=dc15[6]?1:0)+(dc15[6]!=dc15[7]?1:0)+(dc15[7]!=dc15[8]?1:0)+(dc15[8]!=dc15[9]?1:0)
+wsw16 = (dc16[0]!=dc16[1]?1:0)+(dc16[1]!=dc16[2]?1:0)+(dc16[2]!=dc16[3]?1:0)+(dc16[3]!=dc16[4]?1:0)+(dc16[4]!=dc16[5]?1:0)+(dc16[5]!=dc16[6]?1:0)+(dc16[6]!=dc16[7]?1:0)+(dc16[7]!=dc16[8]?1:0)+(dc16[8]!=dc16[9]?1:0)
+wsw17 = (dc17[0]!=dc17[1]?1:0)+(dc17[1]!=dc17[2]?1:0)+(dc17[2]!=dc17[3]?1:0)+(dc17[3]!=dc17[4]?1:0)+(dc17[4]!=dc17[5]?1:0)+(dc17[5]!=dc17[6]?1:0)+(dc17[6]!=dc17[7]?1:0)+(dc17[7]!=dc17[8]?1:0)+(dc17[8]!=dc17[9]?1:0)
+wsw18 = (dc18[0]!=dc18[1]?1:0)+(dc18[1]!=dc18[2]?1:0)+(dc18[2]!=dc18[3]?1:0)+(dc18[3]!=dc18[4]?1:0)+(dc18[4]!=dc18[5]?1:0)+(dc18[5]!=dc18[6]?1:0)+(dc18[6]!=dc18[7]?1:0)+(dc18[7]!=dc18[8]?1:0)+(dc18[8]!=dc18[9]?1:0)
+wsw19 = (dc19[0]!=dc19[1]?1:0)+(dc19[1]!=dc19[2]?1:0)+(dc19[2]!=dc19[3]?1:0)+(dc19[3]!=dc19[4]?1:0)+(dc19[4]!=dc19[5]?1:0)+(dc19[5]!=dc19[6]?1:0)+(dc19[6]!=dc19[7]?1:0)+(dc19[7]!=dc19[8]?1:0)+(dc19[8]!=dc19[9]?1:0)
+wsw20 = (dc20[0]!=dc20[1]?1:0)+(dc20[1]!=dc20[2]?1:0)+(dc20[2]!=dc20[3]?1:0)+(dc20[3]!=dc20[4]?1:0)+(dc20[4]!=dc20[5]?1:0)+(dc20[5]!=dc20[6]?1:0)+(dc20[6]!=dc20[7]?1:0)+(dc20[7]!=dc20[8]?1:0)+(dc20[8]!=dc20[9]?1:0)
+wsw21 = (dc21[0]!=dc21[1]?1:0)+(dc21[1]!=dc21[2]?1:0)+(dc21[2]!=dc21[3]?1:0)+(dc21[3]!=dc21[4]?1:0)+(dc21[4]!=dc21[5]?1:0)+(dc21[5]!=dc21[6]?1:0)+(dc21[6]!=dc21[7]?1:0)+(dc21[7]!=dc21[8]?1:0)+(dc21[8]!=dc21[9]?1:0)
+wsw22 = (dc22[0]!=dc22[1]?1:0)+(dc22[1]!=dc22[2]?1:0)+(dc22[2]!=dc22[3]?1:0)+(dc22[3]!=dc22[4]?1:0)+(dc22[4]!=dc22[5]?1:0)+(dc22[5]!=dc22[6]?1:0)+(dc22[6]!=dc22[7]?1:0)+(dc22[7]!=dc22[8]?1:0)+(dc22[8]!=dc22[9]?1:0)
+wsw23 = (dc23[0]!=dc23[1]?1:0)+(dc23[1]!=dc23[2]?1:0)+(dc23[2]!=dc23[3]?1:0)+(dc23[3]!=dc23[4]?1:0)+(dc23[4]!=dc23[5]?1:0)+(dc23[5]!=dc23[6]?1:0)+(dc23[6]!=dc23[7]?1:0)+(dc23[7]!=dc23[8]?1:0)+(dc23[8]!=dc23[9]?1:0)
+wsw24 = (dc24[0]!=dc24[1]?1:0)+(dc24[1]!=dc24[2]?1:0)+(dc24[2]!=dc24[3]?1:0)+(dc24[3]!=dc24[4]?1:0)+(dc24[4]!=dc24[5]?1:0)+(dc24[5]!=dc24[6]?1:0)+(dc24[6]!=dc24[7]?1:0)+(dc24[7]!=dc24[8]?1:0)+(dc24[8]!=dc24[9]?1:0)
+wsw25 = (dc25[0]!=dc25[1]?1:0)+(dc25[1]!=dc25[2]?1:0)+(dc25[2]!=dc25[3]?1:0)+(dc25[3]!=dc25[4]?1:0)+(dc25[4]!=dc25[5]?1:0)+(dc25[5]!=dc25[6]?1:0)+(dc25[6]!=dc25[7]?1:0)+(dc25[7]!=dc25[8]?1:0)+(dc25[8]!=dc25[9]?1:0)
+wsw26 = (dc26[0]!=dc26[1]?1:0)+(dc26[1]!=dc26[2]?1:0)+(dc26[2]!=dc26[3]?1:0)+(dc26[3]!=dc26[4]?1:0)+(dc26[4]!=dc26[5]?1:0)+(dc26[5]!=dc26[6]?1:0)+(dc26[6]!=dc26[7]?1:0)+(dc26[7]!=dc26[8]?1:0)+(dc26[8]!=dc26[9]?1:0)
+wsw27 = (dc27[0]!=dc27[1]?1:0)+(dc27[1]!=dc27[2]?1:0)+(dc27[2]!=dc27[3]?1:0)+(dc27[3]!=dc27[4]?1:0)+(dc27[4]!=dc27[5]?1:0)+(dc27[5]!=dc27[6]?1:0)+(dc27[6]!=dc27[7]?1:0)+(dc27[7]!=dc27[8]?1:0)+(dc27[8]!=dc27[9]?1:0)
+wsw28 = (dc28[0]!=dc28[1]?1:0)+(dc28[1]!=dc28[2]?1:0)+(dc28[2]!=dc28[3]?1:0)+(dc28[3]!=dc28[4]?1:0)+(dc28[4]!=dc28[5]?1:0)+(dc28[5]!=dc28[6]?1:0)+(dc28[6]!=dc28[7]?1:0)+(dc28[7]!=dc28[8]?1:0)+(dc28[8]!=dc28[9]?1:0)
+wsw29 = (dc29[0]!=dc29[1]?1:0)+(dc29[1]!=dc29[2]?1:0)+(dc29[2]!=dc29[3]?1:0)+(dc29[3]!=dc29[4]?1:0)+(dc29[4]!=dc29[5]?1:0)+(dc29[5]!=dc29[6]?1:0)+(dc29[6]!=dc29[7]?1:0)+(dc29[7]!=dc29[8]?1:0)+(dc29[8]!=dc29[9]?1:0)
+wsw30 = (dc30[0]!=dc30[1]?1:0)+(dc30[1]!=dc30[2]?1:0)+(dc30[2]!=dc30[3]?1:0)+(dc30[3]!=dc30[4]?1:0)+(dc30[4]!=dc30[5]?1:0)+(dc30[5]!=dc30[6]?1:0)+(dc30[6]!=dc30[7]?1:0)+(dc30[7]!=dc30[8]?1:0)+(dc30[8]!=dc30[9]?1:0)
+var radarWhipsaw = array.new_int(30)
+array.set(radarWhipsaw, 0, wsw01)
+array.set(radarWhipsaw, 1, wsw02)
+array.set(radarWhipsaw, 2, wsw03)
+array.set(radarWhipsaw, 3, wsw04)
+array.set(radarWhipsaw, 4, wsw05)
+array.set(radarWhipsaw, 5, wsw06)
+array.set(radarWhipsaw, 6, wsw07)
+array.set(radarWhipsaw, 7, wsw08)
+array.set(radarWhipsaw, 8, wsw09)
+array.set(radarWhipsaw, 9, wsw10)
+array.set(radarWhipsaw, 10, wsw11)
+array.set(radarWhipsaw, 11, wsw12)
+array.set(radarWhipsaw, 12, wsw13)
+array.set(radarWhipsaw, 13, wsw14)
+array.set(radarWhipsaw, 14, wsw15)
+array.set(radarWhipsaw, 15, wsw16)
+array.set(radarWhipsaw, 16, wsw17)
+array.set(radarWhipsaw, 17, wsw18)
+array.set(radarWhipsaw, 18, wsw19)
+array.set(radarWhipsaw, 19, wsw20)
+array.set(radarWhipsaw, 20, wsw21)
+array.set(radarWhipsaw, 21, wsw22)
+array.set(radarWhipsaw, 22, wsw23)
+array.set(radarWhipsaw, 23, wsw24)
+array.set(radarWhipsaw, 24, wsw25)
+array.set(radarWhipsaw, 25, wsw26)
+array.set(radarWhipsaw, 26, wsw27)
+array.set(radarWhipsaw, 27, wsw28)
+array.set(radarWhipsaw, 28, wsw29)
+array.set(radarWhipsaw, 29, wsw30)
+whipsawCount = array.get(radarWhipsaw, bestIdx)
+whipsawWarn = whipsawCount >= 3
+whipsawTxt = whipsawWarn ? "SALINIM " + str.tostring(whipsawCount) : "STABIL"
+whipsawBg = whipsawWarn ? color.rgb(220,45,55) : color.rgb(0,170,90)
+f_top10SectorCount(sec) =>
+    cnt = 0
+    for i = 0 to 9
+        idxAt = array.get(sortedIdx, i)
+        symAt = array.get(radarSym, idxAt)
+        if f_sector(symAt) == sec
+            cnt += 1
+    cnt
+top10BankCnt = f_top10SectorCount("BANK")
+top10HoldCnt = f_top10SectorCount("HOLD")
+top10AirCnt = f_top10SectorCount("AIR")
+top10RetCnt = f_top10SectorCount("RET")
+top10EnrCnt = f_top10SectorCount("ENR")
+top10IndCnt = f_top10SectorCount("IND")
+top10DefCnt = f_top10SectorCount("DEF")
+top10TelCnt = f_top10SectorCount("TEL")
+top10FodCnt = f_top10SectorCount("FOD")
+top10GyoCnt = f_top10SectorCount("GYO")
+grpDiv = "Sektor Coksesitlilik (Ince Ayar)"
+thConcWarn = input.int(5, "Uyari Esigi (Top10 icinde ayni sektor sayisi)", minval=2, maxval=10, group=grpDiv, display=display.none)
+thConcDanger = input.int(6, "Tehlike Esigi", minval=2, maxval=10, group=grpDiv, display=display.none)
+maxSectorCnt = math.max(top10BankCnt, math.max(top10HoldCnt, math.max(top10AirCnt, math.max(top10RetCnt, math.max(top10EnrCnt, math.max(top10IndCnt, math.max(top10DefCnt, math.max(top10TelCnt, math.max(top10FodCnt, top10GyoCnt)))))))))
+maxSectorName = maxSectorCnt == top10BankCnt ? "BANKA" : maxSectorCnt == top10HoldCnt ? "HOLDING" : maxSectorCnt == top10AirCnt ? "HAVA" : maxSectorCnt == top10RetCnt ? "PERAKND" : maxSectorCnt == top10EnrCnt ? "ENERJI" : maxSectorCnt == top10IndCnt ? "SINAI" : maxSectorCnt == top10DefCnt ? "SAVUNMA" : maxSectorCnt == top10TelCnt ? "ILETSM" : maxSectorCnt == top10FodCnt ? "GIDA" : "GYO"
+concentrationWarn = maxSectorCnt >= thConcWarn
+concentrationTxt = concentrationWarn ? "YOGUN:" + maxSectorName + "(" + str.tostring(maxSectorCnt) + ")" : "DENGELI"
+concentrationBg = maxSectorCnt >= thConcDanger ? color.rgb(220,45,55) : maxSectorCnt >= thConcWarn ? color.rgb(255,165,0) : color.rgb(0,170,90)
+plot(concentrationWarn ? 1 : 0, "Sektor Yogunlasma (IRE FOCUS Koprusu)", display=display.none)
+plot(dirAlignWarn ? 1 : 0, "Yon Uyum Riski (IRE FOCUS Koprusu)", display=display.none)
+grpPos = "Pozisyon Buyuklugu (Ince Ayar)"
+accountSize = input.float(100000, "Hesap Buyuklugu (TL)", group=grpPos, display=display.none)
+maxPositionPct = input.float(15.0, "Max Pozisyon %", group=grpPos, minval=1.0, maxval=100.0, display=display.none)
+thConvHigh = input.int(80, "Yuksek Guven: Min Skor", minval=0, maxval=100, group=grpPos, display=display.none)
+thConvHighSmc = input.int(70, "Yuksek Guven: Min SMC", minval=0, maxval=100, group=grpPos, display=display.none)
+thConvMed = input.int(70, "Orta Guven: Min Skor", minval=0, maxval=100, group=grpPos, display=display.none)
+thConvMedSmc = input.int(55, "Orta Guven: Min SMC", minval=0, maxval=100, group=grpPos, display=display.none)
+thConvLow = input.int(60, "Dusuk Guven: Min Skor", minval=0, maxval=100, group=grpPos, display=display.none)
+thLiqLow = input.float(0.4, "Likidite: Cok Dusuk Esik (RelVol)", minval=0.1, maxval=2.0, step=0.05, group=grpPos, display=display.none)
+thLiqWarn = input.float(0.7, "Likidite: Uyari Esigi (RelVol)", minval=0.1, maxval=2.0, step=0.05, group=grpPos, display=display.none)
+f_position_size(score, relVol, smc, accSize, maxPosPct) =>
+    convictionMult = score >= thConvHigh and smc >= thConvHighSmc ? 1.0 : score >= thConvMed and smc >= thConvMedSmc ? 0.75 : score >= thConvLow ? 0.5 : 0.25
+    volAdj = relVol > 2.5 ? 0.6 : relVol > 1.8 ? 0.8 : 1.0
+    liqAdj = relVol < thLiqLow ? 0.4 : relVol < thLiqWarn ? 0.7 : 1.0
+    liqWarn = relVol < thLiqWarn
+    sizePct = f_clamp(maxPosPct * convictionMult * volAdj * liqAdj, 0, maxPosPct)
+    sizeTL = accSize * sizePct / 100.0
+    [sizePct, sizeTL, liqWarn]
+[bestSizePct, bestSizeTL, bestLiqWarn] = f_position_size(bestScore, bestRv, bestSmc, accountSize, maxPositionPct)
+var table t = table.new(f_pos(panelPos), 9, 25, bgcolor=color.rgb(38,44,58), border_width=1, border_color=color.rgb(70,80,100))
+f_sec_row(row, label, secCode, colOffset, ss, prevVal, rs) =>
+    ssChgPct = f_pctChg(ss, prevVal)
+    clr = ss >= 60 ? color.rgb(0,185,90) : ss >= 45 ? color.rgb(255,165,0) : color.rgb(200,50,55)
+    rsClr = f_rs_clr(rs)
+    leaderName = ""
+    leaderScore = -1
+    leaderChg = 0.0
+    wrSum = 0
+    wrCt = 0
+    for i = 0 to array.size(radarSym) - 1
+        symAt = array.get(radarSym, i)
+        if f_sector(symAt) == secCode
+            scAt = array.get(radarScore, i)
+            if scAt > leaderScore
+                leaderScore := scAt
+                leaderName := f_name(symAt)
+                leaderChg := array.get(radarChg, i)
+            wrAt = array.get(radarWR, i)
+            if wrAt >= 0
+                wrSum += wrAt
+                wrCt += 1
+    wr = wrCt > 0 ? math.round(wrSum / float(wrCt)) : -1
+    leaderTxt = leaderName + " " + f_chg_txt(leaderChg)
+    table.cell(t, colOffset + 0, row, str.tostring(ss), text_color=color.white, bgcolor=clr, text_size=size.small)
+    table.cell(t, colOffset + 1, row, label, text_color=color.white, bgcolor=clr, text_size=size.small)
+    table.cell(t, colOffset + 2, row, f_chg_txt(rs), text_color=color.white, bgcolor=rsClr, text_size=size.small)
+    table.cell(t, colOffset + 3, row, leaderTxt, text_color=color.white, bgcolor=clr, text_size=size.small, tooltip=wr < 0 ? "" : "Sektor WR: " + str.tostring(wr) + "%")
+f_radar_rank(rk) =>
+    activeN = math.min(radarN, 30)
+    isException = isFullMode or rk <= 5 or rk > activeN - 3
+    if rk <= activeN and isException
+        origIdx = array.get(sortedIdx, rk - 1)
+        sym = array.get(radarSym, origIdx)
+        dec = array.get(radarDec, origIdx)
+        score = array.get(radarScore, origIdx)
+        rj = array.get(radarRj, origIdx)
+        hot = array.get(radarHot, origIdx)
+        smc = array.get(radarSmc, origIdx)
+        fTier = array.get(fundTier, origIdx)
+        fSuffix = f_fundSuffix(fTier)
+        // 23.09 EKLENTI (kullanici talebi - "gun ici yuzdesel degisimi de
+        // yazsak"): veri ZATEN hesaplanip radarChg array'ine toplanmisti
+        // (satir 182), yalniz sektor lideri gosteriminde kullaniliyordu -
+        // ana radar tablosunda HIC gosterilmiyordu. f_chg_txt (zaten var
+        // olan bicimlendirme fonksiyonu) ile SYM hucresine ekleniyor.
+        chg = array.get(radarChg, origIdx)
+        dssBg = hot and smc >= 70 ? color.rgb(0, 220, 100) : hot and smc >= 50 ? color.rgb(0, 170, 80) : score >= 70 ? color.rgb(0, 130, 200) : score >= 55 ? color.rgb(255, 165, 0) : color.rgb(80, 90, 110)
+        if isFullMode
+            colBlock = rk <= 10 ? 0 : rk <= 20 ? 3 : 6
+            row = (rk <= 10 ? rk : rk <= 20 ? rk - 10 : rk - 20) + 14
+            table.cell(t, colBlock + 0, row, "#" + str.tostring(rk), text_color=color.white, bgcolor=f_dbg(dec), text_size=size.small)
+            table.cell(t, colBlock + 1, row, f_name(sym) + " " + f_chg_txt(chg), text_color=color.white, bgcolor=f_dbg(dec), text_size=size.small)
+            table.cell(t, colBlock + 2, row, str.tostring(score) + f_dir(score) + fSuffix, text_color=f_fundClr(fTier), bgcolor=dssBg, text_size=size.small)
+        else
+            why = array.get(radarWhy, origIdx)
+            cRow = rk <= 5 ? rk : rk - (activeN - 8)
+            table.cell(t, 0, cRow + 14, "#" + str.tostring(rk), text_color=color.white, bgcolor=f_dbg(dec), text_size=size.small)
+            table.cell(t, 1, cRow + 14, f_name(sym) + " " + f_chg_txt(chg), text_color=color.white, bgcolor=f_dbg(dec), text_size=size.small)
+            table.cell(t, 2, cRow + 14, str.tostring(score) + f_dir(score), text_color=color.white, bgcolor=dssBg, text_size=size.small)
+            table.cell(t, 3, cRow + 14, why, text_color=color.white, bgcolor=dssBg, text_size=size.small)
+if barstate.islast
+    for rr = 0 to 24
+        for cc = 0 to 8
+            table.cell(t, cc, rr, "", bgcolor=color.new(color.black, 100), text_size=size.small)
+    if showRadar
+        if isFullMode
+            table.cell(t, 0, 14, "#", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 1, 14, "SYM", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 2, 14, "DSS", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 3, 14, "#", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 4, 14, "SYM", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 5, 14, "DSS", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 6, 14, "#", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 7, 14, "SYM", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 8, 14, "DSS", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+        else
+            table.cell(t, 0, 14, "#", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 1, 14, "SYM", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 2, 14, "DSS", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+            table.cell(t, 3, 14, "WHY", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+    if showRadar
+        activeN = math.min(radarN, 30)
+        startCol = 0
+        table.cell(t, startCol + 0, 0, "EN GUCLU", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 1, 0, bestSym, text_color=color.white, bgcolor=f_dbg(bestDec), text_size=size.normal)
+        table.cell(t, startCol + 0, 1, f_decision_txt(bestDec), text_color=color.white, bgcolor=f_dbg(bestDec), text_size=size.small)
+        table.cell(t, startCol + 1, 1, "S" + str.tostring(bestScore) + " R" + str.tostring(bestRj), text_color=color.white, bgcolor=f_bg(bestScore), text_size=size.small)
+        table.cell(t, startCol + 2, 0, "MKT", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 3, 0, marketShort, text_color=color.white, bgcolor=marketScore >= 55 ? color.rgb(0, 170, 90) : marketScore >= 42 ? color.rgb(255, 170, 0) : color.rgb(210, 60, 70), text_size=size.small)
+        bestTradeScore = array.get(radarTrade, bestIdx)
+        table.cell(t, startCol + 4, 0, "ISLEM", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 5, 0, f_tradeTxt(bestTradeScore) + " " + str.tostring(bestTradeScore), text_color=color.white, bgcolor=bestTradeScore >= 75 ? color.rgb(0,170,90) : bestTradeScore >= 60 ? color.rgb(255,165,0) : color.rgb(190,50,55), text_size=size.small)
+        table.cell(t, startCol + 2, 1, "SEC", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 3, 1, f_sec_code(topSec) + f_sec_flow(topSec), text_color=color.white, bgcolor=f_rot_sec_bg(topSec), text_size=size.small)
+        table.cell(t, startCol + 4, 1, "BWP", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 5, 1, str.tostring(buyCnt) + "/" + str.tostring(watchCnt) + "/" + str.tostring(prepCnt), text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        // 14.08 DUZELTME (Perplexity - guvenli adim 1): "S-WR" -> "RS5-HIT"
+        // yalniz ETIKET degisti - hesaplama (rs01 > rs01[5] devam orani)
+        // AYNI kaldi. Eski etiket "kazanma orani/gercek getiri" cagrisimi
+        // yapiyordu, oysa metrik RS5 (goreceli guc) devamliligini olcuyor.
+        table.cell(t, startCol + 0, 2, "RS5-HIT", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 1, 2, bestWRTxt, text_color=color.white, bgcolor=bestWR < 0 ? f_head() : (bestWR >= 55 ? color.rgb(0,185,90) : bestWR >= 40 ? color.rgb(255,165,0) : color.rgb(200,50,55)), text_size=size.small)
+        // 14.08 DUZELTME (Perplexity - guvenli adim 2): "SIZE" -> "ALLOC"
+        // yalniz ETIKET degisti - f_position_size() hesaplamasi (skor/SMC/
+        // RelVol tabanli) AYNI kaldi. Gercek stop mesafesi kullanmadigi
+        // icin "pozisyon BUYUKLUGU" degil "TAHSISAT ORANI" demek daha dogru.
+        table.cell(t, startCol + 2, 2, "ALLOC", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 3, 2, str.tostring(bestSizePct, "#.#") + "%", text_color=color.white, bgcolor=bestSizePct >= 10 ? color.rgb(0,185,90) : color.rgb(255,165,0), text_size=size.small)
+        table.cell(t, startCol + 4, 2, "INST", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 5, 2, instRegime + "(" + str.tostring(hotCount) + ")", text_color=color.white, bgcolor=instBg, text_size=size.small)
+        table.cell(t, startCol + 6, 2, "AVG-SMC", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 7, 2, str.tostring(avgSmc), text_color=color.white, bgcolor=avgSmc >= 55 ? color.rgb(0,185,90) : avgSmc >= 40 ? color.rgb(255,165,0) : color.rgb(200,50,55), text_size=size.small)
+        table.cell(t, startCol + 0, 3, "COKSESIT", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 1, 3, concentrationTxt, text_color=color.white, bgcolor=concentrationBg, text_size=size.small)
+        table.cell(t, startCol + 2, 3, "LIKIDITE", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 3, 3, bestLiqWarn ? "DUSUK" : "NORMAL", text_color=color.white, bgcolor=bestLiqWarn ? color.rgb(220,45,55) : color.rgb(0,170,90), text_size=size.small)
+        table.cell(t, startCol + 4, 3, "FAKTOR", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 5, 3, bestValTxt, text_color=color.white, bgcolor=color.rgb(40,130,255), text_size=size.small)
+        table.cell(t, startCol + 6, 3, "YON/SAL", text_color=color.white, bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, startCol + 7, 3, dirAlignTxt, text_color=color.white, bgcolor=dirAlignBg, text_size=size.small)
+        table.cell(t, startCol + 8, 3, whipsawTxt, text_color=color.white, bgcolor=whipsawBg, text_size=size.small)
+        f_radar_rank(1)
+        f_radar_rank(2)
+        f_radar_rank(3)
+        f_radar_rank(4)
+        f_radar_rank(5)
+        f_radar_rank(6)
+        f_radar_rank(7)
+        f_radar_rank(8)
+        f_radar_rank(9)
+        f_radar_rank(10)
+        f_radar_rank(11)
+        f_radar_rank(12)
+        f_radar_rank(13)
+        f_radar_rank(14)
+        f_radar_rank(15)
+        f_radar_rank(16)
+        f_radar_rank(17)
+        f_radar_rank(18)
+        f_radar_rank(19)
+        f_radar_rank(20)
+        f_radar_rank(21)
+        f_radar_rank(22)
+        f_radar_rank(23)
+        f_radar_rank(24)
+        f_radar_rank(25)
+        f_radar_rank(26)
+        f_radar_rank(27)
+        f_radar_rank(28)
+        f_radar_rank(29)
+        f_radar_rank(30)
+    if isFullMode
+        table.cell(t, 0, 8, "SKOR", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, 1, 8, "SEKTOR", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, 2, 8, "RS10", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, 3, 8, "LIDER", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+        f_sec_row(9, "BANKA", "BANK", 0, bankRot, bankRotH5, bankRs)
+        f_sec_row(10, "HOLDING", "HOLD", 0, holdRot, holdRotH5, holdRs)
+        f_sec_row(11, "HAVA", "AIR", 0, airRot, airRotH5, airRs)
+        f_sec_row(12, "PERAKND", "RET", 0, retRot, retRotH5, retRs)
+        f_sec_row(13, "ENERJI", "ENR", 0, enrRot, enrRotH5, enrRs)
+        f_sec_row(9, "SINAI", "IND", 5, indRot, indRotH5, indRs)
+        f_sec_row(10, "SAVUNMA", "DEF", 5, defRot, defRotH5, defRs)
+        f_sec_row(11, "ILETSM", "TEL", 5, telRot, telRotH5, telRs)
+        f_sec_row(12, "GIDA", "FOD", 5, fodRot, fodRotH5, fodRs)
+        f_sec_row(13, "GYO", "GYO", 5, gyoRot, gyoRotH5, gyoRs)
+    else
+        table.cell(t, 0, 8, "SEKTOR", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+        table.cell(t, 2, 8, f_sec_code(topSec) + " " + str.tostring(f_sec_score(topSec)), text_color=color.white, bgcolor=f_rot_sec_bg(topSec), text_size=size.small)
+    _hh = hour(time, "Europe/Istanbul")
+    _mm = minute(time)
+    _isOpening = _hh == 10 and _mm < 15
+    _isMid = (_hh == 10 and _mm >= 15) or _hh == 11 or (_hh == 12 and _mm <= 30)
+    _isAfternoon = (_hh == 12 and _mm > 30) or (_hh >= 13 and _hh < 15) or (_hh == 15 and _mm <= 45)
+    _isClose = _hh == 15 and _mm > 45 and _mm <= 55
+    _sessionTxt = _isOpening ? "ACILIS" : _isMid ? "ANA SEANS" : _isAfternoon ? "OGLE SONRASI" : _isClose ? "KAPANIS" : "KAPALI"
+    _sessionClr = _isMid or _isAfternoon ? color.rgb(0,185,90) : _isOpening or _isClose ? color.rgb(255,165,0) : color.rgb(80,90,110)
+    table.cell(t, 5, 8, "SEANS", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+    table.cell(t, 6, 8, _sessionTxt, text_color=color.white, bgcolor=_sessionClr, text_size=size.small)
+    // 14.08 DUZELTME (Perplexity - sessiz yanlis varsayilan): macroTxt
+    // "NO DATA" oldugunda ESKI mantik hicbir dala GIRMEYIP sessizce
+    // "GENEL"e DUSUYORDU - kullanici "veri yok" ile "notr/sakin piyasa"yi
+    // AYIRT EDEMIYORDU. NO DATA kontrolu simdi EN ONCELIKLI dal.
+    _rejimOzet = macroTxt == "NO DATA" ? "VERI YOK" : topSec == "BANK" and macroTxt == "ON" ? "BANK+" : topSec == "HOLD" and macroTxt == "ON" ? "HOLD+" : topSec == "AIR" ? "HAVACILIK" : macroTxt == "OFF" ? "RISK OFF" : macroTxt == "MIX" ? "KARISIK" : "GENEL"
+    _rejimOzetFull = _rejimOzet + "[" + factorRegimeCode + "]" + str.tostring(macroRegimeBars) + "b"
+    table.cell(t, 7, 8, "REJIM", text_color=color.rgb(160,170,190), bgcolor=f_head(), text_size=size.tiny)
+    table.cell(t, 8, 8, _rejimOzetFull, text_color=color.white, bgcolor=macroBg, text_size=size.small)
+    if isFullMode
+        table.cell(t, 0, 4, "USD/TRY", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 1, 4, str.tostring(usd, "#.####"), text_color=color.white, bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 2, 4, f_chg_txt(usdD), text_color=color.white, bgcolor=f_chg_bg(usdD, true), text_size=size.small)
+        table.cell(t, 0, 5, "ALTIN", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 1, 5, str.tostring(gold, "#.##"), text_color=color.white, bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 2, 5, f_chg_txt(goldD), text_color=color.white, bgcolor=f_chg_bg(goldD, false), text_size=size.small)
+        table.cell(t, 0, 6, "BRENT", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 1, 6, str.tostring(brent, "#.##"), text_color=color.white, bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 2, 6, f_chg_txt(brentD), text_color=color.white, bgcolor=f_chg_bg(brentD, false), text_size=size.small)
+        table.cell(t, 0, 7, "TR5Y", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 1, 7, str.tostring(tr05, "#.##") + "%", text_color=color.white, bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 2, 7, f_chg_txt(tr05D), text_color=color.white, bgcolor=f_chg_bg(tr05D, true), text_size=size.small)
+        table.cell(t, 5, 4, "XBANK", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 6, 4, str.tostring(xb, "#"), text_color=color.white, bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 7, 4, f_chg_txt(xbD), text_color=color.white, bgcolor=f_chg_bg(xbD, false), text_size=size.small)
+        table.cell(t, 8, 4, "A" + f_chg_txt(bankAlfa), text_color=color.white, bgcolor=f_chg_bg(bankAlfa, false), text_size=size.small)
+        table.cell(t, 5, 5, "MAKRO", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 6, 5, macroTxt, text_color=color.white, bgcolor=macroBg, text_size=size.small)
+        table.cell(t, 7, 5, "REEL KUR", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 8, 5, f_chg_txt(realKur), text_color=color.white, bgcolor=f_chg_bg(realKur, true), text_size=size.small)
+        table.cell(t, 5, 6, "PIYASA", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 6, 6, marketShort + " " + str.tostring(marketScore), text_color=color.white, bgcolor=marketScore >= 55 ? color.rgb(0,170,90) : marketScore >= 42 ? color.rgb(255,170,0) : color.rgb(210,60,70), text_size=size.small)
+        table.cell(t, 7, 6, "ENJ MALIYET", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 8, 6, f_chg_txt(energyCostD), text_color=color.white, bgcolor=f_chg_bg(energyCostD, true), text_size=size.small)
+        table.cell(t, 5, 7, "SEKTOR", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        // 14.08 EKI (kullanici talebiyle): satir 4-7, sutun 3-4 BOS
+        // duruyordu - 4 sektorun (HOLDING/SINAI/HAVACILIK/ENERJI) skoru
+        // + RS10'u eklendi. HEPSI ZATEN HESAPLANMIS degiskenler
+        // (holdRot/indRot/airRot/enrRot, satir 334-338) - YENI
+        // request.security YOK. 4. sektor (ENERJI) kullanicinin
+        // "vb" dedigi acik kisim icin BENIM SECIMIM - bugunku
+        // ASTOR/TUPRS arastirmasiyla uyumlu.
+        table.cell(t, 3, 4, "HOLDING", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 4, 4, str.tostring(holdRot) + " " + f_chg_txt(holdRs), text_color=color.white, bgcolor=f_rot_sec_bg("HOLD"), text_size=size.small)
+        table.cell(t, 3, 5, "SINAI", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 4, 5, str.tostring(indRot) + " " + f_chg_txt(indRs), text_color=color.white, bgcolor=f_rot_sec_bg("IND"), text_size=size.small)
+        table.cell(t, 3, 6, "HAVACILIK", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 4, 6, str.tostring(airRot) + " " + f_chg_txt(airRs), text_color=color.white, bgcolor=f_rot_sec_bg("AIR"), text_size=size.small)
+        table.cell(t, 3, 7, "ENERJI", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 4, 7, str.tostring(enrRot) + " " + f_chg_txt(enrRs), text_color=color.white, bgcolor=f_rot_sec_bg("ENR"), text_size=size.small)
+        table.cell(t, 6, 7, f_sec_code(topSec) + " " + str.tostring(f_sec_score(topSec)), text_color=color.white, bgcolor=f_rot_sec_bg(topSec), text_size=size.small)
+    else
+        table.cell(t, 0, 4, "MAKRO", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 1, 4, macroTxt + "  USD " + f_chg_txt(usdD) + "  XB " + f_chg_txt(xbD), text_color=color.white, bgcolor=macroBg, text_size=size.small)
+        table.cell(t, 0, 5, "PIYASA", text_color=color.rgb(225,232,245), bgcolor=f_head(), text_size=size.small)
+        table.cell(t, 1, 5, marketShort + " (" + str.tostring(marketScore) + " DSS)", text_color=color.white, bgcolor=marketScore >= 55 ? color.rgb(0,170,90) : marketScore >= 42 ? color.rgb(255,170,0) : color.rgb(210,60,70), text_size=size.small)
+    portStart = showRadar ? 27 : 0
+alertcondition(bestDec == "BUY" and bestDec[1] != "BUY", title="V195 RADAR P1 BUY", message="V195 RADAR P1 BUY")
+alertcondition(bestDec == "WATCH" and bestDec[1] != "WATCH", title="V195 RADAR WATCH", message="V195 RADAR WATCH")
+alertcondition(topSec != topSec[1], title="V195 SECTOR ROTATION", message="V195 SECTOR ROTATION")
+alertcondition(macroTxt != macroTxt[1], title="V195 MACRO SHIFT", message="V195 MACRO SHIFT")
+alertcondition(showRadar and buyCnt > buyCnt[1], title="V195 BUY COUNT UP", message="V195 BUY COUNT UP")
+alertcondition(showRadar and watchCnt > watchCnt[1], title="V195 WATCH COUNT UP", message="V195 WATCH COUNT UP")
+alertcondition(hotCount >= 6 and hotCount[1] < 3, title="V195 KURUMSAL AKIS PATLAMASI", message="V195 INST SPIKE")
+alertcondition(avgSmc >= 55 and avgSmc[1] < 45, title="V195 ORTALAMA SMC YUKSELDI", message="V195 AVG SMC UP")
+alertcondition(macroRisk <= -3 and macroRisk[1] > -3, title="V195 MAKRO RISK OFF", message="V195 MACRO RISK OFF")
+bestSymConfirmed = f_confirmed_string(bestSym)
+bestDecConfirmed = f_confirmed_string(bestDec)
+topSecConfirmed = f_confirmed_string(topSec)
+macroTxtConfirmed = f_confirmed_string(macroTxt)
+bestRadarBuyEvent = barstate.isconfirmed and bestDecConfirmed == "BUY" and (bestDecConfirmed[1] != "BUY" or bestSymConfirmed != bestSymConfirmed[1])
+sectorShiftConfirmed = barstate.isconfirmed and topSecConfirmed != topSecConfirmed[1]
+macroShiftConfirmed = barstate.isconfirmed and macroTxtConfirmed != "NO DATA" and macroTxtConfirmed[1] != "NO DATA" and macroTxtConfirmed != macroTxtConfirmed[1]
+alertcondition(bestRadarBuyEvent, title="V195 RADAR BUY CONFIRMED", message="signal=V195_RADAR_BUY_CONFIRMED")
+alertcondition(sectorShiftConfirmed, title="V195 SECTOR SHIFT CONFIRMED", message="signal=V195_SECTOR_SHIFT_CONFIRMED")
+alertcondition(macroShiftConfirmed, title="V195 MACRO SHIFT CONFIRMED", message="signal=V195_MACRO_SHIFT_CONFIRMED")
+plot(sc01, "Radar Base", display=display.none)
+
