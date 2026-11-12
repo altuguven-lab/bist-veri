@@ -1,47 +1,47 @@
-# VİOP geniş özet — 2026-11-11
+# VİOP geniş özet — 2026-11-12
 
 Betimleyicidir; alarm/karar girdisi değildir. Gözlem amaçlıdır, tavsiye değildir.
 
-Arşivdeki gün: 2430 (2017-03-06 → 2026-11-11). z-skor penceresi 60 gün, en az 20 gün gerekir.
+Arşivdeki gün: 2431 (2017-03-06 → 2026-11-12). z-skor penceresi 60 gün, en az 20 gün gerekir.
 
 ## Endeks vadelileri
 
 | Endeks | Yakın vade | Kalan gün | Uzlaşma | Baz % | Baz yıllık % | Baz z | Toplam AP | AP Δ | Hacim mlr TL | Takvim faizi % |
 |---|---|---|---|---|---|---|---|---|---|---|
-| XU030 | F_XU0301226 | 50 | 15255 | 4.171 | 30.45 | 0.24 | 454,797 | -5,883 | 44.72 | 28.59 |
-| XLBNK | F_XLBNK1226 | 50 | 16060 | – | – | VERI_YETERSIZ | 5,890 | +278 | 0.81 | 31.54 |
+| XU030 | F_XU0301226 | 49 | 15362 | – | – | VERI_YETERSIZ | 437,104 | -17,693 | 52.76 | 28.8 |
+| XLBNK | F_XLBNK1226 | 49 | 15934 | – | – | VERI_YETERSIZ | 6,782 | +892 | 0.78 | 30.06 |
 
 ## USD/TRY vadeli eğrisi
 
-Yakın→~3 ay ima yıllık faiz: **29.88%** (z -1.24) · toplam AP 5,645,049
+Yakın→~3 ay ima yıllık faiz: **29.96%** (z -1.04) · toplam AP 5,786,718
 
 | Vade | Kalan gün | Uzlaşma | AP |
 |---|---|---|---|
-| 2026-11-30 | 19 | 50.958 | 3,797,905 |
-| 2026-12-31 | 50 | 52.228 | 1,593,132 |
-| 2027-01-29 | 79 | 53.438 | 130,547 |
-| 2027-02-26 | 107 | 54.629 | 18,247 |
-| 2027-03-31 | 140 | 55.984 | 40,303 |
-| 2027-04-30 | 170 | 57.3 | 15,166 |
-| 2027-05-31 | 201 | 58.6 | 13,812 |
-| 2027-06-30 | 231 | 59.897 | 9,773 |
+| 2026-11-30 | 18 | 50.964 | 3,848,184 |
+| 2026-12-31 | 49 | 52.272 | 1,679,094 |
+| 2027-01-29 | 78 | 53.434 | 135,744 |
+| 2027-02-26 | 106 | 54.645 | 18,470 |
+| 2027-03-31 | 139 | 55.971 | 40,340 |
+| 2027-04-30 | 169 | 57.27 | 15,171 |
+| 2027-05-31 | 200 | 58.619 | 13,816 |
+| 2027-06-30 | 230 | 59.902 | 9,745 |
 
 ## Opsiyonlar
 
-XU030 endeks opsiyonu: put/call AP **0.715** (z -0.77), put/call hacim 0.719 · call AP 79,547, put AP 56,859
-Hisse opsiyonları toplam: put/call AP 0.9 (call 866,069, put 779,806)
+XU030 endeks opsiyonu: put/call AP **0.76** (z -0.41), put/call hacim 1.115 · call AP 81,328, put AP 61,812
+Hisse opsiyonları toplam: put/call AP 0.903 (call 882,906, put 797,134)
 
 | Dayanak | Call AP | Put AP | P/C |
 |---|---|---|---|
-| EKGYO | 137,250 | 316,713 | 2.308 |
-| ISCTR | 157,272 | 147,086 | 0.935 |
-| YKBNK | 225,540 | 35,939 | 0.159 |
-| AKBNK | 90,790 | 41,456 | 0.457 |
-| SAHOL | 57,730 | 28,200 | 0.488 |
-| TTKOM | 16,995 | 48,031 | 2.826 |
+| EKGYO | 137,422 | 318,730 | 2.319 |
+| ISCTR | 159,972 | 150,640 | 0.942 |
+| YKBNK | 230,116 | 35,539 | 0.154 |
+| AKBNK | 91,410 | 45,338 | 0.496 |
+| SAHOL | 58,146 | 28,678 | 0.493 |
+| TTKOM | 17,095 | 48,581 | 2.842 |
 | VAKBN | 24,111 | 22,575 | 0.936 |
-| KCHOL | 28,831 | 9,820 | 0.341 |
-| SISE | 16,887 | 18,776 | 1.112 |
-| PETKM | 8,643 | 19,618 | 2.27 |
+| KCHOL | 30,865 | 11,018 | 0.357 |
+| SISE | 17,404 | 19,826 | 1.139 |
+| EREGL | 11,903 | 17,459 | 1.467 |
 
 Notlar: AP = açık pozisyon (sözleşme adedi). Baz = yakın vade uzlaşma / spot kapanış − 1; uzlaşma ile spot kapanışı aynı anı göstermeyebilir, küçük farklar gürültüdür. USD/TRY için spot→yakın ima faiz rapora alınmaz (Yahoo kur kapanışı ile VİOP uzlaşma saati farklı, vade yaklaştıkça gürültü büyür); spot gerektirmeyen yakın→3 ay ölçüsü kullanılır. Put/call oranı korunma talebini betimler, yön söylemez. Hiçbir satır sinyal değildir.
