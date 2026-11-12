@@ -7,7 +7,8 @@ Neden: 05.11 (25/32), 06.11 (2/32), 09.11 (23/32) eksikleri hicbir otomatik uyar
 Girdi : config/universe.yml (beklenen hisseler), data/tv_alerts_latest.json, data/inbox/ (yedek kutu)
 Cikti : data/gunluk_ozet_kapsama.json (gun gun kayit, brifing bunu okur)
 Eksik hisse ya da surum disi alarm varsa GitHub Issue acar (etiket: saglik). Ayni gun ayni baslik tekrar acilmaz.
-Hafta sonu ve config/market_calendar.yml tatillerinde calismaz. 18:20 TR'den once calisirsa "ERKEN" yazar, kayit acmaz.
+18:20 TR'den once, hafta sonu ya da tatilde calisirsa SON TAMAMLANMIS islem gununu denetler (gec kalan tetikler icin).
+tv_alerts_latest.json kayan pencere oldugundan (son ~280 kayit) denetim en gec ertesi sabah yapilmalidir.
 """
 import collections, datetime as dt, glob, json, os, sys, urllib.request
 
@@ -66,8 +67,16 @@ def issue_ac(baslik, govde):
 def main():
     simdi = dt.datetime.now(TR)
     gun = simdi.date()
-    if gun.weekday() >= 5 or tatil_mi(gun):
-        print(f"{gun}: islem gunu degil, denetim yok")
+    # 12.11 DUZELTME: GitHub 18:30 tetigini saatlerce geciktirebiliyor (11.11'de 02:06'da calisti ve yeni gunu
+    # "ERKEN 0/32" diye yazdi). 18:20'den once calisiyorsak ya da bugun islem gunu degilse, denetlenen gun
+    # SON TAMAMLANMIS ISLEM GUNUDUR. Boylece gec kalan kosum da dogru gunu degerlendirir.
+    if simdi.time() < EN_ERKEN or gun.weekday() >= 5 or tatil_mi(gun):
+        gun -= dt.timedelta(days=1)
+        while gun.weekday() >= 5 or tatil_mi(gun):
+            gun -= dt.timedelta(days=1)
+    onceki = (json.load(open(CIKTI, encoding="utf-8")) if os.path.exists(CIKTI) else {"gunler": {}})["gunler"].get(gun.isoformat())
+    if onceki and onceki.get("durum") == "TAM":
+        print(f"{gun}: zaten TAM kayitli, tekrar denetlenmedi")
         return 0
     beklenen = evren()
     kayitlar = [x for x in json.load(open("data/tv_alerts_latest.json", encoding="utf-8")).get("sinyal_gecmisi", [])
@@ -91,15 +100,15 @@ def main():
     sayim = collections.Counter(son_surum.values())
     ana = sayim.most_common(1)[0][0] if sayim else None
     surum_disi = {s: v for s, v in sorted(son_surum.items()) if v != ana}
-    erken = simdi.time() < EN_ERKEN
-    durum = "ERKEN" if erken else ("TAM" if not eksik and not surum_disi else "EKSIK")
-    kayit = {"gun": gun.isoformat(), "denetim_tr": simdi.strftime("%H:%M"), "durum": durum, "beklenen": len(beklenen),
+    durum = "TAM" if not eksik and not surum_disi else "EKSIK"
+    kayit = {"gun": gun.isoformat(), "denetim_tr": simdi.strftime("%d.%m %H:%M"), "durum": durum, "beklenen": len(beklenen),
              "gelen": len(go & set(beklenen)), "yalniz_inbox": sorted(go_inbox), "eksik": eksik,
              "evren_disi_gelen": sorted(go - set(beklenen)), "ana_surum": ana, "surumler": dict(sayim), "surum_disi": surum_disi,
              "gunluk_ozet_disi_kayit": sum(1 for x in kayitlar if x.get("sinyal") != "GUNLUK_OZET")}
     d = json.load(open(CIKTI, encoding="utf-8")) if os.path.exists(CIKTI) else {"gunler": {}}
     d["not"] = "GUNLUK_OZET kapsamasi ve Pine surum birligi; gunde bir satir. Salt izleme."
     d["gunler"][gun.isoformat()] = kayit
+    d["gunler"] = {g: k for g, k in d["gunler"].items() if k.get("durum") != "ERKEN"}      # eski surumun bos kayitlari
     d["gunler"] = dict(sorted(d["gunler"].items())[-SAKLA_GUN:])
     json.dump(d, open(CIKTI, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(json.dumps(kayit, ensure_ascii=False))
