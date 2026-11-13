@@ -1,37 +1,37 @@
-# Retro Firsat Envanteri (2026-06-01 -> 2026-11-06)
-Evren: 31 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 308 (haftada ort. 13.6)
+# Retro Firsat Envanteri (2026-06-01 -> 2026-11-13)
+Evren: 32 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 335 (haftada ort. 14.2)
 
 ## Donem karsilastirmasi (taban orani)
-- Kulucka ONCESI (5 hafta): 73 firsat | kova: {'5-8%': 29, '8%+': 9, '3-5%': 35}
-- KULUCKA donemi: 235 firsat | kova: {'3-5%': 119, '8%+': 40, '5-8%': 76}
-- Kuluckada SINYALSIZ kacan: 233 / 235
+- Kulucka ONCESI (5 hafta): 75 firsat | kova: {'5-8%': 30, '8%+': 9, '3-5%': 36}
+- KULUCKA donemi: 260 firsat | kova: {'3-5%': 130, '8%+': 46, '5-8%': 84}
+- Kuluckada SINYALSIZ kacan: 260 / 260
 
 ## Haftalik dagilim
-- 2026-W23: 18 firsat
-- 2026-W24: 28 firsat
+- 2026-W23: 19 firsat
+- 2026-W24: 29 firsat
 - 2026-W25: 8 firsat
 - 2026-W26: 6 firsat
 - 2026-W27: 12 firsat
-- 2026-W28: 12 firsat
+- 2026-W28: 13 firsat
 - 2026-W29: 11 firsat
 - 2026-W30: 3 firsat
-- 2026-W31: 23 firsat
+- 2026-W31: 24 firsat
 - 2026-W32: 14 firsat
 - 2026-W33: 18 firsat
 - 2026-W34: 18 firsat
 - 2026-W35: 3 firsat
-- 2026-W36: 32 firsat
+- 2026-W36: 33 firsat
 - 2026-W37: 2 firsat
-- 2026-W38: 28 firsat
-- 2026-W40: 23 firsat
+- 2026-W38: 29 firsat
+- 2026-W40: 24 firsat
 - 2026-W41: 6 firsat
 - 2026-W42: 6 firsat
 - 2026-W43: 7 firsat
-- 2026-W44: 28 firsat
-- 2026-W45: 2 firsat
+- 2026-W44: 29 firsat
+- 2026-W45: 21 firsat
 
 ## Kaçan Fırsat: Olay-Tabanlı (bilanço) vs Teknik ayrımı (05.08 EKI)
-- Toplam kacan: 233 | Bilancoya yakin (+/-3 gun): 0 (%0.0) | Teknik/aciklanamayan: 233 (%100.0)
+- Toplam kacan: 260 | Bilancoya yakin (+/-3 gun): 0 (%0.0) | Teknik/aciklanamayan: 260 (%100.0)
 
 ## Kuluckada kacan pencereler (buyukten kucuge, [BILANCO] etiketli olanlar bilancoya yakin)
 - HALKB | 2026-08-31 | +17.2%
@@ -40,7 +40,9 @@ Evren: 31 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 308 (haftada ort. 13.6)
 - ASTOR | 2026-10-22 | +14.9%
 - TRMET | 2026-10-30 | +14.1%
 - TRALT | 2026-10-30 | +13.3%
+- THYAO | 2026-11-03 | +12.9%
 - ENJSA | 2026-10-30 | +12.4%
+- FROTO | 2026-11-05 | +11.9%
 - TTKOM | 2026-09-08 | +11.7%
 - HALKB | 2026-08-21 | +11.5%
 - VAKBN | 2026-09-16 | +11.3%
@@ -52,8 +54,6 @@ Evren: 31 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 308 (haftada ort. 13.6)
 - TOASO | 2026-09-02 | +10.6%
 - PETKM | 2026-09-02 | +10.6%
 - TRALT | 2026-07-31 | +10.6%
-- ISCTR | 2026-10-30 | +10.5%
-- GARAN | 2026-09-16 | +10.1%
 
 ## En buyuk 10 pencere (tum donem)
 - HALKB | 2026-08-31 | +17.2% | KULUCKA
@@ -65,7 +65,7 @@ Evren: 31 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 308 (haftada ort. 13.6)
 - TRALT | 2026-10-30 | +13.3% | KULUCKA
 - THYAO | 2026-11-03 | +12.9% | KULUCKA
 - ENJSA | 2026-10-30 | +12.4% | KULUCKA
-- TTKOM | 2026-09-08 | +11.7% | KULUCKA
+- FROTO | 2026-11-05 | +11.9% | KULUCKA
 
 ---
 Okuma kurali: taban orani, P1 uretimiyle YAN YANA okunur;
