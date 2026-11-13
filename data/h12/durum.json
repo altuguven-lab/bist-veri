@@ -1,25 +1,25 @@
 {
- "uretim_utc": "2026-11-12T03:51:13.558134+00:00",
+ "uretim_utc": "2026-11-13T03:26:40.758939+00:00",
  "on_kayit_sha256": "350ebacca31eca527ab6a4835b0f92440ad420f1aa85f64c64fbce649ff92c74",
- "git_sha": "6267d7cad0c12eea20702a903308d25cd6b94d8a",
+ "git_sha": "9ecf0cfd0290ecfb64f1d8a091023679a40d8846",
  "hukum": "ARA_RAPOR",
  "baslangic": "2026-11-05T00:00:00Z",
  "ilerleme": {
-  "ana_T3_hesaplanan": 3,
+  "ana_T3_hesaplanan": 7,
   "hedef": 100,
   "bitis_tarihi": "2027-04-30"
  },
  "ana_relvol_ge1": {
-  "n": 3,
-  "ort": -1.64,
-  "t": null,
-  "gun": 1
+  "n": 7,
+  "ort": -0.816,
+  "t": -1.16,
+  "gun": 2
  },
  "karsilastirma_relvol_lt1": {
-  "n": 4,
-  "ort": 2.088,
-  "t": null,
-  "gun": 1
+  "n": 8,
+  "ort": 0.619,
+  "t": 0.42,
+  "gun": 2
  },
  "plasebo_63g": {
   "n": 0,
@@ -28,10 +28,10 @@
  },
  "ek": {
   "sektore_gore_T3": {
-   "n": 3,
-   "ort": -4.973,
-   "t": null,
-   "gun": 1
+   "n": 6,
+   "ort": -1.195,
+   "t": -0.32,
+   "gun": 2
   },
   "net_T5": {
    "n": 0,
@@ -39,23 +39,33 @@
    "t": null
   },
   "aylik_ort": {
-   "2026-11": -1.64
+   "2026-11": -0.816
   },
   "en_buyuk_5": [
+   {
+    "sembol": "HALKB",
+    "gun": "2026-11-06",
+    "net_T3": 3.17
+   },
    {
     "sembol": "OTKAR",
     "gun": "2026-11-05",
     "net_T3": -2.82
    },
    {
+    "sembol": "ASTOR",
+    "gun": "2026-11-06",
+    "net_T3": -2.1
+   },
+   {
+    "sembol": "ENKAI",
+    "gun": "2026-11-06",
+    "net_T3": -1.67
+   },
+   {
     "sembol": "KCHOL",
     "gun": "2026-11-05",
     "net_T3": -1.32
-   },
-   {
-    "sembol": "TTKOM",
-    "gun": "2026-11-05",
-    "net_T3": -0.78
    }
   ]
  },
