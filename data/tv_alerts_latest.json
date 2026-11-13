@@ -1,38 +1,64 @@
 {
-  "son_guncelleme_utc": "2026-11-12T15:12:06.285Z",
+  "son_guncelleme_utc": "2026-11-13T07:00:25.249Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
-  "sinyal_sayisi": 200,
+  "sinyal_sayisi": 201,
   "ay_sayac": {
     "ay": "2026-11",
-    "adet": 771
+    "adet": 772
   },
   "son_sinyal": {
-    "zaman_utc": "2026-11-12T15:11:06.984Z",
-    "sembol": "ENJSA",
+    "zaman_utc": "2026-11-13T07:00:22.726Z",
+    "sembol": "PGSUS",
     "interval": "15",
-    "fiyat": "118.5",
-    "skor": "26.21",
-    "kgs": "14",
-    "stop": "120.5",
+    "fiyat": "156.2",
+    "skor": "46.61",
+    "kgs": "67",
+    "stop": "157.3",
     "rejim": "1",
-    "relvol": "1.07",
-    "v112n": "216",
+    "relvol": "0.92",
+    "v112n": "97",
     "v112wr": "?",
-    "p3ozet": "200032",
-    "pozsebep": "0",
+    "p3ozet": "6902032",
+    "pozsebep": "16",
     "schemaVersion": "v163.2",
     "carrierLagBars": "1",
-    "skor0": "30.74",
-    "kgs0": "10",
-    "relvol0": "0.58",
+    "skor0": "31.77",
+    "kgs0": "21",
+    "relvol0": "0.74",
     "manuel_poz": "0",
     "poz_kaynak": "NONE",
     "karar": "PAS GEC",
-    "faktor": "SECTOR",
-    "sinyal": "GUNLUK_OZET",
-    "eventId": "ENJSA|15|GUNLUK_OZET|2026-11-12T15:00:00Z"
+    "faktor": "OBV",
+    "sinyal": "IC_STOP",
+    "eventId": "PGSUS|15|IC_STOP|2026-11-13T06:45:00Z"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-11-13T07:00:22.726Z",
+      "sembol": "PGSUS",
+      "interval": "15",
+      "fiyat": "156.2",
+      "skor": "46.61",
+      "kgs": "67",
+      "stop": "157.3",
+      "rejim": "1",
+      "relvol": "0.92",
+      "v112n": "97",
+      "v112wr": "?",
+      "p3ozet": "6902032",
+      "pozsebep": "16",
+      "schemaVersion": "v163.2",
+      "carrierLagBars": "1",
+      "skor0": "31.77",
+      "kgs0": "21",
+      "relvol0": "0.74",
+      "manuel_poz": "0",
+      "poz_kaynak": "NONE",
+      "karar": "PAS GEC",
+      "faktor": "OBV",
+      "sinyal": "IC_STOP",
+      "eventId": "PGSUS|15|IC_STOP|2026-11-13T06:45:00Z"
+    },
     {
       "zaman_utc": "2026-11-12T15:11:06.984Z",
       "sembol": "ENJSA",
@@ -5233,9 +5259,5 @@
       "sinyal": "GUNLUK_OZET",
       "eventId": "ISCTR|15|GUNLUK_OZET|2026-11-11T15:00:00Z"
     }
-  ],
-  "inbox_kurtarma": {
-    "son_kosu_kurtarilan": 63,
-    "inbox_dosya_sayisi": 64
-  }
+  ]
 }
