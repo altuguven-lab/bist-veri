@@ -1,5 +1,5 @@
 {
- "olusturma_utc": "2026-11-08T12:52:29.032577Z",
+ "olusturma_utc": "2026-11-13T22:44:13.917642Z",
  "on_kayit_surumu": 2,
  "on_kayit_tarihi": "2026-10-11",
  "h1": {
@@ -15,8 +15,8 @@
      "2026-10-13",
      "2026-11-05"
     ],
-    "taban_ort_t5_pct": 0.279,
-    "taban_ort_t10_pct": 0.528
+    "taban_ort_t5_pct": 0.339,
+    "taban_ort_t10_pct": 0.594
    },
    "HAVACILIK": {
     "uye_sayisi": 3,
@@ -28,8 +28,8 @@
      "2026-10-19",
      "2026-11-03"
     ],
-    "taban_ort_t5_pct": -0.323,
-    "taban_ort_t10_pct": -0.836
+    "taban_ort_t5_pct": -0.199,
+    "taban_ort_t10_pct": -0.608
    },
    "SINAI": {
     "uye_sayisi": 3,
@@ -41,8 +41,8 @@
      "2026-10-09",
      "2026-11-03"
     ],
-    "taban_ort_t5_pct": 0.25,
-    "taban_ort_t10_pct": 0.483
+    "taban_ort_t5_pct": 0.253,
+    "taban_ort_t10_pct": 0.485
    },
    "ENERJI": {
     "uye_sayisi": 4,
@@ -54,30 +54,30 @@
      "2026-10-09",
      "2026-10-27"
     ],
-    "taban_ort_t5_pct": 0.771,
-    "taban_ort_t10_pct": 1.608
+    "taban_ort_t5_pct": 0.722,
+    "taban_ort_t10_pct": 1.502
    },
    "OTOMOTIV": {
     "uye_sayisi": 3,
-    "olay_sayisi": 21,
+    "olay_sayisi": 22,
     "olaylar": [
-     "2026-07-31",
      "2026-08-24",
      "2026-09-07",
      "2026-09-21",
-     "2026-10-26"
+     "2026-10-26",
+     "2026-11-11"
     ],
-    "taban_ort_t5_pct": -0.437,
-    "taban_ort_t10_pct": -0.96
+    "taban_ort_t5_pct": -0.4,
+    "taban_ort_t10_pct": -0.928
    }
   },
   "guncel": {
    "BANKACILIK": {
-    "tarih": "2026-11-06",
+    "tarih": "2026-11-12",
     "breadth_simdi": 0.83,
-    "breadth_5g_once": 0.33,
-    "sektor_rs5_pct": 4.92,
-    "durum": "YAYILIYOR",
+    "breadth_5g_once": 0.83,
+    "sektor_rs5_pct": 1.33,
+    "durum": "GUCLU-YAYILMIS",
     "uyeler": [
      "AKBNK",
      "YKBNK",
@@ -88,11 +88,11 @@
     ]
    },
    "HAVACILIK": {
-    "tarih": "2026-11-06",
-    "breadth_simdi": 1.0,
-    "breadth_5g_once": 0.0,
-    "sektor_rs5_pct": 14.78,
-    "durum": "YAYILIYOR",
+    "tarih": "2026-11-12",
+    "breadth_simdi": 0.67,
+    "breadth_5g_once": 1.0,
+    "sektor_rs5_pct": 3.76,
+    "durum": "GUCLU-YAYILMIS",
     "uyeler": [
      "THYAO",
      "PGSUS",
@@ -100,11 +100,11 @@
     ]
    },
    "SINAI": {
-    "tarih": "2026-11-06",
-    "breadth_simdi": 0.67,
-    "breadth_5g_once": 0.0,
-    "sektor_rs5_pct": 3.47,
-    "durum": "YAYILIYOR",
+    "tarih": "2026-11-12",
+    "breadth_simdi": 0.0,
+    "breadth_5g_once": 0.67,
+    "sektor_rs5_pct": -2.53,
+    "durum": "DAGILIYOR",
     "uyeler": [
      "EREGL",
      "SISE",
@@ -112,11 +112,11 @@
     ]
    },
    "ENERJI": {
-    "tarih": "2026-11-06",
-    "breadth_simdi": 0.25,
-    "breadth_5g_once": 0.5,
-    "sektor_rs5_pct": -2.7,
-    "durum": "DAGILIYOR",
+    "tarih": "2026-11-12",
+    "breadth_simdi": 0.5,
+    "breadth_5g_once": 0.25,
+    "sektor_rs5_pct": 2.06,
+    "durum": "NORMAL",
     "uyeler": [
      "TUPRS",
      "PETKM",
@@ -125,11 +125,11 @@
     ]
    },
    "OTOMOTIV": {
-    "tarih": "2026-11-06",
-    "breadth_simdi": 0.67,
-    "breadth_5g_once": 0.67,
-    "sektor_rs5_pct": 2.94,
-    "durum": "GUCLU-YAYILMIS",
+    "tarih": "2026-11-12",
+    "breadth_simdi": 1.0,
+    "breadth_5g_once": 0.0,
+    "sektor_rs5_pct": 3.06,
+    "durum": "YAYILIYOR",
     "uyeler": [
      "FROTO",
      "TOASO",
@@ -141,65 +141,51 @@
    "t5_kesif": {
     "n_olay": 86,
     "olay_ort_pct": -0.326,
-    "taban_ort_pct": 0.108,
-    "fark_ort_pct": -0.405,
-    "t": -1.19,
-    "p": 0.236,
+    "taban_ort_pct": 0.143,
+    "fark_ort_pct": -0.44,
+    "t": -1.28,
+    "p": 0.1991,
     "verdikt": "KESIFSEL (verdikt yok)"
    },
    "t5_teyit": {
-    "n_olay": 4,
-    "olay_ort_pct": 0.188,
-    "taban_ort_pct": 0.108,
-    "fark_ort_pct": 0.115,
-    "t": 0.07,
-    "p": 0.9433,
+    "n_olay": 7,
+    "olay_ort_pct": 2.161,
+    "taban_ort_pct": 0.143,
+    "fark_ort_pct": 2.039,
+    "t": 1.09,
+    "p": 0.2769,
     "verdikt": "ORNEK YETERSIZ"
    },
    "t10_kesif": {
     "n_olay": 87,
     "olay_ort_pct": 0.277,
-    "taban_ort_pct": 0.165,
-    "fark_ort_pct": 0.168,
-    "t": 0.31,
-    "p": 0.7547,
+    "taban_ort_pct": 0.209,
+    "fark_ort_pct": 0.123,
+    "t": 0.23,
+    "p": 0.8191,
     "verdikt": "KESIFSEL (verdikt yok)"
    },
    "t10_teyit": {
-    "n_olay": 2,
-    "olay_ort_pct": 3.249,
-    "taban_ort_pct": 0.165,
-    "fark_ort_pct": 3.403,
-    "t": 38.88,
-    "p": 0.0,
+    "n_olay": 4,
+    "olay_ort_pct": 0.871,
+    "taban_ort_pct": 0.209,
+    "fark_ort_pct": 0.731,
+    "t": 0.23,
+    "p": 0.8147,
     "verdikt": "ORNEK YETERSIZ"
    }
   }
  },
  "h2": {
-  "defter_kayit": 124,
-  "yenilik_kayit": 10,
+  "defter_kayit": 142,
+  "yenilik_kayit": 12,
   "defter_ilk_tarih": "2026-08-25",
   "son20g_sektor_sayac": {
-   "GYO": 1,
+   "ENERJI": 1,
    "SINAI": 1
   },
   "esik_ustu_sektorler": [],
   "son_yenilik_olaylari": [
-   {
-    "tarih": "2026-09-18",
-    "sembol": "ASELS",
-    "sektor": "SAVUNMA",
-    "ozet": "Devreye Alınan Yatırımımız Hakkında",
-    "yenilik": true
-   },
-   {
-    "tarih": "2026-09-23",
-    "sembol": "THYAO",
-    "sektor": "HAVACILIK",
-    "ozet": "Ortaklığımızın Stratejik Planı Çerçevesindeki Uçak Siparişleri",
-    "yenilik": true
-   },
    {
     "tarih": "2026-09-28",
     "sembol": "EKGYO",
@@ -241,6 +227,20 @@
     "sektor": "SINAI",
     "ozet": "Mısır'daki İkinci Düzcam Hattı Yatırım Projesinin Tamamlanması",
     "yenilik": true
+   },
+   {
+    "tarih": "2026-11-09",
+    "sembol": "ENJSA",
+    "sektor": "ENERJI",
+    "ozet": "Enerji Depolama Tesisi Ön Lisansının İptaline İlişkin Hukuki Süreç",
+    "yenilik": true
+   },
+   {
+    "tarih": "2026-11-10",
+    "sembol": "EREGL",
+    "sektor": "SINAI",
+    "ozet": "Alacahan Altın Projesi, Maden Kaynak Tahmini Güncellemesi (UMREK Uyumlu)",
+    "yenilik": true
    }
   ],
   "test": {
@@ -263,12 +263,12 @@
   }
  },
  "viop_teyit": {
-  "tarih": "2026-11-06",
+  "tarih": "2026-11-13",
   "sektorler": {
    "BANKACILIK": {
     "viop_uye": 6,
-    "yeni_long": 2,
-    "yeni_short": 0
+    "yeni_long": 0,
+    "yeni_short": 4
    },
    "HAVACILIK": {
     "viop_uye": 3,
@@ -283,14 +283,14 @@
    "ENERJI": {
     "viop_uye": 4,
     "yeni_long": 2,
-    "yeni_short": 1
+    "yeni_short": 2
    },
    "OTOMOTIV": {
     "viop_uye": 2,
-    "yeni_long": 2,
+    "yeni_long": 1,
     "yeni_short": 0
    }
   }
  },
- "kap_yeni_kayit": 0
+ "kap_yeni_kayit": 18
 }
