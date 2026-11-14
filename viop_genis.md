@@ -8,7 +8,7 @@ Arşivdeki gün: 2432 (2017-03-06 → 2026-11-13). z-skor penceresi 60 gün, en 
 
 | Endeks | Yakın vade | Kalan gün | Uzlaşma | Baz % | Baz yıllık % | Baz z | Toplam AP | AP Δ | Hacim mlr TL | Takvim faizi % |
 |---|---|---|---|---|---|---|---|---|---|---|
-| XU030 | F_XU0301226 | 48 | 15414 | – | – | VERI_YETERSIZ | 452,704 | +15,600 | 44.48 | 28.58 |
+| XU030 | F_XU0301226 | 48 | 15414 | 3.835 | 29.16 | 0.18 | 452,704 | +15,600 | 44.48 | 28.58 |
 | XLBNK | F_XLBNK1226 | 48 | 15804 | – | – | VERI_YETERSIZ | 6,682 | -100 | 0.55 | 38.25 |
 
 ## USD/TRY vadeli eğrisi
