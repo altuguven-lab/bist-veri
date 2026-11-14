@@ -1,25 +1,25 @@
 # Piyasa dongusu gostergesi (BIST 100)
 
-Uretim 2026-11-06T21:45 UTC. Betimleyici; test/hukum ve tavsiye degildir.
+Uretim 2026-11-14T14:33 UTC. Betimleyici; test/hukum ve tavsiye degildir.
 
 ## Bugunku konum
 
 | Olcu | TL | USD | Reel TL |
 |---|---|---|---|
-| Son tarih | 2026-11-05 | 2026-11-05 | 2026-11-05 |
-| Zirveden uzaklik % | -25.1 | -55.5 | -52.9 |
+| Son tarih | 2026-11-13 | 2026-11-13 | 2026-11-13 |
+| Zirveden uzaklik % | -21.7 | -53.7 | -50.8 |
 | Zirve tarihi | 2026-05-11 | 2010-11-09 | 2023-08-28 |
-| Zirveden bu yana seans | 122 | 4004 | 797 |
-| 100 g ort. uzaklik % | -15.5 | -18.9 | -20.1 |
-| 200 g ort. uzaklik % | -16.5 | -22.9 | -25.1 |
-| 100 g ort. altinda seri (seans) | 37 | 85 | 48 |
-| 200 g ort. altinda seri (seans) | 34 | 38 | 48 |
+| Zirveden bu yana seans | 128 | 4010 | 803 |
+| 100 g ort. uzaklik % | -10.6 | -14.2 | -15.0 |
+| 200 g ort. uzaklik % | -12.5 | -19.3 | -20.9 |
+| 100 g ort. altinda seri (seans) | 43 | 91 | 54 |
+| 200 g ort. altinda seri (seans) | 40 | 44 | 54 |
 
 ## Buffett rasyosu
 
-- Oran: **%20.7** (dis kaynak 1993-2025 ortalamasi %25.4; fark %-18.5)
-- Piyasa degeri 15.12 trilyon TL / GSYH (son 4 ceyrek, 2026-06-30) 73.03 trilyon TL
-- endeks agirlik dosyasi 30/09/2026 (XUTUM 583 pay), XU100 (XUTUM serisi yetersiz, yaklasik) ile 2026-11-05'e tasindi (x0.949)
+- Oran: **%21.6** (dis kaynak 1993-2025 ortalamasi %25.4; fark %-14.8)
+- Piyasa degeri 15.8 trilyon TL / GSYH (son 4 ceyrek, 2026-06-30) 73.03 trilyon TL
+- endeks agirlik dosyasi 30/09/2026 (XUTUM 583 pay), XU100 (XUTUM serisi yetersiz, yaklasik) ile 2026-11-13'e tasindi (x0.991)
 
 ## Gecmis donguler - TL (esik %15, veri 1997-07-01'den)
 
@@ -46,7 +46,7 @@ Uretim 2026-11-06T21:45 UTC. Betimleyici; test/hukum ve tavsiye degildir.
 | 2021-12-16 | 2021-12-22 | -20.8 | 4 | 2022-04-04 | 73 | 77 | 2021-12-29 |
 | 2023-01-02 | 2023-05-05 | -22.3 | 83 | 2023-06-26 | 35 | 118 | 2023-05-12 |
 | 2024-07-22 | 2024-11-05 | -22.9 | 74 | 2025-08-21 | 197 | 271 | 2024-12-09 |
-| 2026-05-11 | 2026-10-30 | -28.9 | 118 | devam ediyor | - | 122 | - |
+| 2026-05-11 | 2026-10-30 | -28.9 | 118 | devam ediyor | - | 128 | - |
 
 Ozet (tamamlanmis donguler): {'dongu_sayisi': 21, 'kayip_medyan_pct': -23.8, 'kayip_en_derin_pct': -63.4, 'dipten_donus_medyan_seans': 79, 'dipten_donus_aralik_seans': [5, 793], 'toplam_medyan_seans': 118}
 
@@ -59,7 +59,7 @@ Ozet (tamamlanmis donguler): {'dongu_sayisi': 21, 'kayip_medyan_pct': -23.8, 'ka
 | 2006-03-01 | 2006-06-26 | -48.1 | 82 | 2007-07-02 | 254 | 336 | 2006-12-13 |
 | 2007-07-25 | 2007-08-20 | -25.0 | 18 | 2007-09-27 | 27 | 45 | 2007-08-27 |
 | 2007-10-11 | 2008-11-20 | -74.1 | 277 | 2010-10-12 | 474 | 751 | 2009-05-12 |
-| 2010-11-09 | 2021-12-21 | -78.8 | 2786 | devam ediyor | - | 4004 | 2022-04-08 |
+| 2010-11-09 | 2021-12-21 | -78.8 | 2786 | devam ediyor | - | 4010 | 2022-04-08 |
 
 Ozet (tamamlanmis donguler): {'dongu_sayisi': 5, 'kayip_medyan_pct': -65.5, 'kayip_en_derin_pct': -86.8, 'dipten_donus_medyan_seans': 282, 'dipten_donus_aralik_seans': [27, 1092], 'toplam_medyan_seans': 519}
 
@@ -71,7 +71,7 @@ Ozet (tamamlanmis donguler): {'dongu_sayisi': 5, 'kayip_medyan_pct': -65.5, 'kay
 | 2007-10-11 | 2008-11-20 | -67.9 | 277 | 2013-05-14 | 1126 | 1403 | 2009-05-06 |
 | 2013-05-22 | 2020-03-23 | -55.7 | 1714 | 2022-11-15 | 660 | 2374 | 2020-06-22 |
 | 2023-01-02 | 2023-05-05 | -32.5 | 83 | 2023-07-27 | 55 | 138 | 2023-06-09 |
-| 2023-08-28 | 2026-11-02 | -54.4 | 794 | devam ediyor | - | 797 | - |
+| 2023-08-28 | 2026-11-02 | -54.4 | 794 | devam ediyor | - | 803 | - |
 
 Ozet (tamamlanmis donguler): {'dongu_sayisi': 4, 'kayip_medyan_pct': -45.6, 'kayip_en_derin_pct': -67.9, 'dipten_donus_medyan_seans': 464, 'dipten_donus_aralik_seans': [55, 1126], 'toplam_medyan_seans': 878}
 
@@ -79,7 +79,6 @@ Ozet (tamamlanmis donguler): {'dongu_sayisi': 4, 'kayip_medyan_pct': -45.6, 'kay
 
 | Hafta sonu | n | 50g ust % | 200g ust % | Zirveden medyan % | Zirveye <%5 | Zirveden -%40 derin | 52h yeni zirve | 52h yeni dip |
 |---|---|---|---|---|---|---|---|---|
-| 2026-05-15 | 99 | 62.0 | 66.7 | -14.6 | 14 | 3 | 2 | 0 |
 | 2026-05-22 | 99 | 38.0 | 55.6 | -17.5 | 7 | 5 | 2 | 0 |
 | 2026-05-26 | 99 | 38.0 | 54.5 | -18.3 | 8 | 5 | 2 | 0 |
 | 2026-06-05 | 99 | 38.0 | 56.6 | -16.8 | 4 | 6 | 3 | 1 |
@@ -104,9 +103,10 @@ Ozet (tamamlanmis donguler): {'dongu_sayisi': 4, 'kayip_medyan_pct': -45.6, 'kay
 | 2026-10-16 | 100 | 10.0 | 20.0 | -30.5 | 1 | 36 | 0 | 30 |
 | 2026-10-23 | 100 | 4.0 | 12.0 | -36.9 | 0 | 44 | 0 | 40 |
 | 2026-10-30 | 100 | 3.0 | 7.0 | -38.4 | 0 | 46 | 0 | 42 |
-| 2026-11-05 | 100 | 14.0 | 11.0 | -32.9 | 0 | 40 | 0 | 0 |
+| 2026-11-06 | 100 | 18.0 | 15.0 | -33.2 | 3 | 39 | 0 | 1 |
+| 2026-11-13 | 100 | 24.0 | 23.0 | -31.9 | 2 | 36 | 1 | 1 |
 
-Zirveye en yakin: {'ENERY': -5.5, 'AHGAZ': -5.5, 'ENJSA': -6.1, 'KCHOL': -10.3, 'RYSAS': -11.9} | En derin: {'FENER': -82.8, 'BTCIM': -72.7, 'CVKMD': -71.7, 'KATMR': -69.2, 'EUREN': -68.7}
+Zirveye en yakin: {'ENERY': 0.0, 'ENJSA': -3.7, 'AHGAZ': -5.1, 'MPARK': -5.9, 'ALARK': -7.1} | En derin: {'FENER': -82.7, 'BTCIM': -73.2, 'CVKMD': -72.2, 'KATMR': -67.3, 'EUREN': -67.1}
 
 Bugunku XU100 uyeleri; endeksten cikmis hisseler yok (hayatta kalma yanliligi). Ham kapanis (temettu/bolunme duzeltmesiz).
 
