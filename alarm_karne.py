@@ -474,6 +474,158 @@ def butunluk(alarmlar, islem_gunleri):
 
 
 # ---------------------------------------------------------------- rapor
+# 16.11 (V163 incelemesi): AYNI GUN RASTGELE HISSE PLASEBOSU - betimleyici, HUKUM KURALLARINA GIRMEZ.
+# Soru: bir turun olaylari, ayni gunlerde evrenden rastgele secilmis BASKA hisselerden daha iyi mi?
+# Neden: 09-13.11'de SEKTOR_ROTASYONU T+3 +0,87 -> -2,14'e "dondu"; plasebo ortalamasi gercegin aynisiydi
+# (p 0,51). Yani fark sinyalden degil, o gunlerin piyasa/sektor hareketinden geliyordu. Plasebosuz okunan
+# her alt donem bu hataya acik. Tohum sabit: sonuc tekrar uretilebilir.
+PLASEBO_SIM = int(os.environ.get("PLASEBO_SIM", "2000"))
+PLASEBO_MIN_GUN = 20          # bundan az farkli gunde "HUKUM YOK" yazilir
+V163_BASLANGIC = "2026-11-09"
+
+
+def plasebo(olaylar, fiyatlar, xu, filtre=None, ufuklar=(1, 3), tohum=20261116):
+    import numpy as np
+    rng = np.random.default_rng(tohum)
+    gunler = list(xu.index)
+    poz = {str(g.date()): i for i, g in enumerate(gunler)}
+    evren = sorted(fiyatlar)
+    onbellek = {}
+
+    def rel(kod, g0s, h):
+        k = (kod, g0s, h)
+        if k not in onbellek:
+            i = poz.get(g0s)
+            v = None
+            if i is not None and i + h < len(gunler):
+                g0, g1 = gunler[i], gunler[i + h]
+                df = fiyatlar[kod]
+                try:
+                    a, b = float(df.at[g0, "Close"]), float(df.at[g1, "Close"])
+                    xa, xb = float(xu.at[g0, "Close"]), float(xu.at[g1, "Close"])
+                    if a and b and xa and xb:
+                        v = ((b / a - 1) - (xb / xa - 1)) * 100
+                except KeyError:
+                    pass
+            onbellek[k] = v
+        return onbellek[k]
+
+    out = {}
+    for tur in sorted({o["sinyal"] for o in olaylar}):
+        for h in ufuklar:
+            alt = [o for o in olaylar if o["sinyal"] == tur and o.get(f"yon_T{h}") is not None
+                   and o["yon"] in ("YUKARI", "ASAGI") and (filtre is None or filtre(o))]
+            if len(alt) < 5:
+                continue
+            isaret = 1 if alt[0]["yon"] == "YUKARI" else -1
+            gercek = sum(o[f"yon_T{h}"] for o in alt) / len(alt)
+            adaylar = [[k for k in evren if k != o["sembol"] and rel(k, o["taban_gun"], h) is not None] for o in alt]
+            if any(not a for a in adaylar):
+                continue
+            sims = np.empty(PLASEBO_SIM)
+            for j in range(PLASEBO_SIM):
+                sims[j] = np.mean([isaret * rel(a[rng.integers(len(a))], o["taban_gun"], h) for a, o in zip(adaylar, alt)])
+            gun = len({o["taban_gun"] for o in alt})
+            out.setdefault(tur, {})[f"T{h}"] = {
+                "olay": len(alt), "farkli_gun": gun, "gercek_yon_ort": round(gercek, 3),
+                "plasebo_ort": round(float(sims.mean()), 3), "fark": round(gercek - float(sims.mean()), 3),
+                "p_tek_yonlu": round(float((sims >= gercek).mean()), 3),
+                "durum": "HUKUM YOK (<%d gun)" % PLASEBO_MIN_GUN if gun < PLASEBO_MIN_GUN else "OLCULEBILIR"}
+    return out
+
+
+# 16.11 H14 HAFTALIK ARA BAKIS (ON_KAYIT_H14.md, grup-ardisik tasarim).
+# Her hafta bir RESMI bakis (Cuma/Cumartesi kosumu, ISO hafta basina bir kez data/h14/ara_bakis.json'a eklenir).
+# Erken karar esikleri, tekrarli bakisin yanilma riskini sinirlamak icin SIKI tutulur:
+#   ERKEN_GECTI  : >= 10 farkli gun, ort > 0, kumelenmis t > 2.6 ve plasebo p < 0.01
+#   ERKEN_DURDUR : >= 10 farkli gun, ort < 0, kumelenmis t < -2.6 ve plasebo p > 0.99 (rastgeleden belirgin KOTU)
+#   aksi halde   : DEVAM (bir sonraki hafta yeniden bakilir)
+H14_GIRIS = ["P1_KALITELI_AL", "P1_AL", "P2_ERKEN_AL", "P2_DIP_DONUS", "P2_DESTEK_DONUS", "P2_ADAY", "P3_SKOR_AL"]
+H14_CIKIS = ["ACIL_CIK", "POZ_AZALT", "IC_STOP"]
+H14_MIN_GUN, H14_T, H14_P = 10, 2.6, 0.01
+
+
+def h14_ara_bakis(olaylar, fiyatlar, xu, sim=2000):
+    import numpy as np
+    v163 = [o for o in olaylar if str(o.get("schemaVersion") or "").startswith("v163") and o["taban_gun"] >= V163_BASLANGIC]
+
+    def grup_plasebo(turler, alan):
+        # turleri tek grup gibi ele almak icin gecici ortak etiket
+        alt = [dict(o, sinyal="GRUP") for o in v163 if o["sinyal"] in turler and o.get(alan) is not None]
+        if not alt:
+            return None, alt
+        h = int(alan[-1])
+        # plasebo() tek yonlu gruplar ister; giris grubu YUKARI, cikis grubu ASAGI -> ayni yon garantili
+        pv = plasebo(alt, fiyatlar, xu, ufuklar=(h,), tohum=20261116)
+        return (pv.get("GRUP") or {}).get(f"T{h}"), alt
+
+    def karar(ozet, pv, gun):
+        if ozet is None or pv is None or gun < H14_MIN_GUN or ozet.get("t") is None:
+            return "DEVAM (%d/%d gun)" % (gun, H14_MIN_GUN)
+        if ozet["ort"] > 0 and ozet["t"] > H14_T and pv["p_tek_yonlu"] < H14_P:
+            return "ERKEN_GECTI"
+        if ozet["ort"] < 0 and ozet["t"] < -H14_T and pv["p_tek_yonlu"] > 1 - H14_P:
+            return "ERKEN_DURDUR"
+        return "DEVAM"
+
+    sonuc = {}
+    for ad, turler, alan in (("H14a_giris_netT3", H14_GIRIS, "net_T3"), ("H14c_cikis_yonT3", H14_CIKIS, "yon_T3")):
+        pv, alt = grup_plasebo(turler, alan)
+        oz = kumelenmis([o[alan] for o in alt], [o["taban_gun"] for o in alt]) if len(alt) >= 2 else None
+        gun = len({o["taban_gun"] for o in alt})
+        sonuc[ad] = {"olay": len(alt), "farkli_gun": gun,
+                     "ort": None if oz is None else round(oz["ort"], 3), "t_kume": None if not oz or oz["t"] is None else round(oz["t"], 2),
+                     "plasebo_ort": None if pv is None else pv["plasebo_ort"], "plasebo_p": None if pv is None else pv["p_tek_yonlu"],
+                     "durum": karar(oz, pv, gun)}
+    # H14b: ayni gunlerde P3_SKOR_AL - P3_HACIM_BEKLE farki, gun ici etiket permutasyonu
+    a = [o for o in v163 if o["sinyal"] in ("P3_SKOR_AL", "P3_HACIM_BEKLE") and o.get("yon_T3") is not None]
+    gunler = sorted({o["taban_gun"] for o in a if o["sinyal"] == "P3_SKOR_AL"} & {o["taban_gun"] for o in a if o["sinyal"] == "P3_HACIM_BEKLE"})
+    a = [o for o in a if o["taban_gun"] in gunler]
+    if len(gunler) >= 2:
+        def fark(etiket):
+            x = [o["yon_T3"] for o, e in zip(a, etiket) if e]
+            y = [o["yon_T3"] for o, e in zip(a, etiket) if not e]
+            return (sum(x) / len(x) - sum(y) / len(y)) if x and y else 0.0
+        gercek_et = [o["sinyal"] == "P3_SKOR_AL" for o in a]
+        g = fark(gercek_et)
+        rng = np.random.default_rng(20261116)
+        idx = defaultdict(list)
+        for i, o in enumerate(a):
+            idx[o["taban_gun"]].append(i)
+        say = 0
+        for _ in range(sim):
+            et = list(gercek_et)
+            for ii in idx.values():
+                v = [gercek_et[i] for i in ii]
+                rng.shuffle(v)
+                for i, e in zip(ii, v):
+                    et[i] = e
+            say += fark(et) >= g
+        p = say / sim
+        durum = ("DEVAM (%d/%d gun)" % (len(gunler), H14_MIN_GUN) if len(gunler) < H14_MIN_GUN else
+                 "ERKEN_GECTI" if g > 0 and p < H14_P else "ERKEN_DURDUR" if g < 0 and p > 1 - H14_P else "DEVAM")
+        sonuc["H14b_hacim_tetigi"] = {"olay": len(a), "farkli_gun": len(gunler), "fark_yonT3": round(g, 3), "perm_p": round(p, 3), "durum": durum}
+    else:
+        sonuc["H14b_hacim_tetigi"] = {"olay": len(a), "farkli_gun": len(gunler), "durum": "DEVAM (%d/%d gun)" % (len(gunler), H14_MIN_GUN)}
+    return sonuc
+
+
+def h14_resmi_kayit(sonuc):
+    """Cuma/Cumartesi kosumunda ISO hafta basina BIR resmi bakis kaydi (sonradan degistirilmez)."""
+    simdi = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=3)))
+    if simdi.weekday() not in (4, 5):
+        return None
+    hafta = "%d-W%02d" % simdi.isocalendar()[:2]
+    yol = "data/h14/ara_bakis.json"
+    os.makedirs("data/h14", exist_ok=True)
+    d = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {"on_kayit": "ON_KAYIT_H14.md", "bakislar": []}
+    if any(b["hafta"] == hafta for b in d["bakislar"]):
+        return hafta
+    d["bakislar"].append({"hafta": hafta, "zaman_tr": simdi.strftime("%Y-%m-%d %H:%M"), "sonuc": sonuc})
+    json.dump(d, open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    return hafta
+
+
 def md_rapor(out):
     L = ["# Alarm Karnesi", "",
          f"Uretim: {out['uretim_utc'][:16]} UTC | maliyet {MALIYET_PCT}% (gidis-donus) | kriz esigi {KRIZ} | "
@@ -497,6 +649,28 @@ def md_rapor(out):
         c, d = r["hacim_kirilimi"]["relvol>=1"], r["hacim_kirilimi"]["relvol<1"]
         L.append(f"| {tur} | {a.get('n')} / {a.get('ort')} | {b.get('n')} / {b.get('ort')} | {c.get('n')} / {c.get('ort')} | "
                  f"{d.get('n')} / {d.get('ort')} | {r['zincir_orani_pct']} |")
+    if out.get("h14_ara_bakis"):
+        H = out["h14_ara_bakis"]
+        L += ["", "## H14 haftalik ara bakis (V163, ON_KAYIT_H14.md)", "",
+              f"Erken karar: en az {H14_MIN_GUN} farkli gun, kumelenmis |t| > {H14_T} ve plasebo p < {H14_P} (ya da > {1 - H14_P}). "
+              "Gunluk deger bilgi icindir; RESMI bakis haftada bir (Cuma/Cumartesi) data/h14/ara_bakis.json'a yazilir."
+              + (f" Bu hafta ({H['resmi_kayit_haftasi']}) resmi bakis kaydedildi." if H.get("resmi_kayit_haftasi") else ""), "",
+              "| Iddia | Olay | Gun | Ort / fark % | t / perm p | Plasebo ort % | Plasebo p | Durum |", "|---|---|---|---|---|---|---|---|"]
+        for ad, v in H["sonuc"].items():
+            L.append(f"| {ad} | {v.get('olay')} | {v.get('farkli_gun')} | {v.get('ort', v.get('fark_yonT3'))} | {v.get('t_kume', v.get('perm_p'))} | "
+                     f"{v.get('plasebo_ort', '-')} | {v.get('plasebo_p', '-')} | **{v['durum']}** |")
+    if out.get("plasebo"):
+        P = out["plasebo"]
+        L += ["", "## Plasebo karsilastirmasi (ayni gun, rastgele baska hisse)", "",
+              "Soru: tur, ayni gunlerde evrenden rastgele secilen baska hisselerden daha iyi mi? Gercek ile plasebo yakinsa "
+              "sonuc sinyalden degil o gunlerin piyasa/sektor hareketinden gelir. p = plasebonun gercege esit ya da daha iyi "
+              f"cikma orani (kucuk = sinyal lehine). {P['tanim']}. Betimleyicidir; hukum kurallarina girmez. "
+              f"{PLASEBO_MIN_GUN} farkli gunden azsa yorumlanmaz."]
+        for baslik, anahtar in ((f"Tum donem", "tum_donem"), (f"V163 sonrasi ({P['v163_baslangic']}+)", "v163_sonrasi")):
+            L += ["", f"### {baslik}", "", "| Tur | Ufuk | Olay | Gun | Gercek yon ort % | Plasebo ort % | Fark | p | Durum |", "|---|---|---|---|---|---|---|---|---|"]
+            for tur, ufk in sorted(P[anahtar].items()):
+                for h, v in ufk.items():
+                    L.append(f"| {tur} | {h} | {v['olay']} | {v['farkli_gun']} | {v['gercek_yon_ort']} | {v['plasebo_ort']} | {v['fark']} | {v['p_tek_yonlu']} | {v['durum']} |")
     if out.get("tam_gun_duyarliligi"):
         L += ["", "## Tam gunler duyarliligi (net T+3)", "",
               "Supheli eksik gunlerde taban alan olaylar cikarilinca sonuc degisiyor mu? Betimleyicidir; hukum kurallarina girmez. "
@@ -552,6 +726,10 @@ def main():
             hatalar[k] = str(e)[:120]
     olaylar, uyusmazlik = olaylari_kur(alarmlar, fiyatlar, xu)
     turler = karne(olaylar)
+    plasebo_tum = plasebo(olaylar, fiyatlar, xu)
+    plasebo_v163 = plasebo(olaylar, fiyatlar, xu, filtre=lambda o: o["taban_gun"] >= V163_BASLANGIC)
+    h14 = h14_ara_bakis(olaylar, fiyatlar, xu)
+    h14_hafta = h14_resmi_kayit(h14)
     # 11.11 (Denetim 1.4): TAM GUNLER DUYARLILIGI - betimleyici, HUKUM KURALLARINA GIRMEZ.
     # Supheli eksik gunlerde (butunluk()) taban alan olaylar cikarilinca ortalama ne oluyor?
     vb = butunluk(alarmlar, xu.index)
@@ -569,6 +747,9 @@ def main():
            "kaynak_ozet": {"dosya": kaynak, "ham": sum(kaynak.values()), "tekrar": tekrar, "tekil": len(alarmlar)},
            "xu100_son_gun": str(xu.index[-1].date()),
            "turler": turler, "veri_butunlugu": vb, "tam_gun_duyarliligi": duyarlilik,
+           "plasebo": {"tanim": "ayni gun, evrenden rastgele BASKA hisse, ayni yon ve ufuk; %d simulasyon, tohum sabit" % PLASEBO_SIM,
+                       "tum_donem": plasebo_tum, "v163_sonrasi": plasebo_v163, "v163_baslangic": V163_BASLANGIC},
+           "h14_ara_bakis": {"sonuc": h14, "resmi_kayit_haftasi": h14_hafta},
            "seans_kirilimi": kirilim(olaylar, "seans"), "faktor_kirilimi": kirilim(olaylar, "faktor"),
            "fiyat_uyusmazligi": uyusmazlik, "fiyat_hatalari": hatalar, "bolunme_olaylari": bolunme,
            "notlar": ["P2_ADAY CHANGELOG'da ISLEM, sinyal_arsiv_gunluk.py'de IZLEME siniflanmis; burada ISLEM.",
