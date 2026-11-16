@@ -1,38 +1,64 @@
 {
-  "son_guncelleme_utc": "2026-11-13T15:11:57.393Z",
+  "son_guncelleme_utc": "2026-11-16T07:00:26.243Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
-  "sinyal_sayisi": 200,
+  "sinyal_sayisi": 201,
   "ay_sayac": {
     "ay": "2026-11",
-    "adet": 926
+    "adet": 927
   },
   "son_sinyal": {
-    "zaman_utc": "2026-11-13T15:11:05.403Z",
-    "sembol": "HALKB",
+    "zaman_utc": "2026-11-16T07:00:24.217Z",
+    "sembol": "TTKOM",
     "interval": "15",
-    "fiyat": "42.10",
-    "skor": "16.03",
-    "kgs": "14",
-    "stop": "44.2",
+    "fiyat": "51.10",
+    "skor": "33.59",
+    "kgs": "39",
+    "stop": "51.85",
     "rejim": "1",
-    "relvol": "0.8",
-    "v112n": "160",
+    "relvol": "1.38",
+    "v112n": "179",
     "v112wr": "?",
-    "p3ozet": "32",
+    "p3ozet": "3802032",
     "pozsebep": "0",
     "schemaVersion": "v163.2",
     "carrierLagBars": "1",
-    "skor0": "24.01",
-    "kgs0": "12",
-    "relvol0": "1.04",
+    "skor0": "40.53",
+    "kgs0": "38",
+    "relvol0": "0.77",
     "manuel_poz": "0",
     "poz_kaynak": "NONE",
     "karar": "PAS GEC",
-    "faktor": "SECTOR",
-    "sinyal": "GUNLUK_OZET",
-    "eventId": "HALKB|15|GUNLUK_OZET|2026-11-13T15:00:00Z"
+    "faktor": "FLOW",
+    "sinyal": "SEKTOR_ROTASYONU",
+    "eventId": "TTKOM|15|SEKTOR_ROTASYONU|2026-11-16T06:45:00Z"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-11-16T07:00:24.217Z",
+      "sembol": "TTKOM",
+      "interval": "15",
+      "fiyat": "51.10",
+      "skor": "33.59",
+      "kgs": "39",
+      "stop": "51.85",
+      "rejim": "1",
+      "relvol": "1.38",
+      "v112n": "179",
+      "v112wr": "?",
+      "p3ozet": "3802032",
+      "pozsebep": "0",
+      "schemaVersion": "v163.2",
+      "carrierLagBars": "1",
+      "skor0": "40.53",
+      "kgs0": "38",
+      "relvol0": "0.77",
+      "manuel_poz": "0",
+      "poz_kaynak": "NONE",
+      "karar": "PAS GEC",
+      "faktor": "FLOW",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "eventId": "TTKOM|15|SEKTOR_ROTASYONU|2026-11-16T06:45:00Z"
+    },
     {
       "zaman_utc": "2026-11-13T15:11:05.403Z",
       "sembol": "HALKB",
@@ -5233,9 +5259,5 @@
       "sinyal": "IC_STOP",
       "eventId": "TUPRS|15|IC_STOP|2026-11-12T13:15:00Z"
     }
-  ],
-  "inbox_kurtarma": {
-    "son_kosu_kurtarilan": 63,
-    "inbox_dosya_sayisi": 64
-  }
+  ]
 }
