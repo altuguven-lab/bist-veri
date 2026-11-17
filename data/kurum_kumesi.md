@@ -1,6 +1,6 @@
 # Kurum kumesi dedektoru
 
-Uretim 2026-11-16T23:43 UTC, son 14 gun. Salt isaretleme; tavsiye degildir.
+Uretim 2026-11-17T01:43 UTC, son 14 gun. Salt isaretleme; tavsiye degildir.
 
 | Tarih | Kurum | Konu | Hisse | BIST100 | Neden | Ornek hisseler |
 |---|---|---|---|---|---|---|
@@ -12,4 +12,3 @@ Uretim 2026-11-16T23:43 UTC, son 14 gun. Salt isaretleme; tavsiye degildir.
 | 2026-11-04 | İSTANBUL TAKAS VE SAKLAMA BANKASI A.Ş. | Temerrüt İşlemi | 25 | 25 | KRITIK_KONU; NADIR (son 1 yilda gunlerin %2.2'inde) | AKBNK, ALARK, ASELS, ASTOR, BIMAS, DOHOL, EKGYO, EREGL |
 | 2026-11-03 | MERKEZİ KAYIT KURULUŞU A.Ş. | SPK İşlem Yasağı Nedeniyle Pay Duyurusu | 32 | 21 | KRITIK_KONU | AKBNK, AKGRT, AKSEN, AKSGY, ALTNY, ASELS, AZTEK, BRSAN |
 | 2026-11-03 | GARANTİ EMEKLİLİK VE HAYAT A.Ş. | Pay Alım Satım Bildirimi | 17 | 1 | NADIR (son 1 yilda gunlerin %0.3'inde) | CWENE, GCK, GCS, GEA, GEF, GEG, GEH, GES |
-| 2026-11-02 | AXA HAYAT VE EMEKLİLİK A.Ş. | Pay Alım Satım Bildirimi | 7 | 1 | NADIR (son 1 yilda gunlerin %0.0'inde) | AJR, AKFGY, ANHYT, BANVT, HEB, HES, ISFIN |
