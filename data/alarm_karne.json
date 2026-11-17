@@ -1,5 +1,5 @@
 {
- "uretim_utc": "2026-11-14T14:26:59.342275+00:00",
+ "uretim_utc": "2026-11-17T00:29:13.399156+00:00",
  "surum": "v1",
  "parametreler": {
   "MALIYET_PCT": 0.25,
@@ -43,12 +43,12 @@
    "tv_alerts_2026_08.json": 852,
    "tv_alerts_2026_09.json": 488,
    "tv_alerts_2026_10.json": 372,
-   "tv_alerts_2026_11.json": 927,
+   "tv_alerts_2026_11.json": 1077,
    "tv_alerts_latest.json": 200
   },
-  "ham": 3036,
+  "ham": 3186,
   "tekrar": 256,
-  "tekil": 2780
+  "tekil": 2930
  },
  "xu100_son_gun": "2026-11-13",
  "turler": {
@@ -4791,11 +4791,11 @@
  "veri_butunlugu": {
   "aralik": [
    "2026-07-07",
-   "2026-11-13"
+   "2026-11-16"
   ],
-  "islem_gunu": 91,
-  "gunluk_alarm_medyan": 5,
-  "gunluk_ozet_medyan": 15,
+  "islem_gunu": 92,
+  "gunluk_alarm_medyan": 5.5,
+  "gunluk_ozet_medyan": 15.0,
   "supheli_eksik_gunler": [
    {
     "gun": "2026-07-07",
@@ -5020,18 +5020,18 @@
   ],
   "alan_bosluk_orani_pct": {
    "fiyat": 0.2,
-   "skor": 6.0,
-   "kgs": 6.0,
-   "stop": 6.0,
-   "rejim": 6.0,
-   "relvol": 6.0,
-   "v112n": 39.1,
+   "skor": 5.7,
+   "kgs": 5.7,
+   "stop": 5.7,
+   "rejim": 5.7,
+   "relvol": 5.7,
+   "v112n": 37.1,
    "v112wr": 100.0,
-   "p3ozet": 41.9,
-   "pozsebep": 79.6,
-   "schemaVersion": 41.9,
-   "eventId": 41.9,
-   "carrierLagBars": 41.9
+   "p3ozet": 39.8,
+   "pozsebep": 75.6,
+   "schemaVersion": 39.8,
+   "eventId": 39.8,
+   "carrierLagBars": 39.8
   },
   "tanimsiz_sinyal_adlari": {
    "GERCEK_TEST": 1,
@@ -5039,17 +5039,17 @@
    "GERCEK_TEST_P3_KONTROL": 1,
    "?": 5
   },
-  "son_30_gunde_supheli": 8,
+  "son_30_gunde_supheli": 5,
   "schemaVersion": {
    "?": 1166,
    "v162.2": 1028,
    "v163.0": 27,
    "v163.1": 111,
-   "v163.2": 448
+   "v163.2": 598
   },
   "carrierLagBars": {
    "?": 1166,
-   "1": 1614
+   "1": 1764
   }
  },
  "tam_gun_duyarliligi": {
@@ -5525,6 +5525,428 @@
     "n": 0
    }
   }
+ },
+ "plasebo": {
+  "tanim": "ayni gun, evrenden rastgele BASKA hisse, ayni yon ve ufuk; 2000 simulasyon, tohum sabit",
+  "tum_donem": {
+   "ACIL_CIK": {
+    "T1": {
+     "olay": 29,
+     "farkli_gun": 23,
+     "gercek_yon_ort": -0.393,
+     "plasebo_ort": -0.181,
+     "fark": -0.212,
+     "p_tek_yonlu": 0.705,
+     "durum": "OLCULEBILIR"
+    },
+    "T3": {
+     "olay": 27,
+     "farkli_gun": 22,
+     "gercek_yon_ort": -2.1,
+     "plasebo_ort": -0.389,
+     "fark": -1.711,
+     "p_tek_yonlu": 0.985,
+     "durum": "OLCULEBILIR"
+    }
+   },
+   "IC_STOP": {
+    "T1": {
+     "olay": 39,
+     "farkli_gun": 3,
+     "gercek_yon_ort": 0.488,
+     "plasebo_ort": 0.29,
+     "fark": 0.198,
+     "p_tek_yonlu": 0.268,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 8,
+     "farkli_gun": 1,
+     "gercek_yon_ort": 2.017,
+     "plasebo_ort": 1.105,
+     "fark": 0.912,
+     "p_tek_yonlu": 0.167,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P2_ADAY": {
+    "T1": {
+     "olay": 70,
+     "farkli_gun": 33,
+     "gercek_yon_ort": -0.173,
+     "plasebo_ort": 0.201,
+     "fark": -0.374,
+     "p_tek_yonlu": 0.935,
+     "durum": "OLCULEBILIR"
+    },
+    "T3": {
+     "olay": 65,
+     "farkli_gun": 31,
+     "gercek_yon_ort": 0.134,
+     "plasebo_ort": 0.876,
+     "fark": -0.742,
+     "p_tek_yonlu": 0.936,
+     "durum": "OLCULEBILIR"
+    }
+   },
+   "P2_DIP_DONUS": {
+    "T1": {
+     "olay": 20,
+     "farkli_gun": 13,
+     "gercek_yon_ort": -0.188,
+     "plasebo_ort": 0.125,
+     "fark": -0.313,
+     "p_tek_yonlu": 0.747,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 15,
+     "farkli_gun": 11,
+     "gercek_yon_ort": 3.375,
+     "plasebo_ort": 0.756,
+     "fark": 2.619,
+     "p_tek_yonlu": 0.015,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P3_HACIM_BEKLE": {
+    "T1": {
+     "olay": 45,
+     "farkli_gun": 3,
+     "gercek_yon_ort": -0.262,
+     "plasebo_ort": -0.273,
+     "fark": 0.011,
+     "p_tek_yonlu": 0.484,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 8,
+     "farkli_gun": 1,
+     "gercek_yon_ort": -0.505,
+     "plasebo_ort": -1.1,
+     "fark": 0.595,
+     "p_tek_yonlu": 0.263,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P3_RADAR": {
+    "T1": {
+     "olay": 129,
+     "farkli_gun": 37,
+     "gercek_yon_ort": -0.283,
+     "plasebo_ort": 0.128,
+     "fark": -0.411,
+     "p_tek_yonlu": 0.985,
+     "durum": "OLCULEBILIR"
+    },
+    "T3": {
+     "olay": 113,
+     "farkli_gun": 35,
+     "gercek_yon_ort": -0.091,
+     "plasebo_ort": 0.547,
+     "fark": -0.638,
+     "p_tek_yonlu": 0.961,
+     "durum": "OLCULEBILIR"
+    }
+   },
+   "P3_SKOR_AL": {
+    "T1": {
+     "olay": 281,
+     "farkli_gun": 38,
+     "gercek_yon_ort": -0.079,
+     "plasebo_ort": 0.035,
+     "fark": -0.115,
+     "p_tek_yonlu": 0.822,
+     "durum": "OLCULEBILIR"
+    },
+    "T3": {
+     "olay": 275,
+     "farkli_gun": 36,
+     "gercek_yon_ort": -0.247,
+     "plasebo_ort": 0.061,
+     "fark": -0.308,
+     "p_tek_yonlu": 0.902,
+     "durum": "OLCULEBILIR"
+    }
+   },
+   "P4_HAZIRLIK": {
+    "T1": {
+     "olay": 190,
+     "farkli_gun": 23,
+     "gercek_yon_ort": 0.034,
+     "plasebo_ort": 0.124,
+     "fark": -0.09,
+     "p_tek_yonlu": 0.714,
+     "durum": "OLCULEBILIR"
+    },
+    "T3": {
+     "olay": 143,
+     "farkli_gun": 21,
+     "gercek_yon_ort": 0.538,
+     "plasebo_ort": 0.599,
+     "fark": -0.061,
+     "p_tek_yonlu": 0.579,
+     "durum": "OLCULEBILIR"
+    }
+   },
+   "POZ_AZALT": {
+    "T1": {
+     "olay": 39,
+     "farkli_gun": 19,
+     "gercek_yon_ort": -0.957,
+     "plasebo_ort": 0.101,
+     "fark": -1.058,
+     "p_tek_yonlu": 0.999,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 39,
+     "farkli_gun": 19,
+     "gercek_yon_ort": -1.931,
+     "plasebo_ort": 0.25,
+     "fark": -2.181,
+     "p_tek_yonlu": 1.0,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "SEKTOR_ROTASYONU": {
+    "T1": {
+     "olay": 132,
+     "farkli_gun": 22,
+     "gercek_yon_ort": 0.102,
+     "plasebo_ort": 0.104,
+     "fark": -0.002,
+     "p_tek_yonlu": 0.504,
+     "durum": "OLCULEBILIR"
+    },
+    "T3": {
+     "olay": 116,
+     "farkli_gun": 20,
+     "gercek_yon_ort": 0.52,
+     "plasebo_ort": 0.483,
+     "fark": 0.037,
+     "p_tek_yonlu": 0.456,
+     "durum": "OLCULEBILIR"
+    }
+   },
+   "TASIMA": {
+    "T1": {
+     "olay": 8,
+     "farkli_gun": 2,
+     "gercek_yon_ort": -1.117,
+     "plasebo_ort": -0.215,
+     "fark": -0.902,
+     "p_tek_yonlu": 0.898,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   }
+  },
+  "v163_sonrasi": {
+   "ACIL_CIK": {
+    "T1": {
+     "olay": 5,
+     "farkli_gun": 3,
+     "gercek_yon_ort": 0.163,
+     "plasebo_ort": -0.057,
+     "fark": 0.22,
+     "p_tek_yonlu": 0.416,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "IC_STOP": {
+    "T1": {
+     "olay": 39,
+     "farkli_gun": 3,
+     "gercek_yon_ort": 0.488,
+     "plasebo_ort": 0.303,
+     "fark": 0.184,
+     "p_tek_yonlu": 0.299,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 8,
+     "farkli_gun": 1,
+     "gercek_yon_ort": 2.017,
+     "plasebo_ort": 1.08,
+     "fark": 0.937,
+     "p_tek_yonlu": 0.17,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P2_ADAY": {
+    "T1": {
+     "olay": 6,
+     "farkli_gun": 3,
+     "gercek_yon_ort": -0.222,
+     "plasebo_ort": -0.308,
+     "fark": 0.086,
+     "p_tek_yonlu": 0.466,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P2_DIP_DONUS": {
+    "T1": {
+     "olay": 5,
+     "farkli_gun": 2,
+     "gercek_yon_ort": -0.541,
+     "plasebo_ort": -0.238,
+     "fark": -0.303,
+     "p_tek_yonlu": 0.657,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P3_HACIM_BEKLE": {
+    "T1": {
+     "olay": 45,
+     "farkli_gun": 3,
+     "gercek_yon_ort": -0.262,
+     "plasebo_ort": -0.27,
+     "fark": 0.008,
+     "p_tek_yonlu": 0.49,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 8,
+     "farkli_gun": 1,
+     "gercek_yon_ort": -0.505,
+     "plasebo_ort": -1.131,
+     "fark": 0.626,
+     "p_tek_yonlu": 0.245,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P3_RADAR": {
+    "T1": {
+     "olay": 25,
+     "farkli_gun": 4,
+     "gercek_yon_ort": 0.032,
+     "plasebo_ort": -0.095,
+     "fark": 0.127,
+     "p_tek_yonlu": 0.378,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 9,
+     "farkli_gun": 2,
+     "gercek_yon_ort": -0.335,
+     "plasebo_ort": -0.45,
+     "fark": 0.115,
+     "p_tek_yonlu": 0.446,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P3_SKOR_AL": {
+    "T1": {
+     "olay": 10,
+     "farkli_gun": 3,
+     "gercek_yon_ort": 0.468,
+     "plasebo_ort": 0.155,
+     "fark": 0.313,
+     "p_tek_yonlu": 0.322,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "P4_HAZIRLIK": {
+    "T1": {
+     "olay": 58,
+     "farkli_gun": 4,
+     "gercek_yon_ort": -0.186,
+     "plasebo_ort": -0.175,
+     "fark": -0.011,
+     "p_tek_yonlu": 0.507,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 11,
+     "farkli_gun": 2,
+     "gercek_yon_ort": -0.388,
+     "plasebo_ort": -0.636,
+     "fark": 0.247,
+     "p_tek_yonlu": 0.388,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "POZ_AZALT": {
+    "T1": {
+     "olay": 7,
+     "farkli_gun": 2,
+     "gercek_yon_ort": 0.701,
+     "plasebo_ort": 0.265,
+     "fark": 0.437,
+     "p_tek_yonlu": 0.307,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 7,
+     "farkli_gun": 2,
+     "gercek_yon_ort": 2.236,
+     "plasebo_ort": 0.765,
+     "fark": 1.471,
+     "p_tek_yonlu": 0.11,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "SEKTOR_ROTASYONU": {
+    "T1": {
+     "olay": 29,
+     "farkli_gun": 3,
+     "gercek_yon_ort": -0.404,
+     "plasebo_ort": -0.356,
+     "fark": -0.048,
+     "p_tek_yonlu": 0.534,
+     "durum": "HUKUM YOK (<20 gun)"
+    },
+    "T3": {
+     "olay": 13,
+     "farkli_gun": 1,
+     "gercek_yon_ort": -2.141,
+     "plasebo_ort": -1.101,
+     "fark": -1.04,
+     "p_tek_yonlu": 0.932,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   },
+   "TASIMA": {
+    "T1": {
+     "olay": 8,
+     "farkli_gun": 2,
+     "gercek_yon_ort": -1.117,
+     "plasebo_ort": -0.203,
+     "fark": -0.915,
+     "p_tek_yonlu": 0.906,
+     "durum": "HUKUM YOK (<20 gun)"
+    }
+   }
+  },
+  "v163_baslangic": "2026-11-09"
+ },
+ "h14_ara_bakis": {
+  "sonuc": {
+   "H14a_giris_netT3": {
+    "olay": 1,
+    "farkli_gun": 1,
+    "ort": null,
+    "t_kume": null,
+    "plasebo_ort": null,
+    "plasebo_p": null,
+    "durum": "DEVAM (1/10 gun)"
+   },
+   "H14c_cikis_yonT3": {
+    "olay": 15,
+    "farkli_gun": 2,
+    "ort": 2.228,
+    "t_kume": 48.31,
+    "plasebo_ort": 0.987,
+    "plasebo_p": 0.04,
+    "durum": "DEVAM (2/10 gun)"
+   },
+   "H14b_hacim_tetigi": {
+    "olay": 0,
+    "farkli_gun": 0,
+    "durum": "DEVAM (0/10 gun)"
+   }
+  },
+  "resmi_kayit_haftasi": null
  },
  "seans_kirilimi": {
   "ACILIS (<10:15)": {

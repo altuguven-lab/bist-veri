@@ -1,6 +1,6 @@
 # Alarm Karnesi
 
-Uretim: 2026-11-14T14:26 UTC | maliyet 0.25% (gidis-donus) | kriz esigi 2026-09-15 | BH q=0.1 | MIN_N=30
+Uretim: 2026-11-17T00:29 UTC | maliyet 0.25% (gidis-donus) | kriz esigi 2026-09-15 | BH q=0.1 | MIN_N=30
 
 Salt olcum, tavsiye degildir. Net = yon-ayarli XU100-goreli getiri (YUKARI turlerde maliyet dusulu). t_kume = gun/hafta kumelenmis t; t_naif yalniz karsilastirma icindir.
 
@@ -39,6 +39,68 @@ Salt olcum, tavsiye degildir. Net = yon-ayarli XU100-goreli getiri (YUKARI turle
 | SEKTOR_ROTASYONU | 2 / -0.139 | 114 / 0.277 | 36 / 0.03 | 80 / 0.378 | 44.4 |
 | STOP_KIRILDI | 3 / -2.307 | 0 / None | 0 / None | 0 / None | 33.3 |
 | TASIMA | 0 / None | 0 / None | 0 / None | 0 / None | 100.0 |
+
+## H14 haftalik ara bakis (V163, ON_KAYIT_H14.md)
+
+Erken karar: en az 10 farkli gun, kumelenmis |t| > 2.6 ve plasebo p < 0.01 (ya da > 0.99). Gunluk deger bilgi icindir; RESMI bakis haftada bir (Cuma/Cumartesi) data/h14/ara_bakis.json'a yazilir.
+
+| Iddia | Olay | Gun | Ort / fark % | t / perm p | Plasebo ort % | Plasebo p | Durum |
+|---|---|---|---|---|---|---|---|
+| H14a_giris_netT3 | 1 | 1 | None | None | None | None | **DEVAM (1/10 gun)** |
+| H14c_cikis_yonT3 | 15 | 2 | 2.228 | 48.31 | 0.987 | 0.04 | **DEVAM (2/10 gun)** |
+| H14b_hacim_tetigi | 0 | 0 | None | None | - | - | **DEVAM (0/10 gun)** |
+
+## Plasebo karsilastirmasi (ayni gun, rastgele baska hisse)
+
+Soru: tur, ayni gunlerde evrenden rastgele secilen baska hisselerden daha iyi mi? Gercek ile plasebo yakinsa sonuc sinyalden degil o gunlerin piyasa/sektor hareketinden gelir. p = plasebonun gercege esit ya da daha iyi cikma orani (kucuk = sinyal lehine). ayni gun, evrenden rastgele BASKA hisse, ayni yon ve ufuk; 2000 simulasyon, tohum sabit. Betimleyicidir; hukum kurallarina girmez. 20 farkli gunden azsa yorumlanmaz.
+
+### Tum donem
+
+| Tur | Ufuk | Olay | Gun | Gercek yon ort % | Plasebo ort % | Fark | p | Durum |
+|---|---|---|---|---|---|---|---|---|
+| ACIL_CIK | T1 | 29 | 23 | -0.393 | -0.181 | -0.212 | 0.705 | OLCULEBILIR |
+| ACIL_CIK | T3 | 27 | 22 | -2.1 | -0.389 | -1.711 | 0.985 | OLCULEBILIR |
+| IC_STOP | T1 | 39 | 3 | 0.488 | 0.29 | 0.198 | 0.268 | HUKUM YOK (<20 gun) |
+| IC_STOP | T3 | 8 | 1 | 2.017 | 1.105 | 0.912 | 0.167 | HUKUM YOK (<20 gun) |
+| P2_ADAY | T1 | 70 | 33 | -0.173 | 0.201 | -0.374 | 0.935 | OLCULEBILIR |
+| P2_ADAY | T3 | 65 | 31 | 0.134 | 0.876 | -0.742 | 0.936 | OLCULEBILIR |
+| P2_DIP_DONUS | T1 | 20 | 13 | -0.188 | 0.125 | -0.313 | 0.747 | HUKUM YOK (<20 gun) |
+| P2_DIP_DONUS | T3 | 15 | 11 | 3.375 | 0.756 | 2.619 | 0.015 | HUKUM YOK (<20 gun) |
+| P3_HACIM_BEKLE | T1 | 45 | 3 | -0.262 | -0.273 | 0.011 | 0.484 | HUKUM YOK (<20 gun) |
+| P3_HACIM_BEKLE | T3 | 8 | 1 | -0.505 | -1.1 | 0.595 | 0.263 | HUKUM YOK (<20 gun) |
+| P3_RADAR | T1 | 129 | 37 | -0.283 | 0.128 | -0.411 | 0.985 | OLCULEBILIR |
+| P3_RADAR | T3 | 113 | 35 | -0.091 | 0.547 | -0.638 | 0.961 | OLCULEBILIR |
+| P3_SKOR_AL | T1 | 281 | 38 | -0.079 | 0.035 | -0.115 | 0.822 | OLCULEBILIR |
+| P3_SKOR_AL | T3 | 275 | 36 | -0.247 | 0.061 | -0.308 | 0.902 | OLCULEBILIR |
+| P4_HAZIRLIK | T1 | 190 | 23 | 0.034 | 0.124 | -0.09 | 0.714 | OLCULEBILIR |
+| P4_HAZIRLIK | T3 | 143 | 21 | 0.538 | 0.599 | -0.061 | 0.579 | OLCULEBILIR |
+| POZ_AZALT | T1 | 39 | 19 | -0.957 | 0.101 | -1.058 | 0.999 | HUKUM YOK (<20 gun) |
+| POZ_AZALT | T3 | 39 | 19 | -1.931 | 0.25 | -2.181 | 1.0 | HUKUM YOK (<20 gun) |
+| SEKTOR_ROTASYONU | T1 | 132 | 22 | 0.102 | 0.104 | -0.002 | 0.504 | OLCULEBILIR |
+| SEKTOR_ROTASYONU | T3 | 116 | 20 | 0.52 | 0.483 | 0.037 | 0.456 | OLCULEBILIR |
+| TASIMA | T1 | 8 | 2 | -1.117 | -0.215 | -0.902 | 0.898 | HUKUM YOK (<20 gun) |
+
+### V163 sonrasi (2026-11-09+)
+
+| Tur | Ufuk | Olay | Gun | Gercek yon ort % | Plasebo ort % | Fark | p | Durum |
+|---|---|---|---|---|---|---|---|---|
+| ACIL_CIK | T1 | 5 | 3 | 0.163 | -0.057 | 0.22 | 0.416 | HUKUM YOK (<20 gun) |
+| IC_STOP | T1 | 39 | 3 | 0.488 | 0.303 | 0.184 | 0.299 | HUKUM YOK (<20 gun) |
+| IC_STOP | T3 | 8 | 1 | 2.017 | 1.08 | 0.937 | 0.17 | HUKUM YOK (<20 gun) |
+| P2_ADAY | T1 | 6 | 3 | -0.222 | -0.308 | 0.086 | 0.466 | HUKUM YOK (<20 gun) |
+| P2_DIP_DONUS | T1 | 5 | 2 | -0.541 | -0.238 | -0.303 | 0.657 | HUKUM YOK (<20 gun) |
+| P3_HACIM_BEKLE | T1 | 45 | 3 | -0.262 | -0.27 | 0.008 | 0.49 | HUKUM YOK (<20 gun) |
+| P3_HACIM_BEKLE | T3 | 8 | 1 | -0.505 | -1.131 | 0.626 | 0.245 | HUKUM YOK (<20 gun) |
+| P3_RADAR | T1 | 25 | 4 | 0.032 | -0.095 | 0.127 | 0.378 | HUKUM YOK (<20 gun) |
+| P3_RADAR | T3 | 9 | 2 | -0.335 | -0.45 | 0.115 | 0.446 | HUKUM YOK (<20 gun) |
+| P3_SKOR_AL | T1 | 10 | 3 | 0.468 | 0.155 | 0.313 | 0.322 | HUKUM YOK (<20 gun) |
+| P4_HAZIRLIK | T1 | 58 | 4 | -0.186 | -0.175 | -0.011 | 0.507 | HUKUM YOK (<20 gun) |
+| P4_HAZIRLIK | T3 | 11 | 2 | -0.388 | -0.636 | 0.247 | 0.388 | HUKUM YOK (<20 gun) |
+| POZ_AZALT | T1 | 7 | 2 | 0.701 | 0.265 | 0.437 | 0.307 | HUKUM YOK (<20 gun) |
+| POZ_AZALT | T3 | 7 | 2 | 2.236 | 0.765 | 1.471 | 0.11 | HUKUM YOK (<20 gun) |
+| SEKTOR_ROTASYONU | T1 | 29 | 3 | -0.404 | -0.356 | -0.048 | 0.534 | HUKUM YOK (<20 gun) |
+| SEKTOR_ROTASYONU | T3 | 13 | 1 | -2.141 | -1.101 | -1.04 | 0.932 | HUKUM YOK (<20 gun) |
+| TASIMA | T1 | 8 | 2 | -1.117 | -0.203 | -0.915 | 0.906 | HUKUM YOK (<20 gun) |
 
 ## Tam gunler duyarliligi (net T+3)
 
@@ -84,9 +146,9 @@ Sinyal barinda baskin skor bileseni; yalniz V163.1 (10.11.2026+) alarmlari tasir
 
 ## Veri butunlugu
 
-- Aralik 2026-07-07 - 2026-11-13, 91 islem gunu; gunluk alarm medyani 5, GUNLUK_OZET medyani 15.
-- Ham kayit 3036, eventId tekrari 256, tekil 2780.
-- Supheli eksik gun (alarm < medyanin yarisi ya da GUNLUK_OZET < medyanin %80'i): toplam 44, son 30 gunde 8. En yeni 15 (alarm/ozet): 2026-11-06 (29/2), 2026-10-28 (10/0), 2026-10-21 (0/0), 2026-10-20 (0/0), 2026-10-19 (0/0), 2026-10-16 (0/0), 2026-10-15 (0/0), 2026-10-14 (0/0), 2026-10-13 (0/0), 2026-10-12 (0/0), 2026-10-09 (0/0), 2026-10-08 (0/0), 2026-10-07 (0/0), 2026-10-06 (0/0), 2026-10-05 (0/1)
+- Aralik 2026-07-07 - 2026-11-16, 92 islem gunu; gunluk alarm medyani 5.5, GUNLUK_OZET medyani 15.0.
+- Ham kayit 3186, eventId tekrari 256, tekil 2930.
+- Supheli eksik gun (alarm < medyanin yarisi ya da GUNLUK_OZET < medyanin %80'i): toplam 44, son 30 gunde 5. En yeni 15 (alarm/ozet): 2026-11-06 (29/2), 2026-10-28 (10/0), 2026-10-21 (0/0), 2026-10-20 (0/0), 2026-10-19 (0/0), 2026-10-16 (0/0), 2026-10-15 (0/0), 2026-10-14 (0/0), 2026-10-13 (0/0), 2026-10-12 (0/0), 2026-10-09 (0/0), 2026-10-08 (0/0), 2026-10-07 (0/0), 2026-10-06 (0/0), 2026-10-05 (0/1)
 - Tamamen bos alanlar: v112wr
 - Tanimsiz sinyal adlari: {'GERCEK_TEST': 1, 'GERCEK_TEST_KANAL_KONTROL': 1, 'GERCEK_TEST_P3_KONTROL': 1, '?': 5}
 - Fiyat uyusmazligi (alarm fiyati Yahoo gun araliginin %1 disinda): 0
