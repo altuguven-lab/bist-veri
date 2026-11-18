@@ -321,10 +321,12 @@ def takasbank_pdf_ozet(sonuc):
                         if re.search(r"güncellen|guncellen|geçerli ol|gecerli ol|itibar|yürürlü|yururlu", c, re.I)]
             tarihler = sorted({tarih_coz(m.group(0)).isoformat() for m in TARIH_RE.finditer(yazi)
                                if tarih_coz(m.group(0))})
-            degisen = [p for p in ("VİOP", "Pay Piyasası", "Ödünç Pay", "Pay Repo", "Para Piyasası", "Swap",
-                                   "Kıymetli Maden", "Borçlanma Araçları")
-                       if re.search(re.escape(p) + r"[^.]{0,200}(güncellen|değiş|yeni)", yazi, re.I)]
-            k["pdf_ozet"] = {"degisen_gorunen_piyasalar": degisen, "metindeki_tarihler": tarihler[-6:],
+            # degisen parametreler PDF ekinde "DEGISEN RISK PARAMETRELERI" basligindan sonra gelir
+            m_deg = re.search(r"DEĞİŞEN R[İI]SK PARAMETRELER[İI](.{0,260})", yazi, re.I)
+            degisen = [m_deg.group(1).strip()] if m_deg else []
+            yururluk = [c for c in cumleler if re.search(r"itibar|geçerli ol|gecerli ol", c, re.I)]
+            k["pdf_ozet"] = {"degisen_bolum": degisen, "yururluk": [c[:300] for c in yururluk[:2]],
+                             "metindeki_tarihler": tarihler[-6:],
                              "ilgili_cumleler": [c[:300] for c in cumleler[:5]],
                              "not": "Otomatik cikarim; ayrinti ve degerler icin PDF okunmalidir."}
         except Exception as e:
@@ -461,9 +463,9 @@ def md_yaz(r):
         for x in k["son_7_gun"][:15]:
             L.append(f"- {x['tarih']} [{x['baslik']}]({x['url']})")
             po = x.get("pdf_ozet") or {}
-            if po.get("ilgili_cumleler") or po.get("degisen_gorunen_piyasalar"):
-                L.append(f"  - PDF: piyasa {', '.join(po.get('degisen_gorunen_piyasalar') or []) or '?'}; "
-                         f"{(po.get('ilgili_cumleler') or ['-'])[0][:220]}")
+            if po.get("degisen_bolum") or po.get("yururluk"):
+                L.append(f"  - PDF degisen: {(po.get('degisen_bolum') or ['?'])[0][:200]}")
+                L.append(f"  - PDF yururluk: {(po.get('yururluk') or ['?'])[0][:220]}")
             elif po.get("hata"):
                 L.append(f"  - PDF okunamadi: {po['hata'][:120]}")
         oz = k.get("son_bulten_ozet")
