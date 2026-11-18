@@ -322,7 +322,10 @@ def takasbank_pdf_ozet(sonuc):
             tarihler = sorted({tarih_coz(m.group(0)).isoformat() for m in TARIH_RE.finditer(yazi)
                                if tarih_coz(m.group(0))})
             # degisen parametreler PDF ekinde "DEGISEN RISK PARAMETRELERI" basligindan sonra gelir
-            m_deg = re.search(r"DEĞİŞEN R[İI]SK PARAMETRELER[İI](.{0,260})", yazi, re.I)
+            # buyuk harfli ek basligi aranir (buyuk/kucuk harf duyarli); govdedeki "degisen risk parametreleri"
+            # ifadesi eslesmesin. Bulunamazsa son eslesme kullanilir.
+            m_deg = re.search(r"DEĞİŞEN R[İI]SK PARAMETRELER[İI](.{0,260})", yazi) or \
+                (list(re.finditer(r"değişen risk parametreleri(.{0,260})", yazi, re.I)) or [None])[-1]
             degisen = [m_deg.group(1).strip()] if m_deg else []
             yururluk = [c for c in cumleler if re.search(r"itibar|geçerli ol|gecerli ol", c, re.I)]
             k["pdf_ozet"] = {"degisen_bolum": degisen, "yururluk": [c[:300] for c in yururluk[:2]],
