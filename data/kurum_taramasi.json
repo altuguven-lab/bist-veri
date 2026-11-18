@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-18T13:01:16.005659+00:00",
- "uretim_tr": "2026-11-18 16:01",
+ "uretim_utc": "2026-11-18T13:11:33.214683+00:00",
+ "uretim_tr": "2026-11-18 16:11",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -10,7 +10,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-16",
-   "kontrol_tr": "2026-11-18 16:01",
+   "kontrol_tr": "2026-11-18 16:11",
    "son_7_gun": [
     {
      "tarih": "2026-11-16",
@@ -44,32 +44,20 @@
   {
    "kaynak": "takasbank",
    "url": "https://www.takasbank.com.tr/tr/duyurular",
-   "durum": "OK",
+   "durum": "KAYIT_BULUNAMADI",
    "hata": null,
-   "en_son_kayit": "2026-12-05",
-   "kontrol_tr": "2026-11-18 16:01",
-   "son_7_gun": [
-    {
-     "tarih": "2026-12-05",
-     "baslik": "5 Aralık 2026 Tarihinde Gerçekleştirilecek Takasbank Olağanüstü Durum Tatbikatı Hakkında",
-     "url": "https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2177-b19b9bc9-62db-4bb8-bd7c-bd31d23be775.pdf"
-    }
-   ]
+   "en_son_kayit": null,
+   "kontrol_tr": "2026-11-18 16:11",
+   "son_7_gun": []
   },
   {
    "kaynak": "tspb",
    "url": "https://www.tspb.org.tr/duyurular/",
    "durum": "OK",
    "hata": null,
-   "en_son_kayit": "2026-11-13",
-   "kontrol_tr": "2026-11-18 16:01",
-   "son_7_gun": [
-    {
-     "tarih": "2026-11-13",
-     "baslik": "TSPB, COP31’de İklim Finansmanı Paneliyle Yerini Alıyor “İklim Eyleminin Uygulanmasının Finansmanı için Sermaye Piyasalarının Harekete Geçirilmesi” Paneli 13 Kasım 2026, 11.15 – 12.00 Salon 3 / Antalya EXPO Merkezi Türki",
-     "url": "https://tspb.org.tr/bilgi/tspb-cop31de-iklim-finansmani-paneliyle-yerini-aliyor/"
-    }
-   ]
+   "en_son_kayit": "2026-11-09",
+   "kontrol_tr": "2026-11-18 16:11",
+   "son_7_gun": []
   },
   {
    "kaynak": "bist",
@@ -77,7 +65,7 @@
    "durum": "KAYIT_BULUNAMADI",
    "hata": null,
    "en_son_kayit": null,
-   "kontrol_tr": "2026-11-18 16:01",
+   "kontrol_tr": "2026-11-18 16:11",
    "son_7_gun": []
   }
  ],
@@ -1424,6 +1412,7 @@
   "uyari": null
  },
  "kontrol_edilemeyenler": [
+  "takasbank: KAYIT_BULUNAMADI",
   "bist: KAYIT_BULUNAMADI",
   "takvim: 2026-11-18 Fed FOMC tutanaklari (27-28.10 toplantisi) - birincil kaynakla teyit edilmedi",
   "takvim: 2026-11-19 TCMB haftalik uluslararasi rezervler - birincil kaynakla teyit edilmedi",

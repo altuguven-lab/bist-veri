@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-18 16:01
+# Kurum taramasi - 2026-11-18 16:11
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -7,8 +7,8 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-16 | 2 |
-| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-12-05 | 1 |
-| [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-13 | 1 |
+| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **KAYIT_BULUNAMADI** | - | 0 |
+| [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **KAYIT_BULUNAMADI** | - | 0 |
 | KAP arsivi | **OK** | 2026-11-18 | 52 kurum bildirimi |
 
@@ -17,14 +17,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-16 [Bülten No : 2026/81 Yayımlanma : 16 Kasım 2026 Pazartesi](https://spk.gov.tr/data/6afb51ed8f95db1d4cdc42a3/2026-81.pdf)
 - 2026-11-13 [Bülten No : 2026/80 Yayımlanma : 13 Kasım 2026 Cuma](https://spk.gov.tr/data/6af772b98f95db208cf81cc3/2026-80.pdf)
 - Son bulten 2026/81: karar turleri {'islem_yasagi': 2, 'tedbir': 3, 'suc_duyurusu': 1, 'idari_para_cezasi': 1}; gecen kodlar TUKAS
-
-## takasbank (son 7 gun)
-
-- 2026-12-05 [5 Aralık 2026 Tarihinde Gerçekleştirilecek Takasbank Olağanüstü Durum Tatbikatı Hakkında](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2177-b19b9bc9-62db-4bb8-bd7c-bd31d23be775.pdf)
-
-## tspb (son 7 gun)
-
-- 2026-11-13 [TSPB, COP31’de İklim Finansmanı Paneliyle Yerini Alıyor “İklim Eyleminin Uygulanmasının Finansmanı için Sermaye Piyasalarının Harekete Geçirilmesi” Paneli 13 Kasım 2026, 11.15 – 12.00 Salon 3 / Antalya EXPO Merkezi Türki](https://tspb.org.tr/bilgi/tspb-cop31de-iklim-finansmani-paneliyle-yerini-aliyor/)
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
@@ -125,6 +117,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Kontrol edilemeyenler
 
+- takasbank: KAYIT_BULUNAMADI
 - bist: KAYIT_BULUNAMADI
 - takvim: 2026-11-18 Fed FOMC tutanaklari (27-28.10 toplantisi) - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-19 TCMB haftalik uluslararasi rezervler - birincil kaynakla teyit edilmedi
