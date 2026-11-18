@@ -1,0 +1,49 @@
+# KURUM TARAMASI (18.11.2026) - SALT VERI TOPLAMA. Ayrintilar kurum_taramasi.py basinda.
+# SPK, Takasbank, TSPB, BIST sayfalari + KAP arsivindeki kurum bildirimleri + izleme listesi + takvim.
+# Betik son taramadan 3 saat gecmeden kendini atlar; harici "haber_tetikle" olayi GitHub zamanlamalari
+# atlandiginda yedek tetik olur, siteler saatte birden fazla yorulmaz.
+name: Kurum Taramasi
+on:
+  schedule:
+    - cron: "35 5 * * 1-5"    # 08:35 TR, sabah brifinginden once
+    - cron: "40 15 * * 1-5"   # 18:40 TR, aksam kontrolu
+    - cron: "15 21 * * 1-5"   # 00:15 TR, gece yayimlanan SPK bultenleri (13.11 23:54, 16.11 22:07)
+  repository_dispatch:
+    types: [haber_tetikle]
+  workflow_dispatch:
+    inputs:
+      zorla:
+        description: "3 saat kuralini atla (evet/hayir)"
+        default: "hayir"
+permissions:
+  contents: write
+concurrency:
+  group: kurum-taramasi
+  cancel-in-progress: false
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pypdf==7.1.1 pyyaml
+      - name: Tara
+        run: |
+          if [ "${{ inputs.zorla }}" = "evet" ]; then python kurum_taramasi.py --zorla; else python kurum_taramasi.py; fi
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "kurum-taramasi-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/kurum_taramasi.json data/kurum_taramasi.md || true
+          git diff --staged --quiet && exit 0
+          git commit -m "Kurum taramasi $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main || git rebase --abort
+          done
+          exit 1
