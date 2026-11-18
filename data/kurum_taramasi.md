@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-18 16:33
+# Kurum taramasi - 2026-11-18 16:48
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -23,7 +23,8 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-17 [2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2179-4460ca18-9780-4a09-9576-a86b53b771fc.pdf)
 - 2026-11-14 [Taşıt Takas Mobil Uygulaması Yenilendi](https://www.takasbank.com.tr/tr/duyurular/duyuru-detay/tasit-takas-mobil-uygulamasi-yenilendi)
 - 2026-11-12 [Risk Parametrelerinin Güncellenmesi Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2178-8a11fc9a-aa6b-4446-b1f6-90f0bbcbe92b.pdf)
-  - PDF: piyasa Pay Piyasası; Risk Parametrelerinin Güncellenmesi Hk.
+  - PDF degisen: ile merkezi karşı taraf ve teminat yönetimi hizmeti verilen piyasalarda risk hesaplamasında kullanılan tüm değerler ekte yer almaktadır. Değişen parametreler sonucunda teminat yükümlülüklerindeki olas
+  - PDF yururluk: 16.11.2026 Pazartesi günü, gün içi ilk risk hesaplama anından itibaren geçerli olacak değişen risk parametreleri ile merkezi karşı taraf ve teminat yönetimi hizmeti verilen piyasalarda risk hesaplamasında kullanılan tüm 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
@@ -100,18 +101,18 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
-- ANELE: 11-13: 1, 11-17: 1, 11-18: 2
+- ANELE: 11-13: 1, 11-17: 1, 11-18: 5
 - DSTKF: 11-17: 1, 11-18: 1
 - GUNDG: 11-17: 1, 11-18: 1
 - IEYHO: 11-13: 1, 11-17: 2
-- KTLEV: 11-17: 2, 11-18: 2
-- ODINE: 11-17: 2, 11-18: 1
+- KTLEV: 11-17: 2, 11-18: 3
+- ODINE: 11-17: 2, 11-18: 3
 - OZATD: 11-17: 2
 - PEKGY: 11-11: 1, 11-17: 2
 - SELEC: 11-17: 2
 - TEHOL: 11-11: 1, 11-17: 2
 - TUKAS: 11-13: 2
-- VSNMD: 11-17: 2, 11-18: 1
+- VSNMD: 11-17: 2, 11-18: 2
 
 ## Takvim (bugun-1 .. +14 gun)
 
