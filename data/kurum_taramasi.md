@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-18 16:26
+# Kurum taramasi - 2026-11-18 16:33
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -23,6 +23,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-17 [2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2179-4460ca18-9780-4a09-9576-a86b53b771fc.pdf)
 - 2026-11-14 [Taşıt Takas Mobil Uygulaması Yenilendi](https://www.takasbank.com.tr/tr/duyurular/duyuru-detay/tasit-takas-mobil-uygulamasi-yenilendi)
 - 2026-11-12 [Risk Parametrelerinin Güncellenmesi Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2178-8a11fc9a-aa6b-4446-b1f6-90f0bbcbe92b.pdf)
+  - PDF: piyasa Pay Piyasası; Risk Parametrelerinin Güncellenmesi Hk.
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
