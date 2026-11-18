@@ -316,13 +316,17 @@ def takasbank_pdf_ozet(sonuc):
         try:
             from pypdf import PdfReader
             yazi = " ".join(" ".join((p.extract_text() or "") for p in PdfReader(io.BytesIO(getir(k["url"], 60))).pages).split())
-            piyasalar = [p for p in ("VİOP", "Pay Piyasası", "Ödünç Pay", "Pay Repo", "Para Piyasası", "Swap",
-                                     "Kıymetli Maden", "Borçlanma Araçları") if p.lower() in yazi.lower()]
-            yururluk = TARIH_RE.findall(yazi)
-            k["pdf_ozet"] = {"gecen_piyasalar": piyasalar,
-                             "ilk_tarihler": [tarih_coz(" ".join(x)) and tarih_coz(" ".join(x)).isoformat()
-                                              for x in yururluk[:3]],
-                             "parca": yazi[:400]}
+            # 18.11: sayfa basligi/adres blogu degil, metnin kendisi: "guncellen", "gecerli", "itibar" gecen cumleler
+            cumleler = [c.strip() for c in re.split(r"(?<=[.;:])\s+", yazi)
+                        if re.search(r"güncellen|guncellen|geçerli ol|gecerli ol|itibar|yürürlü|yururlu", c, re.I)]
+            tarihler = sorted({tarih_coz(m.group(0)).isoformat() for m in TARIH_RE.finditer(yazi)
+                               if tarih_coz(m.group(0))})
+            degisen = [p for p in ("VİOP", "Pay Piyasası", "Ödünç Pay", "Pay Repo", "Para Piyasası", "Swap",
+                                   "Kıymetli Maden", "Borçlanma Araçları")
+                       if re.search(re.escape(p) + r"[^.]{0,200}(güncellen|değiş|yeni)", yazi, re.I)]
+            k["pdf_ozet"] = {"degisen_gorunen_piyasalar": degisen, "metindeki_tarihler": tarihler[-6:],
+                             "ilgili_cumleler": [c[:300] for c in cumleler[:5]],
+                             "not": "Otomatik cikarim; ayrinti ve degerler icin PDF okunmalidir."}
         except Exception as e:
             k["pdf_ozet"] = {"hata": str(e)[:200]}
 
@@ -456,6 +460,12 @@ def md_yaz(r):
         L += ["", f"## {k['kaynak']} (son 7 gun)", ""]
         for x in k["son_7_gun"][:15]:
             L.append(f"- {x['tarih']} [{x['baslik']}]({x['url']})")
+            po = x.get("pdf_ozet") or {}
+            if po.get("ilgili_cumleler") or po.get("degisen_gorunen_piyasalar"):
+                L.append(f"  - PDF: piyasa {', '.join(po.get('degisen_gorunen_piyasalar') or []) or '?'}; "
+                         f"{(po.get('ilgili_cumleler') or ['-'])[0][:220]}")
+            elif po.get("hata"):
+                L.append(f"  - PDF okunamadi: {po['hata'][:120]}")
         oz = k.get("son_bulten_ozet")
         if oz and oz.get("durum") == "OK":
             L.append(f"- Son bulten {oz.get('bulten_no')}: karar turleri {oz['karar_turleri'] or '-'}; "
