@@ -125,7 +125,7 @@ def getir(url, zaman=30, azami=8 * 1024 * 1024):
     raise son
 
 
-def baglanti_kayitlari(sayfa_html, taban_url, filtre=None):
+def baglanti_kayitlari(sayfa_html, taban_url, filtre=None, bugun=None, baslik_tarihi_once=False):
     """Sayfadaki <a> baglantilarini, metnindeki ya da hemen cevresindeki tarihle birlikte dondurur.
     Sayfa yapisi bilinmeden calisir: tarih once baglanti metninde, sonra baglantidan once/sonra gelen
     400 karakterlik metinde aranir."""
@@ -151,13 +151,18 @@ def baglanti_kayitlari(sayfa_html, taban_url, filtre=None):
     sonra_say = sum(1 for a in adaylar if a[3] and a[3][0] <= 5)
     sira = ("once", "sonra") if once_say > sonra_say else ("sonra", "once")
     kayitlar, gorulen = [], set()
-    for url, ic, t, s, o in adaylar:
-        if not t:
-            for taraf in sira:
-                aday = o if taraf == "once" else s
-                if aday and aday[1]:
-                    t = aday[1]
-                    break
+    yarin = (bugun or simdi().date()) + dt.timedelta(days=1)
+    for url, ic, t_baslik, s, o in adaylar:
+        # 18.11 duzeltmesi: yayim tarihi icin ONCE baglantinin yanindaki liste tarihi kullanilir. Basliktaki
+        # tarih ("5 Aralik 2026 tatbikati", "13 Kasim paneli") etkinlik tarihi olabilir; yalniz yedektir.
+        t = t_baslik if (baslik_tarihi_once and t_baslik and t_baslik <= yarin) else None
+        for taraf in (sira if not t else ()):
+            aday = o if taraf == "once" else s
+            if aday and aday[1] and aday[1] <= yarin:
+                t = aday[1]
+                break
+        if not t and t_baslik and t_baslik <= yarin:
+            t = t_baslik
         if not t or (url, ic) in gorulen:
             continue
         gorulen.add((url, ic))
@@ -186,11 +191,24 @@ def kaynak_sonucu(ad, url, kayitlar, bugun, hata=None, ek=None):
 
 
 # ---------------------------------------------------------------- B) kurum sayfalari
+HAM_KLASOR = "data/kurum_taramasi_ham"
+
+
+def kaydet_ham(ad, s):
+    """Ayristirici ayari icin sayfanin ham HTML'i saklanir (her calismada uzerine yazilir, en fazla 1,5 MB).
+    Sayfa yapisi degisirse ya da KAYIT_BULUNAMADI cikarsa bu dosyaya bakilarak duzeltilir."""
+    try:
+        os.makedirs(HAM_KLASOR, exist_ok=True)
+        open(f"{HAM_KLASOR}/{ad}.html", "w", encoding="utf-8").write(s[:1_500_000])
+    except Exception as e:
+        print("ham sayfa yazilamadi:", ad, e, file=sys.stderr)
 def spk_bulten(bugun):
     url = f"https://spk.gov.tr/spk-bultenleri/{bugun.year}-yili-spk-bultenleri"
     try:
         s = getir(url).decode("utf-8", errors="replace")
-        kay = baglanti_kayitlari(s, url, lambda u, t: re.search(r"\d{4}\s*/\s*\d+", t) or u.lower().endswith(".pdf"))
+        kaydet_ham("spk_bulten", s)
+        kay = baglanti_kayitlari(s, url, lambda u, t: re.search(r"\d{4}\s*/\s*\d+", t) or u.lower().endswith(".pdf"),
+                                 bugun=bugun, baslik_tarihi_once=True)
         # ayni bultene giden birden cok baglantidan numarali olani tut
         tek = {}
         for k in kay:
@@ -240,7 +258,8 @@ def spk_pdf_ozet(kayit):
 def genel_sayfa(ad, url, bugun, filtre=None):
     try:
         s = getir(url).decode("utf-8", errors="replace")
-        return kaynak_sonucu(ad, url, baglanti_kayitlari(s, url, filtre), bugun)
+        kaydet_ham(ad, s)
+        return kaynak_sonucu(ad, url, baglanti_kayitlari(s, url, filtre, bugun=bugun), bugun)
     except Exception as e:
         return kaynak_sonucu(ad, url, [], bugun, hata=e)
 
