@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-18T13:11:33.214683+00:00",
- "uretim_tr": "2026-11-18 16:11",
+ "uretim_utc": "2026-11-18T13:26:15.822679+00:00",
+ "uretim_tr": "2026-11-18 16:26",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -10,7 +10,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-16",
-   "kontrol_tr": "2026-11-18 16:11",
+   "kontrol_tr": "2026-11-18 16:26",
    "son_7_gun": [
     {
      "tarih": "2026-11-16",
@@ -44,11 +44,44 @@
   {
    "kaynak": "takasbank",
    "url": "https://www.takasbank.com.tr/tr/duyurular",
-   "durum": "KAYIT_BULUNAMADI",
+   "durum": "OK",
    "hata": null,
-   "en_son_kayit": null,
-   "kontrol_tr": "2026-11-18 16:11",
-   "son_7_gun": []
+   "en_son_kayit": "2026-11-17",
+   "kontrol_tr": "2026-11-18 16:26",
+   "son_7_gun": [
+    {
+     "tarih": "2026-11-17",
+     "baslik": "2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında",
+     "url": "https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2179-4460ca18-9780-4a09-9576-a86b53b771fc.pdf"
+    },
+    {
+     "tarih": "2026-11-14",
+     "baslik": "Taşıt Takas Mobil Uygulaması Yenilendi",
+     "url": "https://www.takasbank.com.tr/tr/duyurular/duyuru-detay/tasit-takas-mobil-uygulamasi-yenilendi"
+    },
+    {
+     "tarih": "2026-11-12",
+     "baslik": "Risk Parametrelerinin Güncellenmesi Hk.",
+     "url": "https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2178-8a11fc9a-aa6b-4446-b1f6-90f0bbcbe92b.pdf",
+     "pdf_ozet": {
+      "gecen_piyasalar": [
+       "VİOP",
+       "Pay Piyasası",
+       "Ödünç Pay",
+       "Pay Repo",
+       "Swap",
+       "Kıymetli Maden",
+       "Borçlanma Araçları"
+      ],
+      "ilk_tarihler": [
+       null,
+       null,
+       null
+      ],
+      "parca": "Evrakı Doğrulamak İçin : https://belgedogrulama.takasbank.com.tr/belgedogrulama.aspx?eD=BSLZNADVFY Pin Kodu : İstanbul Takas ve Saklama Bankası A.Ş. Reşitpaşa Mahallesi Borsa İstanbul Caddesi No:4 Sarıyer 34467 İstanbul T +90 212 315 25 25 F +90 212 315 25 26 www.takasbank.com.tr Kep Adresi : takasbank@hs01.kep.tr Ticaret Sicil No:276870 Mersis No:0481002693100015 *BSLZNADVFY* Genel Mektup : İstan"
+     }
+    }
+   ]
   },
   {
    "kaynak": "tspb",
@@ -56,16 +89,16 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-09",
-   "kontrol_tr": "2026-11-18 16:11",
+   "kontrol_tr": "2026-11-18 16:26",
    "son_7_gun": []
   },
   {
    "kaynak": "bist",
    "url": "https://www.borsaistanbul.com/duyurular",
-   "durum": "KAYIT_BULUNAMADI",
+   "durum": "OK",
    "hata": null,
-   "en_son_kayit": null,
-   "kontrol_tr": "2026-11-18 16:11",
+   "en_son_kayit": "2026-11-04",
+   "kontrol_tr": "2026-11-18 16:26",
    "son_7_gun": []
   }
  ],
@@ -1412,8 +1445,6 @@
   "uyari": null
  },
  "kontrol_edilemeyenler": [
-  "takasbank: KAYIT_BULUNAMADI",
-  "bist: KAYIT_BULUNAMADI",
   "takvim: 2026-11-18 Fed FOMC tutanaklari (27-28.10 toplantisi) - birincil kaynakla teyit edilmedi",
   "takvim: 2026-11-19 TCMB haftalik uluslararasi rezervler - birincil kaynakla teyit edilmedi",
   "takvim: 2026-11-20 SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti) - birincil kaynakla teyit edilmedi",
