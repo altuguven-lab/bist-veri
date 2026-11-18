@@ -227,6 +227,21 @@ def main():
                 ("data/v195_radar_latest.json", "V195 GUNLUK RADAR", "son_guncelleme_utc", 80,
                  "V195 alarmi (alert() cagrisi) ya da Pipedream IP-8 is akisi calismiyor olabilir."),
             ]
+        # 18.11: kurum taramasi (SPK/Takasbank/TSPB/BIST + KAP kurum bildirimleri). Kurulum payi 20.11.
+        if simdi.strftime("%Y-%m-%d") >= "2026-11-20":
+            ek_kanallar.append(("data/kurum_taramasi.json", "KURUM TARAMASI", "uretim_utc", 26,
+                                "kurum_taramasi.yml calismiyor olabilir; brifingin kurum taramasi adimi kanitsiz kalir."))
+            kt = oku("data/kurum_taramasi.json")
+            if "_okuma_hatasi" not in kt:
+                kotu = [k.get("kaynak") for k in kt.get("kaynaklar", []) if k.get("durum") in ("ERISILEMEDI", "KAYIT_BULUNAMADI")]
+                bayat = [f"{k.get('kaynak')} ({k.get('en_son_kayit')})" for k in kt.get("kaynaklar", []) if k.get("durum") == "BAYAT"]
+                if bayat:
+                    bilgiler.append(f"KURUM TARAMASI: bayat kaynak {', '.join(bayat)} - sayfa adresi degismis olabilir")
+                if len(kotu) >= 2 or (kt.get("kap") or {}).get("arsiv_durum") not in (None, "OK"):
+                    arizalar.append(("SAGLIK: KURUM TARAMASI kaynaklari",
+                                     f"Erisilemeyen/ayristirilamayan kaynak: {', '.join(kotu) or '-'}; "
+                                     f"KAP arsivi: {(kt.get('kap') or {}).get('arsiv_durum')}. "
+                                     "Brifing bu kaynaklar icin 'kontrol edilemedi' yazar. Kayit: data/kurum_taramasi.md"))
         for yol, kanal, alan, esik_saat, aciklama in ek_kanallar:
             d = oku(yol)
             if "_okuma_hatasi" in d:
