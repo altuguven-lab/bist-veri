@@ -1,0 +1,37 @@
+# KURUM IZLEME LISTESI (18.11.2026) - kurum_taramasi.py bu terimleri KAP arsivinde arar.
+# Eslesme yalniz bildirimde gecen ifadedir; ilgili sirket ya da kisi hakkinda HUKUM DEGILDIR.
+# Kisi adi yazilmaz; yalniz sirket adi, konu ve borsa kodu.
+terimler:
+  # 17.11.2026 fon sorusturmasi: TMSF'ye devredilen sirketler (Milli Gazete 17.11, adi aciklanan 15'ten secme)
+  - {terim: "TMSF", not: "kayyum devirleri"}
+  - {terim: "kayyum", not: "yazim 1"}
+  - {terim: "kayyım", not: "yazim 2"}
+  - {terim: "Fair Finansman", not: "17.11 fon sorusturmasi"}
+  - {terim: "Fair Finansal Kiralama", not: "17.11 fon sorusturmasi"}
+  - {terim: "Online Teknoloji", not: "17.11 fon sorusturmasi"}
+  - {terim: "Online Yönetim Yazılım", not: "17.11 fon sorusturmasi"}
+  - {terim: "Online Filo", not: "17.11 fon sorusturmasi"}
+  - {terim: "Online Finansal Danışmanlık", not: "17.11 fon sorusturmasi"}
+  - {terim: "Reel Finansal Teknoloji", not: "17.11 fon sorusturmasi"}
+  - {terim: "İntime İnfo", not: "17.11 fon sorusturmasi"}
+  - {terim: "Sentez Araç Kiralama", not: "17.11 fon sorusturmasi"}
+  - {terim: "Mülksa Gayrimenkul", not: "17.11 fon sorusturmasi"}
+  - {terim: "Divissa", not: "17.11 fon sorusturmasi"}
+  - {terim: "fon tasfiye", not: "genel"}
+  - {terim: "tasfiye karar", not: "genel"}
+  - {terim: "kredili işlem", not: "SPK tedbiri 31.12.2026'ya uzatildi (bulten 2026/80)"}
+kodlar:
+  # config/fon_krizi_baglantili.txt ile ayni hisseler + SPK bulteni 2026/81 (TUKAS, kisi bazli islem yasagi)
+  - KTLEV
+  - GUNDG
+  - DSTKF
+  - TEHOL
+  - TRHOL
+  - OZATD
+  - PEKGY
+  - IEYHO
+  - ANELE
+  - SELEC
+  - VSNMD
+  - ODINE
+  - TUKAS
