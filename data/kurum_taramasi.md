@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-18 17:19
+# Kurum taramasi - 2026-11-18 20:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-17 | 3 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-18 | 52 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-18 | 57 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -28,6 +28,11 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- **[KRITIK]** 18.11.2026 18:23:24 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699983) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
+- 18.11.2026 18:21:51 BORSA İSTANBUL A.Ş. - [Borsa İstanbul A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699982) Borçlanma Araçlarının Gözaltı Pazarı'na Alınması
+- 18.11.2026 17:49:20 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699907) Gerçekleşmeyen İtfa/Kupon/Getiri Ödemesi
+- **[KRITIK]** 18.11.2026 17:37:02 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1699882) BAP İşlem İptali
+- 18.11.2026 16:43:33 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699787) DÖNÜŞÜM
 - 18.11.2026 11:46:34 KAMUYU AYDINLATMA PLATFORMU - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1699498) Özel Durum Açıklaması (Genel)
 - 18.11.2026 09:23:10 KAMUYU AYDINLATMA PLATFORMU - [Finansal Rapor](https://www.kap.org.tr/tr/Bildirim/1699329) Finansal Rapor
 - 18.11.2026 09:21:23 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699328) Hak Kullanımı
@@ -63,11 +68,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 13.11.2026 09:07:59 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697843) Hak Kullanımı
 - 13.11.2026 08:48:49 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697831) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 - 13.11.2026 08:48:30 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697830) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
-- 12.11.2026 18:05:00 BORSA İSTANBUL A.Ş. - [Borsa İstanbul A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697728) Borçlanma Araçlarının Gözaltı Pazarı'na Alınması
-- 12.11.2026 17:41:32 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697706) Gerçekleşmeyen İtfa/Kupon/Getiri Ödemesi
-- **[KRITIK]** 12.11.2026 17:37:18 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1697704) BAP İşlem İptali
-- 12.11.2026 16:40:28 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697668) DÖNÜŞÜM
-- 12.11.2026 09:04:49 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697435) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
@@ -78,6 +78,9 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izleme listesi eslesmeleri
 
+- 18.11.2026 18:23:24 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699983) eslesen: GUNDG, ANELE
+- 18.11.2026 18:10:44 VİŞNE MADENCİLİK ÜRETİM SANAYİ VE T - [Halka Arz Fiyatının Belirlenmesinde Esas Alınan Varsayımlara İlişkin Değerlendirme Raporu](https://www.kap.org.tr/tr/Bildirim/1699969) eslesen: VSNMD
+- 18.11.2026 18:10:30 VİŞNE MADENCİLİK ÜRETİM SANAYİ VE T - [Sermaye Artırımından Elde Edilecek - Edilen Fonun Kullanımına İlişkin Rapor](https://www.kap.org.tr/tr/Bildirim/1699968) eslesen: VSNMD
 - 17.11.2026 18:44:12 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699259) eslesen: PEKGY
 - 17.11.2026 18:26:57 TUKAŞ GIDA SANAYİ VE TİCARET A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1699239) eslesen: TUKAS
 - 17.11.2026 17:02:00 VİŞNE MADENCİLİK ÜRETİM SANAYİ VE T - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1699111) eslesen: VSNMD
@@ -95,18 +98,15 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 11.11.2026 19:04:22 BLUME METAL KİMYA A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1697321) eslesen: TMSF
 - 11.11.2026 18:25:43 TRIVE PORTFÖY YÖNETİMİ A.Ş. - [Genel Açıklama](https://www.kap.org.tr/tr/Bildirim/1697291) eslesen: Fair Finansman
 - 11.11.2026 18:15:21 TUKAŞ GIDA SANAYİ VE TİCARET A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1697250) eslesen: TUKAS
-- 11.11.2026 18:10:44 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697234) eslesen: KTLEV
-- 11.11.2026 12:50:43 SAHA KURUMSAL YÖNETİM VE KREDİ DERE - [Kredi Derecelendirmesi](https://www.kap.org.tr/tr/Bildirim/1696909) eslesen: Fair Finansman
-- 11.11.2026 11:39:39 VİŞNE MADENCİLİK ÜRETİM SANAYİ VE T - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1696867) eslesen: VSNMD
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
-- ANELE: 11-13: 1, 11-17: 1, 11-18: 5
+- ANELE: 11-13: 1, 11-17: 1, 11-18: 6
 - DSTKF: 11-17: 1, 11-18: 1
 - GUNDG: 11-17: 1, 11-18: 1
 - IEYHO: 11-13: 1, 11-17: 2
-- KTLEV: 11-17: 2, 11-18: 3
-- ODINE: 11-17: 2, 11-18: 3
+- KTLEV: 11-17: 2, 11-18: 4
+- ODINE: 11-17: 2, 11-18: 4
 - OZATD: 11-17: 2
 - PEKGY: 11-11: 1, 11-17: 2
 - SELEC: 11-17: 2
