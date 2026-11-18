@@ -42,7 +42,7 @@ PENCERE_GUN = 7
 MIN_ARALIK_SAAT = float(os.environ.get("KURUM_MIN_ARALIK_SAAT", "3"))   # siteleri yormamak icin
 UA_AD = "bist-veri-arastirma"
 UA = {"User-Agent": f"Mozilla/5.0 (compatible; {UA_AD}/1.0; kisisel arastirma)",
-      "Accept-Language": "tr-TR,tr;q=0.9"}
+      "Accept-Language": "tr-TR,tr;q=0.9", "Accept-Encoding": "gzip, deflate"}
 
 AYLAR = {"ocak": 1, "şubat": 2, "subat": 2, "mart": 3, "nisan": 4, "mayıs": 5, "mayis": 5, "haziran": 6,
          "temmuz": 7, "ağustos": 8, "agustos": 8, "eylül": 9, "eylul": 9, "ekim": 10, "kasım": 11,
@@ -87,6 +87,23 @@ def tarih_coz(s):
         return None
 
 
+AY_KISA = {"oca": 1, "şub": 2, "sub": 2, "mar": 3, "nis": 4, "may": 5, "haz": 6, "tem": 7, "ağu": 8, "agu": 8,
+           "eyl": 9, "eki": 10, "kas": 11, "ara": 12}
+
+
+def gun_ay_kutulari(sayfa_html, bugun):
+    """Takasbank listesi tarihi yilsiz iki kutuda verir: <div class="day">17</div><div class="month">Kas</div>.
+    Bunlar 17.11.YYYY bicimine cevrilir; ay bugunden ilerideyse onceki yil kabul edilir."""
+    def cevir(m):
+        ay = AY_KISA.get(m.group(2).strip().lower()[:3])
+        if not ay:
+            return m.group(0)
+        yil = bugun.year - (1 if ay > bugun.month else 0)
+        return f" {int(m.group(1)):02d}.{ay:02d}.{yil} "
+    return re.sub(r'<div class="day">\s*(\d{1,2})\s*</div>\s*<div class="month">\s*([^<]{3,10})</div>',
+                  cevir, sayfa_html, flags=re.I)
+
+
 def metin(s):
     t = re.sub(r"<script.*?</script>|<style.*?</style>", " ", s, flags=re.S | re.I)
     return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", t)).split())
@@ -116,7 +133,18 @@ def getir(url, zaman=30, azami=8 * 1024 * 1024):
     for deneme in range(2):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=zaman) as r:
-                return r.read(azami)
+                ham = r.read(azami)
+                kod = (r.headers.get("Content-Encoding") or "").lower()
+            # 18.11: borsaistanbul.com istenmedigi halde gzip donduruyor; acilmazsa sayfa bozuk okunuyordu
+            if "gzip" in kod or ham[:2] == b"\x1f\x8b":
+                ham = gzip.decompress(ham)
+            elif "deflate" in kod:
+                import zlib
+                try:
+                    ham = zlib.decompress(ham)
+                except zlib.error:
+                    ham = zlib.decompress(ham, -zlib.MAX_WBITS)
+            return ham
         except PermissionError:
             raise
         except Exception as e:
@@ -125,11 +153,16 @@ def getir(url, zaman=30, azami=8 * 1024 * 1024):
     raise son
 
 
-def baglanti_kayitlari(sayfa_html, taban_url, filtre=None, bugun=None, baslik_tarihi_once=False):
-    """Sayfadaki <a> baglantilarini, metnindeki ya da hemen cevresindeki tarihle birlikte dondurur.
-    Sayfa yapisi bilinmeden calisir: tarih once baglanti metninde, sonra baglantidan once/sonra gelen
-    400 karakterlik metinde aranir."""
-    adaylar = []
+def baglanti_kayitlari(sayfa_html, taban_url, filtre=None, bugun=None, baslik_tarihi_once=False, yon="oto"):
+    """Sayfadaki <a> baglantilarini yayim tarihiyle birlikte dondurur.
+    Her baglanti icin yalniz KENDI bolumune bakilir: onceki aday baglantinin bitisinden bu baglantiya kadar
+    ("once" bolumu) ve bu baglantidan bir sonraki aday baglantiya kadar ("sonra" bolumu), en fazla 800 karakter.
+    yon: "once"  -> tarih baglantidan once yazilir (Takasbank: tarih kutusu, kategori, baslik);
+         "sonra" -> tarih baglantidan ve ozetten sonra, bir sonraki kayittan once yazilir (TSPB);
+         "oto"   -> bitisik tarihe gore sayfa basina karar verilir (bilinmeyen sayfalar).
+    Basliktaki tarih etkinlik tarihi olabilecegi icin yalniz baslik_tarihi_once=True ise (SPK: "Yayimlanma: ...")
+    ya da baska tarih bulunamazsa kullanilir. Yarindan ileri tarih yayim tarihi sayilmaz."""
+    bulunan = []
     for m in re.finditer(r"<a\b[^>]*href\s*=\s*[\"']([^\"'#]+)[\"'][^>]*>(.*?)</a>", sayfa_html, flags=re.S | re.I):
         href, ic = m.group(1).strip(), metin(m.group(2))
         if len(ic) < 6 or href.startswith(("javascript:", "mailto:")):
@@ -137,36 +170,46 @@ def baglanti_kayitlari(sayfa_html, taban_url, filtre=None, bugun=None, baslik_ta
         url = urllib.parse.urljoin(taban_url, href)
         if filtre and not filtre(url, ic):
             continue
-        sonra = metin(sayfa_html[m.end():m.end() + 400])[:160]
-        once = metin(sayfa_html[max(0, m.start() - 400):m.start()])[-160:]
-        ms = TARIH_RE.search(sonra)
+        bulunan.append((m.start(), m.end(), url, ic))
+    adaylar = []
+    for i, (bas, son, url, ic) in enumerate(bulunan):
+        onceki_son = bulunan[i - 1][1] if i else max(0, bas - 800)
+        sonraki_bas = bulunan[i + 1][0] if i + 1 < len(bulunan) else son + 800
+        once = metin(sayfa_html[max(onceki_son, bas - 800):bas])
+        sonra = metin(sayfa_html[son:min(sonraki_bas, son + 800)])
         mo = list(TARIH_RE.finditer(once))
-        mo = mo[-1] if mo else None
-        adaylar.append((url, ic, tarih_coz(ic),
-                        (ms.start(), tarih_coz(ms.group(0))) if ms else None,
-                        (len(once) - mo.end(), tarih_coz(mo.group(0))) if mo else None))
-    # Sayfa duzeni: tarih baglantidan ONCE mi SONRA mi yaziliyor? Bitisik (<= 5 karakter) tarihlerin
-    # cogunlugu karar verir; tablo satirlarinda "sonraki satirin tarihi" yanilgisini onler.
-    once_say = sum(1 for a in adaylar if a[4] and a[4][0] <= 5)
-    sonra_say = sum(1 for a in adaylar if a[3] and a[3][0] <= 5)
-    sira = ("once", "sonra") if once_say > sonra_say else ("sonra", "once")
+        ms = list(TARIH_RE.finditer(sonra))
+        # baglanti metnindeki SON tarih: kart bicimli sayfalarda (TSPB) baglanti tum karti kapsar; ozetteki
+        # etkinlik tarihi once, kartin altindaki yayim tarihi en sonda gelir
+        ic_tarihler = list(TARIH_RE.finditer(ic))
+        adaylar.append({"url": url, "ic": ic, "baslik": tarih_coz(ic_tarihler[-1].group(0)) if ic_tarihler else None,
+                        "once": (len(once) - mo[-1].end(), tarih_coz(mo[-1].group(0))) if mo else None,
+                        "sonra_ilk": (ms[0].start(), tarih_coz(ms[0].group(0))) if ms else None,
+                        "sonra_son": (0, tarih_coz(ms[-1].group(0))) if ms else None})
+    if yon == "oto":
+        once_say = sum(1 for a in adaylar if a["once"] and a["once"][0] <= 5)
+        sonra_say = sum(1 for a in adaylar if a["sonra_ilk"] and a["sonra_ilk"][0] <= 5)
+        sira = ("once", "sonra_ilk") if once_say > sonra_say else ("sonra_ilk", "once")
+    elif yon == "once":
+        sira = ("once",)
+    else:
+        sira = ("sonra_son",)
     kayitlar, gorulen = [], set()
     yarin = (bugun or simdi().date()) + dt.timedelta(days=1)
-    for url, ic, t_baslik, s, o in adaylar:
-        # 18.11 duzeltmesi: yayim tarihi icin ONCE baglantinin yanindaki liste tarihi kullanilir. Basliktaki
-        # tarih ("5 Aralik 2026 tatbikati", "13 Kasim paneli") etkinlik tarihi olabilir; yalniz yedektir.
-        t = t_baslik if (baslik_tarihi_once and t_baslik and t_baslik <= yarin) else None
-        for taraf in (sira if not t else ()):
-            aday = o if taraf == "once" else s
-            if aday and aday[1] and aday[1] <= yarin:
-                t = aday[1]
-                break
-        if not t and t_baslik and t_baslik <= yarin:
-            t = t_baslik
-        if not t or (url, ic) in gorulen:
+    for a in adaylar:
+        t_baslik = a["baslik"] if a["baslik"] and a["baslik"] <= yarin else None
+        t = t_baslik if baslik_tarihi_once else None
+        if not t:
+            for taraf in sira:
+                aday = a[taraf]
+                if aday and aday[1] and aday[1] <= yarin:
+                    t = aday[1]
+                    break
+        t = t or t_baslik
+        if not t or (a["url"], a["ic"]) in gorulen:
             continue
-        gorulen.add((url, ic))
-        kayitlar.append({"tarih": t.isoformat(), "baslik": ic[:220], "url": url})
+        gorulen.add((a["url"], a["ic"]))
+        kayitlar.append({"tarih": t.isoformat(), "baslik": a["ic"][:220], "url": a["url"]})
     kayitlar.sort(key=lambda x: x["tarih"], reverse=True)
     return kayitlar
 
@@ -255,11 +298,12 @@ def spk_pdf_ozet(kayit):
         return {"durum": "PDF_OKUNAMADI", "hata": str(e)[:200]}
 
 
-def genel_sayfa(ad, url, bugun, filtre=None):
+def genel_sayfa(ad, url, bugun, filtre=None, yon="oto"):
     try:
         s = getir(url).decode("utf-8", errors="replace")
         kaydet_ham(ad, s)
-        return kaynak_sonucu(ad, url, baglanti_kayitlari(s, url, filtre, bugun=bugun), bugun)
+        s = gun_ay_kutulari(s, bugun)
+        return kaynak_sonucu(ad, url, baglanti_kayitlari(s, url, filtre, bugun=bugun, yon=yon), bugun)
     except Exception as e:
         return kaynak_sonucu(ad, url, [], bugun, hata=e)
 
@@ -459,10 +503,11 @@ def main():
     bugun = simdi().date()
     kaynaklar = [spk_bulten(bugun)]
     tk = genel_sayfa("takasbank", "https://www.takasbank.com.tr/tr/duyurular", bugun,
-                     lambda u, t: "Takasbank_Announcement" in u or "/duyuru" in u.lower())
+                     lambda u, t: "Takasbank_Announcement" in u or "/duyuru-detay/" in u.lower(), yon="once")
     takasbank_pdf_ozet(tk)
     kaynaklar.append(tk)
-    kaynaklar.append(genel_sayfa("tspb", "https://www.tspb.org.tr/duyurular/", bugun))
+    kaynaklar.append(genel_sayfa("tspb", "https://www.tspb.org.tr/duyurular/", bugun,
+                                 lambda u, t: "/bilgi/" in u.lower() or "/duyuru" in u.lower(), yon="sonra"))
     kaynaklar.append(genel_sayfa("bist", "https://www.borsaistanbul.com/duyurular", bugun,
                                  lambda u, t: "/duyuru" in u.lower() or u.lower().endswith(".pdf")))
     bildirimler = kap_bildirimleri(bugun)
