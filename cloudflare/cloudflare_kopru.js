@@ -26,6 +26,9 @@
 const OWNER = "altuguven-lab";
 const REPO = "bist-veri";
 const PATH = "data/tv_alerts_latest.json";
+// 19.11 (paket40): gunluk piyasa kaydi (TradingView TVC tahvil getirileri vb.) V163 sinyal dosyasindan AYRI dosyaya
+const PIYASA_PATH = "data/piyasa_gunluk.json";
+const PIYASA_ALANLAR = new Set(["TR02Y", "TR05Y", "TR10Y"]);
 const MAX_SINYAL = 400;
 const KV_TTL_SN = 2 * 24 * 3600;
 const BILGI = new Set(["P4_HAZIRLIK", "P3_RADAR", "SEKTOR_ROTASYONU", "P3_HACIM_BEKLE", "TASIMA", "GUNLUK_OZET"]);
@@ -114,6 +117,7 @@ async function kabul(request, env, ctx) {
   const ham = await request.text();
   let body;
   try { body = JSON.parse(ham); } catch (e) { return new Response("gecersiz JSON", { status: 400 }); }
+  if (body.kanal === "PIYASA_GUNLUK") return piyasaKabul(body, env);   // V163 akisina hic dokunmaz
   if (!body.schemaVersion) return new Response("schemaVersion yok - yazilmadi", { status: 200 });
   const kayitlar = kayitlariKur(body);
   // ayni alarm ikinci kez gelirse (TradingView yeniden denemesi) bildirim tekrar gitmesin
@@ -135,6 +139,68 @@ async function kabul(request, env, ctx) {
   }
   if (arka.length) ctx.waitUntil(Promise.all(arka));
   return new Response(`kaydedildi: ${kayitlar.length}`, { status: 200 });
+}
+
+// ---------- 1b) GUNLUK PIYASA KAYDI (paket40) ----------
+// Mesaj: {"kanal":"PIYASA_GUNLUK","kaynak":"TradingView TVC","tarih":"YYYY-MM-DD","TR02Y":..,"TR05Y":..,"TR10Y":..}
+// Yalniz PIYASA_ALANLAR'daki sayisal alanlar alinir; ayni gun ikinci mesaj ilkinin uzerine yazar.
+export function piyasaKaydi(body, simdi = new Date().toISOString()) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(body.tarih || ""))) return null;
+  const degerler = {};
+  for (const [k, v] of Object.entries(body)) {
+    if (PIYASA_ALANLAR.has(k) && typeof v === "number" && Number.isFinite(v)) degerler[k] = v;
+  }
+  if (!Object.keys(degerler).length) return null;
+  return { tarih: body.tarih, zaman_utc: simdi, kaynak: s(body.kaynak), degerler };
+}
+
+async function piyasaKabul(body, env) {
+  const k = piyasaKaydi(body);
+  if (!k) return new Response("piyasa: gecersiz ya da bos", { status: 200 });
+  await env.OLAYLAR.put(`pg:${k.tarih}`, "1", { expirationTtl: KV_TTL_SN, metadata: k });
+  return new Response(`piyasa kaydedildi: ${k.tarih}`, { status: 200 });
+}
+
+export async function piyasaAktar(env, simdi = new Date()) {
+  let imlec, bekleyen = [];
+  do {
+    const l = await env.OLAYLAR.list({ prefix: "pg:", cursor: imlec });
+    for (const k of l.keys) if (k.metadata) bekleyen.push(k.metadata);
+    imlec = l.list_complete ? undefined : l.cursor;
+  } while (imlec);
+  if (!bekleyen.length) return { durum: "bos" };
+  const G = gh(env);
+  let sonHata;
+  for (let deneme = 1; deneme <= 5; deneme++) {
+    try {
+      const m = await G.oku(PIYASA_PATH);
+      const d = m?.icerik && typeof m.icerik === "object" ? m.icerik : {};
+      const seriler = d.seriler || {};
+      for (const k of bekleyen) {
+        for (const [ad, v] of Object.entries(k.degerler)) {
+          seriler[ad] = seriler[ad] || {};
+          seriler[ad][k.tarih] = v;
+        }
+      }
+      for (const ad of Object.keys(seriler)) {             // tarih sirali, en fazla ~3 yil
+        seriler[ad] = Object.fromEntries(Object.entries(seriler[ad]).sort().slice(-800));
+      }
+      const son = bekleyen.map((k) => k.tarih).sort().pop();
+      const dosya = {
+        son_guncelleme_utc: simdi.toISOString(),
+        kaynak: "TradingView TVC (kullanicinin aboneligi), Pine alarmi -> Cloudflare kopru",
+        not: "Gunluk kapanis getirileri (%). Salt olcum, tavsiye degildir.",
+        son_tarih: son, seriler,
+      };
+      await G.yaz(PIYASA_PATH, dosya, `Piyasa gunluk: CF ${son}`, m?.sha);
+      await Promise.all(bekleyen.map((k) => env.OLAYLAR.delete(`pg:${k.tarih}`).catch(() => null)));
+      return { durum: "yazildi", gun: bekleyen.length };
+    } catch (e) {
+      sonHata = e;
+      await bekle(500 * deneme + Math.floor(Math.random() * 500 * deneme));
+    }
+  }
+  throw sonHata;
 }
 
 // ---------- 2) AKTARMA ----------
@@ -200,5 +266,6 @@ export async function aktar(env, simdi = new Date()) {
 
 export default {
   fetch: (request, env, ctx) => kabul(request, env, ctx),
-  scheduled: (event, env, ctx) => ctx.waitUntil(aktar(env)),
+  // iki aktarma birbirinden bagimsiz: biri hata verirse digeri yine calisir
+  scheduled: (event, env, ctx) => ctx.waitUntil(Promise.allSettled([aktar(env), piyasaAktar(env)])),
 };
