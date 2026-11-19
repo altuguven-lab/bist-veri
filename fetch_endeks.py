@@ -35,6 +35,10 @@ GOSTERGELER = {
     "ABD_10Y": ("^TNX", None),
     "DOLAR_ENDEKSI": ("DX-Y.NYB", None),
     "ONS_ALTIN": ("GC=F", None),
+    # 19.11 (paket38): kuresel risk istahi ve Turkiye'ye USD bazli yabanci ilgisi
+    "VIX": ("^VIX", None),
+    "EM_ETF_EEM": ("EEM", None),
+    "TURKIYE_ETF_TUR": ("TUR", None),
 }
 
 
