@@ -1,43 +1,56 @@
-# Brifing şablonu (18.11.2026)
+# Brifing şablonu (18.11.2026; 19.11 güncellemesi)
 
-**Neden:** 18.11 sabah brifinginde açılmamış kaynaklar için "yeni duyuru görmedim" yazıldı. Sonradan Takasbank'ın 12.11 VİOP risk parametresi güncellemesi ile 16.11 tarihli SPK bülteni 2026/81'in atlandığı görüldü. Bu şablon, kontrol edilmemiş bir şeyin "yok" diye yazılmasını önler.
+**Neden:**
+- **18.11:** Açılmamış kaynaklar için "yeni duyuru görmedim" yazıldı.
+- **19.11:** Öğle brifinginde depoda hazır duran veri ("BIST öğle seviyesi") ve açılabilecek bir PDF (Takasbank pozisyon limitleri) için "kontrol edilemedi" yazıldı.
 
-## Teyit işaretleri
+Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmasını ve denenmemiş bir şeyin "kontrol edilemedi" diye yazılmasını.
 
-Brifingteki her bilgi satırı şu işaretlerden birini taşır:
+## İşaretler
 
 | İşaret | Anlamı | Ne yazılır |
 |---|---|---|
-| ✅ | Birincil kaynak açıldı (kurumun kendi sayfası, KAP, PDF) | Bağlantı ve kaynağın kendi tarihi |
-| ◐ | İkincil kaynak (haber sitesi) | Sitenin adı; "birincil teyit bekliyor" |
-| ✖ | Bakılmadı, açılamadı ya da kaynak bayat | "Kontrol edilemedi". **"Yok" ya da "görmedim" yazılmaz.** |
+| ✅ | Birincil kaynak açıldı: kurumun kendi sayfası, KAP, PDF, tcmb.gov.tr ya da depodaki veri dosyası | Bağlantı ya da dosya adı ve kaynağın kendi tarihi/saati |
+| ◐ | İkincil kaynak (haber sitesi) | Sitenin adı. Birincil teyit bekleniyor. |
+| ⛔ | Erişim kuralı gereği açılamıyor (robots.txt, site izni, oturum gerekiyor) | Neden yazılır. İkincil kaynak aranır, bulunursa ◐ ile verilir. Bulunamazsa "panelden bakılmalı" yazılır. |
+| ✖ | Açılmaya **çalışıldı** ama açılamadı (zaman aşımı, hata, bayat sayfa) | **Neden zorunludur** ("açılamadı: zaman aşımı"). "Açmadım" bir ✖ gerekçesi değildir. |
+| 🕒 | Henüz yayımlanmadı | "Henüz yayımlanmadı, beklenen saat ..." (saat `takvim.json`'dan). Bu bir boşluk sayılmaz. |
 
-Hafızadan tarih, saat ya da sayı yazılmaz. Takvimdeki olaylar `data/takvim.json`'dan alınır. Orada `teyit` alanı "birincil" olmayan olay "saat/tarih teyitsiz" diye yazılır.
+**Kurallar:**
+- Bir maddeye ✖ yazılmadan önce açılması mutlaka denenir.
+- Hafızadan tarih, saat ya da sayı yazılmaz.
+- Takvim bilgisi `data/takvim.json` (olaylar ve kurallar) ile `data/makro_takvim.json`'dan alınır.
+- "Kurala göre" ve "teyitli" olaylar saatiyle yazılır. Diğerleri "teyitsiz" diye yazılır.
 
 ## Sıra
 
-1. **Kurum kümesi:** `data/kurum_kumesi.json`. Son 14 günde 5 ve daha fazla hisseyi kapsayan kurum kümeleri.
-2. **Kurum taraması:** `data/kurum_taramasi.json` / `.md`.
-   - Kaynak durum tablosu olduğu gibi verilir: SPK bülteni, Takasbank, TSPB, BIST, KAP arşivi.
-   - Durumu OK olmayan kaynak için ✖ kullanılır ve brifingi hazırlayan o kaynağı elle açmayı dener. Açarsa ✅ ve bağlantı verilir.
-   - SPK'nın son bülteni: numarası, tarihi, karar türleri. Bültende adı geçmek, ilgili şirket hakkında bir hüküm değildir.
-   - KAP kurum bildirimleri arasında [KRİTİK] olanlar, izleme listesi eşleşmeleri ve izlenen kodlardaki devre kesici sayımı.
-3. **Sistem kontrolleri:**
-   - Kapsama (`gunluk_ozet_kapsama.json`)
-   - Köprü (Cloudflare logu ve "TV sinyal: CF" commit'leri)
-   - Karne ve H14
-   - V195 ve IP-8
-   - Sağlık sorunları (açık Issue'lar)
-4. **Makro ve siyasi:** Her veri için ✅ ya da ◐. Sonucu açıklanmamış ya da bulunamamış veri ✖ olarak yazılır.
-5. **Savaş ve jeopolitik:** Haberin tarihi yazılır. Bugünden eski haber "son bilinen" diye işaretlenir.
-6. **Bugün izlenecekler:** Yalnızca takvimden.
-7. **Teyit edilemeyenler** (bu başlık her zaman bulunur, boş olsa da yazılır):
-   - Her ✖ ve ◐ satırı burada tekrar listelenir.
-   - Her birine aynı gün bir kontrol saati verilir. Sonuç o saatte ayrı mesajla bildirilir.
-8. Kaynaklar (markdown bağlantı) ve "Gözlem amaçlıdır, tavsiye değildir".
+1. **Depo verisi** (önce bunlar okunur; web aramasından önce gelir):
+
+   | Dosya | İçerik |
+   |---|---|
+   | `data/kurum_kumesi.json` | Son 14 günde 5 ve daha fazla hisseyi kapsayan kurum kümeleri |
+   | `data/kurum_taramasi.json` / `.md` | Kaynak durum tablosu; Takasbank'ın bütün PDF özetleri; KAP kurum bildirimleri; izleme listesi ve devre kesici sayımı; takvim |
+   | `data/endeks_intraday.json` | XU100, XU030, XBANK, XHOLD, XUSIN, USDTRY, EURTRY, Brent, S&P/Nasdaq vadelileri, ABD 10 yıllık, dolar endeksi, altın (15 dk, Yahoo, gecikmeli) |
+   | `data/bist_intraday.json` | Evrendeki 32 hissenin 15 dakikalık barları (öğle seviyesi, gün içi seyir) |
+   | `data/kuresel_gosterge.json` | Asya, Avrupa ve ABD özeti |
+   | `data/makro_takvim.json` | TCMB ve Fed tarihleri (birincil kaynakla teyitli) |
+   | `data/tv_alerts_latest.json`, `data/gunluk_ozet_kapsama.json`, `data/alarm_karne.md` | Alarmlar, kapsama, karne ve H14 |
+
+2. **Kurum taraması:**
+   - Kaynak durum tablosu olduğu gibi verilir. OK olmayan kaynak elle açılmaya çalışılır.
+   - Takasbank PDF özeti eksikse PDF elle açılır.
+   - KAP bildirim eki robots.txt nedeniyle açılamıyorsa ⛔ yazılır. `kap.org.tr/tr/api/BildirimPdf/<id>` adresi denenir; bildirimin kapak bilgisi buradan okunabilir.
+   - Bir listede adı geçmek, ilgili şirket hakkında bir hüküm değildir.
+3. **Sistem kontrolleri:** Kapsama, köprü ("TV sinyal: CF" commit'leri), başarısız iş akışları, H14, V195 ve IP-8.
+4. **Piyasa:** Endeks ve kur için önce `endeks_intraday.json` kullanılır ("Yahoo, gecikmeli" diye belirtilir). Resmi kapanış için borsaistanbul.com ve TCMB esas alınır; haber siteleri ◐.
+5. **Makro ve siyasi:** Her veri için ✅ ya da ◐ kullanılır. Henüz açıklanmamış veri için 🕒 ve beklenen saat yazılır.
+6. **Savaş ve jeopolitik:** Haberin tarihi yazılır. Bugünden eski haber "son bilinen" diye işaretlenir.
+7. **İzlenecekler:** Yalnızca takvimden alınır, saatleriyle.
+8. **Teyit edilemeyenler:** Bu başlık her zaman bulunur. Her ✖, ⛔ ve ◐ maddesi burada nedeniyle birlikte tekrar edilir ve her birine aynı gün için bir kontrol saati verilir.
+9. Kaynaklar (markdown bağlantı) ve "Gözlem amaçlıdır, tavsiye değildir".
 
 ## Haftalık bakım (Cuma)
 
-- `data/takvim.json`: Gelecek haftanın olayları birincil kaynaktan eklenir (Fed, TCMB, TÜİK, SPK, MSCI).
-- `config/kurum_izleme.yml`: Yeni soruşturma, tasfiye ya da tedbir konuları eklenir. Yalnızca şirket adı, konu ve kod yazılır, kişi adı yazılmaz.
-- `data/kurum_taramasi.md`: BAYAT ya da KAYIT_BULUNAMADI kalan kaynak varsa sayfa adresi yeniden bulunur. Adres tahmin edilmez; kurumun ana sayfasındaki bağlantı izlenir.
+- `data/takvim.json`: Gelecek haftanın tek seferlik olayları birincil kaynaktan eklenir. Düzenli yayınlar için `kurallar` bölümüne kural yazılır; kuralın kaynağı açılmış olmalıdır.
+- `config/kurum_izleme.yml`: Yeni konular eklenir (şirket adı, konu ve kod; kişi adı yazılmaz).
+- `data/kurum_taramasi.md`: BAYAT ya da KAYIT_BULUNAMADI kalan kaynak varsa `data/kurum_taramasi_ham/` klasöründeki ham HTML'e bakılarak ayrıştırıcı düzeltilir.
