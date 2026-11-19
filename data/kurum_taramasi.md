@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-19 12:43
+# Kurum taramasi - 2026-11-19 14:21
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -21,7 +21,12 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 ## takasbank (son 7 gun)
 
 - 2026-11-19 [VİOP Sicil Bazında Pozisyon Limitleri Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2180-8660b2f2-ebf0-4e15-bbef-c4c43a81f66a.pdf)
+  - PDF konu: Bankalar ve Aracı Kurumlar Merkezi karşı taraf hizmeti verdiğimiz Vadeli İşlem ve Opsiyon Piyasası'nda sicil bazında pozisyon limitine konu dayanak varlık sayısı limitleri piyasa koşulları da gözetilerek güncellenmiştir.
+  - PDF yururluk: 20.11.2026 tarihi itibarıyla geçerli olacak limit tablosu ekte yer almaktadır.
+  - Evren kodlari: AKBNK 13,300,000, YKBNK 20,600,000, GARAN 5,042,000, ISCTR 29,000,000, SAHOL 7,040,000, KCHOL 3,250,000, THYAO 3,850,000, TAVHL 700,000, EREGL 10,748,000, ASELS 1,970,000, ASTOR 1,021,000, MGROS 200,000
 - 2026-11-17 [2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2179-4460ca18-9780-4a09-9576-a86b53b771fc.pdf)
+  - PDF konu: 2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında İlgili :
+  - PDF yururluk: (yazmiyor)
 - 2026-11-14 [Taşıt Takas Mobil Uygulaması Yenilendi](https://www.takasbank.com.tr/tr/duyurular/duyuru-detay/tasit-takas-mobil-uygulamasi-yenilendi)
 - 2026-11-12 [Risk Parametrelerinin Güncellenmesi Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2178-8a11fc9a-aa6b-4446-b1f6-90f0bbcbe92b.pdf)
   - PDF degisen: 1)Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge) Vadeli İşlem Sözleşmeleri ve Opsiyon Sözleşmeleri (Futures and Options) Kontratlar (Contracts) Vadeler Arası Yayılma Pozisyonu R
@@ -109,23 +114,30 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - SELEC: 11-17: 2
 - TEHOL: 11-17: 2
 - TUKAS: 11-13: 2
-- VSNMD: 11-17: 2, 11-18: 2
+- VSNMD: 11-17: 2, 11-18: 2, 11-19: 1
 
 ## Takvim (bugun-1 .. +14 gun)
 
 - 2026-11-18 saat ? Fed FOMC tutanaklari (27-28.10 toplantisi) (TEYITSIZ)
-- 2026-11-19 saat ? TCMB haftalik uluslararasi rezervler (TEYITSIZ)
+- 2026-11-19 16:30 ABD Philadelphia Fed imalat endeksi (Kasim) (teyitli)
+- 2026-11-19 16:30 ABD haftalik issizlik basvurulari (kurala gore)
+- 2026-11-19 saat ? TCMB haftalik para ve banka istatistikleri (TEYITSIZ)
 - 2026-11-20 saat ? SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti) (TEYITSIZ)
 - 2026-11-20 saat ? Guven endeksleri ve KKO (TEYITSIZ)
+- 2026-11-26 16:30 ABD haftalik issizlik basvurulari (kurala gore)
 - 2026-11-27 saat ? H14 ilk resmi karar mumkun haftasi (ic takvim) (teyitli)
+- 2026-11-27 saat ? TCMB Finansal Istikrar Raporu (teyitli)
 - 2026-11-30 saat ? MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) (TEYITSIZ)
+- 2026-12-03 10:00 TUIK TUFE (tahmini tarih) (TEYITSIZ)
+- 2026-12-03 16:30 ABD haftalik issizlik basvurulari (kurala gore)
 
 ## Kontrol edilemeyenler
 
 - takvim: 2026-11-18 Fed FOMC tutanaklari (27-28.10 toplantisi) - birincil kaynakla teyit edilmedi
-- takvim: 2026-11-19 TCMB haftalik uluslararasi rezervler - birincil kaynakla teyit edilmedi
+- takvim: 2026-11-19 TCMB haftalik para ve banka istatistikleri - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-20 SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti) - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-20 Guven endeksleri ve KKO - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-30 MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) - birincil kaynakla teyit edilmedi
+- takvim: 2026-12-03 TUIK TUFE (tahmini tarih) - birincil kaynakla teyit edilmedi
 
 Gozlem amaclidir, tavsiye degildir.
