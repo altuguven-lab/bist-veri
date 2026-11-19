@@ -26,11 +26,16 @@ jobs:
           python-version: "3.11"
       - name: Tara
         run: python bist100_tarama.py
+      # 19.11: Yahoo analist hedeflerinin gunluk anlik goruntusu ve 21+ gunluk revizyon genisligi
+      - name: Analist hedef arsivi
+        continue-on-error: true
+        run: python analist_hedef_arsiv.py
       - name: Commit
         run: |
           git config user.name "bist100-tarama-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/bist100_tarama.json data/bist100_tarama.md data/bist100_tarama/ || true
+          git add data/analist_hedef/ 2>/dev/null || true
           git diff --staged --quiet && exit 0
           git commit -m "BIST100 tarama $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
           for i in 1 2 3 4 5; do
