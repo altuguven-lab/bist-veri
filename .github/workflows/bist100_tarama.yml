@@ -1,0 +1,41 @@
+# BIST100 TARAMA (19.11.2026) - SALT OLCUM. Ayrintilar bist100_tarama.py basinda.
+# Deger Tarama ya da H6 Faktor Siralama bittiginde kendiliginden calisir; elle de calistirilabilir.
+# Ay sonu akisi: Temel Veri Topla (Pazartesi) -> H6 Faktor Siralama + Deger Tarama -> bu is akisi.
+name: BIST100 Tarama
+on:
+  workflow_run:
+    workflows: ["Deger Tarama", "H6 Faktor Siralama"]
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bist100-tarama
+  cancel-in-progress: false
+jobs:
+  tara:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Tara
+        run: python bist100_tarama.py
+      - name: Commit
+        run: |
+          git config user.name "bist100-tarama-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/bist100_tarama.json data/bist100_tarama.md data/bist100_tarama/ || true
+          git diff --staged --quiet && exit 0
+          git commit -m "BIST100 tarama $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main || git rebase --abort
+          done
+          exit 1
