@@ -308,30 +308,69 @@ def genel_sayfa(ad, url, bugun, filtre=None, yon="oto"):
         return kaynak_sonucu(ad, url, [], bugun, hata=e)
 
 
-def takasbank_pdf_ozet(sonuc):
-    """Takasbank 'risk parametre' / 'teminat' duyurularinin PDF'inden piyasa ve yururluk bilgisini cikarir."""
+def onceki_pdf_ozetleri():
+    """Onceki calismadaki PDF ozetleri (url -> ozet). Ayni PDF her calismada yeniden indirilmez."""
+    try:
+        d = json.load(open(CIKTI_JSON, encoding="utf-8"))
+        return {x["url"]: x["pdf_ozet"] for k in d.get("kaynaklar", []) for x in k.get("son_7_gun", [])
+                if x.get("pdf_ozet") and not x["pdf_ozet"].get("hata")}
+    except Exception:
+        return {}
+
+
+def evren_kodlari():
+    try:
+        out, bolum = [], None
+        for l in open("config/universe.yml", encoding="utf-8"):
+            if l and not l[0].isspace() and l.strip().endswith(":"):
+                bolum = l.strip()[:-1]
+            elif bolum == "symbols" and l.strip().startswith("- "):
+                out.append(l.strip()[2:].split("#")[0].strip())
+        return out
+    except Exception:
+        return []
+
+
+def takasbank_pdf_ozet(sonuc, azami=8):
+    """19.11: Son 7 gundeki TUM Takasbank PDF duyurulari okunur (once yalniz risk parametresi okunuyordu;
+    19.11 'VIOP Sicil Bazinda Pozisyon Limitleri' duyurusu bu yuzden ozetsiz kaldi).
+    Cikarilan: konu cumlesi, yururluk cumlesi, degisen bolum (varsa), evrenimizdeki kodlarin gectigi
+    tablo satirlari (ornek degerlerle). Ayrinti ve degerler icin PDF esastir."""
+    onbellek = onceki_pdf_ozetleri()
+    evren = evren_kodlari()
+    sayac = 0
     for k in sonuc.get("son_7_gun", []):
-        if not re.search(r"risk parametre|teminat|marj", k["baslik"], re.I) or not k["url"].lower().endswith(".pdf"):
+        if not k["url"].lower().endswith(".pdf"):
             continue
+        if k["url"] in onbellek:
+            k["pdf_ozet"] = onbellek[k["url"]]
+            continue
+        if sayac >= azami:
+            k["pdf_ozet"] = {"hata": "bu calismada PDF sinirina ulasildi; sonraki calismada okunacak"}
+            continue
+        sayac += 1
         try:
             from pypdf import PdfReader
             yazi = " ".join(" ".join((p.extract_text() or "") for p in PdfReader(io.BytesIO(getir(k["url"], 60))).pages).split())
-            # 18.11: sayfa basligi/adres blogu degil, metnin kendisi: "guncellen", "gecerli", "itibar" gecen cumleler
-            cumleler = [c.strip() for c in re.split(r"(?<=[.;:])\s+", yazi)
-                        if re.search(r"güncellen|guncellen|geçerli ol|gecerli ol|itibar|yürürlü|yururlu", c, re.I)]
-            tarihler = sorted({tarih_coz(m.group(0)).isoformat() for m in TARIH_RE.finditer(yazi)
-                               if tarih_coz(m.group(0))})
-            # degisen parametreler PDF ekinde "DEGISEN RISK PARAMETRELERI" basligindan sonra gelir
-            # buyuk harfli ek basligi aranir (buyuk/kucuk harf duyarli); govdedeki "degisen risk parametreleri"
-            # ifadesi eslesmesin. Bulunamazsa son eslesme kullanilir.
+            cumleler = [c.strip() for c in re.split(r"(?<=[.;:])\s+", yazi) if len(c.strip()) > 20]
+            konu = next((c for c in cumleler if re.search(r"güncellen|guncellen|belirlen|değiş|degis|yapılacak|"
+                                                          r"gerçekleştiril|uygulan|hakkında", c, re.I)), None)
+            yururluk = [c for c in cumleler if re.search(r"itibar|geçerli ol|gecerli ol|yürürlü|yururlu", c, re.I)]
             m_deg = re.search(r"DEĞİŞEN R[İI]SK PARAMETRELER[İI](.{0,260})", yazi) or \
                 (list(re.finditer(r"değişen risk parametreleri(.{0,260})", yazi, re.I)) or [None])[-1]
-            degisen = [m_deg.group(1).strip()] if m_deg else []
-            yururluk = [c for c in cumleler if re.search(r"itibar|geçerli ol|gecerli ol", c, re.I)]
-            k["pdf_ozet"] = {"degisen_bolum": degisen, "yururluk": [c[:300] for c in yururluk[:2]],
-                             "metindeki_tarihler": tarihler[-6:],
-                             "ilgili_cumleler": [c[:300] for c in cumleler[:5]],
-                             "not": "Otomatik cikarim; ayrinti ve degerler icin PDF okunmalidir."}
+            # evren kodu + hemen ardindaki sayi(lar): tablo satiri ornegi ("AKBNK 13.300.000")
+            satirlar = {}
+            for kod in evren:
+                m = re.search(r"\b" + re.escape(kod) + r"\b[^A-ZÇĞİÖŞÜ]{0,40}?([\d][\d.,]{2,})", yazi)
+                if m:
+                    satirlar[kod] = m.group(1)
+            tarihler = sorted({tarih_coz(m.group(0)).isoformat() for m in TARIH_RE.finditer(yazi)
+                               if tarih_coz(m.group(0))})
+            k["pdf_ozet"] = {"konu": (konu or "")[:300], "yururluk": [c[:300] for c in yururluk[:2]],
+                             "degisen_bolum": [m_deg.group(1).strip()] if m_deg else [],
+                             "evren_satirlari": satirlar, "metindeki_tarihler": tarihler[-6:],
+                             "not": "Otomatik cikarim; ayrinti ve degerler icin PDF okunmalidir. "
+                                    "Onceki degerler belgede yoksa degisimin yonu bilinmez."}
         except Exception as e:
             k["pdf_ozet"] = {"hata": str(e)[:200]}
 
@@ -432,6 +471,58 @@ def izleme_bolumu(bildirimler):
 
 
 # ---------------------------------------------------------------- D) takvim
+TEYITLI = ("birincil", "kural")
+
+
+def kural_olaylari(kurallar, bas, son):
+    """19.11: Duzenli yayinlar (haftalik / ayin n. gunu) kurala baglanir, saat yerel saat diliminden TR'ye
+    cevrilir (yaz/kis saati farki otomatik). Kuralin kaynagi birincil sayfadir; teyit 'kural'."""
+    from zoneinfo import ZoneInfo
+    out = []
+    g = bas
+    while g <= son:
+        for k in kurallar:
+            uyar = False
+            if k.get("tip") == "haftalik" and g.isoweekday() == k["gun"]:
+                uyar = True
+            elif k.get("tip") == "aylik_nci_gun" and g.isoweekday() == k["gun"] and (g.day - 1) // 7 + 1 == k["n"]:
+                uyar = True
+            if not uyar:
+                continue
+            saat_tr = None
+            if k.get("saat_yerel") and k.get("tz"):
+                hh, mm = map(int, k["saat_yerel"].split(":"))
+                yerel = dt.datetime(g.year, g.month, g.day, hh, mm, tzinfo=ZoneInfo(k["tz"]))
+                saat_tr = yerel.astimezone(TR).strftime("%H:%M")
+            out.append({"tarih": g.isoformat(), "saat_tr": saat_tr, "olay": k["olay"], "teyit": "kural",
+                        "kaynak": k.get("kaynak"), "aciklama": k.get("aciklama")})
+        g += dt.timedelta(days=1)
+    return out
+
+
+def makro_takvim_olaylari(bas, son):
+    """data/makro_takvim.json (TCMB/Fed tarihleri, 16.07 birincil kaynaktan dogrulandi) takvime katilir."""
+    try:
+        m = json.load(open("data/makro_takvim.json", encoding="utf-8"))
+    except Exception:
+        return []
+    adlar = {"tcmb_ppk_karar": ("TCMB PPK faiz karari", "14:00"), "tcmb_ppk_ozet": ("TCMB PPK toplanti ozeti", None),
+             "tcmb_enflasyon_raporu": ("TCMB Enflasyon Raporu", None),
+             "tcmb_finansal_istikrar_raporu": ("TCMB Finansal Istikrar Raporu", None),
+             "fed_fomc_karar": ("Fed FOMC faiz karari", "21:00")}
+    out = []
+    for alan, (ad, saat) in adlar.items():
+        for t in m.get(alan, []) or []:
+            if bas.isoformat() <= t <= son.isoformat():
+                out.append({"tarih": t, "saat_tr": saat, "olay": ad, "teyit": "birincil",
+                            "kaynak": m.get("kaynak"), "aciklama": f"makro_takvim.json, dogrulama {m.get('dogrulama_tarihi')}"})
+    for t in m.get("tuik_enflasyon_tahmini", []) or []:
+        if bas.isoformat() <= t <= son.isoformat():
+            out.append({"tarih": t, "saat_tr": "10:00", "olay": "TUIK TUFE (tahmini tarih)", "teyit": "bekliyor",
+                        "kaynak": None, "aciklama": m.get("tuik_not")})
+    return out
+
+
 def takvim_bolumu(bugun):
     yol = "data/takvim.json"
     if not os.path.exists(yol):
@@ -442,11 +533,24 @@ def takvim_bolumu(bugun):
         return {"durum": f"OKUNAMADI: {e}", "olaylar": [], "teyitsiz": []}
     bas, son = bugun - dt.timedelta(days=1), bugun + dt.timedelta(days=14)
     olaylar = [o for o in d.get("olaylar", []) if bas.isoformat() <= o.get("tarih", "") <= son.isoformat()]
-    olaylar.sort(key=lambda o: (o["tarih"], o.get("saat_tr") or ""))
-    teyitsiz = [o for o in olaylar if o.get("teyit") != "birincil" or not o.get("kaynak")]
-    gelecek_hafta_bos = not any(o["tarih"] > (bugun + dt.timedelta(days=7)).isoformat() for o in d.get("olaylar", []))
-    return {"durum": "OK", "dosya_guncelleme": d.get("guncelleme"), "olaylar": olaylar, "teyitsiz": teyitsiz,
-            "uyari": "Gelecek haftanin takvimi girilmemis" if gelecek_hafta_bos else None}
+    try:
+        olaylar += kural_olaylari(d.get("kurallar", []), bas, son)
+    except Exception as e:
+        print("takvim kurallari islenemedi:", e, file=sys.stderr)
+    olaylar += makro_takvim_olaylari(bas, son)
+    # ayni gun + ayni olay adi tekrarini at (elle girilen kayit kuraldan onceliklidir)
+    tek, gorulen = [], set()
+    for o in olaylar:
+        a = (o["tarih"], o["olay"].lower()[:30])
+        if a not in gorulen:
+            gorulen.add(a)
+            tek.append(o)
+    tek.sort(key=lambda o: (o["tarih"], o.get("saat_tr") or "99"))
+    teyitsiz = [o for o in tek if o.get("teyit") not in TEYITLI or not o.get("kaynak")]
+    gelecek_hafta_bos = not any(o["tarih"] > (bugun + dt.timedelta(days=7)).isoformat() and o.get("teyit") != "kural"
+                                for o in tek)
+    return {"durum": "OK", "dosya_guncelleme": d.get("guncelleme"), "olaylar": tek, "teyitsiz": teyitsiz,
+            "uyari": "Gelecek haftanin tek seferlik olaylari girilmemis (yalniz kurallar var)" if gelecek_hafta_bos else None}
 
 
 # ---------------------------------------------------------------- rapor
@@ -466,9 +570,14 @@ def md_yaz(r):
         for x in k["son_7_gun"][:15]:
             L.append(f"- {x['tarih']} [{x['baslik']}]({x['url']})")
             po = x.get("pdf_ozet") or {}
-            if po.get("degisen_bolum") or po.get("yururluk"):
-                L.append(f"  - PDF degisen: {(po.get('degisen_bolum') or ['?'])[0][:200]}")
-                L.append(f"  - PDF yururluk: {(po.get('yururluk') or ['?'])[0][:220]}")
+            if po.get("konu") or po.get("degisen_bolum") or po.get("yururluk"):
+                if po.get("konu"):
+                    L.append(f"  - PDF konu: {po['konu'][:220]}")
+                if po.get("degisen_bolum"):
+                    L.append(f"  - PDF degisen: {po['degisen_bolum'][0][:200]}")
+                L.append(f"  - PDF yururluk: {(po.get('yururluk') or ['(yazmiyor)'])[0][:220]}")
+                if po.get("evren_satirlari"):
+                    L.append("  - Evren kodlari: " + ", ".join(f"{a} {b}" for a, b in list(po["evren_satirlari"].items())[:12]))
             elif po.get("hata"):
                 L.append(f"  - PDF okunamadi: {po['hata'][:120]}")
         oz = k.get("son_bulten_ozet")
@@ -494,7 +603,8 @@ def md_yaz(r):
     t = r["takvim"]
     L += ["", "## Takvim (bugun-1 .. +14 gun)", ""]
     for o in t.get("olaylar", []):
-        isaret = "teyitli" if o.get("teyit") == "birincil" and o.get("kaynak") else "TEYITSIZ"
+        isaret = ({"birincil": "teyitli", "kural": "kurala gore"}.get(o.get("teyit"), "TEYITSIZ")
+                  if o.get("kaynak") else "TEYITSIZ")
         L.append(f"- {o['tarih']} {o.get('saat_tr') or 'saat ?'} {o['olay']} ({isaret})")
     if t.get("uyari"):
         L.append(f"- UYARI: {t['uyari']}")
@@ -519,7 +629,7 @@ def main():
     kaynaklar = [spk_bulten(bugun)]
     tk = genel_sayfa("takasbank", "https://www.takasbank.com.tr/tr/duyurular", bugun,
                      lambda u, t: "Takasbank_Announcement" in u or "/duyuru-detay/" in u.lower(), yon="once")
-    takasbank_pdf_ozet(tk)
+    takasbank_pdf_ozet(tk)       # 19.11: tum PDF'ler
     kaynaklar.append(tk)
     kaynaklar.append(genel_sayfa("tspb", "https://www.tspb.org.tr/duyurular/", bugun,
                                  lambda u, t: "/bilgi/" in u.lower() or "/duyuru" in u.lower(), yon="sonra"))
