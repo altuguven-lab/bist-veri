@@ -1,19 +1,85 @@
 {
- "guncelleme": "2026-11-18",
- "not": "Brifing takvimi bu dosyadan verir; hafizadan tarih/saat yazilmaz. teyit: 'birincil' = tarih VE saat kurumun kendi sayfasinda goruldu; 'kismi' = tarih kuralla/birincil kaynakla belli, saat teyitsiz; 'bekliyor' = birincil kaynakla teyit edilmedi. 'birincil' disindakiler brifingde TEYITSIZ diye yazilir. Her Cuma gelecek haftanin olaylari eklenir.",
+ "guncelleme": "2026-11-19",
+ "not": "Brifing takvimi bu dosyadan (ve data/makro_takvim.json'dan) verir; hafizadan tarih/saat yazilmaz. teyit: 'birincil' = tarih ve saat kurumun kendi sayfasinda goruldu; 'kural' = duzenli yayin, kurali birincil kaynakta goruldu (kurallar bolumu, saat yerel saat diliminden TR'ye otomatik cevrilir); 'kismi' = tarih belli, saat teyitsiz; 'bekliyor' = birincil teyit yok. 'birincil' ve 'kural' disindakiler brifingde TEYITSIZ yazilir. Her Cuma gelecek haftanin olaylari eklenir.",
  "olaylar": [
-  {"tarih": "2026-11-18", "saat_tr": null, "olay": "Fed FOMC tutanaklari (27-28.10 toplantisi)", "teyit": "kismi",
+  {
+   "tarih": "2026-11-18",
+   "saat_tr": null,
+   "olay": "Fed FOMC tutanaklari (27-28.10 toplantisi)",
+   "teyit": "kismi",
    "kaynak": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-   "aciklama": "Fed sayfasi: tutanak karardan uc hafta sonra. Saat sayfada yazmiyor."},
-  {"tarih": "2026-11-19", "saat_tr": null, "olay": "TCMB haftalik uluslararasi rezervler", "teyit": "bekliyor", "kaynak": null},
-  {"tarih": "2026-11-20", "saat_tr": null, "olay": "SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti)", "teyit": "bekliyor",
-   "kaynak": "https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri"},
-  {"tarih": "2026-11-20", "saat_tr": null, "olay": "Guven endeksleri ve KKO", "teyit": "bekliyor", "kaynak": null},
-  {"tarih": "2026-11-27", "saat_tr": null, "olay": "H14 ilk resmi karar mumkun haftasi (ic takvim)", "teyit": "birincil",
-   "kaynak": "ON_KAYIT_H14.md"},
-  {"tarih": "2026-11-30", "saat_tr": null, "olay": "MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege)", "teyit": "bekliyor",
-   "kaynak": null, "aciklama": "MSCI duyurusunun baglantisi eklenince birincil yapilacak"},
-  {"tarih": "2026-12-31", "saat_tr": null, "olay": "SPK kredili islem tedbirinin bitisi", "teyit": "birincil",
-   "kaynak": "https://spk.gov.tr/data/6af772b98f95db208cf81cc3/2026-80.pdf"}
+   "aciklama": "Fed sayfasi: tutanak karardan uc hafta sonra. Saat sayfada yazmiyor."
+  },
+  {
+   "tarih": "2026-11-19",
+   "saat_tr": "16:30",
+   "olay": "ABD Philadelphia Fed imalat endeksi (Kasim)",
+   "teyit": "birincil",
+   "kaynak": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/manufacturing-business-outlook-survey",
+   "aciklama": "Philadelphia Fed takvimi: 19.11.2026 8:30 a.m. (sayfada saat dilimi yazmiyor; banka ABD Dogu saatinde, TR 16:30)"
+  },
+  {
+   "tarih": "2026-11-19",
+   "saat_tr": null,
+   "olay": "TCMB haftalik para ve banka istatistikleri",
+   "teyit": "bekliyor",
+   "kaynak": null,
+   "aciklama": "Persembe yayimlaniyor; saat TCMB sayfasinda teyit edilemedi"
+  },
+  {
+   "tarih": "2026-11-20",
+   "saat_tr": null,
+   "olay": "SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti)",
+   "teyit": "bekliyor",
+   "kaynak": "https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri"
+  },
+  {
+   "tarih": "2026-11-20",
+   "saat_tr": null,
+   "olay": "Guven endeksleri ve KKO",
+   "teyit": "bekliyor",
+   "kaynak": null
+  },
+  {
+   "tarih": "2026-11-27",
+   "saat_tr": null,
+   "olay": "H14 ilk resmi karar mumkun haftasi (ic takvim)",
+   "teyit": "birincil",
+   "kaynak": "ON_KAYIT_H14.md"
+  },
+  {
+   "tarih": "2026-11-30",
+   "saat_tr": null,
+   "olay": "MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege)",
+   "teyit": "bekliyor",
+   "kaynak": null,
+   "aciklama": "MSCI duyurusunun baglantisi eklenince birincil yapilacak"
+  },
+  {
+   "tarih": "2026-12-17",
+   "saat_tr": "16:30",
+   "olay": "ABD Philadelphia Fed imalat endeksi (Aralik)",
+   "teyit": "birincil",
+   "kaynak": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/manufacturing-business-outlook-survey",
+   "aciklama": "Philadelphia Fed takvimi: 17.12.2026 8:30 a.m."
+  },
+  {
+   "tarih": "2026-12-31",
+   "saat_tr": null,
+   "olay": "SPK kredili islem tedbirinin bitisi",
+   "teyit": "birincil",
+   "kaynak": "https://spk.gov.tr/data/6af772b98f95db208cf81cc3/2026-80.pdf"
+  }
+ ],
+ "kurallar": [
+  {
+   "tip": "haftalik",
+   "gun": 4,
+   "saat_yerel": "08:30",
+   "tz": "America/New_York",
+   "olay": "ABD haftalik issizlik basvurulari",
+   "kaynak": "https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/ui-claims/20261561.pdf",
+   "aciklama": "DOL bulteni: 'EMBARGOED UNTIL 8:30 A.M. (Eastern) Thursday' (19.11 goruldu). Resmi tatil haftalarinda gun kayabilir."
+  }
  ]
 }
