@@ -67,6 +67,19 @@ def devre_kesici(gun=10):
     return say
 
 
+def h10c_listesi():
+    """19.11: H10c (ON_KAYIT_H10.md, data/h10/sonuc.md) - Is Yatirim gunluk yabanci oranlari raporunda yabanci payi
+    en uzun suredir kesintisiz artan 5 hisse. Gecmis veride 10 islem gunu BIST100 EW'yi ort. +%1,22 gecti
+    (t 3,38, BH anlamli, OOS +%1,05) -> GECTI. Uyari: 63 gun geri kaydirilmis plasebo da guclu (t 4,04): etki
+    muhtemelen rapor aninin degil hissenin kalici ozelligi. Ileriye donuk golge izlemesi yok."""
+    a = oku_json("data/yabanci_oran_arsiv.json", {}) or {}
+    for k in reversed(a.get("kayitlar", [])):
+        if k.get("ayristi") and k.get("surekli_artan"):
+            return {"tarih": k.get("tarih"), "url": k.get("url"),
+                    "hisseler": [{"kod": x[0], "gun": x[1]} for x in k["surekli_artan"]]}
+    return None
+
+
 def kume_uyeligi(gun=14):
     k = oku_json("data/kurum_kumesi.json", {}) or {}
     sinir = (dt.datetime.now(TR).date() - dt.timedelta(days=gun)).isoformat()
@@ -103,6 +116,8 @@ def main():
         pass
 
     kd, dk, kume = kapsam_disi(), devre_kesici(), kume_uyeligi()
+    h10c = h10c_listesi()
+    h10c_kod = {x["kod"]: x["gun"] for x in (h10c or {}).get("hisseler", [])}
     # kucukluk: piyasa degeri yok ise fiyat x adet bilinmiyor -> temel_carpan'dan 'piyasa_degeri' varsa kullan
     pd_ = {}
     tc = (oku_json("data/temel_carpan_bist100.json", {}) or {}).get("semboller", {})
@@ -116,6 +131,7 @@ def main():
         r, h = d.get(kod, {}), h6.get(kod, {})
         et = []
         if kod in kd: et.append("kapsam_disi")
+        if kod in h10c_kod: et.append(f"H10c_yabanci_surekli={h10c_kod[kod]}")
         if kucuk_sinir and pd_.get(kod) and pd_[kod] <= kucuk_sinir: et.append("kucuk")
         if dk.get(kod): et.append(f"devre_kesici_10g={dk[kod]}")
         if kume.get(kod): et.append(f"kurum_kumesi={len(kume[kod])}")
@@ -145,9 +161,9 @@ def main():
     out = {"uretim_tr": simdi.strftime("%Y-%m-%d %H:%M"),
            "deger_tarama_uretim_utc": deger.get("uretim_utc"), "h6_siralama_tarihi": h6_tarih,
            "not": "Salt olcum, tavsiye degildir. K1 = bilanco surprizi ust %20 + tahmini degerin altinda (orta guven). "
-                  "Kanit AYLIK ufukta (H6 F5); kisa vade icin kanit yok. Deger tek basina OOS'ta ise yaramadi (H6 F3). "
+                  "Kanit AYLIK ufukta (H6 F5). Kisa vade (10 gun) icin yalniz H10c listesi var (asagida). Deger tek basina OOS'ta ise yaramadi (H6 F3). "
                   "Kurum kumesi/MKK listesinde yer almak sirket hakkinda hukum degildir.",
-           "k1": k1, "k2": k2, "k3": k3}
+           "k1": k1, "k2": k2, "k3": k3, "h10c": h10c}
 
     # arsiv: ayni H6 siralamasi icin bir kez (siralama yenilenince yeni anlik goruntu)
     os.makedirs(ARSIV, exist_ok=True)
@@ -192,6 +208,13 @@ def main():
 
     L = [f"# BIST100 tarama - {out['uretim_tr']}", "",
          f"Deger taramasi: {out['deger_tarama_uretim_utc']} | H6 siralamasi: {h6_tarih}", "", out["not"], ""]
+    if h10c:
+        L += ["## H10c - Yabanci payi kesintisiz artan 5 hisse (10 islem gunu ufku; GECTI, golge izlemesi yok)", "",
+              f"Rapor: {h10c['tarih']} ([Is Yatirim]({h10c['url']})). " + ", ".join(
+                  f"{x['kod']} ({x['gun']} gun)" + (" [K1]" if x['kod'] in {y['kod'] for y in k1} else "") +
+                  (" [K2]" if x['kod'] in {y['kod'] for y in k2} else "") for x in h10c["hisseler"]), "",
+              "Gecmiste 10 gunde BIST100 EW'yi ort. +%1,22 gecti (t 3,38, OOS +%1,05). Plasebo da guclu (t 4,04): "
+              "etki rapor anindan cok hissenin kalici ozelligi olabilir. Maliyet dusulmemis.", ""]
     L += tablo(k1, "K1 - Bilanco surprizi ust %20 + tahmini degerin altinda (orta guven; tutarliliga gore)")
     L += tablo(k2, "K2 - Bilesik skor ust dilim + tahmini degerin altinda (orta guven)")
     L += tablo(k3, "K3 - Bilanco surprizi ust %20 ama degerlenemeyen (deger yorumu yok)")
