@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-19 08:43
+# Kurum taramasi - 2026-11-19 12:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -7,10 +7,10 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-16 | 2 |
-| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-17 | 3 |
+| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 4 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-19 | 47 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-19 | 49 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -20,6 +20,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## takasbank (son 7 gun)
 
+- 2026-11-19 [VİOP Sicil Bazında Pozisyon Limitleri Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2180-8660b2f2-ebf0-4e15-bbef-c4c43a81f66a.pdf)
 - 2026-11-17 [2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2179-4460ca18-9780-4a09-9576-a86b53b771fc.pdf)
 - 2026-11-14 [Taşıt Takas Mobil Uygulaması Yenilendi](https://www.takasbank.com.tr/tr/duyurular/duyuru-detay/tasit-takas-mobil-uygulamasi-yenilendi)
 - 2026-11-12 [Risk Parametrelerinin Güncellenmesi Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2178-8a11fc9a-aa6b-4446-b1f6-90f0bbcbe92b.pdf)
@@ -28,6 +29,8 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- 19.11.2026 09:06:37 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700110) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
+- 19.11.2026 09:05:10 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700109) Yatırım Fonlarına İlişkin Rehber'in 9.8. maddesi gereğince yapılan açıklama
 - **[KRITIK]** 18.11.2026 21:30:35 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700080) SPK İşlem Yasağı Nedeniyle Pay Duyurusu
 - **[KRITIK]** 18.11.2026 18:23:24 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699983) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 - 18.11.2026 18:21:51 BORSA İSTANBUL A.Ş. - [Borsa İstanbul A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699982) Borçlanma Araçlarının Gözaltı Pazarı'na Alınması
@@ -66,8 +69,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - **[KRITIK]** 13.11.2026 17:33:54 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1698086) BAP İşlem İptali
 - 13.11.2026 16:48:23 KAMUYU AYDINLATMA PLATFORMU - [Finansal Rapor Ek Süre Taleplerine İlişkin SPK Değerlendirmesi](https://www.kap.org.tr/tr/Bildirim/1698056) Finansal Rapor Ek Süre Taleplerine İlişkin SPK Değerlendirmesi
 - **[KRITIK]** 13.11.2026 16:43:57 BORSA İSTANBUL A.Ş. - [VİOP İşlem İptali Duyuruları](https://www.kap.org.tr/tr/Bildirim/1698054) VİOP İşlem İptali Duyuruları
-- 13.11.2026 09:07:59 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697843) Hak Kullanımı
-- 13.11.2026 08:48:49 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697831) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
