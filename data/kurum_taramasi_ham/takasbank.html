@@ -6,196 +6,97 @@
 <head>
     <meta charset="utf-8">
     <!-- SEO için Title ve description yer değiştirildi -->
-    <meta name="title" content="Yabancı Para Ödeme ve Transferi" />
-    <meta name="description" content="
+    <meta name="title" content="BISTECH Risk Parametreleri" />
+    <meta name="description" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-Takasbank üyeleri, Takasbank'ın muhabir olarak kullandığı banka hesapları üzerinden USD, EUR ve GBP cinsinden gönderdikleri tutarları, takas ve teminat işlemlerinde kullanabilmekte; Takasbank nezdindeki USD, EUR ve GBP serbest hesaplarından kendi terminallerini kullanarak elektronik ortamda ya da yazılı talimat vermek suretiyle SWIFT sistemini kullanarak diğer banka hesaplarına nakit transferi yapabilmektedirler.
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
 
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
 
+ 
 
-Üyeler ayrıca, Takasbank nezdindeki hesaplarında bulunan tutarları, Takasbank nezdindeki başka bir üye hesabına nakit virman yoluyla transfer edebilmektedir.
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
 
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
 
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
 
-Yabancı Para ödeme ve transfer işlemleri, Takasbank’ın yürütmekte olduğu takas ve teminat faaliyetlerinin bir parçası olarak gerçekleştirilmektedir.
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
 
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
 
+ 
 
-Yabancı Para ödeme ve transfer işlemleri, Takasbank’ın Citibank Frankfurt, New York ve Londra hesapları üzerinden gerçekleştirilmektedir. Takasbank Muhabir Banka bilgileri aşağıdaki gibidir:
-
-
-
-TAKASBANK 
-
-
-	BIC KODU: TVSBTRISXXX
-
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
 
 
-
-CITIBANK NEW YORK-USD
-
-
-	BIC KODU: CITIUS33XXX
-	HESAP NO: 36892258
-
-
-
-
-CITIBANK FRANKFURT-EUR
-
-
-	BIC KODU: CITIDEFFXXX
-	HESAP NO: 4115556024
-
-
-
-
-CITIBANK LONDRA-GBP
-
-
-	BIC KODU: CITIGB2LXXX
-	HESAP NO: 19105859
-
-
-
-
-Takasbank sistemi üzerinden aşağıdaki SWIFT mesajları gerçekleştirilebilir:
-
-
-	Pacs.009.001.08 - Nakit Transferi Finansal Kurum
-	Pacs.009.001.08 COV - Nakit Transferi Finansal Kurum
-	Pacs.008.001.08 - Nakit Transferi 
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
 
 " />
     <meta name="image" content="https://www.takasbank.com.tr" />
 
-    <meta property="og:description" content="Yabancı Para Ödeme ve Transferi" />
-    <meta property="og:title" content="
+    <meta property="og:description" content="BISTECH Risk Parametreleri" />
+    <meta property="og:title" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-Takasbank üyeleri, Takasbank'ın muhabir olarak kullandığı banka hesapları üzerinden USD, EUR ve GBP cinsinden gönderdikleri tutarları, takas ve teminat işlemlerinde kullanabilmekte; Takasbank nezdindeki USD, EUR ve GBP serbest hesaplarından kendi terminallerini kullanarak elektronik ortamda ya da yazılı talimat vermek suretiyle SWIFT sistemini kullanarak diğer banka hesaplarına nakit transferi yapabilmektedirler.
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
 
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
 
+ 
 
-Üyeler ayrıca, Takasbank nezdindeki hesaplarında bulunan tutarları, Takasbank nezdindeki başka bir üye hesabına nakit virman yoluyla transfer edebilmektedir.
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
 
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
 
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
 
-Yabancı Para ödeme ve transfer işlemleri, Takasbank’ın yürütmekte olduğu takas ve teminat faaliyetlerinin bir parçası olarak gerçekleştirilmektedir.
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
 
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
 
+ 
 
-Yabancı Para ödeme ve transfer işlemleri, Takasbank’ın Citibank Frankfurt, New York ve Londra hesapları üzerinden gerçekleştirilmektedir. Takasbank Muhabir Banka bilgileri aşağıdaki gibidir:
-
-
-
-TAKASBANK 
-
-
-	BIC KODU: TVSBTRISXXX
-
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
 
 
-
-CITIBANK NEW YORK-USD
-
-
-	BIC KODU: CITIUS33XXX
-	HESAP NO: 36892258
-
-
-
-
-CITIBANK FRANKFURT-EUR
-
-
-	BIC KODU: CITIDEFFXXX
-	HESAP NO: 4115556024
-
-
-
-
-CITIBANK LONDRA-GBP
-
-
-	BIC KODU: CITIGB2LXXX
-	HESAP NO: 19105859
-
-
-
-
-Takasbank sistemi üzerinden aşağıdaki SWIFT mesajları gerçekleştirilebilir:
-
-
-	Pacs.009.001.08 - Nakit Transferi Finansal Kurum
-	Pacs.009.001.08 COV - Nakit Transferi Finansal Kurum
-	Pacs.008.001.08 - Nakit Transferi 
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
 
 " />
     <meta property="og:image" content="https://www.takasbank.com.tr" />
 
-    <meta property="twitter:title" content="
+    <meta property="twitter:title" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-Takasbank üyeleri, Takasbank'ın muhabir olarak kullandığı banka hesapları üzerinden USD, EUR ve GBP cinsinden gönderdikleri tutarları, takas ve teminat işlemlerinde kullanabilmekte; Takasbank nezdindeki USD, EUR ve GBP serbest hesaplarından kendi terminallerini kullanarak elektronik ortamda ya da yazılı talimat vermek suretiyle SWIFT sistemini kullanarak diğer banka hesaplarına nakit transferi yapabilmektedirler.
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
 
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
 
+ 
 
-Üyeler ayrıca, Takasbank nezdindeki hesaplarında bulunan tutarları, Takasbank nezdindeki başka bir üye hesabına nakit virman yoluyla transfer edebilmektedir.
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
 
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
 
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
 
-Yabancı Para ödeme ve transfer işlemleri, Takasbank’ın yürütmekte olduğu takas ve teminat faaliyetlerinin bir parçası olarak gerçekleştirilmektedir.
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
 
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
 
+ 
 
-Yabancı Para ödeme ve transfer işlemleri, Takasbank’ın Citibank Frankfurt, New York ve Londra hesapları üzerinden gerçekleştirilmektedir. Takasbank Muhabir Banka bilgileri aşağıdaki gibidir:
-
-
-
-TAKASBANK 
-
-
-	BIC KODU: TVSBTRISXXX
-
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
 
 
-
-CITIBANK NEW YORK-USD
-
-
-	BIC KODU: CITIUS33XXX
-	HESAP NO: 36892258
-
-
-
-
-CITIBANK FRANKFURT-EUR
-
-
-	BIC KODU: CITIDEFFXXX
-	HESAP NO: 4115556024
-
-
-
-
-CITIBANK LONDRA-GBP
-
-
-	BIC KODU: CITIGB2LXXX
-	HESAP NO: 19105859
-
-
-
-
-Takasbank sistemi üzerinden aşağıdaki SWIFT mesajları gerçekleştirilebilir:
-
-
-	Pacs.009.001.08 - Nakit Transferi Finansal Kurum
-	Pacs.009.001.08 COV - Nakit Transferi Finansal Kurum
-	Pacs.008.001.08 - Nakit Transferi 
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
 
 " />
-    <meta property="twitter:description" content="Yabancı Para Ödeme ve Transferi" />
+    <meta property="twitter:description" content="BISTECH Risk Parametreleri" />
     <meta property="twitter:image" content="https://www.takasbank.com.tr" />
 
     <title>Takas İstanbul | Duyurular</title>
@@ -207,7 +108,7 @@ Takasbank sistemi üzerinden aşağıdaki SWIFT mesajları gerçekleştirilebili
     <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <script type="text/javascript" src="/ruxitagentjs_ICA7NVfqrux_10345260810170330.js" data-dtconfig="rid=RID_-1913033578|rpid=-392565753|domain=takasbank.com.tr|reportUrl=/rb_25b4ee92-cc93-42e3-a65c-5714636e89f5|app=ea7c4b59f27d43eb|owasp=1|featureHash=ICA7NVfqrux|rdnt=1|uxrgce=1|cuc=c1n5xcf3|mel=100000|expw=1|dpvc=1|lastModification=1789733318453|postfix=c1n5xcf3|tp=500,50,0|srbbv=2|agentUri=/ruxitagentjs_ICA7NVfqrux_10345260810170330.js"></script><link rel="stylesheet" href="/Templates/Default/assets/css/libs.min.css">
+    <script type="text/javascript" src="/ruxitagentjs_ICA7NVfqrux_10345260810170330.js" data-dtconfig="rid=RID_-1913033578|rpid=-564966951|domain=takasbank.com.tr|reportUrl=/rb_25b4ee92-cc93-42e3-a65c-5714636e89f5|app=ea7c4b59f27d43eb|owasp=1|featureHash=ICA7NVfqrux|rdnt=1|uxrgce=1|cuc=c1n5xcf3|mel=100000|expw=1|dpvc=1|lastModification=1789733318453|postfix=c1n5xcf3|tp=500,50,0|srbbv=2|agentUri=/ruxitagentjs_ICA7NVfqrux_10345260810170330.js"></script><link rel="stylesheet" href="/Templates/Default/assets/css/libs.min.css">
     <link rel="stylesheet" href="/Templates/Default/assets/css/app.min.css">
     
     <script src="/Templates/Default/assets/js/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
@@ -1650,7 +1551,7 @@ Takasbank sistemi üzerinden aşağıdaki SWIFT mesajları gerçekleştirilebili
     </div>
         <form class="form-sm lm-md-b4 lm-xs-b5" role="form" data-toggle="validator" method="POST" data-focus="false">
             <input id="posturl" name="posturl" type="hidden" value="Takasbank_Plugins_Announcement.UI.FilterAnnouncements.Announcements_446" />
-            <input name="__RequestVerificationToken" type="hidden" value="GS2DDmXBN0DhM0F40Mo7jJ-ohBF44WDDG4nDW5dwk5j-PCbbtktevCfHlbN67mOQRevdiR47Rwh_Ji_oFCO0DiMQcnlcDS3dalNaW_PS5UM1" />
+            <input name="__RequestVerificationToken" type="hidden" value="DISQ9aeSO9h77SwCGkIB6eaJgjdzdQRKVBc9jhsk91oL-K_iZxTYZ0diLJgNpjjDlZl5aGjivN6NuhbDqSPg2ns4ujlJ5-5iAVXIBuSJBEk1" />
 
             <div class="row">
                     <div class="col-md-5">
@@ -2382,27 +2283,25 @@ Takasbank sistemi üzerinden aşağıdaki SWIFT mesajları gerçekleştirilebili
 
 <script type="text/javascript">
 (function(){
-window.GUyB=!!window.GUyB;try{(function(){(function(){var J=-1,J={oo:++J,_J:"false"[J],o:++J,ls:"false"[J],Jo:++J,Sso:"[object Object]"[J],i_:(J[J]+"")[J],oS:++J,__:"true"[J],so:++J,oO:++J,iJ:"[object Object]"[J],J:++J,iO:++J,JZO:++J,jZO:++J};try{J.Js=(J.Js=J+"")[J.oO]+(J.JZ=J.Js[J.o])+(J.SJ=(J.jZ+"")[J.o])+(!J+"")[J.oS]+(J.lZ=J.Js[J.J])+(J.jZ="true"[J.o])+(J.j_="true"[J.Jo])+J.Js[J.oO]+J.lZ+J.JZ+J.jZ,J.SJ=J.jZ+"true"[J.oS]+J.lZ+J.j_+J.jZ+J.SJ,J.jZ=J.oo[J.Js][J.Js],J.jZ(J.jZ(J.SJ+'"\\'+J.o+J.oO+J.o+J._J+"\\"+J.so+J.oo+"("+J.lZ+"\\"+J.o+J.iO+
-J.o+"\\"+J.o+J.J+J.oo+J.__+J.JZ+J._J+"\\"+J.so+J.oo+"\\"+J.o+J.J+J.iO+"\\"+J.o+J.oO+J.o+"\\"+J.o+J.oO+J.J+J.i_+J.JZ+"\\"+J.o+J.J+J.iO+"['\\"+J.o+J.J+J.oo+J.ls+"\\"+J.o+J.iO+J.o+"false"[J.Jo]+J.JZ+J.ls+J.i_+"']\\"+J.so+J.oo+"===\\"+J.so+J.oo+"'\\"+J.o+J.J+J.oS+J.lZ+"\\"+J.o+J.J+J.Jo+"\\"+J.o+J.oO+J.o+"\\"+J.o+J.oO+J.J+"\\"+J.o+J.so+J.iO+"')\\"+J.so+J.oo+"{\\"+J.o+J.Jo+"\\"+J.o+J.o+"\\"+J.o+J.J+J.J+J.ls+"\\"+J.o+J.J+J.Jo+"\\"+J.so+J.oo+J.__+J.i_+"\\"+J.o+J.J+J.J+J.iJ+"\\"+J.o+J.iO+J.o+J.j_+"\\"+J.o+
-J.oO+J.Jo+"\\"+J.o+J.oO+J.oS+"\\"+J.o+J.J+J.oo+"\\"+J.so+J.oo+"=\\"+J.so+J.oo+"\\"+J.o+J.J+J.iO+"\\"+J.o+J.oO+J.o+"\\"+J.o+J.oO+J.J+J.i_+J.JZ+"\\"+J.o+J.J+J.iO+"['\\"+J.o+J.J+J.oo+J.ls+"\\"+J.o+J.iO+J.o+"false"[J.Jo]+J.JZ+J.ls+J.i_+"'].\\"+J.o+J.J+J.Jo+J.__+"\\"+J.o+J.J+J.oo+"false"[J.Jo]+J.ls+J.iJ+J.__+"(/.{"+J.o+","+J.so+"}/\\"+J.o+J.so+J.iO+",\\"+J.so+J.oo+J._J+J.j_+"\\"+J.o+J.oO+J.J+J.iJ+J.lZ+"\\"+J.o+J.oO+J.o+J.JZ+"\\"+J.o+J.oO+J.J+"\\"+J.so+J.oo+"(\\"+J.o+J.iO+J.oo+")\\"+J.so+J.oo+"{\\"+J.o+
-J.Jo+"\\"+J.o+J.o+"\\"+J.o+J.o+"\\"+J.o+J.o+"\\"+J.o+J.J+J.Jo+J.__+J.lZ+J.j_+"\\"+J.o+J.J+J.Jo+"\\"+J.o+J.oO+J.J+"\\"+J.so+J.oo+"(\\"+J.o+J.iO+J.oo+"\\"+J.so+J.oo+"+\\"+J.so+J.oo+"\\"+J.o+J.iO+J.oo+").\\"+J.o+J.J+J.oS+J.j_+J.Sso+"\\"+J.o+J.J+J.oS+J.lZ+"\\"+J.o+J.J+J.Jo+"("+J.Jo+",\\"+J.so+J.oo+J.so+")\\"+J.o+J.Jo+"\\"+J.o+J.o+"\\"+J.o+J.o+"});\\"+J.o+J.Jo+"}\\"+J.o+J.Jo+'"')())()}catch(L){J%=5}})();var LJ=21;
-try{var oJ,ZJ,SJ=l(831)?0:1,jJ=l(417)?1:0;for(var Jl=(l(891),0);Jl<ZJ;++Jl)SJ+=l(411)?2:1,jJ+=l(575)?2:3;oJ=SJ+jJ;window.I_===oJ&&(window.I_=++oJ)}catch(ol){window.I_=oJ}var Ol=!0;function O(J,L){J+=L;return J.toString(36)}function Sl(J){var L=63;!J||document[Z(L,181,168,178,168,161,168,171,168,179,184,146,179,160,179,164)]&&document[s(L,181,168,178,168,161,168,171,168,179,184,146,179,160,179,164)]!==O(68616527603,L)||(Ol=!1);return Ol}
-function s(J){var L=arguments.length,z=[],S=1;while(S<L)z[S-1]=arguments[S++]-J;return String.fromCharCode.apply(String,z)}function il(){}Sl(window[il[O(1086833,LJ)]]===il);Sl(typeof ie9rgb4!==Z(LJ,123,138,131,120,137,126,132,131));Sl(RegExp("\x3c")[O(1372184,LJ)](function(){return"\x3c"})&!RegExp(Z(LJ,141,72,121))[O(1372184,LJ)](function(){return"'x3'+'d';"}));
-var Il=window[Z(LJ,118,137,137,118,120,125,90,139,122,131,137)]||RegExp(Z(LJ,130,132,119,126,145,118,131,121,135,132,126,121),s(LJ,126))[O(1372184,LJ)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),JL=+new Date+(l(835)?722167:6E5),lL,oL,OL,ZL=window[s(LJ,136,122,137,105,126,130,122,132,138,137)],_L=Il?l(919)?20602:3E4:l(996)?8983:6E3;
-document[Z(LJ,118,121,121,90,139,122,131,137,97,126,136,137,122,131,122,135)]&&document[Z(LJ,118,121,121,90,139,122,131,137,97,126,136,137,122,131,122,135)](Z(LJ,139,126,136,126,119,126,129,126,137,142,120,125,118,131,124,122),function(J){var L=69;document[s(L,187,174,184,174,167,174,177,174,185,190,152,185,166,185,170)]&&(document[s(L,187,174,184,174,167,174,177,174,185,190,152,185,166,185,170)]===O(1058781914,L)&&J[Z(L,174,184,153,183,186,184,185,170,169)]?OL=!0:document[Z(L,187,174,184,174,167,
-174,177,174,185,190,152,185,166,185,170)]===O(68616527597,L)&&(lL=+new Date,OL=!1,iL()))});function Z(J){var L=arguments.length,z=[];for(var S=1;S<L;++S)z.push(arguments[S]-J);return String.fromCharCode.apply(String,z)}function iL(){if(!document[s(96,209,213,197,210,217,179,197,204,197,195,212,207,210)])return!0;var J=+new Date;if(J>JL&&(l(850)?385747:6E5)>J-lL)return Sl(!1);var L=Sl(oL&&!OL&&lL+_L<J);lL=J;oL||(oL=!0,ZL(function(){oL=!1},l(762)?0:1));return L}iL();
-var jL=[l(64)?17795081:13076650,l(299)?27611931586:2147483647,l(504)?1558153217:1924481713];function lo(J){var L=99;J=typeof J===s(L,214,215,213,204,209,202)?J:J[Z(L,215,210,182,215,213,204,209,202)]((l(848),36));var z=window[J];if(!z||!z[Z(L,215,210,182,215,213,204,209,202)])return;var S=""+z;window[J]=function(J,L){oL=!1;return z(J,L)};window[J][Z(L,215,210,182,215,213,204,209,202)]=function(){return S}}for(var Lo=(l(284),0);Lo<jL[s(LJ,129,122,131,124,137,125)];++Lo)lo(jL[Lo]);
-Sl(!1!==window[s(LJ,92,106,142,87)]);window.IS=window.IS||{};window.IS.Zl="08972c7f5319400017da298aa0d7d3e5a2f261f9f6e66013587f7c48c9e2be94a063ca009dd87d7fcab18d3017feba5a190ddfe37c1acf33de77e952dc62c4ed2bb7032a20523c47";function Oo(J){var L=+new Date,z;!document[s(59,172,176,160,173,180,142,160,167,160,158,175,170,173,124,167,167)]||L>JL&&(l(183)?6E5:884184)>L-lL?z=Sl(!1):(z=Sl(oL&&!OL&&lL+_L<L),lL=L,oL||(oL=!0,ZL(function(){oL=!1},l(330)?1:0)));return!(arguments[J]^z)}function l(J){return 511>J}(function(J){J||setTimeout(function(){var J=setTimeout(function(){},250);for(var z=0;z<=J;++z)clearTimeout(z)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
+window.hcf=!!window.hcf;try{(function(){(function(){var _={decrypt:function(_){try{return JSON.parse(function(_){_=_.split("l");var J="";for(var L=0;L<_.length;++L)J+=String.fromCharCode(_[L]);return J}(_))}catch(L){}}};return _={configuration:_.decrypt("123l34l97l99l116l105l118l101l34l58l34l110l111l34l44l34l100l101l98l117l103l103l105l110l103l34l58l34l110l111l34l44l34l109l111l100l117l108l101l49l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l50l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l51l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l52l34l58l34l101l110l97l98l108l101l100l34l125")}})();
+var I_=32;try{var J_,L_,O_=I(264)?1:0,s_=I(17)?1:0,_i=I(574)?1:0;for(var ji=(I(895),0);ji<L_;++ji)O_+=I(558)?2:1,s_+=(I(990),2),_i+=I(142)?3:1;J_=O_+s_+_i;window.iS===J_&&(window.iS=++J_)}catch(Ji){window.iS=J_}var Oi=!0;function l(_){var J=arguments.length,L=[],Z=1;while(Z<J)L[Z-1]=arguments[Z++]-_;return String.fromCharCode.apply(String,L)}
+function Zi(_){var J=45;!_||document[O(J,163,150,160,150,143,150,153,150,161,166,128,161,142,161,146)]&&document[l(J,163,150,160,150,143,150,153,150,161,166,128,161,142,161,146)]!==O(J,163,150,160,150,143,153,146)||(Oi=!1);return Oi}function O(_){var J=arguments.length,L=[];for(var Z=1;Z<J;++Z)L.push(arguments[Z]-_);return String.fromCharCode.apply(String,L)}function si(){}Zi(window[si[z(1086822,I_)]]===si);Zi(typeof ie9rgb4!==z(1242178186167,I_));
+Zi(RegExp("\x3c")[z(1372173,I_)](function(){return"\x3c"})&!RegExp(z(42857,I_))[z(1372173,I_)](function(){return"'x3'+'d';"}));
+var _I=window[l(I_,129,148,148,129,131,136,101,150,133,142,148)]||RegExp(l(I_,141,143,130,137,156,129,142,132,146,143,137,132),O(I_,137))[z(1372173,I_)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),iI=+new Date+(I(822)?6E5:803807),JI,lI,LI,zI=window[l(I_,147,133,148,116,137,141,133,143,149,148)],ZI=_I?I(108)?3E4:26596:I(643)?6E3:4589;
+document[l(I_,129,132,132,101,150,133,142,148,108,137,147,148,133,142,133,146)]&&document[l(I_,129,132,132,101,150,133,142,148,108,137,147,148,133,142,133,146)](O(I_,150,137,147,137,130,137,140,137,148,153,131,136,129,142,135,133),function(_){var J=14;document[O(J,132,119,129,119,112,119,122,119,130,135,97,130,111,130,115)]&&(document[O(J,132,119,129,119,112,119,122,119,130,135,97,130,111,130,115)]===z(1058781969,J)&&_[l(J,119,129,98,128,131,129,130,115,114)]?LI=!0:document[l(J,132,119,129,119,112,
+119,122,119,130,135,97,130,111,130,115)]===l(J,132,119,129,119,112,122,115)&&(JI=+new Date,LI=!1,_j()))});function z(_,J){_+=J;return _.toString(36)}function _j(){if(!document[O(42,155,159,143,156,163,125,143,150,143,141,158,153,156)])return!0;var _=+new Date;if(_>iI&&(I(49)?6E5:356826)>_-JI)return Zi(!1);var J=Zi(lI&&!LI&&JI+ZI<_);JI=_;lI||(lI=!0,zI(function(){lI=!1},I(254)?1:0));return J}_j();var Ij=[I(134)?17795081:24830622,I(834)?27611931586:2147483647,I(63)?1558153217:2147483647];
+function jj(_){var J=63;_=typeof _===z(1743045613,J)?_:_[O(J,179,174,146,179,177,168,173,166)](I(957)?40:36);var L=window[_];if(!L||!L[l(J,179,174,146,179,177,168,173,166)])return;var Z=""+L;window[_]=function(_,J){lI=!1;return L(_,J)};window[_][l(J,179,174,146,179,177,168,173,166)]=function(){return Z}}for(var Jj=(I(178),0);Jj<Ij[z(1294399173,I_)];++Jj)jj(Ij[Jj]);Zi(!1!==window[z(22447,I_)]);window.Js=window.Js||{};window.Js.zJ="08468a1bf4194000d318ae561a6c877309236f8de025920216384f39b5a7083e05088a93e82403094aaf25b9fce05abfe20706e1604d67c015e8863224b0a999c8465c8833458b28";
+function lj(_){var J=+new Date,L;!document[l(19,132,136,120,133,140,102,120,127,120,118,135,130,133,84,127,127)]||J>iI&&(I(605)?6E5:686085)>J-JI?L=Zi(!1):(L=Zi(lI&&!LI&&JI+ZI<J),JI=J,lI||(lI=!0,zI(function(){lI=!1},I(908)?0:1)));return!(arguments[_]^L)}function I(_){return 887>_}(function Lj(J){J&&"number"!==typeof J||("number"!==typeof J&&(J=1E3),J=Math.max(J,1),setInterval(function(){Lj(J-10)},J))})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
 
 })();
 
 </script>
 </APM_DO_NOT_TOUCH>
 
-<script type="text/javascript" src="/TSPD/08ce165641ab2000332d2c526d2292f29f33b62cf258e8e990a8cfcf21eef24895600145c05af134?type=9"></script>
+<script type="text/javascript" src="/TSPD/08ce165641ab200062edab974b30a21180170310bd456b54c5667c5cdc4acf47beff5d91a2fc2e24?type=9"></script>
 
 </html>
-<script id="f5_cspm">(function(){var f5_cspm={f5_p:'CDGJGKECEKINENGLPPHPGCGADIDDHLMPMIDADFFCEPOMOLCPIBGKPNGENDFCHCJHNMHBEDNOAAFHMCCICOPAENINAANBOLGKNDBEJBGJJLJDBJLLOJCKAMPCEMDLAKPN',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='xid0149471280aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'EBMLFHILENMPJKFDOPPFLAODFJFNKNNCDBFGOJOLMGBFMMOCIDCLIPAJLGAIEMOINCKBJBAPAAJEILJOOKHAOJBAAAHPIBEBPEMPGBAIHCEIDEIIMKAABELJNCCOBGJJ',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='xid0149471280aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
 return;}}
 catch(err){return;}
 setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='yid'&&pair[1]=='1234')
