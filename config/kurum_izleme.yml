@@ -20,6 +20,10 @@ terimler:
   - {terim: "fon tasfiye", not: "genel"}
   - {terim: "tasfiye karar", not: "genel"}
   - {terim: "kredili işlem", not: "SPK tedbiri 31.12.2026'ya uzatildi (bulten 2026/80)"}
+  # 19.11: MSCI Turkiye dondurmasi (15.10.2026) - serbest dolasim / piyasa butunlugu basliklari
+  - {terim: "fiili dolaşım", not: "MSCI serbest dolasim konusu"}
+  - {terim: "serbest dolaşım", not: "MSCI serbest dolasim konusu"}
+  - {terim: "MSCI", not: "endeks siniflandirmasi"}
 kodlar:
   # config/fon_krizi_baglantili.txt ile ayni hisseler + SPK bulteni 2026/81 (TUKAS, kisi bazli islem yasagi)
   - KTLEV
