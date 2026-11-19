@@ -53,11 +53,18 @@ jobs:
       - name: BIST verisini cek
         run: python fetch_bist.py
 
+      # 19.11: endeks (XU100, XU030, XBANK, XHOLD, XUSIN), kur ve kuresel gostergeler -> data/endeks_intraday.json.
+      # Hisse cekiminden bagimsiz; basarisiz olursa hisse verisinin commit'ini engellemez.
+      - name: Endeks ve kur verisini cek
+        continue-on-error: true
+        run: python fetch_endeks.py
+
       - name: Commit ve push
         run: |
           git config user.name "bist-veri-bot"
           git config user.email "bot@users.noreply.github.com"
           git add data/bist_quotes.json data/bist_intraday.json
+          git add data/endeks_intraday.json 2>/dev/null || true
           git diff --staged --quiet || git commit -m "Otomatik veri guncelleme $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           # 03.08 DUZELTME (tum git-yazan workflow'lara uygulandi): "fetch
           # first" carpismasi - ayni saatlerde baska bir workflow push etmisse
