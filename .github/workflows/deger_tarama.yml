@@ -1,13 +1,18 @@
 # DEGERLEME TARAMASI (BIST 100) - ELLE tetiklenir, SALT OLCUM, TAVSIYE DEGILDIR.
 # 1) Is Yatirim mali tablolari 100 sembol (EVREN=BIST100) 2) F/K-PD/DD carpanlari 3) uc yontemli tahmini deger.
 # Varsayilan 30 sembollu temel_veri_topla.yml AKISI ETKILENMEZ (ayri cikti dosyalari).
+# 19.11: haftalik otomatik - Temel Veri Topla (Pazartesi) bitince calisir; RF bos birakilirsa ABD 10y
+# data/endeks_intraday.json'dan alinir. Ardindan BIST100 Tarama (workflow_run) kendiliginden calisir.
 name: Deger Tarama
 on:
+  workflow_run:
+    workflows: ["Temel Veri Topla"]
+    types: [completed]
   workflow_dispatch:
     inputs:
       rf_usd:
-        description: "ABD 10 yillik faiz (%)"
-        default: "4.97"
+        description: "ABD 10 yillik faiz (%) - bos birakilirsa endeks_intraday.json'dan"
+        default: ""
       cds_tr:
         description: "Turkiye 5 yillik CDS (puan/100, ornek 2.58)"
         default: "2.58"
@@ -21,6 +26,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deger:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -40,9 +46,9 @@ jobs:
         run: python temel_carpan_gozlem.py
       - name: Degerleme
         env:
-          RF_USD: ${{ inputs.rf_usd }}
-          CDS_TR: ${{ inputs.cds_tr }}
-          ERP: ${{ inputs.erp }}
+          RF_USD: ${{ inputs.rf_usd || '' }}
+          CDS_TR: ${{ inputs.cds_tr || '' }}
+          ERP: ${{ inputs.erp || '' }}
         run: python deger_tarama.py
       - name: Commit
         run: |
