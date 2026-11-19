@@ -16,6 +16,8 @@ Seriler (19.11'de EVDS'de dogrulandi):
   TP.PKAUO.S04.D.U Piyasa Katilimcilari Anketi: 12 ay sonrasi politika faizi beklentisi (aylik, %)
   TP.APIFON4      TCMB agirlikli ortalama fonlama maliyeti (is gunu, %) - reel faiz hesabinin ESAS serisi
   TP.BISTTLREF.ORAN BIST TLREF gecelik referans faiz (is gunu, %)
+  TP.AB.TOPLAM    TCMB brut uluslararasi rezervleri, toplam (haftalik, Cuma, milyon USD) - 19.11 eki
+  TP.RK.T1.Y      TUFE bazli reel efektif doviz kuru (2025=100, aylik; artis = TL reel degerlenme) - 19.11 eki
   TP.BISPOLFAIZ.TUR Politika faizi (BIS karsilastirma serisi, aylik; GECIKMELI - 19.11'de son gozlem Agustos %37,
                   fonlama maliyeti ise %36 idi; yalniz kiyas icin tutulur)
 Turetilen (betimleyici, sinyal DEGIL): ex-ante reel faiz = politika faizi - 12 ay sonrasi TUFE beklentisi;
@@ -40,6 +42,9 @@ SERILER = {
     "fonlama_maliyeti_pct": ("TP.APIFON4", "isgunu"),
     "tlref_pct": ("TP.BISTTLREF.ORAN", "isgunu"),
     "politika_faizi_bis_pct": ("TP.BISPOLFAIZ.TUR", "aylik"),
+    # 19.11 (paket38): TCMB brut rezervleri (haftalik, Cuma; Persembe yayimlanir) ve reel efektif kur
+    "tcmb_brut_rezerv_mn_usd": ("TP.AB.TOPLAM", "haftalik"),
+    "reel_efektif_kur_tufe": ("TP.RK.T1.Y", "aylik"),
 }
 CIKTI = "data/makro_akim_reel.json"
 
@@ -130,6 +135,14 @@ def main():
         ozet["piyasa_faiz_beklentisi"] = {"12ay_sonra_politika_faizi": pb[-1],
                                           "ima_edilen_degisim_puan": round(pb[-1]["deger"] - pf[-1]["deger"], 2)}
 
+    r = veri.get("tcmb_brut_rezerv_mn_usd", [])
+    if r:
+        ozet["tcmb_rezerv"] = {"son": r[-1], "haftalik_degisim": round(r[-1]["deger"] - r[-2]["deger"], 1) if len(r) > 1 else None,
+                               "4_hafta_degisim": round(r[-1]["deger"] - r[-5]["deger"], 1) if len(r) > 4 else None}
+    rk = veri.get("reel_efektif_kur_tufe", [])
+    if rk:
+        ozet["reel_efektif_kur"] = {"son": rk[-1], "12_ay_once": rk[-13] if len(rk) > 12 else None,
+                                    "not": "2025=100; artis TL'nin reel degerlenmesi."}
     out = {"uretim_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "kaynak": "TCMB EVDS (birincil)",
            "seriler": {ad: {"kod": SERILER[ad][0], "frekans": SERILER[ad][1], "gozlem": v[-160:]} for ad, v in veri.items()},
            "ozet": ozet, "hatalar": hatalar,
@@ -166,6 +179,14 @@ def main():
             L.append(f"- 12 ay sonrasi politika faizi beklentisi: %{pfb['12ay_sonra_politika_faizi']['deger']} "
                      f"(ima edilen degisim {pfb['ima_edilen_degisim_puan']} puan)")
         L.append("")
+    tr_ = ozet.get("tcmb_rezerv")
+    if tr_:
+        L += ["## TCMB brut rezervleri (milyon USD)", "",
+              f"- {tr_['son']['tarih']}: {round(tr_['son']['deger'])} | haftalik degisim {tr_['haftalik_degisim']} | 4 hafta {tr_['4_hafta_degisim']}", ""]
+    rk_ = ozet.get("reel_efektif_kur")
+    if rk_:
+        L += ["## Reel efektif kur (TUFE bazli, 2025=100)", "",
+              f"- {rk_['son']['tarih']}: {rk_['son']['deger']}" + (f" | 12 ay once ({rk_['12_ay_once']['tarih']}): {rk_['12_ay_once']['deger']}" if rk_.get('12_ay_once') else ""), ""]
     if hatalar:
         L += ["## Cekilemeyen seriler", ""] + [f"- {k}: {v}" for k, v in hatalar.items()] + [""]
     L.append("Gozlem amaclidir, tavsiye degildir.")
