@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-19 20:43
+# Kurum taramasi - 2026-11-20 00:44
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -6,17 +6,18 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
-| [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-16 | 2 |
-| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 4 |
+| [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-20 | 3 |
+| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 3 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
-| [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-19 | 52 kurum bildirimi |
+| [bist](https://www.borsaistanbul.com/duyurular) | **ERISILEMEDI** | - | 0 |
+| KAP arsivi | **OK** | 2026-11-19 | 46 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
+- 2026-11-20 [Bülten No : 2026/82 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6aff68a68f95db1a509dd7ff/2026-82.pdf)
 - 2026-11-16 [Bülten No : 2026/81 Yayımlanma : 16 Kasım 2026 Pazartesi](https://spk.gov.tr/data/6afb51ed8f95db1d4cdc42a3/2026-81.pdf)
 - 2026-11-13 [Bülten No : 2026/80 Yayımlanma : 13 Kasım 2026 Cuma](https://spk.gov.tr/data/6af772b98f95db208cf81cc3/2026-80.pdf)
-- Son bulten 2026/81: karar turleri {'islem_yasagi': 2, 'tedbir': 3, 'suc_duyurusu': 1, 'idari_para_cezasi': 1}; gecen kodlar TUKAS
+- Son bulten 2026/82: karar turleri {'tedbir': 1, 'suc_duyurusu': 1, 'idari_para_cezasi': 6, 'izin_iptali': 1, 'tasfiye': 2, 'ilke_karari': 1, 'halka_arz_onayi': 9}; gecen kodlar -
 
 ## takasbank (son 7 gun)
 
@@ -28,9 +29,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
   - PDF konu: 2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında İlgili :
   - PDF yururluk: (yazmiyor)
 - 2026-11-14 [Taşıt Takas Mobil Uygulaması Yenilendi](https://www.takasbank.com.tr/tr/duyurular/duyuru-detay/tasit-takas-mobil-uygulamasi-yenilendi)
-- 2026-11-12 [Risk Parametrelerinin Güncellenmesi Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2178-8a11fc9a-aa6b-4446-b1f6-90f0bbcbe92b.pdf)
-  - PDF degisen: 1)Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge) Vadeli İşlem Sözleşmeleri ve Opsiyon Sözleşmeleri (Futures and Options) Kontratlar (Contracts) Vadeler Arası Yayılma Pozisyonu R
-  - PDF yururluk: 16.11.2026 Pazartesi günü, gün içi ilk risk hesaplama anından itibaren geçerli olacak değişen risk parametreleri ile merkezi karşı taraf ve teminat yönetimi hizmeti verilen piyasalarda risk hesaplamasında kullanılan tüm 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
@@ -80,7 +78,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 19.11.2026 16:05:59 DÜNYA VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700275) KAYYIM ATANMASI HAKKINDA
 - 18.11.2026 20:16:16 ŞA-RA ENERJİ İNŞAAT TİCARET VE SANA - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700056) Yönetim Kurulu Üyemiz Hakkındaki Malvarlığı Tedbirinin Kaldırılması
 - 13.11.2026 09:57:55 TÜRKİYE KALKINMA VE YATIRIM BANKASI - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1697857) Turkish Investment Initiative-iVCi Alt Fon Süresinin Sona Ermesi ve Tasfiye Süre
-- 12.11.2026 09:29:41 ŞA-RA ENERJİ İNŞAAT TİCARET VE SANA - [Pay Alım Satım Bildirimi](https://www.kap.org.tr/tr/Bildirim/1697444) Tasfiye kapsamındaki yatırım fonlarından Şirketimiz paylarının borsa dışında ger
 
 ## Izleme listesi eslesmeleri
 
@@ -102,8 +99,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 13.11.2026 18:48:35 TUKAŞ GIDA SANAYİ VE TİCARET A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1698169) eslesen: TUKAS
 - 13.11.2026 18:40:02 TUKAŞ GIDA SANAYİ VE TİCARET A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1698157) eslesen: TUKAS
 - 13.11.2026 08:48:30 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1697830) eslesen: OZATD
-- 12.11.2026 18:21:59 SELÇUK ECZA DEPOSU TİCARET VE SANAY - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1697758) eslesen: SELEC
-- 12.11.2026 11:13:16 IŞIKLAR ENERJİ VE YAPI HOLDİNG A.Ş. - [Ortaklık Aleyhine Dava Açılması veya Davaya İlişkin Gelişmeler](https://www.kap.org.tr/tr/Bildirim/1697509) eslesen: IEYHO
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
@@ -122,7 +117,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Takvim (bugun-1 .. +14 gun)
 
-- 2026-11-18 saat ? Fed FOMC tutanaklari (27-28.10 toplantisi) (TEYITSIZ)
 - 2026-11-19 16:30 ABD Philadelphia Fed imalat endeksi (Kasim) (teyitli)
 - 2026-11-19 16:30 ABD haftalik issizlik basvurulari (kurala gore)
 - 2026-11-19 saat ? TCMB haftalik para ve banka istatistikleri (TEYITSIZ)
@@ -137,7 +131,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Kontrol edilemeyenler
 
-- takvim: 2026-11-18 Fed FOMC tutanaklari (27-28.10 toplantisi) - birincil kaynakla teyit edilmedi
+- bist: ERISILEMEDI (HTTP Error 503: Service Unavailable)
 - takvim: 2026-11-19 TCMB haftalik para ve banka istatistikleri - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-20 SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti) - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-20 Guven endeksleri ve KKO - birincil kaynakla teyit edilmedi
