@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-19T11:21:16.442517+00:00",
- "uretim_tr": "2026-11-19 14:21",
+ "uretim_utc": "2026-11-19T14:39:56.312374+00:00",
+ "uretim_tr": "2026-11-19 17:39",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -10,7 +10,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-16",
-   "kontrol_tr": "2026-11-19 14:20",
+   "kontrol_tr": "2026-11-19 17:39",
    "son_7_gun": [
     {
      "tarih": "2026-11-16",
@@ -47,7 +47,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-19",
-   "kontrol_tr": "2026-11-19 14:20",
+   "kontrol_tr": "2026-11-19 17:39",
    "son_7_gun": [
     {
      "tarih": "2026-11-19",
@@ -158,7 +158,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-09",
-   "kontrol_tr": "2026-11-19 14:20",
+   "kontrol_tr": "2026-11-19 17:39",
    "son_7_gun": []
   },
   {
@@ -167,7 +167,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-04",
-   "kontrol_tr": "2026-11-19 14:21",
+   "kontrol_tr": "2026-11-19 17:39",
    "son_7_gun": []
   }
  ],
@@ -906,6 +906,17 @@
   ],
   "tasfiye_tedbir_diger": [
    {
+    "gun": "2026-11-19",
+    "zaman": "19.11.2026 16:05:59",
+    "kurum": "DÜNYA VARLIK YÖNETİM A.Ş.",
+    "konu": "Özel Durum Açıklaması (Genel)",
+    "ozet": "KAYYIM ATANMASI HAKKINDA",
+    "kod": "DNYVA",
+    "ilgili": "",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1700275"
+   },
+   {
     "gun": "2026-11-18",
     "zaman": "18.11.2026 20:16:16",
     "kurum": "ŞA-RA ENERJİ İNŞAAT TİCARET VE SANAYİ A.Ş.",
@@ -940,7 +951,7 @@
    }
   ],
   "rutin_sayim": {
-   "Pay Alım Satım Bildirimi": 84,
+   "Pay Alım Satım Bildirimi": 85,
    "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 5,
    "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 5,
    "Takasbank Ödünç Pay Piyasası Günlük Bülten": 5,
@@ -951,9 +962,23 @@
   }
  },
  "izleme": {
-  "terim_sayisi": 17,
+  "terim_sayisi": 20,
   "kod_sayisi": 13,
   "eslesmeler": [
+   {
+    "gun": "2026-11-19",
+    "zaman": "19.11.2026 16:05:59",
+    "kurum": "DÜNYA VARLIK YÖNETİM A.Ş.",
+    "konu": "Özel Durum Açıklaması (Genel)",
+    "ozet": "KAYYIM ATANMASI HAKKINDA",
+    "kod": "DNYVA",
+    "ilgili": "",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1700275",
+    "eslesen": [
+     "kayyım"
+    ]
+   },
    {
     "gun": "2026-11-18",
     "zaman": "18.11.2026 21:30:35",
@@ -1057,6 +1082,20 @@
     "url": "https://www.kap.org.tr/tr/Bildirim/1699111",
     "eslesen": [
      "VSNMD"
+    ]
+   },
+   {
+    "gun": "2026-11-17",
+    "zaman": "17.11.2026 12:14:04",
+    "kurum": "BORSA İSTANBUL A.Ş.",
+    "konu": "Endekslerde Kullanılan Fiili Dolaşımdaki Pay Oranı Değişiklikleri",
+    "ozet": "",
+    "kod": "",
+    "ilgili": "BOBET, CITAS, ECOGR, IHAAS, ISKPL, KARTN, OSTIM, OZSUB, POLTK, PRZMA, SVGYO, TKNKA, TRALT",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1698956",
+    "eslesen": [
+     "fiili dolaşım"
     ]
    },
    {

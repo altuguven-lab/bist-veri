@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-19 14:21
+# Kurum taramasi - 2026-11-19 17:39
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -77,12 +77,14 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
+- 19.11.2026 16:05:59 DÜNYA VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700275) KAYYIM ATANMASI HAKKINDA
 - 18.11.2026 20:16:16 ŞA-RA ENERJİ İNŞAAT TİCARET VE SANA - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700056) Yönetim Kurulu Üyemiz Hakkındaki Malvarlığı Tedbirinin Kaldırılması
 - 13.11.2026 09:57:55 TÜRKİYE KALKINMA VE YATIRIM BANKASI - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1697857) Turkish Investment Initiative-iVCi Alt Fon Süresinin Sona Ermesi ve Tasfiye Süre
 - 12.11.2026 09:29:41 ŞA-RA ENERJİ İNŞAAT TİCARET VE SANA - [Pay Alım Satım Bildirimi](https://www.kap.org.tr/tr/Bildirim/1697444) Tasfiye kapsamındaki yatırım fonlarından Şirketimiz paylarının borsa dışında ger
 
 ## Izleme listesi eslesmeleri
 
+- 19.11.2026 16:05:59 DÜNYA VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700275) eslesen: kayyım
 - 18.11.2026 21:30:35 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700080) eslesen: KTLEV, TEHOL, OZATD, PEKGY, VSNMD, ODINE, TUKAS
 - 18.11.2026 18:23:24 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699983) eslesen: GUNDG, ANELE
 - 18.11.2026 18:10:44 VİŞNE MADENCİLİK ÜRETİM SANAYİ VE T - [Halka Arz Fiyatının Belirlenmesinde Esas Alınan Varsayımlara İlişkin Değerlendirme Raporu](https://www.kap.org.tr/tr/Bildirim/1699969) eslesen: VSNMD
@@ -90,6 +92,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 17.11.2026 18:44:12 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699259) eslesen: PEKGY
 - 17.11.2026 18:26:57 TUKAŞ GIDA SANAYİ VE TİCARET A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1699239) eslesen: TUKAS
 - 17.11.2026 17:02:00 VİŞNE MADENCİLİK ÜRETİM SANAYİ VE T - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1699111) eslesen: VSNMD
+- 17.11.2026 12:14:04 BORSA İSTANBUL A.Ş. - [Endekslerde Kullanılan Fiili Dolaşımdaki Pay Oranı Değişiklikleri](https://www.kap.org.tr/tr/Bildirim/1698956) eslesen: fiili dolaşım
 - 16.11.2026 22:46:24 KAMUYU AYDINLATMA PLATFORMU - [Sermaye Piyasası Kurulu Tedbir Kararı](https://www.kap.org.tr/tr/Bildirim/1698682) eslesen: TUKAS
 - 16.11.2026 19:55:12 PEKER GAYRİMENKUL YATIRIM ORTAKLIĞI - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1698675) eslesen: PEKGY
 - 16.11.2026 19:14:32 ANEL ELEKTRİK PROJE TAAHHÜT VE TİCA - [Birleşme İşlemlerine İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1698661) eslesen: ANELE
