@@ -22,9 +22,20 @@ import json, os, statistics, datetime
 import pandas as pd
 import yfinance as yf
 
-RF = float(os.environ.get("RF_USD", "4.97"))     # ABD 10y, 23.10.2026
-CDS = float(os.environ.get("CDS_TR", "2.58"))    # Turkiye 5y CDS (puan/100), 23.10.2026
-ERP = float(os.environ.get("ERP", "5.0"))        # hisse risk primi
+def _rf_varsayilan():
+    """19.11: RF_USD bos ya da verilmemisse (zamanlanmis calisma) ABD 10 yillik getiri data/endeks_intraday.json'dan
+    (^TNX, Yahoo) alinir; o da yoksa 4.97 (23.10.2026)."""
+    import json as _j
+    try:
+        return float(_j.load(open("data/endeks_intraday.json", encoding="utf-8"))["gostergeler"]["ABD_10Y"]["son"])
+    except Exception:
+        return 4.97
+
+
+RF = float(os.environ.get("RF_USD") or _rf_varsayilan())     # ABD 10y
+RF_KAYNAK = "girdi" if os.environ.get("RF_USD") else "endeks_intraday/varsayilan"
+CDS = float(os.environ.get("CDS_TR") or "2.58")    # Turkiye 5y CDS (puan/100), 23.10.2026
+ERP = float(os.environ.get("ERP") or "5.0")        # hisse risk primi
 KE = (RF + CDS + ERP) / 100.0
 GIRDI = os.environ.get("CARPAN", "data/temel_carpan_bist100.json")
 
@@ -121,7 +132,7 @@ def main():
         satir.append(r)
     satir.sort(key=lambda r: -r["potansiyel_pct"])
     out = {"uretim_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-           "ozkaynak_maliyeti_usd_pct": round(KE * 100, 2), "parametreler": {"RF_USD": RF, "CDS_TR": CDS, "ERP": ERP},
+           "ozkaynak_maliyeti_usd_pct": round(KE * 100, 2), "parametreler": {"RF_USD": RF, "RF_kaynak": RF_KAYNAK, "CDS_TR": CDS, "ERP": ERP},
            "carpan_kaynagi": GIRDI, "carpan_uretim_utc": c.get("olusturma_utc"), "carpan_yasi_saat": yas_saat,
            "uyari_bayat_carpan": bool(yas_saat and yas_saat > 6),
            "not": "Salt olcum, tavsiye degildir. Tahmini deger = uc yontemin medyani. yontem_dagilimi_pct yuksekse belirsizlik yuksektir.",
