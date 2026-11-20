@@ -34,6 +34,7 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
    | `data/piyasa_gunluk.json` | TL tahvil getirileri TR02Y, TR05Y, TR10Y (günlük, TradingView TVC → köprü; seans sonu son değer). Bugünün tarihi yoksa 🕒 (seans bitmedi) ya da ✖ (alarm/köprü sorunu) |
    | `data/bist_resmi.json` / `bist_resmi_gecmis.json` | borsaistanbul.com ana sayfasından XU100, XU030, XBANK vb. gün sonu değerleri (18:20 TR). Durum OK değilse ✖ + neden |
    | `data/risk_raporu.md` | H6 bileşik ve gölge portföylerin risk ölçüleri (quantstats; aylık) |
+   | `data/arastirma_akisi.md` | Aracı kurum hedef/tavsiye değişiklikleri (İş Yatırım ✅, hedeffiyat.com.tr ✅ toplayıcı), yabancı kurum ve kredi notu haberleri (◐). Garanti BBVA, YKY/Ziraat PDF ve yabancı banka raporları ⛔ |
    | `data/bist_intraday.json` | Evrendeki 32 hissenin 15 dakikalık barları (öğle seviyesi, gün içi seyir) |
    | `data/kuresel_gosterge.json` | Asya, Avrupa ve ABD özeti |
    | `data/makro_takvim.json` | TCMB ve Fed tarihleri (birincil kaynakla teyitli) |
@@ -54,6 +55,7 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
 4. **Türkiye 5 yıllık CDS (her brifingte):** Güncel değer, tarihi ve kaynağıyla yazılır. Sırası şöyle: (a) kullanıcının panelinden paylaştığı değer ✅ (panel esastır); (b) toplayıcı kurulunca `data/cds_gunluk.json` (kaynağına göre ✅ ya da ◐); (c) o gün tarihli bir haber ◐ (kaynak S&P Global, Bloomberg, LSEG vb. yazılır). Bugüne ait değer bulunamazsa ✖ yazılır ve "son bilinen: değer, tarih, kaynak" verilir. Tarihi belli olmayan sayfalardaki değer kullanılmaz.
 5. **Piyasa:** Endeks ve kur için önce `endeks_intraday.json` kullanılır ("Yahoo, gecikmeli" diye belirtilir). Resmi kapanış için önce `data/bist_resmi.json` (borsaistanbul.com, ✅), sonra TCMB; haber siteleri ◐.
 6. **Makro ve siyasi:** Her veri için ✅ ya da ◐ kullanılır. Henüz açıklanmamış veri için 🕒 ve beklenen saat yazılır.
+6b. **Kurum raporları:** `data/arastirma_akisi.md`'den takip setindeki hedef/tavsiye değişiklikleri (revizyon yönüyle), yabancı kurum ve kredi notu haberleri (◐, tarihli). Rapor metni aktarılmaz. Tek bir rapor sinyal sayılmaz; revizyon genişliğiyle (`data/analist_hedef/revizyon.md`) birlikte okunur.
 7. **Savaş ve jeopolitik:** Haberin tarihi yazılır. Bugünden eski haber "son bilinen" diye işaretlenir.
 8. **İzlenecekler:** Yalnızca takvimden alınır, saatleriyle.
 9. **Teyit edilemeyenler:** Bu başlık her zaman bulunur. Her ✖, ⛔ ve ◐ maddesi burada nedeniyle birlikte tekrar edilir ve her birine aynı gün için bir kontrol saati verilir.
