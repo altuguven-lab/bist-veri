@@ -46,6 +46,24 @@ SERILER = {
     "tcmb_brut_rezerv_mn_usd": ("TP.AB.TOPLAM", "haftalik"),
     "reel_efektif_kur_tufe": ("TP.RK.T1.Y", "aylik"),
 }
+# 20.11.2026 eki - reel kesim, anket ve dis pozisyon gostergeleri (kodlar EVDS'te dogrulandi; hepsi TCMB birincil)
+GOSTERGELER = {
+    "reel_kesim_guven_MA": ("TP.GY1.N2.MA", "aylik", "Reel Kesim Guven Endeksi (MA)"),
+    "rkge_toplam_siparis_MA": ("TP.GY2.N2.MA", "aylik", "RKGE: toplam siparis, mevcut (MA)"),
+    "rkge_ihracat_siparis_3ay_MA": ("TP.GY7.N2.MA", "aylik", "RKGE: ihracat siparisi, gelecek 3 ay (MA)"),
+    "rkge_yatirim_harcamasi_MA": ("TP.GY8.N2.MA", "aylik", "RKGE: sabit sermaye yatirim harcamasi (MA)"),
+    "rkge_genel_gidisat_MA": ("TP.GY9.N2.MA", "aylik", "RKGE: genel gidisat (MA)"),
+    "kko_imalat_MA": ("TP.KKO.MA", "aylik", "Imalat sanayi kapasite kullanim orani (MA, %)"),
+    "tuketici_guven": ("TP.TG2.Y01", "aylik", "Tuketici guven endeksi"),
+    "oncu_gosterge_12ay_degisim": ("TP.CLI2.A03", "aylik", "Bilesik oncu gostergeler, 12 aylik % degisim"),
+    "enf_bek_12ay_reel_sektor": ("TP.ENFBEK.IYA12ENF", "aylik", "Reel sektor 12 ay sonrasi enflasyon beklentisi (%)"),
+    "enf_bek_12ay_hanehalki": ("TP.ENFBEK.HBA12ENF", "aylik", "Hanehalki 12 ay sonrasi enflasyon beklentisi (%)"),
+    "uyp_net_mn_usd": ("TP.UYPUCAY.K1", "ucaylik", "Uluslararasi yatirim pozisyonu, net (milyon USD)"),
+    "uyp_yabanci_hisse_yukumluluk_mn_usd": ("TP.UYPUCAY.K45", "ucaylik", "UYP: yurt disina hisse senedi yukumlulugu (milyon USD)"),
+    "kredi_standartlari_isletme_gecen3ay": ("TP.BKEA.S001", "ucaylik", "Banka kredileri egilim: isletme kredi standartlari, gecen 3 ay (net %)"),
+    "kredi_talebi_isletme_gecen3ay": ("TP.BKEA.S024", "ucaylik", "Banka kredileri egilim: isletme kredi talebi, gecen 3 ay (net %)"),
+    "kredi_standartlari_isletme_gelecek3ay": ("TP.BKEA.S042", "ucaylik", "Banka kredileri egilim: isletme kredi standartlari beklentisi, gelecek 3 ay (net %)"),
+}
 CIKTI = "data/makro_akim_reel.json"
 
 
@@ -101,6 +119,19 @@ def main():
         except Exception as e:
             hatalar[ad] = str(e)[:200]
             print(f"UYARI: {ad} ({kod}) cekilemedi: {e}", file=sys.stderr)
+    gosterge = {}
+    for ad, (kod, frekans, etiket) in GOSTERGELER.items():
+        try:
+            g = cek(kod, dt.date(2020, 1, 1), bugun, anahtar)
+            veri[ad] = g
+            if g:
+                son, onc = g[-1], (g[-2] if len(g) >= 2 else None)
+                gosterge[ad] = {"etiket": etiket, "kod": kod, "frekans": frekans, "son": son, "onceki": onc,
+                                "degisim": round(son["deger"] - onc["deger"], 2) if onc else None,
+                                "yon": ("artti" if onc and son["deger"] > onc["deger"] else "azaldi" if onc and son["deger"] < onc["deger"] else "ayni")}
+        except Exception as e:
+            hatalar[ad] = str(e)[:200]
+            print(f"UYARI: {ad} ({kod}) cekilemedi: {e}", file=sys.stderr)
     if not veri:
         print("HATA: hicbir seri gelmedi, mevcut dosya korundu", file=sys.stderr)
         return 1
@@ -143,8 +174,10 @@ def main():
     if rk:
         ozet["reel_efektif_kur"] = {"son": rk[-1], "12_ay_once": rk[-13] if len(rk) > 12 else None,
                                     "not": "2025=100; artis TL'nin reel degerlenmesi."}
+    ozet["gostergeler"] = gosterge
+    tum_kod = {**{a: (k, f) for a, (k, f) in SERILER.items()}, **{a: (k, f) for a, (k, f, _) in GOSTERGELER.items()}}
     out = {"uretim_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "kaynak": "TCMB EVDS (birincil)",
-           "seriler": {ad: {"kod": SERILER[ad][0], "frekans": SERILER[ad][1], "gozlem": v[-160:]} for ad, v in veri.items()},
+           "seriler": {ad: {"kod": tum_kod[ad][0], "frekans": tum_kod[ad][1], "gozlem": v[-160:]} for ad, v in veri.items()},
            "ozet": ozet, "hatalar": hatalar,
            "not": "Salt olcum, tavsiye degildir. Akimlarin getiri ongorusu test edilmedi; tahmin olarak kullanmadan "
                   "once on kayit gerekir."}
@@ -187,6 +220,13 @@ def main():
     if rk_:
         L += ["## Reel efektif kur (TUFE bazli, 2025=100)", "",
               f"- {rk_['son']['tarih']}: {rk_['son']['deger']}" + (f" | 12 ay once ({rk_['12_ay_once']['tarih']}): {rk_['12_ay_once']['deger']}" if rk_.get('12_ay_once') else ""), ""]
+    if gosterge:
+        L += ["## Reel kesim, anket ve dis pozisyon gostergeleri", "", "| Gosterge | Son | Onceki | Degisim |", "|---|---|---|---|"]
+        for ad, g in gosterge.items():
+            onc = f"{g['onceki']['deger']} ({g['onceki']['tarih']})" if g.get("onceki") else "-"
+            L.append(f"| {g['etiket']} | {g['son']['deger']} ({g['son']['tarih']}) | {onc} | {g['degisim'] if g['degisim'] is not None else '-'} |")
+        L += ["", "Guven endeksleri 100 esigine gore okunur (100 ustu iyimser); kredi egilim serileri net yuzdedir (pozitif = sikilasma/artis). UYP'deki ceyreklik degisimin buyuk kismi degerleme "
+              "(kur/fiyat) etkisi olabilir; akim ile karistirilmamali.", ""]
     if hatalar:
         L += ["## Cekilemeyen seriler", ""] + [f"- {k}: {v}" for k, v in hatalar.items()] + [""]
     L.append("Gozlem amaclidir, tavsiye degildir.")
