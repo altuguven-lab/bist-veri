@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-20 12:43
+# Kurum taramasi - 2026-11-20 16:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -103,7 +103,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
-- ANELE: 11-13: 1, 11-17: 1, 11-18: 6
+- ANELE: 11-13: 1, 11-17: 1, 11-18: 6, 11-20: 1
 - DSTKF: 11-17: 1, 11-18: 1, 11-20: 1
 - GUNDG: 11-17: 1, 11-18: 1, 11-20: 1
 - IEYHO: 11-13: 1, 11-17: 2, 11-20: 1

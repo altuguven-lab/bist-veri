@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-20T09:43:32.901509+00:00",
- "uretim_tr": "2026-11-20 12:43",
+ "uretim_utc": "2026-11-20T13:43:52.723311+00:00",
+ "uretim_tr": "2026-11-20 16:43",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -10,7 +10,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-20",
-   "kontrol_tr": "2026-11-20 12:43",
+   "kontrol_tr": "2026-11-20 16:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-20",
@@ -54,7 +54,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-19",
-   "kontrol_tr": "2026-11-20 12:43",
+   "kontrol_tr": "2026-11-20 16:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-19",
@@ -138,7 +138,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-09",
-   "kontrol_tr": "2026-11-20 12:43",
+   "kontrol_tr": "2026-11-20 16:43",
    "son_7_gun": []
   },
   {
@@ -147,7 +147,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-04",
-   "kontrol_tr": "2026-11-20 12:43",
+   "kontrol_tr": "2026-11-20 16:43",
    "son_7_gun": []
   }
  ],
@@ -833,13 +833,13 @@
   ],
   "rutin_sayim": {
    "Pay Alım Satım Bildirimi": 78,
+   "Takasbank Para Piyasası Günlük Bülten": 6,
    "Takasbank Ödünç Pay Piyasası Günlük Bülten": 5,
    "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 5,
    "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 5,
-   "Takasbank Para Piyasası Günlük Bülten": 5,
    "Hak Kullanımı": 5,
-   "Pay Mali Hak Kullanım İşlemi - Nakit Ödeme": 3,
-   "Varantların veya Sertifikaların İşlem Görmeye Başlaması": 2
+   "Varantların veya Sertifikaların İşlem Görmeye Başlaması": 3,
+   "Pay Mali Hak Kullanım İşlemi - Nakit Ödeme": 3
   }
  },
  "izleme": {
@@ -1126,7 +1126,8 @@
    "ANELE": {
     "2026-11-13": 1,
     "2026-11-17": 1,
-    "2026-11-18": 6
+    "2026-11-18": 6,
+    "2026-11-20": 1
    },
    "DSTKF": {
     "2026-11-17": 1,
@@ -1242,7 +1243,7 @@
     "olay": "TCMB Finansal Istikrar Raporu",
     "teyit": "birincil",
     "kaynak": "TCMB: tcmb.gov.tr/Takvim | Fed: federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "aciklama": "makro_takvim.json, dogrulama 2026-07-16"
+    "aciklama": "makro_takvim.json, dogrulama 2026-11-20"
    },
    {
     "tarih": "2026-11-30",
