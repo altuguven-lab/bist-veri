@@ -1,122 +1,200 @@
 {
- "uretim_utc": "2026-11-20T06:28:34.194355+00:00",
- "uretim_tr": "2026-11-20 09:28",
+ "uretim_utc": "2026-11-20T06:42:42.136107+00:00",
+ "uretim_tr": "2026-11-20 09:42",
  "kaynak": "https://www.borsaistanbul.com/",
  "durum": "OK",
  "hata": null,
  "sayfa_zamani": null,
+ "yontem": "getBistIndices JSON (sayfanin kendi veri adresi)",
  "endeksler": {
+  "XU500": {
+   "ad": "BIST 500",
+   "son": 13075.224051,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.44,
+   "aylik_yuzde": -1.36,
+   "yilbasindan_yuzde": -6.8,
+   "yillik_yuzde": -4.66,
+   "hacim_tl": 121284107075.1
+  },
   "XU100": {
    "ad": "BIST 100",
-   "son": 11400.09,
-   "degisim_yuzde": 0.0,
-   "hacim_tl": 83255218373.0,
-   "ham_satir": [
-    "BIST 100",
-    "11.400,09",
-    "83.255.218.373",
-    "0,00",
-    "-3,74",
-    "-1,53",
-    "1,23",
-    "3,83"
-   ],
-   "basliklar": [
-    "",
-    "Son Değer",
-    "İşlem Hacmi (TL)",
-    "Bugün (%)",
-    "1 Haftalık (%)",
-    "1 Aylık (%)",
-    "Yılbaşından (%)",
-    "1 Yıllık (%)"
-   ]
+   "son": 11400.086214,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.74,
+   "aylik_yuzde": -1.53,
+   "yilbasindan_yuzde": 1.23,
+   "yillik_yuzde": 3.83,
+   "hacim_tl": 83255218373.02
   },
   "XU030": {
    "ad": "BIST 30",
-   "son": 14300.01,
-   "degisim_yuzde": 0.0,
-   "hacim_tl": 73112227489.0,
-   "ham_satir": [
-    "BIST 30",
-    "14.300,01",
-    "73.112.227.489",
-    "0,00",
-    "-3,67",
-    "-1,13",
-    "16,99",
-    "19,76"
-   ],
-   "basliklar": [
-    "",
-    "Son Değer",
-    "İşlem Hacmi (TL)",
-    "Bugün (%)",
-    "1 Haftalık (%)",
-    "1 Aylık (%)",
-    "Yılbaşından (%)",
-    "1 Yıllık (%)"
-   ]
+   "son": 14300.008058,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.67,
+   "aylik_yuzde": -1.13,
+   "yilbasindan_yuzde": 16.99,
+   "yillik_yuzde": 19.76,
+   "hacim_tl": 73112227489.36
   },
-  "XBANK": {
-   "ad": "BIST BANKA DISI LIKIT 10",
-   "son": 17357.25,
-   "degisim_yuzde": 0.0,
-   "hacim_tl": 46243828922.0,
-   "ham_satir": [
-    "BIST BANKA DISI LIKIT 10",
-    "17.357,25",
-    "46.243.828.922",
-    "0,00",
-    "-3,42",
-    "-1,06",
-    "26,75",
-    "28,04"
-   ],
-   "basliklar": [
-    "",
-    "Son Değer",
-    "İşlem Hacmi (TL)",
-    "Bugün (%)",
-    "1 Haftalık (%)",
-    "1 Aylık (%)",
-    "Yılbaşından (%)",
-    "1 Yıllık (%)"
-   ]
+  "XK100": {
+   "ad": "BIST KATILIM 100",
+   "son": 12743.814973,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -4.13,
+   "aylik_yuzde": -3.66,
+   "yilbasindan_yuzde": 3.04,
+   "yillik_yuzde": 5.11,
+   "hacim_tl": 32040932738.6
   },
   "XUTUM": {
-   "ad": "BIST TÜM",
-   "son": 14562120244428.0,
-   "degisim_yuzde": null,
-   "hacim_tl": null,
-   "ham_satir": [
-    "BIST TÜM",
-    "14.562.120.244.428",
-    "4.300.999.759.516",
-    "6.428.902"
-   ],
-   "basliklar": [
-    "",
-    "Piyasa Değeri (TL)",
-    "FDPO Ağırlıklı Piyasa Değeri (TL)",
-    "Yatırımcı Sayısı"
-   ]
+   "ad": "BIST TUM",
+   "son": 13239.350685,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.45,
+   "aylik_yuzde": -1.41,
+   "yilbasindan_yuzde": -6.69,
+   "yillik_yuzde": -4.57,
+   "hacim_tl": 122391373477.59
+  },
+  "XTUMY": {
+   "ad": "BIST TUM-100",
+   "son": 39316.908935,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -2.21,
+   "aylik_yuzde": -0.93,
+   "yilbasindan_yuzde": -29.31,
+   "yillik_yuzde": -28.19,
+   "hacim_tl": 39136155104.57
+  },
+  "XLBNK": {
+   "ad": "BIST LIKIT BANKA",
+   "son": 14606.506908,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.81,
+   "aylik_yuzde": 1.25,
+   "yilbasindan_yuzde": -1.63,
+   "yillik_yuzde": 7.88,
+   "hacim_tl": 15681278175.77
+  },
+  "XBLSM": {
+   "ad": "BIST BANKA DISI LIKIT 10",
+   "son": 17357.245146,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.42,
+   "aylik_yuzde": -1.06,
+   "yilbasindan_yuzde": 26.75,
+   "yillik_yuzde": 28.04,
+   "hacim_tl": 46243828921.66
   }
  },
+ "tum_endeksler": {
+  "BIST 500": {
+   "ad": "BIST 500",
+   "son": 13075.224051,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.44,
+   "aylik_yuzde": -1.36,
+   "yilbasindan_yuzde": -6.8,
+   "yillik_yuzde": -4.66,
+   "hacim_tl": 121284107075.1
+  },
+  "BIST 100": {
+   "ad": "BIST 100",
+   "son": 11400.086214,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.74,
+   "aylik_yuzde": -1.53,
+   "yilbasindan_yuzde": 1.23,
+   "yillik_yuzde": 3.83,
+   "hacim_tl": 83255218373.02
+  },
+  "BIST 30": {
+   "ad": "BIST 30",
+   "son": 14300.008058,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.67,
+   "aylik_yuzde": -1.13,
+   "yilbasindan_yuzde": 16.99,
+   "yillik_yuzde": 19.76,
+   "hacim_tl": 73112227489.36
+  },
+  "BIST KATILIM 100": {
+   "ad": "BIST KATILIM 100",
+   "son": 12743.814973,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -4.13,
+   "aylik_yuzde": -3.66,
+   "yilbasindan_yuzde": 3.04,
+   "yillik_yuzde": 5.11,
+   "hacim_tl": 32040932738.6
+  },
+  "BIST TUM": {
+   "ad": "BIST TUM",
+   "son": 13239.350685,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.45,
+   "aylik_yuzde": -1.41,
+   "yilbasindan_yuzde": -6.69,
+   "yillik_yuzde": -4.57,
+   "hacim_tl": 122391373477.59
+  },
+  "BIST TUM-100": {
+   "ad": "BIST TUM-100",
+   "son": 39316.908935,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -2.21,
+   "aylik_yuzde": -0.93,
+   "yilbasindan_yuzde": -29.31,
+   "yillik_yuzde": -28.19,
+   "hacim_tl": 39136155104.57
+  },
+  "BIST LIKIT BANKA": {
+   "ad": "BIST LIKIT BANKA",
+   "son": 14606.506908,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.81,
+   "aylik_yuzde": 1.25,
+   "yilbasindan_yuzde": -1.63,
+   "yillik_yuzde": 7.88,
+   "hacim_tl": 15681278175.77
+  },
+  "BIST BANKA DISI LIKIT 10": {
+   "ad": "BIST BANKA DISI LIKIT 10",
+   "son": 17357.245146,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.42,
+   "aylik_yuzde": -1.06,
+   "yilbasindan_yuzde": 26.75,
+   "yillik_yuzde": 28.04,
+   "hacim_tl": 46243828921.66
+  },
+  "BIST SURDURULEBILIRLIK": {
+   "ad": "BIST SURDURULEBILIRLIK",
+   "son": 16332.965598,
+   "degisim_yuzde": 0,
+   "haftalik_yuzde": -3.73,
+   "aylik_yuzde": -1.38,
+   "yilbasindan_yuzde": 8.77,
+   "yillik_yuzde": 12.32,
+   "hacim_tl": 71758746695
+  }
+ },
+ "seans_oncesi_not": "09:55 oncesi okumada 'Bugun %' 0 olur ve son deger bir onceki gunun kapanisidir.",
  "tablo_sayisi": 7,
  "kartlar_ornek": [
-  "BIST Artan\n\nINVES.E\n\n0,00\n\n0,00\n\nBIENY.E\n\n0,00\n\n0,00\n\nVESTL.E\n\n0,00\n\n0,00\n\nINTEK.E\n\n0,00\n\n0,00\n\nEDIP.E\n\n0,00\n\n0,00",
-  "BIST Artan\n\nINVES.E\n\n0,00\n\n0,00\n\nBIENY.E\n\n0,00\n\n0,00\n\nVESTL.E\n\n0,00\n\n0,00\n\nINTEK.E\n\n0,00\n\n0,00\n\nEDIP.E\n\n0,00\n\n0,00",
-  "INVES.E\n\n0,00\n\n0,00",
-  "BIENY.E\n\n0,00\n\n0,00",
-  "VESTL.E\n\n0,00\n\n0,00",
-  "INTEK.E\n\n0,00\n\n0,00",
-  "EDIP.E\n\n0,00\n\n0,00",
-  "INVES.E\n                          0,00\n                          \n                            0,00",
-  "BIENY.E\n                          0,00\n                          \n                            0,00",
-  "VESTL.E\n                          0,00\n                          \n                            0,00",
-  "INTEK.E\n                          0,00\n                          \n                            0,00",
-  "EDIP.E\n                          0,00\n                          \n                            0,00",
+  "BIST Artan\n\nYAPRK.E\n\n0,00\n\n0,00\n\nAVGYO.E\n\n0,00\n\n0,00\n\nEMKEL.E\n\n0,00\n\n0,00\n\nULUSE.E\n\n0,00\n\n0,00\n\nMGROS.E\n\n0,00\n\n0,00",
+  "BIST Artan\n\nYAPRK.E\n\n0,00\n\n0,00\n\nAVGYO.E\n\n0,00\n\n0,00\n\nEMKEL.E\n\n0,00\n\n0,00\n\nULUSE.E\n\n0,00\n\n0,00\n\nMGROS.E\n\n0,00\n\n0,00",
+  "YAPRK.E\n\n0,00\n\n0,00",
+  "AVGYO.E\n\n0,00\n\n0,00",
+  "EMKEL.E\n\n0,00\n\n0,00",
+  "ULUSE.E\n\n0,00\n\n0,00",
+  "MGROS.E\n\n0,00\n\n0,00",
+  "YAPRK.E\n                          0,00\n                          \n                            0,00",
+  "AVGYO.E\n                          0,00\n                          \n                            0,00",
+  "EMKEL.E\n                          0,00\n                          \n                            0,00",
+  "ULUSE.E\n                          0,00\n                          \n                            0,00",
+  "MGROS.E\n                          0,00\n                          \n                            0,00",
   "F_SASA1126\n                          6.682.854",
   "F_USDTRY1126\n                          3.458.335",
   "F_ISCTR1126\n                          2.422.732",
