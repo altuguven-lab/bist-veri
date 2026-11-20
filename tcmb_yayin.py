@@ -29,6 +29,8 @@ RSS = {
     "Baskanin Konusmalari": TABAN + "/wps/wcm/connect/TR/TCMB+TR/Bottom+Menu/Diger/RSS/Baskanin+Konusmalari",
 }
 TAKVIM_URL = "https://appg.tcmb.gov.tr/igmvytsfe-dis/tr"
+# Takvim uygulamasinin kendi veri adresi (20.11 kesif calismasinda bulundu; tarayicida 500 verdi, dogrudan istekte calisti)
+TAKVIM_API = "https://appg.tcmb.gov.tr/igmvytsms-dis/veriTakvimi/list?yil={y}&ay={a}&gun={g}&lang=tr&page={p}&size=50"
 UA = "Mozilla/5.0 (bist-veri arastirma botu; gunde birkac kez)"
 AY = {"oca": 1, "şub": 2, "sub": 2, "mar": 3, "nis": 4, "may": 5, "haz": 6, "tem": 7, "ağu": 8, "agu": 8, "eyl": 9,
       "eki": 10, "kas": 11, "ara": 12, "jan": 1, "feb": 2, "apr": 4, "jun": 6, "jul": 7, "aug": 8, "sep": 9, "oct": 10,
@@ -78,6 +80,36 @@ def rss_oku(ad, url):
         t, s = tarih_coz(m.group(5))
         out.append({"akis": ad, "baslik": temiz(m.group(1))[:200], "tarih": t, "saat": s, "link": TABAN + m.group(3)})
     return out, "metin-yedek"
+
+
+def takvim_api(bugun):
+    """Bugunden itibaren bu ay ve gelecek ayin kayitlari. tarih alani UTC ise TR saatine (+3) cevrilir."""
+    olay = []
+    for (y, a, g) in ((bugun.year, bugun.month, bugun.day),
+                      ((bugun.replace(day=28) + dt.timedelta(days=4)).year, (bugun.replace(day=28) + dt.timedelta(days=4)).month, 1)):
+        for sayfa in range(6):
+            r = urllib.request.Request(TAKVIM_API.format(y=y, a=a, g=g, p=sayfa),
+                                       headers={"User-Agent": UA, "Accept": "application/json", "Referer": TAKVIM_URL})
+            with urllib.request.urlopen(r, timeout=40) as yy:
+                d = json.loads(yy.read().decode("utf-8"))
+            for x in d.get("content") or []:
+                ham = x.get("tarih") or ""
+                try:
+                    z = dt.datetime.fromisoformat(ham.replace("Z", "+00:00"))
+                    if z.tzinfo is not None:
+                        z = z.astimezone(dt.timezone(dt.timedelta(hours=3)))
+                    t, s_ = z.date().isoformat(), z.strftime("%H:%M")
+                except ValueError:
+                    t, s_ = tarih_coz(ham)
+                ad = ((x.get("yayinBilgi") or {}).get("yayimAdi") or "").strip()
+                donem = (x.get("donem") or x.get("period") or "").strip()
+                link = (x.get("veriLink") or {}).get("link") or None
+                if t and ad:
+                    olay.append({"tarih": t, "saat": s_, "ad": f"{ad} ({donem})" if donem else ad, "kaynak": "takvim-api",
+                                 "rip": bool(x.get("rip")), "link": link, "ham_tarih": ham})
+            if sayfa + 1 >= (d.get("totalPages") or 1):
+                break
+    return olay
 
 
 def takvim_oku():
@@ -150,7 +182,11 @@ def main():
             print(f"UYARI: {ad}: {e}", file=sys.stderr)
     takvim = []
     try:
-        takvim = takvim_oku()
+        takvim = takvim_api(bugun)
+    except Exception as e:
+        print("UYARI: takvim API:", e, file=sys.stderr)
+    try:
+        takvim = takvim or takvim_oku()
         durum["Veri Yayimlama Takvimi"] = {"durum": "OK" if takvim else "AYRISTIRILAMADI", "adet": len(takvim)}
     except Exception as e:
         durum["Veri Yayimlama Takvimi"] = {"durum": "ERISILEMEDI", "hata": str(e)[:200]}
@@ -158,6 +194,12 @@ def main():
     if not yayin and not takvim:
         print("HATA: hicbir kaynak veri vermedi; mevcut dosya korundu", file=sys.stderr)
         return 1
+    tek, gor = [], set()
+    for o in sorted(takvim, key=lambda o: (o["tarih"], o["saat"] or "", o["ad"])):
+        if (o["tarih"], o["saat"], o["ad"]) not in gor:
+            gor.add((o["tarih"], o["saat"], o["ad"]))
+            tek.append(o)
+    takvim = tek
     yedi = (bugun - dt.timedelta(days=7)).isoformat()
     ileri = (bugun + dt.timedelta(days=14)).isoformat()
     son = sorted([y for y in yayin if (y.get("tarih") or "") >= yedi], key=lambda y: (y["tarih"], y["saat"] or ""), reverse=True)
@@ -172,7 +214,7 @@ def main():
         ["", "## Son 7 gün yayımlananlar", ""] + \
         ([f"- {y['tarih']} {y['saat'] or ''} [{y['akis']}] [{y['baslik']}]({y['link']})" for y in son[:40]] or ["- (yok)"]) + \
         ["", "## Önümüzdeki 14 gün (Veri Yayımlama Takvimi)", ""] + \
-        ([f"- {o['tarih']} {o['saat'] or ''} {o['ad']}" for o in gelecek[:60]] or ["- (ayrıştırılamadı ya da kayıt yok; data/tcmb_yayin_ham/ incelenmeli)"]) + \
+        ([f"- {o['tarih']} {o['saat'] or ''} {o['ad']}{' (RİP)' if o.get('rip') else ''}" for o in gelecek[:60]] or ["- (ayrıştırılamadı ya da kayıt yok; data/tcmb_yayin_ham/ incelenmeli)"]) + \
         ["", "Gözlem amaçlıdır, tavsiye değildir."]
     open("data/tcmb_yayin.md", "w", encoding="utf-8").write("\n".join(L) + "\n")
     print(f"Tamam: {len(yayin)} yayin, {len(takvim)} takvim olayi; durum {durum}")
