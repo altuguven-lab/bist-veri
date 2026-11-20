@@ -104,6 +104,34 @@ def json_ayristir(govde):
     return sonuc, tum
 
 
+def islem_gunu_mu(g):
+    if g.weekday() >= 5:
+        return False
+    try:
+        import yaml
+        tat = {str(x["date"]) for x in (yaml.safe_load(open("config/market_calendar.yml", encoding="utf-8")) or {}).get("full_day_holidays", [])}
+    except Exception:
+        tat = set()
+    return g.isoformat() not in tat
+
+
+def veri_tarihi(tr):
+    """Okunan degerin ait oldugu islem gunu ve seans durumu (20.11 duzeltmesi: seans oncesi okuma dunun kapanisidir)."""
+    g = tr.date()
+    if not islem_gunu_mu(g):
+        durum = "tatil_ya_da_hafta_sonu"
+    elif (tr.hour, tr.minute) < (10, 0):
+        durum = "seans_oncesi"
+    elif (tr.hour, tr.minute) < (18, 10):
+        return g.isoformat(), "seans_ici"
+    else:
+        return g.isoformat(), "kapanis_sonrasi"
+    g -= dt.timedelta(days=1)
+    while not islem_gunu_mu(g):
+        g -= dt.timedelta(days=1)
+    return g.isoformat(), durum
+
+
 def main():
     simdi = dt.datetime.now(dt.timezone.utc)
     os.makedirs("data/bist_resmi_ham", exist_ok=True)
@@ -155,7 +183,11 @@ def main():
     if veri or endeks_json:
         durum = "OK" if endeks.get("XU100", {}).get("son") else "AYRISTIRILAMADI"
     tr = simdi + dt.timedelta(hours=3)
-    out = {"uretim_utc": simdi.isoformat(), "uretim_tr": tr.strftime("%Y-%m-%d %H:%M"), "kaynak": URL,
+    vt, seans = veri_tarihi(tr)
+    out = {"uretim_utc": simdi.isoformat(), "uretim_tr": tr.strftime("%Y-%m-%d %H:%M"),
+           "veri_tarihi": vt, "seans_durumu": seans,
+           "okuma_notu": ("Deger " + vt + " kapanisidir (bugunun degil)." if seans in ("seans_oncesi", "tatil_ya_da_hafta_sonu")
+                          else "Seans ici okuma: gecikmeli olabilir, kapanis degildir." if seans == "seans_ici" else "Gun sonu degeri."), "kaynak": URL,
            "durum": durum, "hata": hata, "sayfa_zamani": veri.get("saat") if veri else None,
            "yontem": yontem, "endeksler": endeks, "tum_endeksler": tum,
            "seans_oncesi_not": "09:55 oncesi okumada 'Bugun %' 0 olur ve son deger bir onceki gunun kapanisidir." if tr.hour < 10 else None,
@@ -163,12 +195,14 @@ def main():
            "kartlar_ornek": (veri.get("kartlar") or [])[:20] if veri else [],
            "not": "borsaistanbul.com ana sayfasindaki tablo; site verisi gecikmeli olabilir. Salt veri, tavsiye degildir."}
     json.dump(out, open("data/bist_resmi.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    if durum == "OK" and tr.hour >= 18:  # yalniz seans sonrasi okuma "gun sonu" sayilir
+    if durum == "OK" and seans != "seans_ici":
+        # kapanis sonrasi: bugunun gun sonu. Seans oncesi/tatil: onceki islem gunu eksikse kapanisla doldurulur.
         yol = "data/bist_resmi_gecmis.json"
         g = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
-        g[tr.strftime("%Y-%m-%d")] = {k: {"son": v["son"], "degisim_yuzde": v["degisim_yuzde"], "hacim_tl": v.get("hacim_tl")}
-                                      for k, v in endeks.items()}
-        json.dump(dict(sorted(g.items())[-800:]), open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        if seans == "kapanis_sonrasi" or vt not in g:
+            g[vt] = {k: {"son": v["son"], "degisim_yuzde": v["degisim_yuzde"] if seans == "kapanis_sonrasi" else None,
+                         "hacim_tl": v.get("hacim_tl"), "kaynak_okuma": seans} for k, v in endeks.items()}
+            json.dump(dict(sorted(g.items())[-800:]), open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"durum {durum}; endeksler {list(endeks)}; json adresleri {len(ag)}")
     return 0 if durum != "ERISILEMEDI" else 1
 
