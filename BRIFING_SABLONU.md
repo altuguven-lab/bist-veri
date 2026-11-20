@@ -32,6 +32,8 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
    | `data/kurum_taramasi.json` / `.md` | Kaynak durum tablosu; Takasbank'ın bütün PDF özetleri; KAP kurum bildirimleri; izleme listesi ve devre kesici sayımı; takvim |
    | `data/endeks_intraday.json` | XU100, XU030, XBANK, XHOLD, XUSIN, USDTRY, EURTRY, Brent, S&P/Nasdaq vadelileri, ABD 10 yıllık, dolar endeksi, altın (15 dk, Yahoo, gecikmeli) |
    | `data/piyasa_gunluk.json` | TL tahvil getirileri TR02Y, TR05Y, TR10Y (günlük, TradingView TVC → köprü; seans sonu son değer). Bugünün tarihi yoksa 🕒 (seans bitmedi) ya da ✖ (alarm/köprü sorunu) |
+   | `data/bist_resmi.json` / `bist_resmi_gecmis.json` | borsaistanbul.com ana sayfasından XU100, XU030, XBANK vb. gün sonu değerleri (18:20 TR). Durum OK değilse ✖ + neden |
+   | `data/risk_raporu.md` | H6 bileşik ve gölge portföylerin risk ölçüleri (quantstats; aylık) |
    | `data/bist_intraday.json` | Evrendeki 32 hissenin 15 dakikalık barları (öğle seviyesi, gün içi seyir) |
    | `data/kuresel_gosterge.json` | Asya, Avrupa ve ABD özeti |
    | `data/makro_takvim.json` | TCMB ve Fed tarihleri (birincil kaynakla teyitli) |
@@ -50,7 +52,7 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
    - Bir listede adı geçmek, ilgili şirket hakkında bir hüküm değildir.
 3. **Sistem kontrolleri:** Kapsama, köprü ("TV sinyal: CF" commit'leri), başarısız iş akışları, H14, V195 ve IP-8.
 4. **Türkiye 5 yıllık CDS (her brifingte):** Güncel değer, tarihi ve kaynağıyla yazılır. Sırası şöyle: (a) kullanıcının panelinden paylaştığı değer ✅ (panel esastır); (b) toplayıcı kurulunca `data/cds_gunluk.json` (kaynağına göre ✅ ya da ◐); (c) o gün tarihli bir haber ◐ (kaynak S&P Global, Bloomberg, LSEG vb. yazılır). Bugüne ait değer bulunamazsa ✖ yazılır ve "son bilinen: değer, tarih, kaynak" verilir. Tarihi belli olmayan sayfalardaki değer kullanılmaz.
-5. **Piyasa:** Endeks ve kur için önce `endeks_intraday.json` kullanılır ("Yahoo, gecikmeli" diye belirtilir). Resmi kapanış için borsaistanbul.com ve TCMB esas alınır; haber siteleri ◐.
+5. **Piyasa:** Endeks ve kur için önce `endeks_intraday.json` kullanılır ("Yahoo, gecikmeli" diye belirtilir). Resmi kapanış için önce `data/bist_resmi.json` (borsaistanbul.com, ✅), sonra TCMB; haber siteleri ◐.
 6. **Makro ve siyasi:** Her veri için ✅ ya da ◐ kullanılır. Henüz açıklanmamış veri için 🕒 ve beklenen saat yazılır.
 7. **Savaş ve jeopolitik:** Haberin tarihi yazılır. Bugünden eski haber "son bilinen" diye işaretlenir.
 8. **İzlenecekler:** Yalnızca takvimden alınır, saatleriyle.
