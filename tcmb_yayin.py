@@ -94,13 +94,10 @@ def takvim_api(bugun):
                 d = json.loads(yy.read().decode("utf-8"))
             for x in d.get("content") or []:
                 ham = x.get("tarih") or ""
-                try:
-                    z = dt.datetime.fromisoformat(ham.replace("Z", "+00:00"))
-                    if z.tzinfo is not None:
-                        z = z.astimezone(dt.timezone(dt.timedelta(hours=3)))
-                    t, s_ = z.date().isoformat(), z.strftime("%H:%M")
-                except ValueError:
-                    t, s_ = tarih_coz(ham)
+                # 20.11 duzeltmesi: API "Z" (UTC) etiketi tasiyor ama deger TR yerel saati (10:00 yayini "10:00:00.000Z"
+                # geliyor). Bu yuzden saat donusumu YAPILMAZ; tarih ve saat oldugu gibi alinir.
+                m = re.match(r"(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})", ham)
+                t, s_ = (m.group(1), m.group(2)) if m else tarih_coz(ham)
                 ad = ((x.get("yayinBilgi") or {}).get("yayimAdi") or "").strip()
                 donem = (x.get("donem") or x.get("period") or "").strip()
                 link = (x.get("veriLink") or {}).get("link") or None
