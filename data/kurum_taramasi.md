@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-20 04:43
+# Kurum taramasi - 2026-11-20 08:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
