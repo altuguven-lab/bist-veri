@@ -1,8 +1,15 @@
 # BIST RESMI VERI - borsaistanbul.com ana sayfasi (Playwright). Is gunu 18:20 TR, gunde bir kez. SALT VERI, TAVSIYE DEGILDIR.
 name: BIST Resmi Veri
+# 20.11 EKI: Bu depoda GUNDUZ saatlerindeki `schedule:` tetikleri guvenilmez (20.11'de 04:00-10:40 UTC arasi hic
+# zamanli calisma olmadi; makro_akim_reel'in 13:15 UTC calismasi 19.11'de 21:36 UTC'de geldi). Yedek tetik:
+# her 30 dk dis tetikle (repository_dispatch) calisan "BIST Veri Guncelleme" bittiginde, yalniz asagidaki
+# UTC pencerelerinde (tetikleyen calismanin baslama saati) bu is de calisir. schedule ayrica durur.
 on:
   schedule:
     - cron: "20 15 * * 1-5"
+  workflow_run:
+    workflows: ["BIST Veri Guncelleme"]
+    types: [completed]
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,6 +18,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   oku:
+    if: github.event_name != 'workflow_run' || contains(github.event.workflow_run.created_at, 'T15:3')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
