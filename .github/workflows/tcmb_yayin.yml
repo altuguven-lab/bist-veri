@@ -1,0 +1,39 @@
+# TCMB YAYIN VE TAKVIM TAKIBI - is gunu 10:20, 14:50, 17:20 TR. SALT VERI, TAVSIYE DEGILDIR.
+name: TCMB Yayin Takibi
+on:
+  schedule:
+    - cron: "20 7 * * 1-5"
+    - cron: "50 11 * * 1-5"
+    - cron: "20 14 * * 1-5"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tcmb-yayin
+  cancel-in-progress: false
+jobs:
+  topla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install feedparser==6.0.11 playwright==1.63.0 && python -m playwright install --with-deps chromium
+      - name: Topla
+        run: python tcmb_yayin.py
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "tcmb-yayin-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/tcmb_yayin.json data/tcmb_yayin.md data/tcmb_yayin_ham 2>/dev/null || true
+          git diff --staged --quiet && exit 0
+          git commit -m "TCMB yayin $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main || git rebase --abort
+          done
+          exit 1
