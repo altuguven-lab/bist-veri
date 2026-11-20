@@ -35,6 +35,8 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
    | `data/bist_resmi.json` / `bist_resmi_gecmis.json` | borsaistanbul.com ana sayfasından XU100, XU030, XBANK vb. gün sonu değerleri (18:20 TR). Durum OK değilse ✖ + neden |
    | `data/risk_raporu.md` | H6 bileşik ve gölge portföylerin risk ölçüleri (quantstats; aylık) |
    | `data/arastirma_akisi.md` | Aracı kurum hedef/tavsiye değişiklikleri (İş Yatırım ✅, hedeffiyat.com.tr ✅ toplayıcı), yabancı kurum ve kredi notu haberleri (◐). Garanti BBVA, YKY/Ziraat PDF ve yabancı banka raporları ⛔ |
+   | `data/tcmb_yayin.md` | TCMB'nin son 7 günde yayımladıkları (RSS: veriler, yayınlar, basın, PPK, Başkan konuşmaları) ve önümüzdeki 14 günün Veri Yayımlama Takvimi (✅ birincil; saatler buradan alınır) |
+   | `data/makro_akim_reel.md` (ek bölüm) | Reel Kesim Güven Endeksi ve alt kalemleri, KKO, tüketici güveni, öncü göstergeler, sektörel enflasyon beklentileri, UYP, banka kredileri eğilim anketi (EVDS ✅) |
    | `data/bist_intraday.json` | Evrendeki 32 hissenin 15 dakikalık barları (öğle seviyesi, gün içi seyir) |
    | `data/kuresel_gosterge.json` | Asya, Avrupa ve ABD özeti |
    | `data/makro_takvim.json` | TCMB ve Fed tarihleri (birincil kaynakla teyitli) |
@@ -54,7 +56,7 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
 3. **Sistem kontrolleri:** Kapsama, köprü ("TV sinyal: CF" commit'leri), başarısız iş akışları, H14, V195 ve IP-8.
 4. **Türkiye 5 yıllık CDS (her brifingte):** Güncel değer, tarihi ve kaynağıyla yazılır. Sırası şöyle: (a) kullanıcının panelinden paylaştığı değer ✅ (panel esastır); (b) toplayıcı kurulunca `data/cds_gunluk.json` (kaynağına göre ✅ ya da ◐); (c) o gün tarihli bir haber ◐ (kaynak S&P Global, Bloomberg, LSEG vb. yazılır). Bugüne ait değer bulunamazsa ✖ yazılır ve "son bilinen: değer, tarih, kaynak" verilir. Tarihi belli olmayan sayfalardaki değer kullanılmaz.
 5. **Piyasa:** Endeks ve kur için önce `endeks_intraday.json` kullanılır ("Yahoo, gecikmeli" diye belirtilir). Resmi kapanış için önce `data/bist_resmi.json` (borsaistanbul.com, ✅), sonra TCMB; haber siteleri ◐.
-6. **Makro ve siyasi:** Her veri için ✅ ya da ◐ kullanılır. Henüz açıklanmamış veri için 🕒 ve beklenen saat yazılır.
+6. **Makro ve siyasi:** Her veri için ✅ ya da ◐ kullanılır. Bugün açıklanan TCMB/TÜİK verileri `data/tcmb_yayin.md` ve `data/makro_akim_reel.md`'den "son · önceki · yön" biçiminde verilir. Henüz açıklanmamış veri için 🕒 ve beklenen saat (`data/tcmb_yayin.md` takviminden) yazılır.
 6b. **Kurum raporları:** `data/arastirma_akisi.md`'den takip setindeki hedef/tavsiye değişiklikleri (revizyon yönüyle), yabancı kurum ve kredi notu haberleri (◐, tarihli). Rapor metni aktarılmaz. Tek bir rapor sinyal sayılmaz; revizyon genişliğiyle (`data/analist_hedef/revizyon.md`) birlikte okunur.
 7. **Savaş ve jeopolitik:** Haberin tarihi yazılır. Bugünden eski haber "son bilinen" diye işaretlenir.
 8. **İzlenecekler:** Yalnızca takvimden alınır, saatleriyle.
