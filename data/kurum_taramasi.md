@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-20 00:44
+# Kurum taramasi - 2026-11-20 04:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -9,8 +9,8 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-20 | 3 |
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 3 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
-| [bist](https://www.borsaistanbul.com/duyurular) | **ERISILEMEDI** | - | 0 |
-| KAP arsivi | **OK** | 2026-11-19 | 46 kurum bildirimi |
+| [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
+| KAP arsivi | **OK** | 2026-11-20 | 48 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -32,6 +32,8 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- 20.11.2026 00:32:05 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1700462) SPK BÜLTENİ
+- **[KRITIK]** 19.11.2026 23:33:44 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700461) SPK İşlem Yasağı Nedeniyle Pay Duyurusu
 - **[KRITIK]** 19.11.2026 18:29:32 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700399) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 - **[KRITIK]** 19.11.2026 17:36:17 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1700353) BAP İşlem İptali
 - 19.11.2026 17:21:25 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700346) DÖNÜŞÜM
@@ -70,8 +72,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 13.11.2026 23:54:17 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1698212) SPK BÜLTENİ
 - **[KRITIK]** 13.11.2026 18:35:08 BORSA İSTANBUL A.Ş. - [Pay İşlem Sırası Kapatma / Açma](https://www.kap.org.tr/tr/Bildirim/1698153) Pay Sırasının İşleme Açılması
 - 13.11.2026 17:44:22 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1698092) Hak Kullanım İşlemleri
-- 13.11.2026 17:43:18 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1698090) Gerçekleşmeyen İtfa/Kupon/Getiri Ödemesi
-- 13.11.2026 17:39:56 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1698089) DÖNÜŞÜM
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
@@ -81,6 +81,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izleme listesi eslesmeleri
 
+- 19.11.2026 23:33:44 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700461) eslesen: TEHOL, IEYHO, SELEC
 - 19.11.2026 18:29:32 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700399) eslesen: DSTKF
 - 19.11.2026 16:05:59 DÜNYA VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700275) eslesen: kayyım
 - 18.11.2026 21:30:35 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700080) eslesen: KTLEV, TEHOL, OZATD, PEKGY, VSNMD, ODINE, TUKAS
@@ -131,7 +132,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Kontrol edilemeyenler
 
-- bist: ERISILEMEDI (HTTP Error 503: Service Unavailable)
 - takvim: 2026-11-19 TCMB haftalik para ve banka istatistikleri - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-20 SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti) - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-20 Guven endeksleri ve KKO - birincil kaynakla teyit edilmedi

@@ -6,85 +6,97 @@
 <head>
     <meta charset="utf-8">
     <!-- SEO için Title ve description yer değiştirildi -->
-    <meta name="title" content="Bireysel Emeklilik" />
-    <meta name="description" content="Bireysel Emeklilik Fon Payları Bilgi Verme
+    <meta name="title" content="BISTECH Risk Parametreleri" />
+    <meta name="description" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-Takasbank 2003 yılından itibaren bireysel emeklilik şirketlerine saklayıcı sıfatıyla hizmet vermekte ve ilgili mevzuat gereğince katılımcıların sahip oldukları fon payları Takasbank nezdinde, katılımcı bazında ve katılımcıların izleyebileceği şekilde takip edilmektedir. Bireysel emeklilik sistemi katılımcıları,  e-Devlet şifrelerini kullanarak web sitemizin ana sayfasında yer alan “Bireysel Emekilik” kısa yoluna bağlanarak isimlerine açılmış hesaplarında mevcut fon değerleri ile birlikte hesaplarına aktarılan Devlet Katkısı tutarlarını da fon adedi ve piyasa değeri cinsinden kontrol edebilmektedirler. Ayrıca, isteyen katılımcılar “Bireysel Emeklilik”  kısa yoluna bağlandıktan sonra “Bilgilendirme İşlemleri” bölümünü kullanarak hesaplarında meydana gelen günlük bakiye değişimlerinin SMS ve/veya e-posta ile, aylık bakiye değişimleri ve aylık fon tutar bilgilerinin ise e-posta ile gönderilmesi için talepte bulunabilmektedir.
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
 
-Bireysel Emeklilik Fon Payları Yönetimi
-
-Takasbank; 07/04/2001 Tarih, 4632 Sayılı Bireysel Emeklilik Tasarruf Ve Yatırım Sistemi Kanunun 17.maddesi ve  SPK tarafından çıkarılan ve 28/02/2002 tarihli Resmi Gazetede yayımlanan Emeklilik Fonlarının Kuruluş Ve Faaliyetlerine İlişkin Esaslar Hakkında Yönetmeliğin 28, 29 ve 31.maddeleri çerçevesinde  2003 yılından itibaren bireysel emeklilik şirketlerine saklayıcı sıfatıyla hizmet vermektedir.
-
-Bireysel Emeklilik Fon Payları Yönetimi Hizmeti; özetle, Bireysel emeklilik sistemi katılımcılarına Takasbank nezdinde alt hesap açılması, bireysel emeklilik fon paylarının oluşturulması, katılımcı alt hesaplarına dağıtımı ve saklanması, devlet katkısı tutar ve fon paylarının katkı payı ödemelerinden ayrı olarak takibi, katılımcıların fon paylarına ilişkin yetkili mercilerden gelen takyidat taleplerinin işlenmesi ve katılımcılara Takasbank sicil numarası tahsis edilmesi işlemleridir.
-
-Devlet Katkısı Fon Payı İşlemleri
-
-4632 Sayılı Kanunun “Devlet Katkısı” başlıklı Ek 1.maddesinde “…Devlet Katkısı, katkı payı ödemelerinden ayrı olarak takip edilir ve Müsteşarlıkça belirlenen yatırım araçlarında yatırıma yönlendirilir.” İbaresi yer almaktadır. Devlet Katkısı fon paylarının “ayrı” olarak tutulabilmesi için Takasbank tarafından bir alt hesap tanımlanmış olup söz konusu alt hesap haciz, tedbir vb. işlemlere konu edilmez ve Kanunda belirtilen muaf kısım hesaplamasında dikkate alınmaz.
-
-01 Ocak 2013 itibariyle yürürlüğe giren mevzuat değişikliği ile; Devlet, bireysel emeklilik sistemi katılımcılarının yapacakları katkı payı ödemeleri için, %25 Devlet katkısı desteği uygulaması başlatmış, 19 Ocak 2022 tarihli Kanun değişikliği ile BES sistemini teşvik etmek için getirilen yeni düzenlemeler kapsamında Devlet katkısı desteği %30’a çıkarılmıştır. İlgili yönetmelik gereği Devlet katkısı, şirketler tarafından Emeklilik Gözetim Merkezine (EGM) iletilen bilgiler esas alınarak, EGM tarafından hesaplanmaktadır. Hesaplanan Devlet Katkısı tutarları, her ay T.C Başbakanlık Hazine Müsteşarlığı tarafından EGM’nin Takasbank nezdinde bulunan nakit hesabına gönderilir. Söz konusu tutarlar EGM’nin talimatı doğrultusunda Takasbank tarafından bireysel emeklilik şirketlerinin serbest nakit hesaplarına aktarılır. Bireysel emeklilik şirketleri, bu tutarları aynı gün içerisinde Devlet Katkısı fonlarının Takasbank nezdinde açılmış bulunan “Devlet Katkısı” nakit bloke hesabında bloke ederler. Bloke edilen Devlet Katkısı nakit tutarları; katılımcı hesaplarına aktarılan devlet katkısı fon payları karşılığında Takasbank tarafından otomatik olarak çözülerek fonların serbest hesaplarına aktarılır.
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
 
  
 
- Bireysel Emeklilik Otomatik Katılım Sistemi
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
 
-Bireysel Emeklilik Sistemine (BES) otomatik katılımı düzenleyen 6740 sayılı “Bireysel Emeklilik Tasarruf ve Yatırım Sistemi Kanununda Değişiklik Yapılmasına Dair Kanun” 10/08/2016 tarihinde kabul edilmiş ve yürürlük tarihi 01/01/2017 olarak belirlenmiştir. Bu kapsamda, 45 yaşını doldurmamış ücretli çalışanların işverenin belirleyeceği bir emeklilik sözleşmesi ile 01/01/2017 tarihinden başlayarak otomatik olarak BES’e dahil edilmeleri amaçlanmaktadır. 19 Ocak 2022 tarihli Kanun değişikliği ile 45 yaşını doldurmuş çalışanların da talep etmeleri halinde BES Otomatik Katılım Sistemine dahil edilebilmesi sağlanmıştır. Çalışan katkı payı 5510 sayılı Kanunun 80 inci maddesi kapsamında belirlenen prime esas kazancın yüzde 3’ü olarak belirlenmiş olup bu miktarın Bakanlar Kurulu tarafından 1/3 oranında indirilmesi mümkündür.
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
 
-6740 sayılı Kanun uyarınca, yeni düzenlenen “Otomatik Katılım Emeklilik Sözleşmesi” tipindeki sözleşmelerin katkılarıyla oluşan fon payları, mevcut gönüllülük esasına dayanan sözleşmelerin katkılarıyla oluşan fon paylarından farklı olarak ayrı hesaplar açılmak suretiyle Takasbank sisteminde saklanmaktadır.
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
+
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
+
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
+
+ 
+
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+
+
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
+
 " />
     <meta name="image" content="https://www.takasbank.com.tr" />
 
-    <meta property="og:description" content="Bireysel Emeklilik" />
-    <meta property="og:title" content="Bireysel Emeklilik Fon Payları Bilgi Verme
+    <meta property="og:description" content="BISTECH Risk Parametreleri" />
+    <meta property="og:title" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-Takasbank 2003 yılından itibaren bireysel emeklilik şirketlerine saklayıcı sıfatıyla hizmet vermekte ve ilgili mevzuat gereğince katılımcıların sahip oldukları fon payları Takasbank nezdinde, katılımcı bazında ve katılımcıların izleyebileceği şekilde takip edilmektedir. Bireysel emeklilik sistemi katılımcıları,  e-Devlet şifrelerini kullanarak web sitemizin ana sayfasında yer alan “Bireysel Emekilik” kısa yoluna bağlanarak isimlerine açılmış hesaplarında mevcut fon değerleri ile birlikte hesaplarına aktarılan Devlet Katkısı tutarlarını da fon adedi ve piyasa değeri cinsinden kontrol edebilmektedirler. Ayrıca, isteyen katılımcılar “Bireysel Emeklilik”  kısa yoluna bağlandıktan sonra “Bilgilendirme İşlemleri” bölümünü kullanarak hesaplarında meydana gelen günlük bakiye değişimlerinin SMS ve/veya e-posta ile, aylık bakiye değişimleri ve aylık fon tutar bilgilerinin ise e-posta ile gönderilmesi için talepte bulunabilmektedir.
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
 
-Bireysel Emeklilik Fon Payları Yönetimi
-
-Takasbank; 07/04/2001 Tarih, 4632 Sayılı Bireysel Emeklilik Tasarruf Ve Yatırım Sistemi Kanunun 17.maddesi ve  SPK tarafından çıkarılan ve 28/02/2002 tarihli Resmi Gazetede yayımlanan Emeklilik Fonlarının Kuruluş Ve Faaliyetlerine İlişkin Esaslar Hakkında Yönetmeliğin 28, 29 ve 31.maddeleri çerçevesinde  2003 yılından itibaren bireysel emeklilik şirketlerine saklayıcı sıfatıyla hizmet vermektedir.
-
-Bireysel Emeklilik Fon Payları Yönetimi Hizmeti; özetle, Bireysel emeklilik sistemi katılımcılarına Takasbank nezdinde alt hesap açılması, bireysel emeklilik fon paylarının oluşturulması, katılımcı alt hesaplarına dağıtımı ve saklanması, devlet katkısı tutar ve fon paylarının katkı payı ödemelerinden ayrı olarak takibi, katılımcıların fon paylarına ilişkin yetkili mercilerden gelen takyidat taleplerinin işlenmesi ve katılımcılara Takasbank sicil numarası tahsis edilmesi işlemleridir.
-
-Devlet Katkısı Fon Payı İşlemleri
-
-4632 Sayılı Kanunun “Devlet Katkısı” başlıklı Ek 1.maddesinde “…Devlet Katkısı, katkı payı ödemelerinden ayrı olarak takip edilir ve Müsteşarlıkça belirlenen yatırım araçlarında yatırıma yönlendirilir.” İbaresi yer almaktadır. Devlet Katkısı fon paylarının “ayrı” olarak tutulabilmesi için Takasbank tarafından bir alt hesap tanımlanmış olup söz konusu alt hesap haciz, tedbir vb. işlemlere konu edilmez ve Kanunda belirtilen muaf kısım hesaplamasında dikkate alınmaz.
-
-01 Ocak 2013 itibariyle yürürlüğe giren mevzuat değişikliği ile; Devlet, bireysel emeklilik sistemi katılımcılarının yapacakları katkı payı ödemeleri için, %25 Devlet katkısı desteği uygulaması başlatmış, 19 Ocak 2022 tarihli Kanun değişikliği ile BES sistemini teşvik etmek için getirilen yeni düzenlemeler kapsamında Devlet katkısı desteği %30’a çıkarılmıştır. İlgili yönetmelik gereği Devlet katkısı, şirketler tarafından Emeklilik Gözetim Merkezine (EGM) iletilen bilgiler esas alınarak, EGM tarafından hesaplanmaktadır. Hesaplanan Devlet Katkısı tutarları, her ay T.C Başbakanlık Hazine Müsteşarlığı tarafından EGM’nin Takasbank nezdinde bulunan nakit hesabına gönderilir. Söz konusu tutarlar EGM’nin talimatı doğrultusunda Takasbank tarafından bireysel emeklilik şirketlerinin serbest nakit hesaplarına aktarılır. Bireysel emeklilik şirketleri, bu tutarları aynı gün içerisinde Devlet Katkısı fonlarının Takasbank nezdinde açılmış bulunan “Devlet Katkısı” nakit bloke hesabında bloke ederler. Bloke edilen Devlet Katkısı nakit tutarları; katılımcı hesaplarına aktarılan devlet katkısı fon payları karşılığında Takasbank tarafından otomatik olarak çözülerek fonların serbest hesaplarına aktarılır.
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
 
  
 
- Bireysel Emeklilik Otomatik Katılım Sistemi
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
 
-Bireysel Emeklilik Sistemine (BES) otomatik katılımı düzenleyen 6740 sayılı “Bireysel Emeklilik Tasarruf ve Yatırım Sistemi Kanununda Değişiklik Yapılmasına Dair Kanun” 10/08/2016 tarihinde kabul edilmiş ve yürürlük tarihi 01/01/2017 olarak belirlenmiştir. Bu kapsamda, 45 yaşını doldurmamış ücretli çalışanların işverenin belirleyeceği bir emeklilik sözleşmesi ile 01/01/2017 tarihinden başlayarak otomatik olarak BES’e dahil edilmeleri amaçlanmaktadır. 19 Ocak 2022 tarihli Kanun değişikliği ile 45 yaşını doldurmuş çalışanların da talep etmeleri halinde BES Otomatik Katılım Sistemine dahil edilebilmesi sağlanmıştır. Çalışan katkı payı 5510 sayılı Kanunun 80 inci maddesi kapsamında belirlenen prime esas kazancın yüzde 3’ü olarak belirlenmiş olup bu miktarın Bakanlar Kurulu tarafından 1/3 oranında indirilmesi mümkündür.
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
 
-6740 sayılı Kanun uyarınca, yeni düzenlenen “Otomatik Katılım Emeklilik Sözleşmesi” tipindeki sözleşmelerin katkılarıyla oluşan fon payları, mevcut gönüllülük esasına dayanan sözleşmelerin katkılarıyla oluşan fon paylarından farklı olarak ayrı hesaplar açılmak suretiyle Takasbank sisteminde saklanmaktadır.
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
+
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
+
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
+
+ 
+
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+
+
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
+
 " />
     <meta property="og:image" content="https://www.takasbank.com.tr" />
 
-    <meta property="twitter:title" content="Bireysel Emeklilik Fon Payları Bilgi Verme
+    <meta property="twitter:title" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-Takasbank 2003 yılından itibaren bireysel emeklilik şirketlerine saklayıcı sıfatıyla hizmet vermekte ve ilgili mevzuat gereğince katılımcıların sahip oldukları fon payları Takasbank nezdinde, katılımcı bazında ve katılımcıların izleyebileceği şekilde takip edilmektedir. Bireysel emeklilik sistemi katılımcıları,  e-Devlet şifrelerini kullanarak web sitemizin ana sayfasında yer alan “Bireysel Emekilik” kısa yoluna bağlanarak isimlerine açılmış hesaplarında mevcut fon değerleri ile birlikte hesaplarına aktarılan Devlet Katkısı tutarlarını da fon adedi ve piyasa değeri cinsinden kontrol edebilmektedirler. Ayrıca, isteyen katılımcılar “Bireysel Emeklilik”  kısa yoluna bağlandıktan sonra “Bilgilendirme İşlemleri” bölümünü kullanarak hesaplarında meydana gelen günlük bakiye değişimlerinin SMS ve/veya e-posta ile, aylık bakiye değişimleri ve aylık fon tutar bilgilerinin ise e-posta ile gönderilmesi için talepte bulunabilmektedir.
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
 
-Bireysel Emeklilik Fon Payları Yönetimi
-
-Takasbank; 07/04/2001 Tarih, 4632 Sayılı Bireysel Emeklilik Tasarruf Ve Yatırım Sistemi Kanunun 17.maddesi ve  SPK tarafından çıkarılan ve 28/02/2002 tarihli Resmi Gazetede yayımlanan Emeklilik Fonlarının Kuruluş Ve Faaliyetlerine İlişkin Esaslar Hakkında Yönetmeliğin 28, 29 ve 31.maddeleri çerçevesinde  2003 yılından itibaren bireysel emeklilik şirketlerine saklayıcı sıfatıyla hizmet vermektedir.
-
-Bireysel Emeklilik Fon Payları Yönetimi Hizmeti; özetle, Bireysel emeklilik sistemi katılımcılarına Takasbank nezdinde alt hesap açılması, bireysel emeklilik fon paylarının oluşturulması, katılımcı alt hesaplarına dağıtımı ve saklanması, devlet katkısı tutar ve fon paylarının katkı payı ödemelerinden ayrı olarak takibi, katılımcıların fon paylarına ilişkin yetkili mercilerden gelen takyidat taleplerinin işlenmesi ve katılımcılara Takasbank sicil numarası tahsis edilmesi işlemleridir.
-
-Devlet Katkısı Fon Payı İşlemleri
-
-4632 Sayılı Kanunun “Devlet Katkısı” başlıklı Ek 1.maddesinde “…Devlet Katkısı, katkı payı ödemelerinden ayrı olarak takip edilir ve Müsteşarlıkça belirlenen yatırım araçlarında yatırıma yönlendirilir.” İbaresi yer almaktadır. Devlet Katkısı fon paylarının “ayrı” olarak tutulabilmesi için Takasbank tarafından bir alt hesap tanımlanmış olup söz konusu alt hesap haciz, tedbir vb. işlemlere konu edilmez ve Kanunda belirtilen muaf kısım hesaplamasında dikkate alınmaz.
-
-01 Ocak 2013 itibariyle yürürlüğe giren mevzuat değişikliği ile; Devlet, bireysel emeklilik sistemi katılımcılarının yapacakları katkı payı ödemeleri için, %25 Devlet katkısı desteği uygulaması başlatmış, 19 Ocak 2022 tarihli Kanun değişikliği ile BES sistemini teşvik etmek için getirilen yeni düzenlemeler kapsamında Devlet katkısı desteği %30’a çıkarılmıştır. İlgili yönetmelik gereği Devlet katkısı, şirketler tarafından Emeklilik Gözetim Merkezine (EGM) iletilen bilgiler esas alınarak, EGM tarafından hesaplanmaktadır. Hesaplanan Devlet Katkısı tutarları, her ay T.C Başbakanlık Hazine Müsteşarlığı tarafından EGM’nin Takasbank nezdinde bulunan nakit hesabına gönderilir. Söz konusu tutarlar EGM’nin talimatı doğrultusunda Takasbank tarafından bireysel emeklilik şirketlerinin serbest nakit hesaplarına aktarılır. Bireysel emeklilik şirketleri, bu tutarları aynı gün içerisinde Devlet Katkısı fonlarının Takasbank nezdinde açılmış bulunan “Devlet Katkısı” nakit bloke hesabında bloke ederler. Bloke edilen Devlet Katkısı nakit tutarları; katılımcı hesaplarına aktarılan devlet katkısı fon payları karşılığında Takasbank tarafından otomatik olarak çözülerek fonların serbest hesaplarına aktarılır.
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
 
  
 
- Bireysel Emeklilik Otomatik Katılım Sistemi
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
 
-Bireysel Emeklilik Sistemine (BES) otomatik katılımı düzenleyen 6740 sayılı “Bireysel Emeklilik Tasarruf ve Yatırım Sistemi Kanununda Değişiklik Yapılmasına Dair Kanun” 10/08/2016 tarihinde kabul edilmiş ve yürürlük tarihi 01/01/2017 olarak belirlenmiştir. Bu kapsamda, 45 yaşını doldurmamış ücretli çalışanların işverenin belirleyeceği bir emeklilik sözleşmesi ile 01/01/2017 tarihinden başlayarak otomatik olarak BES’e dahil edilmeleri amaçlanmaktadır. 19 Ocak 2022 tarihli Kanun değişikliği ile 45 yaşını doldurmuş çalışanların da talep etmeleri halinde BES Otomatik Katılım Sistemine dahil edilebilmesi sağlanmıştır. Çalışan katkı payı 5510 sayılı Kanunun 80 inci maddesi kapsamında belirlenen prime esas kazancın yüzde 3’ü olarak belirlenmiş olup bu miktarın Bakanlar Kurulu tarafından 1/3 oranında indirilmesi mümkündür.
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
 
-6740 sayılı Kanun uyarınca, yeni düzenlenen “Otomatik Katılım Emeklilik Sözleşmesi” tipindeki sözleşmelerin katkılarıyla oluşan fon payları, mevcut gönüllülük esasına dayanan sözleşmelerin katkılarıyla oluşan fon paylarından farklı olarak ayrı hesaplar açılmak suretiyle Takasbank sisteminde saklanmaktadır.
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
+
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
+
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
+
+ 
+
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+
+
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
+
 " />
-    <meta property="twitter:description" content="Bireysel Emeklilik" />
+    <meta property="twitter:description" content="BISTECH Risk Parametreleri" />
     <meta property="twitter:image" content="https://www.takasbank.com.tr" />
 
     <title>Takas İstanbul | Duyurular</title>
@@ -1539,7 +1551,7 @@ Bireysel Emeklilik Sistemine (BES) otomatik katılımı düzenleyen 6740 sayıl�
     </div>
         <form class="form-sm lm-md-b4 lm-xs-b5" role="form" data-toggle="validator" method="POST" data-focus="false">
             <input id="posturl" name="posturl" type="hidden" value="Takasbank_Plugins_Announcement.UI.FilterAnnouncements.Announcements_446" />
-            <input name="__RequestVerificationToken" type="hidden" value="w-ZWg4YA7_feim1o9A2KKdWmiSOSWSDOpbkfy20YtV8PduMrb2-sYKUt5OzY9rYsaxLccwA2MquTu9d2864im3JbsQ24dOWVxK2dw1-_bNg1" />
+            <input name="__RequestVerificationToken" type="hidden" value="ker5UeFwOeY8INJEBhDm57j6YdcmaZlZ49DZhqml0aIB72PIhqqOG_tWiRS4P0bbLO_jug9TKOO1WlwCFIOOGNQsCjn7xf7SlO5P5p93f5U1" />
 
             <div class="row">
                     <div class="col-md-5">
@@ -2271,28 +2283,26 @@ Bireysel Emeklilik Sistemine (BES) otomatik katılımı düzenleyen 6740 sayıl�
 
 <script type="text/javascript">
 (function(){
-window.EAOd=!!window.EAOd;try{(function(){(function(){var I=-1,I={ss:++I,JO:"false"[I],S:++I,zI:"false"[I],zs:++I,jIs:"[object Object]"[I],lJ:(I[I]+"")[I],sj:++I,JJ:"true"[I],js:++I,SS:++I,lO:"[object Object]"[I],o:++I,LS:++I,oiS:++I,LiS:++I};try{I.OI=(I.OI=I+"")[I.SS]+(I.zi=I.OI[I.S])+(I.jO=(I.Oi+"")[I.S])+(!I+"")[I.sj]+(I.Zi=I.OI[I.o])+(I.Oi="true"[I.S])+(I.oJ="true"[I.zs])+I.OI[I.SS]+I.Zi+I.zi+I.Oi,I.jO=I.Oi+"true"[I.sj]+I.Zi+I.oJ+I.Oi+I.jO,I.Oi=I.ss[I.OI][I.OI],I.Oi(I.Oi(I.jO+'"\\'+I.S+I.SS+I.S+I.JO+"\\"+I.js+I.ss+"("+I.Zi+"\\"+I.S+I.LS+
-I.S+"\\"+I.S+I.o+I.ss+I.JJ+I.zi+I.JO+"\\"+I.js+I.ss+"\\"+I.S+I.o+I.LS+"\\"+I.S+I.SS+I.S+"\\"+I.S+I.SS+I.o+I.lJ+I.zi+"\\"+I.S+I.o+I.LS+"['\\"+I.S+I.o+I.ss+I.zI+"\\"+I.S+I.LS+I.S+"false"[I.zs]+I.zi+I.zI+I.lJ+"']\\"+I.js+I.ss+"===\\"+I.js+I.ss+"'\\"+I.S+I.o+I.sj+I.Zi+"\\"+I.S+I.o+I.zs+"\\"+I.S+I.SS+I.S+"\\"+I.S+I.SS+I.o+"\\"+I.S+I.js+I.LS+"')\\"+I.js+I.ss+"{\\"+I.S+I.zs+"\\"+I.S+I.S+"\\"+I.S+I.o+I.o+I.zI+"\\"+I.S+I.o+I.zs+"\\"+I.js+I.ss+I.JJ+I.lJ+"\\"+I.S+I.o+I.o+I.lO+"\\"+I.S+I.LS+I.S+I.oJ+"\\"+I.S+
-I.SS+I.zs+"\\"+I.S+I.SS+I.sj+"\\"+I.S+I.o+I.ss+"\\"+I.js+I.ss+"=\\"+I.js+I.ss+"\\"+I.S+I.o+I.LS+"\\"+I.S+I.SS+I.S+"\\"+I.S+I.SS+I.o+I.lJ+I.zi+"\\"+I.S+I.o+I.LS+"['\\"+I.S+I.o+I.ss+I.zI+"\\"+I.S+I.LS+I.S+"false"[I.zs]+I.zi+I.zI+I.lJ+"'].\\"+I.S+I.o+I.zs+I.JJ+"\\"+I.S+I.o+I.ss+"false"[I.zs]+I.zI+I.lO+I.JJ+"(/.{"+I.S+","+I.js+"}/\\"+I.S+I.js+I.LS+",\\"+I.js+I.ss+I.JO+I.oJ+"\\"+I.S+I.SS+I.o+I.lO+I.Zi+"\\"+I.S+I.SS+I.S+I.zi+"\\"+I.S+I.SS+I.o+"\\"+I.js+I.ss+"(\\"+I.S+I.LS+I.ss+")\\"+I.js+I.ss+"{\\"+I.S+
-I.zs+"\\"+I.S+I.S+"\\"+I.S+I.S+"\\"+I.S+I.S+"\\"+I.S+I.o+I.zs+I.JJ+I.Zi+I.oJ+"\\"+I.S+I.o+I.zs+"\\"+I.S+I.SS+I.o+"\\"+I.js+I.ss+"(\\"+I.S+I.LS+I.ss+"\\"+I.js+I.ss+"+\\"+I.js+I.ss+"\\"+I.S+I.LS+I.ss+").\\"+I.S+I.o+I.sj+I.oJ+I.jIs+"\\"+I.S+I.o+I.sj+I.Zi+"\\"+I.S+I.o+I.zs+"("+I.zs+",\\"+I.js+I.ss+I.js+")\\"+I.S+I.zs+"\\"+I.S+I.S+"\\"+I.S+I.S+"});\\"+I.S+I.zs+"}\\"+I.S+I.zs+'"')())()}catch(l){I%=5}})();var ji=77;
-try{var li,oi,zi=J(654)?0:1,_i=J(760)?0:1;for(var iI=(J(46),0);iI<oi;++iI)zi+=(J(592),2),_i+=J(87)?3:1;li=zi+_i;window.LJ===li&&(window.LJ=++li)}catch(JI){window.LJ=li}var lI=!0;function ZI(I){var l=30;!I||document[L(l,148,135,145,135,128,135,138,135,146,151,113,146,127,146,131)]&&document[z(l,148,135,145,135,128,135,138,135,146,151,113,146,127,146,131)]!==Z(68616527636,l)||(lI=!1);return lI}function Z(I,l){I+=l;return I.toString(36)}function sI(){}ZI(window[sI[Z(1086777,ji)]]===sI);
-ZI(typeof ie9rgb4!==Z(1242178186122,ji));ZI(RegExp("\x3c")[Z(1372128,ji)](function(){return"\x3c"})&!RegExp(L(ji,197,128,177))[Z(1372128,ji)](function(){return"'x3'+'d';"}));
-var SI=window[z(ji,174,193,193,174,176,181,146,195,178,187,193)]||RegExp(z(ji,186,188,175,182,201,174,187,177,191,188,182,177),L(ji,182))[Z(1372128,ji)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),ij=+new Date+(J(538)?324109:6E5),Ij,Jj,oj,Oj=window[z(ji,192,178,193,161,182,186,178,188,194,193)],sj=SI?J(960)?43293:3E4:J(654)?8941:6E3;
-document[z(ji,174,177,177,146,195,178,187,193,153,182,192,193,178,187,178,191)]&&document[L(ji,174,177,177,146,195,178,187,193,153,182,192,193,178,187,178,191)](L(ji,195,182,192,182,175,182,185,182,193,198,176,181,174,187,180,178),function(I){var l=87;document[L(l,205,192,202,192,185,192,195,192,203,208,170,203,184,203,188)]&&(document[L(l,205,192,202,192,185,192,195,192,203,208,170,203,184,203,188)]===Z(1058781896,l)&&I[L(l,192,202,171,201,204,202,203,188,187)]?oj=!0:document[L(l,205,192,202,192,
-185,192,195,192,203,208,170,203,184,203,188)]===Z(68616527579,l)&&(Ij=+new Date,oj=!1,Sj()))});function L(I){var l=arguments.length,O=[],s=1;while(s<l)O[s-1]=arguments[s++]-I;return String.fromCharCode.apply(String,O)}function Sj(){if(!document[L(77,190,194,178,191,198,160,178,185,178,176,193,188,191)])return!0;var I=+new Date;if(I>ij&&(J(433)?377511:6E5)>I-Ij)return ZI(!1);var l=ZI(Jj&&!oj&&Ij+sj<I);Ij=I;Jj||(Jj=!0,Oj(function(){Jj=!1},J(22)?1:0));return l}Sj();
-var IJ=[J(1E3)?26183705:17795081,J(488)?2147483647:27611931586,J(85)?1558153217:1376301128];function JJ(I){var l=49;I=typeof I===L(l,164,165,163,154,159,152)?I:I[L(l,165,160,132,165,163,154,159,152)](J(518)?21:36);var O=window[I];if(!O||!O[z(l,165,160,132,165,163,154,159,152)])return;var s=""+O;window[I]=function(I,l){Jj=!1;return O(I,l)};window[I][z(l,165,160,132,165,163,154,159,152)]=function(){return s}}for(var lJ=(J(685),0);lJ<IJ[Z(1294399128,ji)];++lJ)JJ(IJ[lJ]);
-ZI(!1!==window[z(ji,146,142,156,177)]);window.Lj=window.Lj||{};window.Lj.iz="08809ec3d419400002891bf6a690766f53049efb5ecbead9971e37a4a3d11a0269769c1c98f96e0a7db9bc0e09e5ea5e14188c423c29daf7f89625f26281f311b31c051b05afd79a";function oJ(I){var l=+new Date,O;!document[z(8,121,125,109,122,129,91,109,116,109,107,124,119,122,73,116,116)]||l>ij&&(J(881)?718055:6E5)>l-Ij?O=ZI(!1):(O=ZI(Jj&&!oj&&Ij+sj<l),Ij=l,Jj||(Jj=!0,Oj(function(){Jj=!1},J(990)?0:1)));return!(arguments[I]^O)}function z(I){var l=arguments.length,O=[];for(var s=1;s<l;++s)O.push(arguments[s]-I);return String.fromCharCode.apply(String,O)}function J(I){return 188>I}
-(function(I){I||setTimeout(function(){var I=setTimeout(function(){},250);for(var O=0;O<=I;++O)clearTimeout(O)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
+window.geLM=!!window.geLM;try{(function(){(function LJ(){var L=!1;function z(L){for(var z=0;L--;)z+=S(document.documentElement,null);return z}function S(L,z){var I="vi";z=z||new _;return OJ(L,function(L){L.setAttribute("data-"+I,z.i$());return S(L,z)},null)}function _(){this.Oi=1;this.S_=0;this.Zz=this.Oi;this.Ls=null;this.i$=function(){this.Ls=this.S_+this.Zz;if(!isFinite(this.Ls))return this.reset(),this.i$();this.S_=this.Zz;this.Zz=this.Ls;this.Ls=null;return this.Zz};this.reset=function(){this.Oi++;this.S_=0;this.Zz=this.Oi}}var I=!1;
+function JJ(L,z){var S=document.createElement(L);z=z||document.body;z.appendChild(S);S&&S.style&&(S.style.display="none")}function lJ(z,S){S=S||z;var _="|";function JJ(L){L=L.split(_);var z=[];for(var S=0;S<L.length;++S){var I="",lJ=L[S].split(",");for(var zJ=0;zJ<lJ.length;++zJ)I+=lJ[zJ][zJ];z.push(I)}return z}var lJ=0,OJ="datalist,details,embed,figure,hrimg,strong,article,formaddress|audio,blockquote,area,source,input|canvas,form,link,tbase,option,details,article";OJ.split(_);OJ=JJ(OJ);OJ=new RegExp(OJ.join(_),
+"g");while(OJ.exec(z))OJ=new RegExp((""+new Date)[8],"g"),L&&(I=!0),++lJ;return S(lJ&&1)}function OJ(L,z,S){(S=S||I)&&JJ("div",L);L=L.children;var _=0;for(var lJ in L){S=L[lJ];try{S instanceof HTMLElement&&(z(S),++_)}catch(OJ){}}return _}lJ(LJ,z)})();var oJ=7;try{var ZJ,SJ,jJ=l(570)?1:0,Jl=l(324)?1:0;for(var ol=(l(257),0);ol<SJ;++ol)jJ+=(l(321),2),Jl+=l(754)?2:3;ZJ=jJ+Jl;window.zz===ZJ&&(window.zz=++ZJ)}catch(Ol){window.zz=ZJ}var Sl=!0;function O(J,L){J+=L;return J.toString(36)}
+function il(J){var L=95;!J||document[Z(L,213,200,210,200,193,200,203,200,211,216,178,211,192,211,196)]&&document[s(L,213,200,210,200,193,200,203,200,211,216,178,211,192,211,196)]!==O(68616527571,L)||(Sl=!1);return Sl}function Z(J){var L=arguments.length,z=[];for(var S=1;S<L;++S)z.push(arguments[S]-J);return String.fromCharCode.apply(String,z)}function s(J){var L=arguments.length,z=[],S=1;while(S<L)z[S-1]=arguments[S++]-J;return String.fromCharCode.apply(String,z)}function Il(){}
+il(window[Il[O(1086847,oJ)]]===Il);il(typeof ie9rgb4!==s(oJ,109,124,117,106,123,112,118,117));il(RegExp("\x3c")[O(1372198,oJ)](function(){return"\x3c"})&!RegExp(O(42882,oJ))[s(oJ,123,108,122,123)](function(){return"'x3'+'d';"}));
+var JL=window[Z(oJ,104,123,123,104,106,111,76,125,108,117,123)]||RegExp(s(oJ,116,118,105,112,131,104,117,107,121,118,112,107),Z(oJ,112))[O(1372198,oJ)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),lL=+new Date+(l(665)?595955:6E5),OL,zL,ZL,_L=window[s(oJ,122,108,123,91,112,116,108,118,124,123)],iL=JL?l(990)?23704:3E4:l(828)?8908:6E3;
+document[s(oJ,104,107,107,76,125,108,117,123,83,112,122,123,108,117,108,121)]&&document[Z(oJ,104,107,107,76,125,108,117,123,83,112,122,123,108,117,108,121)](Z(oJ,125,112,122,112,105,112,115,112,123,128,106,111,104,117,110,108),function(J){var L=84;document[Z(L,202,189,199,189,182,189,192,189,200,205,167,200,181,200,185)]&&(document[Z(L,202,189,199,189,182,189,192,189,200,205,167,200,181,200,185)]===Z(L,188,189,184,184,185,194)&&J[s(L,189,199,168,198,201,199,200,185,184)]?ZL=!0:document[Z(L,202,189,
+199,189,182,189,192,189,200,205,167,200,181,200,185)]===O(68616527582,L)&&(OL=+new Date,ZL=!1,Jo()))});function Jo(){if(!document[s(90,203,207,191,204,211,173,191,198,191,189,206,201,204)])return!0;var J=+new Date;if(J>lL&&(l(330)?6E5:784103)>J-OL)return il(!1);var L=il(zL&&!ZL&&OL+iL<J);OL=J;zL||(zL=!0,_L(function(){zL=!1},l(749)?0:1));return L}Jo();var Lo=[l(60)?17795081:23871307,l(995)?2147483647:27611931586,l(249)?1558153217:1459379682];
+function oo(J){var L=28;J=typeof J===O(1743045648,L)?J:J[Z(L,144,139,111,144,142,133,138,131)](l(336)?36:47);var z=window[J];if(!z||!z[s(L,144,139,111,144,142,133,138,131)])return;var S=""+z;window[J]=function(J,L){zL=!1;return z(J,L)};window[J][s(L,144,139,111,144,142,133,138,131)]=function(){return S}}for(var Oo=(l(504),0);Oo<Lo[s(oJ,115,108,117,110,123,111)];++Oo)oo(Lo[Oo]);il(!1!==window[s(oJ,110,108,83,84)]);window.sO=window.sO||{};window.sO.Ji="084a0d476919400027809a66cbbd664ca3eb14041dbc8c6bce4f7cd800c358d72b88f71017b918b70d048e06e3243c1f296207745262b4ee9540c04c3b509c8f158029a8ba9f9910";
+function zo(J){var L=+new Date,z;!document[s(39,152,156,140,153,160,122,140,147,140,138,155,150,153,104,147,147)]||L>lL&&(l(501)?6E5:721417)>L-OL?z=il(!1):(z=il(zL&&!ZL&&OL+iL<L),OL=L,zL||(zL=!0,_L(function(){zL=!1},l(663)?0:1)));return!(arguments[J]^z)}function l(J){return 586>J}(function Zo(L){return L?0:Zo(L)*Zo(L)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
 
 })();
 
 </script>
 </APM_DO_NOT_TOUCH>
 
-<script type="text/javascript" src="/TSPD/08ce165641ab20009c2ad75e5fa9be2b7a23b8c57f1ca266de136ea328b73fa96f8fbeb5033f9886?type=9"></script>
+<script type="text/javascript" src="/TSPD/08ce165641ab2000e2f26a286ddcd054a573b0e1ae5e1ed9cdf43c5be228e3192abc405c59260e6c?type=9"></script>
 
 </html>
-<script id="f5_cspm">(function(){var f5_cspm={f5_p:'FKEBJLCCAOCFJKJEODFAGAGAFGNJMFCNGHPLECOLPHBPELNIGECAONMHDNOPLEBCJGABFNBHAAPCOFEPMKPAKNDPAAGMHKOEAJDILFKPFNLJDCIPJFECLAFMFKPGIDLG',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='xid0149471280aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'NCJGCBDOJGCIIDDIMECILDGIEKGCDLGOOPHEANBFLDBEAOAHMLJHANMCIMMOBGPAHKBBFDKLAADCONJGJKJAADICAAOGBCPFNINMKEJJMDCILGJDBEHFFJBEAJINBMMG',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='xid0149471280aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
 return;}}
 catch(err){return;}
 setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='yid'&&pair[1]=='1234')

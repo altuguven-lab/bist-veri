@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-19T21:44:10.554540+00:00",
- "uretim_tr": "2026-11-20 00:44",
+ "uretim_utc": "2026-11-20T01:43:55.932278+00:00",
+ "uretim_tr": "2026-11-20 04:43",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -10,7 +10,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-20",
-   "kontrol_tr": "2026-11-20 00:43",
+   "kontrol_tr": "2026-11-20 04:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-20",
@@ -54,7 +54,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-19",
-   "kontrol_tr": "2026-11-20 00:43",
+   "kontrol_tr": "2026-11-20 04:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-19",
@@ -138,23 +138,45 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-09",
-   "kontrol_tr": "2026-11-20 00:43",
+   "kontrol_tr": "2026-11-20 04:43",
    "son_7_gun": []
   },
   {
    "kaynak": "bist",
    "url": "https://www.borsaistanbul.com/duyurular",
-   "durum": "ERISILEMEDI",
-   "hata": "HTTP Error 503: Service Unavailable",
-   "en_son_kayit": null,
-   "kontrol_tr": "2026-11-20 00:44",
+   "durum": "OK",
+   "hata": null,
+   "en_son_kayit": "2026-11-04",
+   "kontrol_tr": "2026-11-20 04:43",
    "son_7_gun": []
   }
  ],
  "kap": {
-  "arsiv_son_gun": "2026-11-19",
+  "arsiv_son_gun": "2026-11-20",
   "arsiv_durum": "OK",
   "kurum_bildirimleri": [
+   {
+    "gun": "2026-11-20",
+    "zaman": "20.11.2026 00:32:05",
+    "kurum": "SERMAYE PİYASASI KURULU",
+    "konu": "SPK Bülteni",
+    "ozet": "SPK BÜLTENİ",
+    "kod": "",
+    "ilgili": "",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1700462"
+   },
+   {
+    "gun": "2026-11-19",
+    "zaman": "19.11.2026 23:33:44",
+    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
+    "konu": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
+    "ozet": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
+    "kod": "",
+    "ilgili": "AKBNK, ALCAR, ALGYO, ASELS, BIGEN, BINBN, CGCAM, CVKMD, ECZYT, EFOR, ELITE, EREGL, EUPWR, GOODY, GSDDE, GSDHO, GSRAY, HALKB, ICUGS, IEYHO, INFO, MACKO, PRDGS, RALYH, SELEC, SISE, SMRTG, TEHOL, THYAO, ",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1700461"
+   },
    {
     "gun": "2026-11-19",
     "zaman": "19.11.2026 18:29:32",
@@ -804,6 +826,22 @@
   "eslesmeler": [
    {
     "gun": "2026-11-19",
+    "zaman": "19.11.2026 23:33:44",
+    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
+    "konu": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
+    "ozet": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
+    "kod": "",
+    "ilgili": "AKBNK, ALCAR, ALGYO, ASELS, BIGEN, BINBN, CGCAM, CVKMD, ECZYT, EFOR, ELITE, EREGL, EUPWR, GOODY, GSDDE, GSDHO, GSRAY, HALKB, ICUGS, IEYHO, INFO, MACKO, PRDGS, RALYH, SELEC, SISE, SMRTG, TEHOL, THYAO, ",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1700461",
+    "eslesen": [
+     "TEHOL",
+     "IEYHO",
+     "SELEC"
+    ]
+   },
+   {
+    "gun": "2026-11-19",
     "zaman": "19.11.2026 18:29:32",
     "kurum": "BORSA İSTANBUL A.Ş.",
     "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
@@ -1245,7 +1283,6 @@
   "uyari": null
  },
  "kontrol_edilemeyenler": [
-  "bist: ERISILEMEDI (HTTP Error 503: Service Unavailable)",
   "takvim: 2026-11-19 TCMB haftalik para ve banka istatistikleri - birincil kaynakla teyit edilmedi",
   "takvim: 2026-11-20 SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti) - birincil kaynakla teyit edilmedi",
   "takvim: 2026-11-20 Guven endeksleri ve KKO - birincil kaynakla teyit edilmedi",
