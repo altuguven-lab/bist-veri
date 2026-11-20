@@ -98,7 +98,7 @@ Model envanterinin tam doğrulaması, risk kurallarının gözden geçirilmesi, 
 |---|---|
 | Kurum ve uyum | `data/kurum_kumesi.json`, `data/kurum_taramasi.json/.md`, `data/arsiv/kap/`, `config/kurum_izleme.yml`, `config/kapsam_disi.txt`, `data/msci_turkiye.json` |
 | Alarm sistemi | `data/tv_alerts_latest.json`, `data/gunluk_ozet_kapsama.json`, `data/alarm_karne.md`, `data/h14/`, `data/ip8_*`, `data/v195_radar_latest.json`, Cloudflare logları (kullanıcıdan) |
-| Piyasa | `data/endeks_intraday.json`, `data/piyasa_gunluk.json` (TL tahvil 2/5/10 yıl), `data/bist_intraday.json`, `data/bist_quotes.json`, `data/kuresel_gosterge.json`, `data/viop_genis/` |
+| Piyasa | `data/endeks_intraday.json`, `data/bist_resmi.json` (borsaistanbul.com gün sonu), `data/piyasa_gunluk.json` (TL tahvil 2/5/10 yıl), `data/bist_intraday.json`, `data/bist_quotes.json`, `data/kuresel_gosterge.json`, `data/viop_genis/` |
 | Makro | `data/makro_akim_reel.json/.md` (yabancı akımı, reel faiz, beklentiler, rezervler, reel efektif kur), `data/tcmb_evds_veri.json`, `data/makro_takvim.json`, `data/takvim.json` |
 | Temel ve değer | `data/deger_tarama.json`, `data/temel_carpan_bist100.json`, `data/bist100_tarama.md`, `data/analist_hedef/`, `data/arastirma_hedef_fiyat.json` |
 | Testler | `ON_KAYIT_*.md`, `data/h*/sonuc.md`, `data/h6/golge.md`, `data/h8/sonuc.md`, `data/h10/sonuc.md` |
@@ -139,6 +139,7 @@ Yeni model ancak ön kayıtla envantere girer. "Kanıt basamağı" alanı boş b
 ### 5.4 Risk raporu
 - Pozisyon varsa: risk tabanlı boyut, stop mesafesi, sektör ve banka+holding yoğunluğu, korelasyon, likidite (ortalama hacmin yüzdesi).
 - **Stres testleri** (her ay): XU100 −%10 günlük; USDTRY +%10; Brent +%50; CDS +150 bp; MSCI düşürme duyurusu (pasif çıkış). Her senaryoda portföy ve evren etkisi tarihsel benzer dönemlerden hesaplanır; tarihsel benzer yoksa "hesaplanamadı" yazılır.
+- **Model portföy risk ölçüleri:** `data/risk_raporu.md` (quantstats; ayın 2'sinde güncellenir). H6 bileşik geriye dönük test ile G1/G2/G3 gölge portföyleri: yıllık bileşik getiri, oynaklık, azami düşüş, XU100'e ve evrene göre bilgi oranı, en kötü ay, CVaR. Gölgede 6 aydan az veri varsa yalnızca aylık seri verilir, oran hesaplanmaz.
 - İHLAL listesi: kural · durum · Başkan'a öneri.
 
 ---
