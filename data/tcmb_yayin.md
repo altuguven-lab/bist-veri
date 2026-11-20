@@ -1,0 +1,30 @@
+# TCMB yayınları ve veri takvimi
+
+Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
+
+| Kaynak | Durum | Adet |
+|---|---|---|
+| Veriler | OK | 28 |
+| Yayinlar | OK | 17 |
+| Basin Duyurulari | OK | 20 |
+| PPK Kararlari | OK | 21 |
+| Baskanin Konusmalari | OK | 30 |
+| Veri Yayimlama Takvimi | AYRISTIRILAMADI | 0 |
+
+## Son 7 gün yayımlananlar
+
+- 2026-11-19 17:00 [Veriler] [Haftalık Akım Faiz ve Kâr Payı İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/faiz+istatistikleri/haftalik)
+- 2026-11-19 14:30 [Veriler] [Menkul Kıymet İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/menkul+kiymet+istatistikleri)
+- 2026-11-19 14:30 [Veriler] [Haftalık Para ve Banka İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/haftalik+para+ve+banka+istatistikleri)
+- 2026-11-19 10:00 [Veriler] [Kısa Vadeli Dış Borç İstatistikleri (Eylül 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/kisa+vadeli+dis+borc+istatistiklerii)
+- 2026-11-17 10:00 [Veriler] [Konut Fiyat Endeksi (Ekim 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/reel+sektor+istatistikleri/konut+fiyat+endeksi)
+- 2026-11-16 10:00 [Veriler] [Ticari Gayrimenkul Fiyat Endeksi (2026 3. Çeyrek)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/reel+sektor+istatistikleri/tgfe)
+- 2026-11-16 07:50 [Basin Duyurulari] [COP31 Antalya 2026 BM İklim Zirvesi Kapsamındaki İklim Değişikliği ve Merkez Bankacılığı Konferansına İlişkin Basın Duyurusu (2026-50)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/duyurular/basin/2026/duy2026-50)
+- 2026-11-13 10:00 [Veriler] [Ödemeler Dengesi İstatistikleri (Eylül 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/odemeler+dengesi+istatistikleri)
+- 2026-11-13 10:00 [Veriler] [Piyasa Katılımcıları Anketi (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/piyasa+katilimcilari+anketi)
+
+## Önümüzdeki 14 gün (Veri Yayımlama Takvimi)
+
+- (ayrıştırılamadı ya da kayıt yok; data/tcmb_yayin_ham/ incelenmeli)
+
+Gözlem amaçlıdır, tavsiye değildir.
