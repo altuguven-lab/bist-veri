@@ -7,8 +7,8 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | Kaynak | Durum | Adet |
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
-| hedeffiyat | OK | 9 |
-| haber | OK | 57 |
+| hedeffiyat | OK | 26 |
+| haber | OK | 53 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -25,12 +25,29 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | 2026-11-20 | GARAN | Phillip Capital (B) | 190.4 | Endeks Üstü Getiri | AYNI | ✅ (toplayıcı) |
 | 2026-11-20 | YKBNK | Phillip Capital (B) | 51.1 | Endeks Üstü Getiri | AYNI | ✅ (toplayıcı) |
 | 2026-11-20 | HALKB | Phillip Capital (B) | 52.4 | Endekse Paralel Getiri | AYNI | ✅ (toplayıcı) |
+| 2026-11-19 | ASTOR | HSBC (-) | 272.0 | AL | ASAGI (375.0 → -27.5%) | ✅ (toplayıcı) |
+| 2026-11-18 | BIMAS | Gedik Yatırım (B) | 620.0 | Endeks Üstü Getiri | YUKARI (530.0 → 17.0%) | ✅ (toplayıcı) |
+| 2026-11-17 | FROTO | QNB Yatırım (B) | 112.0 | Endeks Üstü Getiri | ASAGI (137.1 → -18.3%) | ✅ (toplayıcı) |
+| 2026-11-17 | FROTO | Deniz Yatırım (B) | 106.0 | TUT | AYNI | ✅ (toplayıcı) |
+| 2026-11-17 | ASTOR | Gedik Yatırım (B) | 363.9 | Endeks Üstü Getiri | ASAGI (461.3 → -21.1%) | ✅ (toplayıcı) |
+| 2026-11-17 | SAHOL | Deniz Yatırım (B) | 139.5 | AL | AYNI | ✅ (toplayıcı) |
+| 2026-11-17 | TOASO | Deniz Yatırım (B) | 400.0 | AL | AYNI | ✅ (toplayıcı) |
+| 2026-11-17 | PETKM | Deniz Yatırım (B) | 21.0 | TUT | AYNI | ✅ (toplayıcı) |
+| 2026-11-16 | TTKOM | Phillip Capital (B) | 89.13 | Endeks Üstü Getiri | YENI_KAYIT | ✅ (toplayıcı) |
+| 2026-11-16 | TCELL | Phillip Capital (B) | 162.97 | Endeks Üstü Getiri | YUKARI (134.1 → 21.5%) | ✅ (toplayıcı) |
+| 2026-11-16 | PGSUS | İş Yatırım (A) | 232.0 | AL | YUKARI (190.0 → 22.1%) | ✅ (toplayıcı) |
+| 2026-11-13 | BIMAS | Ak Yatırım (A) | 542.0 | Endeks Üstü Getiri | YUKARI (524.0 → 3.4%) | ✅ (toplayıcı) |
+| 2026-11-13 | OTKAR | Deniz Yatırım (B) | 450.0 | TUT | AYNI | ✅ (toplayıcı) |
 
 ## Diğer BIST100 hedef/tavsiye (son 7 gün)
 
 | Tarih | Sembol | Kurum (kademe) | Hedef TL | Tavsiye | Revizyon | Kaynak |
 |---|---|---|---|---|---|---|
 | 2026-11-20 | TSKB | Phillip Capital (B) | 18.4 | Endeks Üstü Getiri | AYNI | ✅ (toplayıcı) |
+| 2026-11-18 | LKMNH | Deniz Yatırım (B) | 25.04 | AL | AYNI | ✅ (toplayıcı) |
+| 2026-11-16 | LKMNH | KuveytTürk Yatırım (-) | 21.0 | AL | AYNI | ✅ (toplayıcı) |
+| 2026-11-16 | LKMNH | Gedik Yatırım (B) | 23.7 | Endeks Üstü Getiri | AYNI | ✅ (toplayıcı) |
+| 2026-11-13 | TURSG | Ziraat Yatırım (B) | 6.5 | AL | ASAGI (9.6 → -32.3%) | ✅ (toplayıcı) |
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
@@ -51,17 +68,12 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-19 **HSBC**: [HSBC, Astor Enerji hedef fiyatını düşürdü - EKOTÜRK](https://news.google.com/rss/articles/CBMiekFVX3lxTE1wT21iWXZfMHBJXzJCcnJiYWRZeW9yVFZZVUlsd3RHRFBmcUxQVVlDM2F1blhsYkUtVUpUZjhxS00zd20wNko2SUVFQ0VIUHdoTWdIVHRVUnhBUlRQMGNNSFM3a3htMUlWcGZPQkVCcXV6LWpPQUt1VG53?oc=5)
 - 2026-11-19 **Moody's**: [Moody's, Şişecam'ın kredi notunu B3'e indirdi - Gazete Oksijen](https://news.google.com/rss/articles/CBMiigFBVV95cUxOVVo2MFF6Z3ZiZ2c0T3pVS3ZuM09NTGVqcWZadXBLOVEzYW5LQjZaQ1UteUZ3TG9CNktWbV9FRkEzdmhTeFduV3lJVGdmUEZGVVoxQ3M2dnQwZlRGOXE0b010ZmcyNVp1NGFuUnE5SXJTZEMzRG1ndHVvcVkzdUZMWlVycDVDRndfYVE?oc=5)
 - 2026-11-19 **Morgan Stanley**: [Morgan Stanley 2027 Beklentilerini Açıkladı: Borsada Yükseliş, Faizde Artış - Paranın Yönü](https://news.google.com/rss/articles/CBMitwFBVV95cUxObXdaUEJWY2tSQmxtNXllVXhIZXhLNnRDNHN2YnV1LTJMSU5pcXNnN0ZsczhpX0FBazNHVUo2bnBXbDdxVFJlS2lQZTZycTBwaWwxdFoxQS1zdVZXbm1EdlhKZW44Q2JXa29vZUdYaVplakxTbDVkMndhaXlrRVRIVmpwS3ZhLW9qN3owMVltOEJ0TjlKeU53YzBzeS0wNlhUZHllT180cnF3Y1RFTTE3NWtFdUFFWE0?oc=5)
-- 2026-11-19 **Bank of America**: [BofA’dan THYAO paylarında 628 milyon TL’lik alım - Paratic Haber](https://news.google.com/rss/articles/CBMidkFVX3lxTE10ZzJPc2Y0bTZET3dvUnc3VEdqMUpnNE1lN0JrTDU2VFlaU01vZWdMcF9aMk82cFJHTENkSUdPbkxQNUFWcm94SHRYUlM1MGNMOGg5cFhsY3pJQkhtYWw4dTNCaWozV0hRNnhnSC15UllIMzV0dFE?oc=5)
-- 2026-11-19 **HSBC**: [Astor Enerji yatırımcıları için HSBC'den yeni değerlendirme - Ekonomim](https://news.google.com/rss/articles/CBMiuwFBVV95cUxNWjJuRnBWMGxUQTNqT3RhVTdWcmFTTFM0NVdSaF82MjhJNmQ4ZWY5MnRnYUludmRTSG1MWjVtdmgzMFliaXF3RDV4aGRVZHVIeGdSUmMxWDJfeVNfdzk5djVPMDZ4UW4wS0NMOEZCTEh0WE5QZjhjZzRKTXhGVGNpSy1QN041eEFnYTNQYTJteVBOOG1qemVfcHRhWkJzaUpRVEs0Y2ZaTm1EbXYzb1RYYnpPbkMxa1BjWmN3?oc=5)
 - 2026-11-19 **HSBC**: [ASTOR Hisse Analizi: HSBC'den 272 TL Hedef Fiyat - Finans Hattı](https://news.google.com/rss/articles/CBMihAFBVV95cUxQdWhnV0RlYzYwOGVQRldPU3BfenRfNzZxX2dtUjRpaHk0MnVfSmRHZlBJSHEtTzZwUzE5MWxmS1VLa1M4M2hZbEdROFpPSWNFLUdmYnVuVnc4MXh4ZU1EUW1ySUFfUmJWeXd0THNQTWNGQjZZSXllLXhBOFRoSVNCNEY5Z1E?oc=5)
-- 2026-11-19 **HSBC**: [HSBC, Astor Enerji hedef fiyatını düşürdü - EKOTÜRK](https://news.google.com/rss/articles/CBMiekFVX3lxTE1wT21iWXZfMHBJXzJCcnJiYWRZeW9yVFZZVUlsd3RHRFBmcUxQVVlDM2F1blhsYkUtVUpUZjhxS00zd20wNko2SUVFQ0VIUHdoTWdIVHRVUnhBUlRQMGNNSFM3a3htMUlWcGZPQkVCcXV6LWpPQUt1VG53?oc=5)
 - 2026-11-19 **UBS**: [Durun almayın | UBS altın tahmini | Fonda dava yolu | Borsada kâr satışı - Investing.com Türkiye](https://news.google.com/rss/articles/CBMirgFBVV95cUxNYTkxX2xZZFY2Mi1ocHhxQ1lIanNaTlkzYThHQmNRMVNnb1Vkc2ZjY1EtalNJeG43WmJyVEowSTY1X2RmT05ETjRCRGRyLVo2YnprVXVWSEtaOHAtT3FmQThXdlNjSTZJTHM2YWZwakRLMXdNOG1uSGtNYm1WMl9GWDJuV2ZzTHR3V3FVRHJRUzNIaEo4Y1RlUUh4cE9yZU1yMDJIU1Fxc1hMNERTaFE?oc=5)
-- 2026-11-19 **Moody's**: [Moody's, Şişecam'ın kredi notunu B3'e indirdi - Gazete Oksijen](https://news.google.com/rss/articles/CBMiigFBVV95cUxOVVo2MFF6Z3ZiZ2c0T3pVS3ZuM09NTGVqcWZadXBLOVEzYW5LQjZaQ1UteUZ3TG9CNktWbV9FRkEzdmhTeFduV3lJVGdmUEZGVVoxQ3M2dnQwZlRGOXE0b010ZmcyNVp1NGFuUnE5SXJTZEMzRG1ndHVvcVkzdUZMWlVycDVDRndfYVE?oc=5)
 - 2026-11-19 **Moody's**: [Moody’s’ten Türkiye’deki fon krizi hakkında kritik açıklama! Kredi notu düşecek mi? - Haberton](https://news.google.com/rss/articles/CBMiogFBVV95cUxOVXVpLUlGamotZmJBSG5SQW1UcWNVMjJzTEVueVRtU3hKTWt3TUlBbF9VcDF2VHBTMHVmd0hrRjZjaFdweWM2eXRyUFVGLW53NGx5RFVhVE9kVUdKYk5udEhScVNEcm55MDJVa2dLNXE3Ukp0U2pHUEhpb3E5cF82aEkwLVRjLTFQREU2ZGd6YVpNSHppS2p0eVJ2SlNhV05vaFE?oc=5)
 - 2026-11-19 **Moody's**: [SISE: Moody’s Kredi Notunu Düşürdü, Görünümü Durağanlaştı - Finans Hattı](https://news.google.com/rss/articles/CBMihAFBVV95cUxNVjRLck5zeDF2NVBBdUFITXVxNGdJU2Vwc2NpUWJpaE4zX3dqNm42OW1sTlRwMncyMG1sSmllc3RfYW1vM2Njc0RNTE5YcEl4ZVgyamVpMEYtT0VBX09RTHhzVFN1aXlmQ0NNZEN4alhlUG1hbkhGbzVpSnVkb2tfVC1yZkc?oc=5)
 - 2026-11-18 **JPMorgan**: [JPMorgan Türkiye tavsiyesini yükseltti - Medyascope](https://news.google.com/rss/articles/CBMifEFVX3lxTE9tdTJxRG5TMW1FbnRxR2U3XzJaRmhXWENraWtrMVpxckszQmNkaG9lTFV6VFA1RktHZ2p2ZWJKSjZISHU3Tk15NlBEcktLNmlOTy1vRGFNZTBKUDh3b2FsY3RBZHVrMHprUnRVR1dQWXdRYXkxMVZvX013YVc?oc=5)
 - 2026-11-18 **JPMorgan**: [JPMorgan Türk hisseleri için tavsiyesini yükseltti - Sabah](https://news.google.com/rss/articles/CBMimAFBVV95cUxNSjhrMG5FYkNwQnFYYlhSRmEtQmF6a01DNnVRNzExaXJRZVFJUnU5OG1KMTF2Umw5MFFwdWljZVhGekFFbk1yazZHRlZPWngtamtPTzY0WC1RTDRtV0pVRnVFWjk3dTJ5aTd3NDZsdUs3UW8ya3JiYmRQMUtSLVZSWmppYTZfdnpiQzJmYk5PVnZ0elZ1NThuRdIBmAFBVV95cUxNSjhrMG5FYkNwQnFYYlhSRmEtQmF6a01DNnVRNzExaXJRZVFJUnU5OG1KMTF2Umw5MFFwdWljZVhGekFFbk1yazZHRlZPWngtamtPTzY0WC1RTDRtV0pVRnVFWjk3dTJ5aTd3NDZsdUs3UW8ya3JiYmRQMUtSLVZSWmppYTZfdnpiQzJmYk5PVnZ0elZ1NThuRQ?oc=5)
-- 2026-11-18 **Bank of America**: [BofA müşterilerinin alımında THYAO, ASELS ve KCHOL öne çıktı - Paratic Haber](https://news.google.com/rss/articles/CBMihwFBVV95cUxORmZWQnZNUExjcTVXZ3ZHLTlSMkdxT0kxMG1BVy1lLW15aVRKOHVCVU9NcDBVQjM0WjYyUHB4TGdPQm41bFpNT2t2RmJqX3BfSWVQR3B2eS1SeElGbDExSGk4dUoxSjd2LTE5bFN4eUdPLVh4TlVJaE1YaW5wOGtjanBDU3Z5U3c?oc=5)
 - 2026-11-18 **Moody's**: [Moody's açıkladı: Fon krizi Türkiye'nin kredi notunu etkiler mi? - Ekonomim](https://news.google.com/rss/articles/CBMiqwFBVV95cUxQRlVFVnU0Q0JpaTRxR2Q0RldnSFJMbmpmenloRWNBS1RoSGhfSDdrMHVuMEdxVHRDcUhzTHlvTUt0NXptWG9QQXpGVGFrdTBrRmNFdnZLNF9LeHpVdlNTbEU5dlRsVnYyY3ItWE9mUXdKU0FPU21hUUUxbnV6a25QejdqX2ZnYjNzdWVWX3VmQzlIbTRZeTF6bFVndzBTdy1qWkdkcXdnS1NMZlk?oc=5)
 - 2026-11-18 **Moody's**: [Moody’s fon krizini değerlendirdi: Türkiye’nin kredi notu etkilenir mi? - Paratic Haber](https://news.google.com/rss/articles/CBMikgFBVV95cUxNZjdIZDc1U0xHU1ZPZnMyWVR2Nm9RSHZlanA3MURoa0IwOC00QXlEQzNHQ3MyLWFtNk9PU1RTTU4zVTZjUjVPQkczWE1mWGtRcTB2U3prUmk0TnhRdENzNG85ejR5Ukt0STdKNnRzeHpqTFVmOGQ3ajNfa2FGN3BYN3MtenVTM3VuZWFlbkxMbmp0dw?oc=5)
 - 2026-11-18 **Moody's**: [Moody's'ten fon krizi açıklaması: Türkiye için iki kritik mesaj - CNBC-e](https://news.google.com/rss/articles/CBMinwFBVV95cUxOZTF1MG5qMFVSWEJTYTZxVTBRa1hZZ1pfaTMtMWFnNVJPelJ3Y3l4eHZkZlNieHlabFlsQWZIRDZUVFFoU0RuSnU1TUItaERzQ1Qza2RuZHp5dmRrS0kzWW9rYWhXdTlzSWxkUGF5UDFWazVRd0VINE9JMTJMWnNvLTA1QS1nZVVaR2ZXT25oek90LVBfSUg0VHdkN3RmaU0?oc=5)
@@ -72,16 +84,21 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-18 **Moody's**: [Moody’s’ten Türkiye’ye fon krizi ve kredi notu mesajı - Borsa Gundem](https://news.google.com/rss/articles/CBMiiAFBVV95cUxOc3NCZGlLT3o1UUJtcUtXQ3dobzM3bktsWVR0eTc5R0I1cTVtSHNtc3YtOUxSS2hyMExoLXMtNk90a2VhbUR4dndFTkVUN2VmbzBWd1BMTDFwVkgyM0RhWDh1QVFoVVpTWEVkXzVXMGlPNkE5WUZvNXJsOGFYZnhhTmJNVnJPd25m?oc=5)
 - 2026-11-18 **Moody's**: [Moody’s’ten Türkiye değerlendirmesi, fon krizi kredi notunu etkiler mi? - Sanayi Gazetesi](https://news.google.com/rss/articles/CBMinwFBVV95cUxPWjJmMWc1T0JxMmxPb1kwZUtaM0tjYWZ5ZTZmbGZUNFdTZTFqVVRudnUyMkVfVG8wTnZPWGY1SW13WWtKYlpRalBxSDB5ajVGV2Ezby1na2lvN1lhNjVBR3FtSC1yTkJ4MXBUUzZ1YTV5ck1ONldLei1PbmJPLVZxTmUtNllPdlNmMU9vWHB2OHVqVEZ6ZC1pYmxQZ3J4a00?oc=5)
 - 2026-11-18 **Fitch**: [Fitch, Türkiye'deki elektrik fiyatları için 2027 beklentisini açıkladı - Ekonomim](https://news.google.com/rss/articles/CBMitgFBVV95cUxNakk4SUVvcm5UQWd3MElvcUxteTNvTUlTOTRvV1RoaThqcGtVb0l3Rnh5UXhJUDRMSDlMU0RTaWotUlBua2c4Q2ltalNqcmJKaFNQLUxqVlFLMXpOcmZ6UFVVVDBheGhBOUtFZlVyQlJkWEdoSU5TdVNzZHVTMnl1bG9iY19uVGs2YmdzU1pFR0VHUE9RMFNnNjM1RXNzMnRlQ202cUxpWVlKV3MyNURXTmVQb0Jndw?oc=5)
+- 2026-11-17 **JPMorgan**: [JPMorgan'dan yeni karar: MSCI Türkiye endeksine yönelik tavsiyesini 'Ağırlık artır'a yükseltti - İstanbul Ticaret Gazetesi](https://news.google.com/rss/articles/CBMixAFBVV95cUxNZEZlell1d3hPU0F1YTBack1GcHVtcHBOMGtXS1N1RjBkN3JyWDJYdUVGYkdIeHZqOExVZW1WWVFOdG8zR1B3bTB3VDVHUW51RTRIZjVGYXlWcjZNaWtQUEY5MnJGYVhxaExwYVYzVzZ6b21tbHBRYmg0a3ZraEpNaTZWcG5aY3EwT01keXRXN3ZOLXVjbXNyUkFUd3REbTlsamhHcnd1aDBLN2Z0bEZyN2JPbTZMUnhhVlJqOTBjZVNFWWk3?oc=5)
+- 2026-11-17 **JPMorgan**: [JPMorgan'dan Borsa İstanbul için kritik karar! Yabancı yatırımcı geri mi dönüyor? - Ekovitrin Haber](https://news.google.com/rss/articles/CBMipwFBVV95cUxPZXlEUzNnbVpvZWVKTDJTeHBqa0F4VHBVNmM3RjJnM0RnX1ZPdHNzZkx5QTRxTDQwN2VkWDFCYlo1M2RwODR4SzlMTEZkTlI5bVM3LXBZdk13bWxXMFBZeFp0Qk1rTXpWa08yVUlLS0YzR1JKWms5NW01WnI5eExxU19PUXlpYmhqSWo4QU5DZUpfOVpOSElpWHNqNFdlM1ZVbGdIeDRMdw?oc=5)
+- 2026-11-17 **Bank of America**: [BofA, Türk Hava Yolları’nda net 3,73 milyon pay aldı - EKOTÜRK](https://news.google.com/rss/articles/CBMihwFBVV95cUxPVm9WcjJTNVBPNHQ2WUl5QU9ESWdjT3BDUEIyUU1LVEEwMy1tRlZJMXNpQkZMZm82VVh5dVRmNTREVjFIY3NEVExDeWEyZG1WMHhfclg2b0tjNWc4UlpqVV8wWVRyRFJKaUhzNWUxOHpwR3RZTU5fVVdQZ2JuOXFZMjhqTTNxX28?oc=5)
+- 2026-11-17 **JPMorgan**: [JPMorgan Türkiye için beklentisini değiştirdi - Ekonomi Haberleri - A Para](https://news.google.com/rss/articles/CBMikwFBVV95cUxONjJrM0hrS1d1QlZWVjJRaVdQQ0tsaDhfTUZnbmJTQnB4clBPdTc2VGgyUWFEbUdYa00zZm9Ud2E3cjFYOGsyMDRPQ2JFTllsc2NYOUVhbkV4bk4wTzc3SlJjamZpQW0xSGN6dS10dVVmWTlqamJaZnZKa05MTjAxelVuTjR2Yk5FLWlRWS1tOXNVTUk?oc=5)
+- 2026-11-17 **JPMorgan**: [JPMorgan, MSCI Türkiye Endeksi için tavsiyesini yükseltti - Bloomberght](https://news.google.com/rss/articles/CBMilwFBVV95cUxOMTVDek95NF95SHVkek94VWRnRFJTbjB6M2dZTDhOOEpRdjFnZTRvWDZDZ1dLTTkxV0JVaDE4XzZVcVQxQ0pMQWl1ckdZTmswTDlLSXVUUjhYWWN1N2JBMk5jbHRtdUwxX3BjOG1QRG51Sks5a3ZZMTVyRWJfU2lnWVdXbzNtdDBTRXpialFrYlBvQUtLNW5B?oc=5)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
-- (yok)
+- 2026-11-19 Bank of America: [BofA’dan THYAO paylarında 628 milyon TL’lik alım - Paratic Haber](https://news.google.com/rss/articles/CBMidkFVX3lxTE10ZzJPc2Y0bTZET3dvUnc3VEdqMUpnNE1lN0JrTDU2VFlaU01vZWdMcF9aMk82cFJHTENkSUdPbkxQNUFWcm94SHRYUlM1MGNMOGg5cFhsY3pJQkhtYWw4dTNCaWozV0hRNnhnSC15UllIMzV0dFE?oc=5)
+- 2026-11-18 Bank of America: [BofA müşterilerinin alımında THYAO, ASELS ve KCHOL öne çıktı - Paratic Haber](https://news.google.com/rss/articles/CBMihwFBVV95cUxORmZWQnZNUExjcTVXZ3ZHLTlSMkdxT0kxMG1BVy1lLW15aVRKOHVCVU9NcDBVQjM0WjYyUHB4TGdPQm41bFpNT2t2RmJqX3BfSWVQR3B2eS1SeElGbDExSGk4dUoxSjd2LTE5bFN4eUdPLVh4TlVJaE1YaW5wOGtjanBDU3Z5U3c?oc=5)
 
 ## Diğer kurum haberleri (son 7 gün, ◐)
 
 - 2026-11-19 ÜNLÜ & Co: [Ünlü & Co’nun banka tercihi değişti: Akbank gitti, Vakıfbank geldi - Paratic Haber](https://news.google.com/rss/articles/CBMiigFBVV95cUxNQnJZa2dzY1ptdWk5dS1wTGxJY0d1TkhJb2tpTFFjdFo4cTRSOWcxWTJJSEZCYUJLdjRqOVFsSS1YRFIybjJ3bS11bExjTmFRS24wZTdUVGJPcWJ4VTJCNm13UFV6MWt2d0xKSlI2TEpheDRpYWk2UElGV3ktX0ZBazhVMHJBdjZNTFE?oc=5)
 - 2026-11-19 ÜNLÜ & Co: [Ünlü Menkul model portföye Vakıfbank’ı ekledi, Akbank’ı çıkardı - Borsatek](https://news.google.com/rss/articles/CBMieEFVX3lxTE1SWUJXcGpEMkF6R2RYZFJNR2s5SmNKeEI3NEI5N2hPVVJCVkVET0RXdTVna3ZxV015UDJRRVFGZFdlRmluVjZCcF9ETDN0SkVOcHhyTnJQdGo2aGxjV0NaVEJKazJtNFVydXhuamJwOTZCRGdUY0x0bg?oc=5)
-- 2026-11-19 ÜNLÜ & Co: [Ünlü & Co’nun banka tercihi değişti: Akbank gitti, Vakıfbank geldi - Paratic Haber](https://news.google.com/rss/articles/CBMiigFBVV95cUxNQnJZa2dzY1ptdWk5dS1wTGxJY0d1TkhJb2tpTFFjdFo4cTRSOWcxWTJJSEZCYUJLdjRqOVFsSS1YRFIybjJ3bS11bExjTmFRS24wZTdUVGJPcWJ4VTJCNm13UFV6MWt2d0xKSlI2TEpheDRpYWk2UElGV3ktX0ZBazhVMHJBdjZNTFE?oc=5)
 - 2026-11-19 : [ASTOR ve GLRMK İçin Yeni Hedef Fiyatlar Açıklandı! - Finans Hattı](https://news.google.com/rss/articles/CBMif0FVX3lxTE9DdENTczYtQ2UyS2pVVURibnV6ejRfSXdVREZaUVpnX3dtaFNRM2t2eUdiaTh3ZEZjbktldDNrazNlYWpoWVRYb0taWkFDeHpHV0JKeDV3YUVuUHVBSDFBdUZySU8zVVZHdUQ2OS1aeEk2NHRoMkpLSkdFdmhWdXc?oc=5)
 - 2026-11-18 Gedik Yatırım: [Gedik Yatırım’dan model portföy için DOHOL ve BIMAS kararı - Paratic Haber](https://news.google.com/rss/articles/CBMihAFBVV95cUxOMjB3RGt2S2dFU1Y1MkhiSWhOWGVJNmlGWERPSWNtc0NvX0tibUdZRUNjZjk1SndFMmRZMHNWeHk3R1E3REZXbkxRMDMtOU9RSEhQSTE5bWZ6cXhuTHRKbXRiUkhHaDZxODVxMnVmMzJrTXhScmkwSUtYeHAxaTZwOEl6OHY?oc=5)
 - 2026-11-18 : [BIMAS Hedef Fiyat Güncellemesi Ve Portföy Değişikliği - Finans Hattı](https://news.google.com/rss/articles/CBMijgFBVV95cUxQSS1MWlFVMmJzX25aREpyQmg5WjRieURCbXFJVWZoUXlvQTZlLTVTbVpaUkpZckxrLU1uR0VsZE5NX1NsMVJpNFBZTlhuT3pkYi1ILUtBRk1tZExzN1NUVnhtd29EUnM4TWhkOVRTWktsTzFic0FEa0dBaU1IUkFPTXl2bEE0LUpWdXh1eURn?oc=5)
