@@ -1,0 +1,56 @@
+# ARASTIRMA KAYNAKLARI (20.11.2026) - kurum listesi ve erisim kurallari. Salt veri, tavsiye degildir.
+# Kademe (tier) Altug'un L99 cercevesinden; yeni kurum eklemek serbest, kademe degisikligi kurul karariyla.
+# erisim: birincil = kurumun kendi yayini okunuyor | toplayici = hedeffiyat.com.tr | haber = yalniz basinda cikan (◐)
+#         kapali = uye girisi/robots nedeniyle okunamaz (⛔)
+yerli:
+  - {ad: "İş Yatırım",        kademe: A,  desen: "İş Yatırım|Is Yatirim|İş Yat",                  erisim: birincil, not: "arastirma.isyatirim.com.tr RSS"}
+  - {ad: "Ak Yatırım",        kademe: A,  desen: "Ak Yatırım|Ak Yatirim",                          erisim: toplayici}
+  - {ad: "Yapı Kredi Yatırım",kademe: A,  desen: "Yapı Kredi Yatırım|Yapi Kredi Yatirim|YKY",      erisim: toplayici, not: "robots PDF yasak"}
+  - {ad: "Garanti BBVA Yatırım", kademe: A-, desen: "Garanti BBVA|Garanti Yatırım|Garanti Yatirim", erisim: toplayici, not: "raporlar uye girisi"}
+  - {ad: "ÜNLÜ & Co",         kademe: A-, desen: "ÜNLÜ|Ünlü|Unlu & Co|ÜNLÜ & Co",                   erisim: toplayici}
+  - {ad: "OYAK Yatırım",      kademe: A-, desen: "OYAK Yatırım|Oyak Yatırım|Oyak Yatirim",         erisim: toplayici}
+  - {ad: "Deniz Yatırım",     kademe: B,  desen: "Deniz Yatırım|Deniz Yatirim|DenizInvest",         erisim: toplayici}
+  - {ad: "Anadolu Yatırım",   kademe: B,  desen: "Anadolu Yatırım|Anadolu Yatirim",                 erisim: toplayici}
+  - {ad: "Piramit Menkul",    kademe: B,  desen: "Piramit",                                         erisim: toplayici}
+  - {ad: "Ziraat Yatırım",    kademe: B,  desen: "Ziraat Yatırım|Ziraat Yatirim",                   erisim: toplayici, not: "robots PDF yasak"}
+  - {ad: "QNB Yatırım",       kademe: B,  desen: "QNB",                                             erisim: toplayici}
+  - {ad: "Gedik Yatırım",     kademe: B,  desen: "Gedik",                                           erisim: toplayici}
+  - {ad: "Tacirler Yatırım",  kademe: B,  desen: "Tacirler",                                        erisim: toplayici}
+  - {ad: "Halk Yatırım",      kademe: B,  desen: "Halk Yatırım|Halk Yatirim|Halk Invest",           erisim: toplayici}
+  - {ad: "Vakıf Yatırım",     kademe: B,  desen: "Vakıf Yatırım|Vakif Yatirim|Vakıf Yatirim",       erisim: toplayici}
+  - {ad: "Phillip Capital",   kademe: B,  desen: "Phillip",                                         erisim: toplayici}
+  - {ad: "İnfo Yatırım",      kademe: B,  desen: "İnfo Yatırım|Info Yatirim|İnfo Yatirim",          erisim: toplayici}
+yabanci:   # arastirmalari musteriye kapali; yalniz basinda cikan haber (◐)
+  - {ad: "Goldman Sachs",   desen: "Goldman"}
+  - {ad: "JPMorgan",        desen: "JPMorgan|JP Morgan|J.P. Morgan"}
+  - {ad: "Morgan Stanley",  desen: "Morgan Stanley"}
+  - {ad: "Bank of America", desen: "Bank of America|BofA"}
+  - {ad: "Citi",            desen: "Citi\\b|Citigroup|Citibank"}
+  - {ad: "HSBC",            desen: "HSBC"}
+  - {ad: "Deutsche Bank",   desen: "Deutsche Bank"}
+  - {ad: "UBS",             desen: "\\bUBS\\b"}
+  - {ad: "Barclays",        desen: "Barclays"}
+  - {ad: "Wood & Company",  desen: "Wood & Co|Wood and Company|WOOD"}
+  - {ad: "BNP Paribas",     desen: "BNP"}
+  - {ad: "Société Générale",desen: "Societe Generale|Société Générale|SocGen"}
+kredi_notu:   # karar metinleri ajanslarin sitesinde; takvim haftalik bakimda birincil kaynaktan takvim.json'a eklenir
+  - {ad: "S&P Global",  desen: "S&P|Standard & Poor"}
+  - {ad: "Moody's",     desen: "Moody"}
+  - {ad: "Fitch",       desen: "Fitch"}
+  - {ad: "JCR Eurasia", desen: "JCR"}
+haber_sorgulari:   # Google News RSS (fetch_news.py ile ayni yontem); son 7 gun
+  - '"Goldman Sachs" Türkiye'
+  - '"JPMorgan" Türkiye hisse'
+  - '"Morgan Stanley" Türkiye'
+  - '"Bank of America" Türkiye'
+  - '"HSBC" Türkiye hedef fiyat'
+  - '"Citi" Türkiye hisse'
+  - '"Deutsche Bank" Türkiye'
+  - '"UBS" Türkiye'
+  - '"Barclays" Türkiye'
+  - 'Wood Company Türk hisse'
+  - 'Turkey stocks Goldman OR JPMorgan OR "Morgan Stanley" OR Citi OR HSBC'
+  - 'Turkish banks upgrade OR downgrade analyst'
+  - 'Türkiye kredi notu Moody''s OR Fitch OR S&P'
+  - '"model portföy" aracı kurum'
+  - 'hedef fiyat yükseltti OR düşürdü hisse'
