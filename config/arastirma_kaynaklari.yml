@@ -33,6 +33,19 @@ yabanci:   # arastirmalari musteriye kapali; yalniz basinda cikan haber (◐)
   - {ad: "Wood & Company",  desen: "Wood & Co|Wood and Company|WOOD"}
   - {ad: "BNP Paribas",     desen: "BNP"}
   - {ad: "Société Générale",desen: "Societe Generale|Société Générale|SocGen"}
+  # 20.11 eki: 2027 gorunum derlemesindeki kurumlar
+  - {ad: "ING",                desen: "\\bING\\b"}
+  - {ad: "ABN AMRO",           desen: "ABN AMRO"}
+  - {ad: "Neuberger Berman",   desen: "Neuberger"}
+  - {ad: "PGIM",               desen: "PGIM"}
+  - {ad: "DWS",                desen: "\\bDWS\\b"}
+  - {ad: "Columbia Threadneedle", desen: "Columbia Threadneedle|Threadneedle"}
+  - {ad: "Invesco",            desen: "Invesco"}
+  - {ad: "Santander",          desen: "Santander"}
+  - {ad: "EFG",                desen: "\\bEFG\\b"}
+  - {ad: "BlackRock",          desen: "BlackRock"}
+  - {ad: "Amundi",             desen: "Amundi"}
+  - {ad: "Schroders",          desen: "Schroders"}
 kredi_notu:   # karar metinleri ajanslarin sitesinde; takvim haftalik bakimda birincil kaynaktan takvim.json'a eklenir
   - {ad: "S&P Global",  desen: "S&P|Standard & Poor"}
   - {ad: "Moody's",     desen: "Moody"}
@@ -54,3 +67,16 @@ haber_sorgulari:   # Google News RSS (fetch_news.py ile ayni yontem); son 7 gun
   - 'Türkiye kredi notu Moody''s OR Fitch OR S&P'
   - '"model portföy" aracı kurum'
   - 'hedef fiyat yükseltti OR düşürdü hisse'
+
+# Kurumlarin kendi yayin sayfalari (birincil ✅; robots.txt 20.11'de kontrol edildi). Sayfadaki yeni basliklar
+# "ilk gorulme" zamaniyla kaydedilir. desen: makale baglantilarinin yol deseni.
+yayin_sayfalari:
+  - {ad: "ING THINK - Türkiye", kurum: "ING", url: "https://think.ing.com/tags/tag/Turkey/", desen: "/(snaps|articles|reports)/", turkiye: true}
+  - {ad: "ING THINK - son yayınlar", kurum: "ING", url: "https://think.ing.com/latest/", desen: "/(articles|reports)/", turkiye: false}
+# Kuresel gorunum haberleri: Turkiye suzgeci UYGULANMAZ ama baslikta gorunum/strateji kelimesi ve kurum adi aranir (◐)
+gorunum_sorgulari:
+  - 'outlook 2027 "Neuberger Berman" OR PGIM OR DWS OR "Columbia Threadneedle" OR Invesco'
+  - 'outlook 2027 UBS OR "Morgan Stanley" OR "Goldman Sachs" OR "JPMorgan" OR BlackRock'
+  - 'outlook 2027 ING OR "ABN AMRO" OR Santander OR EFG OR Barclays OR HSBC OR Amundi'
+  - 'emerging markets outlook 2027'
+  - '2027 görünüm raporu yatırım bankası'
