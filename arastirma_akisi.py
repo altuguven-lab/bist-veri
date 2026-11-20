@@ -287,6 +287,64 @@ def haber(kodlar, cfg):
     return out
 
 
+# ------------------------------------------------------------------ kaynak 4: kurumlarin kendi yayin sayfalari (✅)
+def yayin_sayfalari(kodlar, cfg):
+    import urllib.request
+    out = []
+    for y in cfg.get("yayin_sayfalari") or []:
+        try:
+            r = urllib.request.Request(y["url"], headers={"User-Agent": UA})
+            with urllib.request.urlopen(r, timeout=40) as f:
+                h = f.read().decode("utf-8", errors="replace")
+        except Exception as e:
+            print(f"UYARI: {y['ad']}: {e}", file=sys.stderr)
+            continue
+        gor = set()
+        for m in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', h, re.S):
+            href, metin = m.group(1), temiz(m.group(2))
+            if not re.search(y["desen"], href) or len(metin) < 20 or href in gor:
+                continue
+            gor.add(href)
+            if href.startswith("/"):
+                href = re.match(r"https?://[^/]+", y["url"]).group(0) + href
+            out.append({"kaynak": y["ad"], "teyit": "birincil", "kurum": y["kurum"], "kademe": None, "grup": "yabanci",
+                        "tarih": None, "tip": "turkiye_notu" if y.get("turkiye") else "kurum_yayini",
+                        "baslik": metin[:200], "semboller": kod_bul(metin, kodlar), "hedef_tl": None, "tavsiye": None,
+                        "link": href})
+            if len(gor) >= 25:
+                break
+    return out
+
+
+# ------------------------------------------------------------------ kaynak 5: kuresel gorunum haberleri (◐)
+GORUNUM = r"outlook|görünüm|year ahead|forecast|tahmin|strateji|strategy|themes|predictions"
+
+
+def gorunum_haber(kodlar, cfg):
+    out, gor = [], set()
+    simdi = dt.datetime.now(dt.timezone.utc)
+    for q in cfg.get("gorunum_sorgulari") or []:
+        time.sleep(0.8)
+        dil = "hl=tr&gl=TR&ceid=TR:tr" if re.search(r"[çğıöşüÇĞİÖŞÜ]", q) else "hl=en-US&gl=US&ceid=US:en"
+        f = feedparser.parse("https://news.google.com/rss/search?q=" + quote(q + " when:14d") + "&" + dil, agent=UA)
+        for e in f.entries[:15]:
+            baslik = temiz(getattr(e, "title", ""))
+            govde = re.sub(r"\s+-\s+[^-]{2,40}$", "", baslik)
+            n = re.sub(r"\W+", "", govde.lower())[:70]
+            kurum, grup, kademe = kurum_bul(govde, cfg)
+            if not baslik or n in gor or not kurum or not re.search(GORUNUM, govde, re.I):
+                continue
+            pp = getattr(e, "published_parsed", None)
+            if pp and (simdi - dt.datetime(*pp[:6], tzinfo=dt.timezone.utc)).days > 14:
+                continue
+            gor.add(n)
+            out.append({"kaynak": "Google News", "teyit": "ikincil", "kurum": kurum, "kademe": kademe, "grup": grup,
+                        "tarih": dt.date(*pp[:3]).isoformat() if pp else None, "tip": "kuresel_gorunum",
+                        "baslik": baslik[:200], "semboller": [], "hedef_tl": None, "tavsiye": None,
+                        "link": getattr(e, "link", ""), "sorgu": q})
+    return out
+
+
 # ------------------------------------------------------------------ arsiv ve revizyon
 def anahtar(k):
     h = "|".join(str(k.get(x)) for x in ("kaynak", "kurum", "semboller", "hedef_tl", "tarih", "baslik"))
@@ -303,7 +361,7 @@ def arsiv_oku():
             g = json.loads(l)
             if g.get("kurum") == "(kurum ayristirilamadi)":
                 continue
-            if g.get("kaynak") == "Google News":
+            if g.get("kaynak") == "Google News" and g.get("tip") != "kuresel_gorunum":
                 govde = re.sub(r"\s+-\s+[^-]{2,40}$", "", g.get("baslik") or "")
                 if not (g.get("semboller") and "sorgu" in g and re.search(r"\b[A-Z]{4,6}\b", govde)) and not re.search(TURKIYE, govde, re.I) \
                         and not any(re.search(r"\b" + re.escape(k), govde) for k in SIRKET_ADLARI):
@@ -331,7 +389,8 @@ def main():
     kodlar, takip = evren()
     simdi = dt.datetime.now(dt.timezone.utc)
     durum, kayit = {}, []
-    for ad, fn in (("is_yatirim_rss", is_yatirim), ("hedeffiyat", hedeffiyat), ("haber", haber)):
+    for ad, fn in (("is_yatirim_rss", is_yatirim), ("hedeffiyat", hedeffiyat), ("haber", haber),
+                   ("kurum_yayin_sayfalari", yayin_sayfalari), ("kuresel_gorunum", gorunum_haber)):
         try:
             r = fn(kodlar, cfg)
             durum[ad] = {"durum": "OK" if r else "BOS", "adet": len(r)}
@@ -409,7 +468,13 @@ def main():
           if g["kaynak"] == "İş Yatırım RSS" and (g.get("tarih") or "") >= son1][:20] or ["- (yok)"]
     L += ["", "## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)", ""]
     L += [f"- {g.get('tarih')} **{g.get('kurum') or '-'}**: [{g['baslik']}]({g['link']})" for g in pencere
-          if g["kaynak"] == "Google News" and g.get("grup") in ("yabanci", "kredi_notu") and g.get("tip") != "takas"][:25] or ["- (yok)"]
+          if g["kaynak"] == "Google News" and g.get("grup") in ("yabanci", "kredi_notu") and g.get("tip") not in ("takas", "kuresel_gorunum")][:25] or ["- (yok)"]
+    L += ["", "## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)", ""]
+    L += [f"- {g['ilk_gorulme'][:10]} **{g['kurum']}**: [{g['baslik']}]({g['link']})" for g in
+          sorted([g for g in pencere if g.get("tip") == "turkiye_notu"], key=lambda g: g["ilk_gorulme"], reverse=True)][:10] or ["- (yok)"]
+    L += ["", "## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)", ""]
+    L += [f"- {g.get('tarih') or g['ilk_gorulme'][:10]} **{g['kurum']}**: [{g['baslik']}]({g['link']})" for g in pencere
+          if g.get("tip") in ("kuresel_gorunum", "kurum_yayini")][:20] or ["- (yok)"]
     L += ["", "## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)", ""]
     L += [f"- {g.get('tarih')} {g.get('kurum') or ''}: [{g['baslik']}]({g['link']})" for g in pencere
           if g["kaynak"] == "Google News" and g.get("tip") == "takas"][:8] or ["- (yok)"]
