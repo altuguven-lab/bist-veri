@@ -1,0 +1,36 @@
+# RISK RAPORU (quantstats) - ayda bir (ayin 2'si, golge dondurmasindan sonra) + elle. SALT OLCUM, TAVSIYE DEGILDIR.
+name: Risk Raporu
+on:
+  schedule:
+    - cron: "30 16 2 * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: risk-raporu
+  cancel-in-progress: false
+jobs:
+  rapor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pandas numpy quantstats-lumi==1.1.6
+      - name: Rapor
+        run: python risk_raporu.py
+      - name: Commit
+        run: |
+          git config user.name "risk-raporu-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/risk_raporu.json data/risk_raporu.md data/risk_raporu_h6.html
+          git diff --staged --quiet && exit 0
+          git commit -m "Risk raporu $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main || git rebase --abort
+          done
+          exit 1
