@@ -8,9 +8,9 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 26 |
-| haber | OK | 52 |
-| kurum_yayin_sayfalari | OK | 42 |
-| kuresel_gorunum | OK | 12 |
+| haber | OK | 46 |
+| kurum_yayin_sayfalari | OK | 43 |
+| kuresel_gorunum | OK | 11 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -53,6 +53,8 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
+- 2026-11-20 [İş Varant Raporu: İş Varant 20/11/2026](https://arastirma.isyatirim.com.tr/2026/11/20/is-varant-raporu-is-varant-20-11-2026/) (diger)
+- 2026-11-20 [Eurotahvil Piyasasında Neler Oluyor 20/11/2026](https://arastirma.isyatirim.com.tr/2026/11/20/eurotahvil-piyasasinda-neler-oluyor-20-11-2026/) (diger)
 - 2026-11-20 [FX Teknik Analiz Raporu 20/11/2026](https://arastirma.isyatirim.com.tr/2026/11/20/fx-teknik-analiz-raporu-20-11-2026/) (diger)
 - 2026-11-20 [ELÜS Günlük Bülteni 20/11/2026](https://arastirma.isyatirim.com.tr/2026/11/20/elus-gunluk-bulteni-20-11-2026/) (diger)
 - 2026-11-20 [Piyasalarda Bugün 20/11/2026](https://arastirma.isyatirim.com.tr/2026/11/20/piyasalarda-bugun-20-11-2026/) (diger)
@@ -94,6 +96,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)
 
+- 2026-11-20 **ING**: [Poland 16 November How Polish households are saving and investing in 2026](https://think.ing.com/articles/saving-and-investment-profile-of-polish-households-in-2026/)
 - 2026-11-20 **ING**: [Turkey 13 November Turkey’s annual current account deficit narrows sharply Read this Article](https://think.ing.com/articles/turkeys-annual-c-a-deficit-narrowed-sharply/)
 - 2026-11-20 **ING**: [Quick take Turkey 12 November Turkey’s benign underlying inflation supports December rate cut Quarterly inflation report by the CBT](https://think.ing.com/snaps/turkey-benign-underlying-inflation-trend-supports-december-rate-cut/)
 - 2026-11-20 **ING**: [Turkey 11 November Monitoring Turkey: Central bank course unchanged Monitoring Turkey on monthly economic developments](https://think.ing.com/articles/monitoring-turkey-central-bank-course-unchanged/)
@@ -103,7 +106,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **ING**: [Quick take Turkey 10 September Turkish central bank stays on hold and signals continued caution](https://think.ing.com/snaps/the-turkish-central-bank-stays-on-hold-signals-continued-caution/)
 - 2026-11-20 **ING**: [Turkey 10 September Monitoring Turkey: Further easing likely in fourth quarter](https://think.ing.com/articles/monitoring-turkey-further-easing-likely-in-4q/)
 - 2026-11-20 **ING**: [Quick take Turkey 7 September Turkey's medium-term plan signals slower disinflation path in 2027](https://think.ing.com/snaps/the-turkish-government-projects-less-ambitious-disinflation-in-2027/)
-- 2026-11-20 **ING**: [16 November Asia Outlook 2027: Growth broadens, capital gets selective](https://think.ing.com/articles/asia-outlook-2027-draft/)
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
@@ -117,6 +119,9 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-16 **ING**: [ING's 2027 Asia Outlook: The AI Boom Broadens, but Global Capital Is Getting Choosy - The Dark Side Of The Boom](https://news.google.com/rss/articles/CBMihAFBVV95cUxPcWZRc1duOXhfcDRFOFduUi1MQzFtYTFvRzVWMUxNZTdWMmxPaDlOY2UxUTBaYU5fVThzSnBKZFF2RFZzYjFUS3F0RXNEUjRaTUtJVlp5OG5qbWlMaFJNY2tXd0tUdE5MMTBCMkFnMEktYjdVcUxMbzYxcUFQOVhvemwwa0g?oc=5)
 - 2026-11-15 **Goldman Sachs**: [Goldman Sachs 2027 Economic Outlook For Investors - Yahoo Finance](https://news.google.com/rss/articles/CBMimAFBVV95cUxNck1FYkJNZUFJUDd3RWIzVnhZN1c2Tk9wUThZbGYzSzcyb2luckVkYzlJckpPellVN0YwNWM0bXdsVmo0QTF5SENvYmM5X3pTLTgyZE45TG9CaFR3TFVZTUxGU01YZlRQUzMxeEhLLWZVN3B5anltMkM5WEFHY3k0VWlMaVNFZmZlZ3ozZjlMdjFSQUFMMm9TRQ?oc=5)
 - 2026-11-15 **Goldman Sachs**: [Goldman Sachs’ calm 2027 forecast comes with a catch - Yahoo Finance](https://news.google.com/rss/articles/CBMilAFBVV95cUxPTk40UDNlOS14bFJYX1puWGwtUG1JeHRuUTJtaDJJUUdIOEthcXBRbXZJcGpoRElDangtMkFTeWEtdS1fUFlqWURoU1BLVHJLNTBxeWRZR1dDLTRmc0ZsNF9EUUxTUWtuZ0UtcUZjZGpIWlRwczdSVzN5WFg4Rzlpai1zaXZyU3NPVFRQNHVMUktxcV9P?oc=5)
+- 2026-11-20 **ING**: [Commodities, Food & Agri Published 12:02 Metals sell-off runs ahead of physical markets It has been a difficult week for metals](https://think.ing.com/articles/metals-sell-off-runs-ahead-of-physical-markets/)
+- 2026-11-20 **ING**: [Czech Republic Poland Published 11:07 CEE & CCA week ahead: Polish activity data and Czech confidence in focus A look ahead at next week's economic events across the CEE and CCA regions](https://think.ing.com/articles/cee-cca-week-ahead-polish-activity-data-and-czech-confidence-in-focus/)
+- 2026-11-20 **ING**: [FX Today, 07:48 FX Daily: Carry trade unwind in full swing The prospect of faster Fed tightening is starting to weigh heavily on risk assets and helping the dollar](https://think.ing.com/articles/fx-daily-will-closer-eu-ties-help-the-pound/)
 - 2026-11-20 **ING**: [Published 10:58 THINK Ahead: Your questions, answered Our Q&A examines how ING’s Global Outlook differs from market expectations and where we see the biggest disconnects](https://think.ing.com/articles/think-ahead-201126/)
 - 2026-11-20 **ING**: [FX Published 07:48 FX Daily: Carry trade unwind in full swing The prospect of faster Fed tightening is starting to weigh heavily on risk assets and helping the dollar](https://think.ing.com/articles/fx-daily-will-closer-eu-ties-help-the-pound/)
 - 2026-11-20 **ING**: [Asia week ahead China Japan Today, 04:37 Asia week ahead: BoK rate decision, data from China, Taiwan, Japan The Bank of Korea expected to hike rates by 25bp to 3.25%, a third tightening in the cycle](https://think.ing.com/articles/asia-week-ahead-bok-rate-decision/)
@@ -124,9 +129,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **ING**: [Rates Spark Yesterday, 07:10 Rates Spark: ECB reserve rethink would bring funding pressure closer Longer rates remain sensitive to jittery tech sentiment, while front-ends face hawkish central bank co](https://think.ing.com/articles/rates-spark-ecb-reserve-rethink-would-bring-funding-pressure-closer/)
 - 2026-11-20 **ING**: [Commodities daily 18 November The Commodities Feed: Copper hits six-month low; improving supply weighs on oil Base metals remain under pressure](https://think.ing.com/articles/the-commodities-feed-copper-hits-five-month-low-improving-supply-weighs-on-oil/)
 - 2026-11-20 **ING**: [FX 18 November FX Daily: Commodity complex is having a moment Commodity currencies are under pressure as industrial metals turn](https://think.ing.com/articles/fx-daily-commodity-complex-is-having-a-moment/)
-- 2026-11-20 **ING**: [Rates 18 November Rates Spark: Testing the AI narrative The focus remains on the AI narrative, with the upcoming Anthropic IPO another test for broader sentiment](https://think.ing.com/articles/rates-spark-123456/)
-- 2026-11-20 **ING**: [Hungary 17 November National Bank of Hungary review: The doves aren't gone yet A dovish twist from the National Bank of Hungary puts rate cuts back on the radar](https://think.ing.com/articles/national-bank-of-hungary-review-the-doves-arent-gone-yet/)
-- 2026-11-20 **ING**: [Report Credit Emerging Markets Armenia Azerbaijan 17 November CCA macro and credit: Stronger credits, more selective opportunities Macroeconomic and credit outlook 2027 for CCA: Armenia, Azerbaijan, K](https://think.ing.com/reports/cca-macro-and-credit-stronger-credits-more-selective-opportunities/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
