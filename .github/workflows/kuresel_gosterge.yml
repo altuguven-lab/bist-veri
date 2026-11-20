@@ -12,11 +12,15 @@
 # risk_ve_saglik_paketi.yml ile cakismayi azaltmak icin). Avrupa/Amerika
 # zamanlari degismedi (zaten cakisma yoktu).
 name: Kuresel Gosterge
+# 20.11 (paket53): schedule tetikleri ~9 saat gecikiyordu (06:40 UTC -> 16:01). Asil tetik Cloudflare kopru
+# zamanlayicisi: repository_dispatch kuresel_asya (05:20 UTC), kuresel_avrupa (08:16), kuresel_amerika (13:40).
 on:
   schedule:
     - cron: "40 6 * * 1-5"   # asya - BIST acilisindan once
     - cron: "15 8 * * 1-5"   # avrupa - Avrupa acilisindan ~1-1.5sa sonra
     - cron: "40 13 * * 1-5"  # amerika - ABD acilisindan ~10dk sonra
+  repository_dispatch:
+    types: [kuresel_asya, kuresel_avrupa, kuresel_amerika]
   workflow_dispatch:
     inputs:
       bolge:
@@ -28,7 +32,7 @@ permissions:
   contents: write
 jobs:
   asya:
-    if: github.event.schedule == '40 6 * * 1-5' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bolge == 'asya')
+    if: github.event.schedule == '40 6 * * 1-5' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bolge == 'asya') || (github.event_name == 'repository_dispatch' && github.event.action == 'kuresel_asya')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -55,7 +59,7 @@ jobs:
           exit 1
 
   avrupa:
-    if: github.event.schedule == '15 8 * * 1-5' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bolge == 'avrupa')
+    if: github.event.schedule == '15 8 * * 1-5' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bolge == 'avrupa') || (github.event_name == 'repository_dispatch' && github.event.action == 'kuresel_avrupa')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -82,7 +86,7 @@ jobs:
           exit 1
 
   amerika:
-    if: github.event.schedule == '40 13 * * 1-5' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bolge == 'amerika')
+    if: github.event.schedule == '40 13 * * 1-5' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bolge == 'amerika') || (github.event_name == 'repository_dispatch' && github.event.action == 'kuresel_amerika')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
