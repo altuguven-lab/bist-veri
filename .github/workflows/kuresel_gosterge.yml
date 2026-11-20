@@ -42,18 +42,19 @@ jobs:
       - run: pip install yfinance==0.2.66
       - run: python fetch_kuresel.py asya
       - run: |
+          # 20.11: bolgeler ayni anda calisinca ayni dosyada rebase catismasi oluyordu. Catismada yerel
+          # degisiklik atilir, en son main alinir ve bolge YENIDEN cekilip yazilir (dosya bolge bazinda birlesir).
           git config user.name "kuresel-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/kuresel_gosterge.json
-          git diff --staged --quiet || git commit -m "Kuresel gosterge (asya) $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5; do
-            if git push; then
-              echo "push basarili (deneme $i)"
-              exit 0
-            fi
-            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            git add data/kuresel_gosterge.json
+            git diff --staged --quiet && { echo "degisiklik yok"; exit 0; }
+            git commit -m "Kuresel gosterge (asya) $(date -u +%Y-%m-%d)"
+            if git push; then echo "push basarili (deneme $i)"; exit 0; fi
+            echo "push reddedildi; main alinip asya yeniden yaziliyor ($i/5)"
             sleep $(( (RANDOM % 8) + 3 ))
-            git pull --rebase origin main
+            git fetch origin main && git reset --hard origin/main
+            python fetch_kuresel.py asya
           done
           echo "5 denemeden sonra push basarisiz"
           exit 1
@@ -69,18 +70,19 @@ jobs:
       - run: pip install yfinance==0.2.66
       - run: python fetch_kuresel.py avrupa
       - run: |
+          # 20.11: bolgeler ayni anda calisinca ayni dosyada rebase catismasi oluyordu. Catismada yerel
+          # degisiklik atilir, en son main alinir ve bolge YENIDEN cekilip yazilir (dosya bolge bazinda birlesir).
           git config user.name "kuresel-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/kuresel_gosterge.json
-          git diff --staged --quiet || git commit -m "Kuresel gosterge (avrupa) $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5; do
-            if git push; then
-              echo "push basarili (deneme $i)"
-              exit 0
-            fi
-            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            git add data/kuresel_gosterge.json
+            git diff --staged --quiet && { echo "degisiklik yok"; exit 0; }
+            git commit -m "Kuresel gosterge (avrupa) $(date -u +%Y-%m-%d)"
+            if git push; then echo "push basarili (deneme $i)"; exit 0; fi
+            echo "push reddedildi; main alinip avrupa yeniden yaziliyor ($i/5)"
             sleep $(( (RANDOM % 8) + 3 ))
-            git pull --rebase origin main
+            git fetch origin main && git reset --hard origin/main
+            python fetch_kuresel.py avrupa
           done
           echo "5 denemeden sonra push basarisiz"
           exit 1
@@ -96,18 +98,19 @@ jobs:
       - run: pip install yfinance==0.2.66
       - run: python fetch_kuresel.py amerika
       - run: |
+          # 20.11: bolgeler ayni anda calisinca ayni dosyada rebase catismasi oluyordu. Catismada yerel
+          # degisiklik atilir, en son main alinir ve bolge YENIDEN cekilip yazilir (dosya bolge bazinda birlesir).
           git config user.name "kuresel-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/kuresel_gosterge.json
-          git diff --staged --quiet || git commit -m "Kuresel gosterge (amerika) $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5; do
-            if git push; then
-              echo "push basarili (deneme $i)"
-              exit 0
-            fi
-            echo "push reddedildi, rebase + tekrar deneniyor ($i/5)"
+            git add data/kuresel_gosterge.json
+            git diff --staged --quiet && { echo "degisiklik yok"; exit 0; }
+            git commit -m "Kuresel gosterge (amerika) $(date -u +%Y-%m-%d)"
+            if git push; then echo "push basarili (deneme $i)"; exit 0; fi
+            echo "push reddedildi; main alinip amerika yeniden yaziliyor ($i/5)"
             sleep $(( (RANDOM % 8) + 3 ))
-            git pull --rebase origin main
+            git fetch origin main && git reset --hard origin/main
+            python fetch_kuresel.py amerika
           done
           echo "5 denemeden sonra push basarisiz"
           exit 1
