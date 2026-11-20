@@ -20,13 +20,11 @@ import sys
 from playwright.sync_api import sync_playwright
 
 URL = "https://www.borsaistanbul.com/"
-HEDEF = {  # sayfadaki satir adi (regex) -> kisa ad
-    r"\bBIST\s*100\b|\bXU100\b": "XU100",
-    r"\bBIST\s*30\b|\bXU030\b": "XU030",
-    r"\bBIST\s*BANKA|\bXBANK\b": "XBANK",
-    r"\bBIST\s*S[İI]NA[İI]|\bXUSIN\b": "XUSIN",
-    r"\bBIST\s*HOLD|\bXHOLD\b": "XHOLD",
-    r"\bBIST\s*TÜM\b|\bXUTUM\b": "XUTUM",
+HEDEF = {  # sayfadaki TAM endeks adi -> kisa ad (kismi eslesme yok: "BIST BANKA DISI LIKIT 10" XBANK degildir)
+    "BIST 100": "XU100", "BIST 30": "XU030", "BIST 50": "XU050", "BIST 500": "XU500",
+    "BIST BANKA": "XBANK", "BIST SINAI": "XUSIN", "BIST SINAİ": "XUSIN", "BIST HOLDING VE YATIRIM": "XHOLD",
+    "BIST TUM": "XUTUM", "BIST TÜM": "XUTUM", "BIST TUM-100": "XTUMY", "BIST KATILIM 100": "XK100",
+    "BIST LIKIT BANKA": "XLBNK", "BIST BANKA DISI LIKIT 10": "XBLSM",
 }
 JS_TABLOLAR = """() => {
   const out = [];
@@ -71,21 +69,18 @@ def ayristir(veri):
     sonuc = {}
     for t in veri.get("tablolar", []):
         bas = t.get("bas") or []
-        i_son = sutun(bas, "son değer", "son deger", "son", "değer", "kapanış", "kapanis")
+        i_son = sutun(bas, "son değer", "son deger")
+        if i_son is None:   # piyasa degeri vb. baska tablolar
+            continue
         i_yuz = sutun(bas, "%", "değişim", "degisim", "bugün", "bugun")
         i_hac = sutun(bas, "hacim", "hacm")
         for sat in t.get("satir", []):
             if not sat:
                 continue
             ad_metin = sat[0]
-            for desen, kisa in HEDEF.items():
-                if kisa in sonuc or not re.search(desen, ad_metin, re.I):
-                    continue
-                if re.search(r"\b100\b", ad_metin) and kisa == "XU030":
-                    continue
-                son = sayi(sat[i_son]) if i_son is not None and i_son < len(sat) else None
-                if son is None:  # basliklar eslesmediyse satirdaki ilk sayi
-                    son = next((sayi(x) for x in sat[1:] if sayi(x) is not None), None)
+            kisa = HEDEF.get(ad_metin.strip())
+            if kisa and kisa not in sonuc:
+                son = sayi(sat[i_son]) if i_son < len(sat) else None
                 sonuc[kisa] = {"ad": ad_metin, "son": son,
                                "degisim_yuzde": sayi(sat[i_yuz]) if i_yuz is not None and i_yuz < len(sat) else None,
                                "hacim_tl": sayi(sat[i_hac]) if i_hac is not None and i_hac < len(sat) else None,
@@ -93,10 +88,26 @@ def ayristir(veri):
     return sonuc
 
 
+def json_ayristir(govde):
+    """bist-indexes.php?op=getBistIndices yaniti: data[{trName, lastValue, todayPercentage, ...}]"""
+    sonuc, tum = {}, {}
+    for x in (json.loads(govde).get("data") or []):
+        ad = (x.get("trName") or "").strip()
+        kayit = {"ad": ad, "son": x.get("lastValue"), "degisim_yuzde": x.get("todayPercentage"),
+                 "haftalik_yuzde": x.get("weeklyPercentage"), "aylik_yuzde": x.get("monthlyPercentage"),
+                 "yilbasindan_yuzde": x.get("sinceJanuaryPercentage"), "yillik_yuzde": x.get("yearlyPercentage"),
+                 "hacim_tl": x.get("tradingValue")}
+        tum[ad] = kayit
+        kisa = HEDEF.get(ad)
+        if kisa and kisa not in sonuc:
+            sonuc[kisa] = kayit
+    return sonuc, tum
+
+
 def main():
     simdi = dt.datetime.now(dt.timezone.utc)
     os.makedirs("data/bist_resmi_ham", exist_ok=True)
-    ag, veri, durum, hata = [], {}, "ERISILEMEDI", None
+    ag, veri, durum, hata, endeks_json = [], {}, "ERISILEMEDI", None, None
     try:
         with sync_playwright() as p:
             b = p.chromium.launch()
@@ -104,11 +115,14 @@ def main():
 
             def yanit(r):
                 try:
+                    if "getBistIndices" in r.url and r.status == 200:
+                        nonlocal endeks_json
+                        endeks_json = r.text()
                     if "json" in (r.headers.get("content-type") or "") and len(ag) < 40:
                         govde = r.text()
                         ag.append({"url": r.url, "durum": r.status, "boyut": len(govde), "ornek": govde[:1500]})
-                except Exception:
-                    pass
+                except Exception as e:
+                    print("UYARI: yanit okunamadi", r.url, e, file=sys.stderr)
             sayfa.on("response", yanit)
             sayfa.goto(URL, wait_until="networkidle", timeout=90000)
             try:  # piyasa tablosu dolana kadar bekle (rakam iceren bir hucre)
@@ -117,26 +131,43 @@ def main():
             except Exception:
                 pass
             veri = sayfa.evaluate(JS_TABLOLAR)
+            if not endeks_json:  # dinleyici yaniti yakalayamadiysa sayfanin kendi adresini sayfa icinden bir kez iste
+                try:
+                    endeks_json = sayfa.evaluate("""async () => { const r = await fetch('/bist-indexes.php?op=getBistIndices',
+                        {headers: {'X-Requested-With': 'XMLHttpRequest'}}); return r.ok ? await r.text() : null; }""")
+                except Exception as e:
+                    print("UYARI: getBistIndices sayfa icinden alinamadi:", e, file=sys.stderr)
             open("data/bist_resmi_ham/sayfa.html", "w", encoding="utf-8").write(sayfa.content())
             b.close()
     except Exception as e:
         hata = str(e)[:300]
         print("HATA:", hata, file=sys.stderr)
     json.dump(ag, open("data/bist_resmi_ham/ag.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    endeks = ayristir(veri) if veri else {}
-    if veri:
+    endeks, tum, yontem = {}, {}, None
+    if endeks_json:
+        try:
+            endeks, tum = json_ayristir(endeks_json)
+            yontem = "getBistIndices JSON (sayfanin kendi veri adresi)"
+        except Exception as e:
+            print("UYARI: JSON ayristirilamadi:", e, file=sys.stderr)
+    if not endeks.get("XU100") and veri:
+        endeks, yontem = ayristir(veri), "tablo (yedek)"
+    if veri or endeks_json:
         durum = "OK" if endeks.get("XU100", {}).get("son") else "AYRISTIRILAMADI"
     tr = simdi + dt.timedelta(hours=3)
     out = {"uretim_utc": simdi.isoformat(), "uretim_tr": tr.strftime("%Y-%m-%d %H:%M"), "kaynak": URL,
            "durum": durum, "hata": hata, "sayfa_zamani": veri.get("saat") if veri else None,
-           "endeksler": endeks, "tablo_sayisi": len(veri.get("tablolar", [])) if veri else 0,
+           "yontem": yontem, "endeksler": endeks, "tum_endeksler": tum,
+           "seans_oncesi_not": "09:55 oncesi okumada 'Bugun %' 0 olur ve son deger bir onceki gunun kapanisidir." if tr.hour < 10 else None,
+           "tablo_sayisi": len(veri.get("tablolar", [])) if veri else 0,
            "kartlar_ornek": (veri.get("kartlar") or [])[:20] if veri else [],
            "not": "borsaistanbul.com ana sayfasindaki tablo; site verisi gecikmeli olabilir. Salt veri, tavsiye degildir."}
     json.dump(out, open("data/bist_resmi.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     if durum == "OK" and tr.hour >= 18:  # yalniz seans sonrasi okuma "gun sonu" sayilir
         yol = "data/bist_resmi_gecmis.json"
         g = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
-        g[tr.strftime("%Y-%m-%d")] = {k: {"son": v["son"], "degisim_yuzde": v["degisim_yuzde"]} for k, v in endeks.items()}
+        g[tr.strftime("%Y-%m-%d")] = {k: {"son": v["son"], "degisim_yuzde": v["degisim_yuzde"], "hacim_tl": v.get("hacim_tl")}
+                                      for k, v in endeks.items()}
         json.dump(dict(sorted(g.items())[-800:]), open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"durum {durum}; endeksler {list(endeks)}; json adresleri {len(ag)}")
     return 0 if durum != "ERISILEMEDI" else 1
