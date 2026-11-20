@@ -1,17 +1,15 @@
 # ARASTIRMA AKISI - araci kurum / uluslararasi kurum rapor olgulari. Is gunu 08:50, 12:50, 18:50 TR. SALT VERI, TAVSIYE DEGILDIR.
 name: Arastirma Akisi
-# 20.11 EKI: Bu depoda GUNDUZ saatlerindeki `schedule:` tetikleri guvenilmez (20.11'de 04:00-10:40 UTC arasi hic
-# zamanli calisma olmadi; makro_akim_reel'in 13:15 UTC calismasi 19.11'de 21:36 UTC'de geldi). Yedek tetik:
-# her 30 dk dis tetikle (repository_dispatch) calisan "BIST Veri Guncelleme" bittiginde, yalniz asagidaki
-# UTC pencerelerinde (tetikleyen calismanin baslama saati) bu is de calisir. schedule ayrica durur.
+# 20.11 (paket53): Bu depoda GUNDUZ `schedule:` tetikleri ~9 saat gecikiyor. Asil tetik Cloudflare kopru
+# (bist-kopru) zamanlayicisindan gelen repository_dispatch "arastirma_tetikle"; saatler cloudflare_kopru.js ZAMANLI tablosunda.
+# schedule yalniz gecikmeli yedek olarak durur.
 on:
   schedule:
     - cron: "50 5 * * 1-5"
     - cron: "50 9 * * 1-5"
     - cron: "50 15 * * 1-5"
-  workflow_run:
-    workflows: ["BIST Veri Guncelleme"]
-    types: [completed]
+  repository_dispatch:
+    types: [arastirma_tetikle]
   workflow_dispatch:
 permissions:
   contents: write
@@ -20,7 +18,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   topla:
-    if: github.event_name != 'workflow_run' || contains(github.event.workflow_run.created_at, 'T07:0') || contains(github.event.workflow_run.created_at, 'T09:3') || contains(github.event.workflow_run.created_at, 'T15:3')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
