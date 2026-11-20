@@ -183,7 +183,7 @@ def hedeffiyat(kodlar, cfg):
         s = b.new_page(locale="tr-TR", user_agent=UA)
         s.goto(HF_URL, wait_until="networkidle", timeout=90000)
         try:   # "Bu Hafta Paylasilan" sekmesi (tek ek istek): kacirilan gunleri de yakalar
-            s.click("#pills-buhafta-tab", timeout=5000)
+            s.evaluate("() => { const b = document.querySelector('#pills-buhafta-tab'); if (b) b.click(); }")
             s.wait_for_timeout(4000)
         except Exception as e:
             print("UYARI: Bu Hafta sekmesi acilamadi:", e, file=sys.stderr)
@@ -367,6 +367,17 @@ def main():
                   "toplayici (hedeffiyat.com.tr), ikincil (haber). Salt veri, tavsiye degildir."}
     json.dump(out, open("data/arastirma_akisi.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
+    tek, gor_b = [], set()
+    for g in pencere:
+        if g["kaynak"] == "Google News":
+            n = re.sub(r"\W+", "", re.sub(r"\s+-\s+[^-]{2,40}$", "", g["baslik"]).lower())[:70]
+            if n in gor_b:
+                continue
+            gor_b.add(n)
+            if re.search(TAKAS, g["baslik"], re.I):
+                g = dict(g, tip="takas")
+        tek.append(g)
+    pencere = tek
     isaret = {"birincil": "✅", "toplayici": "✅ (toplayıcı)", "ikincil": "◐"}
     L = ["# Araştırma akışı", "", "Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, hedef, tavsiye, tarih.", "",
          "## Kaynak durumu", "", "| Kaynak | Durum | Adet |", "|---|---|---|"]
