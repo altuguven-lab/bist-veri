@@ -264,8 +264,53 @@ export async function aktar(env, simdi = new Date()) {
   throw sonHata;   // kayitlar KV'de duruyor; sonraki calisma yeniden dener
 }
 
+// ------------------------------------------------------------------ ZAMANLI TETIK (20.11.2026)
+// Neden: GitHub'in gunduz `schedule:` tetikleri bu depoda ~9 saat gecikiyor (kuresel_gosterge 06:40 UTC -> 16:01,
+// makro_akim_reel 13:15 -> 21:36). Kopru zaten seans saatlerinde 2 dakikada bir calisiyor; belirli UTC dakikalarinda
+// GitHub'a repository_dispatch gonderir. Ayni GITHUB_TOKEN (Contents: Read and write) yeterlidir.
+// Anahtar: "SS:DD" UTC; deger: repository_dispatch event_type listesi. */2 tetigi yalniz CIFT dakikalarda calisir.
+export const ZAMANLI = {
+  "05:20": ["kuresel_asya", "arastirma_tetikle", "tcmb_yayin_tetikle"],   // 08:20 TR, sabah brifinginden once (ayri cron)
+  "07:20": ["tcmb_yayin_tetikle"],                                          // 10:20 TR, TCMB 10:00 yayinlari
+  "08:16": ["kuresel_avrupa"],                                              // 11:16 TR
+  "09:50": ["arastirma_tetikle"],                                           // 12:50 TR, ogle brifinginden once
+  "11:50": ["tcmb_yayin_tetikle"],                                          // 14:50 TR, TCMB 14:30 yayinlari
+  "13:16": ["makro_tetikle"],                                               // 16:16 TR, EVDS
+  "13:40": ["kuresel_amerika"],                                             // 16:40 TR, ABD acilisi sonrasi
+  "14:20": ["tcmb_yayin_tetikle"],                                          // 17:20 TR
+  "15:20": ["bist_resmi_tetikle"],                                          // 18:20 TR, kapanis sonrasi
+  "15:50": ["arastirma_tetikle"],                                           // 18:50 TR
+};
+
+export function zamanliOlaylar(zamanMs) {
+  const d = new Date(zamanMs);
+  const g = d.getUTCDay();                       // 0 Pazar ... 6 Cumartesi
+  if (g === 0 || g === 6) return [];
+  const anahtar = `${String(d.getUTCHours()).padStart(2, "0")}:${String(d.getUTCMinutes()).padStart(2, "0")}`;
+  return ZAMANLI[anahtar] || [];
+}
+
+export async function zamanliTetik(env, zamanMs) {
+  const olaylar = zamanliOlaylar(zamanMs);
+  const sonuc = [];
+  for (const tur of olaylar) {
+    const r = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/dispatches`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, Accept: "application/vnd.github+json",
+                 "User-Agent": "bist-veri-cloudflare", "Content-Type": "application/json" },
+      body: JSON.stringify({ event_type: tur, client_payload: { kaynak: "cloudflare-zamanli", utc: new Date(zamanMs).toISOString() } }),
+    });
+    sonuc.push(`${tur}:${r.status}`);   // 204 = kabul
+    if (r.status !== 204) console.log(`zamanli tetik hata ${tur} ${r.status}`);
+  }
+  if (sonuc.length) console.log("zamanli tetik", sonuc.join(" "));
+  return sonuc;
+}
+
 export default {
   fetch: (request, env, ctx) => kabul(request, env, ctx),
   // iki aktarma birbirinden bagimsiz: biri hata verirse digeri yine calisir
-  scheduled: (event, env, ctx) => ctx.waitUntil(Promise.allSettled([aktar(env), piyasaAktar(env)])),
+  // aktarmalar ve zamanli tetik birbirinden bagimsiz: biri hata verirse digerleri yine calisir
+  scheduled: (event, env, ctx) => ctx.waitUntil(Promise.allSettled([
+    aktar(env), piyasaAktar(env), zamanliTetik(env, event.scheduledTime)])),
 };
