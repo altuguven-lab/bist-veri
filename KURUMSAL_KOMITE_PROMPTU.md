@@ -98,6 +98,7 @@ Model envanterinin tam doğrulaması, risk kurallarının gözden geçirilmesi, 
 |---|---|
 | Kurum ve uyum | `data/kurum_kumesi.json`, `data/kurum_taramasi.json/.md`, `data/arsiv/kap/`, `config/kurum_izleme.yml`, `config/kapsam_disi.txt`, `data/msci_turkiye.json` |
 | Alarm sistemi | `data/tv_alerts_latest.json`, `data/gunluk_ozet_kapsama.json`, `data/alarm_karne.md`, `data/h14/`, `data/ip8_*`, `data/v195_radar_latest.json`, Cloudflare logları (kullanıcıdan) |
+| TCMB yayın ve anketler | `data/tcmb_yayin.md` (yayınlar + veri takvimi), `data/makro_akim_reel.md` ek bölümü (RKGE, KKO, tüketici güveni, öncü göstergeler, sektörel beklentiler, UYP, kredi eğilim anketi) |
 | Kurum raporları | `data/arastirma_akisi.md` / `.json`, `data/arastirma/arsiv/` (aracı kurum hedef/tavsiye olguları, revizyon yönü; yabancı kurum ve kredi notu haberleri ◐), `data/analist_hedef/revizyon.md` (Yahoo ortalama hedef revizyon genişliği) |
 | Piyasa | `data/endeks_intraday.json`, `data/bist_resmi.json` (borsaistanbul.com gün sonu), `data/piyasa_gunluk.json` (TL tahvil 2/5/10 yıl), `data/bist_intraday.json`, `data/bist_quotes.json`, `data/kuresel_gosterge.json`, `data/viop_genis/` |
 | Makro | `data/makro_akim_reel.json/.md` (yabancı akımı, reel faiz, beklentiler, rezervler, reel efektif kur), `data/tcmb_evds_veri.json`, `data/makro_takvim.json`, `data/takvim.json` |
