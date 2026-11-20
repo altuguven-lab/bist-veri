@@ -9,7 +9,7 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 | Basin Duyurulari | OK | 20 |
 | PPK Kararlari | OK | 21 |
 | Baskanin Konusmalari | OK | 30 |
-| Veri Yayimlama Takvimi | OK | 8 |
+| Veri Yayimlama Takvimi | OK | 40 |
 
 ## Son 7 gün yayımlananlar
 
@@ -30,13 +30,43 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 
 ## Önümüzdeki 14 gün (Veri Yayımlama Takvimi)
 
-- 2026-11-20 10:00 3. Çeyrek 2026
-- 2026-11-20 10:00 Eylül 2026
-- 2026-11-20 10:00 Kasım 2026
-- 2026-11-23 10:00 Kasım 2026
-- 2026-11-24 14:30 Eylül 2026
-- 2026-11-26 14:30 47. Hafta 2026
-- 2026-11-26 15:30 46. Hafta 2026
-- 2026-11-26 17:00 47. Hafta 2026
+- 2026-11-20 10:00 Türkiye Dış Borç İstatistikleri (3. Çeyrek 2026) (RİP)
+- 2026-11-20 10:00 Uluslararası Yatırım Pozisyonu (Aylık) (Eylül 2026) (RİP)
+- 2026-11-20 10:00 Uluslararası Yatırım Pozisyonu (Üç Aylık) (3. Çeyrek 2026) (RİP)
+- 2026-11-20 10:00 Yatırım Eğilimi İstatistikleri (Güz 2026) (RİP)
+- 2026-11-20 10:00 Yurt Dışı Portföy Yatırım İstatistikleri (3. Çeyrek 2026) (RİP)
+- 2026-11-20 10:00 İktisadi Yönelim İstatistikleri ve Reel Kesim Güven Endeksi (Kasım 2026) (RİP)
+- 2026-11-20 10:00 İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026) (RİP)
+- 2026-11-23 10:00 Finansal Hizmetler İstatistikleri ve Finansal Hizmetler Güven Endeksi (Kasım 2026) (RİP)
+- 2026-11-23 10:00 Hanehalkı Beklenti Anketi (Kasım 2026) (RİP)
+- 2026-11-23 10:00 Sektörel Enflasyon Beklentileri (Kasım 2026) (RİP)
+- 2026-11-24 14:30 Finansal Kesim Dışındaki Firmaların Döviz Varlık ve Yükümlülükleri (Eylül 2026) (RİP)
+- 2026-11-26 14:30 Banka ve Kredi Kartı Sektörel Harcama İstatistikleri (47. Hafta 2026) (RİP)
+- 2026-11-26 14:30 Haftalık Para ve Banka İstatistikleri (47. Hafta 2026) (RİP)
+- 2026-11-26 14:30 Menkul Kıymet İstatistikleri (47. Hafta 2026) (RİP)
+- 2026-11-26 14:30 Uluslararası Rezervler ve Döviz Likiditesi (Haftalık) (47. Hafta 2026) (RİP)
+- 2026-11-26 15:30 Zorunlu Karşılığa Tabi Katılım Fonları (46. Hafta 2026) (RİP)
+- 2026-11-26 15:30 Zorunlu Karşılığa Tabi Mevduatlar (46. Hafta 2026) (RİP)
+- 2026-11-26 17:00 Katılma  Hesabı  Kâr Oranları  (Haftalık Akım, Ağırlıklı Ortalama) (47. Hafta 2026) (RİP)
+- 2026-11-26 17:00 Kredi Faiz Oranları (Haftalık Akım, Ağırlıklı Ortalama) (47. Hafta 2026) (RİP)
+- 2026-11-26 17:00 Kredi Kâr Oranları (Haftalık Akım, Ağırlıklı Ortalama) (47. Hafta 2026) (RİP)
+- 2026-12-02 14:30 Bankalarca Mevduatlara Fiilen Uygulanan Azami Faiz Oranları (Stok Veri %) (Aylık) (Ekim 2026) (RİP)
+- 2026-12-02 14:30 Bankalarca İşletme Kredilerine Fiilen Uygulanan Azami Faiz Oranları (Aylık) (Ekim 2026) (RİP)
+- 2026-12-02 14:30 Finansman Şirketleri Kredi Faiz Oranları (Aylık Stok, Ağırlıklı Ortalama) (Ekim 2026) (RİP)
+- 2026-12-02 14:30 Kamu Bankalarınca Mevduatlara Fiilen Uygulanan Azami Faiz Oranları (Stok Veri %) (Aylık) (Ekim 2026) (RİP)
+- 2026-12-02 14:30 Kredi Faiz Oranları (Aylık Stok, Ağırlıklı Ortalama) (Ekim 2026) (RİP)
+- 2026-12-02 14:30 Kredi Kâr Oranları (Aylık Stok, Ağırlıklı Ortalama) (Ekim 2026) (RİP)
+- 2026-12-02 14:30 Mevduat Faiz Oranları (Aylık Stok, Ağırlıklı Ortalama) (Ekim 2026) (RİP)
+- 2026-12-03 14:30 Banka ve Kredi Kartı Sektörel Harcama İstatistikleri (48. Hafta 2026) (RİP)
+- 2026-12-03 14:30 Haftalık Para ve Banka İstatistikleri (48. Hafta 2026) (RİP)
+- 2026-12-03 14:30 Menkul Kıymet İstatistikleri (48. Hafta 2026) (RİP)
+- 2026-12-03 14:30 Uluslararası Rezervler ve Döviz Likiditesi (Haftalık) (48. Hafta 2026) (RİP)
+- 2026-12-03 15:30 Zorunlu Karşılığa Tabi Katılım Fonları (47. Hafta 2026) (RİP)
+- 2026-12-03 15:30 Zorunlu Karşılığa Tabi Mevduatlar (47. Hafta 2026) (RİP)
+- 2026-12-03 17:00 Katılma  Hesabı  Kâr Oranları  (Haftalık Akım, Ağırlıklı Ortalama) (48. Hafta 2026) (RİP)
+- 2026-12-03 17:00 Kredi Faiz Oranları (Haftalık Akım, Ağırlıklı Ortalama) (48. Hafta 2026) (RİP)
+- 2026-12-03 17:00 Kredi Kâr Oranları (Haftalık Akım, Ağırlıklı Ortalama) (48. Hafta 2026) (RİP)
+- 2026-12-03 17:00 Mevduat Faiz Oranları (Haftalık Akım, Ağırlıklı Ortalama) (48. Hafta 2026) (RİP)
+- 2026-12-04 14:30 Reel Efektif Döviz Kuru (Kasım 2026) (RİP)
 
 Gözlem amaçlıdır, tavsiye değildir.
