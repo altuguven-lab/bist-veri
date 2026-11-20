@@ -1699,7 +1699,7 @@ body.swal2-no-backdrop > .swal2-shown {
 			<div class="rounded-2 bg-content p-2 pt-3">
 				<ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
 					<li class="nav-item" role="presentation">
-						<button class="nav-link" id="pills-bugun-tab" data-bs-toggle="pill" data-bs-target="#pills-bugun" data-home-tab="bugun" type="button" role="tab" aria-controls="pills-bugun" aria-selected="false" tabindex="-1">Bugün Paylaşılan</button>
+						<button class="nav-link " id="pills-bugun-tab" data-bs-toggle="pill" data-bs-target="#pills-bugun" data-home-tab="bugun" type="button" role="tab" aria-controls="pills-bugun" aria-selected="false" tabindex="-1">Bugün Paylaşılan</button>
 					</li>
 					<li class="nav-item" role="presentation">
 						<button class="nav-link active" id="pills-buhafta-tab" data-bs-toggle="pill" data-bs-target="#pills-buhafta" data-home-tab="buhafta" type="button" role="tab" aria-controls="pills-buhafta" aria-selected="true">Bu Hafta Paylaşılan</button>
@@ -1712,9 +1712,26 @@ body.swal2-no-backdrop > .swal2-shown {
 					</li>
 				</ul>
 				<div class="tab-content" id="pills-tabContent">
-										<div class="tab-pane fade" id="pills-bugun" role="tabpanel" aria-labelledby="pills-bugun-tab" tabindex="0" data-home-loaded="1">
+										<div class="tab-pane fade " id="pills-bugun" role="tabpanel" aria-labelledby="pills-bugun-tab" tabindex="0" data-home-loaded="0">
 						<div id="bugunPaylasilan">
 							<div class="row bugunPaylasilanlist" id="home-tab-list-bugun">
+								<div class="col-12 text-center py-5 home-tab-placeholder text-muted"><div class="spinner-border spinner-border-sm me-2" role="status"></div>Yükleniyor...</div>							</div>
+							<div class="col-lg-12 my-4 jplist-bugunPaylasilan">
+								<div class="dropdown jplist-items-per-page" data-control-type="boot-items-per-page-dropdown" data-control-name="paging" data-control-action="paging">
+									<ul class="dropdown-menu" role="menu">
+										<li role="presentation">
+											<a role="menuitem" tabindex="-1" href="#" data-number="30" data-default="true">2 per page</a>
+										</li>
+									</ul>
+								</div>
+								<ul class="pagination pagination-sm justify-content-center jplist-pagination" data-control-type="boot-pagination" data-control-name="paging" data-control-action="paging" data-range="30" data-mode="google-like">
+								</ul>
+							</div>
+						</div>
+					</div>
+											<div class="tab-pane fade show active" id="pills-buhafta" role="tabpanel" aria-labelledby="pills-buhafta-tab" tabindex="0" data-home-loaded="1">
+						<div id="buhaftaPaylasilan">
+							<div class="row buhaftaPaylasilanlist" id="home-tab-list-buhafta">
 								
 
 
@@ -1724,329 +1741,6 @@ body.swal2-no-backdrop > .swal2-shown {
 
 
 
-							<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin12166" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/türkiye-vakiflar-bankasi-tao-hedef-fiyat-2026-12166" style="cursor:pointer;">
-        
-        <a href="/kurum/phillip-capital-48" title="Phillip Capital" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/phillip-capital-75.png" alt="Phillip Capital" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/vakbn-turkiye-vakiflar-bankasi-t.a.o.-440" class="senetbox-title d-block text-center py-2"><strong>VAKBN</strong> - TÜRKİYE VAKIFLAR BANKASI T.A.O.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>48.70 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%47.58</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="12166" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/türkiye-vakiflar-bankasi-tao-hedef-fiyat-2026-12166" title="Phillip Capital, VAKBN - VakıfBank için hedef fiyatını 47,5 TL'den 48,7 TL'ye yükseltti, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="12166" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin12165" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/türkiye-iş-bankasi-aş-hedef-fiyat-2026-12165" style="cursor:pointer;">
-        
-        <a href="/kurum/phillip-capital-48" title="Phillip Capital" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/phillip-capital-75.png" alt="Phillip Capital" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/isctr-turkiye-is-bankasi-a.s.-497" class="senetbox-title d-block text-center py-2"><strong>ISCTR</strong> - TÜRKİYE İŞ BANKASI A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>21.00 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%67.20</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="12165" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/türkiye-iş-bankasi-aş-hedef-fiyat-2026-12165" title="Phillip Capital, ISCTR - Türkiye İş Bankası C için hedef fiyatını 20,2 TL'den 21 TL'ye yükseltti, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="12165" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin12164" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/akbank-taş-hedef-fiyat-2026-12164" style="cursor:pointer;">
-        
-        <a href="/kurum/phillip-capital-48" title="Phillip Capital" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/phillip-capital-75.png" alt="Phillip Capital" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/akbnk-akbank-t.a.s.-9" class="senetbox-title d-block text-center py-2"><strong>AKBNK</strong> - AKBANK T.A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>93.70 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%43.82</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="12164" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/akbank-taş-hedef-fiyat-2026-12164" title="Phillip Capital, AKBNK - Akbank için hedef fiyatını 93,7 TL, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="12164" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin12163" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/otokar-otomotiv-ve-savunma-sanayi-aş-hedef-fiyat-2026-12163" style="cursor:pointer;">
-        
-        <a href="/kurum/gedik-yatirim-29" title="Gedik Yatırım" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/gedik-yatirim-21.png" alt="Gedik Yatırım" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/otkar-otokar-otomotiv-ve-savunma-sanayi-a.s.-323" class="senetbox-title d-block text-center py-2"><strong>OTKAR</strong> - OTOKAR OTOMOTİV VE SAVUNMA SANAYİ A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>573.00 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%80.76</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="12163" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/otokar-otomotiv-ve-savunma-sanayi-aş-hedef-fiyat-2026-12163" title="Gedik Yatırım, OTKAR - Otokar için hedef fiyatını 519 TL'den 573 TL'ye yükseltti, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="12163" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin12162" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/otokar-otomotiv-ve-savunma-sanayi-aş-hedef-fiyat-2026-12162" style="cursor:pointer;">
-        
-        <a href="/kurum/ak-yatirim-6" title="Ak Yatırım" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/ak-yatirim-16.png" alt="Ak Yatırım" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/otkar-otokar-otomotiv-ve-savunma-sanayi-a.s.-323" class="senetbox-title d-block text-center py-2"><strong>OTKAR</strong> - OTOKAR OTOMOTİV VE SAVUNMA SANAYİ A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>493.00 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%55.52</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="12162" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/otokar-otomotiv-ve-savunma-sanayi-aş-hedef-fiyat-2026-12162" title="Ak Yatırım, OTKAR - Otokar için hedef fiyatını 760 TL'den 493 TL'ye düşürdü, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="12162" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin11813" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/türkiye-garanti-bankasi-aş-hedef-fiyat-2026-11813" style="cursor:pointer;">
-        
-        <a href="/kurum/phillip-capital-48" title="Phillip Capital" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/phillip-capital-75.png" alt="Phillip Capital" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/garan-turkiye-garanti-bankasi-a.s.-173" class="senetbox-title d-block text-center py-2"><strong>GARAN</strong> - TÜRKİYE GARANTİ BANKASI A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>190.40 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%32.04</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="11813" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/türkiye-garanti-bankasi-aş-hedef-fiyat-2026-11813" title="Phillip Capital, GARAN - Garanti BBVA için hedef fiyatını 190,4 TL, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="11813" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>1</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin11552" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/türkiye-sinai-kalkinma-bankasi-aş-hedef-fiyat-2026-11552" style="cursor:pointer;">
-        
-        <a href="/kurum/phillip-capital-48" title="Phillip Capital" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/phillip-capital-75.png" alt="Phillip Capital" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/tskb-turkiye-sinai-kalkinma-bankasi-a.s.-420" class="senetbox-title d-block text-center py-2"><strong>TSKB</strong> - TÜRKİYE SINAİ KALKINMA BANKASI A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>18.40 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%86.05</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="11552" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/türkiye-sinai-kalkinma-bankasi-aş-hedef-fiyat-2026-11552" title="Phillip Capital, TSKB - TSKB için hedef fiyatını 18,4 TL, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="11552" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>1</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin11551" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/yapi-ve-kredi-bankasi-aş-hedef-fiyat-2026-11551" style="cursor:pointer;">
-        
-        <a href="/kurum/phillip-capital-48" title="Phillip Capital" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/phillip-capital-75.png" alt="Phillip Capital" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/ykbnk-yapi-ve-kredi-bankasi-a.s.-457" class="senetbox-title d-block text-center py-2"><strong>YKBNK</strong> - YAPI VE KREDİ BANKASI A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>51.10 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%41.32</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="11551" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/yapi-ve-kredi-bankasi-aş-hedef-fiyat-2026-11551" title="Phillip Capital, YKBNK - Yapı Kredi Bankası için hedef fiyatını 51,1 TL, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="11551" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 bugunPaylasilanlist-item">
-    <div id="Tahmin11550" class="senetbox rounded-2 p-2 mb-4" data-href="/hedef-fiyat/türkiye-halk-bankasi-aş-hedef-fiyat-2026-11550" style="cursor:pointer;">
-        
-        <a href="/kurum/phillip-capital-48" title="Phillip Capital" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/phillip-capital-75.png" alt="Phillip Capital" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/halkb-turkiye-halk-bankasi-a.s.-199" class="senetbox-title d-block text-center py-2"><strong>HALKB</strong> - TÜRKİYE HALK BANKASI A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>52.40 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%35.54</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="11550" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/türkiye-halk-bankasi-aş-hedef-fiyat-2026-11550" title="Phillip Capital, HALKB - Türkiye Halk Bankası için hedef fiyatını 52,4 TL, tavsiyesini Endekse Paralel Getiri olarak korudu" class="btn btn-sm btn-primary bg-gradient d-block">End. Paralel Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="11550" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 20 Kasım 2026</div>
-    </div>
-</div></div>
-							<div class="col-lg-12 my-4 jplist-bugunPaylasilan">
-								<div class="dropdown jplist-items-per-page" data-control-type="boot-items-per-page-dropdown" data-control-name="paging" data-control-action="paging">
-									<ul class="dropdown-menu" role="menu">
-										<li role="presentation">
-											<a role="menuitem" tabindex="-1" href="#" data-number="30" data-default="true" data-jplist-selected="true">2 per page</a>
-										</li>
-									</ul>
-								</div>
-								<ul class="pagination pagination-sm justify-content-center jplist-pagination jplist-one-page" data-control-type="boot-pagination" data-control-name="paging" data-control-action="paging" data-range="30" data-mode="google-like">
-								<li class="jplist-first page-item disabled" data-number="0" data-type="first"><a href="#" class="page-link"><span aria-hidden="true">«</span></a></li><li class="jplist-prev page-item disabled" data-type="prev" data-number="0"><a href="#" class="page-link"><span aria-hidden="true">‹</span></a></li><li data-type="page" class="page-item jplist-current active" data-active="true" data-number="0"><a href="#" class="page-link">1</a></li><li class="jplist-next page-item disabled" data-type="next" data-number="0"><a href="#" class="page-link"><span aria-hidden="true">›</span></a></li><li class="jplist-last page-item disabled" data-type="last" data-number="0"><a href="#" class="page-link"><span aria-hidden="true">»</span></a></li></ul>
-							</div>
-						</div>
-					</div>
-											<div class="tab-pane fade active show" id="pills-buhafta" role="tabpanel" aria-labelledby="pills-buhafta-tab" tabindex="0" data-home-loaded="1">
-						<div id="buhaftaPaylasilan">
-							<div class="row buhaftaPaylasilanlist" id="home-tab-list-buhafta">
 
 
 
@@ -2061,18 +1755,7 @@ body.swal2-no-backdrop > .swal2-shown {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 buhaftaPaylasilanlist-item">
+							<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 buhaftaPaylasilanlist-item">
     <div id="Tahmin12166" class="senetbox rounded-2 p-2 mb-3" data-href="/hedef-fiyat/türkiye-vakiflar-bankasi-tao-hedef-fiyat-2026-12166" style="cursor:pointer;">
         
         <a href="/kurum/phillip-capital-48" title="Phillip Capital" class="kurumLogo">
@@ -2549,74 +2232,6 @@ body.swal2-no-backdrop > .swal2-shown {
         <div class="senettarih text-center">Pazartesi, 16 Kasım 2026</div>
     </div>
 </div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 buhaftaPaylasilanlist-item">
-    <div id="Tahmin12152" class="senetbox rounded-2 p-2 mb-3" data-href="/hedef-fiyat/türkiye-sigorta-hedef-fiyat-2026-12152" style="cursor:pointer;">
-        
-        <a href="/kurum/ziraat-yatirim-12" title="Ziraat Yatırım" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/ziraat-yatirim-21.png" alt="Ziraat Yatırım" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/tursg-turkiye-sigorta-429" class="senetbox-title d-block text-center py-2"><strong>TURSG</strong> - TÜRKİYE SİGORTA</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>6.50 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%121.84</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="12152" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/türkiye-sigorta-hedef-fiyat-2026-12152" title="Ziraat Yatırım, TURSG - Türkiye Sigorta için hedef fiyatını 9,6 TL'den 6,5 TL'ye düşürdü, tavsiyesini AL olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Al</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="12152" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 13 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 buhaftaPaylasilanlist-item">
-    <div id="Tahmin12151" class="senetbox rounded-2 p-2 mb-3 senetbox-katilim" data-href="/hedef-fiyat/bim-birleşik-mağazalar-aş-hedef-fiyat-2026-12151" style="cursor:pointer;">
-        <span class="senetbox-katilim-badge">Katılım Endeksinde</span>
-        <a href="/kurum/ak-yatirim-6" title="Ak Yatırım" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/ak-yatirim-16.png" alt="Ak Yatırım" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/bimas-bim-birlesik-magazalar-a.s.-67" class="senetbox-title d-block text-center py-2"><strong>BIMAS</strong> - BİM BİRLEŞİK MAĞAZALAR A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>542.00 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%44.82</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="12151" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/bim-birleşik-mağazalar-aş-hedef-fiyat-2026-12151" title="Ak Yatırım, BIMAS - Bim Birleşik Mağazalar için hedef fiyatını 524 TL'den 542 TL'ye yükseltti, tavsiyesini Endeks Üstü Getiri olarak korudu" class="btn btn-sm btn-success bg-gradient d-block">Endeks Üstü Get.</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="12151" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 13 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 buhaftaPaylasilanlist-item">
     <div id="Tahmin12109" class="senetbox rounded-2 p-2 mb-3" data-href="/hedef-fiyat/astor-enerji-hedef-fiyat-2026-12109" style="cursor:pointer;">
         
         <a href="/kurum/gedik-yatirim-29" title="Gedik Yatırım" class="kurumLogo">
@@ -2683,40 +2298,6 @@ body.swal2-no-backdrop > .swal2-shown {
             </div>
         </div>
         <div class="senettarih text-center">Salı, 17 Kasım 2026</div>
-    </div>
-</div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 buhaftaPaylasilanlist-item">
-    <div id="Tahmin11915" class="senetbox rounded-2 p-2 mb-3" data-href="/hedef-fiyat/otokar-otomotiv-ve-savunma-sanayi-aş-hedef-fiyat-2026-11915" style="cursor:pointer;">
-        
-        <a href="/kurum/deniz-yatirim-13" title="Deniz Yatırım" class="kurumLogo">
-            <img src="https://hedeffiyat.com.tr/resimler/kurum/deniz-yatirim-48.png" alt="Deniz Yatırım" class="rounded mx-auto d-block" width="100%" style="overflow:hidden;">
-        </a>
-        <a href="/senet/otkar-otokar-otomotiv-ve-savunma-sanayi-a.s.-323" class="senetbox-title d-block text-center py-2"><strong>OTKAR</strong> - OTOKAR OTOMOTİV VE SAVUNMA SANAYİ A.Ş.</a>
-        <div class="row mt-1">
-            <div class="col-6"><div class="hedeffiyat"><p>Hedef Fiyat</p></div></div>
-            <div class="col-6"><div class="hedeffiyat badge bg-success d-block p-0"><span>450.00 ₺</span></div></div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-6"><div class="potansiyelgetiri"><p>Potansiyel Getiri</p></div></div>
-            <div class="col-6"><div class="potansiyelgetiri badge bg-primary d-block p-0"><span>%41.96</span></div></div>
-        </div>
-        <div class="row text-center mt-3 mb-1 px-2">
-            <div class="col-2 p-0">
-                <div class="senetvotedown">
-                    <button type="button" class="voteLike btn btn-sm btn-secondary" data-id="11915" data-type="0"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-            <div class="col-8 px-1">
-                <a href="/hedef-fiyat/otokar-otomotiv-ve-savunma-sanayi-aş-hedef-fiyat-2026-11915" title="Deniz Yatırım, OTKAR - Otokar için hedef fiyatını 450 TL, tavsiyesini TUT olarak korudu" class="btn btn-sm btn-primary bg-gradient d-block">Tut</a>
-            </div>
-            <div class="col-2 p-0">
-                <div class="senetvoteup">
-                    <button type="button" class="voteLike btn btn-sm btn-orange" data-id="11915" data-type="1"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <small>0</small>
-                </div>
-            </div>
-        </div>
-        <div class="senettarih text-center">Cuma, 13 Kasım 2026</div>
     </div>
 </div><div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-6 buhaftaPaylasilanlist-item">
     <div id="Tahmin11813" class="senetbox rounded-2 p-2 mb-3" data-href="/hedef-fiyat/türkiye-garanti-bankasi-aş-hedef-fiyat-2026-11813" style="cursor:pointer;">
@@ -3271,4 +2852,4 @@ Finansal okuryazarlığa katkı sunmak, neye/neden yatırım yapıldığını ta
 
 
 
-<ins class="adsbygoogle adsbygoogle-noablate" data-ad-hi="true" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3451731801859690&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;abgtt=6&amp;lmt=1795197842&amp;plat=3%3A16%2C4%3A16%2C9%3A32%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fhedeffiyat.com.tr%2F&amp;pra=5&amp;aiof=14&amp;asro=0&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTUzLjAuODAxMC4xMiIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE1My4wLjgwMTAuMTIiXSxbIk5vdF9BIEJyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIxNTMuMC44MDEwLjEyIl1dLDBd&amp;dt=1795197842746&amp;bpp=6&amp;bdt=525&amp;idt=130&amp;shv=r20261118&amp;mjsv=m202611110101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;nras=1&amp;correlator=8625769836645&amp;frm=20&amp;pv=2&amp;u_tz=0&amp;u_his=2&amp;u_h=720&amp;u_w=1280&amp;u_ah=720&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1&amp;dmc=16&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1280&amp;bih=720&amp;scr_x=0&amp;scr_y=0&amp;eid=95404669%2C42533293&amp;oid=2&amp;pvsid=6258549099301901&amp;tmod=1077869288&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C720%2C1280%2C720&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;pgls=CAA.&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=159" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe><div class="modal-backdrop fade show"></div></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20261118/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>
+<ins class="adsbygoogle adsbygoogle-noablate" data-ad-hi="true" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3451731801859690&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;abgtt=6&amp;lmt=1795213723&amp;plat=3%3A16%2C4%3A16%2C9%3A32%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32%2C44%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fhedeffiyat.com.tr%2F&amp;pra=5&amp;aiof=14&amp;asro=0&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiIiwieDg2IiwiIiwiMTUzLjAuODAxMC4xMiIsbnVsbCwwLG51bGwsIjY0IixbWyJIZWFkbGVzc0Nocm9tZSIsIjE1My4wLjgwMTAuMTIiXSxbIk5vdF9BIEJyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIxNTMuMC44MDEwLjEyIl1dLDBd&amp;dt=1795213723608&amp;bpp=3&amp;bdt=725&amp;idt=100&amp;shv=r20261118&amp;mjsv=m202611110101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;nras=1&amp;correlator=5909632078386&amp;frm=20&amp;pv=2&amp;u_tz=0&amp;u_his=2&amp;u_h=720&amp;u_w=1280&amp;u_ah=720&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1&amp;dmc=16&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1280&amp;bih=720&amp;scr_x=0&amp;scr_y=0&amp;eid=95408438%2C95408927%2C95409688%2C95409873%2C122882242%2C42533294%2C95411484&amp;oid=2&amp;pvsid=5211488841934811&amp;tmod=160941671&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C720%2C1280%2C720&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;pgls=CAA.&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=122" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe><div class="modal-backdrop fade show"></div></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20261118/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>
