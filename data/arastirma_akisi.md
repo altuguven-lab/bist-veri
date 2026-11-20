@@ -8,7 +8,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 26 |
-| haber | OK | 46 |
+| haber | OK | 49 |
 | kurum_yayin_sayfalari | OK | 43 |
 | kuresel_gorunum | OK | 11 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
@@ -68,6 +68,8 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
+- 2026-11-20 **Moody's**: [Türkiye'nin kredi notu için rahatlatan mesaj: Moody's fon krizinin etkisini açıkladı! - Haber 7](https://news.google.com/rss/articles/CBMiygFBVV95cUxNTjF6QVI2UUZHMDFfOXV6NlFsT2hISVpCYVZZZmdFQmNuMld6ZHBBeFZ5TU90R3VfRW44N3dmMVV6bVV1Y0F0eU50NXhxUUV2M2ZES0dWcUtEdnFtV0g3Z092XzhmR1dwNWJybllHMDZJR2t0aW9IRE5fUHJvOFZfNXp0b09USzBPMTdubkNQV2Y3cWtTUm9EM2k4aTI2enQ1QS1UdXZGdXBBaXZsTFhnRHlRd1ZmTVlCSnl6YkdFX291UGVvLXd3US130gHMAUFVX3lxTE9YSFRFZ0FvYy0zMndtMFpSREFaUFN1emFmTUdlaDdHUlRRS1RfTVVLdmxBWWprdVotV1I1WGpFQzRuNnA5R3RKSXF4dEt1dmFndEQtckJXOXpKQWZuckJYUUJvV1RiVHJXNWR2bWZxaXhqTjZxdjl2OHd3bm1nZkdkT3hPaWNJUklyUEhaSG9WbmllU2FpdzNsQTV0Um5SUGFtYklhWjZ5VWxENXdtSEJiaUlqZnp5RG80WVowRlRrMU81R0ZyQjV4UXRfTw?oc=5)
+- 2026-11-19 **HSBC**: [HSBC ASTOR için hedef fiyatı düşürdü: "Al"... - Hisse.net](https://news.google.com/rss/articles/CBMingFBVV95cUxQanVNaWdJZmEyZXRmVmpmcXV6b0ZiT2RKODRwbTR4RHpDT1dxOGlpMHFnVWpWa1BWWTBvaU1scmFka1Nrc24wTVZzbkRZTlhwQzFXTy04UEtOajlXc2IyRDN4c1lQM285c0hhNm9QNlk2SjhFMmNSbUxDdXhSU3N2RzRVZ0lLWHRaaWNtQ3UzeFVPNUFBT2YtbmxiWDRCQdIBowFBVV95cUxQbFJUdTVCOWQzWnVtY2ZUd2Vlcm4xaDJ5MXlsN2xQbm1JZmN0YkJ6UG5ub1k1STc0djJXcDlFbC0wX2c3eTBhb2JfaHY3cUp6TkNQRndRMlBpWVJtVEE3NkhTUi15SFBsX1YxcG5VazNZbDdOUlhXbXBuZ0pmTVZVY0RJZHZHcFhHdDBKVzBXWEpCNTBRNjRVdnRSN2JrMlVxSVlZ?oc=5)
 - 2026-11-19 **HSBC**: [Astor Enerji yatırımcıları için HSBC'den yeni değerlendirme - Ekonomim](https://news.google.com/rss/articles/CBMiuwFBVV95cUxNWjJuRnBWMGxUQTNqT3RhVTdWcmFTTFM0NVdSaF82MjhJNmQ4ZWY5MnRnYUludmRTSG1MWjVtdmgzMFliaXF3RDV4aGRVZHVIeGdSUmMxWDJfeVNfdzk5djVPMDZ4UW4wS0NMOEZCTEh0WE5QZjhjZzRKTXhGVGNpSy1QN041eEFnYTNQYTJteVBOOG1qemVfcHRhWkJzaUpRVEs0Y2ZaTm1EbXYzb1RYYnpPbkMxa1BjWmN3?oc=5)
 - 2026-11-19 **HSBC**: [HSBC, Astor Enerji hedef fiyatını düşürdü - EKOTÜRK](https://news.google.com/rss/articles/CBMiekFVX3lxTE1wT21iWXZfMHBJXzJCcnJiYWRZeW9yVFZZVUlsd3RHRFBmcUxQVVlDM2F1blhsYkUtVUpUZjhxS00zd20wNko2SUVFQ0VIUHdoTWdIVHRVUnhBUlRQMGNNSFM3a3htMUlWcGZPQkVCcXV6LWpPQUt1VG53?oc=5)
 - 2026-11-19 **Moody's**: [Moody's, Şişecam'ın kredi notunu B3'e indirdi - Gazete Oksijen](https://news.google.com/rss/articles/CBMiigFBVV95cUxOVVo2MFF6Z3ZiZ2c0T3pVS3ZuM09NTGVqcWZadXBLOVEzYW5LQjZaQ1UteUZ3TG9CNktWbV9FRkEzdmhTeFduV3lJVGdmUEZGVVoxQ3M2dnQwZlRGOXE0b010ZmcyNVp1NGFuUnE5SXJTZEMzRG1ndHVvcVkzdUZMWlVycDVDRndfYVE?oc=5)
@@ -91,8 +93,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-18 **Fitch**: [Fitch, Türkiye'deki elektrik fiyatları için 2027 beklentisini açıkladı - Ekonomim](https://news.google.com/rss/articles/CBMitgFBVV95cUxNakk4SUVvcm5UQWd3MElvcUxteTNvTUlTOTRvV1RoaThqcGtVb0l3Rnh5UXhJUDRMSDlMU0RTaWotUlBua2c4Q2ltalNqcmJKaFNQLUxqVlFLMXpOcmZ6UFVVVDBheGhBOUtFZlVyQlJkWEdoSU5TdVNzZHVTMnl1bG9iY19uVGs2YmdzU1pFR0VHUE9RMFNnNjM1RXNzMnRlQ202cUxpWVlKV3MyNURXTmVQb0Jndw?oc=5)
 - 2026-11-17 **JPMorgan**: [JPMorgan, MSCI Türkiye Endeksi için tavsiyesini yükseltti - Platin Dergisi](https://news.google.com/rss/articles/CBMioAFBVV95cUxOa29QMmZxT2R4MGd4bExUTlh6c2pLTnVWaTJMbS1VWmY0dm1MZnI3OGlNczU3MFBtY2p6WUF4WEdzeHpJMUhyLTdHWmstSlpTTHZCY0xvQjRpU1VMeWN1VVJPdDhBSFpDN25WU3dlRU54VWJ0WE5CbjdEZjh6YjM2UHVtZUVURWR3QzJrRXViTWxJeUJLVHVwNG9YYk5lRFk3?oc=5)
 - 2026-11-17 **JPMorgan**: [JPMorgan'dan yeni karar: MSCI Türkiye endeksine yönelik tavsiyesini 'Ağırlık artır'a yükseltti - İstanbul Ticaret Gazetesi](https://news.google.com/rss/articles/CBMixAFBVV95cUxNZEZlell1d3hPU0F1YTBack1GcHVtcHBOMGtXS1N1RjBkN3JyWDJYdUVGYkdIeHZqOExVZW1WWVFOdG8zR1B3bTB3VDVHUW51RTRIZjVGYXlWcjZNaWtQUEY5MnJGYVhxaExwYVYzVzZ6b21tbHBRYmg0a3ZraEpNaTZWcG5aY3EwT01keXRXN3ZOLXVjbXNyUkFUd3REbTlsamhHcnd1aDBLN2Z0bEZyN2JPbTZMUnhhVlJqOTBjZVNFWWk3?oc=5)
-- 2026-11-17 **JPMorgan**: [JPMorgan'dan Borsa İstanbul için kritik karar! Yabancı yatırımcı geri mi dönüyor? - Ekovitrin Haber](https://news.google.com/rss/articles/CBMipwFBVV95cUxPZXlEUzNnbVpvZWVKTDJTeHBqa0F4VHBVNmM3RjJnM0RnX1ZPdHNzZkx5QTRxTDQwN2VkWDFCYlo1M2RwODR4SzlMTEZkTlI5bVM3LXBZdk13bWxXMFBZeFp0Qk1rTXpWa08yVUlLS0YzR1JKWms5NW01WnI5eExxU19PUXlpYmhqSWo4QU5DZUpfOVpOSElpWHNqNFdlM1ZVbGdIeDRMdw?oc=5)
-- 2026-11-17 **Bank of America**: [BofA, Türk Hava Yolları’nda net 3,73 milyon pay aldı - EKOTÜRK](https://news.google.com/rss/articles/CBMihwFBVV95cUxPVm9WcjJTNVBPNHQ2WUl5QU9ESWdjT3BDUEIyUU1LVEEwMy1tRlZJMXNpQkZMZm82VVh5dVRmNTREVjFIY3NEVExDeWEyZG1WMHhfclg2b0tjNWc4UlpqVV8wWVRyRFJKaUhzNWUxOHpwR3RZTU5fVVdQZ2JuOXFZMjhqTTNxX28?oc=5)
 
 ## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)
 
@@ -119,6 +119,8 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-16 **ING**: [ING's 2027 Asia Outlook: The AI Boom Broadens, but Global Capital Is Getting Choosy - The Dark Side Of The Boom](https://news.google.com/rss/articles/CBMihAFBVV95cUxPcWZRc1duOXhfcDRFOFduUi1MQzFtYTFvRzVWMUxNZTdWMmxPaDlOY2UxUTBaYU5fVThzSnBKZFF2RFZzYjFUS3F0RXNEUjRaTUtJVlp5OG5qbWlMaFJNY2tXd0tUdE5MMTBCMkFnMEktYjdVcUxMbzYxcUFQOVhvemwwa0g?oc=5)
 - 2026-11-15 **Goldman Sachs**: [Goldman Sachs 2027 Economic Outlook For Investors - Yahoo Finance](https://news.google.com/rss/articles/CBMimAFBVV95cUxNck1FYkJNZUFJUDd3RWIzVnhZN1c2Tk9wUThZbGYzSzcyb2luckVkYzlJckpPellVN0YwNWM0bXdsVmo0QTF5SENvYmM5X3pTLTgyZE45TG9CaFR3TFVZTUxGU01YZlRQUzMxeEhLLWZVN3B5anltMkM5WEFHY3k0VWlMaVNFZmZlZ3ozZjlMdjFSQUFMMm9TRQ?oc=5)
 - 2026-11-15 **Goldman Sachs**: [Goldman Sachs’ calm 2027 forecast comes with a catch - Yahoo Finance](https://news.google.com/rss/articles/CBMilAFBVV95cUxPTk40UDNlOS14bFJYX1puWGwtUG1JeHRuUTJtaDJJUUdIOEthcXBRbXZJcGpoRElDangtMkFTeWEtdS1fUFlqWURoU1BLVHJLNTBxeWRZR1dDLTRmc0ZsNF9EUUxTUWtuZ0UtcUZjZGpIWlRwczdSVzN5WFg4Rzlpai1zaXZyU3NPVFRQNHVMUktxcV9P?oc=5)
+- 2026-11-20 **ING**: [Czech Republic Poland Today, 11:07 CEE & CCA week ahead: Polish activity data and Czech confidence in focus A look ahead at next week's economic events across the CEE and CCA regions](https://think.ing.com/articles/cee-cca-week-ahead-polish-activity-data-and-czech-confidence-in-focus/)
+- 2026-11-20 **ING**: [Today, 10:58 THINK Ahead: Your questions, answered Our Q&A examines how ING’s Global Outlook differs from market expectations and where we see the biggest disconnects](https://think.ing.com/articles/think-ahead-201126/)
 - 2026-11-20 **ING**: [Commodities, Food & Agri Published 12:02 Metals sell-off runs ahead of physical markets It has been a difficult week for metals](https://think.ing.com/articles/metals-sell-off-runs-ahead-of-physical-markets/)
 - 2026-11-20 **ING**: [Czech Republic Poland Published 11:07 CEE & CCA week ahead: Polish activity data and Czech confidence in focus A look ahead at next week's economic events across the CEE and CCA regions](https://think.ing.com/articles/cee-cca-week-ahead-polish-activity-data-and-czech-confidence-in-focus/)
 - 2026-11-20 **ING**: [FX Today, 07:48 FX Daily: Carry trade unwind in full swing The prospect of faster Fed tightening is starting to weigh heavily on risk assets and helping the dollar](https://think.ing.com/articles/fx-daily-will-closer-eu-ties-help-the-pound/)
@@ -127,8 +129,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **ING**: [Asia week ahead China Japan Today, 04:37 Asia week ahead: BoK rate decision, data from China, Taiwan, Japan The Bank of Korea expected to hike rates by 25bp to 3.25%, a third tightening in the cycle](https://think.ing.com/articles/asia-week-ahead-bok-rate-decision/)
 - 2026-11-20 **ING**: [Yesterday, 07:40 FX Daily: Higher US real rates dominate Higher US real rates are sucking funds into the dollar](https://think.ing.com/articles/fx-daily-higher-us-real-rates-dominate/)
 - 2026-11-20 **ING**: [Rates Spark Yesterday, 07:10 Rates Spark: ECB reserve rethink would bring funding pressure closer Longer rates remain sensitive to jittery tech sentiment, while front-ends face hawkish central bank co](https://think.ing.com/articles/rates-spark-ecb-reserve-rethink-would-bring-funding-pressure-closer/)
-- 2026-11-20 **ING**: [Commodities daily 18 November The Commodities Feed: Copper hits six-month low; improving supply weighs on oil Base metals remain under pressure](https://think.ing.com/articles/the-commodities-feed-copper-hits-five-month-low-improving-supply-weighs-on-oil/)
-- 2026-11-20 **ING**: [FX 18 November FX Daily: Commodity complex is having a moment Commodity currencies are under pressure as industrial metals turn](https://think.ing.com/articles/fx-daily-commodity-complex-is-having-a-moment/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
@@ -137,6 +137,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Diğer kurum haberleri (son 7 gün, ◐)
 
+- 2026-11-20 : [OTKAR Hisse Hedef Fiyat: 2 Kurumdan Yükseliş Beklentisi - Finans Hattı](https://news.google.com/rss/articles/CBMijgFBVV95cUxQV1doQnZwUFFqOHZZN0l1el9BcVNmb1VsN2hfYVR4OXNDWmlDck9OblBJYWpibmlXdHh1cWw4QTFCTzZWcXlCckN5bzg2UERLUVQySmIzOVhSQWNaaWlVS09IQUNZQ2xJZEV1QWxPczFUSGRDWnQyLVlCWEFybWNyU2VySFdabWoySjUyMUJR?oc=5)
 - 2026-11-19 ÜNLÜ & Co: [Ünlü & Co’nun banka tercihi değişti: Akbank gitti, Vakıfbank geldi - Paratic Haber](https://news.google.com/rss/articles/CBMiigFBVV95cUxNQnJZa2dzY1ptdWk5dS1wTGxJY0d1TkhJb2tpTFFjdFo4cTRSOWcxWTJJSEZCYUJLdjRqOVFsSS1YRFIybjJ3bS11bExjTmFRS24wZTdUVGJPcWJ4VTJCNm13UFV6MWt2d0xKSlI2TEpheDRpYWk2UElGV3ktX0ZBazhVMHJBdjZNTFE?oc=5)
 - 2026-11-19 ÜNLÜ & Co: [Ünlü Menkul model portföye Vakıfbank’ı ekledi, Akbank’ı çıkardı - Borsatek](https://news.google.com/rss/articles/CBMieEFVX3lxTE1SWUJXcGpEMkF6R2RYZFJNR2s5SmNKeEI3NEI5N2hPVVJCVkVET0RXdTVna3ZxV015UDJRRVFGZFdlRmluVjZCcF9ETDN0SkVOcHhyTnJQdGo2aGxjV0NaVEJKazJtNFVydXhuamJwOTZCRGdUY0x0bg?oc=5)
 - 2026-11-19 : [ASTOR ve GLRMK İçin Yeni Hedef Fiyatlar Açıklandı! - Finans Hattı](https://news.google.com/rss/articles/CBMif0FVX3lxTE9DdENTczYtQ2UyS2pVVURibnV6ejRfSXdVREZaUVpnX3dtaFNRM2t2eUdiaTh3ZEZjbktldDNrazNlYWpoWVRYb0taWkFDeHpHV0JKeDV3YUVuUHVBSDFBdUZySU8zVVZHdUQ2OS1aeEk2NHRoMkpLSkdFdmhWdXc?oc=5)
