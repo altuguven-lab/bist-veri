@@ -63,6 +63,13 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
 9. **Teyit edilemeyenler:** Bu başlık her zaman bulunur. Her ✖, ⛔ ve ◐ maddesi burada nedeniyle birlikte tekrar edilir ve her birine aynı gün için bir kontrol saati verilir.
 10. Kaynaklar (markdown bağlantı) ve "Gözlem amaçlıdır, tavsiye değildir".
 
+## Çelişki kuralları (20.11.2026)
+
+- **Veri tarihi:** `data/bist_resmi.json` içindeki `veri_tarihi` ve `okuma_notu` alanları kullanılır. Seans öncesi okuma bir önceki işlem gününün kapanışıdır. "Bugün %0,00" diye yazılmaz, "<veri_tarihi> kapanışı" diye yazılır.
+- **Takvim önceliği:** TCMB veri saatlerinde `data/tcmb_yayin.json` (TCMB Veri Yayımlama Takvimi) önce gelir. `takvim.json`'daki saatsiz ya da "bekliyor" kaydı TCMB takvimiyle çelişirse TCMB takvimi esas alınır. Çelişki "Teyit edilemeyenler"de belirtilir.
+- **Bayatlık:** Bir dosya beklenen saatte güncellenmemişse (ör. `kuresel_gosterge.json` sabah 08:20 çalışmasından gelmemişse) veri yine verilir. Yanına "bayat: son güncelleme <saat>" yazılır, bugünün verisi gibi sunulmaz.
+- **Kaynak farkı:** Aynı veri için iki kaynak farklıysa (XU100: borsaistanbul.com ↔ Yahoo; USDTRY: TCMB ↔ Yahoo) ikisi saatleriyle yan yana yazılır ve hangisinin esas olduğu belirtilir: kapanışta borsaistanbul.com, kurda TCMB. Model sessizce birini seçmez.
+
 ## Haftalık bakım (Cuma)
 
 - `data/takvim.json`: Gelecek haftanın tek seferlik olayları birincil kaynaktan eklenir. Düzenli yayınlar için `kurallar` bölümüne kural yazılır; kuralın kaynağı açılmış olmalıdır.
