@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-20 08:43
+# Kurum taramasi - 2026-11-20 12:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 3 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-20 | 48 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-20 | 50 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -32,6 +32,8 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- 20.11.2026 08:52:32 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700478) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
+- 20.11.2026 08:51:04 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700470) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 - 20.11.2026 00:32:05 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1700462) SPK BÜLTENİ
 - **[KRITIK]** 19.11.2026 23:33:44 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700461) SPK İşlem Yasağı Nedeniyle Pay Duyurusu
 - **[KRITIK]** 19.11.2026 18:29:32 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700399) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
@@ -70,8 +72,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 16.11.2026 08:40:57 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1698246) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
 - **[KRITIK]** 14.11.2026 00:53:04 KAMUYU AYDINLATMA PLATFORMU - [Sermaye Piyasası Kurulu Tedbir Kararı](https://www.kap.org.tr/tr/Bildirim/1698215) Sermaye Piyasası Kurulu Tedbir Kararı
 - 13.11.2026 23:54:17 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1698212) SPK BÜLTENİ
-- **[KRITIK]** 13.11.2026 18:35:08 BORSA İSTANBUL A.Ş. - [Pay İşlem Sırası Kapatma / Açma](https://www.kap.org.tr/tr/Bildirim/1698153) Pay Sırasının İşleme Açılması
-- 13.11.2026 17:44:22 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1698092) Hak Kullanım İşlemleri
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
@@ -104,14 +104,14 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
 - ANELE: 11-13: 1, 11-17: 1, 11-18: 6
-- DSTKF: 11-17: 1, 11-18: 1
-- GUNDG: 11-17: 1, 11-18: 1
-- IEYHO: 11-13: 1, 11-17: 2
+- DSTKF: 11-17: 1, 11-18: 1, 11-20: 1
+- GUNDG: 11-17: 1, 11-18: 1, 11-20: 1
+- IEYHO: 11-13: 1, 11-17: 2, 11-20: 1
 - KTLEV: 11-17: 2, 11-18: 4, 11-19: 1
-- ODINE: 11-17: 2, 11-18: 4
-- OZATD: 11-17: 2
-- PEKGY: 11-17: 2
-- SELEC: 11-17: 2
+- ODINE: 11-17: 2, 11-18: 4, 11-20: 2
+- OZATD: 11-17: 2, 11-20: 1
+- PEKGY: 11-17: 2, 11-20: 1
+- SELEC: 11-17: 2, 11-20: 1
 - TEHOL: 11-17: 2
 - TUKAS: 11-13: 2
 - VSNMD: 11-17: 2, 11-18: 2, 11-19: 1
