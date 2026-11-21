@@ -1,6 +1,6 @@
 # Alarm Karnesi
 
-Uretim: 2026-11-20T22:49 UTC | maliyet 0.25% (gidis-donus) | kriz esigi 2026-09-15 | BH q=0.1 | MIN_N=30
+Uretim: 2026-11-21T15:34 UTC | maliyet 0.25% (gidis-donus) | kriz esigi 2026-09-15 | BH q=0.1 | MIN_N=30
 
 Salt olcum, tavsiye degildir. Net = yon-ayarli XU100-goreli getiri (YUKARI turlerde maliyet dusulu). t_kume = gun/hafta kumelenmis t; t_naif yalniz karsilastirma icindir.
 
@@ -8,17 +8,17 @@ Salt olcum, tavsiye degildir. Net = yon-ayarli XU100-goreli getiri (YUKARI turle
 
 | Tur | Sinif | Yon | Olay | Brut yon T+3 (t_kume) | Net T+1 | Net T+3 (t_kume / t_naif) | Alarm fiyatindan net T+3 (t_kume) | Net T+5 (t_kume) | Net T+10 | Isabet T+3 | Sektore gore T+3 | Hukum |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| SEKTOR_ROTASYONU | BILGI | YUKARI | 236 | 0.293 (0.81) | -0.145 | 0.043 (0.12 / 0.17) | 0.043 (0.1) | 0.601 (0.85) | 2.165 | 44.9 | -0.045 | **ADAY** |
-| IC_STOP | KRITIK | ASAGI | 79 | 0.305 (0.79) | 0.244 | 0.305 (0.79 / 0.93) | 0.535 (1.37) | 0.851 (None) | None | 58.8 | 0.253 | **ADAY** |
-| P3_SKOR_AL | BILGI | YUKARI | 289 | -0.26 (-0.75) | -0.34 | -0.51 (-1.47 / -2.09) | -0.54 (-1.36) | -0.232 (-0.34) | 0.829 | 42.2 | -0.376 | **KENAR_YOK** |
-| P4_HAZIRLIK | BILGI | YUKARI | 275 | 0.205 (0.82) | -0.276 | -0.045 (-0.18 / -0.17) | -0.18 (-0.49) | -0.128 (-0.53) | 0.437 | 46.7 | 0.076 | **KENAR_YOK** |
-| P3_RADAR | BILGI | YUKARI | 148 | -0.093 (-0.27) | -0.499 | -0.343 (-1.01 / -1.14) | -0.325 (-0.81) | 0.028 (0.08) | 0.463 | 52.1 | -0.221 | **KENAR_YOK** |
-| P3_HACIM_BEKLE | BILGI | YUKARI | 103 | -0.211 (-0.83) | -0.284 | -0.461 (-1.81 / -1.59) | -0.96 (-3.52) | -0.716 (None) | None | 44.0 | 0.527 | **KENAR_YOK** |
-| P2_ADAY | BILGI | YUKARI | 74 | 0.176 (0.26) | -0.431 | -0.074 (-0.11 / -0.12) | -0.104 (-0.13) | -0.028 (-0.03) | 0.165 | 52.8 | -1.061 | **KENAR_YOK** |
+| SEKTOR_ROTASYONU | BILGI | YUKARI | 253 | 0.274 (0.86) | -0.161 | 0.024 (0.08 / 0.1) | -0.093 (-0.25) | 0.451 (0.61) | 2.062 | 44.7 | -0.025 | **ADAY** |
+| IC_STOP | KRITIK | ASAGI | 81 | 0.259 (0.73) | 0.116 | 0.259 (0.73 / 0.83) | 0.509 (1.43) | 0.339 (None) | None | 58.9 | 0.332 | **ADAY** |
+| P3_SKOR_AL | BILGI | YUKARI | 289 | -0.26 (-0.75) | -0.34 | -0.51 (-1.47 / -2.09) | -0.54 (-1.36) | -0.256 (-0.38) | 0.826 | 42.2 | -0.376 | **KENAR_YOK** |
+| P4_HAZIRLIK | BILGI | YUKARI | 288 | 0.203 (0.89) | -0.266 | -0.047 (-0.21 / -0.19) | -0.274 (-0.8) | -0.121 (-0.56) | 0.285 | 46.3 | 0.064 | **KENAR_YOK** |
+| P3_RADAR | BILGI | YUKARI | 149 | -0.117 (-0.35) | -0.479 | -0.367 (-1.09 / -1.23) | -0.36 (-0.91) | 0.013 (0.04) | 0.364 | 51.4 | -0.218 | **KENAR_YOK** |
+| P3_HACIM_BEKLE | BILGI | YUKARI | 110 | -0.216 (-0.97) | -0.281 | -0.466 (-2.1 / -1.68) | -1.037 (-4.14) | -0.456 (None) | None | 41.7 | 0.461 | **KENAR_YOK** |
+| P2_ADAY | BILGI | YUKARI | 75 | 0.137 (0.21) | -0.431 | -0.113 (-0.17 / -0.19) | -0.177 (-0.23) | 0.191 (0.26) | 0.067 | 51.4 | -1.165 | **KENAR_YOK** |
 | POZ_AZALT | BILGI | ASAGI | 39 | -1.931 (-1.95) | -0.957 | -1.931 (-1.95 / -2.65) | -1.792 (-1.69) | -1.962 (-1.12) | -2.114 | 43.6 | 2.393 | **KENAR_YOK** |
 | ACIL_CIK | KRITIK | ASAGI | 29 | -1.93 (-1.31) | -0.393 | -1.93 (-1.31 / -1.24) | -1.192 (-0.79) | -2.745 (-1.16) | -0.958 | 55.2 | 1.597 | **YETERSIZ_ORNEK** |
-| P2_DIP_DONUS | BILGI | YUKARI | 23 | 2.102 (1.24) | -0.308 | 1.852 (1.09 / 1.0) | 1.69 (1.04) | 1.266 (0.77) | 3.765 | 42.9 | 1.993 | **YETERSIZ_ORNEK** |
-| TASIMA | BILGI | YUKARI | 15 | -0.339 (-0.41) | -0.905 | -0.589 (-0.7 / -0.71) | -0.714 (-0.94) | -0.457 (None) | None | 40.0 | 0.585 | **YETERSIZ_ORNEK** |
+| P2_DIP_DONUS | BILGI | YUKARI | 23 | 2.102 (1.24) | -0.308 | 1.852 (1.09 / 1.0) | 1.69 (1.04) | 1.287 (0.82) | 3.765 | 42.9 | 1.993 | **YETERSIZ_ORNEK** |
+| TASIMA | BILGI | YUKARI | 15 | -0.339 (-0.41) | -0.905 | -0.589 (-0.7 / -0.71) | -0.714 (-0.94) | -0.497 (None) | None | 40.0 | 0.585 | **YETERSIZ_ORNEK** |
 | EKLEME_ADAYI | BILGI | YUKARI | 3 | 2.051 (1.68) | 1.128 | 1.801 (1.47 / 1.47) | 1.046 (0.71) | 2.662 (0.96) | None | 66.7 | 1.455 | **YETERSIZ_ORNEK** |
 | STOP_KIRILDI | KRITIK | ASAGI | 3 | -2.307 (-0.95) | -0.657 | -2.307 (-0.95 / -0.95) | -2.405 (-0.94) | 0.303 (None) | -1.517 | 33.3 | 4.503 | **YETERSIZ_ORNEK** |
 
@@ -28,15 +28,15 @@ Salt olcum, tavsiye degildir. Net = yon-ayarli XU100-goreli getiri (YUKARI turle
 |---|---|---|---|---|---|
 | ACIL_CIK | 16 / -3.367 | 13 / -0.161 | 17 / -3.334 | 10 / -0.801 | 20.7 |
 | EKLEME_ADAYI | 0 / None | 3 / 1.801 | 2 / 2.061 | 1 / None | 66.7 |
-| IC_STOP | 0 / None | 68 / 0.305 | 35 / 0.172 | 33 / 0.446 | 87.3 |
-| P2_ADAY | 28 / -0.946 | 44 / 0.48 | 23 / -0.62 | 49 / 0.182 | 77.0 |
+| IC_STOP | 0 / None | 73 / 0.259 | 38 / 0.213 | 35 / 0.309 | 87.7 |
+| P2_ADAY | 28 / -0.946 | 46 / 0.394 | 25 / -0.691 | 49 / 0.182 | 77.3 |
 | P2_DIP_DONUS | 12 / 4.276 | 9 / -1.379 | 10 / 1.436 | 11 / 2.23 | 56.5 |
-| P3_HACIM_BEKLE | 0 / None | 75 / -0.461 | 22 / -0.236 | 53 / -0.554 | 96.1 |
-| P3_RADAR | 44 / -0.653 | 98 / -0.204 | 53 / 0.551 | 89 / -0.876 | 71.6 |
+| P3_HACIM_BEKLE | 0 / None | 84 / -0.466 | 26 / -0.318 | 58 / -0.532 | 96.4 |
+| P3_RADAR | 44 / -0.653 | 100 / -0.242 | 55 / 0.456 | 89 / -0.876 | 71.8 |
 | P3_SKOR_AL | 222 / -0.862 | 67 / 0.656 | 75 / 0.097 | 81 / 0.314 | 33.6 |
-| P4_HAZIRLIK | 0 / None | 225 / -0.045 | 91 / 0.286 | 134 / -0.27 | 66.2 |
+| P4_HAZIRLIK | 0 / None | 246 / -0.047 | 103 / 0.232 | 143 / -0.248 | 67.0 |
 | POZ_AZALT | 32 / -2.842 | 7 / 2.236 | 8 / -2.822 | 24 / -0.429 | 30.8 |
-| SEKTOR_ROTASYONU | 2 / -0.139 | 165 / 0.045 | 48 / -0.214 | 119 / 0.147 | 54.7 |
+| SEKTOR_ROTASYONU | 2 / -0.139 | 188 / 0.026 | 56 / -0.251 | 134 / 0.139 | 53.0 |
 | STOP_KIRILDI | 3 / -2.307 | 0 / None | 0 / None | 0 / None | 33.3 |
 | TASIMA | 0 / None | 15 / -0.589 | 11 / -0.169 | 4 / -1.742 | 100.0 |
 
@@ -46,8 +46,8 @@ Erken karar: en az 10 farkli gun, kumelenmis |t| > 2.6 ve plasebo p < 0.01 (ya d
 
 | Iddia | Olay | Gun | Ort / fark % | t / perm p | Plasebo ort % | Plasebo p | Durum |
 |---|---|---|---|---|---|---|---|
-| H14a_giris_netT3 | 28 | 5 | -0.689 | -2.07 | -0.52 | 0.419 | **DEVAM (5/10 gun)** |
-| H14c_cikis_yonT3 | 77 | 6 | 0.503 | 1.06 | 0.553 | 0.567 | **DEVAM (6/10 gun)** |
+| H14a_giris_netT3 | 30 | 6 | -0.743 | -2.38 | -0.497 | 0.498 | **DEVAM (6/10 gun)** |
+| H14c_cikis_yonT3 | 82 | 7 | 0.45 | 1.02 | 0.514 | 0.589 | **DEVAM (7/10 gun)** |
 | H14b_hacim_tetigi | 81 | 4 | -0.335 | 0.638 | - | - | **DEVAM (4/10 gun)** |
 
 ## Plasebo karsilastirmasi (ayni gun, rastgele baska hisse)
@@ -60,26 +60,26 @@ Soru: tur, ayni gunlerde evrenden rastgele secilen baska hisselerden daha iyi mi
 |---|---|---|---|---|---|---|---|---|
 | ACIL_CIK | T1 | 29 | 23 | -0.393 | -0.181 | -0.212 | 0.705 | OLCULEBILIR |
 | ACIL_CIK | T3 | 29 | 23 | -1.93 | -0.36 | -1.571 | 0.984 | OLCULEBILIR |
-| IC_STOP | T1 | 74 | 7 | 0.244 | 0.231 | 0.012 | 0.481 | HUKUM YOK (<20 gun) |
-| IC_STOP | T3 | 68 | 5 | 0.305 | 0.516 | -0.211 | 0.771 | HUKUM YOK (<20 gun) |
-| P2_ADAY | T1 | 74 | 35 | -0.181 | 0.158 | -0.338 | 0.915 | OLCULEBILIR |
-| P2_ADAY | T3 | 72 | 34 | 0.176 | 0.728 | -0.552 | 0.886 | OLCULEBILIR |
-| P2_DIP_DONUS | T1 | 23 | 15 | -0.058 | 0.157 | -0.215 | 0.699 | HUKUM YOK (<20 gun) |
-| P2_DIP_DONUS | T3 | 21 | 14 | 2.102 | 0.397 | 1.705 | 0.024 | HUKUM YOK (<20 gun) |
-| P3_HACIM_BEKLE | T1 | 94 | 7 | -0.034 | -0.158 | 0.124 | 0.252 | HUKUM YOK (<20 gun) |
-| P3_HACIM_BEKLE | T3 | 75 | 5 | -0.211 | -0.519 | 0.308 | 0.141 | HUKUM YOK (<20 gun) |
-| P3_RADAR | T1 | 146 | 41 | -0.249 | 0.111 | -0.36 | 0.983 | OLCULEBILIR |
-| P3_RADAR | T3 | 142 | 39 | -0.093 | 0.36 | -0.453 | 0.935 | OLCULEBILIR |
-| P3_SKOR_AL | T1 | 289 | 40 | -0.09 | 0.031 | -0.121 | 0.831 | OLCULEBILIR |
-| P3_SKOR_AL | T3 | 289 | 40 | -0.26 | 0.043 | -0.303 | 0.908 | OLCULEBILIR |
-| P4_HAZIRLIK | T1 | 260 | 27 | -0.026 | 0.062 | -0.088 | 0.764 | OLCULEBILIR |
-| P4_HAZIRLIK | T3 | 225 | 25 | 0.205 | 0.241 | -0.036 | 0.554 | OLCULEBILIR |
-| POZ_AZALT | T1 | 39 | 19 | -0.957 | 0.103 | -1.06 | 1.0 | HUKUM YOK (<20 gun) |
-| POZ_AZALT | T3 | 39 | 19 | -1.931 | 0.245 | -2.175 | 1.0 | HUKUM YOK (<20 gun) |
-| SEKTOR_ROTASYONU | T1 | 217 | 26 | 0.105 | 0.073 | 0.032 | 0.402 | OLCULEBILIR |
-| SEKTOR_ROTASYONU | T3 | 167 | 24 | 0.293 | 0.235 | 0.058 | 0.415 | OLCULEBILIR |
-| TASIMA | T1 | 15 | 4 | -0.655 | -0.141 | -0.515 | 0.879 | HUKUM YOK (<20 gun) |
-| TASIMA | T3 | 15 | 4 | -0.339 | -0.396 | 0.058 | 0.454 | HUKUM YOK (<20 gun) |
+| IC_STOP | T1 | 79 | 8 | 0.116 | 0.209 | -0.093 | 0.697 | HUKUM YOK (<20 gun) |
+| IC_STOP | T3 | 73 | 6 | 0.259 | 0.492 | -0.234 | 0.777 | HUKUM YOK (<20 gun) |
+| P2_ADAY | T1 | 74 | 35 | -0.181 | 0.162 | -0.343 | 0.919 | OLCULEBILIR |
+| P2_ADAY | T3 | 74 | 35 | 0.137 | 0.703 | -0.566 | 0.898 | OLCULEBILIR |
+| P2_DIP_DONUS | T1 | 23 | 15 | -0.058 | 0.14 | -0.197 | 0.685 | HUKUM YOK (<20 gun) |
+| P2_DIP_DONUS | T3 | 21 | 14 | 2.102 | 0.44 | 1.662 | 0.028 | HUKUM YOK (<20 gun) |
+| P3_HACIM_BEKLE | T1 | 103 | 8 | -0.031 | -0.132 | 0.101 | 0.282 | HUKUM YOK (<20 gun) |
+| P3_HACIM_BEKLE | T3 | 84 | 6 | -0.216 | -0.452 | 0.236 | 0.193 | HUKUM YOK (<20 gun) |
+| P3_RADAR | T1 | 148 | 42 | -0.229 | 0.108 | -0.336 | 0.979 | OLCULEBILIR |
+| P3_RADAR | T3 | 144 | 40 | -0.117 | 0.364 | -0.482 | 0.947 | OLCULEBILIR |
+| P3_SKOR_AL | T1 | 289 | 40 | -0.09 | 0.025 | -0.115 | 0.822 | OLCULEBILIR |
+| P3_SKOR_AL | T3 | 289 | 40 | -0.26 | 0.046 | -0.306 | 0.914 | OLCULEBILIR |
+| P4_HAZIRLIK | T1 | 275 | 28 | -0.016 | 0.066 | -0.082 | 0.75 | OLCULEBILIR |
+| P4_HAZIRLIK | T3 | 246 | 26 | 0.203 | 0.217 | -0.014 | 0.525 | OLCULEBILIR |
+| POZ_AZALT | T1 | 39 | 19 | -0.957 | 0.099 | -1.056 | 1.0 | HUKUM YOK (<20 gun) |
+| POZ_AZALT | T3 | 39 | 19 | -1.931 | 0.229 | -2.16 | 1.0 | HUKUM YOK (<20 gun) |
+| SEKTOR_ROTASYONU | T1 | 236 | 27 | 0.089 | 0.074 | 0.015 | 0.456 | OLCULEBILIR |
+| SEKTOR_ROTASYONU | T3 | 190 | 25 | 0.274 | 0.202 | 0.072 | 0.389 | OLCULEBILIR |
+| TASIMA | T1 | 15 | 4 | -0.655 | -0.141 | -0.514 | 0.875 | HUKUM YOK (<20 gun) |
+| TASIMA | T3 | 15 | 4 | -0.339 | -0.393 | 0.054 | 0.466 | HUKUM YOK (<20 gun) |
 
 ### V163 sonrasi (2026-11-09+)
 
@@ -87,26 +87,26 @@ Soru: tur, ayni gunlerde evrenden rastgele secilen baska hisselerden daha iyi mi
 |---|---|---|---|---|---|---|---|---|
 | ACIL_CIK | T1 | 5 | 3 | 0.163 | -0.057 | 0.22 | 0.416 | HUKUM YOK (<20 gun) |
 | ACIL_CIK | T3 | 5 | 3 | 1.463 | 0.309 | 1.154 | 0.235 | HUKUM YOK (<20 gun) |
-| IC_STOP | T1 | 74 | 7 | 0.244 | 0.227 | 0.016 | 0.475 | HUKUM YOK (<20 gun) |
-| IC_STOP | T3 | 68 | 5 | 0.305 | 0.521 | -0.216 | 0.756 | HUKUM YOK (<20 gun) |
-| P2_ADAY | T1 | 10 | 5 | -0.262 | -0.35 | 0.088 | 0.432 | HUKUM YOK (<20 gun) |
-| P2_ADAY | T3 | 8 | 4 | 0.167 | -0.609 | 0.776 | 0.185 | HUKUM YOK (<20 gun) |
-| P2_DIP_DONUS | T1 | 8 | 4 | -0.035 | -0.009 | -0.026 | 0.517 | HUKUM YOK (<20 gun) |
-| P2_DIP_DONUS | T3 | 6 | 3 | -1.08 | -0.502 | -0.577 | 0.709 | HUKUM YOK (<20 gun) |
-| P3_HACIM_BEKLE | T1 | 94 | 7 | -0.034 | -0.152 | 0.117 | 0.262 | HUKUM YOK (<20 gun) |
-| P3_HACIM_BEKLE | T3 | 75 | 5 | -0.211 | -0.511 | 0.301 | 0.152 | HUKUM YOK (<20 gun) |
-| P3_RADAR | T1 | 42 | 8 | 0.024 | -0.079 | 0.103 | 0.357 | HUKUM YOK (<20 gun) |
-| P3_RADAR | T3 | 38 | 6 | -0.158 | -0.415 | 0.257 | 0.296 | HUKUM YOK (<20 gun) |
-| P3_SKOR_AL | T1 | 18 | 5 | 0.047 | 0.029 | 0.019 | 0.46 | HUKUM YOK (<20 gun) |
-| P3_SKOR_AL | T3 | 18 | 5 | -0.301 | -0.377 | 0.076 | 0.432 | HUKUM YOK (<20 gun) |
-| P4_HAZIRLIK | T1 | 128 | 8 | -0.188 | -0.124 | -0.064 | 0.666 | HUKUM YOK (<20 gun) |
-| P4_HAZIRLIK | T3 | 93 | 6 | -0.378 | -0.431 | 0.054 | 0.411 | HUKUM YOK (<20 gun) |
-| POZ_AZALT | T1 | 7 | 2 | 0.701 | 0.238 | 0.464 | 0.283 | HUKUM YOK (<20 gun) |
-| POZ_AZALT | T3 | 7 | 2 | 2.236 | 0.742 | 1.494 | 0.113 | HUKUM YOK (<20 gun) |
-| SEKTOR_ROTASYONU | T1 | 114 | 7 | -0.022 | -0.081 | 0.059 | 0.33 | HUKUM YOK (<20 gun) |
-| SEKTOR_ROTASYONU | T3 | 64 | 5 | -0.613 | -0.47 | -0.143 | 0.672 | HUKUM YOK (<20 gun) |
-| TASIMA | T1 | 15 | 4 | -0.655 | -0.14 | -0.516 | 0.885 | HUKUM YOK (<20 gun) |
-| TASIMA | T3 | 15 | 4 | -0.339 | -0.376 | 0.038 | 0.478 | HUKUM YOK (<20 gun) |
+| IC_STOP | T1 | 79 | 8 | 0.116 | 0.209 | -0.093 | 0.685 | HUKUM YOK (<20 gun) |
+| IC_STOP | T3 | 73 | 6 | 0.259 | 0.482 | -0.223 | 0.78 | HUKUM YOK (<20 gun) |
+| P2_ADAY | T1 | 10 | 5 | -0.262 | -0.346 | 0.083 | 0.446 | HUKUM YOK (<20 gun) |
+| P2_ADAY | T3 | 10 | 5 | -0.117 | -0.489 | 0.372 | 0.316 | HUKUM YOK (<20 gun) |
+| P2_DIP_DONUS | T1 | 8 | 4 | -0.035 | -0.005 | -0.029 | 0.518 | HUKUM YOK (<20 gun) |
+| P2_DIP_DONUS | T3 | 6 | 3 | -1.08 | -0.484 | -0.596 | 0.715 | HUKUM YOK (<20 gun) |
+| P3_HACIM_BEKLE | T1 | 103 | 8 | -0.031 | -0.141 | 0.11 | 0.256 | HUKUM YOK (<20 gun) |
+| P3_HACIM_BEKLE | T3 | 84 | 6 | -0.216 | -0.453 | 0.237 | 0.199 | HUKUM YOK (<20 gun) |
+| P3_RADAR | T1 | 44 | 9 | 0.079 | -0.074 | 0.154 | 0.269 | HUKUM YOK (<20 gun) |
+| P3_RADAR | T3 | 40 | 7 | -0.242 | -0.388 | 0.147 | 0.37 | HUKUM YOK (<20 gun) |
+| P3_SKOR_AL | T1 | 18 | 5 | 0.047 | 0.04 | 0.008 | 0.487 | HUKUM YOK (<20 gun) |
+| P3_SKOR_AL | T3 | 18 | 5 | -0.301 | -0.381 | 0.079 | 0.452 | HUKUM YOK (<20 gun) |
+| P4_HAZIRLIK | T1 | 143 | 9 | -0.153 | -0.107 | -0.046 | 0.623 | HUKUM YOK (<20 gun) |
+| P4_HAZIRLIK | T3 | 114 | 7 | -0.275 | -0.35 | 0.075 | 0.372 | HUKUM YOK (<20 gun) |
+| POZ_AZALT | T1 | 7 | 2 | 0.701 | 0.268 | 0.433 | 0.308 | HUKUM YOK (<20 gun) |
+| POZ_AZALT | T3 | 7 | 2 | 2.236 | 0.768 | 1.468 | 0.115 | HUKUM YOK (<20 gun) |
+| SEKTOR_ROTASYONU | T1 | 133 | 8 | -0.032 | -0.059 | 0.026 | 0.433 | HUKUM YOK (<20 gun) |
+| SEKTOR_ROTASYONU | T3 | 87 | 6 | -0.415 | -0.344 | -0.071 | 0.589 | HUKUM YOK (<20 gun) |
+| TASIMA | T1 | 15 | 4 | -0.655 | -0.143 | -0.513 | 0.883 | HUKUM YOK (<20 gun) |
+| TASIMA | T3 | 15 | 4 | -0.339 | -0.418 | 0.08 | 0.447 | HUKUM YOK (<20 gun) |
 
 ## Tam gunler duyarliligi (net T+3)
 
@@ -116,15 +116,15 @@ Supheli eksik gunlerde taban alan olaylar cikarilinca sonuc degisiyor mu? Betiml
 |---|---|---|---|---|---|
 | ACIL_CIK | 29 / 24 | -1.93 (-1.31) | -0.823 (-0.89) | -0.823 (-0.89) | AYNI |
 | EKLEME_ADAYI | 3 / 2 | 1.801 (1.47) | 2.061 (1.0) | 2.311 (1.12) | AYNI |
-| IC_STOP | 79 / 79 | 0.305 (0.79) | 0.305 (0.79) | 0.305 (0.79) | AYNI |
-| P2_ADAY | 74 / 65 | -0.074 (-0.11) | -0.194 (-0.26) | 0.056 (0.07) | AYNI |
+| IC_STOP | 81 / 81 | 0.259 (0.73) | 0.259 (0.73) | 0.259 (0.73) | AYNI |
+| P2_ADAY | 75 / 66 | -0.113 (-0.17) | -0.235 (-0.32) | 0.015 (0.02) | AYNI |
 | P2_DIP_DONUS | 23 / 22 | 1.852 (1.09) | 2.285 (1.34) | 2.535 (1.48) | AYNI |
-| P3_HACIM_BEKLE | 103 / 103 | -0.461 (-1.81) | -0.461 (-1.81) | -0.211 (-0.83) | AYNI |
-| P3_RADAR | 148 / 138 | -0.343 (-1.01) | -0.328 (-0.91) | -0.078 (-0.22) | AYNI |
+| P3_HACIM_BEKLE | 110 / 110 | -0.466 (-2.1) | -0.466 (-2.1) | -0.216 (-0.97) | AYNI |
+| P3_RADAR | 149 / 139 | -0.367 (-1.09) | -0.354 (-1.0) | -0.104 (-0.29) | AYNI |
 | P3_SKOR_AL | 289 / 283 | -0.51 (-1.47) | -0.532 (-1.51) | -0.282 (-0.8) | AYNI |
-| P4_HAZIRLIK | 275 / 264 | -0.045 (-0.18) | -0.021 (-0.08) | 0.229 (0.87) | AYNI |
+| P4_HAZIRLIK | 288 / 277 | -0.047 (-0.21) | -0.025 (-0.11) | 0.225 (0.93) | AYNI |
 | POZ_AZALT | 39 / 22 | -1.931 (-1.95) | -0.663 (-0.62) | -0.663 (-0.62) | AYNI |
-| SEKTOR_ROTASYONU | 236 / 225 | 0.043 (0.12) | 0.136 (0.35) | 0.386 (1.0) | AYNI |
+| SEKTOR_ROTASYONU | 253 / 242 | 0.024 (0.08) | 0.103 (0.31) | 0.353 (1.05) | AYNI |
 | STOP_KIRILDI | 3 / 3 | -2.307 (-0.95) | -2.307 (-0.95) | -2.307 (-0.95) | AYNI |
 | TASIMA | 15 / 15 | -0.589 (-0.7) | -0.589 (-0.7) | -0.339 (-0.41) | AYNI |
 
@@ -134,10 +134,10 @@ Alarm alis saatine gore; tum gecmis alarmlar. Betimleyicidir, hukum vermez.
 
 | Dilim | Olay | Sembol | Net T+3 ort (t_kume) | Isabet T+3 | Net T+5 ort (t_kume) |
 |---|---|---|---|---|---|
-| ACILIS (<10:15) | 57 | 21 | -0.923 (-1.54) | 43.4 | 0.141 (0.14) |
-| ANA (10:15-12:30) | 340 | 32 | -0.641 (-2.36) | 43.6 | -0.413 (-1.42) |
-| KAPANIS (>=15:45) | 220 | 31 | -0.195 (-0.58) | 47.6 | -0.248 (-0.55) |
-| OGLE (12:30-15:45) | 295 | 32 | 0.256 (0.65) | 48.5 | 0.211 (0.37) |
+| ACILIS (<10:15) | 59 | 21 | -0.965 (-1.66) | 41.8 | 0.141 (0.14) |
+| ANA (10:15-12:30) | 343 | 32 | -0.598 (-2.32) | 43.3 | -0.37 (-1.39) |
+| KAPANIS (>=15:45) | 229 | 32 | -0.228 (-0.69) | 47.2 | -0.31 (-0.68) |
+| OGLE (12:30-15:45) | 303 | 32 | 0.235 (0.62) | 47.9 | 0.287 (0.57) |
 
 ## Faktor kirilimi (giris adayi turleri havuzlu, net T+3 / T+5)
 
@@ -145,11 +145,11 @@ Sinyal barinda baskin skor bileseni; yalniz V163.1 (10.11.2026+) alarmlari tasir
 
 | Dilim | Olay | Sembol | Net T+3 ort (t_kume) | Isabet T+3 | Net T+5 ort (t_kume) |
 |---|---|---|---|---|---|
-| FLOW | 94 | 31 | -0.756 (-1.71) | 29.3 | -1.888 (None) |
-| OBV | 38 | 18 | -0.647 (-1.32) | 43.3 | -0.008 (None) |
-| RS | 2 | 2 | None (None) | None | None (None) |
-| SECTOR | 9 | 9 | -1.433 (-4.04) | 33.3 | -2.305 (None) |
-| TREND | 160 | 26 | -0.392 (-1.52) | 43.5 | -0.496 (None) |
+| FLOW | 110 | 31 | -0.676 (-2.29) | 31.1 | -1.305 (None) |
+| OBV | 39 | 19 | -0.796 (-1.75) | 39.4 | -0.33 (None) |
+| RS | 4 | 4 | None (None) | None | None (None) |
+| SECTOR | 9 | 9 | -1.433 (-4.04) | 33.3 | -2.38 (None) |
+| TREND | 163 | 26 | -0.349 (-1.44) | 42.6 | -0.18 (None) |
 
 ## Veri butunlugu
 
