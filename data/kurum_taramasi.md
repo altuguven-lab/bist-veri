@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-21 16:43
+# Kurum taramasi - 2026-11-21 20:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -81,6 +81,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izleme listesi eslesmeleri
 
+- 21.11.2026 16:45:27 ÖZATA DENİZCİLİK SANAYİ VE TİCARET  - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700899) eslesen: OZATD
 - 20.11.2026 19:43:05 DESTEK FİNANS FAKTORİNG A.Ş. - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700877) eslesen: DSTKF
 - 20.11.2026 19:38:05 DESTEK FİNANS FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700873) eslesen: kayyım, DSTKF
 - 20.11.2026 19:18:24 PEKER GAYRİMENKUL YATIRIM ORTAKLIĞI - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700864) eslesen: PEKGY
@@ -100,7 +101,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 18.11.2026 18:10:30 VİŞNE MADENCİLİK ÜRETİM SANAYİ VE T - [Sermaye Artırımından Elde Edilecek - Edilen Fonun Kullanımına İlişkin Rapor](https://www.kap.org.tr/tr/Bildirim/1699968) eslesen: VSNMD
 - 17.11.2026 18:44:12 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699259) eslesen: PEKGY
 - 17.11.2026 18:26:57 TUKAŞ GIDA SANAYİ VE TİCARET A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1699239) eslesen: TUKAS
-- 17.11.2026 17:02:00 VİŞNE MADENCİLİK ÜRETİM SANAYİ VE T - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1699111) eslesen: VSNMD
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
