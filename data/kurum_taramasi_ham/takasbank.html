@@ -6,133 +6,97 @@
 <head>
     <meta charset="utf-8">
     <!-- SEO için Title ve description yer değiştirildi -->
-    <meta name="title" content="Mevzuat Ücret Tarifesi" />
-    <meta name="description" content="
-	Altın Transfer Sistemi Ücret Tarifesi
-	Bankalararası Kart Merkezi (BKM) Teminat Saklama Ücret Tarifesi
-	BİGA Transfer Altyapısı Ücret Tarifesi
-	Bireysel Emeklilik Fon Alım Satım Platformu (BEFAS) Ücret Tarifesi
-	Bireysel Emeklilik Sistemi İşlemleri Ücret Tarifesi
-	Borçlanma Araçları Piyasası Ücret Tarifesi
-	Borsa Yatırım Fonu İşlemleri Ücret Tarifesi
-	Çek Takas İşlemleri Ücret Tarifesi
-	Diğer Ücret ve Komisyon Tarifeleri
-	ELÜS Ücret Tarifesi
-	EPİAŞ Doğal Gaz Piyasası Ücret Tarifesi
-	EPİAŞ Elektrik Piyasası Ücret Tarifesi
-	EPİAŞ Vadeli Elektrik Piyasası Ücret Tarifesi
-	EPİAŞ Yenilenebilir Enerji Kaynak Garanti Piyasası Ücret Tarifesi
-	Fon/Ortaklık Hizmet Bedeli
-	Hesap İşlemleri Ücret Tarifesi
-	Kaldıraçlı Alım Satım İşlemleri (KASİ) Ücret Tarifesi
-	Kıymetli Madenler Piyasası (KMP) Ücret Tarifesi
-	Kıymetli Madenler Ödünç Piyasası Ücret Tarifesi
-	Kitle Fonlama Emanet Yetkilisi Ücret Tarifesi
-	Ödünç Pay Piyasası (ÖPP) Ücret Tarifesi
-	Pay İşlemleri Ücret Tarifesi
-	Pay Piyasası Ücret Tarifesi
-	Swap Piyasası Ücret Tarifesi
-	Takasbank Elektronik Referans Mektubu Yönetim Hizmeti Ücreti Tarifesi
-	Takasbank Kamu Teminat Yönetimi Hizmeti Ücret Tarifesi
-	Takasbank Para Piyasası (TPP) Ücret Tarifesi
-	Takasbank TaşıtTakas Sistemi Ücret Tarifesi
-	TapuTakas Ücret Tarifesi
-	Tezgah Üstü Türev Araçlar (OTC) Ücret Tarifesi
-	Türkiye Elektronik Fon Alım Satım Platformu (TEFAS) Ücret Tarifesi
-	Vadeli Doğal Gaz Piyasası Ücret Tarifesi
-	Vadeli İşlem ve Opsiyon Piyasası (VİOP) Ücret Tarifesi
-	Takasbank Bakanlıklar Teminat Yönetim Sistemi Ücret Tarifesi
-	
+    <meta name="title" content="BISTECH Risk Parametreleri" />
+    <meta name="description" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-	 
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
+
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
+
+ 
+
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
+
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
+
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
+
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
+
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
+
+ 
+
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+
+
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
 
 " />
     <meta name="image" content="https://www.takasbank.com.tr" />
 
-    <meta property="og:description" content="Mevzuat Ücret Tarifesi" />
-    <meta property="og:title" content="
-	Altın Transfer Sistemi Ücret Tarifesi
-	Bankalararası Kart Merkezi (BKM) Teminat Saklama Ücret Tarifesi
-	BİGA Transfer Altyapısı Ücret Tarifesi
-	Bireysel Emeklilik Fon Alım Satım Platformu (BEFAS) Ücret Tarifesi
-	Bireysel Emeklilik Sistemi İşlemleri Ücret Tarifesi
-	Borçlanma Araçları Piyasası Ücret Tarifesi
-	Borsa Yatırım Fonu İşlemleri Ücret Tarifesi
-	Çek Takas İşlemleri Ücret Tarifesi
-	Diğer Ücret ve Komisyon Tarifeleri
-	ELÜS Ücret Tarifesi
-	EPİAŞ Doğal Gaz Piyasası Ücret Tarifesi
-	EPİAŞ Elektrik Piyasası Ücret Tarifesi
-	EPİAŞ Vadeli Elektrik Piyasası Ücret Tarifesi
-	EPİAŞ Yenilenebilir Enerji Kaynak Garanti Piyasası Ücret Tarifesi
-	Fon/Ortaklık Hizmet Bedeli
-	Hesap İşlemleri Ücret Tarifesi
-	Kaldıraçlı Alım Satım İşlemleri (KASİ) Ücret Tarifesi
-	Kıymetli Madenler Piyasası (KMP) Ücret Tarifesi
-	Kıymetli Madenler Ödünç Piyasası Ücret Tarifesi
-	Kitle Fonlama Emanet Yetkilisi Ücret Tarifesi
-	Ödünç Pay Piyasası (ÖPP) Ücret Tarifesi
-	Pay İşlemleri Ücret Tarifesi
-	Pay Piyasası Ücret Tarifesi
-	Swap Piyasası Ücret Tarifesi
-	Takasbank Elektronik Referans Mektubu Yönetim Hizmeti Ücreti Tarifesi
-	Takasbank Kamu Teminat Yönetimi Hizmeti Ücret Tarifesi
-	Takasbank Para Piyasası (TPP) Ücret Tarifesi
-	Takasbank TaşıtTakas Sistemi Ücret Tarifesi
-	TapuTakas Ücret Tarifesi
-	Tezgah Üstü Türev Araçlar (OTC) Ücret Tarifesi
-	Türkiye Elektronik Fon Alım Satım Platformu (TEFAS) Ücret Tarifesi
-	Vadeli Doğal Gaz Piyasası Ücret Tarifesi
-	Vadeli İşlem ve Opsiyon Piyasası (VİOP) Ücret Tarifesi
-	Takasbank Bakanlıklar Teminat Yönetim Sistemi Ücret Tarifesi
-	
+    <meta property="og:description" content="BISTECH Risk Parametreleri" />
+    <meta property="og:title" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-	 
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
+
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
+
+ 
+
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
+
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
+
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
+
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
+
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
+
+ 
+
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+
+
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
 
 " />
     <meta property="og:image" content="https://www.takasbank.com.tr" />
 
-    <meta property="twitter:title" content="
-	Altın Transfer Sistemi Ücret Tarifesi
-	Bankalararası Kart Merkezi (BKM) Teminat Saklama Ücret Tarifesi
-	BİGA Transfer Altyapısı Ücret Tarifesi
-	Bireysel Emeklilik Fon Alım Satım Platformu (BEFAS) Ücret Tarifesi
-	Bireysel Emeklilik Sistemi İşlemleri Ücret Tarifesi
-	Borçlanma Araçları Piyasası Ücret Tarifesi
-	Borsa Yatırım Fonu İşlemleri Ücret Tarifesi
-	Çek Takas İşlemleri Ücret Tarifesi
-	Diğer Ücret ve Komisyon Tarifeleri
-	ELÜS Ücret Tarifesi
-	EPİAŞ Doğal Gaz Piyasası Ücret Tarifesi
-	EPİAŞ Elektrik Piyasası Ücret Tarifesi
-	EPİAŞ Vadeli Elektrik Piyasası Ücret Tarifesi
-	EPİAŞ Yenilenebilir Enerji Kaynak Garanti Piyasası Ücret Tarifesi
-	Fon/Ortaklık Hizmet Bedeli
-	Hesap İşlemleri Ücret Tarifesi
-	Kaldıraçlı Alım Satım İşlemleri (KASİ) Ücret Tarifesi
-	Kıymetli Madenler Piyasası (KMP) Ücret Tarifesi
-	Kıymetli Madenler Ödünç Piyasası Ücret Tarifesi
-	Kitle Fonlama Emanet Yetkilisi Ücret Tarifesi
-	Ödünç Pay Piyasası (ÖPP) Ücret Tarifesi
-	Pay İşlemleri Ücret Tarifesi
-	Pay Piyasası Ücret Tarifesi
-	Swap Piyasası Ücret Tarifesi
-	Takasbank Elektronik Referans Mektubu Yönetim Hizmeti Ücreti Tarifesi
-	Takasbank Kamu Teminat Yönetimi Hizmeti Ücret Tarifesi
-	Takasbank Para Piyasası (TPP) Ücret Tarifesi
-	Takasbank TaşıtTakas Sistemi Ücret Tarifesi
-	TapuTakas Ücret Tarifesi
-	Tezgah Üstü Türev Araçlar (OTC) Ücret Tarifesi
-	Türkiye Elektronik Fon Alım Satım Platformu (TEFAS) Ücret Tarifesi
-	Vadeli Doğal Gaz Piyasası Ücret Tarifesi
-	Vadeli İşlem ve Opsiyon Piyasası (VİOP) Ücret Tarifesi
-	Takasbank Bakanlıklar Teminat Yönetim Sistemi Ücret Tarifesi
-	
+    <meta property="twitter:title" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
 
-	 
+Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
+
+VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
+
+ 
+
+1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
+
+2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
+
+3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
+
+4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
+
+5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
+
+ 
+
+Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+
+
+	SPAN Parametre Dosyaları
+	BISTECH Risk Parametre Dosyaları
+	BISTECH Risk Parametre Tablosu 
 
 " />
-    <meta property="twitter:description" content="Mevzuat Ücret Tarifesi" />
+    <meta property="twitter:description" content="BISTECH Risk Parametreleri" />
     <meta property="twitter:image" content="https://www.takasbank.com.tr" />
 
     <title>Takas İstanbul | Duyurular</title>
@@ -1587,7 +1551,7 @@
     </div>
         <form class="form-sm lm-md-b4 lm-xs-b5" role="form" data-toggle="validator" method="POST" data-focus="false">
             <input id="posturl" name="posturl" type="hidden" value="Takasbank_Plugins_Announcement.UI.FilterAnnouncements.Announcements_446" />
-            <input name="__RequestVerificationToken" type="hidden" value="irDYh_HpT6pUcFTbuDOSv-5u9VLmN_RT3QtomESp2B5gcqd20MuGkKnrtGhV3EK8ISTzyGO7DPQ4xCllaIe-qC38hNe6Y2JtbxQlPWQ3sVY1" />
+            <input name="__RequestVerificationToken" type="hidden" value="J8b8kaM5fzJ2NR3DA5iiK1LBXIvhuB_Ki1ly8sc7WA0URskKR9ebYJ-DgZ3jDRZlGvHJQnA_BKIKhO2NzX1pTC8YZ37sLrxpFoWFnE_ZQ6Y1" />
 
             <div class="row">
                     <div class="col-md-5">
@@ -2319,25 +2283,28 @@
 
 <script type="text/javascript">
 (function(){
-window.zIxV=!!window.zIxV;try{(function(){(function(){var l={decrypt:function(l){try{return JSON.parse(function(l){l=l.split("l");var O="";for(var Z=0;Z<l.length;++Z)O+=String.fromCharCode(l[Z]);return O}(l))}catch(Z){}}};return l={configuration:l.decrypt("123l34l97l99l116l105l118l101l34l58l34l110l111l34l44l34l100l101l98l117l103l103l105l110l103l34l58l34l110l111l34l44l34l109l111l100l117l108l101l49l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l50l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l51l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l52l34l58l34l101l110l97l98l108l101l100l34l125")}})();
-var ol=34;try{var Ol,sl,_l=L(74)?1:0;for(var Il=(L(577),0);Il<sl;++Il)_l+=(L(858),3);Ol=_l;window.Oo===Ol&&(window.Oo=++Ol)}catch(LL){window.Oo=Ol}var OL=!0;function z(l){var O=arguments.length,Z=[],_=1;while(_<O)Z[_-1]=arguments[_++]-l;return String.fromCharCode.apply(String,Z)}
-function zL(l){var O=80;!l||document[z(O,198,185,195,185,178,185,188,185,196,201,163,196,177,196,181)]&&document[s(O,198,185,195,185,178,185,188,185,196,201,163,196,177,196,181)]!==s(O,198,185,195,185,178,188,181)||(OL=!1);return OL}function s(l){var O=arguments.length,Z=[];for(var _=1;_<O;++_)Z.push(arguments[_]-l);return String.fromCharCode.apply(String,Z)}function S(l,O){l+=O;return l.toString(36)}function iL(){}zL(window[iL[S(1086820,ol)]]===iL);zL(typeof ie9rgb4!==S(1242178186165,ol));
-zL(RegExp("\x3c")[s(ol,150,135,149,150)](function(){return"\x3c"})&!RegExp(S(42855,ol))[S(1372171,ol)](function(){return"'x3'+'d';"}));
-var jL=window[s(ol,131,150,150,131,133,138,103,152,135,144,150)]||RegExp(s(ol,143,145,132,139,158,131,144,134,148,145,139,134),S(-16,ol))[S(1372171,ol)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),JL=+new Date+(L(721)?868463:6E5),Lo,oo,Zo,So=window[z(ol,149,135,150,118,139,143,135,145,151,150)],_o=jL?L(18)?3E4:24333:L(506)?6E3:5581;
-document[z(ol,131,134,134,103,152,135,144,150,110,139,149,150,135,144,135,148)]&&document[z(ol,131,134,134,103,152,135,144,150,110,139,149,150,135,144,135,148)](z(ol,152,139,149,139,132,139,142,139,150,155,133,138,131,144,137,135),function(l){var O=66;document[s(O,184,171,181,171,164,171,174,171,182,187,149,182,163,182,167)]&&(document[s(O,184,171,181,171,164,171,174,171,182,187,149,182,163,182,167)]===s(O,170,171,166,166,167,176)&&l[s(O,171,181,150,180,183,181,182,167,166)]?Zo=!0:document[s(O,184,
-171,181,171,164,171,174,171,182,187,149,182,163,182,167)]===S(68616527600,O)&&(Lo=+new Date,Zo=!1,jo()))});function jo(){if(!document[z(24,137,141,125,138,145,107,125,132,125,123,140,135,138)])return!0;var l=+new Date;if(l>JL&&(L(871)?749548:6E5)>l-Lo)return zL(!1);var O=zL(oo&&!Zo&&Lo+_o<l);Lo=l;oo||(oo=!0,So(function(){oo=!1},L(302)?1:0));return O}jo();var Jo=[L(566)?17795081:22625417,L(392)?27611931586:2147483647,L(297)?1558153217:2147483647];
-function LO(l){var O=70;l=typeof l===S(1743045606,O)?l:l[s(O,186,181,153,186,184,175,180,173)](L(333)?36:45);var Z=window[l];if(!Z||!Z[s(O,186,181,153,186,184,175,180,173)])return;var _=""+Z;window[l]=function(l,O){oo=!1;return Z(l,O)};window[l][z(O,186,181,153,186,184,175,180,173)]=function(){return _}}for(var zO=(L(799),0);zO<Jo[S(1294399171,ol)];++zO)LO(Jo[zO]);zL(!1!==window[s(ol,156,107,154,120)]);window.sL=window.sL||{};window.sL.JS="08c0a2150b19400027042711046498e23528d5aa7f6326eeb24e077123b6e3f737c3902a3f6b8cf9ee1d6d436bb7552c7403aa778842a729e0cae1e965b1fffbc5a35e53cb32c33b";
-function ZO(l){var O=+new Date,Z;!document[z(89,202,206,190,203,210,172,190,197,190,188,205,200,203,154,197,197)]||O>JL&&(L(880)?776544:6E5)>O-Lo?Z=zL(!1):(Z=zL(oo&&!Zo&&Lo+_o<O),Lo=O,oo||(oo=!0,So(function(){oo=!1},L(378)?1:0)));return!(arguments[l]^Z)}function L(l){return 569>l}(function sO(O){O&&"number"!==typeof O||("number"!==typeof O&&(O=1E3),O=Math.max(O,1),setInterval(function(){sO(O-10)},O))})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
+window.zkft=!!window.zkft;try{(function(){(function(){var J=-1,J={__:++J,lZ:"false"[J],_:++J,ZJ:"false"[J],Z_:++J,lJ_:"[object Object]"[J],LL:(J[J]+"")[J],SJ:++J,lL:"true"[J],J_:++J,_i:++J,LZ:"[object Object]"[J],O:++J,Li:++J,zji:++J,Oji:++J};try{J.zJ=(J.zJ=J+"")[J._i]+(J.Zj=J.zJ[J._])+(J.JZ=(J.zj+"")[J._])+(!J+"")[J.SJ]+(J.sj=J.zJ[J.O])+(J.zj="true"[J._])+(J.OL="true"[J.Z_])+J.zJ[J._i]+J.sj+J.Zj+J.zj,J.JZ=J.zj+"true"[J.SJ]+J.sj+J.OL+J.zj+J.JZ,J.zj=J.__[J.zJ][J.zJ],J.zj(J.zj(J.JZ+'"\\'+J._+J._i+J._+J.lZ+"\\"+J.J_+J.__+"("+J.sj+"\\"+J._+J.Li+
+J._+"\\"+J._+J.O+J.__+J.lL+J.Zj+J.lZ+"\\"+J.J_+J.__+"\\"+J._+J.O+J.Li+"\\"+J._+J._i+J._+"\\"+J._+J._i+J.O+J.LL+J.Zj+"\\"+J._+J.O+J.Li+"['\\"+J._+J.O+J.__+J.ZJ+"\\"+J._+J.Li+J._+"false"[J.Z_]+J.Zj+J.ZJ+J.LL+"']\\"+J.J_+J.__+"===\\"+J.J_+J.__+"'\\"+J._+J.O+J.SJ+J.sj+"\\"+J._+J.O+J.Z_+"\\"+J._+J._i+J._+"\\"+J._+J._i+J.O+"\\"+J._+J.J_+J.Li+"')\\"+J.J_+J.__+"{\\"+J._+J.Z_+"\\"+J._+J._+"\\"+J._+J.O+J.O+J.ZJ+"\\"+J._+J.O+J.Z_+"\\"+J.J_+J.__+J.lL+J.LL+"\\"+J._+J.O+J.O+J.LZ+"\\"+J._+J.Li+J._+J.OL+"\\"+J._+
+J._i+J.Z_+"\\"+J._+J._i+J.SJ+"\\"+J._+J.O+J.__+"\\"+J.J_+J.__+"=\\"+J.J_+J.__+"\\"+J._+J.O+J.Li+"\\"+J._+J._i+J._+"\\"+J._+J._i+J.O+J.LL+J.Zj+"\\"+J._+J.O+J.Li+"['\\"+J._+J.O+J.__+J.ZJ+"\\"+J._+J.Li+J._+"false"[J.Z_]+J.Zj+J.ZJ+J.LL+"'].\\"+J._+J.O+J.Z_+J.lL+"\\"+J._+J.O+J.__+"false"[J.Z_]+J.ZJ+J.LZ+J.lL+"(/.{"+J._+","+J.J_+"}/\\"+J._+J.J_+J.Li+",\\"+J.J_+J.__+J.lZ+J.OL+"\\"+J._+J._i+J.O+J.LZ+J.sj+"\\"+J._+J._i+J._+J.Zj+"\\"+J._+J._i+J.O+"\\"+J.J_+J.__+"(\\"+J._+J.Li+J.__+")\\"+J.J_+J.__+"{\\"+J._+
+J.Z_+"\\"+J._+J._+"\\"+J._+J._+"\\"+J._+J._+"\\"+J._+J.O+J.Z_+J.lL+J.sj+J.OL+"\\"+J._+J.O+J.Z_+"\\"+J._+J._i+J.O+"\\"+J.J_+J.__+"(\\"+J._+J.Li+J.__+"\\"+J.J_+J.__+"+\\"+J.J_+J.__+"\\"+J._+J.Li+J.__+").\\"+J._+J.O+J.SJ+J.OL+J.lJ_+"\\"+J._+J.O+J.SJ+J.sj+"\\"+J._+J.O+J.Z_+"("+J.Z_+",\\"+J.J_+J.__+J.J_+")\\"+J._+J.Z_+"\\"+J._+J._+"\\"+J._+J._+"});\\"+J._+J.Z_+"}\\"+J._+J.Z_+'"')())()}catch(L){J%=5}})();var lj=14;
+try{var Lj,Zj,sj=l(722)?0:1,ij=l(648)?0:1,JJ=l(255)?1:0,LJ=l(108)?1:0;for(var oJ=(l(764),0);oJ<Zj;++oJ)sj+=(l(256),2),ij+=(l(687),2),JJ+=l(455)?1:2,LJ+=l(240)?3:2;Lj=sj+ij+JJ+LJ;window.oL===Lj&&(window.oL=++Lj)}catch(sJ){window.oL=Lj}var _J=!0;function O(J,L){J+=L;return J.toString(36)}
+function iJ(J){var L=90;!J||document[Z(L,208,195,205,195,188,195,198,195,206,211,173,206,187,206,191)]&&document[s(L,208,195,205,195,188,195,198,195,206,211,173,206,187,206,191)]!==O(68616527576,L)||(_J=!1);return _J}function jl(){}iJ(window[jl[Z(lj,124,111,123,115)]]===jl);iJ(typeof ie9rgb4!==O(1242178186185,lj));iJ(RegExp("\x3c")[O(1372191,lj)](function(){return"\x3c"})&!RegExp(O(42875,lj))[O(1372191,lj)](function(){return"'x3'+'d';"}));
+var Jl=window[Z(lj,111,130,130,111,113,118,83,132,115,124,130)]||RegExp(s(lj,123,125,112,119,138,111,124,114,128,125,119,114),O(4,lj))[O(1372191,lj)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),Ll=+new Date+(l(657)?699016:6E5),Ol,Zl,_l,il=window[s(lj,129,115,130,98,119,123,115,125,131,130)],jL=Jl?l(684)?38441:3E4:l(109)?6E3:7493;
+document[Z(lj,111,114,114,83,132,115,124,130,90,119,129,130,115,124,115,128)]&&document[s(lj,111,114,114,83,132,115,124,130,90,119,129,130,115,124,115,128)](s(lj,132,119,129,119,112,119,122,119,130,135,113,118,111,124,117,115),function(J){var L=20;document[Z(L,138,125,135,125,118,125,128,125,136,141,103,136,117,136,121)]&&(document[s(L,138,125,135,125,118,125,128,125,136,141,103,136,117,136,121)]===O(1058781963,L)&&J[Z(L,125,135,104,134,137,135,136,121,120)]?_l=!0:document[Z(L,138,125,135,125,118,
+125,128,125,136,141,103,136,117,136,121)]===O(68616527646,L)&&(Ol=+new Date,_l=!1,lL()))});function Z(J){var L=arguments.length,z=[],S=1;while(S<L)z[S-1]=arguments[S++]-J;return String.fromCharCode.apply(String,z)}function lL(){if(!document[Z(12,125,129,113,126,133,95,113,120,113,111,128,123,126)])return!0;var J=+new Date;if(J>Ll&&(l(279)?6E5:662583)>J-Ol)return iJ(!1);var L=iJ(Zl&&!_l&&Ol+jL<J);Ol=J;Zl||(Zl=!0,il(function(){Zl=!1},l(800)?0:1));return L}lL();
+var LL=[l(827)?9503259:17795081,l(239)?27611931586:2147483647,l(291)?1558153217:1376793368];function s(J){var L=arguments.length,z=[];for(var S=1;S<L;++S)z.push(arguments[S]-J);return String.fromCharCode.apply(String,z)}
+function zL(J){var L=62;J=typeof J===O(1743045614,L)?J:J[Z(L,178,173,145,178,176,167,172,165)](l(200)?36:45);var z=window[J];if(!z||!z[Z(L,178,173,145,178,176,167,172,165)])return;var S=""+z;window[J]=function(J,L){Zl=!1;return z(J,L)};window[J][Z(L,178,173,145,178,176,167,172,165)]=function(){return S}}for(var ZL=(l(602),0);ZL<LL[O(1294399191,lj)];++ZL)zL(LL[ZL]);iJ(!1!==window[O(1659435,lj)]);window.ol=window.ol||{};window.ol.js="083c8c4ae8194000f52d6c60075d0f653d60f47d171bfef4ff292c185346cdb2f7253cc480968877cab92b5ee08ddedec92acf6edbb69d3edbc4bef04c42597e9c7d294368f5d1e9";
+function sL(J){var L=+new Date,z;!document[s(96,209,213,197,210,217,179,197,204,197,195,212,207,210,161,204,204)]||L>Ll&&(l(941)?644511:6E5)>L-Ol?z=iJ(!1):(z=iJ(Zl&&!_l&&Ol+jL<L),Ol=L,Zl||(Zl=!0,il(function(){Zl=!1},l(786)?0:1)));return!(arguments[J]^z)}function l(J){return 333>J}(function(J){J||setTimeout(function(){var J=setTimeout(function(){},250);for(var z=0;z<=J;++z)clearTimeout(z)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
 
 })();
 
 </script>
 </APM_DO_NOT_TOUCH>
 
-<script type="text/javascript" src="/TSPD/08ce165641ab200039f73d1422698dbd5deeda3ece81d56f94853eb4b8b1b6b904ae10526caa67cd?type=9"></script>
+<script type="text/javascript" src="/TSPD/08ce165641ab2000a130224285d16b1bcfdcc709c9dd2f0cd0283d77c34ed82a87582f7607a480df?type=9"></script>
 
 </html>
-<script id="f5_cspm">(function(){var f5_cspm={f5_p:'PLJBOKIPCIBFKPNCEPMIEDECHGNLDGNCOIDIJKFMMIJDGBKHMCBFDODHOKFGPLPDJCGBOKIBAANHOMAPLPLAICJBAAHDIHOCCFAGCGOLEGFDPFKCJAPIGPFMMDPKMLEK',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='xid0149471280aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'NBGOGAOFEKJGBAHCJHHCCBMJIOPLAICPGAJFLJHCBAMCBHCJPILBKCKCDCLDOLPFHIMBBPOMAAIKGNPBCNCANDGDAAHHPBABBIGEDCFKBOMDODGJNGFPDFFELKBHCFCH',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='xid0149471280aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
 return;}}
 catch(err){return;}
 setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='yid'&&pair[1]=='1234')

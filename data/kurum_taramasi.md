@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-21 20:43
+# Kurum taramasi - 2026-11-22 00:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -7,10 +7,10 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-20 | 3 |
-| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 3 |
+| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 2 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-21 | 49 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-21 | 48 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -28,7 +28,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-17 [2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2179-4460ca18-9780-4a09-9576-a86b53b771fc.pdf)
   - PDF konu: 2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında İlgili :
   - PDF yururluk: (yazmiyor)
-- 2026-11-14 [Taşıt Takas Mobil Uygulaması Yenilendi](https://www.takasbank.com.tr/tr/duyurular/duyuru-detay/tasit-takas-mobil-uygulamasi-yenilendi)
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
@@ -118,8 +117,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Takvim (bugun-1 .. +14 gun)
 
-- 2026-11-20 saat ? SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti) (TEYITSIZ)
-- 2026-11-20 saat ? Guven endeksleri ve KKO (TEYITSIZ)
 - 2026-11-26 16:30 ABD haftalik issizlik basvurulari (kurala gore)
 - 2026-11-27 saat ? H14 ilk resmi karar mumkun haftasi (ic takvim) (teyitli)
 - 2026-11-27 saat ? TCMB Finansal Istikrar Raporu (teyitli)
@@ -129,8 +126,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Kontrol edilemeyenler
 
-- takvim: 2026-11-20 SPK bulteni (son haftalarda Cuma yayimlandi; 2026/81 Pazartesi cikti) - birincil kaynakla teyit edilmedi
-- takvim: 2026-11-20 Guven endeksleri ve KKO - birincil kaynakla teyit edilmedi
 - takvim: 2026-11-30 MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) - birincil kaynakla teyit edilmedi
 - takvim: 2026-12-03 TUIK TUFE (tahmini tarih) - birincil kaynakla teyit edilmedi
 
