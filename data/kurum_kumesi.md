@@ -1,6 +1,6 @@
 # Kurum kumesi dedektoru
 
-Uretim 2026-11-21T17:43 UTC, son 14 gun. Salt isaretleme; tavsiye degildir.
+Uretim 2026-11-21T19:36 UTC, son 14 gun. Salt isaretleme; tavsiye degildir.
 
 | Tarih | Kurum | Konu | Hisse | BIST100 | Neden | Ornek hisseler |
 |---|---|---|---|---|---|---|
