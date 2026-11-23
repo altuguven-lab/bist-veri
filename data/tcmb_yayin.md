@@ -13,6 +13,9 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 
 ## Son 7 gün yayımlananlar
 
+- 2026-11-23 10:00 [Veriler] [Sektörel Enflasyon Beklentileri (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/sektorel+enflasyon+beklentileri)
+- 2026-11-23 10:00 [Veriler] [Hanehalkı Beklenti Anketi (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/hanehalki+beklenti+anketi)
+- 2026-11-23 10:00 [Veriler] [Finansal Hizmetler İstatistikleri ve Finansal Hizmetler Güven Endeksi (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/finansal+hizmetler+istatistikleri+ve+finansal+hizmetler+guven+endeksi)
 - 2026-11-20 10:00 [Veriler] [İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/reel+sektor+istatistikleri/imalat+sanayi+kapasite+kullanim+orani)
 - 2026-11-20 10:00 [Veriler] [İktisadi Yönelim İstatistikleri ve Reel Kesim Güven Endeksi (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/iktisadi+yonelim+istatistikleri+ve+reel+kesim+guven+endeksi)
 - 2026-11-20 10:00 [Veriler] [Yatırım Eğilimi İstatistikleri (2026 Güz Dönemi)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/yatirim+egilimi+istatistikleri)
