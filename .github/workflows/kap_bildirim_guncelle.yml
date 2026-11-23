@@ -9,6 +9,9 @@
 name: KAP Bildirim Guncelle
 
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [kap_bildirim_tetikle]
   schedule:
     - cron: "0 5 * * 1-5"
   workflow_dispatch:
