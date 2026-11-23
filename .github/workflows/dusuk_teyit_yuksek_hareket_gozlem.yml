@@ -7,6 +7,9 @@
 name: Dusuk Teyit x Yuksek Hareket Gozlem
 
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [dusuk_teyit_tetikle]
   schedule:
     - cron: "25 15 * * 1-5"   # GUNLUK_OZET (15:11) ve inbox/arsiv (15:20) sonrasi
   workflow_dispatch: {}
