@@ -6,6 +6,9 @@
 # (Settings -> Secrets and variables -> Actions -> TCMB_EVDS_API_KEY).
 name: TCMB EVDS Veri
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [tcmb_evds_tetikle]
   schedule:
     - cron: "0 7 * * 1-5"
   workflow_dispatch: {}
