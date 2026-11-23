@@ -1,36 +1,11 @@
 {
-  "zaman_utc": "2026-11-20T14:11:37.957793+00:00",
-  "bugun": "2026-11-20",
+  "zaman_utc": "2026-11-23T16:14:47.047994+00:00",
+  "bugun": "2026-11-23",
   "bekleyen": [],
   "aciklayan": [],
   "donem_son_tarih_uyarisi": [],
   "risk_bayragi": [],
-  "tarihi_bilinmeyen": [
-    {
-      "sembol": "ASTOR",
-      "kaynak": "BILINMIYOR"
-    },
-    {
-      "sembol": "EREGL",
-      "kaynak": "BILINMIYOR"
-    },
-    {
-      "sembol": "HALKB",
-      "kaynak": "BILINMIYOR"
-    },
-    {
-      "sembol": "SISE",
-      "kaynak": "CELISKILI"
-    },
-    {
-      "sembol": "TRMET",
-      "kaynak": "CELISKILI"
-    },
-    {
-      "sembol": "VAKBN",
-      "kaynak": "BILINMIYOR"
-    }
-  ],
+  "tarihi_bilinmeyen": [],
   "celiskiler": [
     {
       "konu": "2026Q2 konsolide olmayan son tarih",
@@ -41,26 +16,365 @@
       "not": "09.08.2026 PAZAR - yasal son tarih hafta sonuna denk gelince ilk is gunune kayar. 10.08 etkin tarih olarak alindi, KAP'tan teyit edilmeli."
     },
     {
-      "konu": "SISE 2026Q2 aciklama",
+      "konu": "EKGYO 2026Q2 aciklama tarihi",
       "degerler": [
-        "2026-08-13",
-        "2026-08-14"
+        "takvim 2026-08-18",
+        "KAP 2026-08-14 (bildirim 1650701)"
       ],
-      "not": "Iki derleme farkli gun veriyor. Cozulmedi."
+      "esas": "KAP"
     },
     {
-      "konu": "TRMET 2026Q2 aciklama",
+      "konu": "ENKAI 2026Q2 aciklama tarihi",
       "degerler": [
-        "2026-08-10",
-        "2026-08-19"
+        "takvim 2026-08-17",
+        "KAP 2026-08-14 (bildirim 1650586)"
       ],
-      "not": "Dokuz gun fark. Bir derleme 10.08, digeri 19.08 diyor. Cozulmedi."
+      "esas": "KAP"
+    }
+  ],
+  "son_tarihi_gecmis_eksik": [
+    {
+      "sembol": "EKGYO",
+      "donem": "2026Q3",
+      "son_tarih": "2026-11-09",
+      "not": "KAP arsivinde bildirim yok - KAP'ta elle kontrol edilmeli"
+    }
+  ],
+  "kap_doldurulan": [
+    {
+      "sembol": "AEFES",
+      "donem": "2026Q1",
+      "tarih": "2026-05-05",
+      "onceki": null,
+      "kap_bildirim": 1601482
+    },
+    {
+      "sembol": "AKBNK",
+      "donem": "2026Q1",
+      "tarih": "2026-04-28",
+      "onceki": null,
+      "kap_bildirim": 1598259
+    },
+    {
+      "sembol": "ASELS",
+      "donem": "2026Q1",
+      "tarih": "2026-04-28",
+      "onceki": null,
+      "kap_bildirim": 1598316
+    },
+    {
+      "sembol": "ASTOR",
+      "donem": "2026Q1",
+      "tarih": "2026-05-11",
+      "onceki": null,
+      "kap_bildirim": 1605802
+    },
+    {
+      "sembol": "ASTOR",
+      "donem": "2026Q2",
+      "tarih": "2026-08-17",
+      "onceki": null,
+      "kap_bildirim": 1651644
+    },
+    {
+      "sembol": "ASTOR",
+      "donem": "2026Q3",
+      "tarih": "2026-11-09",
+      "onceki": null,
+      "kap_bildirim": 1696065
+    },
+    {
+      "sembol": "BIMAS",
+      "donem": "2026Q1",
+      "tarih": "2026-05-11",
+      "onceki": null,
+      "kap_bildirim": 1605794
+    },
+    {
+      "sembol": "EKGYO",
+      "donem": "2026Q1",
+      "tarih": "2026-05-11",
+      "onceki": null,
+      "kap_bildirim": 1605817
+    },
+    {
+      "sembol": "EKGYO",
+      "donem": "2026Q2",
+      "tarih": "2026-08-14",
+      "onceki": "2026-08-18",
+      "kap_bildirim": 1650701
+    },
+    {
+      "sembol": "ENJSA",
+      "donem": "2026Q1",
+      "tarih": "2026-05-04",
+      "onceki": null,
+      "kap_bildirim": 1600803
+    },
+    {
+      "sembol": "ENJSA",
+      "donem": "2026Q3",
+      "tarih": "2026-11-02",
+      "onceki": null,
+      "kap_bildirim": 1691179
+    },
+    {
+      "sembol": "ENKAI",
+      "donem": "2026Q1",
+      "tarih": "2026-05-08",
+      "onceki": null,
+      "kap_bildirim": 1603543
+    },
+    {
+      "sembol": "ENKAI",
+      "donem": "2026Q2",
+      "tarih": "2026-08-14",
+      "onceki": "2026-08-17",
+      "kap_bildirim": 1650586
+    },
+    {
+      "sembol": "EREGL",
+      "donem": "2026Q1",
+      "tarih": "2026-04-28",
+      "onceki": null,
+      "kap_bildirim": 1598405
+    },
+    {
+      "sembol": "EREGL",
+      "donem": "2026Q2",
+      "tarih": "2026-08-06",
+      "onceki": null,
+      "kap_bildirim": 1644583
+    },
+    {
+      "sembol": "EREGL",
+      "donem": "2026Q3",
+      "tarih": "2026-10-22",
+      "onceki": null,
+      "kap_bildirim": 1686049
+    },
+    {
+      "sembol": "FROTO",
+      "donem": "2026Q1",
+      "tarih": "2026-05-05",
+      "onceki": null,
+      "kap_bildirim": 1601422
+    },
+    {
+      "sembol": "GARAN",
+      "donem": "2026Q1",
+      "tarih": "2026-04-29",
+      "onceki": null,
+      "kap_bildirim": 1598813
+    },
+    {
+      "sembol": "HALKB",
+      "donem": "2026Q1",
+      "tarih": "2026-05-08",
+      "onceki": null,
+      "kap_bildirim": 1603577
+    },
+    {
+      "sembol": "HALKB",
+      "donem": "2026Q2",
+      "tarih": "2026-08-07",
+      "onceki": null,
+      "kap_bildirim": 1645595
+    },
+    {
+      "sembol": "HALKB",
+      "donem": "2026Q3",
+      "tarih": "2026-11-06",
+      "onceki": null,
+      "kap_bildirim": 1694184
+    },
+    {
+      "sembol": "ISCTR",
+      "donem": "2026Q1",
+      "tarih": "2026-05-05",
+      "onceki": null,
+      "kap_bildirim": 1601304
+    },
+    {
+      "sembol": "KCHOL",
+      "donem": "2026Q1",
+      "tarih": "2026-05-08",
+      "onceki": null,
+      "kap_bildirim": 1603568
+    },
+    {
+      "sembol": "MGROS",
+      "donem": "2026Q1",
+      "tarih": "2026-05-05",
+      "onceki": null,
+      "kap_bildirim": 1601478
+    },
+    {
+      "sembol": "OTKAR",
+      "donem": "2026Q1",
+      "tarih": "2026-05-05",
+      "onceki": null,
+      "kap_bildirim": 1601318
+    },
+    {
+      "sembol": "OTKAR",
+      "donem": "2026Q3",
+      "tarih": "2026-11-04",
+      "onceki": null,
+      "kap_bildirim": 1692729
+    },
+    {
+      "sembol": "PETKM",
+      "donem": "2026Q1",
+      "tarih": "2026-05-07",
+      "onceki": null,
+      "kap_bildirim": 1602152
+    },
+    {
+      "sembol": "PETKM",
+      "donem": "2026Q2",
+      "tarih": "2026-08-06",
+      "onceki": null,
+      "kap_bildirim": 1644016
+    },
+    {
+      "sembol": "PGSUS",
+      "donem": "2026Q1",
+      "tarih": "2026-05-11",
+      "onceki": null,
+      "kap_bildirim": 1605480
+    },
+    {
+      "sembol": "SAHOL",
+      "donem": "2026Q1",
+      "tarih": "2026-05-06",
+      "onceki": null,
+      "kap_bildirim": 1602061
+    },
+    {
+      "sembol": "SISE",
+      "donem": "2026Q1",
+      "tarih": "2026-05-08",
+      "onceki": null,
+      "kap_bildirim": 1603726
+    },
+    {
+      "sembol": "SISE",
+      "donem": "2026Q2",
+      "tarih": "2026-08-14",
+      "onceki": null,
+      "kap_bildirim": 1650440
+    },
+    {
+      "sembol": "SISE",
+      "donem": "2026Q3",
+      "tarih": "2026-11-05",
+      "onceki": null,
+      "kap_bildirim": 1693329
+    },
+    {
+      "sembol": "TAVHL",
+      "donem": "2026Q1",
+      "tarih": "2026-04-27",
+      "onceki": null,
+      "kap_bildirim": 1597739
+    },
+    {
+      "sembol": "THYAO",
+      "donem": "2026Q1",
+      "tarih": "2026-04-29",
+      "onceki": null,
+      "kap_bildirim": 1598897
+    },
+    {
+      "sembol": "TOASO",
+      "donem": "2026Q1",
+      "tarih": "2026-05-05",
+      "onceki": null,
+      "kap_bildirim": 1601474
+    },
+    {
+      "sembol": "TOASO",
+      "donem": "2026Q3",
+      "tarih": "2026-11-05",
+      "onceki": null,
+      "kap_bildirim": 1693478
+    },
+    {
+      "sembol": "TRMET",
+      "donem": "2026Q1",
+      "tarih": "2026-05-21",
+      "onceki": null,
+      "kap_bildirim": 1610054
+    },
+    {
+      "sembol": "TRMET",
+      "donem": "2026Q2",
+      "tarih": "2026-08-19",
+      "onceki": null,
+      "kap_bildirim": 1653076
+    },
+    {
+      "sembol": "TRMET",
+      "donem": "2026Q3",
+      "tarih": "2026-11-09",
+      "onceki": null,
+      "kap_bildirim": 1695974
+    },
+    {
+      "sembol": "TTKOM",
+      "donem": "2026Q1",
+      "tarih": "2026-05-06",
+      "onceki": null,
+      "kap_bildirim": 1602031
+    },
+    {
+      "sembol": "TUPRS",
+      "donem": "2026Q1",
+      "tarih": "2026-05-06",
+      "onceki": null,
+      "kap_bildirim": 1602029
+    },
+    {
+      "sembol": "ULKER",
+      "donem": "2026Q1",
+      "tarih": "2026-05-11",
+      "onceki": null,
+      "kap_bildirim": 1605190
+    },
+    {
+      "sembol": "VAKBN",
+      "donem": "2026Q1",
+      "tarih": "2026-05-06",
+      "onceki": null,
+      "kap_bildirim": 1602065
+    },
+    {
+      "sembol": "VAKBN",
+      "donem": "2026Q2",
+      "tarih": "2026-08-07",
+      "onceki": null,
+      "kap_bildirim": 1645580
+    },
+    {
+      "sembol": "VAKBN",
+      "donem": "2026Q3",
+      "tarih": "2026-11-05",
+      "onceki": null,
+      "kap_bildirim": 1693410
+    },
+    {
+      "sembol": "YKBNK",
+      "donem": "2026Q1",
+      "tarih": "2026-04-29",
+      "onceki": null,
+      "kap_bildirim": 1598444
     }
   ],
   "kapsama": {
     "toplam_sembol": 30,
-    "tarihi_olan": 24,
-    "kapsama_pct": 80.0,
-    "celiskili": 2
+    "tarihi_olan": 30,
+    "kapsama_pct": 100.0,
+    "celiskili": 0
   }
 }
