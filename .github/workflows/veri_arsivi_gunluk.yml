@@ -1,6 +1,9 @@
 # VERI ARSIVI (gunluk, 19:20 TR is gunleri) - SALT VERI TOPLAMA. Ayrintilar veri_arsivi.py basinda.
 name: Veri Arsivi Gunluk
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [veri_arsivi_tetikle]
   schedule:
     - cron: "20 16 * * 1-5"
     - cron: "20 7 * * 6"    # 09.11 EKI: Cumartesi 10:20 TR - Yahoo gecikmesiyle eksik kalan Cuma kapanislarini tamamlar
