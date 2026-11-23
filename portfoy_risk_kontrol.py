@@ -139,14 +139,20 @@ def main():
     takip = _oku(TAKIP_YOL) or {}
 
     # GUN BASI referansi: bugun ilk kez kosuyorsak kaydet
+    # 23.11 (paket55, kurul aksiyon 7): GitHub zamanlayicisi ilk kosuyu saatlerce geciktirdiginde gun basi
+    # degeri gun ICINDEN (hatta aksamdan) aliniyor, gunluk fren hic tetiklenmiyordu. Artik gun/hafta basi
+    # referansi ONCEKI KOSUNUN son ozkaynagidir (onceki gunun aksam okumasi ~ kapanis). Onceki okuma yoksa
+    # eski davranis (bugunku ilk deger) korunur.
+    onceki_son = takip.get("son_ozkaynak")
     if takip.get("gun_tarihi") != str(bugun):
         takip["gun_tarihi"] = str(bugun)
-        takip["gun_basi_deger"] = guncel
+        takip["gun_basi_deger"] = onceki_son if onceki_son else guncel
+        takip["gun_basi_kaynak"] = "onceki_son_okuma" if onceki_son else "bugun_ilk_okuma"
 
-    # HAFTA BASI referansi: bu hafta ilk kez kosuyorsak kaydet
+    # HAFTA BASI referansi: bu hafta ilk kez kosuyorsak onceki haftanin son okumasini kaydet
     if takip.get("hafta_no") != list(bu_hafta):
         takip["hafta_no"] = list(bu_hafta)
-        takip["hafta_basi_deger"] = guncel
+        takip["hafta_basi_deger"] = onceki_son if onceki_son else guncel
 
     gun_basi = takip.get("gun_basi_deger", guncel)
     hafta_basi = takip.get("hafta_basi_deger", guncel)
