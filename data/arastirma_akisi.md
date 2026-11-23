@@ -7,10 +7,10 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | Kaynak | Durum | Adet |
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
-| hedeffiyat | OK | 24 |
-| haber | OK | 44 |
+| hedeffiyat | OK | 19 |
+| haber | OK | 45 |
 | kurum_yayin_sayfalari | OK | 41 |
-| kuresel_gorunum | OK | 11 |
+| kuresel_gorunum | OK | 12 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -51,6 +51,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
+- 2026-11-23 [Uluslararası Piyasalar Kapanış Raporu – 23.11.2026](https://arastirma.isyatirim.com.tr/2026/11/24/uluslararasi-piyasalar-kapanis-raporu-23-11-2026/) (diger)
 - 2026-11-23 [İş Varant Raporu: İş Varant 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/is-varant-raporu-is-varant-23-11-2026/) (diger)
 - 2026-11-23 [FX Teknik Analiz Raporu 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/fx-teknik-analiz-raporu-23-11-2026/) (diger)
 - 2026-11-23 [ELÜS Günlük Bülteni 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/elus-gunluk-bulteni-23-11-2026/) (diger)
@@ -65,6 +66,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
+- 2026-11-23 **Deutsche Bank**: [Deutsche Bank, Türkiye için 2027 büyüme tahminini yüzde 4’e çıkardı - EKOTÜRK](https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcVV0YlJZaTFaTm1rVXdIVFRZRURLRUtDc0Frc0tqNUdRcmNOYm1lOXJVVWdzSW1hd2xTTFA5TjJPeHJWOUstTUJ3dmg4STdYdjRSa2hYdDdRWXprMnctWUJxZzF0eXcyN1o3TERFalJmNVhqUFZuZHZQNWZ4Y0M2WG42UmJJZ3h6c2RuZEltRTg3ZnRJbVBFY0pyVlZhWVVrWnpCbXp1QWVUUQ?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank 2027 Türkiye Tahmini: Büyüme Ve Enflasyon - Finans Hattı](https://news.google.com/rss/articles/CBMijwFBVV95cUxQNy1CeUUydndlMU1VMWVpWE9pc2hRTk1hWnNUMnQyY2E0b3d2d2dMRW9Jd1EwLWc4Wk1nUHUxOFpNR05lOEJ2S0w5U1RYNkhOZ1BuRUd3bF81LXBNREVCeDQtWllPNkRYRXNqZUs1emVCVDFmeTdkVGFnWUpzZmpQT3NMU0lFZ1BLT2hjSHQtQQ?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank’tan 2027 Türkiye raporu: Büyüme yüzde 4 - Howl.Link](https://news.google.com/rss/articles/CBMiO0FVX3lxTFBCREdQNTR0QzVJbkdKTmFDWW1yWjE5UVFTbU9rSEJUMmM3SzFvdk1RLS05ZFk5OVNoZFI4?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank küresel ekonomi beklentilerini açıkladı: Türkiye tahmini değişti - Sanayi Gazetesi](https://news.google.com/rss/articles/CBMirAFBVV95cUxNVThoQkxyVnA2MGlMSGwyNkhoMmFwLVl4VWxiS2JkQkkyczkwam5ZOUFqTzQ4VjdBZW9Td29GZFFJTXVRTXVpSVlwY0oya1FrODZQTS03ZnhEOGVySmd1cDNiUUlJRjdkaXBLTEkzbVloTlJ3TmstcURaaUtsNWxYSmxSZkVFTHVUY3A4bGctVWtpbWNEVmE1eFpOc0V4QUp1N2JaaW1zYUY1OVo1?oc=5)
@@ -89,10 +91,10 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-19 **Moody's**: [SISE: Moody’s Kredi Notunu Düşürdü, Görünümü Durağanlaştı - Finans Hattı](https://news.google.com/rss/articles/CBMihAFBVV95cUxNVjRLck5zeDF2NVBBdUFITXVxNGdJU2Vwc2NpUWJpaE4zX3dqNm42OW1sTlRwMncyMG1sSmllc3RfYW1vM2Njc0RNTE5YcEl4ZVgyamVpMEYtT0VBX09RTHhzVFN1aXlmQ0NNZEN4alhlUG1hbkhGbzVpSnVkb2tfVC1yZkc?oc=5)
 - 2026-11-18 **HSBC**: [IKEA ve HSBC dahil 178 kuruluş siber saldırı altında: Türkiye'deki kullanıcılar tehlikede mi? - İlkses Gazetesi](https://news.google.com/rss/articles/CBMixwFBVV95cUxNaGhBcl9Tb0sySkJrcjUtdXoyUkxfUU0xOTFxNldSRDFyc3IzQWVEZ0Z6ZUl5a0tmcW42THkybndKMWxQalR4bDBnbW1VYjRnTVFKeE0zSDJTdENTM096ei01VTY0Q2swQlZwSWtGdkN4Nm00REs1RU4xR0hoMlY3YURsc1pMNzgxT3ZsbkRyUHUxTEl6YThudFBMeUpiX1NzQmJLT2EzY3JWS0cyRHVYdnB1b0M0d0dmLWdEclUzTnVxQTl3QVlF0gHMAUFVX3lxTFByRHVYaDZGdWdTS01QakR0enVJWHpla2RaaUMxWWxDZ1ItRUdJeG1WNTA0b08wcnFmUFFDT3ZFQkhzS3NxZVF5OVZlc0VBOUJRUi1ONkVlUjl2VDY2bHBqSnJKNERhaDRoN1dHZVFEYl9YZEFiT0RCZjhIMmljeWptZEZfU1NzT3RYbzllaWhwNmttZThTQ0VpNmcxT1p5LWpObExaYzZRN3dsOHExZkdVQ1JtTExKQlNvVnc5QzhuUDNDbFdlZnhoVkpyRQ?oc=5)
 - 2026-11-18 **HSBC**: [IKEA'dan HSBC'ye 178 kuruluşu etkileyen siber saldırı: Türkiye'deki kullanıcılar da risk altında mı? - Ekonomim](https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMHAzcXQ4Nkk1U3FoYnNTTDZET1A0TXl2c1ZDMHlQakJFQ1plZFZ1cjJQaldWZjhrZTVHTlpmeTRzTGV1YVhjZzRvSzg2c0JVRnljM0VWUWhUSDY0NElaTUFyNkk5a0JtN3hYTUo4NXlxOWRfTzRaYk9OY1JtQ0hIU0tTODFlajU2a1hHU2FZMktra0s5UjBfV0JNcWJMSFpIY09KNVZucTdLdjMwc3FVcGRzX2dJY1MyOHQtZ3BEakFta1J3R0hYbWc1OU81am5zblVVVDlPUQ?oc=5)
-- 2026-11-18 **Moody's**: [Moody’s’ten Türkiye açıklaması: Fon krizi kredi notunu... - Hisse.net](https://news.google.com/rss/articles/CBMioAFBVV95cUxQWWd0T1Iwa3VHaUlxQXpTX3ViVDRhQnNQcnJmZ3lwZ09WaTdhOUNpUTU2eUZJblFqYkxoSVI0S0NWcnpwZ1hWLU5RQ0I0VkF3bW1DRnRENHFUdU1HRWJxSk5tN2ZvRFA3bjVQUFJqRkxWX2k1M1BxNVBaOFVNSmxTbzVsV25pLTFHVXUwMl9aT1ZCV2J3NUZqLXVoNFU3WGM20gGmAUFVX3lxTE5rT0Njd3RQV21Fb0FNUVlTWFYyRnVadmpGbERabzlheWNjczZxWGRiMDUwZFVqd0tZcHVtaVJXbnN2bHVlVHlaUGVrYV9kQnc1SHZVMktodjdmVDVKWWVGbW1iWWpxcmJkR2FyNk02VGw4cW9wc1hZWFFmUDJmQVllaXZ0QW4yM0U2TGFxNExlN2thWVB2TmVsbU5faWlSWm1YcVk1c3c?oc=5)
 
 ## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)
 
+- 2026-11-23 **ING**: [Quick take United States 17 November US retail sales and manufacturing suggest strong momentum](https://think.ing.com/snaps/us-retail-sales-and-manufacturing-suggests-strong-momentum/)
 - 2026-11-23 **ING**: [Germany AI 17 November Germany’s hidden advantage in the AI race](https://think.ing.com/articles/germanys-hidden-advantage-in-the-ai-race/)
 - 2026-11-23 **ING**: [FX 17 November FX Daily: Dollar showing resilience to tech stock instability](https://think.ing.com/articles/fx-daily-dollar-showing-resilience-to-tech-stock-instability/)
 - 2026-11-23 **ING**: [FX 16 November FX Daily: Time for a break below 1.10 in EUR/USD?](https://think.ing.com/articles/fx-daily-time-for-a-break-below-110-in-eur-usd/)
@@ -102,7 +104,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **ING**: [Turkey 11 November Monitoring Turkey: Central bank course unchanged Monitoring Turkey on monthly economic developments](https://think.ing.com/articles/monitoring-turkey-central-bank-course-unchanged/)
 - 2026-11-20 **ING**: [Quick take Turkey 3 November Turkish inflation edges higher as downtrend stalls Higher-than-expected October inflation data has exposed continued challenges to disinflation](https://think.ing.com/snaps/turkey-inflation-october-downtrend/)
 - 2026-11-20 **ING**: [Quick take Turkey 22 October Turkish central bank resumes rate cuts and signals more to come The Central Bank of Turkey has resumed cuts to the policy rate after a nine-month pause](https://think.ing.com/snaps/the-turkish-central-bank-resumed-rate-cuts-signaled-more-to-come/)
-- 2026-11-20 **ING**: [Quick take Turkey 11 September Turkey's current account deficit maintains its widening trend Our take on the latest Balance of Payments data released by the CBT](https://think.ing.com/snaps/turkish-current-account-deficit-maintains-widening-trend/)
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
@@ -117,6 +118,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-16 **JPMorgan**: [J.P. Morgan Private Bank Unveils 2027 Global Investment Outlook: Capital Has a Price Again - Yahoo Finance](https://news.google.com/rss/articles/CBMikgFBVV95cUxPMVlfWk13dUxaZnE1SC1mNkxzRVZhS2dXZWNxVzNFVDduQUQxTUpETmtBRlc5bWs2eS11N3pLempKNHJCZHpiYlRYbjlBVnc5aGlMS0lySzlQQW9DWlY3dmdrbmVQNkxlRURKcE90UjJBZnRZZnBkQ25MSHRGdHJaaXgxak5ncTY4cllYWkFicjJtUQ?oc=5)
 - 2026-11-16 **Barclays**: [Outlook 2027 - Barclays Private Bank and Wealth Management](https://news.google.com/rss/articles/CBMicEFVX3lxTE1JWmRQcEx6MWhZS0U0RTlLbDFUNEdJQ1hyVThzOWh5WThCOHZBeXJOT045N09SMkpJbHpmYTVyNjZtX0R4VGxtTzM5YVdHV29seFhWZnlUNndfT1AtRkxCMy1PVExYNG9DbW1MdjJPcDE?oc=5)
 - 2026-11-16 **ING**: [ING's 2027 Asia Outlook: The AI Boom Broadens, but Global Capital Is Getting Choosy - The Dark Side Of The Boom](https://news.google.com/rss/articles/CBMihAFBVV95cUxPcWZRc1duOXhfcDRFOFduUi1MQzFtYTFvRzVWMUxNZTdWMmxPaDlOY2UxUTBaYU5fVThzSnBKZFF2RFZzYjFUS3F0RXNEUjRaTUtJVlp5OG5qbWlMaFJNY2tXd0tUdE5MMTBCMkFnMEktYjdVcUxMbzYxcUFQOVhvemwwa0g?oc=5)
+- 2026-11-23 **ING**: [Spain Today, 11:55 Spain’s election promises collide with a shrinking fiscal margin Spain’s political parties promise spending and tax cuts without clear financing, while limited scope for savings and](https://think.ing.com/articles/spain-is-not-a-big-spender-but-its-election-promises-still-need-financing/)
 - 2026-11-23 **ING**: [Spain Published 11:55 Spain’s election promises collide with a shrinking fiscal margin Spain’s political parties promise spending and tax cuts without clear financing, while limited scope for savings ](https://think.ing.com/articles/spain-is-not-a-big-spender-but-its-election-promises-still-need-financing/)
 - 2026-11-23 **ING**: [FX Today, 07:52 FX Daily: Uneasy calm as markets stabilise Equity markets are stabilising after a torrid week. But the dollar can hold gains](https://think.ing.com/articles/fx-daily-uneasy-calm-as-markets-stabilise/)
 - 2026-11-23 **ING**: [FX Published 07:52 FX Daily: Uneasy calm as markets stabilise Equity markets are stabilising after a torrid week. But the dollar can hold gains](https://think.ing.com/articles/fx-daily-uneasy-calm-as-markets-stabilise/)
@@ -125,7 +127,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-23 **ING**: [20 November THINK Ahead: Your questions, answered Our Q&A examines how ING’s Global Outlook differs from market expectations and where we see the biggest disconnects](https://think.ing.com/articles/think-ahead-201126/)
 - 2026-11-23 **ING**: [FX 20 November FX Daily: Carry trade unwind in full swing The prospect of faster Fed tightening is starting to weigh heavily on risk assets and helping the dollar](https://think.ing.com/articles/fx-daily-will-closer-eu-ties-help-the-pound/)
 - 2026-11-23 **ING**: [Asia week ahead China Japan 20 November Asia week ahead: BoK rate decision, data from China, Taiwan, Japan The Bank of Korea expected to hike rates by 25bp to 3.25%, a third tightening in the cycle](https://think.ing.com/articles/asia-week-ahead-bok-rate-decision/)
-- 2026-11-23 **ING**: [19 November FX Daily: Higher US real rates dominate Higher US real rates are sucking funds into the dollar](https://think.ing.com/articles/fx-daily-higher-us-real-rates-dominate/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
