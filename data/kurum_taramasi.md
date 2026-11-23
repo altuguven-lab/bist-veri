@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-23 20:43
+# Kurum taramasi - 2026-11-24 00:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -6,18 +6,17 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
-| [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-23 | 4 |
+| [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-23 | 3 |
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 2 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-23 | 1 |
-| KAP arsivi | **OK** | 2026-11-23 | 64 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-23 | 58 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
 - 2026-11-23 [Bülten No : 2026/84 Yayımlanma : 23 Kasım 2026 Pazartesi](https://spk.gov.tr/data/6b0473e08f95db1db01008e7/2026-84.pdf)
 - 2026-11-20 [Bülten No : 2026/83 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6b00990e8f95db2500151a4f/2026-83.pdf)
 - 2026-11-20 [Bülten No : 2026/82 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6aff68a68f95db1a509dd7ff/2026-82.pdf)
-- 2026-11-16 [Bülten No : 2026/81 Yayımlanma : 16 Kasım 2026 Pazartesi](https://spk.gov.tr/data/6afb51ed8f95db1d4cdc42a3/2026-81.pdf)
 - Son bulten 2026/84: karar turleri {'islem_yasagi': 2, 'tedbir': 3, 'suc_duyurusu': 1, 'idari_para_cezasi': 1}; gecen kodlar EUKYO
 
 ## takasbank (son 7 gun)
@@ -36,6 +35,8 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- **[KRITIK]** 23.11.2026 20:48:15 KAMUYU AYDINLATMA PLATFORMU - [Sermaye Piyasası Kurulu Tedbir Kararı](https://www.kap.org.tr/tr/Bildirim/1701581) Sermaye Piyasası Kurulu Tedbir Kararı
+- 23.11.2026 20:25:02 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1701576) SPK BÜLTENİ
 - **[KRITIK]** 23.11.2026 18:29:56 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701502) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 - **[KRITIK]** 23.11.2026 18:29:18 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701500) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 - 23.11.2026 18:18:21 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701486) Pazar Değişikliği
@@ -74,8 +75,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - **[KRITIK]** 18.11.2026 21:30:35 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700080) SPK İşlem Yasağı Nedeniyle Pay Duyurusu
 - **[KRITIK]** 18.11.2026 18:23:24 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699983) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 - 18.11.2026 18:21:51 BORSA İSTANBUL A.Ş. - [Borsa İstanbul A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699982) Borçlanma Araçlarının Gözaltı Pazarı'na Alınması
-- 18.11.2026 17:49:20 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699907) Gerçekleşmeyen İtfa/Kupon/Getiri Ödemesi
-- **[KRITIK]** 18.11.2026 17:37:02 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1699882) BAP İşlem İptali
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
