@@ -3,6 +3,9 @@
 # Zamanlama: hafta ici 20:10 TR (17:10 UTC) - Alarm Karnesi'nin 16:40 UTC calismasindan sonra.
 name: H5 Alarm Filtresi
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [h5_filtre_tetikle]
   schedule:
     - cron: "10 17 * * 1-5"
   workflow_dispatch:
