@@ -5,6 +5,9 @@
 name: Schumpeter Gozlem
 
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [schumpeter_tetikle]
   schedule:
     - cron: "30 17 * * 5"   # Cuma 20:30 TR (hafta kapanisi sonrasi)
     - cron: "0 6 * * 0"     # Pazar 09:00 TR
