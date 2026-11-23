@@ -5,6 +5,9 @@
 # ciktisini OKUR - kendi rutininde AYRICA tetiklenmesi GEREKMEZ.
 name: Gunluk Gozlem Cetveli
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [gunluk_gozlem_tetikle]
   schedule:
     - cron: "50 6 * * 1-5"
   workflow_dispatch: {}
