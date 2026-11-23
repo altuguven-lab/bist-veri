@@ -22,6 +22,9 @@
 name: Kopru Sessizlik Izleyici
 
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [kopru_sessizlik_tetikle]
   schedule:
     - cron: '30 15 * * 1-5'  # Pazartesi-Cuma 15:30 UTC = 18:30 TSI (piyasa kapanisi sonrasi)
     - cron: '50 16 * * 1-5'  # 11.11: 19:50 TSI yedek tetik (GitHub zamanlamayi atlarsa ya da ilk kosum erken kalirsa)
