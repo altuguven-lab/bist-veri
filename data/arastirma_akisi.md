@@ -8,9 +8,9 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 24 |
-| haber | OK | 45 |
+| haber | OK | 44 |
 | kurum_yayin_sayfalari | OK | 41 |
-| kuresel_gorunum | OK | 8 |
+| kuresel_gorunum | OK | 11 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -65,6 +65,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
+- 2026-11-23 **Deutsche Bank**: [Deutsche Bank 2027 Türkiye Tahmini: Büyüme Ve Enflasyon - Finans Hattı](https://news.google.com/rss/articles/CBMijwFBVV95cUxQNy1CeUUydndlMU1VMWVpWE9pc2hRTk1hWnNUMnQyY2E0b3d2d2dMRW9Jd1EwLWc4Wk1nUHUxOFpNR05lOEJ2S0w5U1RYNkhOZ1BuRUd3bF81LXBNREVCeDQtWllPNkRYRXNqZUs1emVCVDFmeTdkVGFnWUpzZmpQT3NMU0lFZ1BLT2hjSHQtQQ?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank’tan 2027 Türkiye raporu: Büyüme yüzde 4 - Howl.Link](https://news.google.com/rss/articles/CBMiO0FVX3lxTFBCREdQNTR0QzVJbkdKTmFDWW1yWjE5UVFTbU9rSEJUMmM3SzFvdk1RLS05ZFk5OVNoZFI4?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank küresel ekonomi beklentilerini açıkladı: Türkiye tahmini değişti - Sanayi Gazetesi](https://news.google.com/rss/articles/CBMirAFBVV95cUxNVThoQkxyVnA2MGlMSGwyNkhoMmFwLVl4VWxiS2JkQkkyczkwam5ZOUFqTzQ4VjdBZW9Td29GZFFJTXVRTXVpSVlwY0oya1FrODZQTS03ZnhEOGVySmd1cDNiUUlJRjdkaXBLTEkzbVloTlJ3TmstcURaaUtsNWxYSmxSZkVFTHVUY3A4bGctVWtpbWNEVmE1eFpOc0V4QUp1N2JaaW1zYUY1OVo1?oc=5)
 - 2026-11-23 **S&P Global**: [Fon krizi sonrası S&P, Moody's ve Fitch'ten rapor: Türkiye'nin kredi notu etkilenecek mi - Notbir](https://news.google.com/rss/articles/CBMitwFBVV95cUxPZkVsSEg4ZndQSWRuWG1OTnJJTUtoU2J4M0JmR0U4TDVxU29jN1A2V0NWcUdPWXpoSmRiTE1iZExhS09NbHpEbWt5OTJFN2NsMTNjLWJxMnA3Mmg4XzFuelRIa0pDekV2ZFNjQzJrTzh6VlRnb0VsNkhxN3FKTndmY0p6cGZURW5DRE9SbDVwNDN1ZHdQWVgyeG9YN1RPamhMYkh2d0pESmxMN3dTWFRlUnJFQmtRSEE?oc=5)
@@ -86,10 +87,9 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-19 **UBS**: [Durun almayın | UBS altın tahmini | Fonda dava yolu | Borsada kâr satışı - Investing.com Türkiye](https://news.google.com/rss/articles/CBMirgFBVV95cUxNYTkxX2xZZFY2Mi1ocHhxQ1lIanNaTlkzYThHQmNRMVNnb1Vkc2ZjY1EtalNJeG43WmJyVEowSTY1X2RmT05ETjRCRGRyLVo2YnprVXVWSEtaOHAtT3FmQThXdlNjSTZJTHM2YWZwakRLMXdNOG1uSGtNYm1WMl9GWDJuV2ZzTHR3V3FVRHJRUzNIaEo4Y1RlUUh4cE9yZU1yMDJIU1Fxc1hMNERTaFE?oc=5)
 - 2026-11-19 **Moody's**: [Moody’s’ten Türkiye’deki fon krizi hakkında kritik açıklama! Kredi notu düşecek mi? - Haberton](https://news.google.com/rss/articles/CBMiogFBVV95cUxOVXVpLUlGamotZmJBSG5SQW1UcWNVMjJzTEVueVRtU3hKTWt3TUlBbF9VcDF2VHBTMHVmd0hrRjZjaFdweWM2eXRyUFVGLW53NGx5RFVhVE9kVUdKYk5udEhScVNEcm55MDJVa2dLNXE3Ukp0U2pHUEhpb3E5cF82aEkwLVRjLTFQREU2ZGd6YVpNSHppS2p0eVJ2SlNhV05vaFE?oc=5)
 - 2026-11-19 **Moody's**: [SISE: Moody’s Kredi Notunu Düşürdü, Görünümü Durağanlaştı - Finans Hattı](https://news.google.com/rss/articles/CBMihAFBVV95cUxNVjRLck5zeDF2NVBBdUFITXVxNGdJU2Vwc2NpUWJpaE4zX3dqNm42OW1sTlRwMncyMG1sSmllc3RfYW1vM2Njc0RNTE5YcEl4ZVgyamVpMEYtT0VBX09RTHhzVFN1aXlmQ0NNZEN4alhlUG1hbkhGbzVpSnVkb2tfVC1yZkc?oc=5)
+- 2026-11-18 **HSBC**: [IKEA ve HSBC dahil 178 kuruluş siber saldırı altında: Türkiye'deki kullanıcılar tehlikede mi? - İlkses Gazetesi](https://news.google.com/rss/articles/CBMixwFBVV95cUxNaGhBcl9Tb0sySkJrcjUtdXoyUkxfUU0xOTFxNldSRDFyc3IzQWVEZ0Z6ZUl5a0tmcW42THkybndKMWxQalR4bDBnbW1VYjRnTVFKeE0zSDJTdENTM096ei01VTY0Q2swQlZwSWtGdkN4Nm00REs1RU4xR0hoMlY3YURsc1pMNzgxT3ZsbkRyUHUxTEl6YThudFBMeUpiX1NzQmJLT2EzY3JWS0cyRHVYdnB1b0M0d0dmLWdEclUzTnVxQTl3QVlF0gHMAUFVX3lxTFByRHVYaDZGdWdTS01QakR0enVJWHpla2RaaUMxWWxDZ1ItRUdJeG1WNTA0b08wcnFmUFFDT3ZFQkhzS3NxZVF5OVZlc0VBOUJRUi1ONkVlUjl2VDY2bHBqSnJKNERhaDRoN1dHZVFEYl9YZEFiT0RCZjhIMmljeWptZEZfU1NzT3RYbzllaWhwNmttZThTQ0VpNmcxT1p5LWpObExaYzZRN3dsOHExZkdVQ1JtTExKQlNvVnc5QzhuUDNDbFdlZnhoVkpyRQ?oc=5)
 - 2026-11-18 **HSBC**: [IKEA'dan HSBC'ye 178 kuruluşu etkileyen siber saldırı: Türkiye'deki kullanıcılar da risk altında mı? - Ekonomim](https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMHAzcXQ4Nkk1U3FoYnNTTDZET1A0TXl2c1ZDMHlQakJFQ1plZFZ1cjJQaldWZjhrZTVHTlpmeTRzTGV1YVhjZzRvSzg2c0JVRnljM0VWUWhUSDY0NElaTUFyNkk5a0JtN3hYTUo4NXlxOWRfTzRaYk9OY1JtQ0hIU0tTODFlajU2a1hHU2FZMktra0s5UjBfV0JNcWJMSFpIY09KNVZucTdLdjMwc3FVcGRzX2dJY1MyOHQtZ3BEakFta1J3R0hYbWc1OU81am5zblVVVDlPUQ?oc=5)
 - 2026-11-18 **Moody's**: [Moody’s’ten Türkiye açıklaması: Fon krizi kredi notunu... - Hisse.net](https://news.google.com/rss/articles/CBMioAFBVV95cUxQWWd0T1Iwa3VHaUlxQXpTX3ViVDRhQnNQcnJmZ3lwZ09WaTdhOUNpUTU2eUZJblFqYkxoSVI0S0NWcnpwZ1hWLU5RQ0I0VkF3bW1DRnRENHFUdU1HRWJxSk5tN2ZvRFA3bjVQUFJqRkxWX2k1M1BxNVBaOFVNSmxTbzVsV25pLTFHVXUwMl9aT1ZCV2J3NUZqLXVoNFU3WGM20gGmAUFVX3lxTE5rT0Njd3RQV21Fb0FNUVlTWFYyRnVadmpGbERabzlheWNjczZxWGRiMDUwZFVqd0tZcHVtaVJXbnN2bHVlVHlaUGVrYV9kQnc1SHZVMktodjdmVDVKWWVGbW1iWWpxcmJkR2FyNk02VGw4cW9wc1hZWFFmUDJmQVllaXZ0QW4yM0U2TGFxNExlN2thWVB2TmVsbU5faWlSWm1YcVk1c3c?oc=5)
-- 2026-11-18 **JPMorgan**: [JPMorgan Türkiye tavsiyesini yükseltti - Medyascope](https://news.google.com/rss/articles/CBMifEFVX3lxTE9tdTJxRG5TMW1FbnRxR2U3XzJaRmhXWENraWtrMVpxckszQmNkaG9lTFV6VFA1RktHZ2p2ZWJKSjZISHU3Tk15NlBEcktLNmlOTy1vRGFNZTBKUDh3b2FsY3RBZHVrMHprUnRVR1dQWXdRYXkxMVZvX013YVc?oc=5)
-- 2026-11-18 **JPMorgan**: [JPMorgan Türk hisseleri için tavsiyesini yükseltti - Sabah](https://news.google.com/rss/articles/CBMimAFBVV95cUxNSjhrMG5FYkNwQnFYYlhSRmEtQmF6a01DNnVRNzExaXJRZVFJUnU5OG1KMTF2Umw5MFFwdWljZVhGekFFbk1yazZHRlZPWngtamtPTzY0WC1RTDRtV0pVRnVFWjk3dTJ5aTd3NDZsdUs3UW8ya3JiYmRQMUtSLVZSWmppYTZfdnpiQzJmYk5PVnZ0elZ1NThuRdIBmAFBVV95cUxNSjhrMG5FYkNwQnFYYlhSRmEtQmF6a01DNnVRNzExaXJRZVFJUnU5OG1KMTF2Umw5MFFwdWljZVhGekFFbk1yazZHRlZPWngtamtPTzY0WC1RTDRtV0pVRnVFWjk3dTJ5aTd3NDZsdUs3UW8ya3JiYmRQMUtSLVZSWmppYTZfdnpiQzJmYk5PVnZ0elZ1NThuRQ?oc=5)
 
 ## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)
 
@@ -106,6 +106,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
+- 2026-11-23 **HSBC**: [US Dollar: Strong outlook into 2027 – HSBC - FXStreet](https://news.google.com/rss/articles/CBMiigFBVV95cUxPbEJXRU9QQzBlelVfWjFsbThiQUFYOTFDMEFCZFA2Z19WXzVSQ2JSZ0VzZ1VwSTJIR0hEaE1qNTBteWpUd2tDbjlwNmN4VVdPNnN4N3FLVEFzRU1UN0pCWDF0YlhTeVpjLVVjQlJzbGxDdERhRFhOTHFGeFNHUGUzaDdDQldtbjFxY3c?oc=5)
 - 2026-11-22 **Goldman Sachs**: [Goldman Sachs’ economic outlook for 2027 - Investing.com](https://news.google.com/rss/articles/CBMinAFBVV95cUxQREttQl9iNXhLSXF3X1NpUG84WG9lMGJnWmxDTjVicEtxTEh0eGNoOG9ZTzVIZTQxQjQ2WTJhakl5c3ZKM1J4VHphRk55MDlpVWxNX25LbWpZVjJzekZYa3BrVnhEN1VCWXFwbkZ1bkVDaFlZanlRNHBPbVNzQUk1QVNzWjloc2pZSlBfVFhpZ1hqd3Y2U1lZanhqRzk?oc=5)
 - 2026-11-20 **Invesco**: [Invesco Mortgage Capital Stock Price Forecast. Should You Buy IVR? - StockInvest.us](https://news.google.com/rss/articles/CBMiR0FVX3lxTE5id2dELUcyZHNoMDdRakNqTW5HMEd0QUNGWHBiYjFtcHp0ZDNkLVJPSTYwbjZpRWYyLThlMWM1emhJYmllZmZR?oc=5)
 - 2026-11-17 **Goldman Sachs**: [Goldman Sachs revealed its outlook for 2027. Here’s how much it sees the S&P 500 gaining - CNBC](https://news.google.com/rss/articles/CBMivwFBVV95cUxQb2xLbG9kYWZ4ZVAzcHNTb25JdThjRkVrb0RWZGwyay1lQy1wOFNraTdWbXRveTJTUWU5TEh6cHhRWEwxVWlPOGowaHNISl9HdmtmSUFBYUJSWkhWa2J4R1hkWk9fcmRhbV9JSXB6bEJZTjN2bG43SktRYzljVmZpRUNZUGJ4akhDamY1WUQzZW5GUmRISFdEY3UyYy12M0ZNZXdqejJ1MWpGSTI0Y20wMHFBZ3hTc0NYNkZiOUx6Zw?oc=5)
@@ -125,7 +126,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-23 **ING**: [FX 20 November FX Daily: Carry trade unwind in full swing The prospect of faster Fed tightening is starting to weigh heavily on risk assets and helping the dollar](https://think.ing.com/articles/fx-daily-will-closer-eu-ties-help-the-pound/)
 - 2026-11-23 **ING**: [Asia week ahead China Japan 20 November Asia week ahead: BoK rate decision, data from China, Taiwan, Japan The Bank of Korea expected to hike rates by 25bp to 3.25%, a third tightening in the cycle](https://think.ing.com/articles/asia-week-ahead-bok-rate-decision/)
 - 2026-11-23 **ING**: [19 November FX Daily: Higher US real rates dominate Higher US real rates are sucking funds into the dollar](https://think.ing.com/articles/fx-daily-higher-us-real-rates-dominate/)
-- 2026-11-23 **ING**: [Rates Spark 19 November Rates Spark: ECB reserve rethink would bring funding pressure closer Longer rates remain sensitive to jittery tech sentiment, while front-ends face hawkish central bank comment](https://think.ing.com/articles/rates-spark-ecb-reserve-rethink-would-bring-funding-pressure-closer/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
