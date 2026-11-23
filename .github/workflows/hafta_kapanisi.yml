@@ -15,6 +15,9 @@
 # paketlerle cakismiyor cunku bu SADECE Cuma calisiyor).
 name: Hafta Kapanisi Paketi
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [hafta_kapanisi_tetikle]
   schedule:
     - cron: "20 15 * * 5"
   workflow_dispatch: {}
