@@ -7,8 +7,8 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | Kaynak | Durum | Adet |
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
-| hedeffiyat | OK | 23 |
-| haber | OK | 48 |
+| hedeffiyat | OK | 24 |
+| haber | OK | 42 |
 | kurum_yayin_sayfalari | OK | 41 |
 | kuresel_gorunum | OK | 11 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
@@ -43,6 +43,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 | Tarih | Sembol | Kurum (kademe) | Hedef TL | Tavsiye | Revizyon | Kaynak |
 |---|---|---|---|---|---|---|
+| 2026-11-23 | BRSAN | İş Yatırım (A) | 952.0 | AL | YENI_KAYIT | ✅ (toplayıcı) |
 | 2026-11-20 | TSKB | Phillip Capital (B) | 18.4 | Endeks Üstü Getiri | AYNI | ✅ (toplayıcı) |
 | 2026-11-18 | LKMNH | Deniz Yatırım (B) | 25.04 | AL | AYNI | ✅ (toplayıcı) |
 | 2026-11-16 | LKMNH | KuveytTürk Yatırım (-) | 21.0 | AL | AYNI | ✅ (toplayıcı) |
@@ -50,7 +51,16 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
-- (yok)
+- 2026-11-23 [FX Teknik Analiz Raporu 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/fx-teknik-analiz-raporu-23-11-2026/) (diger)
+- 2026-11-23 [ELÜS Günlük Bülteni 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/elus-gunluk-bulteni-23-11-2026/) (diger)
+- 2026-11-23 [İş Varant | İtfalar 23.11.2026](https://arastirma.isyatirim.com.tr/2026/11/23/is-varant-itfalar-23-11-2026/) (diger)
+- 2026-11-23 [Piyasalarda Bugün 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/piyasalarda-bugun-23-11-2026/) (diger)
+- 2026-11-23 [Sermaye Artırımları/Azaltımları ve Temettü Ödemeleri 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/sermaye-artirimlari-azaltimlari-ve-temettu-odemeleri-23-11-2026/) (diger)
+- 2026-11-23 [Pay Geri Alımları 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/pay-geri-alimlari-23-11-2026/) (diger)
+- 2026-11-23 [Günlük Açığa Satış Bilgileri 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/gunluk-aciga-satis-bilgileri-23-11-2026/) (diger)
+- 2026-11-23 [Teknik Bülten 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/teknik-bulten-23-11-2026/) (diger)
+- 2026-11-23 [Borusan Boru (BRSAN.IS) – Takip Listesine Ekleme](https://arastirma.isyatirim.com.tr/2026/11/23/borusan-boru-brsan-is-takip-listesine-ekleme/) (diger)
+- 2026-11-23 [Günlük Yabancı Oranları 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/gunluk-yabanci-oranlari-23-11-2026/) (diger)
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
@@ -82,6 +92,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)
 
+- 2026-11-23 **ING**: [FX 17 November FX Daily: Dollar showing resilience to tech stock instability](https://think.ing.com/articles/fx-daily-dollar-showing-resilience-to-tech-stock-instability/)
 - 2026-11-23 **ING**: [FX 16 November FX Daily: Time for a break below 1.10 in EUR/USD?](https://think.ing.com/articles/fx-daily-time-for-a-break-below-110-in-eur-usd/)
 - 2026-11-20 **ING**: [Poland 16 November How Polish households are saving and investing in 2026](https://think.ing.com/articles/saving-and-investment-profile-of-polish-households-in-2026/)
 - 2026-11-20 **ING**: [Turkey 13 November Turkey’s annual current account deficit narrows sharply Read this Article](https://think.ing.com/articles/turkeys-annual-c-a-deficit-narrowed-sharply/)
@@ -91,7 +102,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **ING**: [Quick take Turkey 22 October Turkish central bank resumes rate cuts and signals more to come The Central Bank of Turkey has resumed cuts to the policy rate after a nine-month pause](https://think.ing.com/snaps/the-turkish-central-bank-resumed-rate-cuts-signaled-more-to-come/)
 - 2026-11-20 **ING**: [Quick take Turkey 11 September Turkey's current account deficit maintains its widening trend Our take on the latest Balance of Payments data released by the CBT](https://think.ing.com/snaps/turkish-current-account-deficit-maintains-widening-trend/)
 - 2026-11-20 **ING**: [Quick take Turkey 10 September Turkish central bank stays on hold and signals continued caution](https://think.ing.com/snaps/the-turkish-central-bank-stays-on-hold-signals-continued-caution/)
-- 2026-11-20 **ING**: [Turkey 10 September Monitoring Turkey: Further easing likely in fourth quarter](https://think.ing.com/articles/monitoring-turkey-further-easing-likely-in-4q/)
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
@@ -105,6 +115,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-16 **JPMorgan**: [J.P. Morgan Private Bank Unveils 2027 Global Investment Outlook: Capital Has a Price Again - Yahoo Finance](https://news.google.com/rss/articles/CBMikgFBVV95cUxPMVlfWk13dUxaZnE1SC1mNkxzRVZhS2dXZWNxVzNFVDduQUQxTUpETmtBRlc5bWs2eS11N3pLempKNHJCZHpiYlRYbjlBVnc5aGlMS0lySzlQQW9DWlY3dmdrbmVQNkxlRURKcE90UjJBZnRZZnBkQ25MSHRGdHJaaXgxak5ncTY4cllYWkFicjJtUQ?oc=5)
 - 2026-11-16 **Barclays**: [Outlook 2027 - Barclays Private Bank and Wealth Management](https://news.google.com/rss/articles/CBMicEFVX3lxTE1JWmRQcEx6MWhZS0U0RTlLbDFUNEdJQ1hyVThzOWh5WThCOHZBeXJOT045N09SMkpJbHpmYTVyNjZtX0R4VGxtTzM5YVdHV29seFhWZnlUNndfT1AtRkxCMy1PVExYNG9DbW1MdjJPcDE?oc=5)
 - 2026-11-16 **ING**: [ING's 2027 Asia Outlook: The AI Boom Broadens, but Global Capital Is Getting Choosy - The Dark Side Of The Boom](https://news.google.com/rss/articles/CBMihAFBVV95cUxPcWZRc1duOXhfcDRFOFduUi1MQzFtYTFvRzVWMUxNZTdWMmxPaDlOY2UxUTBaYU5fVThzSnBKZFF2RFZzYjFUS3F0RXNEUjRaTUtJVlp5OG5qbWlMaFJNY2tXd0tUdE5MMTBCMkFnMEktYjdVcUxMbzYxcUFQOVhvemwwa0g?oc=5)
+- 2026-11-23 **ING**: [FX Published 07:52 FX Daily: Uneasy calm as markets stabilise Equity markets are stabilising after a torrid week. But the dollar can hold gains](https://think.ing.com/articles/fx-daily-uneasy-calm-as-markets-stabilise/)
 - 2026-11-23 **ING**: [Commodities, Food & Agri 20 November Metals sell-off runs ahead of physical markets It has been a difficult week for metals](https://think.ing.com/articles/metals-sell-off-runs-ahead-of-physical-markets/)
 - 2026-11-23 **ING**: [Czech Republic Poland 20 November CEE & CCA week ahead: Polish activity data and Czech confidence in focus A look ahead at next week's economic events across the CEE and CCA regions](https://think.ing.com/articles/cee-cca-week-ahead-polish-activity-data-and-czech-confidence-in-focus/)
 - 2026-11-23 **ING**: [20 November THINK Ahead: Your questions, answered Our Q&A examines how ING’s Global Outlook differs from market expectations and where we see the biggest disconnects](https://think.ing.com/articles/think-ahead-201126/)
@@ -114,7 +125,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-23 **ING**: [Rates Spark 19 November Rates Spark: ECB reserve rethink would bring funding pressure closer Longer rates remain sensitive to jittery tech sentiment, while front-ends face hawkish central bank comment](https://think.ing.com/articles/rates-spark-ecb-reserve-rethink-would-bring-funding-pressure-closer/)
 - 2026-11-20 **ING**: [Commodities, Food & Agri Today, 12:02 Metals sell-off runs ahead of physical markets It has been a difficult week for metals](https://think.ing.com/articles/metals-sell-off-runs-ahead-of-physical-markets/)
 - 2026-11-20 **ING**: [Czech Republic Poland Today, 11:07 CEE & CCA week ahead: Polish activity data and Czech confidence in focus A look ahead at next week's economic events across the CEE and CCA regions](https://think.ing.com/articles/cee-cca-week-ahead-polish-activity-data-and-czech-confidence-in-focus/)
-- 2026-11-20 **ING**: [Today, 10:58 THINK Ahead: Your questions, answered Our Q&A examines how ING’s Global Outlook differs from market expectations and where we see the biggest disconnects](https://think.ing.com/articles/think-ahead-201126/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
@@ -123,6 +133,8 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Diğer kurum haberleri (son 7 gün, ◐)
 
+- 2026-11-22 : [ASTOR, FROTO, BIMAS ve SAHOL! 10 hissede hedef fiyat... - Hisse.net](https://news.google.com/rss/articles/CBMimgFBVV95cUxOeFp6MWRDYi1GSVpVaGJjSlRGaGNuOW5HaTFUd0Zzd3dEWkZyOE9uUnlpZWljUkwwaUpEVlRBZkRMdHh1QTJVOTZzaWJjN2dfUFZCZ2k1S0piSnR3eFBsZmhvQ1J5QTI0MkkwQ1JGam9SXzUtSHRERWx4aVpMd0Rya1R1RUx1RUFyS2lCWUhTZjZyTEw4R281alV30gGfAUFVX3lxTE9hNi12TDdDUGFXUTdCQ1c1UldZUExxelE5TFVxWWhpZEVpVDJhb2xLTEtDdnVkU2FSNnUzT2swUFdqSm90V1Bxd0VaVjNfNGtfMkJaNmJ4Vm9UOGxRWjJhVEhFMWNiZjNiWHpqSTNkWjBPTmwxSG1DdU1sR3BEVHlpQi1vMkR0cWk5cUZWb0NYUzJHRU1ia19fc1RGWkFFMA?oc=5)
+- 2026-11-22 : [Türkiye'deki fon gelişmeleri kredi notunu etkileyecek mi? - Odakgazetesi](https://news.google.com/rss/articles/CBMijAFBVV95cUxNTjlyZHRRWEV0dTNLRWhHMmxmWlpXVGd3dDBtZVZOcW80a0F3NnA1M0I5d1NueTZHMWR5ZUlyN3ZlOHZJbi1SM01nNnkzTDhzcndzOGk2OXJKLVZVNXliWkVrZk5lNWJKS2hMaWlCUVgxd1M2RDhuR0NOZGJKaWgyOXBSYWI1NWM0UnZIVA?oc=5)
 - 2026-11-20 : [OTKAR Hisse Hedef Fiyat: 2 Kurumdan Yükseliş Beklentisi - Finans Hattı](https://news.google.com/rss/articles/CBMijgFBVV95cUxQV1doQnZwUFFqOHZZN0l1el9BcVNmb1VsN2hfYVR4OXNDWmlDck9OblBJYWpibmlXdHh1cWw4QTFCTzZWcXlCckN5bzg2UERLUVQySmIzOVhSQWNaaWlVS09IQUNZQ2xJZEV1QWxPczFUSGRDWnQyLVlCWEFybWNyU2VySFdabWoySjUyMUJR?oc=5)
 - 2026-11-19 : [Astor Enerji Hisseleri İçin Aracı Kurumların Güncel Hedef Fiyatları Neler Olacak ? - İşçi Haber](https://news.google.com/rss/articles/CBMivgFBVV95cUxNTFNJcU16Zm0wVUJBbHhIcWZsSmplTllZM1huQVMtTi0wOGplWG9xbTVYQUlxcGJsTmhPY1VZd2E1bDR1aEk0eDJKeWU5QmRxTVUxaXJfbVRaTmliOGt1OF9FaVZuS2hCOXd3Q2dHR201UHFoWTdCSElhNVlFOFZWNG1WLUhTeUhlTEFQWkNpTmVvTVI2b2ZSa3h1NFdwbURUQVZBWDVLOGtZZW1haTFad1dZc1oweTlSZC1zTERn?oc=5)
 - 2026-11-19 ÜNLÜ & Co: [Ünlü & Co’nun banka tercihi değişti: Akbank gitti, Vakıfbank geldi - Paratic Haber](https://news.google.com/rss/articles/CBMiigFBVV95cUxNQnJZa2dzY1ptdWk5dS1wTGxJY0d1TkhJb2tpTFFjdFo4cTRSOWcxWTJJSEZCYUJLdjRqOVFsSS1YRFIybjJ3bS11bExjTmFRS24wZTdUVGJPcWJ4VTJCNm13UFV6MWt2d0xKSlI2TEpheDRpYWk2UElGV3ktX0ZBazhVMHJBdjZNTFE?oc=5)
@@ -131,11 +143,11 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-18 Gedik Yatırım: [Gedik Yatırım’dan model portföy için DOHOL ve BIMAS kararı - Paratic Haber](https://news.google.com/rss/articles/CBMihAFBVV95cUxOMjB3RGt2S2dFU1Y1MkhiSWhOWGVJNmlGWERPSWNtc0NvX0tibUdZRUNjZjk1SndFMmRZMHNWeHk3R1E3REZXbkxRMDMtOU9RSEhQSTE5bWZ6cXhuTHRKbXRiUkhHaDZxODVxMnVmMzJrTXhScmkwSUtYeHAxaTZwOEl6OHY?oc=5)
 - 2026-11-18 : [BIMAS Hedef Fiyat Güncellemesi Ve Portföy Değişikliği - Finans Hattı](https://news.google.com/rss/articles/CBMijgFBVV95cUxQSS1MWlFVMmJzX25aREpyQmg5WjRieURCbXFJVWZoUXlvQTZlLTVTbVpaUkpZckxrLU1uR0VsZE5NX1NsMVJpNFBZTlhuT3pkYi1ILUtBRk1tZExzN1NUVnhtd29EUnM4TWhkOVRTWktsTzFic0FEa0dBaU1IUkFPTXl2bEE0LUpWdXh1eURn?oc=5)
 - 2026-11-18 : [BIMAS Hisse Hedef Fiyatı Güncellendi: %57 Yükseliş Potansiyeli - Finans Hattı](https://news.google.com/rss/articles/CBMiiwFBVV95cUxNQ2xqV19RdE8tV2dnazFBenRtbFg5eU9VYlN0YS1Ec2VvcmZOUk9EeFBCaThQclhjTk5zWXpPX1BxclFwZ09oa1NpeFpLNExtc0ZuWVp0ZFdIbTM0TG9INENINmowdWhFMXFBWGIyQTZZRERoSnFHOUI0Ump1UDk1S1JaS0F5R1kxTGxV?oc=5)
+- 2026-11-17 : [Dev Bankadan Türkiye Hisselerine Güçlü Alım Tavsiyesi Geldi - Ekonomi Dünya](https://news.google.com/rss/articles/CBMimwFBVV95cUxNSmJ4TW1yR1VRRmtTdWtHN0syMGx5WVRBTGFad18wcklSaDBWeFBqcjlSUmZ3TDlBWS1WdUJmZ1NyNGlORlVVWmlzU0FFbk4yb1dGaHZrMkVLdzZsVHk0WnNpVlJHdHVDOTJyRm5TeWc5MXEtVExOZkhjdlg2NGRGYTBFc1BSbk85Rk1mY3BQTUxJZkRYOHY5SGh2TQ?oc=5)
 - 2026-11-17 ÜNLÜ & Co: [Kerkük-Ceyhan petrol boru hattı 12 yıl sonra açıldı: Türkiye'ye günlük 500 bin varil hedefi - Cumhuriyet](https://news.google.com/rss/articles/CBMi0gFBVV95cUxQWE4yWldoX2lwOHVaa2VoYUFlNXFWdlMxNlNwWHZfTmpocXhrTE04cHJXSmRybFRaV1BUWE5xalBtdmtQUVQwb1lUNVY1ZWZ1ZXVUYVJMaHZ6MEhvbkdFNUxmNzJIb0xzY2N2aHBkbVRWbzRPdWtTWXR5UUhjLTBTMGhYd1RHa08wTW5ZZHAxbERqWTVuRDJGeDhReWF5aUYzVnphZDBycjJfSXQ3VlB0aUttaDE0dDJjM3hlNlRYdmxfRlQxN0dhMy1JdGw4cmQ2eHc?oc=5)
 - 2026-11-17 : [Dev bankadan Türkiye hisseleri için dikkat çeken tavsiye: 'Ağırlık artır’a yükseltti - Ekonomim](https://news.google.com/rss/articles/CBMixwFBVV95cUxPeFpvVWo2Z19KUzAtQlhSdjM5aF9XMnFUb3VnMEFnYXFqd2IwZ09KY0FvenZzOHQ0aFotdnNqYlh6ZS1HYkZvWUY1RVZjTmE0TDhCd3J1V3J0LVc3Q3pEVl9xWXZRaTdGUzRvc1h3MG02dVFTNVJSZHFxSDBBSTQ1MnctZTVuczhiWGxwMHBNQVBUVEkycHFVWndWaG9jdEN0TW9xWG90N3g0Vlp6ajRTMFlWN2tnVlhNX01HMWFGUU9NYjUwbDJF?oc=5)
 - 2026-11-17 : [Dev bankadan Türkiye hisseleri için tavsiye değişikliği: “Ağırlık artır” seviyesine yükseltti - T24](https://news.google.com/rss/articles/CBMiwwFBVV95cUxORm5yeW9fQkpWamVtSm5DR2R4NzNQMGZfM2VINTc0YVNTZFRiaWRibVBEa3NzY2xlaFVKT2R2blQ4Sk5sbWM5QnhYcmdqUEdqWjJNTlA1YTNzc0hVcG1DWVhZQ2JhYlg5MWYwVzNjd0pMVHBFaklacUJlSEhYMC1ZSGVyMmZkanhFU2Jic1B5Y3VSSzNIcVBVSHJrUVg3LVhtZVV5UktRdW13bUhyY3N0U3Y2Rmg0SDVHak5aQWVVeWRHc0k?oc=5)
 - 2026-11-17 : [FROTO, ASTOR Ve SAHOL İçin Yeni Hedef Fiyatlar Açıklandı - Finans Hattı](https://news.google.com/rss/articles/CBMihwFBVV95cUxQaHVyQk9yMWxrNDJfV0lnbGppQlFaVGhya3hiRkFfcDQ2eFpIQ2lNOWJrb0Z1NlhKcWl5X3JHUXBRalA0TjgtRXFUbHRMaXBRYUlhSnIweE8tVFRzdjlLdU9yUDJFWWxxM1hIUmI5ajlZRDFHaXoxSmZWNVFyUWdjamFwRXdwX1E?oc=5)
-- 2026-11-16 ÜNLÜ & Co: [BIST 100 Günlük Analiz: Öne Çıkan Hisseler Ve Stratejiler - Finans Hattı](https://news.google.com/rss/articles/CBMiigFBVV95cUxQNkpDcTJjZDNwajNvcmVTUkpVb1lwSFlEMV93S0VzSm5TckROMkpoVzk2alNlS1lBMENBV2pVdmJSdTY1OXh2dlBQNEM2ZllYdGtXVVJ2cjFLajRqN1ZkemhOQnQ4dXZCOFpiSzhNZlJZSW5FOWFhSnNfYlR0d1MzTDlDY2oxMUp2MGc?oc=5)
 
 Revizyon yönü yalnız bu arşivdeki önceki kayıtla karşılaştırmadır; arşiv 20.11.2026'da başladı.
 Gözlem amaçlıdır, tavsiye değildir.
