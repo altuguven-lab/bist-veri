@@ -1,6 +1,9 @@
 name: SQZ Skoru (VIOP Sikisma Radari)
 
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [sqz_tetikle]
   schedule:
     # fetch_viop.yml'den (VIOP bulteni ~18:45 TR sonrasi) biraz sonra,
     # hafta ici 19:30 TR = 16:30 UTC. Onceki gunun bulten verisiyle
