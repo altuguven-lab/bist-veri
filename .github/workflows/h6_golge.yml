@@ -3,6 +3,9 @@
 # dondurulmus listelerin aylik performansini gunceller. Ay icinde calisirsa yalniz okur/gunceller.
 name: H6 Golge Izleme
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [h6_golge_tetikle]
   schedule:
     - cron: "40 6 * * 1-5"
   workflow_dispatch:
