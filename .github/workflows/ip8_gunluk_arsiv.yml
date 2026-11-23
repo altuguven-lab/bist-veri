@@ -6,6 +6,9 @@ name: IP8 gunluk sinyal arsivi
 # geldigine gore ayarlanmali (asagidaki "30 16 * * 1-5" ~19:30 TRT'dir,
 # UTC+3 fark alinarak; TRT saatiniz degisirse cron'u guncelleyin).
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [ip8_arsiv_tetikle]
   schedule:
     - cron: "30 16 * * 1-5"   # Pazartesi-Cuma, 16:30 UTC (~19:30 TRT)
   workflow_dispatch: {}        # elle de calistirilabilsin diye
