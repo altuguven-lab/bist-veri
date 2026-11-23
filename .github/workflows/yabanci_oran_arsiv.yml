@@ -2,6 +2,9 @@
 # Ilk doldurma ~1.400 rapor (2 calisma). Sonra her is gunu 10:20 TR (07:20 UTC) yeni raporu ekler.
 name: Yabanci Oran Arsiv
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [yabanci_oran_tetikle]
   schedule:
     - cron: "20 7 * * 1-5"
   workflow_dispatch:
