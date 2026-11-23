@@ -199,10 +199,24 @@ def main():
         # kapanis sonrasi: bugunun gun sonu. Seans oncesi/tatil: onceki islem gunu eksikse kapanisla doldurulur.
         yol = "data/bist_resmi_gecmis.json"
         g = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
+        okuma_tr = tr.strftime("%Y-%m-%d %H:%M")
         if seans == "kapanis_sonrasi" or vt not in g:
             g[vt] = {k: {"son": v["son"], "degisim_yuzde": v["degisim_yuzde"] if seans == "kapanis_sonrasi" else None,
-                         "hacim_tl": v.get("hacim_tl"), "kaynak_okuma": seans} for k, v in endeks.items()}
-            json.dump(dict(sorted(g.items())[-800:]), open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+                         "hacim_tl": v.get("hacim_tl"), "kaynak_okuma": seans, "okuma_tr": okuma_tr} for k, v in endeks.items()}
+        else:
+            # 23.11 (paket55, kurul 21.11): 18:20 okumasi kesin kapanis olmayabiliyor (20.11: 18:21'de 11.122,32,
+            # sonraki okumada 11.131,32). Hafta sonu / seans oncesi okumasi ayni veri gununu farkli bir degerle
+            # gosteriyorsa kayit kesin degerle duzeltilir; eski deger 'ilk_okuma' alaninda saklanir.
+            for k, v in endeks.items():
+                e = g[vt].get(k)
+                if e is None or v.get("son") is None or abs((e.get("son") or 0) - v["son"]) < 1e-6:
+                    continue
+                g[vt][k] = {"son": v["son"],
+                            "degisim_yuzde": v["degisim_yuzde"] if seans != "seans_oncesi" else e.get("degisim_yuzde"),
+                            "hacim_tl": v.get("hacim_tl") or e.get("hacim_tl"), "kaynak_okuma": seans + "_duzeltme",
+                            "okuma_tr": okuma_tr, "ilk_okuma": {"son": e.get("son"), "degisim_yuzde": e.get("degisim_yuzde"),
+                                                                "okuma_tr": e.get("okuma_tr")}}
+        json.dump(dict(sorted(g.items())[-800:]), open(yol, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"durum {durum}; endeksler {list(endeks)}; json adresleri {len(ag)}")
     return 0 if durum != "ERISILEMEDI" else 1
 
