@@ -1,38 +1,64 @@
 {
-  "son_guncelleme_utc": "2026-11-20T15:12:27.021Z",
-  "kaynak": "TradingView Webhook (Cloudflare uzerinden)",
-  "sinyal_sayisi": 200,
+  "son_guncelleme_utc": "2026-11-23T07:00:16.378Z",
+  "kaynak": "TradingView Webhook (Pipedream uzerinden)",
+  "sinyal_sayisi": 201,
   "ay_sayac": {
     "ay": "2026-11",
-    "adet": 1598
+    "adet": 1599
   },
   "son_sinyal": {
-    "zaman_utc": "2026-11-20T15:11:07.438Z",
-    "sembol": "EREGL",
+    "zaman_utc": "2026-11-23T07:00:13.464Z",
+    "sembol": "EKGYO",
     "interval": "15",
-    "fiyat": "30.26",
-    "skor": "10",
-    "kgs": "17",
-    "stop": "30.62",
+    "fiyat": "17.79",
+    "skor": "28.81",
+    "kgs": "13",
+    "stop": "17.57",
     "rejim": "0",
-    "relvol": "1",
-    "v112n": "86",
+    "relvol": "0.59",
+    "v112n": "181",
     "v112wr": "?",
     "p3ozet": "32",
     "pozsebep": "0",
     "schemaVersion": "v163.2",
     "carrierLagBars": "1",
-    "skor0": "10",
-    "kgs0": "12",
-    "relvol0": "1.41",
+    "skor0": "25.6",
+    "kgs0": "66",
+    "relvol0": "2.14",
     "manuel_poz": "0",
     "poz_kaynak": "NONE",
     "karar": "PAS GEC",
-    "faktor": "SECTOR",
-    "sinyal": "GUNLUK_OZET",
-    "eventId": "EREGL|15|GUNLUK_OZET|2026-11-20T15:00:00Z"
+    "faktor": "FLOW",
+    "sinyal": "P4_HAZIRLIK",
+    "eventId": "EKGYO|15|P4_HAZIRLIK|2026-11-23T06:45:00Z"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-11-23T07:00:13.464Z",
+      "sembol": "EKGYO",
+      "interval": "15",
+      "fiyat": "17.79",
+      "skor": "28.81",
+      "kgs": "13",
+      "stop": "17.57",
+      "rejim": "0",
+      "relvol": "0.59",
+      "v112n": "181",
+      "v112wr": "?",
+      "p3ozet": "32",
+      "pozsebep": "0",
+      "schemaVersion": "v163.2",
+      "carrierLagBars": "1",
+      "skor0": "25.6",
+      "kgs0": "66",
+      "relvol0": "2.14",
+      "manuel_poz": "0",
+      "poz_kaynak": "NONE",
+      "karar": "PAS GEC",
+      "faktor": "FLOW",
+      "sinyal": "P4_HAZIRLIK",
+      "eventId": "EKGYO|15|P4_HAZIRLIK|2026-11-23T06:45:00Z"
+    },
     {
       "zaman_utc": "2026-11-20T15:11:07.438Z",
       "sembol": "EREGL",
@@ -5239,9 +5265,5 @@
       "sinyal": "SEKTOR_ROTASYONU",
       "eventId": "AKBNK|15|SEKTOR_ROTASYONU|2026-11-19T09:30:00Z"
     }
-  ],
-  "inbox_kurtarma": {
-    "son_kosu_kurtarilan": 65,
-    "inbox_dosya_sayisi": 66
-  }
+  ]
 }
