@@ -1,6 +1,9 @@
 name: VIOP Hisse Vadeli Özet
 
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [viop_hisse_tetikle]
   push:
     paths:
       - "data/viop_inbox/**"
