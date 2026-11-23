@@ -108,10 +108,16 @@ def main():
         "ozet_yon": yon,
         "ozet_ortalama_yuzde": ort,
     }
-    # gunluk kok: her sabah asya kosarken eski gunun avrupa/amerika verisini temizle
+    # gunluk kok: her sabah asya kosarken ESKI GUNUN avrupa/amerika verisini temizle.
+    # 23.11 (paket55, akşam denetimi 20.11): GitHub zamanlayicisi asya kosusunu ~9 saat geciktirip
+    # aksam calistirdiginda AYNI GUNUN avrupa/amerika verisi de siliniyordu. Artik yalniz kaydin
+    # UTC tarihi bugunden eskiyse silinir.
     if bolum == "asya":
+        bugun = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
         for k in ("avrupa", "amerika"):
-            mevcut.pop(k, None)
+            z = (mevcut.get(k) or {}).get("guncelleme_zamani_utc") or ""
+            if z[:10] < bugun:
+                mevcut.pop(k, None)
 
     os.makedirs("data", exist_ok=True)
     with open(DOSYA, "w", encoding="utf-8") as f:
