@@ -1,6 +1,9 @@
 name: Açığa Satış Topla
 
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [aciga_satis_tetikle]
   schedule:
     - cron: "40 16,18 * * 1-5"   # 19:40 ve 21:40 TR — İnfo bülteni seans sonrası yayımlanır
     - cron: "15 6 * * 2-6"       # sabah yakalama (önceki gün)
