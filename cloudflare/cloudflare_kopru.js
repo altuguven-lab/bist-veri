@@ -20,7 +20,7 @@
 //   Gizli (Secret) : GITHUB_TOKEN  (fine-grained, yalniz altuguven-lab/bist-veri, Contents: Read and write)
 //   Gizli          : WEBHOOK_KEY   (uzun rastgele metin; TradingView adresinde ?k= olarak kullanilir)
 //   Istege bagli   : TELEGRAM_TOKEN, TELEGRAM_CHAT, PIPEDREAM_URL
-//   Cron Triggers  : "*/2 6-15 * * 1-5" ve "30 20 * * 1-5"  (UTC)
+//   Cron Triggers  : "*/2 5-17 * * MON-FRI", "*/10 6-7 * * SAT" ve "30 20 * * MON-FRI"  (UTC; 23.11 paket55)
 // Bu dosyanin aynisi repoda cloudflare_kopru.js olarak yedeklenir. ANAHTARLAR KODDA YOKTUR.
 
 const OWNER = "altuguven-lab";
@@ -269,25 +269,67 @@ export async function aktar(env, simdi = new Date()) {
 // makro_akim_reel 13:15 -> 21:36). Kopru zaten seans saatlerinde 2 dakikada bir calisiyor; belirli UTC dakikalarinda
 // GitHub'a repository_dispatch gonderir. Ayni GITHUB_TOKEN (Contents: Read and write) yeterlidir.
 // Anahtar: "SS:DD" UTC; deger: repository_dispatch event_type listesi. */2 tetigi yalniz CIFT dakikalarda calisir.
+// 23.11 (paket55): GitHub'in kendi zamanlayicisi 6-9 saat geciktigi icin sabah brifingine (09:40 TR) ve
+// aksam kapanisina bagli tum isler buradan tetiklenir. Anahtarlar UTC "SS:DD"; hafta ici 05-17 UTC arasi
+// CIFT dakikalar (cron "*/2 5-17 * * MON-FRI"), Cumartesi 10'un katlari (cron "*/10 6-7 * * SAT").
+// Ayni dakikaya en fazla 3 is konur (depoya es zamanli push carpismasini azaltmak icin).
 export const ZAMANLI = {
-  "05:20": ["kuresel_asya", "arastirma_tetikle", "tcmb_yayin_tetikle"],   // 08:20 TR, sabah brifinginden once (ayri cron)
-  "07:20": ["tcmb_yayin_tetikle"],                                          // 10:20 TR, TCMB 10:00 yayinlari
+  "05:00": ["kap_bildirim_tetikle"],                                        // 08:00 TR
+  "05:20": ["kuresel_asya", "arastirma_tetikle", "tcmb_yayin_tetikle"],   // 08:20 TR, sabah brifinginden once
+  "05:30": ["bilanco_tetikle"],                                             // 08:30 TR
+  "06:00": ["sabah_veri_tetikle"],                                          // 09:00 TR (sektor + VIOP)
+  "06:04": ["risk_saglik_tetikle"],                                         // 09:04 TR, seans oncesi
+  "06:10": ["h6_golge_tetikle"],                                            // 09:10 TR
+  "06:16": ["aciga_satis_tetikle"],                                         // 09:16 TR, onceki gun yakalama
+  "06:20": ["gunluk_gozlem_tetikle", "kopru_sessizlik_tetikle"],            // 09:20 TR
+  "06:24": ["viop_hisse_tetikle"],                                          // 09:24 TR, onceki gun yakalama
+  "07:00": ["tcmb_evds_tetikle"],                                           // 10:00 TR
+  "07:20": ["tcmb_yayin_tetikle", "yabanci_oran_tetikle"],                  // 10:20 TR, TCMB 10:00 yayinlari
   "08:16": ["kuresel_avrupa"],                                              // 11:16 TR
   "09:50": ["arastirma_tetikle"],                                           // 12:50 TR, ogle brifinginden once
+  "10:18": ["tv_arsiv_tetikle"],                                            // 13:18 TR
+  "11:36": ["risk_saglik_tetikle"],                                         // 14:36 TR
   "11:50": ["tcmb_yayin_tetikle"],                                          // 14:50 TR, TCMB 14:30 yayinlari
   "13:16": ["makro_tetikle"],                                               // 16:16 TR, EVDS
   "13:40": ["kuresel_amerika"],                                             // 16:40 TR, ABD acilisi sonrasi
   "14:20": ["tcmb_yayin_tetikle"],                                          // 17:20 TR
-  "15:20": ["bist_resmi_tetikle"],                                          // 18:20 TR, kapanis sonrasi
+  "15:20": ["bist_resmi_tetikle", "seans_kapanisi_tetikle"],                // 18:20 TR, kapanis sonrasi (ilk okuma)
+  "15:26": ["dusuk_teyit_tetikle"],                                         // 18:26 TR
+  "15:30": ["kopru_sessizlik_tetikle"],                                     // 18:30 TR
+  "15:44": ["risk_saglik_tetikle"],                                         // 18:44 TR, ertesi gunun gun-basi referansi
   "15:50": ["arastirma_tetikle"],                                           // 18:50 TR
+  "16:18": ["tv_arsiv_tetikle"],                                            // 19:18 TR
+  "16:20": ["veri_arsivi_tetikle"],                                         // 19:20 TR
+  "16:30": ["bist_resmi_tetikle", "ip8_arsiv_tetikle"],                     // 19:30 TR, kesinlesmis kapanis
+  "16:32": ["sqz_tetikle"],                                                 // 19:32 TR
+  "16:34": ["viop_hisse_tetikle"],                                          // 19:34 TR
+  "16:40": ["alarm_karne_tetikle"],                                         // 19:40 TR
+  "16:42": ["aciga_satis_tetikle"],                                         // 19:42 TR
+  "16:50": ["kopru_sessizlik_tetikle"],                                     // 19:50 TR
+  "17:10": ["h5_filtre_tetikle"],                                           // 20:10 TR
+  "17:30": ["konsensus_tetikle"],                                           // 20:30 TR
+};
+// Yalniz Cuma (hafta ici tablosuna EK)
+export const ZAMANLI_CUMA = {
+  "15:22": ["hafta_kapanisi_tetikle"],                                      // 18:22 TR
+  "17:32": ["schumpeter_tetikle"],                                          // 20:32 TR
+};
+// Cumartesi (Cuma verisinin Yahoo gecikmesiyle tamamlanmasi)
+export const ZAMANLI_CMT = {
+  "06:20": ["aciga_satis_tetikle", "kopru_sessizlik_tetikle"],              // 09:20 TR
+  "06:40": ["viop_hisse_tetikle"],                                          // 09:40 TR
+  "07:20": ["veri_arsivi_tetikle"],                                         // 10:20 TR
+  "07:40": ["alarm_karne_tetikle"],                                         // 10:40 TR
+  "07:50": ["piyasa_dongusu_tetikle"],                                      // 10:50 TR
 };
 
 export function zamanliOlaylar(zamanMs) {
   const d = new Date(zamanMs);
   const g = d.getUTCDay();                       // 0 Pazar ... 6 Cumartesi
-  if (g === 0 || g === 6) return [];
   const anahtar = `${String(d.getUTCHours()).padStart(2, "0")}:${String(d.getUTCMinutes()).padStart(2, "0")}`;
-  return ZAMANLI[anahtar] || [];
+  if (g === 0) return [];
+  if (g === 6) return ZAMANLI_CMT[anahtar] || [];
+  return [...(ZAMANLI[anahtar] || []), ...(g === 5 ? (ZAMANLI_CUMA[anahtar] || []) : [])];
 }
 
 export async function zamanliTetik(env, zamanMs) {
