@@ -1,6 +1,9 @@
 # TV SINYAL ARSIVI - latest'teki sinyalleri aylik arsive tekil ekler (veri kaybini onler). SALT VERI KORUMA.
 name: TV Arsiv Birlestir
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [tv_arsiv_tetikle]
   schedule:
     - cron: "17 10,16,20 * * 1-5"   # 13:17, 19:17, 23:17 TSI
   workflow_dispatch:
