@@ -9,6 +9,9 @@
 # Tek cron: 15:20 UTC (en erken olan saat korundu).
 name: Seans Kapanisi Paketi
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [seans_kapanisi_tetikle]
   schedule:
     - cron: "20 15 * * 1-5"
   workflow_dispatch: {}
