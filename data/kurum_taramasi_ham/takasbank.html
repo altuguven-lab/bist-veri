@@ -6,97 +6,187 @@
 <head>
     <meta charset="utf-8">
     <!-- SEO için Title ve description yer değiştirildi -->
-    <meta name="title" content="BISTECH Risk Parametreleri" />
-    <meta name="description" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
-
-Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
-
-VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
-
- 
-
-1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
-
-2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
-
-3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
-
-4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
-
-5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
-
- 
-
-Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+    <meta name="title" content="Takasbank" />
+    <meta name="description" content="
 
 
-	SPAN Parametre Dosyaları
-	BISTECH Risk Parametre Dosyaları
-	BISTECH Risk Parametre Tablosu 
 
+İstanbul Takas ve Saklama Bankası A.Ş. (Takasbank) ana sözleşmesi uyarınca Bankanın temel amacı, ilgili mevzuat çerçevesinde takas ve saklama hizmetleri vermek, finansal hizmetleri ve her türlü iktisadi faaliyeti gerçekleştirmek suretiyle ülkemiz piyasalarının rekabet gücünü artırmaktır. Banka bu amacına ulaşmak üzere, sermaye piyasası mevzuatının ve Bankacılık Kanunu’nun kendisine izin verdiği ve imkân tanıdığı tüm faaliyetlerde bulunabilir. Takasbank temel olarak, sahip olduğu ‘merkezi takas’ ve ‘bankacılık’ lisansları ile Türk sermaye piyasalarında, üyelerine, takas, merkezi karşı taraf ve bankacılık hizmetleri sunmaktadır.
+
+Takasbank, Borsa İstanbul bünyesinde mevcut piyasalarda gerçekleşen; pay, borçlanma araçları, yurt dışı sermaye piyasası araçları, türev araçlar ve kıymetli madenler ile ilgili işlemlerin nakit ve menkul kıymet takasını sonuçlandırmak üzere yetkilendirilmiş merkezi takas kuruluşudur. Borsa İstanbul üyelerinin alım satım işlemlerinden doğan menkul kıymet teslim etme ve teslim alma taahhütleri ile alım satıma konu olan menkul kıymet karşılığındaki ödeme taahhütleri Takasbank aracılığıyla hesaben sonuçlandırılmaktadır.
+
+Güvenilir, hızlı ve düşük maliyetli nakit transferi hizmeti sağlayarak para ve sermaye piyasaları arasında köprü görevi üstlenen Takasbank, sermaye piyasası ve Borsa İstanbul mevzuatı çerçevesinde Borsa İstanbul bünyesinde faaliyet gösteren piyasalar için tam otomasyon ortamında organize piyasalar ile on-line bağlantılı olarak takas hizmetleri sunmaktadır.
+
+Takasbank, yıllar içerisinde, bankacılık ürün yelpazesini nakit ve gayri-nakit kredi imkanlarını içeren ve takasın sonlandırılmasını desteklemeyi amaçlayan enstrümanlarla genişletmiştir. Sunduğu nakit kredi imkanlarının yanı sıra, işlettiği Takasbank Para Piyasası (TPP), Türkiye Elektronik Fon Alım Satım Platformu (TEFAS) ve Ödünç Pay Piyasası (ÖPP) gibi nakdi ve gayri nakdi kredi imkanları ile desteklenen bankacılık faaliyetleriyle Türk sermaye piyasalarının takas işlemlerini; riskleri en aza indirgeyerek, ilgili para ve sermaye piyasasına likidite sağlayarak ve takasın hatasız ve zamanında sonlandırılmasını amaçlayarak gerçekleştirmektedir.
+
+Böylelikle, sadece nakit ve menkul kıymet transfer işlemlerinde etkinlik sağlamakla kalmamakta, aynı zamanda takas yükümlülüklerinin valör tarihinde güvenli ve zamanında ödenmesini de sağlamaktadır.
+
+Takasbank ayrıca, Ticaret Bakanlığının onayıyla pamuk, buğday, arpa, fasulye, mercimek, mısır, yulaf, zeytin ve çeltiğe dayalı elektronik ürün senetlerinin (ELÜS) işlem göreceği spot bir platform için ürün senedi tanımlaması, ISIN kodu üretilmesi ve ELÜS’lerin şartlı virman sistemi üzerinden takas işlemlerinin gerçekleştirilmesi hizmetlerini vermektedir.
+
+Enerji piyasasındaki liberalleşme çerçevesinde faaliyete geçirilen Elektrik Piyasası’nda teminat mekanizmasının işletilmesi ve ödemelerin zamanında ve doğru bir şekilde gerçekleştirilerek, piyasadaki nakit akışının sürekli bir şekilde sağlanması amacına yönelik olarak piyasa işletmecisi ile piyasa katılımcıları tarafından kullanılacak olan merkezi uzlaştırma bankası olarak Takasbank görevlendirilmiştir. Bu çerçevede, 01/12/2011 tarihinden itibaren Elektrik Piyasası nakit takas ve teminat yönetimi hizmeti Bankamız tarafından verilmektedir.
+
+Türkiye’nin Milli Enerji ve Maden Politikası doğrultusunda ülkemizin bölgesel enerji ticaret merkezi olma hedefi ile faaliyete geçen ve Doğalgaz Piyasalarında referans fiyat oluşumu ile iletim sistemindeki günlük dengesizlik miktarlarının azalmasını amaçlayan Enerji Piyasaları İşletme A.Ş. bünyesindeki Organize Toptan Doğal Gaz Satış Piyasası’na Bankamız 01/09/2018 tarihinden itibaren Merkezi Uzlaştırma Kuruluşu olarak nakit takas ve teminat yönetimi hizmetini vermektedir.
+
+Takasbank'ın varoluş amaçlarından biri de etkin bir merkezi teminat ve risk yönetim sistemi geliştirerek, piyasalardaki karşı taraf kredi riskinin ve sistemik riskin yönetimine, sermaye piyasalarının risk yönetim altyapısının güçlendirilmesine ve piyasada aracılık maliyetlerinin azaltılmasına katkı sağlamaktır. Takasbank, 30/12/2012 tarihinde yürürlüğe giren 6362 sayılı yeni Sermaye Piyasası Kanunu ile sağlanan hukuki zemini kullanarak 02/09/2013 tarihinden itibaren kendi nezdinde işlettiği Ödünç Pay Piyasası’nda (ÖPP), Borsa İstanbul A.Ş. nezdinde işletilen piyasalar olan Vadeli İşlem ve Opsiyon Piyasası’nda (VİOP) 03/03/2014 tarihinden itibaren,  Para Piyasası’nda (BİAŞ PP) 14/10/2016 tarihinden itibaren, Pay Piyasası’nda (BİAŞ Pay) 19/06/2017 tarihinden itibaren, Borçlanma Araçları Piyasası’nda (BİAŞ BAP) 02/07/2018 tarihinden itibaren ve SWAP Piyasasında 01/10/2018, Tezgah Üstü Türev Araçlar Piyasası'nda da 19/12/2019 tarihinden itibaren “Merkezi Karşı Taraf” sıfatıyla her alıcıya karşı “satıcı” her satıcıya karşı da “alıcı” rolünü üstlenmekte ve piyasalarda eşleşen talep/teklif veya alım/satım emirleri ile ilgili takas yükümlülüklerinin yerine getirilmesini taahhüt etmektedir.
+
+Takasbank, 23 Mart 2016 tarihinde SPK tarafından CPMI-IOSCO Finansal Piyasa Altyapılarına İlişkin Temel Prensiplere uyum sağlayan nitelikli MKT kuruluşu (Qalified CCP) olarak tanınmıştır. Akabinde de Takasbank Ağustos 2016 tarihinde AB düzenleyici otoritesi olan ESMA'ya üçüncü ülke MKT kuruluşu (third country CCP) olarak tanınmak için başvuruda bulunmuştur.
+
+Piyasa katılımcılarına sınır ötesi hizmetler de sunan Takasbank, sahip olduğu uluslararası takas kurumu kimliği ile Türkiye’yi global organizasyonlarda da temsil etmektedir. Banka'nın uluslararası piyasalarda tercih edilen bir kurum olma vizyonu doğrultusunda, teknolojik alt yapının geliştirilmesi amacı ile birçok projede çalışmalar sürdürülmektedir.
+
+İstanbul Finans Merkezi (İFM) Stratejisi ve Eylem Planı'nın 17 No.lu “uluslararası ödeme sistemleri ve takas sistemleri ile entegrasyon” eyleminde Takasbank, TCMB ile birlikte ''sorumlu kuruluş'' olarak belirlenmiş olup; uluslararası takas sistemleriyle entegrasyon kapsamında yurt dışındaki yerleşiklere yurt içi ve uluslararası piyasalarda, yurt içindeki yerleşiklere ise uluslararası piyasalarda verilecek hizmetlerin geliştirilmesi çalışmalarını yürütmektedir. Bu kapsamda; Euroclear’a ilave olarak diğer yerel ve uluslararası takas ve saklama kuruluşlarıyla bağlantı kurulması, yurt dışında yerleşiklere gerek yurt içinde gerekse diğer uluslararası piyasalarda takas ve saklama hizmeti verilmesi amacıyla işlem sonrası altyapı kuruluşlarıyla ilişkilerin geliştirilmesi, hesap altyapısının oluşturulması ve Takasbank altyapısında otomasyon sağlanması amaçlanmaktadır.
+
+Takasbank mevcut yurt dışı saklama ağı ile dünya çapında 65’in üzerinde piyasada işlem gören yabancı kıymetlere erişim sağlamaktadır.  Bu hizmet kapsamında Takasbank, yurt dışında uluslararası takas saklama kuruluşları (Euroclear ve Clearstream) ya da global saklama kuruluşları (Citibank) nezdindeki hesapları aracılığı ile söz konusu sermaye piyasası araçlarının saklanmasını sağlamaktadır.
+
+Takasbank uluslararası takas ve saklama işlemlerinde etkinliğini artırmak için Borsa İstanbul’un yürüttüğü yurt dışında yerleşik borsaların işlem platformları ile Borsa İstanbul arasında bağlantı kurulması projesi çerçevesinde, ilgili ülke takas ve saklama kuruluşları ile karşılıklı olarak, işlem sonrası hizmetler için gerekli hesap altyapılarını oluşturmaktadır.
+
+Ulusal numaralandırma kuruluşu olarak 1995 yılından bu yana ANNA​’nın üyesi olan Takasbank, ülkemizde hisse senetleri, devlet tahvili, yatırım/borsa/emeklilik fonları, özel borçlanma araçları, her nevi sertifikalara, vadeli işlem ve opsiyon sözleşmeleri, endeksler, emtialar, elektronik ürün senetleri (ELÜS) ve diğer menkul kıymet ve finansal enstrümanlar için ISIN kodu (ISO 6166) tahsis etmektedir. Numaralandırma hizmeti kapsamında, fiziki dokümanların ortadan kaldırılması, teknolojik altyapının entegrasyonun sağlanması ve raporlama sürecinin hızlandırılması amacıyla 2022 yılında Takasbank ISIN Portalı devreye alınmıştır.
+
+SPK’nın gözetim ve denetim fonksiyonunu destekleyen ve güçlendiren bir hizmet olarak Bankamız; Kolektif Yatırım Kuruluşları ve Bireysel Emeklilik Fonlarının varlıklarına ilişkin değerleme, kontrol, mutabakat ve SPK’ya raporlama hizmeti de sunmaktadır.
+
+24/07/2014 tarihinde Sermaye Piyasası Kurulu tarafından portföy saklayıcı kurum olarak yetkilendirilen Bankamızca; menkul kıymet yatırım fonları, menkul kıymet yatırım ortaklıkları, borsa yatırım fonları, gayrimenkul yatırım fonları ve girişim sermayesi yatırım fonlarına portföy saklama hizmeti verilmektedir.
+
+Bankamız ayrıca, 5746 Sayılı Kanun kapsamında Türkiye Cumhuriyeti Bilim Sanayi ve Teknoloji Bakanlığı’nın onayı ile 21 Nisan 2017 tarihinde yerinde AR-GE Merkezi olmuştur. 
+
+9 Haziran 2018 Tarih ve 30446 Sayılı Resmî Gazete’de yayımlanan “Çek Takas Faaliyetleri Hakkında Yönetmelik (Yönetmelik)” ile Takasbank, 2 Temmuz 2018 tarihinden itibaren geçerli olmak üzere çek takası faaliyetlerinin yürütüleceği Kuruluş olarak kabul edilmiştir. Takasbank Çek Takas Sistemi ile Takas ve İade Dağıtım İşlemleri, Mutabakat ve Garanti Mekanizması Katkı Payı İşlemleri tek bir merkezden yürütülmeye başlanmıştır.
+
+16 Temmuz 2018 tarihi itibarıyla, altının ekonomideki mobilitesinin artırılması, yastık altındaki altının ekonomiye kazandırılması ve altını bir tasarruf aracı olmaktan çıkartıp bir ödeme aracı olarak kullanılmasına imkân tanıyan “KİŞİDEN KİŞİYE” Altın Transfer Sistemi, sistem üyesi bankalara ve müşterilerine hizmet vermeye başlamıştır. Sistem sayesinde, altınlar EFT hızında transfer imkanına kavuşmuş, İstanbul Uluslararası Finans Merkezi Projesi’nin en önemli bileşenlerinden biri olan Altın Transfer Sistemi, Ülkemizde İslami Finansın gelişmesinde ve Ülkemizin “global ölçekte bir altın merkezi olma” hedefinde kilometre taşı olmuştur.
+
+30 Aralık 2019 tarihinde, Blokzincir Tabanlı Transfer Platformu ''BiGA-Dijital Altın'' ile uygulamaya alınmıştır. Dijital varlıkların blokzincir teknolojisi kullanılarak transfer edilmesine imkân sağlayan bir platform oluşturulmuştur. Platform üzerinde işlem görecek olan varlık, karşılığı Borsa İstanbul kasalarında veya Borsa İstanbul ile İstanbul Takas ve Saklama Bankası A.Ş.’nin birlikte uygun gördüğü saklamacıya ait saklama kasalarında fiziksel olarak saklanan her bir gram altının karşılığı olarak üretilen ve “BiGA” olarak isimlendirilen dijital değerdir. Kaydi altınların dijitalize edilerek BiGA’ya dönüştürülmesi ve BiGA’dan kaydi altına çevrilmesi işlemleri mümkün kılınmıştır. Bu sayede uçtan uca fiziki varlık ile dijitalize edilmiş varlık arasında bütün bir yapı kurulmuştur. Geliştirilen blokzincir altyapısıyla, dijital varlıkların transferi, mutabakatı, raporlanması sağlanmıştır. Bu altyapıyla, diğer değerli varlıkların da dijitalleştirilerek transferine izin veren, modüler bir yapıda tasarlanmış, dijital varlık için ihraç, itfa ve transfer olmak üzere 3 ana kabiliyet sunulmaktadır.
+
+Takasbank, Sermaye Piyasası Kurulu’nun 03/10/2019 tarihli ‘Paya Dayalı Kitle Fonlaması Tebliği’ ve Borçlanmaya Dayalı Kitle Fonlaması hükümlerini de dâhil ettiği 27/10/2021 tarihli ‘Kitle Fonlaması Tebliği’ ile kitle fonlama platformları aracılığıyla toplanan fonun, girişim şirketine aktarılana veya yatırımcılara iade edilene kadar bloke edileceği “emanet yetkilisi” olarak kitle fonlama platformlarına ve Bankalararası Kart Merkezi (BKM)’nin; hâlihazırda işlettiği Yurtiçi Takas ve Hesaplaşma (YTH) Sistemi için, kurdukları teminat yönetimi mekanizması kapsamında 30/01/2020 tarihi itibarıyla teminat saklama hizmeti vermeye başlamıştır.
+
+Bankamız, 2015 yılında Tapu ve Kadastro Genel Müdürlüğü ile entegre olarak işlettiği gayrimenkulün mülkiyet hakkı ile satış bedelinin eş anlı el değiştirmesini sağlayan Tapu Takas Sistemi’ni devreye almıştır. Sistemin e-Devlet entegrasyonu, T.C. Hazine ve Maliye Bakanlığı, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Türkiye Cumhuriyeti Dijital Dönüşüm Ofisi, Tapu ve Kadastro Genel Müdürlüğü ve Türksat A.Ş. katkılarıyla 2022 yılının Aralık ayında tamamlanmıştır. Tapu Takas Sistemi ile edinilen bilgi ve deneyim, taşıt alım satımında sıkça yaşanan dolandırıcılık ve hırsızlık olaylarını önlemek amacıyla T.C. Ticaret Bakanlığı ile Türkiye Noterler Birliği arasında yürütülen ortak çalışmaların ürünü olan Güvenli Ödeme Sistemi’ndeki ilk emanet kuruluşu olarak Takasbank Taşıt Takas Sistemi’nin hayata geçmesine katkı sağlamış ve Taşıt Takas Sistemi 3 Şubat 2020 tarihi itibarıyla halkımızın hizmetine sunulmuştur. 2023 yılında Taşıt Takas Sistemi’nin e-Devlet entegrasyonunun tamamlanması ile birlikte hizmet sunulan kanal sayısı artırılmış olup daha geniş kitlelere erişim imkânı sunulmuştur.
+
+Takasbank, EPİAŞ bünyesinde 1 Haziran 2021 tarihinde işletilmeye başlayan Vadeli Elektrik Piyasası (VEP) ile EPİAŞ Yenilenebilir Enerji Kaynak Garanti (YEK-G) Piyasası’nda ve 1 Ekim 2021 tarihinde işletilmeye başlayan Vadeli Doğal Gaz Piyasası (VGP)’nda gerçekleşen işlemlere Merkezi Uzlaştırma Kuruluşu olarak hizmet vermektedir.
+
+Bankamız, Bireysel Emeklilik Sistemi’nde yer alan emeklilik yatırım fonları katılma belgelerinin, Platform’a üye diğer emeklilik şirketlerinin katılımcılarına satılmasına, geri alınmasına ve bu işlemlerin takasının ve saklamasının Takasbank sistemi üzerinden gerçekleştirilmesine imkân sağlayan elektronik bir platform olan Bireysel Emeklilik Fon Alım Satım Platformu'nu 2021 yılında hizmete sunmuştur.
+
+01/09/2021 tarihi itibarıyla, 4734 sayılı Kamu İhale Kanunu kapsamındaki ihalelere sunulmak üzere düzenlenen geçici elektronik teminat mektuplarının idareler adına; kabulü, saklanması, tazmin edilmesi (gelir kaydedilmesi), iadesi, vade uzatımı ve raporlama süreçlerini kapsayan “Kamu Teminat Yönetimi Hizmeti” Takasbank tarafından verilmeye başlanmış olup 03/01/2022 tarihi itibarıyla geçici elektronik kefalet senetleri de sürece dahil edilmiştir. 22/01/2024 tarihi itibarıyla ise 4735 sayılı Kamu İhale Sözleşmeleri Kanunu kapsamında düzenlenen kesin elektronik teminat mektupları/kefalet senetlerine ilişkin süreçler de hizmet kapsamına dahil edilmiş olup T.C. Hazine ve Maliye Bakanlığı Muhasebat Genel Müdürlüğü ile kurulan entegrasyon ile merkezi yönetim kapsamındaki idarelere ait kesin teminatlar Muhasebat Genel Müdürlüğü'ne iletilmeye başlanmıştır.
+
+Takasbank, sözü edilen projeler ve yürütülen kapsamlı çalışmalar ile hem İFM Projesi'ne aktif olarak destek vermekte hem de yurt içi ve yurt dışı piyasalardaki konumunu güçlendirerek uluslararası takas ve saklama kuruluşları arasında örnek alınan bir kurum olma hedefine ulaşmayı amaçlamaktadır. 
 " />
     <meta name="image" content="https://www.takasbank.com.tr" />
 
-    <meta property="og:description" content="BISTECH Risk Parametreleri" />
-    <meta property="og:title" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
-
-Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
-
-VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
-
- 
-
-1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
-
-2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
-
-3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
-
-4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
-
-5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
-
- 
-
-Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+    <meta property="og:description" content="Takasbank" />
+    <meta property="og:title" content="
 
 
-	SPAN Parametre Dosyaları
-	BISTECH Risk Parametre Dosyaları
-	BISTECH Risk Parametre Tablosu 
 
+İstanbul Takas ve Saklama Bankası A.Ş. (Takasbank) ana sözleşmesi uyarınca Bankanın temel amacı, ilgili mevzuat çerçevesinde takas ve saklama hizmetleri vermek, finansal hizmetleri ve her türlü iktisadi faaliyeti gerçekleştirmek suretiyle ülkemiz piyasalarının rekabet gücünü artırmaktır. Banka bu amacına ulaşmak üzere, sermaye piyasası mevzuatının ve Bankacılık Kanunu’nun kendisine izin verdiği ve imkân tanıdığı tüm faaliyetlerde bulunabilir. Takasbank temel olarak, sahip olduğu ‘merkezi takas’ ve ‘bankacılık’ lisansları ile Türk sermaye piyasalarında, üyelerine, takas, merkezi karşı taraf ve bankacılık hizmetleri sunmaktadır.
+
+Takasbank, Borsa İstanbul bünyesinde mevcut piyasalarda gerçekleşen; pay, borçlanma araçları, yurt dışı sermaye piyasası araçları, türev araçlar ve kıymetli madenler ile ilgili işlemlerin nakit ve menkul kıymet takasını sonuçlandırmak üzere yetkilendirilmiş merkezi takas kuruluşudur. Borsa İstanbul üyelerinin alım satım işlemlerinden doğan menkul kıymet teslim etme ve teslim alma taahhütleri ile alım satıma konu olan menkul kıymet karşılığındaki ödeme taahhütleri Takasbank aracılığıyla hesaben sonuçlandırılmaktadır.
+
+Güvenilir, hızlı ve düşük maliyetli nakit transferi hizmeti sağlayarak para ve sermaye piyasaları arasında köprü görevi üstlenen Takasbank, sermaye piyasası ve Borsa İstanbul mevzuatı çerçevesinde Borsa İstanbul bünyesinde faaliyet gösteren piyasalar için tam otomasyon ortamında organize piyasalar ile on-line bağlantılı olarak takas hizmetleri sunmaktadır.
+
+Takasbank, yıllar içerisinde, bankacılık ürün yelpazesini nakit ve gayri-nakit kredi imkanlarını içeren ve takasın sonlandırılmasını desteklemeyi amaçlayan enstrümanlarla genişletmiştir. Sunduğu nakit kredi imkanlarının yanı sıra, işlettiği Takasbank Para Piyasası (TPP), Türkiye Elektronik Fon Alım Satım Platformu (TEFAS) ve Ödünç Pay Piyasası (ÖPP) gibi nakdi ve gayri nakdi kredi imkanları ile desteklenen bankacılık faaliyetleriyle Türk sermaye piyasalarının takas işlemlerini; riskleri en aza indirgeyerek, ilgili para ve sermaye piyasasına likidite sağlayarak ve takasın hatasız ve zamanında sonlandırılmasını amaçlayarak gerçekleştirmektedir.
+
+Böylelikle, sadece nakit ve menkul kıymet transfer işlemlerinde etkinlik sağlamakla kalmamakta, aynı zamanda takas yükümlülüklerinin valör tarihinde güvenli ve zamanında ödenmesini de sağlamaktadır.
+
+Takasbank ayrıca, Ticaret Bakanlığının onayıyla pamuk, buğday, arpa, fasulye, mercimek, mısır, yulaf, zeytin ve çeltiğe dayalı elektronik ürün senetlerinin (ELÜS) işlem göreceği spot bir platform için ürün senedi tanımlaması, ISIN kodu üretilmesi ve ELÜS’lerin şartlı virman sistemi üzerinden takas işlemlerinin gerçekleştirilmesi hizmetlerini vermektedir.
+
+Enerji piyasasındaki liberalleşme çerçevesinde faaliyete geçirilen Elektrik Piyasası’nda teminat mekanizmasının işletilmesi ve ödemelerin zamanında ve doğru bir şekilde gerçekleştirilerek, piyasadaki nakit akışının sürekli bir şekilde sağlanması amacına yönelik olarak piyasa işletmecisi ile piyasa katılımcıları tarafından kullanılacak olan merkezi uzlaştırma bankası olarak Takasbank görevlendirilmiştir. Bu çerçevede, 01/12/2011 tarihinden itibaren Elektrik Piyasası nakit takas ve teminat yönetimi hizmeti Bankamız tarafından verilmektedir.
+
+Türkiye’nin Milli Enerji ve Maden Politikası doğrultusunda ülkemizin bölgesel enerji ticaret merkezi olma hedefi ile faaliyete geçen ve Doğalgaz Piyasalarında referans fiyat oluşumu ile iletim sistemindeki günlük dengesizlik miktarlarının azalmasını amaçlayan Enerji Piyasaları İşletme A.Ş. bünyesindeki Organize Toptan Doğal Gaz Satış Piyasası’na Bankamız 01/09/2018 tarihinden itibaren Merkezi Uzlaştırma Kuruluşu olarak nakit takas ve teminat yönetimi hizmetini vermektedir.
+
+Takasbank'ın varoluş amaçlarından biri de etkin bir merkezi teminat ve risk yönetim sistemi geliştirerek, piyasalardaki karşı taraf kredi riskinin ve sistemik riskin yönetimine, sermaye piyasalarının risk yönetim altyapısının güçlendirilmesine ve piyasada aracılık maliyetlerinin azaltılmasına katkı sağlamaktır. Takasbank, 30/12/2012 tarihinde yürürlüğe giren 6362 sayılı yeni Sermaye Piyasası Kanunu ile sağlanan hukuki zemini kullanarak 02/09/2013 tarihinden itibaren kendi nezdinde işlettiği Ödünç Pay Piyasası’nda (ÖPP), Borsa İstanbul A.Ş. nezdinde işletilen piyasalar olan Vadeli İşlem ve Opsiyon Piyasası’nda (VİOP) 03/03/2014 tarihinden itibaren,  Para Piyasası’nda (BİAŞ PP) 14/10/2016 tarihinden itibaren, Pay Piyasası’nda (BİAŞ Pay) 19/06/2017 tarihinden itibaren, Borçlanma Araçları Piyasası’nda (BİAŞ BAP) 02/07/2018 tarihinden itibaren ve SWAP Piyasasında 01/10/2018, Tezgah Üstü Türev Araçlar Piyasası'nda da 19/12/2019 tarihinden itibaren “Merkezi Karşı Taraf” sıfatıyla her alıcıya karşı “satıcı” her satıcıya karşı da “alıcı” rolünü üstlenmekte ve piyasalarda eşleşen talep/teklif veya alım/satım emirleri ile ilgili takas yükümlülüklerinin yerine getirilmesini taahhüt etmektedir.
+
+Takasbank, 23 Mart 2016 tarihinde SPK tarafından CPMI-IOSCO Finansal Piyasa Altyapılarına İlişkin Temel Prensiplere uyum sağlayan nitelikli MKT kuruluşu (Qalified CCP) olarak tanınmıştır. Akabinde de Takasbank Ağustos 2016 tarihinde AB düzenleyici otoritesi olan ESMA'ya üçüncü ülke MKT kuruluşu (third country CCP) olarak tanınmak için başvuruda bulunmuştur.
+
+Piyasa katılımcılarına sınır ötesi hizmetler de sunan Takasbank, sahip olduğu uluslararası takas kurumu kimliği ile Türkiye’yi global organizasyonlarda da temsil etmektedir. Banka'nın uluslararası piyasalarda tercih edilen bir kurum olma vizyonu doğrultusunda, teknolojik alt yapının geliştirilmesi amacı ile birçok projede çalışmalar sürdürülmektedir.
+
+İstanbul Finans Merkezi (İFM) Stratejisi ve Eylem Planı'nın 17 No.lu “uluslararası ödeme sistemleri ve takas sistemleri ile entegrasyon” eyleminde Takasbank, TCMB ile birlikte ''sorumlu kuruluş'' olarak belirlenmiş olup; uluslararası takas sistemleriyle entegrasyon kapsamında yurt dışındaki yerleşiklere yurt içi ve uluslararası piyasalarda, yurt içindeki yerleşiklere ise uluslararası piyasalarda verilecek hizmetlerin geliştirilmesi çalışmalarını yürütmektedir. Bu kapsamda; Euroclear’a ilave olarak diğer yerel ve uluslararası takas ve saklama kuruluşlarıyla bağlantı kurulması, yurt dışında yerleşiklere gerek yurt içinde gerekse diğer uluslararası piyasalarda takas ve saklama hizmeti verilmesi amacıyla işlem sonrası altyapı kuruluşlarıyla ilişkilerin geliştirilmesi, hesap altyapısının oluşturulması ve Takasbank altyapısında otomasyon sağlanması amaçlanmaktadır.
+
+Takasbank mevcut yurt dışı saklama ağı ile dünya çapında 65’in üzerinde piyasada işlem gören yabancı kıymetlere erişim sağlamaktadır.  Bu hizmet kapsamında Takasbank, yurt dışında uluslararası takas saklama kuruluşları (Euroclear ve Clearstream) ya da global saklama kuruluşları (Citibank) nezdindeki hesapları aracılığı ile söz konusu sermaye piyasası araçlarının saklanmasını sağlamaktadır.
+
+Takasbank uluslararası takas ve saklama işlemlerinde etkinliğini artırmak için Borsa İstanbul’un yürüttüğü yurt dışında yerleşik borsaların işlem platformları ile Borsa İstanbul arasında bağlantı kurulması projesi çerçevesinde, ilgili ülke takas ve saklama kuruluşları ile karşılıklı olarak, işlem sonrası hizmetler için gerekli hesap altyapılarını oluşturmaktadır.
+
+Ulusal numaralandırma kuruluşu olarak 1995 yılından bu yana ANNA​’nın üyesi olan Takasbank, ülkemizde hisse senetleri, devlet tahvili, yatırım/borsa/emeklilik fonları, özel borçlanma araçları, her nevi sertifikalara, vadeli işlem ve opsiyon sözleşmeleri, endeksler, emtialar, elektronik ürün senetleri (ELÜS) ve diğer menkul kıymet ve finansal enstrümanlar için ISIN kodu (ISO 6166) tahsis etmektedir. Numaralandırma hizmeti kapsamında, fiziki dokümanların ortadan kaldırılması, teknolojik altyapının entegrasyonun sağlanması ve raporlama sürecinin hızlandırılması amacıyla 2022 yılında Takasbank ISIN Portalı devreye alınmıştır.
+
+SPK’nın gözetim ve denetim fonksiyonunu destekleyen ve güçlendiren bir hizmet olarak Bankamız; Kolektif Yatırım Kuruluşları ve Bireysel Emeklilik Fonlarının varlıklarına ilişkin değerleme, kontrol, mutabakat ve SPK’ya raporlama hizmeti de sunmaktadır.
+
+24/07/2014 tarihinde Sermaye Piyasası Kurulu tarafından portföy saklayıcı kurum olarak yetkilendirilen Bankamızca; menkul kıymet yatırım fonları, menkul kıymet yatırım ortaklıkları, borsa yatırım fonları, gayrimenkul yatırım fonları ve girişim sermayesi yatırım fonlarına portföy saklama hizmeti verilmektedir.
+
+Bankamız ayrıca, 5746 Sayılı Kanun kapsamında Türkiye Cumhuriyeti Bilim Sanayi ve Teknoloji Bakanlığı’nın onayı ile 21 Nisan 2017 tarihinde yerinde AR-GE Merkezi olmuştur. 
+
+9 Haziran 2018 Tarih ve 30446 Sayılı Resmî Gazete’de yayımlanan “Çek Takas Faaliyetleri Hakkında Yönetmelik (Yönetmelik)” ile Takasbank, 2 Temmuz 2018 tarihinden itibaren geçerli olmak üzere çek takası faaliyetlerinin yürütüleceği Kuruluş olarak kabul edilmiştir. Takasbank Çek Takas Sistemi ile Takas ve İade Dağıtım İşlemleri, Mutabakat ve Garanti Mekanizması Katkı Payı İşlemleri tek bir merkezden yürütülmeye başlanmıştır.
+
+16 Temmuz 2018 tarihi itibarıyla, altının ekonomideki mobilitesinin artırılması, yastık altındaki altının ekonomiye kazandırılması ve altını bir tasarruf aracı olmaktan çıkartıp bir ödeme aracı olarak kullanılmasına imkân tanıyan “KİŞİDEN KİŞİYE” Altın Transfer Sistemi, sistem üyesi bankalara ve müşterilerine hizmet vermeye başlamıştır. Sistem sayesinde, altınlar EFT hızında transfer imkanına kavuşmuş, İstanbul Uluslararası Finans Merkezi Projesi’nin en önemli bileşenlerinden biri olan Altın Transfer Sistemi, Ülkemizde İslami Finansın gelişmesinde ve Ülkemizin “global ölçekte bir altın merkezi olma” hedefinde kilometre taşı olmuştur.
+
+30 Aralık 2019 tarihinde, Blokzincir Tabanlı Transfer Platformu ''BiGA-Dijital Altın'' ile uygulamaya alınmıştır. Dijital varlıkların blokzincir teknolojisi kullanılarak transfer edilmesine imkân sağlayan bir platform oluşturulmuştur. Platform üzerinde işlem görecek olan varlık, karşılığı Borsa İstanbul kasalarında veya Borsa İstanbul ile İstanbul Takas ve Saklama Bankası A.Ş.’nin birlikte uygun gördüğü saklamacıya ait saklama kasalarında fiziksel olarak saklanan her bir gram altının karşılığı olarak üretilen ve “BiGA” olarak isimlendirilen dijital değerdir. Kaydi altınların dijitalize edilerek BiGA’ya dönüştürülmesi ve BiGA’dan kaydi altına çevrilmesi işlemleri mümkün kılınmıştır. Bu sayede uçtan uca fiziki varlık ile dijitalize edilmiş varlık arasında bütün bir yapı kurulmuştur. Geliştirilen blokzincir altyapısıyla, dijital varlıkların transferi, mutabakatı, raporlanması sağlanmıştır. Bu altyapıyla, diğer değerli varlıkların da dijitalleştirilerek transferine izin veren, modüler bir yapıda tasarlanmış, dijital varlık için ihraç, itfa ve transfer olmak üzere 3 ana kabiliyet sunulmaktadır.
+
+Takasbank, Sermaye Piyasası Kurulu’nun 03/10/2019 tarihli ‘Paya Dayalı Kitle Fonlaması Tebliği’ ve Borçlanmaya Dayalı Kitle Fonlaması hükümlerini de dâhil ettiği 27/10/2021 tarihli ‘Kitle Fonlaması Tebliği’ ile kitle fonlama platformları aracılığıyla toplanan fonun, girişim şirketine aktarılana veya yatırımcılara iade edilene kadar bloke edileceği “emanet yetkilisi” olarak kitle fonlama platformlarına ve Bankalararası Kart Merkezi (BKM)’nin; hâlihazırda işlettiği Yurtiçi Takas ve Hesaplaşma (YTH) Sistemi için, kurdukları teminat yönetimi mekanizması kapsamında 30/01/2020 tarihi itibarıyla teminat saklama hizmeti vermeye başlamıştır.
+
+Bankamız, 2015 yılında Tapu ve Kadastro Genel Müdürlüğü ile entegre olarak işlettiği gayrimenkulün mülkiyet hakkı ile satış bedelinin eş anlı el değiştirmesini sağlayan Tapu Takas Sistemi’ni devreye almıştır. Sistemin e-Devlet entegrasyonu, T.C. Hazine ve Maliye Bakanlığı, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Türkiye Cumhuriyeti Dijital Dönüşüm Ofisi, Tapu ve Kadastro Genel Müdürlüğü ve Türksat A.Ş. katkılarıyla 2022 yılının Aralık ayında tamamlanmıştır. Tapu Takas Sistemi ile edinilen bilgi ve deneyim, taşıt alım satımında sıkça yaşanan dolandırıcılık ve hırsızlık olaylarını önlemek amacıyla T.C. Ticaret Bakanlığı ile Türkiye Noterler Birliği arasında yürütülen ortak çalışmaların ürünü olan Güvenli Ödeme Sistemi’ndeki ilk emanet kuruluşu olarak Takasbank Taşıt Takas Sistemi’nin hayata geçmesine katkı sağlamış ve Taşıt Takas Sistemi 3 Şubat 2020 tarihi itibarıyla halkımızın hizmetine sunulmuştur. 2023 yılında Taşıt Takas Sistemi’nin e-Devlet entegrasyonunun tamamlanması ile birlikte hizmet sunulan kanal sayısı artırılmış olup daha geniş kitlelere erişim imkânı sunulmuştur.
+
+Takasbank, EPİAŞ bünyesinde 1 Haziran 2021 tarihinde işletilmeye başlayan Vadeli Elektrik Piyasası (VEP) ile EPİAŞ Yenilenebilir Enerji Kaynak Garanti (YEK-G) Piyasası’nda ve 1 Ekim 2021 tarihinde işletilmeye başlayan Vadeli Doğal Gaz Piyasası (VGP)’nda gerçekleşen işlemlere Merkezi Uzlaştırma Kuruluşu olarak hizmet vermektedir.
+
+Bankamız, Bireysel Emeklilik Sistemi’nde yer alan emeklilik yatırım fonları katılma belgelerinin, Platform’a üye diğer emeklilik şirketlerinin katılımcılarına satılmasına, geri alınmasına ve bu işlemlerin takasının ve saklamasının Takasbank sistemi üzerinden gerçekleştirilmesine imkân sağlayan elektronik bir platform olan Bireysel Emeklilik Fon Alım Satım Platformu'nu 2021 yılında hizmete sunmuştur.
+
+01/09/2021 tarihi itibarıyla, 4734 sayılı Kamu İhale Kanunu kapsamındaki ihalelere sunulmak üzere düzenlenen geçici elektronik teminat mektuplarının idareler adına; kabulü, saklanması, tazmin edilmesi (gelir kaydedilmesi), iadesi, vade uzatımı ve raporlama süreçlerini kapsayan “Kamu Teminat Yönetimi Hizmeti” Takasbank tarafından verilmeye başlanmış olup 03/01/2022 tarihi itibarıyla geçici elektronik kefalet senetleri de sürece dahil edilmiştir. 22/01/2024 tarihi itibarıyla ise 4735 sayılı Kamu İhale Sözleşmeleri Kanunu kapsamında düzenlenen kesin elektronik teminat mektupları/kefalet senetlerine ilişkin süreçler de hizmet kapsamına dahil edilmiş olup T.C. Hazine ve Maliye Bakanlığı Muhasebat Genel Müdürlüğü ile kurulan entegrasyon ile merkezi yönetim kapsamındaki idarelere ait kesin teminatlar Muhasebat Genel Müdürlüğü'ne iletilmeye başlanmıştır.
+
+Takasbank, sözü edilen projeler ve yürütülen kapsamlı çalışmalar ile hem İFM Projesi'ne aktif olarak destek vermekte hem de yurt içi ve yurt dışı piyasalardaki konumunu güçlendirerek uluslararası takas ve saklama kuruluşları arasında örnek alınan bir kurum olma hedefine ulaşmayı amaçlamaktadır. 
 " />
     <meta property="og:image" content="https://www.takasbank.com.tr" />
 
-    <meta property="twitter:title" content="Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP) BISTECH Risk Parametreleri 
-
-Takasbank tarafından, Borsa İstanbul Vadeli İşlem ve Opsiyon Piyasası (VİOP)'nda gerçekleştirilen işlemler için uygulanmakta olan portföy bazında teminatlandırma yöntemi kapsamında portföy bazlı risk yönetimi algoritmasını baz alan BISTECH Marjin Yöntemi kullanılmaktadır. BISTECH Marjin Yöntemi, aynı dayanak varlığa bağlı sözleşmeleri gruplandırarak analiz eder. Takasbank, risk analizini BISTECH Marjin Yöntemini kullanarak portföylerin risk yönetimini aşağıdaki adımlarla yapar.
-
-VIOP’ta işlem gören sözleşmelere ait aşağıdaki BISTECH Marjin Yöntemi parametreleri hesaplanmıştır:
-
- 
-
-1. Fiyat Değişim Aralığı (Price Scan Range-PSR)
-
-2. Volatilite Değişim Aralığı (Volatility Scan Range-VSR)
-
-3. Ürün Grupları Arası Yayılma Pozisyonu İndirimi (Inter- Commodity Spread Credit)
-
-4. Vadeler Arası Yayılma Pozisyonu Riski (Intra-Commodity Spread Charge)
-
-5. Kısa Pozisyonlu Opsiyon Minimum Teminatı (Short Option Minimum)
-
- 
-
-Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminatlandırma yöntemine ilişkin detaylı parametrelere ve parametre tablosuna aşağıdaki bağlantı kısayolları dahilinde erişilebilmektedir .
+    <meta property="twitter:title" content="
 
 
-	SPAN Parametre Dosyaları
-	BISTECH Risk Parametre Dosyaları
-	BISTECH Risk Parametre Tablosu 
 
+İstanbul Takas ve Saklama Bankası A.Ş. (Takasbank) ana sözleşmesi uyarınca Bankanın temel amacı, ilgili mevzuat çerçevesinde takas ve saklama hizmetleri vermek, finansal hizmetleri ve her türlü iktisadi faaliyeti gerçekleştirmek suretiyle ülkemiz piyasalarının rekabet gücünü artırmaktır. Banka bu amacına ulaşmak üzere, sermaye piyasası mevzuatının ve Bankacılık Kanunu’nun kendisine izin verdiği ve imkân tanıdığı tüm faaliyetlerde bulunabilir. Takasbank temel olarak, sahip olduğu ‘merkezi takas’ ve ‘bankacılık’ lisansları ile Türk sermaye piyasalarında, üyelerine, takas, merkezi karşı taraf ve bankacılık hizmetleri sunmaktadır.
+
+Takasbank, Borsa İstanbul bünyesinde mevcut piyasalarda gerçekleşen; pay, borçlanma araçları, yurt dışı sermaye piyasası araçları, türev araçlar ve kıymetli madenler ile ilgili işlemlerin nakit ve menkul kıymet takasını sonuçlandırmak üzere yetkilendirilmiş merkezi takas kuruluşudur. Borsa İstanbul üyelerinin alım satım işlemlerinden doğan menkul kıymet teslim etme ve teslim alma taahhütleri ile alım satıma konu olan menkul kıymet karşılığındaki ödeme taahhütleri Takasbank aracılığıyla hesaben sonuçlandırılmaktadır.
+
+Güvenilir, hızlı ve düşük maliyetli nakit transferi hizmeti sağlayarak para ve sermaye piyasaları arasında köprü görevi üstlenen Takasbank, sermaye piyasası ve Borsa İstanbul mevzuatı çerçevesinde Borsa İstanbul bünyesinde faaliyet gösteren piyasalar için tam otomasyon ortamında organize piyasalar ile on-line bağlantılı olarak takas hizmetleri sunmaktadır.
+
+Takasbank, yıllar içerisinde, bankacılık ürün yelpazesini nakit ve gayri-nakit kredi imkanlarını içeren ve takasın sonlandırılmasını desteklemeyi amaçlayan enstrümanlarla genişletmiştir. Sunduğu nakit kredi imkanlarının yanı sıra, işlettiği Takasbank Para Piyasası (TPP), Türkiye Elektronik Fon Alım Satım Platformu (TEFAS) ve Ödünç Pay Piyasası (ÖPP) gibi nakdi ve gayri nakdi kredi imkanları ile desteklenen bankacılık faaliyetleriyle Türk sermaye piyasalarının takas işlemlerini; riskleri en aza indirgeyerek, ilgili para ve sermaye piyasasına likidite sağlayarak ve takasın hatasız ve zamanında sonlandırılmasını amaçlayarak gerçekleştirmektedir.
+
+Böylelikle, sadece nakit ve menkul kıymet transfer işlemlerinde etkinlik sağlamakla kalmamakta, aynı zamanda takas yükümlülüklerinin valör tarihinde güvenli ve zamanında ödenmesini de sağlamaktadır.
+
+Takasbank ayrıca, Ticaret Bakanlığının onayıyla pamuk, buğday, arpa, fasulye, mercimek, mısır, yulaf, zeytin ve çeltiğe dayalı elektronik ürün senetlerinin (ELÜS) işlem göreceği spot bir platform için ürün senedi tanımlaması, ISIN kodu üretilmesi ve ELÜS’lerin şartlı virman sistemi üzerinden takas işlemlerinin gerçekleştirilmesi hizmetlerini vermektedir.
+
+Enerji piyasasındaki liberalleşme çerçevesinde faaliyete geçirilen Elektrik Piyasası’nda teminat mekanizmasının işletilmesi ve ödemelerin zamanında ve doğru bir şekilde gerçekleştirilerek, piyasadaki nakit akışının sürekli bir şekilde sağlanması amacına yönelik olarak piyasa işletmecisi ile piyasa katılımcıları tarafından kullanılacak olan merkezi uzlaştırma bankası olarak Takasbank görevlendirilmiştir. Bu çerçevede, 01/12/2011 tarihinden itibaren Elektrik Piyasası nakit takas ve teminat yönetimi hizmeti Bankamız tarafından verilmektedir.
+
+Türkiye’nin Milli Enerji ve Maden Politikası doğrultusunda ülkemizin bölgesel enerji ticaret merkezi olma hedefi ile faaliyete geçen ve Doğalgaz Piyasalarında referans fiyat oluşumu ile iletim sistemindeki günlük dengesizlik miktarlarının azalmasını amaçlayan Enerji Piyasaları İşletme A.Ş. bünyesindeki Organize Toptan Doğal Gaz Satış Piyasası’na Bankamız 01/09/2018 tarihinden itibaren Merkezi Uzlaştırma Kuruluşu olarak nakit takas ve teminat yönetimi hizmetini vermektedir.
+
+Takasbank'ın varoluş amaçlarından biri de etkin bir merkezi teminat ve risk yönetim sistemi geliştirerek, piyasalardaki karşı taraf kredi riskinin ve sistemik riskin yönetimine, sermaye piyasalarının risk yönetim altyapısının güçlendirilmesine ve piyasada aracılık maliyetlerinin azaltılmasına katkı sağlamaktır. Takasbank, 30/12/2012 tarihinde yürürlüğe giren 6362 sayılı yeni Sermaye Piyasası Kanunu ile sağlanan hukuki zemini kullanarak 02/09/2013 tarihinden itibaren kendi nezdinde işlettiği Ödünç Pay Piyasası’nda (ÖPP), Borsa İstanbul A.Ş. nezdinde işletilen piyasalar olan Vadeli İşlem ve Opsiyon Piyasası’nda (VİOP) 03/03/2014 tarihinden itibaren,  Para Piyasası’nda (BİAŞ PP) 14/10/2016 tarihinden itibaren, Pay Piyasası’nda (BİAŞ Pay) 19/06/2017 tarihinden itibaren, Borçlanma Araçları Piyasası’nda (BİAŞ BAP) 02/07/2018 tarihinden itibaren ve SWAP Piyasasında 01/10/2018, Tezgah Üstü Türev Araçlar Piyasası'nda da 19/12/2019 tarihinden itibaren “Merkezi Karşı Taraf” sıfatıyla her alıcıya karşı “satıcı” her satıcıya karşı da “alıcı” rolünü üstlenmekte ve piyasalarda eşleşen talep/teklif veya alım/satım emirleri ile ilgili takas yükümlülüklerinin yerine getirilmesini taahhüt etmektedir.
+
+Takasbank, 23 Mart 2016 tarihinde SPK tarafından CPMI-IOSCO Finansal Piyasa Altyapılarına İlişkin Temel Prensiplere uyum sağlayan nitelikli MKT kuruluşu (Qalified CCP) olarak tanınmıştır. Akabinde de Takasbank Ağustos 2016 tarihinde AB düzenleyici otoritesi olan ESMA'ya üçüncü ülke MKT kuruluşu (third country CCP) olarak tanınmak için başvuruda bulunmuştur.
+
+Piyasa katılımcılarına sınır ötesi hizmetler de sunan Takasbank, sahip olduğu uluslararası takas kurumu kimliği ile Türkiye’yi global organizasyonlarda da temsil etmektedir. Banka'nın uluslararası piyasalarda tercih edilen bir kurum olma vizyonu doğrultusunda, teknolojik alt yapının geliştirilmesi amacı ile birçok projede çalışmalar sürdürülmektedir.
+
+İstanbul Finans Merkezi (İFM) Stratejisi ve Eylem Planı'nın 17 No.lu “uluslararası ödeme sistemleri ve takas sistemleri ile entegrasyon” eyleminde Takasbank, TCMB ile birlikte ''sorumlu kuruluş'' olarak belirlenmiş olup; uluslararası takas sistemleriyle entegrasyon kapsamında yurt dışındaki yerleşiklere yurt içi ve uluslararası piyasalarda, yurt içindeki yerleşiklere ise uluslararası piyasalarda verilecek hizmetlerin geliştirilmesi çalışmalarını yürütmektedir. Bu kapsamda; Euroclear’a ilave olarak diğer yerel ve uluslararası takas ve saklama kuruluşlarıyla bağlantı kurulması, yurt dışında yerleşiklere gerek yurt içinde gerekse diğer uluslararası piyasalarda takas ve saklama hizmeti verilmesi amacıyla işlem sonrası altyapı kuruluşlarıyla ilişkilerin geliştirilmesi, hesap altyapısının oluşturulması ve Takasbank altyapısında otomasyon sağlanması amaçlanmaktadır.
+
+Takasbank mevcut yurt dışı saklama ağı ile dünya çapında 65’in üzerinde piyasada işlem gören yabancı kıymetlere erişim sağlamaktadır.  Bu hizmet kapsamında Takasbank, yurt dışında uluslararası takas saklama kuruluşları (Euroclear ve Clearstream) ya da global saklama kuruluşları (Citibank) nezdindeki hesapları aracılığı ile söz konusu sermaye piyasası araçlarının saklanmasını sağlamaktadır.
+
+Takasbank uluslararası takas ve saklama işlemlerinde etkinliğini artırmak için Borsa İstanbul’un yürüttüğü yurt dışında yerleşik borsaların işlem platformları ile Borsa İstanbul arasında bağlantı kurulması projesi çerçevesinde, ilgili ülke takas ve saklama kuruluşları ile karşılıklı olarak, işlem sonrası hizmetler için gerekli hesap altyapılarını oluşturmaktadır.
+
+Ulusal numaralandırma kuruluşu olarak 1995 yılından bu yana ANNA​’nın üyesi olan Takasbank, ülkemizde hisse senetleri, devlet tahvili, yatırım/borsa/emeklilik fonları, özel borçlanma araçları, her nevi sertifikalara, vadeli işlem ve opsiyon sözleşmeleri, endeksler, emtialar, elektronik ürün senetleri (ELÜS) ve diğer menkul kıymet ve finansal enstrümanlar için ISIN kodu (ISO 6166) tahsis etmektedir. Numaralandırma hizmeti kapsamında, fiziki dokümanların ortadan kaldırılması, teknolojik altyapının entegrasyonun sağlanması ve raporlama sürecinin hızlandırılması amacıyla 2022 yılında Takasbank ISIN Portalı devreye alınmıştır.
+
+SPK’nın gözetim ve denetim fonksiyonunu destekleyen ve güçlendiren bir hizmet olarak Bankamız; Kolektif Yatırım Kuruluşları ve Bireysel Emeklilik Fonlarının varlıklarına ilişkin değerleme, kontrol, mutabakat ve SPK’ya raporlama hizmeti de sunmaktadır.
+
+24/07/2014 tarihinde Sermaye Piyasası Kurulu tarafından portföy saklayıcı kurum olarak yetkilendirilen Bankamızca; menkul kıymet yatırım fonları, menkul kıymet yatırım ortaklıkları, borsa yatırım fonları, gayrimenkul yatırım fonları ve girişim sermayesi yatırım fonlarına portföy saklama hizmeti verilmektedir.
+
+Bankamız ayrıca, 5746 Sayılı Kanun kapsamında Türkiye Cumhuriyeti Bilim Sanayi ve Teknoloji Bakanlığı’nın onayı ile 21 Nisan 2017 tarihinde yerinde AR-GE Merkezi olmuştur. 
+
+9 Haziran 2018 Tarih ve 30446 Sayılı Resmî Gazete’de yayımlanan “Çek Takas Faaliyetleri Hakkında Yönetmelik (Yönetmelik)” ile Takasbank, 2 Temmuz 2018 tarihinden itibaren geçerli olmak üzere çek takası faaliyetlerinin yürütüleceği Kuruluş olarak kabul edilmiştir. Takasbank Çek Takas Sistemi ile Takas ve İade Dağıtım İşlemleri, Mutabakat ve Garanti Mekanizması Katkı Payı İşlemleri tek bir merkezden yürütülmeye başlanmıştır.
+
+16 Temmuz 2018 tarihi itibarıyla, altının ekonomideki mobilitesinin artırılması, yastık altındaki altının ekonomiye kazandırılması ve altını bir tasarruf aracı olmaktan çıkartıp bir ödeme aracı olarak kullanılmasına imkân tanıyan “KİŞİDEN KİŞİYE” Altın Transfer Sistemi, sistem üyesi bankalara ve müşterilerine hizmet vermeye başlamıştır. Sistem sayesinde, altınlar EFT hızında transfer imkanına kavuşmuş, İstanbul Uluslararası Finans Merkezi Projesi’nin en önemli bileşenlerinden biri olan Altın Transfer Sistemi, Ülkemizde İslami Finansın gelişmesinde ve Ülkemizin “global ölçekte bir altın merkezi olma” hedefinde kilometre taşı olmuştur.
+
+30 Aralık 2019 tarihinde, Blokzincir Tabanlı Transfer Platformu ''BiGA-Dijital Altın'' ile uygulamaya alınmıştır. Dijital varlıkların blokzincir teknolojisi kullanılarak transfer edilmesine imkân sağlayan bir platform oluşturulmuştur. Platform üzerinde işlem görecek olan varlık, karşılığı Borsa İstanbul kasalarında veya Borsa İstanbul ile İstanbul Takas ve Saklama Bankası A.Ş.’nin birlikte uygun gördüğü saklamacıya ait saklama kasalarında fiziksel olarak saklanan her bir gram altının karşılığı olarak üretilen ve “BiGA” olarak isimlendirilen dijital değerdir. Kaydi altınların dijitalize edilerek BiGA’ya dönüştürülmesi ve BiGA’dan kaydi altına çevrilmesi işlemleri mümkün kılınmıştır. Bu sayede uçtan uca fiziki varlık ile dijitalize edilmiş varlık arasında bütün bir yapı kurulmuştur. Geliştirilen blokzincir altyapısıyla, dijital varlıkların transferi, mutabakatı, raporlanması sağlanmıştır. Bu altyapıyla, diğer değerli varlıkların da dijitalleştirilerek transferine izin veren, modüler bir yapıda tasarlanmış, dijital varlık için ihraç, itfa ve transfer olmak üzere 3 ana kabiliyet sunulmaktadır.
+
+Takasbank, Sermaye Piyasası Kurulu’nun 03/10/2019 tarihli ‘Paya Dayalı Kitle Fonlaması Tebliği’ ve Borçlanmaya Dayalı Kitle Fonlaması hükümlerini de dâhil ettiği 27/10/2021 tarihli ‘Kitle Fonlaması Tebliği’ ile kitle fonlama platformları aracılığıyla toplanan fonun, girişim şirketine aktarılana veya yatırımcılara iade edilene kadar bloke edileceği “emanet yetkilisi” olarak kitle fonlama platformlarına ve Bankalararası Kart Merkezi (BKM)’nin; hâlihazırda işlettiği Yurtiçi Takas ve Hesaplaşma (YTH) Sistemi için, kurdukları teminat yönetimi mekanizması kapsamında 30/01/2020 tarihi itibarıyla teminat saklama hizmeti vermeye başlamıştır.
+
+Bankamız, 2015 yılında Tapu ve Kadastro Genel Müdürlüğü ile entegre olarak işlettiği gayrimenkulün mülkiyet hakkı ile satış bedelinin eş anlı el değiştirmesini sağlayan Tapu Takas Sistemi’ni devreye almıştır. Sistemin e-Devlet entegrasyonu, T.C. Hazine ve Maliye Bakanlığı, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Türkiye Cumhuriyeti Dijital Dönüşüm Ofisi, Tapu ve Kadastro Genel Müdürlüğü ve Türksat A.Ş. katkılarıyla 2022 yılının Aralık ayında tamamlanmıştır. Tapu Takas Sistemi ile edinilen bilgi ve deneyim, taşıt alım satımında sıkça yaşanan dolandırıcılık ve hırsızlık olaylarını önlemek amacıyla T.C. Ticaret Bakanlığı ile Türkiye Noterler Birliği arasında yürütülen ortak çalışmaların ürünü olan Güvenli Ödeme Sistemi’ndeki ilk emanet kuruluşu olarak Takasbank Taşıt Takas Sistemi’nin hayata geçmesine katkı sağlamış ve Taşıt Takas Sistemi 3 Şubat 2020 tarihi itibarıyla halkımızın hizmetine sunulmuştur. 2023 yılında Taşıt Takas Sistemi’nin e-Devlet entegrasyonunun tamamlanması ile birlikte hizmet sunulan kanal sayısı artırılmış olup daha geniş kitlelere erişim imkânı sunulmuştur.
+
+Takasbank, EPİAŞ bünyesinde 1 Haziran 2021 tarihinde işletilmeye başlayan Vadeli Elektrik Piyasası (VEP) ile EPİAŞ Yenilenebilir Enerji Kaynak Garanti (YEK-G) Piyasası’nda ve 1 Ekim 2021 tarihinde işletilmeye başlayan Vadeli Doğal Gaz Piyasası (VGP)’nda gerçekleşen işlemlere Merkezi Uzlaştırma Kuruluşu olarak hizmet vermektedir.
+
+Bankamız, Bireysel Emeklilik Sistemi’nde yer alan emeklilik yatırım fonları katılma belgelerinin, Platform’a üye diğer emeklilik şirketlerinin katılımcılarına satılmasına, geri alınmasına ve bu işlemlerin takasının ve saklamasının Takasbank sistemi üzerinden gerçekleştirilmesine imkân sağlayan elektronik bir platform olan Bireysel Emeklilik Fon Alım Satım Platformu'nu 2021 yılında hizmete sunmuştur.
+
+01/09/2021 tarihi itibarıyla, 4734 sayılı Kamu İhale Kanunu kapsamındaki ihalelere sunulmak üzere düzenlenen geçici elektronik teminat mektuplarının idareler adına; kabulü, saklanması, tazmin edilmesi (gelir kaydedilmesi), iadesi, vade uzatımı ve raporlama süreçlerini kapsayan “Kamu Teminat Yönetimi Hizmeti” Takasbank tarafından verilmeye başlanmış olup 03/01/2022 tarihi itibarıyla geçici elektronik kefalet senetleri de sürece dahil edilmiştir. 22/01/2024 tarihi itibarıyla ise 4735 sayılı Kamu İhale Sözleşmeleri Kanunu kapsamında düzenlenen kesin elektronik teminat mektupları/kefalet senetlerine ilişkin süreçler de hizmet kapsamına dahil edilmiş olup T.C. Hazine ve Maliye Bakanlığı Muhasebat Genel Müdürlüğü ile kurulan entegrasyon ile merkezi yönetim kapsamındaki idarelere ait kesin teminatlar Muhasebat Genel Müdürlüğü'ne iletilmeye başlanmıştır.
+
+Takasbank, sözü edilen projeler ve yürütülen kapsamlı çalışmalar ile hem İFM Projesi'ne aktif olarak destek vermekte hem de yurt içi ve yurt dışı piyasalardaki konumunu güçlendirerek uluslararası takas ve saklama kuruluşları arasında örnek alınan bir kurum olma hedefine ulaşmayı amaçlamaktadır. 
 " />
-    <meta property="twitter:description" content="BISTECH Risk Parametreleri" />
+    <meta property="twitter:description" content="Takasbank" />
     <meta property="twitter:image" content="https://www.takasbank.com.tr" />
 
     <title>Takas İstanbul | Duyurular</title>
@@ -108,7 +198,7 @@ Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminat
     <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <script type="text/javascript" src="/ruxitagentjs_ICA7NVfqrux_10345260810170330.js" data-dtconfig="rid=RID_-1913033578|rpid=-847420324|domain=takasbank.com.tr|reportUrl=/rb_25b4ee92-cc93-42e3-a65c-5714636e89f5|app=ea7c4b59f27d43eb|owasp=1|featureHash=ICA7NVfqrux|rdnt=1|uxrgce=1|cuc=c1n5xcf3|mel=100000|expw=1|dpvc=1|lastModification=1789733318453|postfix=c1n5xcf3|tp=500,50,0|srbbv=2|agentUri=/ruxitagentjs_ICA7NVfqrux_10345260810170330.js"></script><link rel="stylesheet" href="/Templates/Default/assets/css/libs.min.css">
+    <link rel="stylesheet" href="/Templates/Default/assets/css/libs.min.css">
     <link rel="stylesheet" href="/Templates/Default/assets/css/app.min.css">
     
     <script src="/Templates/Default/assets/js/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
@@ -1551,7 +1641,7 @@ Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminat
     </div>
         <form class="form-sm lm-md-b4 lm-xs-b5" role="form" data-toggle="validator" method="POST" data-focus="false">
             <input id="posturl" name="posturl" type="hidden" value="Takasbank_Plugins_Announcement.UI.FilterAnnouncements.Announcements_446" />
-            <input name="__RequestVerificationToken" type="hidden" value="5Y2YFE4zjpdLFeV12T3GzFQThyqWJwamY3SplZgCcMPulZMMgJCrZD3sHiqWlxYYHrsFrO9tVq-kEkxvk6JJTHlijMzbCC8L4L4LzIPbrrU1" />
+            <input name="__RequestVerificationToken" type="hidden" value="DgSxovo8X9erEyRLlObfij8cYiI66qdYyfRHh1ZEwd1ptWvfwsx2UrolXggM2-LRf6xUbSRvAxVzWEIjgMHl1_W0GTjl7KTsySB8nGFYe0c1" />
 
             <div class="row">
                     <div class="col-md-5">
@@ -2283,26 +2373,25 @@ Yapılan istatistiki değerlendirmeler sonucunda BISTECH Marjin Yöntemi teminat
 
 <script type="text/javascript">
 (function(){
-window.mrmJ=!!window.mrmJ;try{(function(){(function LJ(){var L=!1;function z(L){for(var z=0;L--;)z+=S(document.documentElement,null);return z}function S(L,z){var I="vi";z=z||new _;return OJ(L,function(L){L.setAttribute("data-"+I,z.O$());return S(L,z)},null)}function _(){this.JO=1;this.Oo=0;this.Lj=this.JO;this.jl=null;this.O$=function(){this.jl=this.Oo+this.Lj;if(!isFinite(this.jl))return this.reset(),this.O$();this.Oo=this.Lj;this.Lj=this.jl;this.jl=null;return this.Lj};this.reset=function(){this.JO++;this.Oo=0;this.Lj=this.JO}}var I=!1;
-function JJ(L,z){var S=document.createElement(L);z=z||document.body;z.appendChild(S);S&&S.style&&(S.style.display="none")}function lJ(z,S){S=S||z;var _="|";function JJ(L){L=L.split(_);var z=[];for(var S=0;S<L.length;++S){var I="",lJ=L[S].split(",");for(var zJ=0;zJ<lJ.length;++zJ)I+=lJ[zJ][zJ];z.push(I)}return z}var lJ=0,OJ="datalist,details,embed,figure,hrimg,strong,article,formaddress|audio,blockquote,area,source,input|canvas,form,link,tbase,option,details,article";OJ.split(_);OJ=JJ(OJ);OJ=new RegExp(OJ.join(_),
-"g");while(OJ.exec(z))OJ=new RegExp((""+new Date)[8],"g"),L&&(I=!0),++lJ;return S(lJ&&1)}function OJ(L,z,S){(S=S||I)&&JJ("div",L);L=L.children;var _=0;for(var lJ in L){S=L[lJ];try{S instanceof HTMLElement&&(z(S),++_)}catch(OJ){}}return _}lJ(LJ,z)})();var oJ=35;try{var ZJ,SJ,iJ=l(195)?1:0,Jl=l(805)?0:1,ol=l(275)?1:0;for(var Ol=(l(608),0);Ol<SJ;++Ol)iJ+=(l(89),2),Jl+=l(646)?1:2,ol+=l(672)?2:3;ZJ=iJ+Jl+ol;window.lj===ZJ&&(window.lj=++ZJ)}catch(Sl){window.lj=ZJ}var il=!0;
-function O(J){var L=arguments.length,z=[],S=1;while(S<L)z[S-1]=arguments[S++]-J;return String.fromCharCode.apply(String,z)}function Il(J){var L=50;!J||document[O(L,168,155,165,155,148,155,158,155,166,171,133,166,147,166,151)]&&document[O(L,168,155,165,155,148,155,158,155,166,171,133,166,147,166,151)]!==Z(68616527616,L)||(il=!1);return il}function Z(J,L){J+=L;return J.toString(36)}
-function s(J){var L=arguments.length,z=[];for(var S=1;S<L;++S)z.push(arguments[S]-J);return String.fromCharCode.apply(String,z)}function JL(){}Il(window[JL[Z(1086819,oJ)]]===JL);Il(typeof ie9rgb4!==O(oJ,137,152,145,134,151,140,146,145));Il(RegExp("\x3c")[Z(1372170,oJ)](function(){return"\x3c"})&!RegExp(Z(42854,oJ))[O(oJ,151,136,150,151)](function(){return"'x3'+'d';"}));
-var lL=window[O(oJ,132,151,151,132,134,139,104,153,136,145,151)]||RegExp(O(oJ,144,146,133,140,159,132,145,135,149,146,140,135),Z(-17,oJ))[Z(1372170,oJ)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),oL=+new Date+(l(721)?656920:6E5),OL,ZL,_L,iL=window[O(oJ,150,136,151,119,140,144,136,146,152,151)],jL=lL?l(487)?34089:3E4:l(784)?7911:6E3;
-document[s(oJ,132,135,135,104,153,136,145,151,111,140,150,151,136,145,136,149)]&&document[s(oJ,132,135,135,104,153,136,145,151,111,140,150,151,136,145,136,149)](s(oJ,153,140,150,140,133,140,143,140,151,156,134,139,132,145,138,136),function(J){var L=61;document[s(L,179,166,176,166,159,166,169,166,177,182,144,177,158,177,162)]&&(document[O(L,179,166,176,166,159,166,169,166,177,182,144,177,158,177,162)]===s(L,165,166,161,161,162,171)&&J[s(L,166,176,145,175,178,176,177,162,161)]?_L=!0:document[O(L,179,
-166,176,166,159,166,169,166,177,182,144,177,158,177,162)]===Z(68616527605,L)&&(OL=+new Date,_L=!1,lo()))});function lo(){if(!document[O(86,199,203,187,200,207,169,187,194,187,185,202,197,200)])return!0;var J=+new Date;if(J>oL&&(l(376)?6E5:879196)>J-OL)return Il(!1);var L=Il(ZL&&!_L&&OL+jL<J);OL=J;ZL||(ZL=!0,iL(function(){ZL=!1},l(919)?0:1));return L}lo();var Lo=[l(571)?18259796:17795081,l(32)?27611931586:2147483647,l(18)?1558153217:2147483647];
-function Oo(J){var L=96;J=typeof J===s(L,211,212,210,201,206,199)?J:J[s(L,212,207,179,212,210,201,206,199)](l(653)?35:36);var z=window[J];if(!z||!z[s(L,212,207,179,212,210,201,206,199)])return;var S=""+z;window[J]=function(J,L){ZL=!1;return z(J,L)};window[J][O(L,212,207,179,212,210,201,206,199)]=function(){return S}}for(var zo=(l(989),0);zo<Lo[O(oJ,143,136,145,138,151,139)];++zo)Oo(Lo[zo]);Il(!1!==window[O(oJ,144,149,144,109)]);window.OI=window.OI||{};window.OI._O="08c793f8d419400021a824254bb9ee3f3ea5e5b8442108c5ab92fdbc7d3f50fba89bbf4dc91f2378fa764bb43fa658ba7bf6e245ae38745b205d15f92a6a59774d1ae4595d41c38f";
-function Zo(J){var L=+new Date,z;!document[s(84,197,201,185,198,205,167,185,192,185,183,200,195,198,149,192,192)]||L>oL&&(l(478)?791315:6E5)>L-OL?z=Il(!1):(z=Il(ZL&&!_L&&OL+jL<L),OL=L,ZL||(ZL=!0,iL(function(){ZL=!1},l(839)?0:1)));return!(arguments[J]^z)}function l(J){return 392>J}(function So(L){return L?0:So(L)*So(L)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
+window.gXmx=!!window.gXmx;try{(function(){(function(){})();var ZO=25;try{var sO,iO,jO=z(760)?0:1,LO=z(873)?0:1,Oz=z(930)?0:1,sz=z(366)?0:1,Sz=z(379)?0:1;for(var Jz=(z(261),0);Jz<iO;++Jz)jO+=(z(828),2),LO+=z(427)?1:2,Oz+=z(249)?1:2,sz+=z(128)?1:2,Sz+=z(915)?1:3;sO=jO+LO+Oz+sz+Sz;window.j_===sO&&(window.j_=++sO)}catch(lz){window.j_=sO}var Lz=!0;function s(O,Z){O+=Z;return O.toString(36)}
+function OZ(O){var Z=18;!O||document[_(Z,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]&&document[I(Z,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]!==_(Z,136,123,133,123,116,126,119)||(Lz=!1);return Lz}function I(O){var Z=arguments.length,S=[],J=1;while(J<Z)S[J-1]=arguments[J++]-O;return String.fromCharCode.apply(String,S)}function zZ(){}OZ(window[zZ[s(1086829,ZO)]]===zZ);OZ(typeof ie9rgb4!==s(1242178186174,ZO));
+OZ(RegExp("\x3c")[I(ZO,141,126,140,141)](function(){return"\x3c"})&!RegExp(s(42864,ZO))[_(ZO,141,126,140,141)](function(){return"'x3'+'d';"}));
+var sZ=window[_(ZO,122,141,141,122,124,129,94,143,126,135,141)]||RegExp(I(ZO,134,136,123,130,149,122,135,125,139,136,130,125),s(-7,ZO))[s(1372180,ZO)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),_Z=+new Date+(z(233)?430686:6E5),iZ,JZ,lZ,oZ=window[_(ZO,140,126,141,109,130,134,126,136,142,141)],zs=sZ?z(589)?25112:3E4:z(483)?6146:6E3;
+document[_(ZO,122,125,125,94,143,126,135,141,101,130,140,141,126,135,126,139)]&&document[I(ZO,122,125,125,94,143,126,135,141,101,130,140,141,126,135,126,139)](I(ZO,143,130,140,130,123,130,133,130,141,146,124,129,122,135,128,126),function(O){var Z=78;document[_(Z,196,183,193,183,176,183,186,183,194,199,161,194,175,194,179)]&&(document[I(Z,196,183,193,183,176,183,186,183,194,199,161,194,175,194,179)]===s(1058781905,Z)&&O[I(Z,183,193,162,192,195,193,194,179,178)]?lZ=!0:document[I(Z,196,183,193,183,176,
+183,186,183,194,199,161,194,175,194,179)]===s(68616527588,Z)&&(iZ=+new Date,lZ=!1,Zs()))});function _(O){var Z=arguments.length,S=[];for(var J=1;J<Z;++J)S.push(arguments[J]-O);return String.fromCharCode.apply(String,S)}function Zs(){if(!document[I(4,117,121,105,118,125,87,105,112,105,103,120,115,118)])return!0;var O=+new Date;if(O>_Z&&(z(891)?562267:6E5)>O-iZ)return OZ(!1);var Z=OZ(JZ&&!lZ&&iZ+zs<O);iZ=O;JZ||(JZ=!0,oZ(function(){JZ=!1},z(81)?1:0));return Z}Zs();
+var ss=[z(998)?23511285:17795081,z(462)?2147483647:27611931586,z(777)?2147483647:1558153217];function _s(O){var Z=2;O=typeof O===s(1743045674,Z)?O:O[_(Z,118,113,85,118,116,107,112,105)](z(209)?52:36);var S=window[O];if(!S||!S[I(Z,118,113,85,118,116,107,112,105)])return;var J=""+S;window[O]=function(O,Z){JZ=!1;return S(O,Z)};window[O][_(Z,118,113,85,118,116,107,112,105)]=function(){return J}}for(var is=(z(27),0);is<ss[I(ZO,133,126,135,128,141,129)];++is)_s(ss[is]);OZ(!1!==window[I(ZO,128,113,134,145)]);
+window.JS=window.JS||{};window.JS.Sl="08a5693b73194000fdf47d55fee64a5bf3aa3c35a5f450a9a4cda7b9c7f90ac47a45820d449e0386722379279319ed72c98d3420561dad44eb61d052e6294b01442c744e938f282b";function Is(O){var Z=+new Date,S;!document[_(21,134,138,122,135,142,104,122,129,122,120,137,132,135,86,129,129)]||Z>_Z&&(z(639)?556693:6E5)>Z-iZ?S=OZ(!1):(S=OZ(JZ&&!lZ&&iZ+zs<Z),iZ=Z,JZ||(JZ=!0,oZ(function(){JZ=!1},z(771)?0:1)));return!(arguments[O]^S)}function z(O){return 110>O}
+(function(){var O=/(\A([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1,1}\Z)|(\A(([0-9a-f]{1,4}:){1,7}|:):\Z)|(\A:(:[0-9a-f]{1,4}){1,7}\Z)/ig,Z=document.getElementsByTagName("head")[0],S=[];Z&&(Z=Z.innerHTML.slice(0,1E3));while(Z=O.exec(""))S.push(Z)})();})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
 
 })();
 
 </script>
 </APM_DO_NOT_TOUCH>
 
-<script type="text/javascript" src="/TSPD/08ce165641ab2000a078f7387e93d48d311a12523a08a027ae34aebf66b3c35783ecbb3ae2aa2d56?type=9"></script>
+<script type="text/javascript" src="/TSPD/08ce165641ab2000e70f26b0e2f1728f68588e31fe64aace85438f760b06aebd8ffec60da42a78f3?type=9"></script>
 
 </html>
-<script id="f5_cspm">(function(){var f5_cspm={f5_p:'PBOFGBBJNLAPOAGJKOGMICOFKGCJNMLDPDFENADMHKEMOLNHKBMKANBOOIMKEBBBFOKBALJEAAGMPBGNMPOAEPBOAAFGNJIMEOJACBJFOONLDKPGOEDPNBFFJCECFBKB',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='xid0149471280aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'CFBKEAHAHNCLMGOPJLBMAKJGNKBHHDCCIHDIGKGKLAIPHBIHBBKIBEHACPGJFCLLGLLBODPAAAPEGGDBOHJAPIPPAAFPNCLLMFGCOBPPFHLCOEHELKIMKDBNOCLIAMHF',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='xid0149471280aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/;'+'';}
 return;}}
 catch(err){return;}
 setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='yid'&&pair[1]=='1234')
