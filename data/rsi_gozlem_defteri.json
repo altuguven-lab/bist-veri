@@ -1,29 +1,5 @@
 {
   "acik_pozisyonlar": {
-    "OTKAR": {
-      "giris_tarih": "2026-08-10",
-      "giris_fiyat": 290.5,
-      "giris_rsi": 36.2,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Otomotiv",
-      "pozisyon_birim_yuzde": 12.0
-    },
-    "SAHOL": {
-      "giris_tarih": "2026-09-18",
-      "giris_fiyat": 88.05000305175781,
-      "giris_rsi": 41.2,
-      "kurumsal_teyit": "BILINMIYOR",
-      "sektor": "Holding",
-      "pozisyon_birim_yuzde": 12.0
-    },
-    "ASTOR": {
-      "giris_tarih": "2026-10-26",
-      "giris_fiyat": 156.8000030517578,
-      "giris_rsi": 33.3,
-      "kurumsal_teyit": "AZALIS",
-      "sektor": "Enerji-Ekipman",
-      "pozisyon_birim_yuzde": 12.0
-    },
     "FROTO": {
       "giris_tarih": "2026-10-26",
       "giris_fiyat": 67.94999694824219,
@@ -257,9 +233,45 @@
       "net_getiri_pct": -10.194,
       "kurumsal_teyit": "BILINMIYOR",
       "sektor": "Madencilik"
+    },
+    {
+      "sembol": "SAHOL",
+      "giris_tarih": "2026-09-18",
+      "cikis_tarih": "2026-11-23",
+      "tutma_gun": 66,
+      "giris_fiyat": 88.05000305175781,
+      "cikis_fiyat": 77.48400268554687,
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Holding"
+    },
+    {
+      "sembol": "ASTOR",
+      "giris_tarih": "2026-10-26",
+      "cikis_tarih": "2026-11-23",
+      "tutma_gun": 28,
+      "giris_fiyat": 156.8000030517578,
+      "cikis_fiyat": 137.98400268554687,
+      "sebep": "SABIT_STOP_LOSS",
+      "net_getiri_pct": -12.25,
+      "kurumsal_teyit": "AZALIS",
+      "sektor": "Enerji-Ekipman"
+    },
+    {
+      "sembol": "OTKAR",
+      "giris_tarih": "2026-08-10",
+      "cikis_tarih": "2026-11-23",
+      "tutma_gun": 105,
+      "giris_fiyat": 290.5,
+      "cikis_fiyat": 310.25,
+      "sebep": "MAKS_TUTMA_ASILDI",
+      "net_getiri_pct": 6.549,
+      "kurumsal_teyit": "BILINMIYOR",
+      "sektor": "Otomotiv"
     }
   ],
-  "son_guncelleme_utc": "2026-11-20T22:16:04.255756+00:00",
+  "son_guncelleme_utc": "2026-11-23T15:21:25.822979+00:00",
   "reddedilen_sinyaller": [
     {
       "sembol": "TOASO",
@@ -275,8 +287,8 @@
     }
   ],
   "ozet": {
-    "toplam_kapanan": 18,
-    "isabet_pct": 11.1,
-    "ort_net_getiri_pct": -4.081
+    "toplam_kapanan": 21,
+    "isabet_pct": 14.3,
+    "ort_net_getiri_pct": -4.352
   }
 }
