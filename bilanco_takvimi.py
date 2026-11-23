@@ -31,6 +31,9 @@ import json
 import sys
 
 TAKVIM_YOL = "data/bilanco_takvimi.json"
+# 23.11 (paket56, kurul 21.11): gerceklesmis aciklama tarihleri KAP arsivinden (birincil) doldurulur.
+KAP_YOL = "data/kap_finansal_rapor_tarihleri.json"
+CEYREK = {"03": "Q1", "06": "Q2", "09": "Q3", "12": "Q4"}
 PORTFOY_YOL = "data/portfoy.json"
 CIKTI = "data/denetim/bilanco_uyari.json"
 
@@ -53,6 +56,43 @@ def _aktif_donem(takvim, bugun):
     return adaylar
 
 
+def kap_doldur(semboller):
+    """KAP arsivindeki ilk finansal rapor bildirimi tarihini (TR yerel) ilgili _aciklama alanina yazar.
+    Takvimdeki derleme tarihi farkliysa KAP esas alinir ve fark celiski olarak raporlanir.
+    Takvim DOSYASI degismez; duzeltme yalniz bu kosunun ciktisinda gorunur."""
+    try:
+        with open(KAP_YOL, encoding="utf-8") as f:
+            kayitlar = json.load(f).get("kayitlar", [])
+    except Exception as e:
+        print(f"UYARI: KAP arsivi okunamadi -> {e}", file=sys.stderr)
+        return [], []
+    ilk = {}
+    for k in kayitlar:
+        s, d, z = k.get("sembol"), k.get("donem") or "", (k.get("yayin_yerel") or "")[:10]
+        if s not in semboller or "/" not in d or not z:
+            continue
+        yil, ay = d.split("/")
+        alan = f"{yil}{CEYREK.get(ay, '')}_aciklama"
+        if alan.endswith("_aciklama") and CEYREK.get(ay):
+            if (s, alan) not in ilk or z < ilk[(s, alan)][0]:
+                ilk[(s, alan)] = (z, k.get("disclosureIndex"))
+    doldurulan, celiski = [], []
+    for (s, alan), (z, idx) in sorted(ilk.items()):
+        kayit = semboller[s]
+        eski = kayit.get(alan)
+        if eski == z:
+            continue
+        if alan not in kayit and not any(a.endswith("_aciklama") and a[:4] == alan[:4] for a in kayit):
+            continue  # takvimin izlemedigi yil: dosyayi sisirme
+        if eski and eski != z:
+            celiski.append({"konu": f"{s} {alan[:-9]} aciklama tarihi",
+                            "degerler": [f"takvim {eski}", f"KAP {z} (bildirim {idx})"], "esas": "KAP"})
+        kayit[alan] = z
+        kayit[alan[:-9] + "_kaynak"] = "KAP_ARSIV"
+        doldurulan.append({"sembol": s, "donem": alan[:-9], "tarih": z, "onceki": eski, "kap_bildirim": idx})
+    return doldurulan, celiski
+
+
 def main():
     try:
         with open(TAKVIM_YOL, encoding="utf-8") as f:
@@ -71,6 +111,7 @@ def main():
 
     bugun = datetime.datetime.now(datetime.timezone.utc).date()
     semboller = takvim["semboller"]
+    kap_doldurulan, kap_celiski = kap_doldur(semboller)
 
     bekleyen, aciklayan, bilinmeyen, risk = [], [], [], []
 
@@ -80,6 +121,8 @@ def main():
         gecerli = {k: t for k, t in tarihler.items() if t is not None}
 
         kaynak = kayit.get("kaynak", "BILINMIYOR")
+        if kaynak == "BILINMIYOR" and any(v == "KAP_ARSIV" for k, v in kayit.items() if k.endswith("_kaynak")):
+            kaynak = "KAP_ARSIV"
 
         if not gecerli:
             bilinmeyen.append({"sembol": sembol, "kaynak": kaynak})
@@ -114,6 +157,16 @@ def main():
                                   "not": kayit.get("not", ""),
                                   "acik_pozisyon": sembol in acik})
 
+    # 23.11 (paket56): son tarihi gecmis donemde ne takvimde ne KAP arsivinde aciklama tarihi olmayanlar
+    eksik_donem = []
+    for ad, d in takvim["donemler"].items():
+        st = _tarih(d.get("son_tarih_konsolide"))
+        if st and st < bugun:
+            for s, kayit in semboller.items():
+                if not kayit.get(f"{ad}_aciklama"):
+                    eksik_donem.append({"sembol": s, "donem": ad, "son_tarih": str(st),
+                                        "not": "KAP arsivinde bildirim yok - KAP'ta elle kontrol edilmeli"})
+
     # Donem son tarihleri (evren geneli uyari)
     donem_uyari = []
     for ad, d in _aktif_donem(takvim, bugun):
@@ -132,7 +185,11 @@ def main():
         "donem_son_tarih_uyarisi": donem_uyari,
         "risk_bayragi": risk,
         "tarihi_bilinmeyen": sorted(bilinmeyen, key=lambda x: x["sembol"]),
-        "celiskiler": takvim.get("_celiskiler", []),
+        "celiskiler": [c for c in takvim.get("_celiskiler", [])
+                       if not any(c.get("konu", "").startswith(f"{x['sembol']} {x['donem']} aciklama") for x in kap_doldurulan)]
+                      + kap_celiski,
+        "son_tarihi_gecmis_eksik": eksik_donem,
+        "kap_doldurulan": kap_doldurulan,
         "kapsama": {
             "toplam_sembol": len(semboller),
             "tarihi_olan": len(semboller) - len(bilinmeyen),
@@ -183,10 +240,16 @@ def main():
             f"{x['sembol']}({x['kaynak']})"
             for x in sonuc["tarihi_bilinmeyen"]))
 
+    if eksik_donem:
+        print("\nSON TARIHI GECMIS, ACIKLAMA TARIHI YOK")
+        for x in eksik_donem:
+            print(f"  {x['sembol']:7} {x['donem']} (son tarih {x['son_tarih']})")
+
     if sonuc["celiskiler"]:
         print("\nCOZULMEMIS CELISKILER")
         for c in sonuc["celiskiler"]:
-            print(f"  {c['konu']}: {' vs '.join(c['degerler'])}")
+            print(f"  {c['konu']}: {' vs '.join(c['degerler'])}"
+                  + (f"  -> {c['esas']} esas alindi" if c.get("esas") else ""))
 
 
 if __name__ == "__main__":
