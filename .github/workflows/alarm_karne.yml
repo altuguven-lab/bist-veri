@@ -5,6 +5,9 @@
 # Zamanlama: hafta ici 19:40 TR (16:40 UTC) - TV Arsiv Birlestir'in 16:17 UTC calismasindan sonra.
 name: Alarm Karnesi
 on:
+  # 23.11 (paket55): Cloudflare zamanli tetigi (GitHub schedule 6-9 saat gecikiyor; schedule yedek olarak kalir)
+  repository_dispatch:
+    types: [alarm_karne_tetikle]
   schedule:
     - cron: "40 16 * * 1-5"
     - cron: "40 7 * * 6"    # 09.11 EKI: Cumartesi 10:40 TR - Cuma alarmlari (Yahoo gecikmesi) ayni hafta karneye girsin
@@ -41,6 +44,8 @@ jobs:
           git config user.name "karne-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/alarm_karne.json data/alarm_karne.md data/alarm_karne_olaylar.csv
+          # 23.11 (paket55, kurul K3): H14 resmi haftalik bakis dosyasi da commit'lenir
+          if [ -f data/h14/ara_bakis.json ]; then git add data/h14/ara_bakis.json; fi
           git diff --staged --quiet && exit 0
           git commit -m "Alarm karnesi $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
           for i in 1 2 3 4 5; do
