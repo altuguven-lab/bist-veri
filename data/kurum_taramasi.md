@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-24 08:18
+# Kurum taramasi - 2026-11-24 12:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -8,9 +8,9 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 |---|---|---|---|
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-23 | 3 |
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 2 |
-| [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-09 | 0 |
+| [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-23 | 1 |
-| KAP arsivi | **OK** | 2026-11-23 | 58 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-24 | 61 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -29,12 +29,19 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
   - PDF konu: 2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında İlgili :
   - PDF yururluk: (yazmiyor)
 
+## tspb (son 7 gun)
+
+- 2026-11-24 [Pamir Karagöz, TSPB Yönetim Kurulu Başkanlığına Yeniden Seçildi Türkiye Sermaye Piyasaları Birliği (TSPB) 26. Olağan Genel Kurul toplantısı, üyelerin geniş katılımı ile İstanbul’da gerçekleştirildi. Yeni yönetim kurulunu](https://tspb.org.tr/bilgi/pamir-karagoz-tspb-yonetim-kurulu-baskanligina-yeniden-secildi/)
+
 ## bist (son 7 gun)
 
 - 2026-11-23 [23 Kasım 2026 Kıymetli Madenler ve Kıymetli Taşlar Piyasası (KMKTP) Prosedüründe 17. revizyon kapsamında yapılan değişikliklere ilişkin Duyuru](https://www.borsaistanbul.com/duyuru/15637/kiymetli-madenler-ve-kiymetli-taslar-piyasasi-kmktp-prosedurunde-17-revizyon-kapsaminda-yapilan-degisikliklere-iliskin-duyuru)
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- 24.11.2026 09:10:40 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701638) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
+- 24.11.2026 09:10:01 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701637) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
+- 24.11.2026 09:06:06 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701632) Hak Kullanımı
 - **[KRITIK]** 23.11.2026 20:48:15 KAMUYU AYDINLATMA PLATFORMU - [Sermaye Piyasası Kurulu Tedbir Kararı](https://www.kap.org.tr/tr/Bildirim/1701581) Sermaye Piyasası Kurulu Tedbir Kararı
 - 23.11.2026 20:25:02 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1701576) SPK BÜLTENİ
 - **[KRITIK]** 23.11.2026 18:29:56 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701502) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
@@ -72,9 +79,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 19.11.2026 17:21:25 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700346) DÖNÜŞÜM
 - 19.11.2026 09:06:37 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700110) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
 - 19.11.2026 09:05:10 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700109) Yatırım Fonlarına İlişkin Rehber'in 9.8. maddesi gereğince yapılan açıklama
-- **[KRITIK]** 18.11.2026 21:30:35 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700080) SPK İşlem Yasağı Nedeniyle Pay Duyurusu
-- **[KRITIK]** 18.11.2026 18:23:24 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699983) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
-- 18.11.2026 18:21:51 BORSA İSTANBUL A.Ş. - [Borsa İstanbul A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1699982) Borçlanma Araçlarının Gözaltı Pazarı'na Alınması
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
@@ -114,11 +118,11 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - GUNDG: 11-17: 1, 11-18: 1, 11-20: 1
 - IEYHO: 11-17: 2, 11-20: 1, 11-23: 2
 - KTLEV: 11-17: 2, 11-18: 4, 11-19: 1, 11-23: 2
-- ODINE: 11-17: 2, 11-18: 4, 11-20: 2, 11-23: 1
+- ODINE: 11-17: 2, 11-18: 4, 11-20: 2, 11-23: 1, 11-24: 1
 - OZATD: 11-17: 2, 11-20: 1
 - PEKGY: 11-17: 2, 11-20: 1
 - SELEC: 11-17: 2, 11-20: 1, 11-23: 1
-- TEHOL: 11-17: 2, 11-23: 3
+- TEHOL: 11-17: 2, 11-23: 3, 11-24: 1
 - VSNMD: 11-17: 2, 11-18: 2, 11-19: 1, 11-23: 1
 
 ## Takvim (bugun-1 .. +14 gun)
