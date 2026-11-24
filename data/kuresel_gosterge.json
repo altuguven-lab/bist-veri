@@ -1,34 +1,51 @@
 {
   "asya": {
-    "guncelleme_zamani_utc": "2026-11-24T05:21:25.173680+00:00",
+    "guncelleme_zamani_utc": "2026-11-24T18:16:26.242968+00:00",
+    "seans_tarihleri": [
+      "2026-11-20",
+      "2026-11-23"
+    ],
+    "uyari": "bolumdeki bazi endeksler bugunun seansi degil",
     "endeksler": [
       {
         "isim": "Nikkei 225",
         "kod": "^N225",
         "bolge": "Japonya",
-        "degisim_yuzde": 3.96
+        "seans_tarihi": "2026-11-20",
+        "onceki_seans_tarihi": "2026-11-19",
+        "uyari": "bugun_degil: son kapanis 20.11 (tatil ya da veri gecikmesi)",
+        "degisim_yuzde": -5.06
       },
       {
         "isim": "Kospi",
         "kod": "^KS11",
         "bolge": "G.Kore",
-        "degisim_yuzde": 7.04
+        "seans_tarihi": "2026-11-23",
+        "onceki_seans_tarihi": "2026-11-20",
+        "uyari": "bugun_degil: son kapanis 23.11 (tatil ya da veri gecikmesi)",
+        "degisim_yuzde": -3.31
       },
       {
         "isim": "Sanghay Bilesik",
         "kod": "000001.SS",
         "bolge": "Cin",
-        "degisim_yuzde": 0.45
+        "seans_tarihi": "2026-11-23",
+        "onceki_seans_tarihi": "2026-11-20",
+        "uyari": "bugun_degil: son kapanis 23.11 (tatil ya da veri gecikmesi)",
+        "degisim_yuzde": 0.15
       },
       {
         "isim": "Hang Seng",
         "kod": "^HSI",
         "bolge": "H.Kong",
-        "degisim_yuzde": -0.36
+        "seans_tarihi": "2026-11-23",
+        "onceki_seans_tarihi": "2026-11-20",
+        "uyari": "bugun_degil: son kapanis 23.11 (tatil ya da veri gecikmesi)",
+        "degisim_yuzde": -0.12
       }
     ],
-    "ozet_yon": "RISK-ON",
-    "ozet_ortalama_yuzde": 2.77
+    "ozet_yon": "RISK-OFF",
+    "ozet_ortalama_yuzde": -2.08
   },
   "amerika": {
     "guncelleme_zamani_utc": "2026-11-24T14:51:27.699303+00:00",
