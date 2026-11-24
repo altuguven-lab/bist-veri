@@ -13,6 +13,7 @@ Cikti: data/endeks_intraday.json  {guncelleme_zamani_utc, kaynak, gostergeler: {
 Bos sonuc korumasi: hicbir gosterge cekilemezse mevcut dosya ezilmez.
 fetch_bist.py'den AYRI tutuldu: bist_quotes.json'i okuyan betikler (karne, saglik vb.) etkilenmesin.
 """
+import math
 import datetime
 import sys
 
@@ -52,16 +53,37 @@ def cek(ad, kod, yedek):
                 continue
             kaynak = h if not h.empty else g
             son = float(kaynak["Close"].iloc[-1])
-            onceki = None
+            onceki, onceki_tarih, onceki_kaynak, uyari = None, None, None, None
             if len(g) >= 2:
                 # gunluk serinin son satiri bugun ise bir onceki kapanis, degilse son satir
                 bugun = datetime.datetime.utcnow().date()
                 son_gun = g.index[-1].date()
-                onceki = float(g["Close"].iloc[-2] if son_gun >= bugun else g["Close"].iloc[-1])
+                i = -2 if son_gun >= bugun else -1
+                onceki, onceki_tarih, onceki_kaynak = float(g["Close"].iloc[i]), g.index[i].date(), "gunluk_seri"
+            # 24.11 (paket58, ogle brifingi 24.11): sabah ES/NQ/Brent yuzdeleri Cuma kapanisina gore
+            # hesaplandi - Yahoo gunluk serisi Pazartesi barini henuz icermiyordu. Yahoo'nun kendi
+            # 'previous_close' alani varsa esas alinir; iki deger %0,5'ten fazla ayrisirsa not dusulur.
+            try:
+                pc = t.fast_info.get("previous_close") or t.fast_info.get("regular_market_previous_close")
+                pc = float(pc) if pc and not math.isnan(float(pc)) else None
+            except Exception:
+                pc = None
+            if pc:
+                if onceki and abs(pc / onceki - 1) > 0.005:
+                    uyari = (f"gunluk seri onceki kapanisi ({round(onceki, 4)}, {onceki_tarih}) ile Yahoo "
+                             f"previous_close ({round(pc, 4)}) ayrisiyor; previous_close kullanildi")
+                onceki, onceki_kaynak = pc, "yahoo_previous_close"
+            elif onceki_tarih:
+                import numpy as np
+                if np.busday_count(onceki_tarih, datetime.datetime.utcnow().date()) > 1:
+                    uyari = f"onceki kapanis {onceki_tarih}: aradaki is gunu eksik olabilir (bayat)"
             return {
                 "kod": k,
                 "son": round(son, 4),
                 "onceki_kapanis": round(onceki, 4) if onceki else None,
+                "onceki_kapanis_kaynak": onceki_kaynak,
+                "onceki_kapanis_tarihi": str(onceki_tarih) if onceki_tarih else None,
+                "uyari": uyari,
                 "degisim_yuzde": round((son / onceki - 1) * 100, 2) if onceki else None,
                 "gun_yuksek": round(float(kaynak["High"].max()), 4),
                 "gun_dusuk": round(float(kaynak["Low"].min()), 4),
