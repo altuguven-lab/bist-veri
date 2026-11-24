@@ -9,7 +9,7 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 | Basin Duyurulari | OK | 20 |
 | PPK Kararlari | OK | 21 |
 | Baskanin Konusmalari | OK | 30 |
-| Veri Yayimlama Takvimi | OK | 32 |
+| Veri Yayimlama Takvimi | OK | 31 |
 
 ## Son 7 gün yayımlananlar
 
@@ -26,11 +26,9 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 - 2026-11-19 14:30 [Veriler] [Menkul Kıymet İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/menkul+kiymet+istatistikleri)
 - 2026-11-19 14:30 [Veriler] [Haftalık Para ve Banka İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/haftalik+para+ve+banka+istatistikleri)
 - 2026-11-19 10:00 [Veriler] [Kısa Vadeli Dış Borç İstatistikleri (Eylül 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/kisa+vadeli+dis+borc+istatistiklerii)
-- 2026-11-17 10:00 [Veriler] [Konut Fiyat Endeksi (Ekim 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/reel+sektor+istatistikleri/konut+fiyat+endeksi)
 
 ## Önümüzdeki 14 gün (Veri Yayımlama Takvimi)
 
-- 2026-11-24 14:30 Finansal Kesim Dışındaki Firmaların Döviz Varlık ve Yükümlülükleri (Eylül 2026) (RİP)
 - 2026-11-26 14:30 Banka ve Kredi Kartı Sektörel Harcama İstatistikleri (47. Hafta 2026) (RİP)
 - 2026-11-26 14:30 Haftalık Para ve Banka İstatistikleri (47. Hafta 2026) (RİP)
 - 2026-11-26 14:30 Menkul Kıymet İstatistikleri (47. Hafta 2026) (RİP)
