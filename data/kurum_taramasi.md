@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-24 20:43
+# Kurum taramasi - 2026-11-25 00:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -7,10 +7,10 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-23 | 3 |
-| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 2 |
+| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 1 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-24 | 66 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-24 | 58 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -25,9 +25,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
   - PDF konu: Bankalar ve Aracı Kurumlar Merkezi karşı taraf hizmeti verdiğimiz Vadeli İşlem ve Opsiyon Piyasası'nda sicil bazında pozisyon limitine konu dayanak varlık sayısı limitleri piyasa koşulları da gözetilerek güncellenmiştir.
   - PDF yururluk: 20.11.2026 tarihi itibarıyla geçerli olacak limit tablosu ekte yer almaktadır.
   - Evren kodlari: AKBNK 13,300,000, YKBNK 20,600,000, GARAN 5,042,000, ISCTR 29,000,000, SAHOL 7,040,000, KCHOL 3,250,000, THYAO 3,850,000, TAVHL 700,000, EREGL 10,748,000, ASELS 1,970,000, ASTOR 1,021,000, MGROS 200,000
-- 2026-11-17 [2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2179-4460ca18-9780-4a09-9576-a86b53b771fc.pdf)
-  - PDF konu: 2026 Yılı Takasbank Olağanüstü Durum Tatbikatı Hakkında İlgili :
-  - PDF yururluk: (yazmiyor)
 
 ## tspb (son 7 gun)
 
@@ -109,17 +106,17 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
-- ANELE: 11-17: 1, 11-18: 6, 11-20: 3, 11-23: 2
-- DSTKF: 11-17: 1, 11-18: 1, 11-20: 1
-- GUNDG: 11-17: 1, 11-18: 1, 11-20: 1
-- IEYHO: 11-17: 2, 11-20: 1, 11-23: 2
-- KTLEV: 11-17: 2, 11-18: 4, 11-19: 1, 11-23: 2, 11-24: 1
-- ODINE: 11-17: 2, 11-18: 4, 11-20: 2, 11-23: 1, 11-24: 2
-- OZATD: 11-17: 2, 11-20: 1
-- PEKGY: 11-17: 2, 11-20: 1
-- SELEC: 11-17: 2, 11-20: 1, 11-23: 1
-- TEHOL: 11-17: 2, 11-23: 3, 11-24: 1
-- VSNMD: 11-17: 2, 11-18: 2, 11-19: 1, 11-23: 1
+- ANELE: 11-18: 6, 11-20: 3, 11-23: 2
+- DSTKF: 11-18: 1, 11-20: 1
+- GUNDG: 11-18: 1, 11-20: 1
+- IEYHO: 11-20: 1, 11-23: 2
+- KTLEV: 11-18: 4, 11-19: 1, 11-23: 2, 11-24: 1
+- ODINE: 11-18: 4, 11-20: 2, 11-23: 1, 11-24: 2
+- OZATD: 11-20: 1
+- PEKGY: 11-20: 1
+- SELEC: 11-20: 1, 11-23: 1
+- TEHOL: 11-23: 3, 11-24: 1
+- VSNMD: 11-18: 2, 11-19: 1, 11-23: 1
 
 ## Takvim (bugun-1 .. +14 gun)
 
@@ -129,6 +126,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-30 saat ? MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) (TEYITSIZ)
 - 2026-12-03 10:00 TUIK TUFE (tahmini tarih) (TEYITSIZ)
 - 2026-12-03 16:30 ABD haftalik issizlik basvurulari (kurala gore)
+- 2026-12-09 21:00 Fed FOMC faiz karari (teyitli)
 
 ## Kontrol edilemeyenler
 
