@@ -285,14 +285,14 @@ export const ZAMANLI = {
   "06:24": ["viop_hisse_tetikle"],                                          // 09:24 TR, onceki gun yakalama
   "07:00": ["tcmb_evds_tetikle"],                                           // 10:00 TR
   "07:20": ["tcmb_yayin_tetikle", "yabanci_oran_tetikle"],                  // 10:20 TR, TCMB 10:00 yayinlari
-  "08:16": ["kuresel_avrupa"],                                              // 11:16 TR
+  "09:20": ["kuresel_avrupa"],                                              // 12:20 TR (24.11 paket58: acilistan >1 saat sonra; Yahoo ilk dakikalarda bos)
   "09:50": ["arastirma_tetikle"],                                           // 12:50 TR, ogle brifinginden once
   "10:18": ["tv_arsiv_tetikle"],                                            // 13:18 TR
   "11:36": ["risk_saglik_tetikle"],                                         // 14:36 TR
   "11:50": ["tcmb_yayin_tetikle"],                                          // 14:50 TR, TCMB 14:30 yayinlari
   "13:16": ["makro_tetikle"],                                               // 16:16 TR, EVDS
-  "13:40": ["kuresel_amerika"],                                             // 16:40 TR, ABD acilisi sonrasi
   "14:20": ["tcmb_yayin_tetikle"],                                          // 17:20 TR
+  "14:50": ["kuresel_amerika"],                                             // 17:50 TR (24.11 paket58: kis saatinde ABD 14:30 UTC acilir)
   "15:20": ["bist_resmi_tetikle", "seans_kapanisi_tetikle"],                // 18:20 TR, kapanis sonrasi (ilk okuma)
   "15:26": ["dusuk_teyit_tetikle"],                                         // 18:26 TR
   "15:30": ["kopru_sessizlik_tetikle"],                                     // 18:30 TR
