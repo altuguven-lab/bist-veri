@@ -8,8 +8,8 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 20 |
-| haber | OK | 44 |
-| kurum_yayin_sayfalari | OK | 40 |
+| haber | OK | 53 |
+| kurum_yayin_sayfalari | OK | 41 |
 | kuresel_gorunum | OK | 14 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
@@ -70,6 +70,8 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
+- 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye için dolar alarmı: Döviz talebi kalıcı hale geliyor - KARAR](https://news.google.com/rss/articles/CBMitgFBVV95cUxNTmRPenViMDdvTE1lZXVPRGZ2Y3ZPLUdnSDRFSG5hZ3dfN1JuMnhPT2VzLVNhYUdPbG14WWgxczA2MDh6TWZBTVJVN1VOazlGM0JFcTJaMFNHbEhJM0dZdVJQRF9PdGV5dnluNm5RdllTaU01aGRoXzBPVUxqbnNEVzBEU2RfMWZxU0drUVMwbUk2MDhRN0VuZ1hOekhoMy1TRS1HTjNnVkJTRkRlb1BGckw3NlhFUQ?oc=5)
+- 2026-11-24 **Goldman Sachs**: [Türkiye'de dolarizasyon hızlandı! Goldman Sachs'tan Merkez Bankası için faiz uyarısı - ABC Haber](https://news.google.com/rss/articles/CBMiwAFBVV95cUxNTkJ1S3FYbV9wckYwaDhiX3U5eGdteXNPLUdXb3dVcmxJOGRLbHl3WEpxR2FPbG9VUEd1RzhfY05xSGZCa3JhMDJfei1pZ0VheG5Nb3BzcVVTMDMwUDBZR3NZeXdMQ3JORkVoaEE4ZnBpb2lyV2pjNGdxYzJ5dVRZQm1vQTJXX05LOHlBN2JxMlB0MWVpLS0ySDhjSU8wVk5PQ0lDYTlhNUZDZnE1OFFtbm81ampzeTV0V1Bza3lTb2I?oc=5)
 - 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye için dolarizasyon uyarısı - Gazete Oksijen](https://news.google.com/rss/articles/CBMilgFBVV95cUxNWDVjbDRlalZyQkxiNFNmd2hiM2FWTDRHTjRLd1U0cFpMZ3VrTkc1bjYtU1pDend5V3cyV3lYZ1pNQlBXaU9qRlY4ZFE1UzFCaGNnWGpuR3dRQS1wQjI0aUtNN01DeTR4R0dGTFQzZnBxbVBKQVFiaTFjZnJQV19laG42UUg0RkZXQVU5SFVNUGVEZFdnOEE?oc=5)
 - 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye'ye dolar uyarısı: Bu kez tablo farklı! - İmece Gazetesi](https://news.google.com/rss/articles/CBMipwFBVV95cUxNaVdzNlZMMktDY3B2bDRYLTREUmRaX1o0NjZjV1RTZWw0X2R6TTRaUEgtZzdPTUZLNkVZanNRbXdlSHJFckJUWGU1TjN0emp6OEhBeFRZVHVTSk80U1RFLXNucHZlV3VfZzlfekprbGhIWkdvU3UzWmRIQXV6ZnkwYjgwMlBpVHFDMU1HOXRhTjdWWHc2TkhtdlE3OTVFUGlQVmlGOThMZw?oc=5)
 - 2026-11-24 **Fitch**: [Fitch'ten Türkiye değerlendirmesi: Fon krizi, faiz ve kredi notu mesajı - CNBC-e](https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZzBvSlgtaFVIUFRoUUdfZHhVZDF5T09ibzM4Z2ItY25HNUJNT1N3QmVEbDYtak01NlJLMmRDWHRPZndLTDIwcERKZGR6SXd6a0V5eGJzdXlrUl9KdzJOemtSWWhiZC1xWmlWNmVKT0lrYnhZaHpqM2NDN2E3VkZsR1pXd244U1NiTF92Q2pNdE5UR2FmMzcwczJwYUxMOWlwb0t2c19lbWxyZw?oc=5)
@@ -93,8 +95,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank’tan 2027 Türkiye raporu: Büyüme yüzde 4 - Howl.Link](https://news.google.com/rss/articles/CBMiO0FVX3lxTFBCREdQNTR0QzVJbkdKTmFDWW1yWjE5UVFTbU9rSEJUMmM3SzFvdk1RLS05ZFk5OVNoZFI4?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank küresel ekonomi beklentilerini açıkladı: Türkiye tahmini değişti - Sanayi Gazetesi](https://news.google.com/rss/articles/CBMirAFBVV95cUxNVThoQkxyVnA2MGlMSGwyNkhoMmFwLVl4VWxiS2JkQkkyczkwam5ZOUFqTzQ4VjdBZW9Td29GZFFJTXVRTXVpSVlwY0oya1FrODZQTS03ZnhEOGVySmd1cDNiUUlJRjdkaXBLTEkzbVloTlJ3TmstcURaaUtsNWxYSmxSZkVFTHVUY3A4bGctVWtpbWNEVmE1eFpOc0V4QUp1N2JaaW1zYUY1OVo1?oc=5)
 - 2026-11-23 **S&P Global**: [Fon krizi sonrası S&P, Moody's ve Fitch'ten rapor: Türkiye'nin kredi notu etkilenecek mi - Notbir](https://news.google.com/rss/articles/CBMitwFBVV95cUxPZkVsSEg4ZndQSWRuWG1OTnJJTUtoU2J4M0JmR0U4TDVxU29jN1A2V0NWcUdPWXpoSmRiTE1iZExhS09NbHpEbWt5OTJFN2NsMTNjLWJxMnA3Mmg4XzFuelRIa0pDekV2ZFNjQzJrTzh6VlRnb0VsNkhxN3FKTndmY0p6cGZURW5DRE9SbDVwNDN1ZHdQWVgyeG9YN1RPamhMYkh2d0pESmxMN3dTWFRlUnJFQmtRSEE?oc=5)
-- 2026-11-22 **HSBC**: [HSBC borsada alımlarını yüzde 126 artırdı! ASTOR almaya... - Hisse.net](https://news.google.com/rss/articles/CBMingFBVV95cUxNMmJCb21TN3FnVXg1bFFzbzRQZ0RZTU9nQ1Ewd3ZFbVgwa0JudHFTMUtScElBUzAwVlpCcUNYcVNSQVRfV0Zyc2t3czZmREptZlVKVkNCR3hUel84bENuYVpkUDZqb0xSUm9PN25fQkdjNE9kZmdkNzlnUHdPWGt1NEtXOEVPN2ZGZGJTekJ1bVVtTHh4clFaX21TRDBEd9IBowFBVV95cUxQTUgtck9MTER1R2tobTN2UGxfLUJ3amZScGxiVm9Nd21RTlpRbkltTDMxdGxnS1NhaGVXTzJPa2hVYUFmZU5IZ3BFckE5UUZNNmFwUkYzM1VuV19OTUQzckROTWFsUUkxdkpRWkRRakdkZHNwMFBieFVjTGFoM2dFdTlpcVZ0NkViblRwMXByLVR5eG9KY2JvVHVrVXhncUJmdHFv?oc=5)
-- 2026-11-21 **Moody's**: [Fon soruşturmasının ardından Moody's'tan Türkiye açıklaması - Şok Gazetesi](https://news.google.com/rss/articles/CBMipgFBVV95cUxNMHpyV1RwSDFhTWQ2dl9EcndmUFByRWVxRC1RNVRxYXpiQUJ5dTlYbHFkbE5WWmw0Y2Y4UUFVOVBCMXlWNDQ4X0l1ZGZCM0dBdUFXcm00MEgwX3JuM1pDdnEzZzVZS3N0bmF2ZE16dFNPLXF0V3p3Y3JfZG9ZVjBwZFZOdm5sdkZVeUVMSHJObjBTQUFzWHg2Um9uYXVnM3FOVzNuWk9B?oc=5)
 
 ## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)
 
@@ -121,6 +121,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-17 **Goldman Sachs**: [Goldman Sachs’tan 2028 altın fiyatları için yeni tahmin! - gdh dijital](https://news.google.com/rss/articles/CBMinAFBVV95cUxPNmhTYTZTZmYtbmRyT3lWamk1MEloV1B2VG5KU2t4S214Z2Zoa2RYVlR1MWphWmhZU09hNGNtd2h5ZWRwenhfMzF5V3M2TmxFRnZkVExxeklmbmppNWJvRU9xVjliZ2cxcHRQaGtqWHhGUXZaWlBXTkR3R1BuYUdDT1BBbWl5aTgxVlJEQjZGU3pqU25vcUJsb1pndjc?oc=5)
 - 2026-11-17 **Goldman Sachs**: [Goldman Sachs revealed its outlook for 2027. Here’s how much it sees the S&P 500 gaining - CNBC](https://news.google.com/rss/articles/CBMivwFBVV95cUxQb2xLbG9kYWZ4ZVAzcHNTb25JdThjRkVrb0RWZGwyay1lQy1wOFNraTdWbXRveTJTUWU5TEh6cHhRWEwxVWlPOGowaHNISl9HdmtmSUFBYUJSWkhWa2J4R1hkWk9fcmRhbV9JSXB6bEJZTjN2bG43SktRYzljVmZpRUNZUGJ4akhDamY1WUQzZW5GUmRISFdEY3UyYy12M0ZNZXdqejJ1MWpGSTI0Y20wMHFBZ3hTc0NYNkZiOUx6Zw?oc=5)
 - 2026-11-17 **Morgan Stanley**: [More from Morgan Stanley: 8,700 S&P target and $5,250 gold lead its 2027 outlook - investingLive](https://news.google.com/rss/articles/CBMiwwFBVV95cUxPa25lU3c0d19JNVlOdVJnd0YtRlJvV3BsMm9RU19ESnowZ0lrRFJ5ZDk1VDVyaldEYzVqOW9BdFZMQ080SEp4ckxXTGVzTTdETjRmSk5xaHlNZUVXNnJDc1oxaEtTNFZTTV9SUjE0YkJmbGVET2VZRDBUWkRVajFKU1IwWC05R0dzM1FDVmN1eVR6aHRzU21HRTZoeDRNSC1NMkNKa0xBcXdScEdGcXBpVVhid212dEo3alVWOW1aa2lFUDA?oc=5)
+- 2026-11-24 **ING**: [United States Published 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spendi](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
 - 2026-11-24 **ING**: [Belgium Published 14:08 Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
 - 2026-11-24 **ING**: [France Published 14:30 France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 bu](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
 - 2026-11-24 **ING**: [Commodities daily Today, 08:00 The Commodities Feed: Oil extends losses while copper gives back Nvidia bounce Nvidia-led rally lifts copper](https://think.ing.com/articles/the-commodities-feed-nvidia-led-rally-lifts-gold-and-copper/)
@@ -130,7 +131,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-24 **ING**: [Rates Spark Yesterday, 16:45 Rates Spark: Jensen who? The Treasury market effectively said - "We see your 6% Nasdaq rally, but we're not for moving"](https://think.ing.com/articles/rates-spark-nvidia-back-up/)
 - 2026-11-24 **ING**: [Spain Yesterday, 11:55 Spain’s election promises collide with a shrinking fiscal margin Spain’s political parties promise spending and tax cuts without clear financing, while limited scope for savings](https://think.ing.com/articles/spain-is-not-a-big-spender-but-its-election-promises-still-need-financing/)
 - 2026-11-24 **ING**: [FX Yesterday, 07:52 FX Daily: Uneasy calm as markets stabilise Equity markets are stabilising after a torrid week. But the dollar can hold gains](https://think.ing.com/articles/fx-daily-uneasy-calm-as-markets-stabilise/)
-- 2026-11-23 **ING**: [Spain Today, 11:55 Spain’s election promises collide with a shrinking fiscal margin Spain’s political parties promise spending and tax cuts without clear financing, while limited scope for savings and](https://think.ing.com/articles/spain-is-not-a-big-spender-but-its-election-promises-still-need-financing/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
@@ -139,6 +139,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Diğer kurum haberleri (son 7 gün, ◐)
 
+- 2026-11-24 : [BRSAN Ve GRSEL Hedef Fiyat Güncellemesi - Finans Hattı](https://news.google.com/rss/articles/CBMif0FVX3lxTE5TNDlIU1JFRGEwOW9TVUU5WTJoX01pX1lPcUVJZmIxc2FaVzllRUpHdHlvZk1MZm1xZXdfSC1kOGxCdXk4c0VyUV9ZYlRIckFCWXlhNWxjdzZsUVZXMjlPYzh2UG5yanpaVF82akh6NUx0Yi1CcHpxQmJSbDdRNVE?oc=5)
 - 2026-11-22 : [ASTOR, FROTO, BIMAS ve SAHOL! 10 hissede hedef fiyat... - Hisse.net](https://news.google.com/rss/articles/CBMimgFBVV95cUxOeFp6MWRDYi1GSVpVaGJjSlRGaGNuOW5HaTFUd0Zzd3dEWkZyOE9uUnlpZWljUkwwaUpEVlRBZkRMdHh1QTJVOTZzaWJjN2dfUFZCZ2k1S0piSnR3eFBsZmhvQ1J5QTI0MkkwQ1JGam9SXzUtSHRERWx4aVpMd0Rya1R1RUx1RUFyS2lCWUhTZjZyTEw4R281alV30gGfAUFVX3lxTE9hNi12TDdDUGFXUTdCQ1c1UldZUExxelE5TFVxWWhpZEVpVDJhb2xLTEtDdnVkU2FSNnUzT2swUFdqSm90V1Bxd0VaVjNfNGtfMkJaNmJ4Vm9UOGxRWjJhVEhFMWNiZjNiWHpqSTNkWjBPTmwxSG1DdU1sR3BEVHlpQi1vMkR0cWk5cUZWb0NYUzJHRU1ia19fc1RGWkFFMA?oc=5)
 - 2026-11-22 : [Türkiye'deki fon gelişmeleri kredi notunu etkileyecek mi? - Odakgazetesi](https://news.google.com/rss/articles/CBMijAFBVV95cUxNTjlyZHRRWEV0dTNLRWhHMmxmWlpXVGd3dDBtZVZOcW80a0F3NnA1M0I5d1NueTZHMWR5ZUlyN3ZlOHZJbi1SM01nNnkzTDhzcndzOGk2OXJKLVZVNXliWkVrZk5lNWJKS2hMaWlCUVgxd1M2RDhuR0NOZGJKaWgyOXBSYWI1NWM0UnZIVA?oc=5)
 - 2026-11-21 : [Fon soruşturması Türkiye’nin kredi notunu etkiler mi? - Rudaw](https://news.google.com/rss/articles/CBMiaEFVX3lxTFBZZmhUZnViLUpPdlFuVmJ3T1p4U2VZVDFDNFA2NktKekphdTZ1d2dGSi10M1ljOTZQNXdFLTZKVGRHaDN5NFdzaVJpcHVDdzdFU0NKOWJtMDlNSjd1S0t1VmdCTGtSZ2Jk?oc=5)
@@ -153,7 +154,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-18 : [BIMAS Hisse Hedef Fiyatı Güncellendi: %57 Yükseliş Potansiyeli - Finans Hattı](https://news.google.com/rss/articles/CBMiiwFBVV95cUxNQ2xqV19RdE8tV2dnazFBenRtbFg5eU9VYlN0YS1Ec2VvcmZOUk9EeFBCaThQclhjTk5zWXpPX1BxclFwZ09oa1NpeFpLNExtc0ZuWVp0ZFdIbTM0TG9INENINmowdWhFMXFBWGIyQTZZRERoSnFHOUI0Ump1UDk1S1JaS0F5R1kxTGxV?oc=5)
 - 2026-11-17 QNB Yatırım: [FROTO Hisse Hedef Fiyat: QNB İnvest'ten Yeni Beklenti! - Finans Hattı](https://news.google.com/rss/articles/CBMihwFBVV95cUxOV2t3d0txU1hiNGRlMW4wQ2pUazZidGhJdTR2UjhldVhWQmd4SkQtc2Z2ZTVpeFVZMkFUU3dzTDRCYlJ3NzFzUlFONUNsMmt3bTUxcVByVnRWSG94R1VkaHpMR1piZm54NlpyeDU3eW4yWTdqMmQxbS1pNU5FVGJjMVE2SFFGOTg?oc=5)
 - 2026-11-17 : [Dev Bankadan Türkiye Hisselerine Güçlü Alım Tavsiyesi Geldi - Ekonomi Dünya](https://news.google.com/rss/articles/CBMimwFBVV95cUxNSmJ4TW1yR1VRRmtTdWtHN0syMGx5WVRBTGFad18wcklSaDBWeFBqcjlSUmZ3TDlBWS1WdUJmZ1NyNGlORlVVWmlzU0FFbk4yb1dGaHZrMkVLdzZsVHk0WnNpVlJHdHVDOTJyRm5TeWc5MXEtVExOZkhjdlg2NGRGYTBFc1BSbk85Rk1mY3BQTUxJZkRYOHY5SGh2TQ?oc=5)
-- 2026-11-17 ÜNLÜ & Co: [Kerkük-Ceyhan petrol boru hattı 12 yıl sonra açıldı: Türkiye'ye günlük 500 bin varil hedefi - Cumhuriyet](https://news.google.com/rss/articles/CBMi0gFBVV95cUxQWE4yWldoX2lwOHVaa2VoYUFlNXFWdlMxNlNwWHZfTmpocXhrTE04cHJXSmRybFRaV1BUWE5xalBtdmtQUVQwb1lUNVY1ZWZ1ZXVUYVJMaHZ6MEhvbkdFNUxmNzJIb0xzY2N2aHBkbVRWbzRPdWtTWXR5UUhjLTBTMGhYd1RHa08wTW5ZZHAxbERqWTVuRDJGeDhReWF5aUYzVnphZDBycjJfSXQ3VlB0aUttaDE0dDJjM3hlNlRYdmxfRlQxN0dhMy1JdGw4cmQ2eHc?oc=5)
 
 Revizyon yönü yalnız bu arşivdeki önceki kayıtla karşılaştırmadır; arşiv 20.11.2026'da başladı.
 Gözlem amaçlıdır, tavsiye değildir.
