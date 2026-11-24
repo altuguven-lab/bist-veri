@@ -8,7 +8,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 19 |
-| haber | OK | 47 |
+| haber | OK | 51 |
 | kurum_yayin_sayfalari | OK | 42 |
 | kuresel_gorunum | OK | 13 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
@@ -102,6 +102,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
+- 2026-11-23 **ING**: [ING FX Outlook: Dollar Supported Until Spring 2027, EUR/USD Range 1.10-1.15 - News and Statistics - IndexBox](https://news.google.com/rss/articles/CBMinwFBVV95cUxOeXBWaXZaT3laUFc1UTZrajYzYjlicXhfOTFyeFJ0bXRyTFZVdW1tWm5Qa0xxMGVidEIxX3ZoVnJiRnNzMVFyWVN5SFEyai1xOV9fQ0djZE1HQmZMRTFaZldZd0pxWHQ1X0prNGw1bmExOTdWcm5icTRoUngwTG1pQmEzMlZ2TS1aY0hKV1JySi1sZDVIa1U0cUFMQmpDdjA?oc=5)
 - 2026-11-23 **HSBC**: [US Dollar: Strong outlook into 2027 – HSBC - FXStreet](https://news.google.com/rss/articles/CBMiigFBVV95cUxPbEJXRU9QQzBlelVfWjFsbThiQUFYOTFDMEFCZFA2Z19WXzVSQ2JSZ0VzZ1VwSTJIR0hEaE1qNTBteWpUd2tDbjlwNmN4VVdPNnN4N3FLVEFzRU1UN0pCWDF0YlhTeVpjLVVjQlJzbGxDdERhRFhOTHFGeFNHUGUzaDdDQldtbjFxY3c?oc=5)
 - 2026-11-22 **Goldman Sachs**: [Goldman Sachs’ economic outlook for 2027 - Investing.com](https://news.google.com/rss/articles/CBMinAFBVV95cUxQREttQl9iNXhLSXF3X1NpUG84WG9lMGJnWmxDTjVicEtxTEh0eGNoOG9ZTzVIZTQxQjQ2WTJhakl5c3ZKM1J4VHphRk55MDlpVWxNX25LbWpZVjJzekZYa3BrVnhEN1VCWXFwbkZ1bkVDaFlZanlRNHBPbVNzQUk1QVNzWjloc2pZSlBfVFhpZ1hqd3Y2U1lZanhqRzk?oc=5)
 - 2026-11-20 **Invesco**: [Invesco Mortgage Capital Stock Price Forecast. Should You Buy IVR? - StockInvest.us](https://news.google.com/rss/articles/CBMiR0FVX3lxTE5id2dELUcyZHNoMDdRakNqTW5HMEd0QUNGWHBiYjFtcHp0ZDNkLVJPSTYwbjZpRWYyLThlMWM1emhJYmllZmZR?oc=5)
@@ -121,7 +122,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-23 **ING**: [Asia week ahead China Japan 20 November Asia week ahead: BoK rate decision, data from China, Taiwan, Japan The Bank of Korea expected to hike rates by 25bp to 3.25%, a third tightening in the cycle](https://think.ing.com/articles/asia-week-ahead-bok-rate-decision/)
 - 2026-11-23 **ING**: [19 November FX Daily: Higher US real rates dominate Higher US real rates are sucking funds into the dollar](https://think.ing.com/articles/fx-daily-higher-us-real-rates-dominate/)
 - 2026-11-23 **ING**: [Rates Spark 19 November Rates Spark: ECB reserve rethink would bring funding pressure closer Longer rates remain sensitive to jittery tech sentiment, while front-ends face hawkish central bank comment](https://think.ing.com/articles/rates-spark-ecb-reserve-rethink-would-bring-funding-pressure-closer/)
-- 2026-11-20 **ING**: [Commodities, Food & Agri Today, 12:02 Metals sell-off runs ahead of physical markets It has been a difficult week for metals](https://think.ing.com/articles/metals-sell-off-runs-ahead-of-physical-markets/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
@@ -138,13 +138,13 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-19 ÜNLÜ & Co: [Ünlü & Co’nun banka tercihi değişti: Akbank gitti, Vakıfbank geldi - Paratic Haber](https://news.google.com/rss/articles/CBMiigFBVV95cUxNQnJZa2dzY1ptdWk5dS1wTGxJY0d1TkhJb2tpTFFjdFo4cTRSOWcxWTJJSEZCYUJLdjRqOVFsSS1YRFIybjJ3bS11bExjTmFRS24wZTdUVGJPcWJ4VTJCNm13UFV6MWt2d0xKSlI2TEpheDRpYWk2UElGV3ktX0ZBazhVMHJBdjZNTFE?oc=5)
 - 2026-11-19 ÜNLÜ & Co: [Ünlü Menkul model portföye Vakıfbank’ı ekledi, Akbank’ı çıkardı - Borsatek](https://news.google.com/rss/articles/CBMieEFVX3lxTE1SWUJXcGpEMkF6R2RYZFJNR2s5SmNKeEI3NEI5N2hPVVJCVkVET0RXdTVna3ZxV015UDJRRVFGZFdlRmluVjZCcF9ETDN0SkVOcHhyTnJQdGo2aGxjV0NaVEJKazJtNFVydXhuamJwOTZCRGdUY0x0bg?oc=5)
 - 2026-11-19 : [ASTOR ve GLRMK İçin Yeni Hedef Fiyatlar Açıklandı! - Finans Hattı](https://news.google.com/rss/articles/CBMif0FVX3lxTE9DdENTczYtQ2UyS2pVVURibnV6ejRfSXdVREZaUVpnX3dtaFNRM2t2eUdiaTh3ZEZjbktldDNrazNlYWpoWVRYb0taWkFDeHpHV0JKeDV3YUVuUHVBSDFBdUZySU8zVVZHdUQ2OS1aeEk2NHRoMkpLSkdFdmhWdXc?oc=5)
+- 2026-11-18 Gedik Yatırım: [Gedik Yatırım model portföyden DOHOL'ü çıkarttı BIMAS'ı ekledi - Borsatek](https://news.google.com/rss/articles/CBMic0FVX3lxTE14d0QwalRxU05MSExrWTBUcGI3X1pLNENfSzIxYUk5ZDU5TF9TUzJBSzYtSHRtdUJHSVF1emRJWExJNlpOSmtHY1NHQ25YVGpBSFJjdkpxMFpOREw1b3BFb1ZyZ01SWGxuR2pxV3FNUVVHQUE?oc=5)
 - 2026-11-18 Gedik Yatırım: [Gedik Yatırım’dan model portföy için DOHOL ve BIMAS kararı - Paratic Haber](https://news.google.com/rss/articles/CBMihAFBVV95cUxOMjB3RGt2S2dFU1Y1MkhiSWhOWGVJNmlGWERPSWNtc0NvX0tibUdZRUNjZjk1SndFMmRZMHNWeHk3R1E3REZXbkxRMDMtOU9RSEhQSTE5bWZ6cXhuTHRKbXRiUkhHaDZxODVxMnVmMzJrTXhScmkwSUtYeHAxaTZwOEl6OHY?oc=5)
 - 2026-11-18 : [BIMAS Hedef Fiyat Güncellemesi Ve Portföy Değişikliği - Finans Hattı](https://news.google.com/rss/articles/CBMijgFBVV95cUxQSS1MWlFVMmJzX25aREpyQmg5WjRieURCbXFJVWZoUXlvQTZlLTVTbVpaUkpZckxrLU1uR0VsZE5NX1NsMVJpNFBZTlhuT3pkYi1ILUtBRk1tZExzN1NUVnhtd29EUnM4TWhkOVRTWktsTzFic0FEa0dBaU1IUkFPTXl2bEE0LUpWdXh1eURn?oc=5)
 - 2026-11-18 : [BIMAS Hisse Hedef Fiyatı Güncellendi: %57 Yükseliş Potansiyeli - Finans Hattı](https://news.google.com/rss/articles/CBMiiwFBVV95cUxNQ2xqV19RdE8tV2dnazFBenRtbFg5eU9VYlN0YS1Ec2VvcmZOUk9EeFBCaThQclhjTk5zWXpPX1BxclFwZ09oa1NpeFpLNExtc0ZuWVp0ZFdIbTM0TG9INENINmowdWhFMXFBWGIyQTZZRERoSnFHOUI0Ump1UDk1S1JaS0F5R1kxTGxV?oc=5)
+- 2026-11-17 QNB Yatırım: [FROTO Hisse Hedef Fiyat: QNB İnvest'ten Yeni Beklenti! - Finans Hattı](https://news.google.com/rss/articles/CBMihwFBVV95cUxOV2t3d0txU1hiNGRlMW4wQ2pUazZidGhJdTR2UjhldVhWQmd4SkQtc2Z2ZTVpeFVZMkFUU3dzTDRCYlJ3NzFzUlFONUNsMmt3bTUxcVByVnRWSG94R1VkaHpMR1piZm54NlpyeDU3eW4yWTdqMmQxbS1pNU5FVGJjMVE2SFFGOTg?oc=5)
 - 2026-11-17 : [Dev Bankadan Türkiye Hisselerine Güçlü Alım Tavsiyesi Geldi - Ekonomi Dünya](https://news.google.com/rss/articles/CBMimwFBVV95cUxNSmJ4TW1yR1VRRmtTdWtHN0syMGx5WVRBTGFad18wcklSaDBWeFBqcjlSUmZ3TDlBWS1WdUJmZ1NyNGlORlVVWmlzU0FFbk4yb1dGaHZrMkVLdzZsVHk0WnNpVlJHdHVDOTJyRm5TeWc5MXEtVExOZkhjdlg2NGRGYTBFc1BSbk85Rk1mY3BQTUxJZkRYOHY5SGh2TQ?oc=5)
 - 2026-11-17 ÜNLÜ & Co: [Kerkük-Ceyhan petrol boru hattı 12 yıl sonra açıldı: Türkiye'ye günlük 500 bin varil hedefi - Cumhuriyet](https://news.google.com/rss/articles/CBMi0gFBVV95cUxQWE4yWldoX2lwOHVaa2VoYUFlNXFWdlMxNlNwWHZfTmpocXhrTE04cHJXSmRybFRaV1BUWE5xalBtdmtQUVQwb1lUNVY1ZWZ1ZXVUYVJMaHZ6MEhvbkdFNUxmNzJIb0xzY2N2aHBkbVRWbzRPdWtTWXR5UUhjLTBTMGhYd1RHa08wTW5ZZHAxbERqWTVuRDJGeDhReWF5aUYzVnphZDBycjJfSXQ3VlB0aUttaDE0dDJjM3hlNlRYdmxfRlQxN0dhMy1JdGw4cmQ2eHc?oc=5)
-- 2026-11-17 : [Dev bankadan Türkiye hisseleri için dikkat çeken tavsiye: 'Ağırlık artır’a yükseltti - Ekonomim](https://news.google.com/rss/articles/CBMixwFBVV95cUxPeFpvVWo2Z19KUzAtQlhSdjM5aF9XMnFUb3VnMEFnYXFqd2IwZ09KY0FvenZzOHQ0aFotdnNqYlh6ZS1HYkZvWUY1RVZjTmE0TDhCd3J1V3J0LVc3Q3pEVl9xWXZRaTdGUzRvc1h3MG02dVFTNVJSZHFxSDBBSTQ1MnctZTVuczhiWGxwMHBNQVBUVEkycHFVWndWaG9jdEN0TW9xWG90N3g0Vlp6ajRTMFlWN2tnVlhNX01HMWFGUU9NYjUwbDJF?oc=5)
-- 2026-11-17 : [Dev bankadan Türkiye hisseleri için tavsiye değişikliği: “Ağırlık artır” seviyesine yükseltti - T24](https://news.google.com/rss/articles/CBMiwwFBVV95cUxORm5yeW9fQkpWamVtSm5DR2R4NzNQMGZfM2VINTc0YVNTZFRiaWRibVBEa3NzY2xlaFVKT2R2blQ4Sk5sbWM5QnhYcmdqUEdqWjJNTlA1YTNzc0hVcG1DWVhZQ2JhYlg5MWYwVzNjd0pMVHBFaklacUJlSEhYMC1ZSGVyMmZkanhFU2Jic1B5Y3VSSzNIcVBVSHJrUVg3LVhtZVV5UktRdW13bUhyY3N0U3Y2Rmg0SDVHak5aQWVVeWRHc0k?oc=5)
 
 Revizyon yönü yalnız bu arşivdeki önceki kayıtla karşılaştırmadır; arşiv 20.11.2026'da başladı.
 Gözlem amaçlıdır, tavsiye değildir.
