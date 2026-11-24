@@ -13,6 +13,7 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 
 ## Son 7 gün yayımlananlar
 
+- 2026-11-24 14:30 [Veriler] [Finansal Kesim Dışındaki Firmaların Döviz Varlık ve Yükümlülükleri (Eylül 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/finansal+kesim+disindaki+firmalarin+doviz+varlik+ve+yukumlulukleri)
 - 2026-11-23 10:00 [Veriler] [Sektörel Enflasyon Beklentileri (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/sektorel+enflasyon+beklentileri)
 - 2026-11-23 10:00 [Veriler] [Hanehalkı Beklenti Anketi (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/hanehalki+beklenti+anketi)
 - 2026-11-23 10:00 [Veriler] [Finansal Hizmetler İstatistikleri ve Finansal Hizmetler Güven Endeksi (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/finansal+hizmetler+istatistikleri+ve+finansal+hizmetler+guven+endeksi)
