@@ -7,10 +7,10 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | Kaynak | Durum | Adet |
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
-| hedeffiyat | OK | 14 |
-| haber | OK | 39 |
+| hedeffiyat | OK | 15 |
+| haber | OK | 46 |
 | kurum_yayin_sayfalari | OK | 42 |
-| kuresel_gorunum | OK | 14 |
+| kuresel_gorunum | OK | 18 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -19,6 +19,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 | Tarih | Sembol | Kurum (kademe) | Hedef TL | Tavsiye | Revizyon | Kaynak |
 |---|---|---|---|---|---|---|
+| 2026-11-25 | ALARK | ÜNLÜ & Co (A-) | 174.0 | AL | YUKARI (146.6 → 18.7%) | ✅ (toplayıcı) |
 | 2026-11-20 | VAKBN | Phillip Capital (B) | 48.7 | Endeks Üstü Getiri | YUKARI (47.5 → 2.5%) | ✅ (toplayıcı) |
 | 2026-11-20 | ISCTR | Phillip Capital (B) | 21.0 | Endeks Üstü Getiri | YUKARI (20.2 → 4.0%) | ✅ (toplayıcı) |
 | 2026-11-20 | AKBNK | Phillip Capital (B) | 93.7 | Endeks Üstü Getiri | AYNI | ✅ (toplayıcı) |
@@ -41,6 +42,15 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
+- 2026-11-25 [FX Teknik Analiz Raporu 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/fx-teknik-analiz-raporu-25-11-2026/) (diger)
+- 2026-11-25 [ELÜS Günlük Bülteni 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/elus-gunluk-bulteni-25-11-2026/) (diger)
+- 2026-11-25 [İş Varant | Duyuru 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/is-varant-duyuru-25-11-2026/) (diger)
+- 2026-11-25 [Piyasalarda Bugün 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/piyasalarda-bugun-25-11-2026/) (diger)
+- 2026-11-25 [Sermaye Artırımları/Azaltımları ve Temettü Ödemeleri 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/sermaye-artirimlari-azaltimlari-ve-temettu-odemeleri-25-11-2026/) (diger)
+- 2026-11-25 [Pay Geri Alımları 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/pay-geri-alimlari-25-11-2026/) (diger)
+- 2026-11-25 [Teknik Bülten 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/teknik-bulten-25-11-2026/) (diger)
+- 2026-11-25 [Günlük Açığa Satış Bilgileri 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/gunluk-aciga-satis-bilgileri-25-11-2026/) (diger)
+- 2026-11-25 [Günlük Yabancı Oranları 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/gunluk-yabanci-oranlari-25-11-2026/) (diger)
 - 2026-11-24 [İş Varant Raporu: İş Varant 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/is-varant-raporu-is-varant-24-11-2026/) (diger)
 - 2026-11-24 [Gürsel Taşımacılık (GRSEL.IS) – Takip Listesine Ekleme](https://arastirma.isyatirim.com.tr/2026/11/24/gursel-turizm-grsel-is-takip-listesine-ekleme/) (diger)
 - 2026-11-24 [FX Teknik Analiz Raporu 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/fx-teknik-analiz-raporu-24-11-2026/) (diger)
@@ -52,10 +62,11 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-24 [Pay Geri Alımları 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/pay-geri-alimlari-24-11-2026/) (diger)
 - 2026-11-24 [Teknik Bülten 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/teknik-bulten-24-11-2026/) (diger)
 - 2026-11-24 [Günlük Yabancı Oranları 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/gunluk-yabanci-oranlari-24-11-2026/) (diger)
-- 2026-11-24 [Günlük Açığa Satış Bilgileri 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/gunluk-aciga-satis-bilgileri-24-11-2026/) (diger)
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
+- 2026-11-25 **Goldman Sachs**: [Goldman Sachs’tan TCMB analizi: Rezervler ekim kaybını fazlasıyla kapattı - Sanayi Gazetesi](https://news.google.com/rss/articles/CBMiowFBVV95cUxPX28yTGdJTndVOFMyampDRnc2R3J6Mm5IWGUwNUxpMk9NdWtPR1hTNWxyR3hWSGd0NmNMTlBFUlR1UW5kZ3ZEX3RPUWg1enNTT1RYREo4N3RFUkZMbmtFT0w0TV9BX25JdEdJWkloY0NwV0FfNkpDQ0JhTk5Ud1FMM1J6UjVvTkd2MVFJLUUwMkItQVJjWjVIMU90RXN6Rm1MSW1F?oc=5)
+- 2026-11-24 **Bank of America**: [Türk Altın (TRALT) hisselerinde Bank of America’dan (BofA) yüklü satış - Rota Borsa](https://news.google.com/rss/articles/CBMilAFBVV95cUxOTHJSdXJKUy12emIyeUtVLWlCNk5ScTNDVUhxZXVsUFVnQi1wNTdpVjcwWUZhZ0M1WTh4UlBpSVpxY3JUa0FlWXJud0VxSHlQcGRYX2FlLWp0RmtVaTZ2OE1xMUphcG1YTlRiTUU3MXRqWHdFanR5SDBaLWMxMU4xYUFrUFRlSEdRV3dJUDNsenk5SlhI?oc=5)
 - 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye için dolar alarmı: Döviz talebi kalıcı hale geliyor - KARAR](https://news.google.com/rss/articles/CBMitgFBVV95cUxNTmRPenViMDdvTE1lZXVPRGZ2Y3ZPLUdnSDRFSG5hZ3dfN1JuMnhPT2VzLVNhYUdPbG14WWgxczA2MDh6TWZBTVJVN1VOazlGM0JFcTJaMFNHbEhJM0dZdVJQRF9PdGV5dnluNm5RdllTaU01aGRoXzBPVUxqbnNEVzBEU2RfMWZxU0drUVMwbUk2MDhRN0VuZ1hOekhoMy1TRS1HTjNnVkJTRkRlb1BGckw3NlhFUQ?oc=5)
 - 2026-11-24 **Goldman Sachs**: [Türkiye'de dolarizasyon hızlandı! Goldman Sachs'tan Merkez Bankası için faiz uyarısı - ABC Haber](https://news.google.com/rss/articles/CBMiwAFBVV95cUxNTkJ1S3FYbV9wckYwaDhiX3U5eGdteXNPLUdXb3dVcmxJOGRLbHl3WEpxR2FPbG9VUEd1RzhfY05xSGZCa3JhMDJfei1pZ0VheG5Nb3BzcVVTMDMwUDBZR3NZeXdMQ3JORkVoaEE4ZnBpb2lyV2pjNGdxYzJ5dVRZQm1vQTJXX05LOHlBN2JxMlB0MWVpLS0ySDhjSU8wVk5PQ0lDYTlhNUZDZnE1OFFtbm81ampzeTV0V1Bza3lTb2I?oc=5)
 - 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye için dolarizasyon uyarısı - Gazete Oksijen](https://news.google.com/rss/articles/CBMilgFBVV95cUxNWDVjbDRlalZyQkxiNFNmd2hiM2FWTDRHTjRLd1U0cFpMZ3VrTkc1bjYtU1pDend5V3cyV3lYZ1pNQlBXaU9qRlY4ZFE1UzFCaGNnWGpuR3dRQS1wQjI0aUtNN01DeTR4R0dGTFQzZnBxbVBKQVFiaTFjZnJQV19laG42UUg0RkZXQVU5SFVNUGVEZFdnOEE?oc=5)
@@ -79,11 +90,11 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank'ın 2027 Türkiye tahmini: Dolar, enflasyon ve faiz ne olacak? - CNBC-e](https://news.google.com/rss/articles/CBMirAFBVV95cUxPRWpXV24zMVhNSmxSMEVoQzY4dHFYaF9uS0tOMnU4aWtwelBWWXlrZDB0S2QtMTJnMHJkYWVaWXF5aWlDVEdDTmtkemltdVZLSTFEUmZGclg5anlIQS02QmJxWWRyLWppNlB4WEFpVTZOMWFIUGN1LU1HbzJ6enZrcU5pcjNHc1BrSHZrcTdPODZyWFdEbkI2WlJpVjh1TG9aSXk5a0dQVXFUUF9Y?oc=5)
 - 2026-11-23 **Deutsche Bank**: [2027'de dolar, enflasyon ve faiz ne olacak? Deutsche Bank Türkiye tahminini açıkladı - ABC Haber](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPLWJ2QzROT3ltazQyZ3BVOGJQSVd4YzhXYmFibWtyU0RZZWVrUFVLVXJmLTF4SU5kd0w0VEJvX3hGUmFWY3dYbFYybWIzZ1E3aXdrSHBBTWt1YmpyNHRUMTJnZmpudUZVNlZobWY5cWgxUXdMbW10c091UkNSX1EwcmdpMENya3ItVWJza1V4bVVPNHRTMG9DanRZZ05sMGZyMFV2M2o3cnlqc2tWdUFuUFlBVEpzdGhsNHhjVkQyOEc?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank 2027 Türkiye Tahmini: Büyüme Ve Enflasyon - Finans Hattı](https://news.google.com/rss/articles/CBMijwFBVV95cUxQNy1CeUUydndlMU1VMWVpWE9pc2hRTk1hWnNUMnQyY2E0b3d2d2dMRW9Jd1EwLWc4Wk1nUHUxOFpNR05lOEJ2S0w5U1RYNkhOZ1BuRUd3bF81LXBNREVCeDQtWllPNkRYRXNqZUs1emVCVDFmeTdkVGFnWUpzZmpQT3NMU0lFZ1BLT2hjSHQtQQ?oc=5)
-- 2026-11-23 **Deutsche Bank**: [Deutsche Bank küresel ekonomi beklentilerini açıkladı: Türkiye tahmini değişti - Sanayi Gazetesi](https://news.google.com/rss/articles/CBMirAFBVV95cUxNVThoQkxyVnA2MGlMSGwyNkhoMmFwLVl4VWxiS2JkQkkyczkwam5ZOUFqTzQ4VjdBZW9Td29GZFFJTXVRTXVpSVlwY0oya1FrODZQTS03ZnhEOGVySmd1cDNiUUlJRjdkaXBLTEkzbVloTlJ3TmstcURaaUtsNWxYSmxSZkVFTHVUY3A4bGctVWtpbWNEVmE1eFpOc0V4QUp1N2JaaW1zYUY1OVo1?oc=5)
-- 2026-11-23 **S&P Global**: [Fon krizi sonrası S&P, Moody's ve Fitch'ten rapor: Türkiye'nin kredi notu etkilenecek mi - Notbir](https://news.google.com/rss/articles/CBMitwFBVV95cUxPZkVsSEg4ZndQSWRuWG1OTnJJTUtoU2J4M0JmR0U4TDVxU29jN1A2V0NWcUdPWXpoSmRiTE1iZExhS09NbHpEbWt5OTJFN2NsMTNjLWJxMnA3Mmg4XzFuelRIa0pDekV2ZFNjQzJrTzh6VlRnb0VsNkhxN3FKTndmY0p6cGZURW5DRE9SbDVwNDN1ZHdQWVgyeG9YN1RPamhMYkh2d0pESmxMN3dTWFRlUnJFQmtRSEE?oc=5)
 
 ## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)
 
+- 2026-11-25 **ING**: [Commodities, Food & Agri 20 November Metals sell-off runs ahead of physical markets](https://think.ing.com/articles/metals-sell-off-runs-ahead-of-physical-markets/)
+- 2026-11-25 **ING**: [19 November FX Daily: Higher US real rates dominate](https://think.ing.com/articles/fx-daily-higher-us-real-rates-dominate/)
 - 2026-11-24 **ING**: [FX 18 November FX Daily: Commodity complex is having a moment](https://think.ing.com/articles/fx-daily-commodity-complex-is-having-a-moment/)
 - 2026-11-24 **ING**: [Commodities daily 18 November The Commodities Feed: Copper hits six-month low; improving supply weighs on oil](https://think.ing.com/articles/the-commodities-feed-copper-hits-five-month-low-improving-supply-weighs-on-oil/)
 - 2026-11-23 **ING**: [Quick take United States 17 November US retail sales and manufacturing suggest strong momentum](https://think.ing.com/snaps/us-retail-sales-and-manufacturing-suggests-strong-momentum/)
@@ -92,11 +103,11 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-23 **ING**: [FX 16 November FX Daily: Time for a break below 1.10 in EUR/USD?](https://think.ing.com/articles/fx-daily-time-for-a-break-below-110-in-eur-usd/)
 - 2026-11-20 **ING**: [Poland 16 November How Polish households are saving and investing in 2026](https://think.ing.com/articles/saving-and-investment-profile-of-polish-households-in-2026/)
 - 2026-11-20 **ING**: [Turkey 13 November Turkey’s annual current account deficit narrows sharply Read this Article](https://think.ing.com/articles/turkeys-annual-c-a-deficit-narrowed-sharply/)
-- 2026-11-20 **ING**: [Quick take Turkey 12 November Turkey’s benign underlying inflation supports December rate cut Quarterly inflation report by the CBT](https://think.ing.com/snaps/turkey-benign-underlying-inflation-trend-supports-december-rate-cut/)
-- 2026-11-20 **ING**: [Turkey 11 November Monitoring Turkey: Central bank course unchanged Monitoring Turkey on monthly economic developments](https://think.ing.com/articles/monitoring-turkey-central-bank-course-unchanged/)
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
+- 2026-11-25 **JPMorgan**: [JPMorgan'dan 2027 küresel otomotiv raporu! Çin'in pazar payı için dikkat çeken tahmin - İstanbul Ticaret Gazetesi](https://news.google.com/rss/articles/CBMiugFBVV95cUxPZVg5M09VaHNBWi1FQUljWUEwR1hOYXdOdjcweG9aNk5PZEZZcHVMWGRjX3B3d0oyMmJ3aFRTOXVhQWtqYjEyT2tNWGtBM3hoUkR0TkQ0aS1lV0N5cS1HVmZXeWV5ZUpRWndvV2VjRjhHamdhTDIwUVdRMDRFaUhRUDlMbE03OG0wQnZhWEI5eWFkQzFEdEZJUzhVUzBDQnB0MFdBNk04eGc0RUhRTy1LbWxZUzJFSkFoSGc?oc=5)
+- 2026-11-23 **HSBC**: [Why Is HSBC’s US Dollar Outlook Strong Into 2027? - www.tmgm.com](https://news.google.com/rss/articles/CBMirAFBVV95cUxPQUZHRlQ4blQ4eUNiMGxTZ1M4NGJEQ2VGRE55LThib01Rd1RBbF9Ock1PMTdnVExuRmlLaHlDZnNHTjA1Ylo0ck5rYkpOZWJDSW9TcEotN09PaUpTOVpjY21zN21PcG9rc3JtOGRFbjlmWWhUVy15YkQwV2kyNWg5VzlYek1LWUJWaFNvMVFnVFFTdk5nZjE4YXVWbGRZZExHa1dpVTJJcmRQaEhx?oc=5)
 - 2026-11-23 **Goldman Sachs**: [Will gold go back up? What Goldman Sachs, Morgan Stanley and UBS now forecast after the sell-off - Nacionale](https://news.google.com/rss/articles/CBMirwFBVV95cUxNc1pEM2NKcC05RUJnd1FBdEtiWXl6c3ZfRVRsNmpBeDlURDFOZTI3Y2NHQVlnUzdGQzNJanVyOVhEWjNGNjVFUGEtOWw1cWtBWXpQd2JqMWFzamY4UUJJTmZkRDk1VkxZME11WVY4TV9qSVBhQkNaU01EcmVoMEtJUlQyclRGcFZtTXlzWEZkaFlXUmZudFc4OU9RVFdkQVZuUllfcVJEUWhYODhxOTYw?oc=5)
 - 2026-11-23 **Goldman Sachs**: [Goldman Sachs and Morgan Stanley’s 2027 stock market outlook - Finimize](https://news.google.com/rss/articles/CBMilwFBVV95cUxPOENFWURlQlhzV0F2NU1HOVBURUV4N1VYY0lFQXBKWk9XTGxXNFZoTW1YWWlDRWFLTlRaN2VhaWZoekhLM3pJem5jWW9xY1ZMUlBnMFhUSmk4UmhsWVgzS1RrVHRjSnJ0VkxBYTB1TVZOYTZ2emRxWUpscHNZdkhFUG8wTl9zNE1pcTdqUGRfVWlBNTJ3cjNz?oc=5)
 - 2026-11-23 **ING**: [ING FX Outlook: Dollar Supported Until Spring 2027, EUR/USD Range 1.10-1.15 - News and Statistics - IndexBox](https://news.google.com/rss/articles/CBMinwFBVV95cUxOeXBWaXZaT3laUFc1UTZrajYzYjlicXhfOTFyeFJ0bXRyTFZVdW1tWm5Qa0xxMGVidEIxX3ZoVnJiRnNzMVFyWVN5SFEyai1xOV9fQ0djZE1HQmZMRTFaZldZd0pxWHQ1X0prNGw1bmExOTdWcm5icTRoUngwTG1pQmEzMlZ2TS1aY0hKV1JySi1sZDVIa1U0cUFMQmpDdjA?oc=5)
@@ -106,17 +117,15 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **Bank of America**: [Gümüş fiyatlarında yeni dönem! Bank of America 2027 için 75 dolar tahminini açıkladı - Haberton](https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMjBkdlU2Umo3U1k3em1MeW5BMXBPUWgzMnN0ZlhBcVJSc2NVRllFWmRPWi16ZERVXzlCNWFsTkw5cUVWM2UzR3BaYWk2cjlvTGg5eXZHbGFYNDlaS0xaTkw1ZzFPZHBNdzRaT1FkNXU1X0NpUXdxOFBtRnNlUUJWaDN6dzVrQnI2ZFZFUU14VHo2WFFxNTRJSEQxYjBXQXFyd3l4MTdiM1U?oc=5)
 - 2026-11-20 **Invesco**: [Invesco Mortgage Capital Stock Price Forecast. Should You Buy IVR? - StockInvest.us](https://news.google.com/rss/articles/CBMiR0FVX3lxTE5id2dELUcyZHNoMDdRakNqTW5HMEd0QUNGWHBiYjFtcHp0ZDNkLVJPSTYwbjZpRWYyLThlMWM1emhJYmllZmZR?oc=5)
 - 2026-11-19 **UBS**: [UBS 2027 Outlook: S&P 500 Base Case at 8,200; AI Capex Stall Could Drag It to 5,500 - BigGo Finance](https://news.google.com/rss/articles/CBMidkFVX3lxTE9KU21ROUM0T0Y2bW91bU43VDNYNERBYmpHYlpkWEkxSlRFcnJNUUd3TWdnUmtieWtBaWQ3bWNhME9OWFllZ0ptNExUeG52M2RXOUR2eUNVN0FGY0RQZHkwdXdIQ1JXWm1DLU5HS3BaSXlJRGhGZkE?oc=5)
+- 2026-11-25 **ING**: [Trade Published 08:30 The US tariff wall keeps changing, but it isn't coming down The US is preparing new tariffs targeting structural overcapacity](https://think.ing.com/articles/the-us-tariff-wall-keeps-changing-but-it-isnt-coming-down/)
+- 2026-11-25 **ING**: [Commodities daily Published 08:00 The Commodities Feed: Oil shrugs off rising Middle East tensions Oil slips as improving supply outweighs disruption risks](https://think.ing.com/articles/the-commodities-feed-aluminium-squeeze-eases-after-lme-intervention/)
+- 2026-11-25 **ING**: [Published 07:40 FX Daily: Full EMFX unwind underway The hostile investment environment is keeping emerging market FX under pressure and the dollar bid](https://think.ing.com/articles/fx-daily-full-emfx-unwind-underway/)
+- 2026-11-25 **ING**: [FX 23 November FX Daily: Uneasy calm as markets stabilise Equity markets are stabilising after a torrid week. But the dollar can hold gains](https://think.ing.com/articles/fx-daily-uneasy-calm-as-markets-stabilise/)
 - 2026-11-25 **ING**: [Rates Spark Yesterday, 17:54 Rates Spark: Treasuries with blinkers on The downtrend in yield to be frustrated by Wednesday's PCE report](https://think.ing.com/articles/rates-spark-equity-sentiment-versus-inflation-reality/)
 - 2026-11-25 **ING**: [United States Yesterday, 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spend](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
 - 2026-11-25 **ING**: [France Yesterday, 14:30 France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 b](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
 - 2026-11-25 **ING**: [Belgium Yesterday, 14:08 Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
 - 2026-11-25 **ING**: [Commodities daily Yesterday, 08:00 The Commodities Feed: Oil extends losses while copper gives back Nvidia bounce Nvidia-led rally lifts copper](https://think.ing.com/articles/the-commodities-feed-nvidia-led-rally-lifts-gold-and-copper/)
-- 2026-11-25 **ING**: [FX Yesterday, 07:30 FX Daily: Dollar may be heading into overshoot territory We think the dollar is starting to head into overshoot territory and would be careful about expecting more strength just ye](https://think.ing.com/articles/fx-daily-surprise-dollar-strength/)
-- 2026-11-25 **ING**: [Rates Spark Published 17:54 Rates Spark: Treasuries with blinkers on The downtrend in yield to be frustrated by Wednesday's PCE report](https://think.ing.com/articles/rates-spark-equity-sentiment-versus-inflation-reality/)
-- 2026-11-25 **ING**: [United States Today, 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spending](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
-- 2026-11-25 **ING**: [France Today, 14:30 France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 budge](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
-- 2026-11-25 **ING**: [Belgium Today, 14:08 Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
-- 2026-11-24 **ING**: [United States Published 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spendi](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
