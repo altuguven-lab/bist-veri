@@ -125,6 +125,25 @@ def temiz(s):
 
 
 # ------------------------------------------------------------------ kaynak 1: Is Yatirim RSS
+# 25.11 (paket59): GRSEL raporunda ilk eslesme "hedef fiyata katkisi hisse basina 16,13 TL" oldu; sonraki
+# calismada "BRT dahil hedef fiyat 415,46 TL" alindi. Asil hedef "399,33 TL hedef fiyat ve AL tavsiyesiyle".
+# Artik iki kalip (SAYI TL ... hedef fiyat / hedef fiyat ... SAYI TL) metin sirasiyla taranir; senaryo, katki,
+# hassasiyet ve "dahil" baglamindaki sayilar atlanir; ilk temiz aday secilir.
+HEDEF_DISLA = r"katk|ek değer|ek deger|dahil|hassasiyet|senaryo|ihale|kazanılma|kazanilma|taşı|tasi|±|olması halinde|olmasi halinde|varsayım|varsayim|iskonto"
+
+
+def is_hedef_sec(icerik):
+    adaylar = []
+    for m in re.finditer(SAYI + r"\s*(?:TL|₺)\s*(?:'?\w{0,4}\s+)?(?:12 aylık\s+|12 aylik\s+)?hedef fiyat", icerik, re.I):
+        adaylar.append((m.start(), m.group(1), icerik[max(0, m.start() - 60):m.end()]))
+    for m in re.finditer(r"hedef fiyat\w*[^0-9%]{0,80}?" + SAYI + r"\s*(?:TL|₺)", icerik, re.I):
+        adaylar.append((m.start(), m.group(1), icerik[max(0, m.start() - 40):m.end()]))
+    for _, s, baglam in sorted(adaylar):
+        if not re.search(HEDEF_DISLA, baglam, re.I):
+            return sayi(s)
+    return None
+
+
 def is_yatirim(kodlar, cfg):
     f = feedparser.parse(IS_RSS, agent=UA)
     if f.bozo and not f.entries:
@@ -139,11 +158,10 @@ def is_yatirim(kodlar, cfg):
         hedef, kurum_onceki = None, None
         m2 = re.search(r"hedef fiyat\w*[^0-9]{0,80}?" + SAYI + r"\s*(?:TL|₺)\s*['’]?\s*(?:den|dan|ten|tan)\s+" + SAYI + r"\s*(?:TL|₺)",
                        icerik, re.I)
-        m = re.search(r"hedef fiyat\w*[^0-9]{0,80}?" + SAYI + r"\s*(?:TL|₺)", icerik, re.I)
         if m2:   # "hedef fiyatimizi 520,00 TL'den 560,50 TL'ye" -> yeni hedef ikinci sayi
             kurum_onceki, hedef = sayi(m2.group(1)), sayi(m2.group(2))
-        elif m:
-            hedef = sayi(m.group(1))
+        else:
+            hedef = is_hedef_sec(icerik)
         out.append({"kaynak": "İş Yatırım RSS", "teyit": "birincil", "kurum": "İş Yatırım", "kademe": "A",
                     "grup": "yerli", "tarih": tarih, "tip": tip_bul(baslik), "baslik": baslik[:160],
                     "semboller": kod, "hedef_tl": hedef if len(kod) == 1 else None,
@@ -245,6 +263,12 @@ def hedeffiyat_ayristir(kartlar, kodlar, cfg):
         t = k["t"]
         kod = kod_bul(t, kodlar)
         kurum, grup, kademe = kurum_bul(t, cfg)
+        if not kurum and "/kurum/" in (k.get("href") or ""):
+            # 25.11 (paket59): kart metninde kurum adi yok ama baglanti /kurum/gedik-yatirim-29 bicimde
+            slug = re.sub(r"-\d+$", "", k["href"].rstrip("/").split("/kurum/")[-1]).replace("-", " ")
+            kurum, grup, kademe = kurum_bul(slug, cfg)
+            if not kurum:
+                kurum, grup, kademe = kurum_bul(slug.replace("yatirim", "yatırım").title(), cfg)
         m = re.search(SAYI + r"\s*(?:₺|TL)", t)
         if len(kod) != 1 or not m:
             continue
@@ -359,7 +383,7 @@ def arsiv_oku():
             if not l.strip():
                 continue
             g = json.loads(l)
-            if g.get("kurum") == "(kurum ayristirilamadi)":
+            if g.get("kurum") == "(kurum ayristirilamadi)" or g.get("anahtar") in GECERSIZ_KAYIT:
                 continue
             if g.get("kaynak") == "Google News" and g.get("tip") != "kuresel_gorunum":
                 govde = re.sub(r"\s+-\s+[^-]{2,40}$", "", g.get("baslik") or "")
@@ -367,11 +391,28 @@ def arsiv_oku():
                         and not any(re.search(r"\b" + re.escape(k), govde) for k in SIRKET_ADLARI):
                     continue
             kayit.append(g)
+    # 25.11 (paket59): yazilmis revizyonlar temizlenmis gecmise gore yeniden hesaplanir
+    kayit.sort(key=lambda g: (g.get("tarih") or "", g.get("ilk_gorulme") or ""))
+    temiz_gecmis = []
+    for g in kayit:
+        if g.get("revizyon") is not None or g.get("hedef_tl"):
+            g["revizyon"] = revizyon(g, temiz_gecmis)
+        temiz_gecmis.append(g)
     return kayit
 
 
+KURUMSUZ = {"(kurum ayristirilamadi)", "(bilinmiyor)", None, ""}
+# 25.11 (paket59): yanlis ayristirildigi teyit edilen kayitlar okumada atlanir (arsiv dosyasi degismez)
+GECERSIZ_KAYIT = {
+    "24641a1bea92015f": "GRSEL Is RSS: 16,13 TL hedef degil BRT katkisi (asil hedef 399,33)",
+    "9f2c22e4dcaa4f27": "GRSEL Is RSS: 415,46 TL BRT dahil senaryo (asil hedef 399,33)",
+}
+
+
 def revizyon(k, gecmis):
-    if not k.get("hedef_tl") or len(k.get("semboller") or []) != 1 or not k.get("kurum"):
+    # 25.11 (paket59): kurumu ayristirilamayan kayitlar birbirleriyle kiyaslanip sahte revizyon uretiyordu
+    # (20.11 OTKAR: Gedik 573 ile Ak 493 "ASAGI -%14" yazildi).
+    if not k.get("hedef_tl") or len(k.get("semboller") or []) != 1 or k.get("kurum") in KURUMSUZ:
         return None
     onceki = [g for g in gecmis if g.get("kurum") == k["kurum"] and g.get("semboller") == k["semboller"]
               and g.get("hedef_tl") and g.get("anahtar") != k.get("anahtar") and (g.get("tarih") or "") <= (k.get("tarih") or "9")]
