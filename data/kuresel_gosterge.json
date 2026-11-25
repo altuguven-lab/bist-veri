@@ -1,126 +1,45 @@
 {
   "asya": {
-    "guncelleme_zamani_utc": "2026-11-24T18:16:26.242968+00:00",
+    "guncelleme_zamani_utc": "2026-11-25T05:21:30.379930+00:00",
     "seans_tarihleri": [
-      "2026-11-20",
-      "2026-11-23"
+      "2026-11-25"
     ],
-    "uyari": "bolumdeki bazi endeksler bugunun seansi degil",
+    "uyari": null,
     "endeksler": [
       {
         "isim": "Nikkei 225",
         "kod": "^N225",
         "bolge": "Japonya",
-        "seans_tarihi": "2026-11-20",
-        "onceki_seans_tarihi": "2026-11-19",
-        "uyari": "bugun_degil: son kapanis 20.11 (tatil ya da veri gecikmesi)",
-        "degisim_yuzde": -5.06
+        "seans_tarihi": "2026-11-25",
+        "onceki_seans_tarihi": "2026-11-24",
+        "degisim_yuzde": -2.79
       },
       {
         "isim": "Kospi",
         "kod": "^KS11",
         "bolge": "G.Kore",
-        "seans_tarihi": "2026-11-23",
-        "onceki_seans_tarihi": "2026-11-20",
-        "uyari": "bugun_degil: son kapanis 23.11 (tatil ya da veri gecikmesi)",
-        "degisim_yuzde": -3.31
+        "seans_tarihi": "2026-11-25",
+        "onceki_seans_tarihi": "2026-11-24",
+        "degisim_yuzde": -5.54
       },
       {
         "isim": "Sanghay Bilesik",
         "kod": "000001.SS",
         "bolge": "Cin",
-        "seans_tarihi": "2026-11-23",
-        "onceki_seans_tarihi": "2026-11-20",
-        "uyari": "bugun_degil: son kapanis 23.11 (tatil ya da veri gecikmesi)",
-        "degisim_yuzde": 0.15
+        "seans_tarihi": "2026-11-25",
+        "onceki_seans_tarihi": "2026-11-24",
+        "degisim_yuzde": -1.26
       },
       {
         "isim": "Hang Seng",
         "kod": "^HSI",
         "bolge": "H.Kong",
-        "seans_tarihi": "2026-11-23",
-        "onceki_seans_tarihi": "2026-11-20",
-        "uyari": "bugun_degil: son kapanis 23.11 (tatil ya da veri gecikmesi)",
-        "degisim_yuzde": -0.12
+        "seans_tarihi": "2026-11-25",
+        "onceki_seans_tarihi": "2026-11-24",
+        "degisim_yuzde": -0.06
       }
     ],
     "ozet_yon": "RISK-OFF",
-    "ozet_ortalama_yuzde": -2.08
-  },
-  "amerika": {
-    "guncelleme_zamani_utc": "2026-11-24T23:14:26.364283+00:00",
-    "seans_tarihleri": [
-      "2026-11-24"
-    ],
-    "uyari": null,
-    "endeksler": [
-      {
-        "isim": "S&P 500",
-        "kod": "^GSPC",
-        "bolge": "ABD",
-        "seans_tarihi": "2026-11-24",
-        "bar_sayisi": 78,
-        "son_bar_utc": "20:55",
-        "degisim_yuzde": 0.6
-      },
-      {
-        "isim": "Dow Jones",
-        "kod": "^DJI",
-        "bolge": "ABD",
-        "seans_tarihi": "2026-11-24",
-        "bar_sayisi": 78,
-        "son_bar_utc": "20:55",
-        "degisim_yuzde": 1.13
-      },
-      {
-        "isim": "Nasdaq",
-        "kod": "^IXIC",
-        "bolge": "ABD",
-        "seans_tarihi": "2026-11-24",
-        "bar_sayisi": 78,
-        "son_bar_utc": "20:55",
-        "degisim_yuzde": 0.08
-      }
-    ],
-    "ozet_yon": "RISK-ON",
-    "ozet_ortalama_yuzde": 0.6
-  },
-  "avrupa": {
-    "guncelleme_zamani_utc": "2026-11-24T19:29:11.707374+00:00",
-    "seans_tarihleri": [
-      "2026-11-24"
-    ],
-    "uyari": null,
-    "endeksler": [
-      {
-        "isim": "DAX",
-        "kod": "^GDAXI",
-        "bolge": "Almanya",
-        "seans_tarihi": "2026-11-24",
-        "bar_sayisi": 102,
-        "son_bar_utc": "16:25",
-        "degisim_yuzde": -1.22
-      },
-      {
-        "isim": "CAC 40",
-        "kod": "^FCHI",
-        "bolge": "Fransa",
-        "seans_tarihi": "2026-11-24",
-        "bar_sayisi": 102,
-        "son_bar_utc": "16:25",
-        "degisim_yuzde": -0.26
-      },
-      {
-        "isim": "FTSE 100",
-        "kod": "^FTSE",
-        "bolge": "Ingiltere",
-        "seans_tarihi": "2026-11-24",
-        "bar_sayisi": 102,
-        "son_bar_utc": "16:25",
-        "degisim_yuzde": -0.14
-      }
-    ],
-    "ozet_yon": "RISK-OFF",
-    "ozet_ortalama_yuzde": -0.54
+    "ozet_ortalama_yuzde": -2.41
   }
 }
