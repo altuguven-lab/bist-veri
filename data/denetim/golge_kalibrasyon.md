@@ -1,4 +1,4 @@
-# Golge Kalibrasyon (2026-11-24)
+# Golge Kalibrasyon (2026-11-25)
 SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 
 ## Katman B - IP-2 vekili (EMA dizilim gecisi + hacim + rejim)
@@ -18,15 +18,15 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ALARK | 2026-08-18 | 107.0 -> T+3 106.3 | MISS
 
 ## Katman A - gercek skor bandi (bir bar gecikmeli, gunde tek ornek)
-- Gecerli kayit: 1550
+- Gecerli kayit: 1582
 | Esik | Kayit>=E | T+3 sonuclu | Pozitif | Isabet% |
 |---|---|---|---|---|
-| 15 | 1094 | 1009 | 470 | 46.6 |
-| 20 | 874 | 809 | 370 | 45.7 |
-| 25 | 639 | 605 | 275 | 45.5 |
-| 30 | 447 | 428 | 195 | 45.6 |
-| 35 | 328 | 318 | 140 | 44.0 |
-| 40 | 250 | 245 | 103 | 42.0 |
+| 15 | 1106 | 1037 | 470 | 45.3 |
+| 20 | 883 | 832 | 370 | 44.5 |
+| 25 | 645 | 615 | 275 | 44.7 |
+| 30 | 449 | 433 | 195 | 45.0 |
+| 35 | 329 | 322 | 140 | 43.5 |
+| 40 | 250 | 248 | 103 | 41.5 |
 
 ### Skor-getiri dokumu
 - TUPRS | 2026-07-16 | skor 97.2 | T+3 +8.12%
@@ -150,7 +150,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - KCHOL | 2026-11-12 | skor 53.6 | T+3 -2.98%
 - BIMAS | 2026-08-17 | skor 53.5 | T+3 +7.59%
 - PGSUS | 2026-09-21 | skor 53.5 | T+3 -3.64%
-- THYAO | 2026-11-20 | skor 53.4 | T+3 beklemede
+- THYAO | 2026-11-20 | skor 53.4 | T+3 -4.94%
 - ISCTR | 2026-11-12 | skor 53.1 | T+3 -4.26%
 - MGROS | 2026-08-06 | skor 52.7 | T+3 +0.64%
 - OTKAR | 2026-08-24 | skor 52.5 | T+3 -0.76%
@@ -188,7 +188,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ASTOR | 2026-08-13 | skor 47.6 | T+3 -7.24%
 - HALKB | 2026-10-26 | skor 47.6 | T+3 -7.78%
 - EREGL | 2026-07-20 | skor 47.4 | T+3 +1.38%
-- VAKBN | 2026-11-19 | skor 47.3 | T+3 beklemede
+- VAKBN | 2026-11-19 | skor 47.3 | T+3 -2.88%
 - YKBNK | 2026-07-31 | skor 47.1 | T+3 +4.64%
 - GARAN | 2026-09-21 | skor 47.1 | T+3 -2.78%
 - EKGYO | 2026-08-18 | skor 46.6 | T+3 +4.01%
@@ -234,7 +234,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - MGROS | 2026-08-21 | skor 42.7 | T+3 -2.53%
 - ASELS | 2026-08-17 | skor 42.5 | T+3 +3.41%
 - VAKBN | 2026-11-03 | skor 42.5 | T+3 +10.94%
-- THYAO | 2026-11-19 | skor 42.5 | T+3 beklemede
+- THYAO | 2026-11-19 | skor 42.5 | T+3 -2.36%
 - AKBNK | 2026-07-16 | skor 42.4 | T+3 -2.77%
 - YKBNK | 2026-08-07 | skor 42.4 | T+3 +4.94%
 - FROTO | 2026-11-09 | skor 42.4 | T+3 -1.48%
@@ -327,7 +327,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - KCHOL | 2026-10-23 | skor 37.0 | T+3 +1.16%
 - KCHOL | 2026-11-23 | skor 36.9 | T+3 beklemede
 - ENJSA | 2026-11-05 | skor 36.9 | T+3 -0.25%
-- PGSUS | 2026-11-19 | skor 36.9 | T+3 beklemede
+- PGSUS | 2026-11-19 | skor 36.9 | T+3 -1.53%
 - EKGYO | 2026-08-17 | skor 36.7 | T+3 +3.71%
 - TRMET | 2026-09-02 | skor 36.7 | T+3 +0.36%
 - YKBNK | 2026-11-04 | skor 36.7 | T+3 +7.97%
@@ -352,6 +352,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - DMLKT | 2026-07-28 | skor 35.4 | T+3 beklemede
 - AKBNK | 2026-11-16 | skor 35.4 | T+3 -4.36%
 - TRMET | 2026-08-19 | skor 35.3 | T+3 +12.13%
+- ASTOR | 2026-11-25 | skor 35.2 | T+3 beklemede
 - YKBNK | 2026-09-29 | skor 35.2 | T+3 -2.94%
 - TRMET | 2026-08-26 | skor 35.1 | T+3 +1.76%
 - ASTOR | 2026-08-28 | skor 35.1 | T+3 -9.52%
@@ -360,7 +361,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - BIMAS | 2026-09-22 | skor 34.9 | T+3 -1.28%
 - GARAN | 2026-07-16 | skor 34.8 | T+3 -3.50%
 - KCHOL | 2026-07-24 | skor 34.8 | T+3 -2.02%
-- PGSUS | 2026-11-20 | skor 34.8 | T+3 beklemede
+- PGSUS | 2026-11-20 | skor 34.8 | T+3 -3.64%
 - VAKBN | 2026-08-14 | skor 34.7 | T+3 +0.78%
 - EKGYO | 2026-08-21 | skor 34.7 | T+3 +5.91%
 - VAKBN | 2026-08-25 | skor 34.7 | T+3 +6.60%
@@ -399,6 +400,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ALARK | 2026-08-25 | skor 32.9 | T+3 +4.06%
 - ALARK | 2026-08-26 | skor 32.8 | T+3 -0.18%
 - KCHOL | 2026-11-02 | skor 32.8 | T+3 +3.37%
+- KCHOL | 2026-11-25 | skor 32.7 | T+3 beklemede
 - SAHOL | 2026-08-24 | skor 32.6 | T+3 -0.53%
 - EKGYO | 2026-09-22 | skor 32.6 | T+3 -1.23%
 - BIMAS | 2026-08-20 | skor 32.5 | T+3 +1.58%
@@ -520,7 +522,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TRMET | 2026-08-25 | skor 28.7 | T+3 +5.62%
 - YKBNK | 2026-08-26 | skor 28.7 | T+3 -1.51%
 - AKBNK | 2026-10-27 | skor 28.7 | T+3 -1.56%
-- SAHOL | 2026-11-20 | skor 28.7 | T+3 beklemede
+- SAHOL | 2026-11-20 | skor 28.7 | T+3 -5.54%
 - MGROS | 2026-07-17 | skor 28.6 | T+3 +0.55%
 - EREGL | 2026-08-05 | skor 28.6 | T+3 -12.15%
 - VAKBN | 2026-08-27 | skor 28.6 | T+3 +1.12%
@@ -561,7 +563,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - AEFES | 2026-09-02 | skor 27.6 | T+3 +4.45%
 - TOASO | 2026-11-18 | skor 27.6 | T+3 +4.16%
 - TRALT | 2026-09-23 | skor 27.5 | T+3 -6.96%
-- HALKB | 2026-11-19 | skor 27.5 | T+3 beklemede
+- HALKB | 2026-11-19 | skor 27.5 | T+3 -3.49%
 - EREGL | 2026-07-31 | skor 27.4 | T+3 -1.32%
 - BIMAS | 2026-08-07 | skor 27.4 | T+3 -0.45%
 - TAVHL | 2026-08-28 | skor 27.4 | T+3 -7.77%
@@ -605,7 +607,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - THYAO | 2026-08-13 | skor 26.4 | T+3 -2.44%
 - TAVHL | 2026-08-13 | skor 26.4 | T+3 -0.90%
 - TUPRS | 2026-08-18 | skor 26.4 | T+3 +8.76%
-- EKGYO | 2026-11-20 | skor 26.4 | T+3 beklemede
+- EKGYO | 2026-11-20 | skor 26.4 | T+3 -6.37%
 - PETKM | 2026-11-24 | skor 26.3 | T+3 beklemede
 - TAVHL | 2026-08-11 | skor 26.3 | T+3 +0.55%
 - KCHOL | 2026-11-03 | skor 26.3 | T+3 +5.42%
@@ -635,7 +637,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TUPRS | 2026-11-16 | skor 25.9 | T+3 -5.97%
 - ASELS | 2026-07-14 | skor 25.8 | T+3 +1.72%
 - BIMAS | 2026-10-26 | skor 25.8 | T+3 -7.21%
-- TOASO | 2026-11-20 | skor 25.8 | T+3 beklemede
+- TOASO | 2026-11-20 | skor 25.8 | T+3 -5.56%
 - TRALT | 2026-07-30 | skor 25.7 | T+3 +0.35%
 - SAHOL | 2026-07-31 | skor 25.7 | T+3 +5.44%
 - ULKER | 2026-08-12 | skor 25.7 | T+3 +4.17%
@@ -643,12 +645,16 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - AEFES | 2026-09-29 | skor 25.7 | T+3 -0.44%
 - GARAN | 2026-10-23 | skor 25.7 | T+3 +0.16%
 - SAHOL | 2026-11-02 | skor 25.7 | T+3 +2.53%
+- TTKOM | 2026-11-25 | skor 25.6 | T+3 beklemede
+- TCELL | 2026-11-25 | skor 25.6 | T+3 beklemede
 - TRALT | 2026-07-20 | skor 25.6 | T+3 +1.20%
 - ENJSA | 2026-09-28 | skor 25.6 | T+3 +1.59%
 - ALARK | 2026-10-01 | skor 25.6 | T+3 +3.34%
 - EKGYO | 2026-10-23 | skor 25.6 | T+3 +0.35%
 - PGSUS | 2026-11-13 | skor 25.6 | T+3 -0.19%
-- ENJSA | 2026-11-19 | skor 25.6 | T+3 beklemede
+- ENJSA | 2026-11-19 | skor 25.6 | T+3 -4.86%
+- EKGYO | 2026-11-25 | skor 25.5 | T+3 beklemede
+- ASELS | 2026-11-25 | skor 25.5 | T+3 beklemede
 - ENKAI | 2026-08-20 | skor 25.5 | T+3 +1.33%
 - BIMAS | 2026-10-23 | skor 25.5 | T+3 -2.21%
 - THYAO | 2026-11-11 | skor 25.5 | T+3 +2.78%
@@ -673,12 +679,14 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ULKER | 2026-08-28 | skor 24.9 | T+3 -2.12%
 - PETKM | 2026-10-23 | skor 24.9 | T+3 -3.10%
 - OTKAR | 2026-11-10 | skor 24.9 | T+3 +3.90%
+- FROTO | 2026-11-25 | skor 24.8 | T+3 beklemede
 - BIMAS | 2026-07-30 | skor 24.8 | T+3 +0.72%
 - MGROS | 2026-08-20 | skor 24.8 | T+3 -1.24%
 - MGROS | 2026-08-31 | skor 24.8 | T+3 -3.28%
 - AEFES | 2026-10-23 | skor 24.8 | T+3 -1.97%
 - AEFES | 2026-10-26 | skor 24.8 | T+3 -2.40%
 - HALKB | 2026-10-27 | skor 24.8 | T+3 -6.37%
+- HALKB | 2026-11-25 | skor 24.7 | T+3 beklemede
 - MGROS | 2026-11-24 | skor 24.7 | T+3 beklemede
 - TRMET | 2026-08-14 | skor 24.7 | T+3 +3.55%
 - ASELS | 2026-08-21 | skor 24.7 | T+3 -1.24%
@@ -710,6 +718,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ENKAI | 2026-10-23 | skor 24.4 | T+3 +5.30%
 - VAKBN | 2026-11-12 | skor 24.4 | T+3 -1.73%
 - HALKB | 2026-11-16 | skor 24.4 | T+3 -2.57%
+- TUPRS | 2026-11-25 | skor 24.3 | T+3 beklemede
 - BIMAS | 2026-08-05 | skor 24.3 | T+3 +0.52%
 - PETKM | 2026-08-07 | skor 24.3 | T+3 +0.49%
 - ULKER | 2026-08-19 | skor 24.3 | T+3 -6.14%
@@ -730,7 +739,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - GARAN | 2026-08-26 | skor 24.0 | T+3 -1.80%
 - AKBNK | 2026-08-26 | skor 24.0 | T+3 -1.78%
 - EKGYO | 2026-11-13 | skor 24.0 | T+3 -3.72%
-- KCHOL | 2026-11-19 | skor 24.0 | T+3 beklemede
+- KCHOL | 2026-11-19 | skor 24.0 | T+3 -2.89%
 - BIMAS | 2026-08-24 | skor 23.9 | T+3 +0.36%
 - PGSUS | 2026-09-22 | skor 23.9 | T+3 -3.04%
 - MGROS | 2026-10-23 | skor 23.9 | T+3 -0.98%
@@ -741,7 +750,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TAVHL | 2026-11-17 | skor 23.8 | T+3 -5.95%
 - AEFES | 2026-10-30 | skor 23.7 | T+3 +8.17%
 - TTKOM | 2026-11-05 | skor 23.7 | T+3 +2.37%
-- ASELS | 2026-11-19 | skor 23.7 | T+3 beklemede
+- ASELS | 2026-11-19 | skor 23.7 | T+3 -4.30%
 - SAHOL | 2026-07-24 | skor 23.6 | T+3 -2.64%
 - BIMAS | 2026-08-12 | skor 23.6 | T+3 -0.52%
 - TRMET | 2026-08-12 | skor 23.6 | T+3 +0.00%
@@ -752,17 +761,17 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TRMET | 2026-11-10 | skor 23.5 | T+3 -1.25%
 - TOASO | 2026-11-10 | skor 23.5 | T+3 +0.91%
 - TTKOM | 2026-11-16 | skor 23.5 | T+3 -4.69%
-- FROTO | 2026-11-20 | skor 23.5 | T+3 beklemede
+- FROTO | 2026-11-20 | skor 23.5 | T+3 -4.42%
 - TUPRS | 2026-07-27 | skor 23.4 | T+3 -1.45%
 - ULKER | 2026-09-21 | skor 23.4 | T+3 +0.34%
 - ULKER | 2026-09-25 | skor 23.4 | T+3 -5.28%
 - ULKER | 2026-11-13 | skor 23.4 | T+3 -7.32%
-- AKBNK | 2026-11-20 | skor 23.4 | T+3 beklemede
+- AKBNK | 2026-11-20 | skor 23.4 | T+3 -6.68%
 - ASTOR | 2026-07-29 | skor 23.3 | T+3 +4.50%
 - ULKER | 2026-08-25 | skor 23.3 | T+3 +1.27%
 - TRALT | 2026-09-29 | skor 23.3 | T+3 -3.39%
-- ASELS | 2026-11-20 | skor 23.3 | T+3 beklemede
-- TUPRS | 2026-11-20 | skor 23.3 | T+3 beklemede
+- ASELS | 2026-11-20 | skor 23.3 | T+3 -3.52%
+- TUPRS | 2026-11-20 | skor 23.3 | T+3 -1.32%
 - OTKAR | 2026-08-17 | skor 23.2 | T+3 +0.47%
 - TRMET | 2026-09-24 | skor 23.2 | T+3 -5.50%
 - THYAO | 2026-11-10 | skor 23.2 | T+3 +2.07%
@@ -773,7 +782,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ASELS | 2026-08-24 | skor 23.0 | T+3 +1.00%
 - TTKOM | 2026-09-02 | skor 23.0 | T+3 +3.05%
 - ASTOR | 2026-10-26 | skor 23.0 | T+3 +1.34%
-- PETKM | 2026-11-20 | skor 23.0 | T+3 beklemede
+- PETKM | 2026-11-20 | skor 23.0 | T+3 -0.87%
 - ENJSA | 2026-11-24 | skor 22.9 | T+3 beklemede
 - TUPRS | 2026-08-13 | skor 22.9 | T+3 +8.09%
 - MGROS | 2026-08-25 | skor 22.9 | T+3 +0.45%
@@ -797,7 +806,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TOASO | 2026-08-31 | skor 22.4 | T+3 -3.96%
 - ULKER | 2026-10-26 | skor 22.4 | T+3 -2.11%
 - ENJSA | 2026-10-27 | skor 22.4 | T+3 -1.07%
-- ASTOR | 2026-11-19 | skor 22.4 | T+3 beklemede
+- ASTOR | 2026-11-19 | skor 22.4 | T+3 -2.09%
 - ASELS | 2026-07-17 | skor 22.2 | T+3 +5.26%
 - ENKAI | 2026-08-11 | skor 22.2 | T+3 +2.04%
 - BIMAS | 2026-08-31 | skor 22.2 | T+3 +1.79%
@@ -811,7 +820,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - GARAN | 2026-08-27 | skor 22.0 | T+3 -0.08%
 - TRMET | 2026-08-31 | skor 22.0 | T+3 -4.08%
 - PETKM | 2026-11-02 | skor 22.0 | T+3 +2.24%
-- ALARK | 2026-11-19 | skor 22.0 | T+3 beklemede
+- ALARK | 2026-11-19 | skor 22.0 | T+3 -3.20%
 - FROTO | 2026-08-31 | skor 21.9 | T+3 -1.69%
 - TOASO | 2026-10-23 | skor 21.9 | T+3 +3.32%
 - YKBNK | 2026-11-13 | skor 21.9 | T+3 -3.34%
@@ -834,7 +843,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ISCTR | 2026-08-31 | skor 21.6 | T+3 +2.45%
 - ULKER | 2026-09-29 | skor 21.6 | T+3 -0.23%
 - SISE | 2026-11-02 | skor 21.6 | T+3 +5.98%
-- SAHOL | 2026-11-19 | skor 21.6 | T+3 beklemede
+- SAHOL | 2026-11-19 | skor 21.6 | T+3 -5.30%
 - ASELS | 2026-08-05 | skor 21.5 | T+3 +2.74%
 - FROTO | 2026-09-02 | skor 21.5 | T+3 +4.46%
 - GARAN | 2026-09-02 | skor 21.5 | T+3 +1.14%
@@ -847,7 +856,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TRALT | 2026-07-27 | skor 21.2 | T+3 -4.31%
 - FROTO | 2026-08-12 | skor 21.2 | T+3 -0.94%
 - MGROS | 2026-11-02 | skor 21.2 | T+3 +5.72%
-- AEFES | 2026-11-19 | skor 21.2 | T+3 beklemede
+- AEFES | 2026-11-19 | skor 21.2 | T+3 -4.43%
 - ASTOR | 2026-07-27 | skor 21.1 | T+3 -0.86%
 - ALARK | 2026-08-27 | skor 21.1 | T+3 -1.55%
 - AEFES | 2026-11-04 | skor 21.1 | T+3 +1.50%
@@ -860,7 +869,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - OTKAR | 2026-08-10 | skor 20.9 | T+3 +10.41%
 - AEFES | 2026-09-01 | skor 20.9 | T+3 +2.05%
 - ULKER | 2026-11-03 | skor 20.9 | T+3 +5.59%
-- TRALT | 2026-11-20 | skor 20.9 | T+3 beklemede
+- TRALT | 2026-11-20 | skor 20.9 | T+3 -9.01%
 - TUPRS | 2026-08-20 | skor 20.8 | T+3 -5.44%
 - TTKOM | 2026-09-28 | skor 20.8 | T+3 -2.05%
 - FROTO | 2026-10-23 | skor 20.8 | T+3 +6.38%
@@ -877,7 +886,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - EKGYO | 2026-08-11 | skor 20.6 | T+3 +1.95%
 - OTKAR | 2026-08-25 | skor 20.6 | T+3 -0.23%
 - TUPRS | 2026-09-22 | skor 20.6 | T+3 +2.27%
-- ALARK | 2026-11-20 | skor 20.6 | T+3 beklemede
+- ALARK | 2026-11-20 | skor 20.6 | T+3 -3.26%
 - BIMAS | 2026-07-28 | skor 20.5 | T+3 +0.19%
 - TOASO | 2026-08-12 | skor 20.5 | T+3 -0.56%
 - ULKER | 2026-09-23 | skor 20.5 | T+3 -5.55%
@@ -967,7 +976,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TTKOM | 2026-08-14 | skor 18.3 | T+3 -0.73%
 - FROTO | 2026-09-30 | skor 18.3 | T+3 +1.36%
 - ENJSA | 2026-10-23 | skor 18.3 | T+3 +0.27%
-- TOASO | 2026-11-19 | skor 18.3 | T+3 beklemede
+- TOASO | 2026-11-19 | skor 18.3 | T+3 -0.36%
 - FROTO | 2026-08-25 | skor 18.2 | T+3 -0.25%
 - ASELS | 2026-08-31 | skor 18.2 | T+3 -1.55%
 - KCHOL | 2026-09-24 | skor 18.2 | T+3 -0.88%
@@ -978,6 +987,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - KCHOL | 2026-08-26 | skor 18.1 | T+3 +0.33%
 - KCHOL | 2026-08-28 | skor 18.1 | T+3 -0.47%
 - AKBNK | 2026-11-03 | skor 18.1 | T+3 +10.28%
+- SAHOL | 2026-11-25 | skor 18.0 | T+3 beklemede
 - THYAO | 2026-07-20 | skor 18.0 | T+3 -4.65%
 - SAHOL | 2026-07-27 | skor 18.0 | T+3 -5.51%
 - ASTOR | 2026-07-28 | skor 18.0 | T+3 +6.49%
@@ -992,7 +1002,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - SAHOL | 2026-10-30 | skor 18.0 | T+3 +6.29%
 - SAHOL | 2026-11-17 | skor 18.0 | T+3 -5.42%
 - KCHOL | 2026-11-18 | skor 18.0 | T+3 -2.30%
-- KCHOL | 2026-11-20 | skor 18.0 | T+3 beklemede
+- KCHOL | 2026-11-20 | skor 18.0 | T+3 -2.62%
 - ULKER | 2026-08-18 | skor 17.9 | T+3 +2.13%
 - PETKM | 2026-08-28 | skor 17.9 | T+3 -0.15%
 - TTKOM | 2026-09-01 | skor 17.9 | T+3 +0.68%
@@ -1000,7 +1010,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - DMLKT | 2026-07-31 | skor 17.8 | T+3 beklemede
 - ISCTR | 2026-08-11 | skor 17.8 | T+3 +4.24%
 - YKBNK | 2026-08-17 | skor 17.8 | T+3 -0.34%
-- AEFES | 2026-11-20 | skor 17.8 | T+3 beklemede
+- AEFES | 2026-11-20 | skor 17.8 | T+3 -8.73%
 - EREGL | 2026-11-24 | skor 17.7 | T+3 beklemede
 - MGROS | 2026-08-14 | skor 17.7 | T+3 +3.24%
 - ENKAI | 2026-08-18 | skor 17.7 | T+3 +2.78%
@@ -1026,7 +1036,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ASTOR | 2026-08-25 | skor 17.2 | T+3 +3.02%
 - THYAO | 2026-09-01 | skor 17.2 | T+3 -1.82%
 - YKBNK | 2026-11-03 | skor 17.2 | T+3 +7.32%
-- BIMAS | 2026-11-20 | skor 17.2 | T+3 beklemede
+- BIMAS | 2026-11-20 | skor 17.2 | T+3 -3.87%
 - EREGL | 2026-09-23 | skor 17.1 | T+3 -2.75%
 - HALKB | 2026-11-03 | skor 17.1 | T+3 +3.22%
 - ASELS | 2026-11-24 | skor 17.0 | T+3 beklemede
@@ -1103,7 +1113,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ALARK | 2026-09-30 | skor 15.4 | T+3 +8.00%
 - THYAO | 2026-10-22 | skor 15.4 | T+3 -2.32%
 - EKGYO | 2026-11-17 | skor 15.4 | T+3 -5.07%
-- TUPRS | 2026-11-19 | skor 15.4 | T+3 beklemede
+- TUPRS | 2026-11-19 | skor 15.4 | T+3 -4.41%
 - BIMAS | 2026-07-17 | skor 15.3 | T+3 +3.56%
 - BIMAS | 2026-07-31 | skor 15.3 | T+3 -2.05%
 - ENJSA | 2026-09-21 | skor 15.3 | T+3 -2.84%
@@ -1113,8 +1123,10 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - EKGYO | 2026-09-24 | skor 15.2 | T+3 -4.14%
 - BIMAS | 2026-11-05 | skor 15.2 | T+3 +3.25%
 - ASELS | 2026-11-10 | skor 15.2 | T+3 +2.52%
+- ISCTR | 2026-11-25 | skor 15.1 | T+3 beklemede
 - AKBNK | 2026-07-28 | skor 15.1 | T+3 -3.65%
 - THYAO | 2026-07-29 | skor 15.1 | T+3 +1.20%
+- SISE | 2026-11-25 | skor 15.0 | T+3 beklemede
 - GARAN | 2026-07-17 | skor 15.0 | T+3 -0.71%
 - TRALT | 2026-07-31 | skor 15.0 | T+3 +10.60%
 - AEFES | 2026-08-21 | skor 15.0 | T+3 -1.77%
@@ -1134,14 +1146,21 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - YKBNK | 2026-09-28 | skor 14.8 | T+3 -1.97%
 - ALARK | 2026-11-02 | skor 14.8 | T+3 +6.91%
 - BIMAS | 2026-11-16 | skor 14.8 | T+3 -2.66%
+- YKBNK | 2026-11-25 | skor 14.7 | T+3 beklemede
+- AKBNK | 2026-11-25 | skor 14.7 | T+3 beklemede
 - ISCTR | 2026-09-30 | skor 14.7 | T+3 +5.49%
 - TUPRS | 2026-11-03 | skor 14.7 | T+3 -0.22%
-- ULKER | 2026-11-19 | skor 14.7 | T+3 beklemede
+- ULKER | 2026-11-19 | skor 14.7 | T+3 -6.50%
+- VAKBN | 2026-11-25 | skor 14.6 | T+3 beklemede
 - BIMAS | 2026-08-03 | skor 14.6 | T+3 +0.86%
 - GARAN | 2026-08-31 | skor 14.6 | T+3 +0.38%
 - AKBNK | 2026-09-24 | skor 14.6 | T+3 -1.06%
 - ISCTR | 2026-10-27 | skor 14.6 | T+3 +0.24%
-- YKBNK | 2026-11-19 | skor 14.6 | T+3 beklemede
+- YKBNK | 2026-11-19 | skor 14.6 | T+3 -2.83%
+- ENKAI | 2026-11-25 | skor 14.5 | T+3 beklemede
+- EREGL | 2026-11-25 | skor 14.5 | T+3 beklemede
+- TAVHL | 2026-11-25 | skor 14.5 | T+3 beklemede
+- ALARK | 2026-11-25 | skor 14.5 | T+3 beklemede
 - FROTO | 2026-08-10 | skor 14.5 | T+3 +2.97%
 - ENJSA | 2026-08-24 | skor 14.5 | T+3 +3.07%
 - AEFES | 2026-08-25 | skor 14.5 | T+3 -2.33%
@@ -1152,11 +1171,11 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - THYAO | 2026-08-14 | skor 14.4 | T+3 -1.31%
 - VAKBN | 2026-09-25 | skor 14.4 | T+3 -4.56%
 - TRMET | 2026-11-03 | skor 14.4 | T+3 +11.90%
-- TAVHL | 2026-11-19 | skor 14.4 | T+3 beklemede
+- TAVHL | 2026-11-19 | skor 14.4 | T+3 -1.20%
 - HALKB | 2026-09-25 | skor 14.3 | T+3 -1.78%
 - AKBNK | 2026-09-28 | skor 14.3 | T+3 -3.64%
 - EKGYO | 2026-09-30 | skor 14.3 | T+3 +7.97%
-- ISCTR | 2026-11-19 | skor 14.3 | T+3 beklemede
+- ISCTR | 2026-11-19 | skor 14.3 | T+3 -3.45%
 - MGROS | 2026-08-10 | skor 14.2 | T+3 -16.11%
 - BIMAS | 2026-08-27 | skor 14.2 | T+3 -1.33%
 - HALKB | 2026-09-23 | skor 14.2 | T+3 -2.04%
@@ -1167,13 +1186,14 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - YKBNK | 2026-10-30 | skor 14.2 | T+3 +5.65%
 - GARAN | 2026-10-30 | skor 14.2 | T+3 +9.82%
 - HALKB | 2026-11-04 | skor 14.2 | T+3 +6.19%
-- AKBNK | 2026-11-19 | skor 14.2 | T+3 beklemede
+- AKBNK | 2026-11-19 | skor 14.2 | T+3 -4.34%
 - MGROS | 2026-08-12 | skor 14.1 | T+3 -1.75%
 - AKBNK | 2026-09-25 | skor 14.1 | T+3 -5.50%
 - AKBNK | 2026-09-29 | skor 14.1 | T+3 -4.01%
 - ISCTR | 2026-10-30 | skor 14.1 | T+3 +10.47%
 - ASTOR | 2026-11-17 | skor 14.1 | T+3 -9.00%
 - AKBNK | 2026-11-17 | skor 14.1 | T+3 -5.65%
+- GARAN | 2026-11-25 | skor 14.0 | T+3 beklemede
 - SAHOL | 2026-07-29 | skor 14.0 | T+3 +2.06%
 - SAHOL | 2026-07-30 | skor 14.0 | T+3 +8.02%
 - GARAN | 2026-07-30 | skor 14.0 | T+3 +7.07%
@@ -1203,9 +1223,10 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ISCTR | 2026-11-18 | skor 14.0 | T+3 -0.87%
 - GARAN | 2026-11-18 | skor 14.0 | T+3 -0.00%
 - ASELS | 2026-11-18 | skor 14.0 | T+3 -5.31%
-- GARAN | 2026-11-19 | skor 14.0 | T+3 beklemede
-- EKGYO | 2026-11-19 | skor 14.0 | T+3 beklemede
-- YKBNK | 2026-11-20 | skor 14.0 | T+3 beklemede
+- GARAN | 2026-11-19 | skor 14.0 | T+3 -2.12%
+- EKGYO | 2026-11-19 | skor 14.0 | T+3 -2.76%
+- YKBNK | 2026-11-20 | skor 14.0 | T+3 -5.86%
+- TOASO | 2026-11-25 | skor 13.9 | T+3 beklemede
 - ASELS | 2026-07-29 | skor 13.9 | T+3 -5.15%
 - TOASO | 2026-09-22 | skor 13.9 | T+3 +2.20%
 - AKBNK | 2026-09-30 | skor 13.9 | T+3 +2.91%
@@ -1224,6 +1245,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ENJSA | 2026-10-30 | skor 13.7 | T+3 +12.42%
 - EKGYO | 2026-11-03 | skor 13.7 | T+3 +6.58%
 - SISE | 2026-11-13 | skor 13.7 | T+3 -6.36%
+- PETKM | 2026-11-25 | skor 13.6 | T+3 beklemede
 - ISCTR | 2026-11-24 | skor 13.6 | T+3 beklemede
 - TUPRS | 2026-07-31 | skor 13.6 | T+3 +2.88%
 - THYAO | 2026-08-31 | skor 13.6 | T+3 -3.56%
@@ -1252,7 +1274,8 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ULKER | 2026-11-12 | skor 12.9 | T+3 -6.40%
 - MGROS | 2026-08-03 | skor 12.8 | T+3 +2.54%
 - ULKER | 2026-09-02 | skor 12.8 | T+3 +2.95%
-- GARAN | 2026-11-20 | skor 12.8 | T+3 beklemede
+- GARAN | 2026-11-20 | skor 12.8 | T+3 -4.37%
+- TRMET | 2026-11-25 | skor 12.7 | T+3 beklemede
 - HALKB | 2026-11-24 | skor 12.7 | T+3 beklemede
 - FROTO | 2026-11-24 | skor 12.7 | T+3 beklemede
 - TRALT | 2026-07-24 | skor 12.7 | T+3 -10.06%
@@ -1267,8 +1290,8 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - AEFES | 2026-09-30 | skor 12.7 | T+3 +2.26%
 - PETKM | 2026-11-13 | skor 12.7 | T+3 -7.56%
 - ASTOR | 2026-11-16 | skor 12.7 | T+3 -6.31%
-- SISE | 2026-11-19 | skor 12.7 | T+3 beklemede
-- ISCTR | 2026-11-20 | skor 12.7 | T+3 beklemede
+- SISE | 2026-11-19 | skor 12.7 | T+3 -6.30%
+- ISCTR | 2026-11-20 | skor 12.7 | T+3 -5.81%
 - MGROS | 2026-07-16 | skor 12.6 | T+3 +1.44%
 - PETKM | 2026-07-14 | skor 12.5 | T+3 +15.82%
 - ALARK | 2026-08-21 | skor 12.5 | T+3 +2.07%
@@ -1306,7 +1329,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TRMET | 2026-11-05 | skor 12.1 | T+3 +2.84%
 - ASTOR | 2026-11-09 | skor 12.1 | T+3 +14.25%
 - PETKM | 2026-11-12 | skor 12.1 | T+3 -3.63%
-- TRMET | 2026-11-19 | skor 12.1 | T+3 beklemede
+- TRMET | 2026-11-19 | skor 12.1 | T+3 -7.25%
 - ALARK | 2026-11-23 | skor 12.0 | T+3 beklemede
 - ASTOR | 2026-07-16 | skor 12.0 | T+3 -4.00%
 - GARAN | 2026-07-20 | skor 12.0 | T+3 +0.56%
@@ -1384,13 +1407,15 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - PETKM | 2026-11-11 | skor 11.0 | T+3 -0.84%
 - MGROS | 2026-11-16 | skor 11.0 | T+3 -4.21%
 - FROTO | 2026-11-16 | skor 11.0 | T+3 -1.78%
+- ULKER | 2026-11-25 | skor 10.9 | T+3 beklemede
 - TUPRS | 2026-07-30 | skor 10.9 | T+3 +0.78%
 - ASELS | 2026-07-30 | skor 10.9 | T+3 +3.48%
 - EREGL | 2026-08-10 | skor 10.9 | T+3 +3.69%
 - BIMAS | 2026-10-22 | skor 10.9 | T+3 -1.63%
 - ENJSA | 2026-11-11 | skor 10.9 | T+3 +1.76%
 - MGROS | 2026-11-17 | skor 10.9 | T+3 -6.75%
-- ENJSA | 2026-11-20 | skor 10.9 | T+3 beklemede
+- ENJSA | 2026-11-20 | skor 10.9 | T+3 -5.56%
+- PGSUS | 2026-11-25 | skor 10.8 | T+3 beklemede
 - THYAO | 2026-07-27 | skor 10.8 | T+3 -3.07%
 - AEFES | 2026-08-26 | skor 10.8 | T+3 -5.61%
 - SISE | 2026-09-02 | skor 10.8 | T+3 +6.55%
@@ -1403,7 +1428,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - PETKM | 2026-11-10 | skor 10.8 | T+3 +0.48%
 - TRALT | 2026-11-10 | skor 10.8 | T+3 -1.85%
 - SISE | 2026-11-11 | skor 10.8 | T+3 -1.14%
-- VAKBN | 2026-11-20 | skor 10.8 | T+3 beklemede
+- VAKBN | 2026-11-20 | skor 10.8 | T+3 -5.27%
 - MGROS | 2026-08-26 | skor 10.7 | T+3 -4.48%
 - TTKOM | 2026-08-26 | skor 10.7 | T+3 -5.11%
 - TTKOM | 2026-08-26 | skor 10.7 | T+3 -5.11%
@@ -1416,8 +1441,8 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TUPRS | 2026-10-30 | skor 10.6 | T+3 -0.07%
 - TTKOM | 2026-11-11 | skor 10.6 | T+3 +3.85%
 - EREGL | 2026-11-16 | skor 10.6 | T+3 -2.92%
-- ULKER | 2026-11-20 | skor 10.6 | T+3 beklemede
-- OTKAR | 2026-11-20 | skor 10.6 | T+3 beklemede
+- ULKER | 2026-11-20 | skor 10.6 | T+3 -4.98%
+- OTKAR | 2026-11-20 | skor 10.6 | T+3 -4.97%
 - AKBNK | 2026-08-11 | skor 10.5 | T+3 +4.01%
 - FROTO | 2026-08-24 | skor 10.5 | T+3 -2.06%
 - THYAO | 2026-09-02 | skor 10.5 | T+3 +1.80%
@@ -1439,7 +1464,7 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - SISE | 2026-11-17 | skor 10.3 | T+3 -6.18%
 - BIMAS | 2026-11-18 | skor 10.3 | T+3 -5.00%
 - TRALT | 2026-11-18 | skor 10.3 | T+3 -0.61%
-- PETKM | 2026-11-19 | skor 10.3 | T+3 beklemede
+- PETKM | 2026-11-19 | skor 10.3 | T+3 -3.18%
 - TUPRS | 2026-09-01 | skor 10.2 | T+3 -3.54%
 - HALKB | 2026-09-22 | skor 10.2 | T+3 -3.61%
 - TRALT | 2026-09-22 | skor 10.2 | T+3 -0.42%
@@ -1452,7 +1477,9 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - ULKER | 2026-11-10 | skor 10.2 | T+3 -3.00%
 - ULKER | 2026-11-17 | skor 10.2 | T+3 -6.98%
 - FROTO | 2026-11-18 | skor 10.2 | T+3 -2.00%
-- ASTOR | 2026-11-20 | skor 10.2 | T+3 beklemede
+- ASTOR | 2026-11-20 | skor 10.2 | T+3 +4.05%
+- OTKAR | 2026-11-25 | skor 10.1 | T+3 beklemede
+- ENJSA | 2026-11-25 | skor 10.1 | T+3 beklemede
 - BIMAS | 2026-08-10 | skor 10.1 | T+3 -2.02%
 - ULKER | 2026-08-11 | skor 10.1 | T+3 +3.30%
 - AKBNK | 2026-09-01 | skor 10.1 | T+3 -0.14%
@@ -1476,9 +1503,14 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - TRALT | 2026-11-11 | skor 10.1 | T+3 +0.10%
 - FROTO | 2026-11-17 | skor 10.1 | T+3 -2.09%
 - ENJSA | 2026-11-17 | skor 10.1 | T+3 -5.42%
-- TCELL | 2026-11-19 | skor 10.1 | T+3 beklemede
-- TRALT | 2026-11-19 | skor 10.1 | T+3 beklemede
-- TRMET | 2026-11-20 | skor 10.1 | T+3 beklemede
+- TCELL | 2026-11-19 | skor 10.1 | T+3 -3.12%
+- TRALT | 2026-11-19 | skor 10.1 | T+3 -3.70%
+- TRMET | 2026-11-20 | skor 10.1 | T+3 -9.31%
+- AEFES | 2026-11-25 | skor 10.0 | T+3 beklemede
+- TRALT | 2026-11-25 | skor 10.0 | T+3 beklemede
+- BIMAS | 2026-11-25 | skor 10.0 | T+3 beklemede
+- THYAO | 2026-11-25 | skor 10.0 | T+3 beklemede
+- MGROS | 2026-11-25 | skor 10.0 | T+3 beklemede
 - ENKAI | 2026-11-24 | skor 10.0 | T+3 beklemede
 - TRALT | 2026-11-24 | skor 10.0 | T+3 beklemede
 - AEFES | 2026-11-24 | skor 10.0 | T+3 beklemede
@@ -1562,21 +1594,21 @@ SERH: vekiller V151'in golgesidir; sonuclar esik YONU soyler, kesin deger degil.
 - SISE | 2026-11-18 | skor 10.0 | T+3 -5.18%
 - EREGL | 2026-11-18 | skor 10.0 | T+3 -3.08%
 - TRMET | 2026-11-18 | skor 10.0 | T+3 -2.91%
-- BIMAS | 2026-11-19 | skor 10.0 | T+3 beklemede
-- MGROS | 2026-11-19 | skor 10.0 | T+3 beklemede
-- OTKAR | 2026-11-19 | skor 10.0 | T+3 beklemede
-- TTKOM | 2026-11-19 | skor 10.0 | T+3 beklemede
-- FROTO | 2026-11-19 | skor 10.0 | T+3 beklemede
-- EREGL | 2026-11-19 | skor 10.0 | T+3 beklemede
-- ENKAI | 2026-11-19 | skor 10.0 | T+3 beklemede
-- MGROS | 2026-11-20 | skor 10.0 | T+3 beklemede
-- TTKOM | 2026-11-20 | skor 10.0 | T+3 beklemede
-- TAVHL | 2026-11-20 | skor 10.0 | T+3 beklemede
-- HALKB | 2026-11-20 | skor 10.0 | T+3 beklemede
-- TCELL | 2026-11-20 | skor 10.0 | T+3 beklemede
-- ENKAI | 2026-11-20 | skor 10.0 | T+3 beklemede
-- SISE | 2026-11-20 | skor 10.0 | T+3 beklemede
-- EREGL | 2026-11-20 | skor 10.0 | T+3 beklemede
+- BIMAS | 2026-11-19 | skor 10.0 | T+3 -4.17%
+- MGROS | 2026-11-19 | skor 10.0 | T+3 -7.74%
+- OTKAR | 2026-11-19 | skor 10.0 | T+3 -8.39%
+- TTKOM | 2026-11-19 | skor 10.0 | T+3 -5.12%
+- FROTO | 2026-11-19 | skor 10.0 | T+3 -2.51%
+- EREGL | 2026-11-19 | skor 10.0 | T+3 -4.60%
+- ENKAI | 2026-11-19 | skor 10.0 | T+3 -4.10%
+- MGROS | 2026-11-20 | skor 10.0 | T+3 -7.93%
+- TTKOM | 2026-11-20 | skor 10.0 | T+3 -6.06%
+- TAVHL | 2026-11-20 | skor 10.0 | T+3 -1.76%
+- HALKB | 2026-11-20 | skor 10.0 | T+3 -3.93%
+- TCELL | 2026-11-20 | skor 10.0 | T+3 -4.02%
+- ENKAI | 2026-11-20 | skor 10.0 | T+3 -2.01%
+- SISE | 2026-11-20 | skor 10.0 | T+3 -6.03%
+- EREGL | 2026-11-20 | skor 10.0 | T+3 -5.22%
 - HALKB | 2026-10-30 | skor 4.5 | T+3 +1.92%
 - ASELS | 2026-11-05 | skor 3.8 | T+3 +2.43%
 
@@ -1675,26 +1707,26 @@ Kosul: en az iki ARDISIK haftada isabet >= %50 (herhangi bir esikte).
 | 2026-W46 | 30 | 64 | 35.9 |
 | 2026-W46 | 35 | 45 | 35.6 |
 | 2026-W46 | 40 | 37 | 32.4 |
-| 2026-W47 | 15 | 42 | 11.9 |
-| 2026-W47 | 20 | 34 | 14.7 |
-| 2026-W47 | 25 | 27 | 18.5 |
-| 2026-W47 | 30 | 13 | 15.4 |
-| 2026-W47 | 35 | 9 | 22.2 |
-| 2026-W47 | 40 | 4 | 25.0 |
+| 2026-W47 | 15 | 70 | 7.1 |
+| 2026-W47 | 20 | 57 | 8.8 |
+| 2026-W47 | 25 | 37 | 13.5 |
+| 2026-W47 | 30 | 18 | 11.1 |
+| 2026-W47 | 35 | 13 | 15.4 |
+| 2026-W47 | 40 | 7 | 14.3 |
 
 ## Katman A - Sektor Baglamli Kirilim (kurul hipotezi: 04.08)
 Hipotez: sektoru o gun negatifken isabet dusuyor mu? Yalniz Bankacilik+Sinai kapsiyor (calisan iki endeks).
 | Sektor durumu | Esik | Kayit>=E, sonuclu | Isabet% |
 |---|---|---|---|
-| POZITIF | 15 | 247 | 44.1 |
-| POZITIF | 20 | 210 | 44.8 |
-| POZITIF | 25 | 169 | 44.4 |
-| POZITIF | 30 | 137 | 44.5 |
-| POZITIF | 35 | 115 | 41.7 |
-| POZITIF | 40 | 90 | 40.0 |
-| NEGATIF | 15 | 207 | 50.7 |
-| NEGATIF | 20 | 160 | 46.2 |
-| NEGATIF | 25 | 114 | 41.2 |
+| POZITIF | 15 | 249 | 43.8 |
+| POZITIF | 20 | 212 | 44.3 |
+| POZITIF | 25 | 171 | 43.9 |
+| POZITIF | 30 | 138 | 44.2 |
+| POZITIF | 35 | 116 | 41.4 |
+| POZITIF | 40 | 91 | 39.6 |
+| NEGATIF | 15 | 215 | 48.8 |
+| NEGATIF | 20 | 167 | 44.3 |
+| NEGATIF | 25 | 115 | 40.9 |
 | NEGATIF | 30 | 72 | 40.3 |
 | NEGATIF | 35 | 48 | 35.4 |
 | NEGATIF | 40 | 32 | 40.6 |
