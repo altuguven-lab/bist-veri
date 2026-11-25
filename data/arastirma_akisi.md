@@ -7,10 +7,10 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | Kaynak | Durum | Adet |
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
-| hedeffiyat | OK | 20 |
-| haber | OK | 53 |
-| kurum_yayin_sayfalari | OK | 41 |
-| kuresel_gorunum | OK | 14 |
+| hedeffiyat | OK | 14 |
+| haber | OK | 37 |
+| kurum_yayin_sayfalari | OK | 42 |
+| kuresel_gorunum | OK | 16 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -29,12 +29,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | 2026-11-20 | HALKB | Phillip Capital (B) | 52.4 | Endekse Paralel Getiri | AYNI | ✅ (toplayıcı) |
 | 2026-11-19 | ASTOR | HSBC (-) | 272.0 | AL | ASAGI (375.0 → -27.5%) | ✅ (toplayıcı) |
 | 2026-11-18 | BIMAS | Gedik Yatırım (B) | 620.0 | Endeks Üstü Getiri | YUKARI (530.0 → 17.0%) | ✅ (toplayıcı) |
-| 2026-11-17 | FROTO | QNB Yatırım (B) | 112.0 | Endeks Üstü Getiri | ASAGI (137.1 → -18.3%) | ✅ (toplayıcı) |
-| 2026-11-17 | FROTO | Deniz Yatırım (B) | 106.0 | TUT | AYNI | ✅ (toplayıcı) |
-| 2026-11-17 | ASTOR | Gedik Yatırım (B) | 363.9 | Endeks Üstü Getiri | ASAGI (461.3 → -21.1%) | ✅ (toplayıcı) |
-| 2026-11-17 | SAHOL | Deniz Yatırım (B) | 139.5 | AL | AYNI | ✅ (toplayıcı) |
-| 2026-11-17 | TOASO | Deniz Yatırım (B) | 400.0 | AL | AYNI | ✅ (toplayıcı) |
-| 2026-11-17 | PETKM | Deniz Yatırım (B) | 21.0 | TUT | AYNI | ✅ (toplayıcı) |
 
 ## Diğer BIST100 hedef/tavsiye (son 7 gün)
 
@@ -59,14 +53,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-24 [Teknik Bülten 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/teknik-bulten-24-11-2026/) (diger)
 - 2026-11-24 [Günlük Yabancı Oranları 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/gunluk-yabanci-oranlari-24-11-2026/) (diger)
 - 2026-11-24 [Günlük Açığa Satış Bilgileri 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/gunluk-aciga-satis-bilgileri-24-11-2026/) (diger)
-- 2026-11-23 [Uluslararası Piyasalar Kapanış Raporu – 23.11.2026](https://arastirma.isyatirim.com.tr/2026/11/24/uluslararasi-piyasalar-kapanis-raporu-23-11-2026/) (diger)
-- 2026-11-23 [İş Varant Raporu: İş Varant 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/is-varant-raporu-is-varant-23-11-2026/) (diger)
-- 2026-11-23 [FX Teknik Analiz Raporu 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/fx-teknik-analiz-raporu-23-11-2026/) (diger)
-- 2026-11-23 [ELÜS Günlük Bülteni 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/elus-gunluk-bulteni-23-11-2026/) (diger)
-- 2026-11-23 [İş Varant | İtfalar 23.11.2026](https://arastirma.isyatirim.com.tr/2026/11/23/is-varant-itfalar-23-11-2026/) (diger)
-- 2026-11-23 [Piyasalarda Bugün 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/piyasalarda-bugun-23-11-2026/) (diger)
-- 2026-11-23 [Sermaye Artırımları/Azaltımları ve Temettü Ödemeleri 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/sermaye-artirimlari-azaltimlari-ve-temettu-odemeleri-23-11-2026/) (diger)
-- 2026-11-23 [Pay Geri Alımları 23/11/2026](https://arastirma.isyatirim.com.tr/2026/11/23/pay-geri-alimlari-23-11-2026/) (diger)
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
@@ -86,13 +72,13 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye raporu: Faiz, rezerv ve döviz... haberi - Finans Gündem](https://news.google.com/rss/articles/CBMinwFBVV95cUxPZXlNdmVWeXJmNWllNWVsZ2d4R2pENnR3TWVsT05oWC1KbU9maHdEVFktQ21YQ291N0ZDN0trU2tmREQ0b25LY1Q5SHZnaklQa182Q3BkOXBsNVViYnczdzI5Z3dpNGpCTVdIY2FPTEdGbG1DRXRmODdUU1FiOU1vaXdKMWhnUmhxRzFET3VtMTBtek9tQmpVVWJmT3M3Qzg?oc=5)
 - 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye uyarısı: 11 haftada 14 milyar dolarlık döviz talebi - İlkses Gazetesi](https://news.google.com/rss/articles/CBMiswFBVV95cUxPeFJnR1lVczNWdjJaSlhLcFNLdi1sZm9sVlMwdmFnVG0zVVU5WGhDcUMtU3BDSTJXa09abVdBcW0xV292VVFYNFBSdGpkU19BWXA5am5JUUh0dVRpRFVpdGRQOXZiOTd2VUxxQ0VtRFJHR0dQT1QwS0w4Qlk0ckQxM1dMZngwRTV0OXdFdUF0S3dJZWJTakZjU2VubjZSZEtpWmw2QmFVMEtBZ3RrNktuTk9QMNIBuAFBVV95cUxNREVuMnIzWUVCN2hqQVpxQmRvRnczSWhBQWF0ZWlQM3d1d1F6clhiX2N4YVU2Y1V0dlZqLTRxSVJwbUhGMWVuTl9LQ2lQM0ROVkNmZVV6aFlSWlJqdFJ4VHRtMEtyVXlKcmxaZXRsdnZJVHRRanVFUnMxVURHMjBEMTd1SGtETUNJVW95ZkVGelZUdEt5WlR5MExiSmJ0MGRySHNoSVFMTENVYm5ESTUza1RYQ09PUjk3?oc=5)
 - 2026-11-24 **Deutsche Bank**: [Deutsche Bank, Türkiye için 2027 büyüme tahminini yüzde 4’e çıkardı - EKOTÜRK](https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcVV0YlJZaTFaTm1rVXdIVFRZRURLRUtDc0Frc0tqNUdRcmNOYm1lOXJVVWdzSW1hd2xTTFA5TjJPeHJWOUstTUJ3dmg4STdYdjRSa2hYdDdRWXprMnctWUJxZzF0eXcyN1o3TERFalJmNVhqUFZuZHZQNWZ4Y0M2WG42UmJJZ3h6c2RuZEltRTg3ZnRJbVBFY0pyVlZhWVVrWnpCbXp1QWVUUQ?oc=5)
+- 2026-11-23 **Deutsche Bank**: [Deutsche Bank’tan 2027 Türkiye raporu: Büyüme yüzde 4 - Ekonomi Manşet](https://news.google.com/rss/articles/CBMijgFBVV95cUxORWt1RkYxbGJBQ3YzWXNESFNHY1Q1X0QzRDBVei1KRlpnM21PU0ZOSVQwUVJLcjh0RlNUMU9OUHdUaWk2X0tmdG83RU5aelRuRlpsejBMcElDak5VcXp4UTNsa3E0dm11N2xuRlIwM1lQekVXSE9nRkk5cHdtMlJpWFVvX3VqbWtNdTdMbWt3?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank'tan Türkiye ekonomisi için yeni projeksiyon haberi - Finans Gündem](https://news.google.com/rss/articles/CBMipAFBVV95cUxONXhaY0dkX3h0ZDI5VlpUVmg5Mnd0YXZZY0NIWW85eXk2MElybXJ0WG1lR0FHSWs1UzJiRFpGNF9ZbDFCUURrY3dyVXVxNDJBeS1peVVMSkxDT1I4czNiN08ycnRHVVZlWlBhVXoyWF9HTEhicDlOdHVFSFkxeU5qVUZvZ2NnLV9OWGsySG5iOWFsMklFS0x3UlBGMGdHYnZsbUNWMQ?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank'tan Türkiye tahmini: Aralıkta 100 baz puanlık faiz indirimi bekleniyor! - Elips Haber](https://news.google.com/rss/articles/CBMirgFBVV95cUxNOS0wVURXZzNuU3BDbG91Q0hHM0VNLW1qLWJzNHdXTUUtblZBN3E0emRTcUVpWHZtdlYxeG13ZDJ0WWk5MUZBOWZqQkZHYjVxYWVwQ09aR1pWS2Zmbno5c2VheWFja3pWLW80UEt3VFpOVWRYSXRlbzZjNVZyckU1QkxvZnF1My1xaEhWM0llUFlvSkVObWlwOGJLQjh5SHdsODFaQWtUSmppTlVrVHc?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank'tan TCMB tahmini: Aralıkta 100 baz puan indirim bekleniyor - Yeniçağ Gazetesi](https://news.google.com/rss/articles/CBMitgFBVV95cUxPTmhNUTV6OEZBWU5xdUQxbnRUQmdEc0hLVVBTMkZIaXMwbjFSVEpROF9ELVBfMEtFWGl3QnlFbllLU0Vtdi10ZEJtZUowSkg3aWlyMUd4VlotVGdFU0JxRGplZXo3Z3VQRWwwWllPQlVHQ0p4Vkx0UmQ2Ylo1MUtRWUhVd3MxLVU0UnkxemFHYkZaY0RsTjFMV3hkQkYxdFhfM2lsU19UYlQ1RzBsSk9QZGNncXptZw?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank'ın 2027 Türkiye tahmini: Dolar, enflasyon ve faiz ne olacak? - CNBC-e](https://news.google.com/rss/articles/CBMirAFBVV95cUxPRWpXV24zMVhNSmxSMEVoQzY4dHFYaF9uS0tOMnU4aWtwelBWWXlrZDB0S2QtMTJnMHJkYWVaWXF5aWlDVEdDTmtkemltdVZLSTFEUmZGclg5anlIQS02QmJxWWRyLWppNlB4WEFpVTZOMWFIUGN1LU1HbzJ6enZrcU5pcjNHc1BrSHZrcTdPODZyWFdEbkI2WlJpVjh1TG9aSXk5a0dQVXFUUF9Y?oc=5)
 - 2026-11-23 **Deutsche Bank**: [2027'de dolar, enflasyon ve faiz ne olacak? Deutsche Bank Türkiye tahminini açıkladı - ABC Haber](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPLWJ2QzROT3ltazQyZ3BVOGJQSVd4YzhXYmFibWtyU0RZZWVrUFVLVXJmLTF4SU5kd0w0VEJvX3hGUmFWY3dYbFYybWIzZ1E3aXdrSHBBTWt1YmpyNHRUMTJnZmpudUZVNlZobWY5cWgxUXdMbW10c091UkNSX1EwcmdpMENya3ItVWJza1V4bVVPNHRTMG9DanRZZ05sMGZyMFV2M2o3cnlqc2tWdUFuUFlBVEpzdGhsNHhjVkQyOEc?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank 2027 Türkiye Tahmini: Büyüme Ve Enflasyon - Finans Hattı](https://news.google.com/rss/articles/CBMijwFBVV95cUxQNy1CeUUydndlMU1VMWVpWE9pc2hRTk1hWnNUMnQyY2E0b3d2d2dMRW9Jd1EwLWc4Wk1nUHUxOFpNR05lOEJ2S0w5U1RYNkhOZ1BuRUd3bF81LXBNREVCeDQtWllPNkRYRXNqZUs1emVCVDFmeTdkVGFnWUpzZmpQT3NMU0lFZ1BLT2hjSHQtQQ?oc=5)
-- 2026-11-23 **Deutsche Bank**: [Deutsche Bank’tan 2027 Türkiye raporu: Büyüme yüzde 4 - Howl.Link](https://news.google.com/rss/articles/CBMiO0FVX3lxTFBCREdQNTR0QzVJbkdKTmFDWW1yWjE5UVFTbU9rSEJUMmM3SzFvdk1RLS05ZFk5OVNoZFI4?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank küresel ekonomi beklentilerini açıkladı: Türkiye tahmini değişti - Sanayi Gazetesi](https://news.google.com/rss/articles/CBMirAFBVV95cUxNVThoQkxyVnA2MGlMSGwyNkhoMmFwLVl4VWxiS2JkQkkyczkwam5ZOUFqTzQ4VjdBZW9Td29GZFFJTXVRTXVpSVlwY0oya1FrODZQTS03ZnhEOGVySmd1cDNiUUlJRjdkaXBLTEkzbVloTlJ3TmstcURaaUtsNWxYSmxSZkVFTHVUY3A4bGctVWtpbWNEVmE1eFpOc0V4QUp1N2JaaW1zYUY1OVo1?oc=5)
 - 2026-11-23 **S&P Global**: [Fon krizi sonrası S&P, Moody's ve Fitch'ten rapor: Türkiye'nin kredi notu etkilenecek mi - Notbir](https://news.google.com/rss/articles/CBMitwFBVV95cUxPZkVsSEg4ZndQSWRuWG1OTnJJTUtoU2J4M0JmR0U4TDVxU29jN1A2V0NWcUdPWXpoSmRiTE1iZExhS09NbHpEbWt5OTJFN2NsMTNjLWJxMnA3Mmg4XzFuelRIa0pDekV2ZFNjQzJrTzh6VlRnb0VsNkhxN3FKTndmY0p6cGZURW5DRE9SbDVwNDN1ZHdQWVgyeG9YN1RPamhMYkh2d0pESmxMN3dTWFRlUnJFQmtRSEE?oc=5)
 
@@ -111,6 +97,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
+- 2026-11-23 **Goldman Sachs**: [Goldman Sachs and Morgan Stanley’s 2027 stock market outlook - Finimize](https://news.google.com/rss/articles/CBMilwFBVV95cUxPOENFWURlQlhzV0F2NU1HOVBURUV4N1VYY0lFQXBKWk9XTGxXNFZoTW1YWWlDRWFLTlRaN2VhaWZoekhLM3pJem5jWW9xY1ZMUlBnMFhUSmk4UmhsWVgzS1RrVHRjSnJ0VkxBYTB1TVZOYTZ2emRxWUpscHNZdkhFUG8wTl9zNE1pcTdqUGRfVWlBNTJ3cjNz?oc=5)
 - 2026-11-23 **ING**: [ING FX Outlook: Dollar Supported Until Spring 2027, EUR/USD Range 1.10-1.15 - News and Statistics - IndexBox](https://news.google.com/rss/articles/CBMinwFBVV95cUxOeXBWaXZaT3laUFc1UTZrajYzYjlicXhfOTFyeFJ0bXRyTFZVdW1tWm5Qa0xxMGVidEIxX3ZoVnJiRnNzMVFyWVN5SFEyai1xOV9fQ0djZE1HQmZMRTFaZldZd0pxWHQ1X0prNGw1bmExOTdWcm5icTRoUngwTG1pQmEzMlZ2TS1aY0hKV1JySi1sZDVIa1U0cUFMQmpDdjA?oc=5)
 - 2026-11-23 **HSBC**: [US Dollar: Strong outlook into 2027 – HSBC - FXStreet](https://news.google.com/rss/articles/CBMiigFBVV95cUxPbEJXRU9QQzBlelVfWjFsbThiQUFYOTFDMEFCZFA2Z19WXzVSQ2JSZ0VzZ1VwSTJIR0hEaE1qNTBteWpUd2tDbjlwNmN4VVdPNnN4N3FLVEFzRU1UN0pCWDF0YlhTeVpjLVVjQlJzbGxDdERhRFhOTHFGeFNHUGUzaDdDQldtbjFxY3c?oc=5)
 - 2026-11-22 **Goldman Sachs**: [Goldman Sachs’ economic outlook for 2027 - Investing.com](https://news.google.com/rss/articles/CBMinAFBVV95cUxQREttQl9iNXhLSXF3X1NpUG84WG9lMGJnWmxDTjVicEtxTEh0eGNoOG9ZTzVIZTQxQjQ2WTJhakl5c3ZKM1J4VHphRk55MDlpVWxNX25LbWpZVjJzekZYa3BrVnhEN1VCWXFwbkZ1bkVDaFlZanlRNHBPbVNzQUk1QVNzWjloc2pZSlBfVFhpZ1hqd3Y2U1lZanhqRzk?oc=5)
@@ -118,9 +105,10 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **Bank of America**: [Gümüş fiyatlarında yeni dönem! Bank of America 2027 için 75 dolar tahminini açıkladı - Haberton](https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMjBkdlU2Umo3U1k3em1MeW5BMXBPUWgzMnN0ZlhBcVJSc2NVRllFWmRPWi16ZERVXzlCNWFsTkw5cUVWM2UzR3BaYWk2cjlvTGg5eXZHbGFYNDlaS0xaTkw1ZzFPZHBNdzRaT1FkNXU1X0NpUXdxOFBtRnNlUUJWaDN6dzVrQnI2ZFZFUU14VHo2WFFxNTRJSEQxYjBXQXFyd3l4MTdiM1U?oc=5)
 - 2026-11-20 **Invesco**: [Invesco Mortgage Capital Stock Price Forecast. Should You Buy IVR? - StockInvest.us](https://news.google.com/rss/articles/CBMiR0FVX3lxTE5id2dELUcyZHNoMDdRakNqTW5HMEd0QUNGWHBiYjFtcHp0ZDNkLVJPSTYwbjZpRWYyLThlMWM1emhJYmllZmZR?oc=5)
 - 2026-11-19 **UBS**: [UBS 2027 Outlook: S&P 500 Base Case at 8,200; AI Capex Stall Could Drag It to 5,500 - BigGo Finance](https://news.google.com/rss/articles/CBMidkFVX3lxTE9KU21ROUM0T0Y2bW91bU43VDNYNERBYmpHYlpkWEkxSlRFcnJNUUd3TWdnUmtieWtBaWQ3bWNhME9OWFllZ0ptNExUeG52M2RXOUR2eUNVN0FGY0RQZHkwdXdIQ1JXWm1DLU5HS3BaSXlJRGhGZkE?oc=5)
-- 2026-11-17 **Goldman Sachs**: [Goldman Sachs’tan 2028 altın fiyatları için yeni tahmin! - gdh dijital](https://news.google.com/rss/articles/CBMinAFBVV95cUxPNmhTYTZTZmYtbmRyT3lWamk1MEloV1B2VG5KU2t4S214Z2Zoa2RYVlR1MWphWmhZU09hNGNtd2h5ZWRwenhfMzF5V3M2TmxFRnZkVExxeklmbmppNWJvRU9xVjliZ2cxcHRQaGtqWHhGUXZaWlBXTkR3R1BuYUdDT1BBbWl5aTgxVlJEQjZGU3pqU25vcUJsb1pndjc?oc=5)
-- 2026-11-17 **Goldman Sachs**: [Goldman Sachs revealed its outlook for 2027. Here’s how much it sees the S&P 500 gaining - CNBC](https://news.google.com/rss/articles/CBMivwFBVV95cUxQb2xLbG9kYWZ4ZVAzcHNTb25JdThjRkVrb0RWZGwyay1lQy1wOFNraTdWbXRveTJTUWU5TEh6cHhRWEwxVWlPOGowaHNISl9HdmtmSUFBYUJSWkhWa2J4R1hkWk9fcmRhbV9JSXB6bEJZTjN2bG43SktRYzljVmZpRUNZUGJ4akhDamY1WUQzZW5GUmRISFdEY3UyYy12M0ZNZXdqejJ1MWpGSTI0Y20wMHFBZ3hTc0NYNkZiOUx6Zw?oc=5)
-- 2026-11-17 **Morgan Stanley**: [More from Morgan Stanley: 8,700 S&P target and $5,250 gold lead its 2027 outlook - investingLive](https://news.google.com/rss/articles/CBMiwwFBVV95cUxPa25lU3c0d19JNVlOdVJnd0YtRlJvV3BsMm9RU19ESnowZ0lrRFJ5ZDk1VDVyaldEYzVqOW9BdFZMQ080SEp4ckxXTGVzTTdETjRmSk5xaHlNZUVXNnJDc1oxaEtTNFZTTV9SUjE0YkJmbGVET2VZRDBUWkRVajFKU1IwWC05R0dzM1FDVmN1eVR6aHRzU21HRTZoeDRNSC1NMkNKa0xBcXdScEdGcXBpVVhid212dEo3alVWOW1aa2lFUDA?oc=5)
+- 2026-11-25 **ING**: [Rates Spark Published 17:54 Rates Spark: Treasuries with blinkers on The downtrend in yield to be frustrated by Wednesday's PCE report](https://think.ing.com/articles/rates-spark-equity-sentiment-versus-inflation-reality/)
+- 2026-11-25 **ING**: [United States Today, 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spending](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
+- 2026-11-25 **ING**: [France Today, 14:30 France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 budge](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
+- 2026-11-25 **ING**: [Belgium Today, 14:08 Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
 - 2026-11-24 **ING**: [United States Published 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spendi](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
 - 2026-11-24 **ING**: [Belgium Published 14:08 Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
 - 2026-11-24 **ING**: [France Published 14:30 France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 bu](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
@@ -129,8 +117,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-24 **ING**: [Commodities daily Published 08:00 The Commodities Feed: Oil extends losses while copper gives back Nvidia bounce Nvidia-led rally lifts copper](https://think.ing.com/articles/the-commodities-feed-nvidia-led-rally-lifts-gold-and-copper/)
 - 2026-11-24 **ING**: [FX Published 07:30 FX Daily: Dollar may be heading into overshoot territory We think the dollar is starting to head into overshoot territory and would be careful about expecting more strength just yet](https://think.ing.com/articles/fx-daily-surprise-dollar-strength/)
 - 2026-11-24 **ING**: [Rates Spark Yesterday, 16:45 Rates Spark: Jensen who? The Treasury market effectively said - "We see your 6% Nasdaq rally, but we're not for moving"](https://think.ing.com/articles/rates-spark-nvidia-back-up/)
-- 2026-11-24 **ING**: [Spain Yesterday, 11:55 Spain’s election promises collide with a shrinking fiscal margin Spain’s political parties promise spending and tax cuts without clear financing, while limited scope for savings](https://think.ing.com/articles/spain-is-not-a-big-spender-but-its-election-promises-still-need-financing/)
-- 2026-11-24 **ING**: [FX Yesterday, 07:52 FX Daily: Uneasy calm as markets stabilise Equity markets are stabilising after a torrid week. But the dollar can hold gains](https://think.ing.com/articles/fx-daily-uneasy-calm-as-markets-stabilise/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
@@ -152,8 +138,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-18 Gedik Yatırım: [Gedik Yatırım’dan model portföy için DOHOL ve BIMAS kararı - Paratic Haber](https://news.google.com/rss/articles/CBMihAFBVV95cUxOMjB3RGt2S2dFU1Y1MkhiSWhOWGVJNmlGWERPSWNtc0NvX0tibUdZRUNjZjk1SndFMmRZMHNWeHk3R1E3REZXbkxRMDMtOU9RSEhQSTE5bWZ6cXhuTHRKbXRiUkhHaDZxODVxMnVmMzJrTXhScmkwSUtYeHAxaTZwOEl6OHY?oc=5)
 - 2026-11-18 : [BIMAS Hedef Fiyat Güncellemesi Ve Portföy Değişikliği - Finans Hattı](https://news.google.com/rss/articles/CBMijgFBVV95cUxQSS1MWlFVMmJzX25aREpyQmg5WjRieURCbXFJVWZoUXlvQTZlLTVTbVpaUkpZckxrLU1uR0VsZE5NX1NsMVJpNFBZTlhuT3pkYi1ILUtBRk1tZExzN1NUVnhtd29EUnM4TWhkOVRTWktsTzFic0FEa0dBaU1IUkFPTXl2bEE0LUpWdXh1eURn?oc=5)
 - 2026-11-18 : [BIMAS Hisse Hedef Fiyatı Güncellendi: %57 Yükseliş Potansiyeli - Finans Hattı](https://news.google.com/rss/articles/CBMiiwFBVV95cUxNQ2xqV19RdE8tV2dnazFBenRtbFg5eU9VYlN0YS1Ec2VvcmZOUk9EeFBCaThQclhjTk5zWXpPX1BxclFwZ09oa1NpeFpLNExtc0ZuWVp0ZFdIbTM0TG9INENINmowdWhFMXFBWGIyQTZZRERoSnFHOUI0Ump1UDk1S1JaS0F5R1kxTGxV?oc=5)
-- 2026-11-17 QNB Yatırım: [FROTO Hisse Hedef Fiyat: QNB İnvest'ten Yeni Beklenti! - Finans Hattı](https://news.google.com/rss/articles/CBMihwFBVV95cUxOV2t3d0txU1hiNGRlMW4wQ2pUazZidGhJdTR2UjhldVhWQmd4SkQtc2Z2ZTVpeFVZMkFUU3dzTDRCYlJ3NzFzUlFONUNsMmt3bTUxcVByVnRWSG94R1VkaHpMR1piZm54NlpyeDU3eW4yWTdqMmQxbS1pNU5FVGJjMVE2SFFGOTg?oc=5)
-- 2026-11-17 : [Dev Bankadan Türkiye Hisselerine Güçlü Alım Tavsiyesi Geldi - Ekonomi Dünya](https://news.google.com/rss/articles/CBMimwFBVV95cUxNSmJ4TW1yR1VRRmtTdWtHN0syMGx5WVRBTGFad18wcklSaDBWeFBqcjlSUmZ3TDlBWS1WdUJmZ1NyNGlORlVVWmlzU0FFbk4yb1dGaHZrMkVLdzZsVHk0WnNpVlJHdHVDOTJyRm5TeWc5MXEtVExOZkhjdlg2NGRGYTBFc1BSbk85Rk1mY3BQTUxJZkRYOHY5SGh2TQ?oc=5)
 
 Revizyon yönü yalnız bu arşivdeki önceki kayıtla karşılaştırmadır; arşiv 20.11.2026'da başladı.
 Gözlem amaçlıdır, tavsiye değildir.
