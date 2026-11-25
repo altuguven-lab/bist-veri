@@ -8,9 +8,9 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 15 |
-| haber | OK | 40 |
+| haber | OK | 47 |
 | kurum_yayin_sayfalari | OK | 43 |
-| kuresel_gorunum | OK | 17 |
+| kuresel_gorunum | OK | 14 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -42,6 +42,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
+- 2026-11-25 [En Çok Önerilenler Listesinde Değişiklikler](https://arastirma.isyatirim.com.tr/2026/11/25/en-cok-onerilenler-listesinde-degisiklikler-50/) (diger)
 - 2026-11-25 [İş Varant Raporu: İş Varant 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/is-varant-raporu-is-varant-25-11-2026/) (diger)
 - 2026-11-25 [FX Teknik Analiz Raporu 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/fx-teknik-analiz-raporu-25-11-2026/) (diger)
 - 2026-11-25 [ELÜS Günlük Bülteni 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/elus-gunluk-bulteni-25-11-2026/) (diger)
@@ -61,7 +62,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-24 [Pay Geri Alımları 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/pay-geri-alimlari-24-11-2026/) (diger)
 - 2026-11-24 [Teknik Bülten 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/teknik-bulten-24-11-2026/) (diger)
 - 2026-11-24 [Günlük Yabancı Oranları 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/gunluk-yabanci-oranlari-24-11-2026/) (diger)
-- 2026-11-24 [Günlük Açığa Satış Bilgileri 24/11/2026](https://arastirma.isyatirim.com.tr/2026/11/24/gunluk-aciga-satis-bilgileri-24-11-2026/) (diger)
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
@@ -118,6 +118,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **Goldman Sachs**: [Goldman Sachs: AI layoff wave delayed, not cancelled, in 2027 outlook - CASRAI](https://news.google.com/rss/articles/CBMihAFBVV95cUxPYkZsWDRoTll1N0FOTXJidkVkZjhmdWxIWXgyWldyOG5LMTZBN2lEclJfWGVSQjk3NlBDUEVJbFkxdWJjZ21SRDM5aVpmM0FnbzgxamRFQWRRemxHZHlvSWFYWWNtSEU0X0RCZkEySVp2UGw5d3ZyRFhVOUZ2eFBVZWZKQ2E?oc=5)
 - 2026-11-20 **Bank of America**: [Gümüş fiyatlarında yeni dönem! Bank of America 2027 için 75 dolar tahminini açıkladı - Haberton](https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMjBkdlU2Umo3U1k3em1MeW5BMXBPUWgzMnN0ZlhBcVJSc2NVRllFWmRPWi16ZERVXzlCNWFsTkw5cUVWM2UzR3BaYWk2cjlvTGg5eXZHbGFYNDlaS0xaTkw1ZzFPZHBNdzRaT1FkNXU1X0NpUXdxOFBtRnNlUUJWaDN6dzVrQnI2ZFZFUU14VHo2WFFxNTRJSEQxYjBXQXFyd3l4MTdiM1U?oc=5)
 - 2026-11-19 **UBS**: [UBS 2027 Outlook: S&P 500 Base Case at 8,200; AI Capex Stall Could Drag It to 5,500 - BigGo Finance](https://news.google.com/rss/articles/CBMidkFVX3lxTE9KU21ROUM0T0Y2bW91bU43VDNYNERBYmpHYlpkWEkxSlRFcnJNUUd3TWdnUmtieWtBaWQ3bWNhME9OWFllZ0ptNExUeG52M2RXOUR2eUNVN0FGY0RQZHkwdXdIQ1JXWm1DLU5HS3BaSXlJRGhGZkE?oc=5)
+- 2026-11-25 **ING**: [Rates Spark 23 November Rates Spark: Jensen who? The Treasury market effectively said - "We see your 6% Nasdaq rally, but we're not for moving"](https://think.ing.com/articles/rates-spark-nvidia-back-up/)
 - 2026-11-25 **ING**: [United States Published 14:15 Strong growth and elevated inflation signal more Fed tightening The economy remains in decent shape, but relief is coming on the inflation front](https://think.ing.com/articles/strong-growth-and-elevated-inflation-signal-more-fed-tightening/)
 - 2026-11-25 **ING**: [Trade Today, 08:30 The US tariff wall keeps changing, but it isn't coming down The US is preparing new tariffs targeting structural overcapacity](https://think.ing.com/articles/the-us-tariff-wall-keeps-changing-but-it-isnt-coming-down/)
 - 2026-11-25 **ING**: [Commodities daily Today, 08:00 The Commodities Feed: Oil shrugs off rising Middle East tensions Oil slips as improving supply outweighs disruption risks](https://think.ing.com/articles/the-commodities-feed-aluminium-squeeze-eases-after-lme-intervention/)
@@ -125,7 +126,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-25 **ING**: [Spain 23 November Spain’s election promises collide with a shrinking fiscal margin Spain’s political parties promise spending and tax cuts without clear financing, while limited scope for savings and ](https://think.ing.com/articles/spain-is-not-a-big-spender-but-its-election-promises-still-need-financing/)
 - 2026-11-25 **ING**: [Trade Published 08:30 The US tariff wall keeps changing, but it isn't coming down The US is preparing new tariffs targeting structural overcapacity](https://think.ing.com/articles/the-us-tariff-wall-keeps-changing-but-it-isnt-coming-down/)
 - 2026-11-25 **ING**: [Commodities daily Published 08:00 The Commodities Feed: Oil shrugs off rising Middle East tensions Oil slips as improving supply outweighs disruption risks](https://think.ing.com/articles/the-commodities-feed-aluminium-squeeze-eases-after-lme-intervention/)
-- 2026-11-25 **ING**: [Published 07:40 FX Daily: Full EMFX unwind underway The hostile investment environment is keeping emerging market FX under pressure and the dollar bid](https://think.ing.com/articles/fx-daily-full-emfx-unwind-underway/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
