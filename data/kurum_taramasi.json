@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-25T17:43:38.503313+00:00",
- "uretim_tr": "2026-11-25 20:43",
+ "uretim_utc": "2026-11-25T21:43:43.611196+00:00",
+ "uretim_tr": "2026-11-26 00:43",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -9,9 +9,15 @@
    "url": "https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri",
    "durum": "OK",
    "hata": null,
-   "en_son_kayit": "2026-11-23",
-   "kontrol_tr": "2026-11-25 20:43",
+   "en_son_kayit": "2026-11-25",
+   "kontrol_tr": "2026-11-26 00:43",
    "son_7_gun": [
+    {
+     "tarih": "2026-11-25",
+     "baslik": "Bülten No : 2026/85 Yayımlanma : 25 Kasım 2026 Çarşamba",
+     "url": "https://spk.gov.tr/data/6b074a0b8f95db1270c37ee7/2026-85.pdf",
+     "bulten_no": "2026/85"
+    },
     {
      "tarih": "2026-11-23",
      "baslik": "Bülten No : 2026/84 Yayımlanma : 23 Kasım 2026 Pazartesi",
@@ -33,16 +39,21 @@
    ],
    "son_bulten_ozet": {
     "durum": "OK",
-    "bulten_no": "2026/84",
-    "sayfa_karakter": 1658,
+    "bulten_no": "2026/85",
+    "sayfa_karakter": 33151,
     "karar_turleri": {
-     "islem_yasagi": 2,
-     "tedbir": 3,
-     "suc_duyurusu": 1,
-     "idari_para_cezasi": 1
+     "islem_yasagi": 7,
+     "tedbir": 12,
+     "suc_duyurusu": 17,
+     "idari_para_cezasi": 3,
+     "tasfiye": 1,
+     "ilke_karari": 9,
+     "halka_arz_onayi": 1
     },
     "gecen_kodlar": [
-     "EUKYO"
+     "KUYAS",
+     "SMRVA",
+     "SVGYO"
     ],
     "not": "Sayimlar metinde gecen ifadelerdir; karar ayrintisi icin PDF okunmalidir. Bultende adi gecmek ilgili sirket hakkinda hukum degildir."
    }
@@ -53,7 +64,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-19",
-   "kontrol_tr": "2026-11-25 20:43",
+   "kontrol_tr": "2026-11-26 00:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-19",
@@ -113,7 +124,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-24",
-   "kontrol_tr": "2026-11-25 20:43",
+   "kontrol_tr": "2026-11-26 00:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-24",
@@ -125,10 +136,10 @@
   {
    "kaynak": "bist",
    "url": "https://www.borsaistanbul.com/duyurular",
-   "durum": "OK",
+   "durum": "BAYAT",
    "hata": null,
    "en_son_kayit": "2026-11-04",
-   "kontrol_tr": "2026-11-25 20:43",
+   "kontrol_tr": "2026-11-26 00:43",
    "son_7_gun": []
   }
  ],
@@ -784,149 +795,6 @@
     "ilgili": "BOL, BV1, BVF, DAP, DOL, DVS, FYI, ICD, IEN, IKV, IYB, LKT, MPN, PK1, PKP, RD1, RS1",
     "kritik": false,
     "url": "https://www.kap.org.tr/tr/Bildirim/1700109"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 21:30:35",
-    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
-    "konu": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
-    "ozet": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
-    "kod": "",
-    "ilgili": "A1CAP, AFYON, AGHOL, AKBNK, AKCNS, AKFIS, AKSA, AKSEN, AKSGY, ALARK, ALBRK, ALTNY, ANSGR, ARASE, ARDYZ, ASELS, ASTOR, ATAKP, AYEN, BETAE, BIMAS, BOBET, BORLS, BRMEN, BRSAN, BSOKE, BTCIM, BULGS, BYDNR,",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700080"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 18:23:24",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
-    "ozet": "Pay Piyasasında Volatilite Bazlı Tedbir Sistemi",
-    "kod": "",
-    "ilgili": "ANELE, GUNDG, MANAS",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699983"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 18:21:51",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "Borsa İstanbul A.Ş. Duyurusu",
-    "ozet": "Borçlanma Araçlarının Gözaltı Pazarı'na Alınması",
-    "kod": "",
-    "ilgili": "ALNUS",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699982"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 17:49:20",
-    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
-    "konu": "Merkezi Kayıt Kuruluşu A.Ş. Duyurusu",
-    "ozet": "Gerçekleşmeyen İtfa/Kupon/Getiri Ödemesi",
-    "kod": "",
-    "ilgili": "ALNUS",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699907"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 17:37:02",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "İşlem İptali",
-    "ozet": "BAP İşlem İptali",
-    "kod": "",
-    "ilgili": "",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699882"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 16:43:33",
-    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
-    "konu": "Borsada İşlem Gören Tipe Dönüşüm Duyurusu",
-    "ozet": "DÖNÜŞÜM",
-    "kod": "",
-    "ilgili": "ASELS, OYAKC, RNPOL, UMPAS, VBTYZ, YBTAS",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699787"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 11:46:34",
-    "kurum": "KAMUYU AYDINLATMA PLATFORMU",
-    "konu": "Özel Durum Açıklaması (Genel)",
-    "ozet": "Özel Durum Açıklaması (Genel)",
-    "kod": "",
-    "ilgili": "FKPET",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699498"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 09:23:10",
-    "kurum": "KAMUYU AYDINLATMA PLATFORMU",
-    "konu": "Finansal Rapor",
-    "ozet": "Finansal Rapor",
-    "kod": "",
-    "ilgili": "FKPET",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699329"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 09:21:23",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
-    "ozet": "Hak Kullanımı",
-    "kod": "",
-    "ilgili": "DURKN",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699328"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 09:20:48",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
-    "ozet": "İşleme Açılan Varantlar",
-    "kod": "",
-    "ilgili": "AKM, AKMEN",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699327"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 09:19:57",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
-    "ozet": "İşleme Açılan Varantlar",
-    "kod": "",
-    "ilgili": "BNPPI, TBY",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699324"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 08:53:21",
-    "kurum": "KAMUYU AYDINLATMA PLATFORMU",
-    "konu": "Kamuyu Aydınlatma Platformu Duyurusu",
-    "ozet": "Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama",
-    "kod": "",
-    "ilgili": "DURDO, EFOR, INFO, IYF, LINK, MANAS, SAHOL, SMART, TRALT",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699318"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 08:43:25",
-    "kurum": "KAMUYU AYDINLATMA PLATFORMU",
-    "konu": "Kamuyu Aydınlatma Platformu Duyurusu",
-    "ozet": "Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama",
-    "kod": "",
-    "ilgili": "AAS, BOL, DOL, DUV, EP1, HKG, IFV, IKV, KSK, MD2, NBZ, NEE, NFF, NHP, NME, RKC, VKV",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699317"
    }
   ],
   "portfoy_sirketleri": [
@@ -951,17 +819,6 @@
     "ilgili": "DKP, FKV, FSV, FTY, KPS, KRV, KSP, OND",
     "kritik": false,
     "url": "https://www.kap.org.tr/tr/Bildirim/1700409"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 15:15:50",
-    "kurum": "ATA PORTFÖY YÖNETİMİ A.Ş.",
-    "konu": "Genel Açıklama",
-    "ozet": "Ata Portföy Yönetimi A.Ş. Girişim Sermayesi Şemsiye Fonu İçtüzük değişikliği Tadil metni ve Güncel İçtüzük",
-    "kod": "APY",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699616"
    }
   ],
   "tasfiye_tedbir_diger": [
@@ -1019,26 +876,15 @@
     "ilgili": "",
     "kritik": true,
     "url": "https://www.kap.org.tr/tr/Bildirim/1700275"
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 20:16:16",
-    "kurum": "ŞA-RA ENERJİ İNŞAAT TİCARET VE SANAYİ A.Ş.",
-    "konu": "Özel Durum Açıklaması (Genel)",
-    "ozet": "Yönetim Kurulu Üyemiz Hakkındaki Malvarlığı Tedbirinin Kaldırılması",
-    "kod": "SARAE",
-    "ilgili": "",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700056"
    }
   ],
   "rutin_sayim": {
-   "Pay Alım Satım Bildirimi": 81,
-   "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 6,
-   "Takasbank Para Piyasası Günlük Bülten": 6,
-   "Takasbank Ödünç Pay Piyasası Günlük Bülten": 6,
-   "Hak Kullanımı": 6,
-   "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 5,
+   "Pay Alım Satım Bildirimi": 72,
+   "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 5,
+   "Takasbank Para Piyasası Günlük Bülten": 5,
+   "Takasbank Ödünç Pay Piyasası Günlük Bülten": 5,
+   "Hak Kullanımı": 5,
+   "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 4,
    "Pay Mali Hak Kullanım İşlemi - Nakit Ödeme": 2,
    "Varantların veya Sertifikaların İşlem Görmeye Başlaması": 1
   }
@@ -1047,6 +893,20 @@
   "terim_sayisi": 20,
   "kod_sayisi": 13,
   "eslesmeler": [
+   {
+    "gun": "2026-11-25",
+    "zaman": "25.11.2026 22:25:04",
+    "kurum": "ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş.",
+    "konu": "Birleşme İşlemlerine İlişkin Bildirim",
+    "ozet": "Kolaylaştırılmış usulde birleşmeye ilişkin duyuru metninin onaylanması talebiyle Sermaye Piyasası Kuruluna başvurulması hakkında.",
+    "kod": "ANELE",
+    "ilgili": "",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1702814",
+    "eslesen": [
+     "ANELE"
+    ]
+   },
    {
     "gun": "2026-11-25",
     "zaman": "25.11.2026 19:13:11",
@@ -1501,83 +1361,17 @@
     "eslesen": [
      "kayyım"
     ]
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 21:30:35",
-    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
-    "konu": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
-    "ozet": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
-    "kod": "",
-    "ilgili": "A1CAP, AFYON, AGHOL, AKBNK, AKCNS, AKFIS, AKSA, AKSEN, AKSGY, ALARK, ALBRK, ALTNY, ANSGR, ARASE, ARDYZ, ASELS, ASTOR, ATAKP, AYEN, BETAE, BIMAS, BOBET, BORLS, BRMEN, BRSAN, BSOKE, BTCIM, BULGS, BYDNR,",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700080",
-    "eslesen": [
-     "KTLEV",
-     "TEHOL",
-     "OZATD",
-     "PEKGY",
-     "VSNMD",
-     "ODINE",
-     "TUKAS"
-    ]
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 18:23:24",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
-    "ozet": "Pay Piyasasında Volatilite Bazlı Tedbir Sistemi",
-    "kod": "",
-    "ilgili": "ANELE, GUNDG, MANAS",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699983",
-    "eslesen": [
-     "GUNDG",
-     "ANELE"
-    ]
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 18:10:44",
-    "kurum": "VİŞNE MADENCİLİK ÜRETİM SANAYİ VE TİCARET A.Ş.",
-    "konu": "Halka Arz Fiyatının Belirlenmesinde Esas Alınan Varsayımlara İlişkin Değerlendirme Raporu",
-    "ozet": "Halka Arz Fiyatının Belirlenmesinde Esas Alınan Varsayımlara İlişkin Değerlendirme Raporu",
-    "kod": "VSNMD",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699969",
-    "eslesen": [
-     "VSNMD"
-    ]
-   },
-   {
-    "gun": "2026-11-18",
-    "zaman": "18.11.2026 18:10:30",
-    "kurum": "VİŞNE MADENCİLİK ÜRETİM SANAYİ VE TİCARET A.Ş.",
-    "konu": "Sermaye Artırımından Elde Edilecek - Edilen Fonun Kullanımına İlişkin Rapor",
-    "ozet": "Sermaye Artırımından Elde Edilen Fonun Kullanımına İlişkin Rapor",
-    "kod": "VSNMD",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1699968",
-    "eslesen": [
-     "VSNMD"
-    ]
    }
   ],
   "devre_kesici_sayim": {
    "ANELE": {
-    "2026-11-18": 6,
     "2026-11-20": 3,
     "2026-11-23": 2
    },
    "DSTKF": {
-    "2026-11-18": 1,
     "2026-11-20": 1
    },
    "GUNDG": {
-    "2026-11-18": 1,
     "2026-11-20": 1
    },
    "IEYHO": {
@@ -1585,13 +1379,11 @@
     "2026-11-23": 2
    },
    "KTLEV": {
-    "2026-11-18": 4,
     "2026-11-19": 1,
     "2026-11-23": 2,
     "2026-11-24": 1
    },
    "ODINE": {
-    "2026-11-18": 4,
     "2026-11-20": 2,
     "2026-11-23": 1,
     "2026-11-24": 2,
@@ -1613,7 +1405,6 @@
     "2026-11-24": 1
    },
    "VSNMD": {
-    "2026-11-18": 2,
     "2026-11-19": 1,
     "2026-11-23": 1
    }
@@ -1678,6 +1469,22 @@
     "teyit": "birincil",
     "kaynak": "TCMB: tcmb.gov.tr/Takvim | Fed: federalreserve.gov/monetarypolicy/fomccalendars.htm",
     "aciklama": "makro_takvim.json, dogrulama 2026-11-20"
+   },
+   {
+    "tarih": "2026-12-10",
+    "saat_tr": "14:00",
+    "olay": "TCMB PPK faiz karari",
+    "teyit": "birincil",
+    "kaynak": "TCMB: tcmb.gov.tr/Takvim | Fed: federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "aciklama": "makro_takvim.json, dogrulama 2026-11-20"
+   },
+   {
+    "tarih": "2026-12-10",
+    "saat_tr": "16:30",
+    "olay": "ABD haftalik issizlik basvurulari",
+    "teyit": "kural",
+    "kaynak": "https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/ui-claims/20261561.pdf",
+    "aciklama": "DOL bulteni: 'EMBARGOED UNTIL 8:30 A.M. (Eastern) Thursday' (19.11 goruldu). Resmi tatil haftalarinda gun kayabilir."
    }
   ],
   "teyitsiz": [
@@ -1701,6 +1508,7 @@
   "uyari": null
  },
  "kontrol_edilemeyenler": [
+  "bist: BAYAT, en son kayit 2026-11-04",
   "takvim: 2026-11-30 MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) - birincil kaynakla teyit edilmedi",
   "takvim: 2026-12-03 TUIK TUFE (tahmini tarih) - birincil kaynakla teyit edilmedi"
  ]
