@@ -8,9 +8,9 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 15 |
-| haber | OK | 43 |
+| haber | OK | 40 |
 | kurum_yayin_sayfalari | OK | 43 |
-| kuresel_gorunum | OK | 15 |
+| kuresel_gorunum | OK | 17 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -72,6 +72,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-25 **Bank of America**: [Bank of America’dan Türk Altın İşletmeleri (TRALT) pay sahipliği açıklaması - Rota Borsa](https://news.google.com/rss/articles/CBMimwFBVV95cUxOTmswTHBRNW9QdDJ0SE9sc3Z6V251cW1hWF93Zkw1N19pX08wZ2RxeGx6UG83NFpTb1lOOWk0RlhnMExrSy0yaFFUT01rZHNxbkt5LWhVRmE4X0ltVVV6dEc0OWY2WVNOd3kzSVJjWWl5QUt2ZnB5Uk5kZ3ZUMWhtQ29pTXQtOVc5ajliZEtwQ2Fwd3RXSkdrbE9pbw?oc=5)
 - 2026-11-25 **Fitch**: [Fitch: Fon Krizinin Türkiye Kredi Notuna Kısa Vadeli Etkisi Yok - Bölge Gündemi](https://news.google.com/rss/articles/CBMisAFBVV95cUxQeUNrRHdsRHIwMkEzOHlvOHdVbm5uRmVkTnFRWTFsMG1SVV82dWptVzhrNTZlTVdWejhudlhBV05FbUZyaDI2dDZvSU0zeTN0WWM0YkktdHFlY3ljb19VNGpiYmpDbV9XOWlBVTBfcWlnU3U0blBFVGFJVnVSS002VGFvVER6ZXF6djVfUG9XWXdKeXlVeVNpdllvWUY0TzJ6akcxQUlzQ0cwOWlyeWZPUw?oc=5)
 - 2026-11-25 **Goldman Sachs**: [Goldman Sachs’tan TCMB analizi: Rezervler ekim kaybını fazlasıyla kapattı - Sanayi Gazetesi](https://news.google.com/rss/articles/CBMiowFBVV95cUxPX28yTGdJTndVOFMyampDRnc2R3J6Mm5IWGUwNUxpMk9NdWtPR1hTNWxyR3hWSGd0NmNMTlBFUlR1UW5kZ3ZEX3RPUWg1enNTT1RYREo4N3RFUkZMbmtFT0w0TV9BX25JdEdJWkloY0NwV0FfNkpDQ0JhTk5Ud1FMM1J6UjVvTkd2MVFJLUUwMkItQVJjWjVIMU90RXN6Rm1MSW1F?oc=5)
+- 2026-11-24 **Fitch**: [Fitch'ten piyasaların beklediği Türkiye açıklaması geldi - Sigorta Gündem](https://news.google.com/rss/articles/CBMijwFBVV95cUxQTF9hVXNFWVJ5c0RtYXg4c0ZYRko4U3hOSUwyeC1TNHFCVWloRi0yaGliWnZmTWtfcW5LUmYxZnFJeEo2dVZ1ZFNLYWMxQ1k3YTMyLXF2ZThGREZwV0M5aWhkbVRFMER5ei1RcHozcnV3QWhkcFN6Rm9NRlpZbWttckpUTThpbGhjWjF6OHBWdw?oc=5)
 - 2026-11-24 **Bank of America**: [Türk Altın (TRALT) hisselerinde Bank of America’dan (BofA) yüklü satış - Rota Borsa](https://news.google.com/rss/articles/CBMilAFBVV95cUxOTHJSdXJKUy12emIyeUtVLWlCNk5ScTNDVUhxZXVsUFVnQi1wNTdpVjcwWUZhZ0M1WTh4UlBpSVpxY3JUa0FlWXJud0VxSHlQcGRYX2FlLWp0RmtVaTZ2OE1xMUphcG1YTlRiTUU3MXRqWHdFanR5SDBaLWMxMU4xYUFrUFRlSEdRV3dJUDNsenk5SlhI?oc=5)
 - 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye için dolar alarmı: Döviz talebi kalıcı hale geliyor - KARAR](https://news.google.com/rss/articles/CBMitgFBVV95cUxNTmRPenViMDdvTE1lZXVPRGZ2Y3ZPLUdnSDRFSG5hZ3dfN1JuMnhPT2VzLVNhYUdPbG14WWgxczA2MDh6TWZBTVJVN1VOazlGM0JFcTJaMFNHbEhJM0dZdVJQRF9PdGV5dnluNm5RdllTaU01aGRoXzBPVUxqbnNEVzBEU2RfMWZxU0drUVMwbUk2MDhRN0VuZ1hOekhoMy1TRS1HTjNnVkJTRkRlb1BGckw3NlhFUQ?oc=5)
 - 2026-11-24 **Goldman Sachs**: [Türkiye'de dolarizasyon hızlandı! Goldman Sachs'tan Merkez Bankası için faiz uyarısı - ABC Haber](https://news.google.com/rss/articles/CBMiwAFBVV95cUxNTkJ1S3FYbV9wckYwaDhiX3U5eGdteXNPLUdXb3dVcmxJOGRLbHl3WEpxR2FPbG9VUEd1RzhfY05xSGZCa3JhMDJfei1pZ0VheG5Nb3BzcVVTMDMwUDBZR3NZeXdMQ3JORkVoaEE4ZnBpb2lyV2pjNGdxYzJ5dVRZQm1vQTJXX05LOHlBN2JxMlB0MWVpLS0ySDhjSU8wVk5PQ0lDYTlhNUZDZnE1OFFtbm81ampzeTV0V1Bza3lTb2I?oc=5)
@@ -89,7 +90,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-24 **Goldman Sachs**: [Goldman Sachs'tan Türkiye uyarısı: 11 haftada 14 milyar dolarlık döviz talebi - İlkses Gazetesi](https://news.google.com/rss/articles/CBMiswFBVV95cUxPeFJnR1lVczNWdjJaSlhLcFNLdi1sZm9sVlMwdmFnVG0zVVU5WGhDcUMtU3BDSTJXa09abVdBcW0xV292VVFYNFBSdGpkU19BWXA5am5JUUh0dVRpRFVpdGRQOXZiOTd2VUxxQ0VtRFJHR0dQT1QwS0w4Qlk0ckQxM1dMZngwRTV0OXdFdUF0S3dJZWJTakZjU2VubjZSZEtpWmw2QmFVMEtBZ3RrNktuTk9QMNIBuAFBVV95cUxNREVuMnIzWUVCN2hqQVpxQmRvRnczSWhBQWF0ZWlQM3d1d1F6clhiX2N4YVU2Y1V0dlZqLTRxSVJwbUhGMWVuTl9LQ2lQM0ROVkNmZVV6aFlSWlJqdFJ4VHRtMEtyVXlKcmxaZXRsdnZJVHRRanVFUnMxVURHMjBEMTd1SGtETUNJVW95ZkVGelZUdEt5WlR5MExiSmJ0MGRySHNoSVFMTENVYm5ESTUza1RYQ09PUjk3?oc=5)
 - 2026-11-24 **Deutsche Bank**: [Deutsche Bank, Türkiye için 2027 büyüme tahminini yüzde 4’e çıkardı - EKOTÜRK](https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcVV0YlJZaTFaTm1rVXdIVFRZRURLRUtDc0Frc0tqNUdRcmNOYm1lOXJVVWdzSW1hd2xTTFA5TjJPeHJWOUstTUJ3dmg4STdYdjRSa2hYdDdRWXprMnctWUJxZzF0eXcyN1o3TERFalJmNVhqUFZuZHZQNWZ4Y0M2WG42UmJJZ3h6c2RuZEltRTg3ZnRJbVBFY0pyVlZhWVVrWnpCbXp1QWVUUQ?oc=5)
 - 2026-11-23 **Deutsche Bank**: [Deutsche Bank’tan 2027 Türkiye raporu: Büyüme yüzde 4 - Ekonomi Manşet](https://news.google.com/rss/articles/CBMijgFBVV95cUxORWt1RkYxbGJBQ3YzWXNESFNHY1Q1X0QzRDBVei1KRlpnM21PU0ZOSVQwUVJLcjh0RlNUMU9OUHdUaWk2X0tmdG83RU5aelRuRlpsejBMcElDak5VcXp4UTNsa3E0dm11N2xuRlIwM1lQekVXSE9nRkk5cHdtMlJpWFVvX3VqbWtNdTdMbWt3?oc=5)
-- 2026-11-23 **Deutsche Bank**: [Deutsche Bank'tan Türkiye ekonomisi için yeni projeksiyon haberi - Finans Gündem](https://news.google.com/rss/articles/CBMipAFBVV95cUxONXhaY0dkX3h0ZDI5VlpUVmg5Mnd0YXZZY0NIWW85eXk2MElybXJ0WG1lR0FHSWs1UzJiRFpGNF9ZbDFCUURrY3dyVXVxNDJBeS1peVVMSkxDT1I4czNiN08ycnRHVVZlWlBhVXoyWF9HTEhicDlOdHVFSFkxeU5qVUZvZ2NnLV9OWGsySG5iOWFsMklFS0x3UlBGMGdHYnZsbUNWMQ?oc=5)
 
 ## Kurumların kendi Türkiye notları (ING THINK vb., birincil ✅; yeni görülenler önce)
 
@@ -106,6 +106,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
+- 2026-11-25 **JPMorgan**: [J.P. Morgan's 2027 Outlook: A Year of Moderation — The AI Boom Meets the Reality of Higher Rates - The Dark Side Of The Boom](https://news.google.com/rss/articles/CBMigwFBVV95cUxNTl9sS01HdnZ0ak5SOHJOWC1fZkdXX0VZLWFjVmt3TlBmc1BOX3lrWkpHTjRaRmJybzliak95aTBxVEtWNTlHRTZvSVRNelZJUk00R3Q1eGtNamM0SGo4cGdZdEdGY19pWjNLTVBkcWduRHlJUi1xbTdLcVB1U2JVSDhQNA?oc=5)
 - 2026-11-25 **JPMorgan**: [JPMorgan'dan 2027 küresel otomotiv raporu! Çin'in pazar payı için dikkat çeken tahmin - İstanbul Ticaret Gazetesi](https://news.google.com/rss/articles/CBMiugFBVV95cUxPZVg5M09VaHNBWi1FQUljWUEwR1hOYXdOdjcweG9aNk5PZEZZcHVMWGRjX3B3d0oyMmJ3aFRTOXVhQWtqYjEyT2tNWGtBM3hoUkR0TkQ0aS1lV0N5cS1HVmZXeWV5ZUpRWndvV2VjRjhHamdhTDIwUVdRMDRFaUhRUDlMbE03OG0wQnZhWEI5eWFkQzFEdEZJUzhVUzBDQnB0MFdBNk04eGc0RUhRTy1LbWxZUzJFSkFoSGc?oc=5)
 - 2026-11-23 **Invesco**: [Invesco Mortgage Capital Stock Price Forecast. Should You Buy IVR? - StockInvest.us](https://news.google.com/rss/articles/CBMiR0FVX3lxTE5id2dELUcyZHNoMDdRakNqTW5HMEd0QUNGWHBiYjFtcHp0ZDNkLVJPSTYwbjZpRWYyLThlMWM1emhJYmllZmZR?oc=5)
 - 2026-11-23 **HSBC**: [Why Is HSBC’s US Dollar Outlook Strong Into 2027? - www.tmgm.com](https://news.google.com/rss/articles/CBMirAFBVV95cUxPQUZHRlQ4blQ4eUNiMGxTZ1M4NGJEQ2VGRE55LThib01Rd1RBbF9Ock1PMTdnVExuRmlLaHlDZnNHTjA1Ylo0ck5rYkpOZWJDSW9TcEotN09PaUpTOVpjY21zN21PcG9rc3JtOGRFbjlmWWhUVy15YkQwV2kyNWg5VzlYek1LWUJWaFNvMVFnVFFTdk5nZjE4YXVWbGRZZExHa1dpVTJJcmRQaEhx?oc=5)
@@ -125,7 +126,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-25 **ING**: [Trade Published 08:30 The US tariff wall keeps changing, but it isn't coming down The US is preparing new tariffs targeting structural overcapacity](https://think.ing.com/articles/the-us-tariff-wall-keeps-changing-but-it-isnt-coming-down/)
 - 2026-11-25 **ING**: [Commodities daily Published 08:00 The Commodities Feed: Oil shrugs off rising Middle East tensions Oil slips as improving supply outweighs disruption risks](https://think.ing.com/articles/the-commodities-feed-aluminium-squeeze-eases-after-lme-intervention/)
 - 2026-11-25 **ING**: [Published 07:40 FX Daily: Full EMFX unwind underway The hostile investment environment is keeping emerging market FX under pressure and the dollar bid](https://think.ing.com/articles/fx-daily-full-emfx-unwind-underway/)
-- 2026-11-25 **ING**: [FX 23 November FX Daily: Uneasy calm as markets stabilise Equity markets are stabilising after a torrid week. But the dollar can hold gains](https://think.ing.com/articles/fx-daily-uneasy-calm-as-markets-stabilise/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
