@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-25 04:43
+# Kurum taramasi - 2026-11-25 08:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 1 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-24 | 58 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-25 | 58 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
