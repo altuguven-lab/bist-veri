@@ -58,5 +58,7 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 - 2026-12-03 17:00 Kredi Kâr Oranları (Haftalık Akım, Ağırlıklı Ortalama) (48. Hafta 2026) (RİP)
 - 2026-12-03 17:00 Mevduat Faiz Oranları (Haftalık Akım, Ağırlıklı Ortalama) (48. Hafta 2026) (RİP)
 - 2026-12-04 14:30 Reel Efektif Döviz Kuru (Kasım 2026) (RİP)
+- 2026-12-10 14:30 Banka ve Kredi Kartı Sektörel Harcama İstatistikleri (49. Hafta 2026) (RİP)
+- 2026-12-10 14:30 Uluslararası Rezervler ve Döviz Likiditesi (Haftalık) (49. Hafta 2026) (RİP)
 
 Gözlem amaçlıdır, tavsiye değildir.
