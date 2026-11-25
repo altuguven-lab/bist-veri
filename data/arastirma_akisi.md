@@ -8,9 +8,9 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 14 |
-| haber | OK | 37 |
+| haber | OK | 39 |
 | kurum_yayin_sayfalari | OK | 42 |
-| kuresel_gorunum | OK | 16 |
+| kuresel_gorunum | OK | 14 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -97,6 +97,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## Küresel kurum görünümleri ve yayınları (son 14 gün; haber ◐, kurum sayfası ✅)
 
+- 2026-11-23 **Goldman Sachs**: [Will gold go back up? What Goldman Sachs, Morgan Stanley and UBS now forecast after the sell-off - Nacionale](https://news.google.com/rss/articles/CBMirwFBVV95cUxNc1pEM2NKcC05RUJnd1FBdEtiWXl6c3ZfRVRsNmpBeDlURDFOZTI3Y2NHQVlnUzdGQzNJanVyOVhEWjNGNjVFUGEtOWw1cWtBWXpQd2JqMWFzamY4UUJJTmZkRDk1VkxZME11WVY4TV9qSVBhQkNaU01EcmVoMEtJUlQyclRGcFZtTXlzWEZkaFlXUmZudFc4OU9RVFdkQVZuUllfcVJEUWhYODhxOTYw?oc=5)
 - 2026-11-23 **Goldman Sachs**: [Goldman Sachs and Morgan Stanley’s 2027 stock market outlook - Finimize](https://news.google.com/rss/articles/CBMilwFBVV95cUxPOENFWURlQlhzV0F2NU1HOVBURUV4N1VYY0lFQXBKWk9XTGxXNFZoTW1YWWlDRWFLTlRaN2VhaWZoekhLM3pJem5jWW9xY1ZMUlBnMFhUSmk4UmhsWVgzS1RrVHRjSnJ0VkxBYTB1TVZOYTZ2emRxWUpscHNZdkhFUG8wTl9zNE1pcTdqUGRfVWlBNTJ3cjNz?oc=5)
 - 2026-11-23 **ING**: [ING FX Outlook: Dollar Supported Until Spring 2027, EUR/USD Range 1.10-1.15 - News and Statistics - IndexBox](https://news.google.com/rss/articles/CBMinwFBVV95cUxOeXBWaXZaT3laUFc1UTZrajYzYjlicXhfOTFyeFJ0bXRyTFZVdW1tWm5Qa0xxMGVidEIxX3ZoVnJiRnNzMVFyWVN5SFEyai1xOV9fQ0djZE1HQmZMRTFaZldZd0pxWHQ1X0prNGw1bmExOTdWcm5icTRoUngwTG1pQmEzMlZ2TS1aY0hKV1JySi1sZDVIa1U0cUFMQmpDdjA?oc=5)
 - 2026-11-23 **HSBC**: [US Dollar: Strong outlook into 2027 – HSBC - FXStreet](https://news.google.com/rss/articles/CBMiigFBVV95cUxPbEJXRU9QQzBlelVfWjFsbThiQUFYOTFDMEFCZFA2Z19WXzVSQ2JSZ0VzZ1VwSTJIR0hEaE1qNTBteWpUd2tDbjlwNmN4VVdPNnN4N3FLVEFzRU1UN0pCWDF0YlhTeVpjLVVjQlJzbGxDdERhRFhOTHFGeFNHUGUzaDdDQldtbjFxY3c?oc=5)
@@ -105,18 +106,17 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **Bank of America**: [Gümüş fiyatlarında yeni dönem! Bank of America 2027 için 75 dolar tahminini açıkladı - Haberton](https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMjBkdlU2Umo3U1k3em1MeW5BMXBPUWgzMnN0ZlhBcVJSc2NVRllFWmRPWi16ZERVXzlCNWFsTkw5cUVWM2UzR3BaYWk2cjlvTGg5eXZHbGFYNDlaS0xaTkw1ZzFPZHBNdzRaT1FkNXU1X0NpUXdxOFBtRnNlUUJWaDN6dzVrQnI2ZFZFUU14VHo2WFFxNTRJSEQxYjBXQXFyd3l4MTdiM1U?oc=5)
 - 2026-11-20 **Invesco**: [Invesco Mortgage Capital Stock Price Forecast. Should You Buy IVR? - StockInvest.us](https://news.google.com/rss/articles/CBMiR0FVX3lxTE5id2dELUcyZHNoMDdRakNqTW5HMEd0QUNGWHBiYjFtcHp0ZDNkLVJPSTYwbjZpRWYyLThlMWM1emhJYmllZmZR?oc=5)
 - 2026-11-19 **UBS**: [UBS 2027 Outlook: S&P 500 Base Case at 8,200; AI Capex Stall Could Drag It to 5,500 - BigGo Finance](https://news.google.com/rss/articles/CBMidkFVX3lxTE9KU21ROUM0T0Y2bW91bU43VDNYNERBYmpHYlpkWEkxSlRFcnJNUUd3TWdnUmtieWtBaWQ3bWNhME9OWFllZ0ptNExUeG52M2RXOUR2eUNVN0FGY0RQZHkwdXdIQ1JXWm1DLU5HS3BaSXlJRGhGZkE?oc=5)
+- 2026-11-25 **ING**: [Rates Spark Yesterday, 17:54 Rates Spark: Treasuries with blinkers on The downtrend in yield to be frustrated by Wednesday's PCE report](https://think.ing.com/articles/rates-spark-equity-sentiment-versus-inflation-reality/)
+- 2026-11-25 **ING**: [United States Yesterday, 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spend](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
+- 2026-11-25 **ING**: [France Yesterday, 14:30 France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 b](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
+- 2026-11-25 **ING**: [Belgium Yesterday, 14:08 Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
+- 2026-11-25 **ING**: [Commodities daily Yesterday, 08:00 The Commodities Feed: Oil extends losses while copper gives back Nvidia bounce Nvidia-led rally lifts copper](https://think.ing.com/articles/the-commodities-feed-nvidia-led-rally-lifts-gold-and-copper/)
+- 2026-11-25 **ING**: [FX Yesterday, 07:30 FX Daily: Dollar may be heading into overshoot territory We think the dollar is starting to head into overshoot territory and would be careful about expecting more strength just ye](https://think.ing.com/articles/fx-daily-surprise-dollar-strength/)
 - 2026-11-25 **ING**: [Rates Spark Published 17:54 Rates Spark: Treasuries with blinkers on The downtrend in yield to be frustrated by Wednesday's PCE report](https://think.ing.com/articles/rates-spark-equity-sentiment-versus-inflation-reality/)
 - 2026-11-25 **ING**: [United States Today, 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spending](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
 - 2026-11-25 **ING**: [France Today, 14:30 France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 budge](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
 - 2026-11-25 **ING**: [Belgium Today, 14:08 Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
 - 2026-11-24 **ING**: [United States Published 15:49 US confidence bounces on fuel price drop and election clarity The bounce in consumer confidence closes the gap in the historical relationship between sentiment and spendi](https://think.ing.com/articles/us-confidence-bounces-on-fuel-price-drop-and-election-clarity/)
-- 2026-11-24 **ING**: [Belgium Published 14:08 Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
-- 2026-11-24 **ING**: [France Published 14:30 France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 bu](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
-- 2026-11-24 **ING**: [Commodities daily Today, 08:00 The Commodities Feed: Oil extends losses while copper gives back Nvidia bounce Nvidia-led rally lifts copper](https://think.ing.com/articles/the-commodities-feed-nvidia-led-rally-lifts-gold-and-copper/)
-- 2026-11-24 **ING**: [FX Today, 07:30 FX Daily: Dollar may be heading into overshoot territory We think the dollar is starting to head into overshoot territory and would be careful about expecting more strength just yet](https://think.ing.com/articles/fx-daily-surprise-dollar-strength/)
-- 2026-11-24 **ING**: [Commodities daily Published 08:00 The Commodities Feed: Oil extends losses while copper gives back Nvidia bounce Nvidia-led rally lifts copper](https://think.ing.com/articles/the-commodities-feed-nvidia-led-rally-lifts-gold-and-copper/)
-- 2026-11-24 **ING**: [FX Published 07:30 FX Daily: Dollar may be heading into overshoot territory We think the dollar is starting to head into overshoot territory and would be careful about expecting more strength just yet](https://think.ing.com/articles/fx-daily-surprise-dollar-strength/)
-- 2026-11-24 **ING**: [Rates Spark Yesterday, 16:45 Rates Spark: Jensen who? The Treasury market effectively said - "We see your 6% Nasdaq rally, but we're not for moving"](https://think.ing.com/articles/rates-spark-nvidia-back-up/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
