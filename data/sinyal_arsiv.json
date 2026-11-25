@@ -16266,7 +16266,7 @@
       "yon_beklentisi": "YUKARI",
       "dogrulama_durumu": "DOGRULANDI",
       "kategori": "IZLEME",
-      "donusum_durumu": "BEKLIYOR",
+      "donusum_durumu": "DONUSMEDI",
       "skor": 34.58,
       "kgs": 68.0,
       "rejim": 0.0,
@@ -16297,7 +16297,7 @@
       "yon_beklentisi": "YUKARI",
       "dogrulama_durumu": "DOGRULANDI",
       "kategori": "IZLEME",
-      "donusum_durumu": "BEKLIYOR",
+      "donusum_durumu": "DONUSMEDI",
       "skor": 33.62,
       "kgs": 73.0,
       "rejim": 0.0,
@@ -16446,7 +16446,7 @@
       "zaman_utc": "2026-11-20T11:00:35.597Z",
       "sinyal_fiyat": 16.1,
       "yon_beklentisi": "YUKARI",
-      "dogrulama_durumu": "BEKLIYOR",
+      "dogrulama_durumu": "DOGRULANDI",
       "kategori": "IZLEME",
       "donusum_durumu": "BEKLIYOR",
       "skor": 18.08,
@@ -16464,7 +16464,11 @@
       "getiri_rel_t1_pct": -0.628,
       "getiri_t2_pct": -3.602,
       "piyasa_t2_pct": -1.486,
-      "getiri_rel_t2_pct": -2.116
+      "getiri_rel_t2_pct": -2.116,
+      "getiri_t3_pct": -9.068,
+      "piyasa_t3_pct": -4.099,
+      "getiri_rel_t3_pct": -4.969,
+      "olcum_surumu": 2
     },
     {
       "sembol": "VAKBN",
@@ -16473,7 +16477,7 @@
       "zaman_utc": "2026-11-20T09:00:24.662Z",
       "sinyal_fiyat": 33.54,
       "yon_beklentisi": "YUKARI",
-      "dogrulama_durumu": "BEKLIYOR",
+      "dogrulama_durumu": "DOGRULANDI",
       "kategori": "IZLEME",
       "donusum_durumu": "BEKLIYOR",
       "skor": 25.34,
@@ -16491,7 +16495,11 @@
       "getiri_rel_t1_pct": -0.951,
       "getiri_t2_pct": -3.399,
       "piyasa_t2_pct": -1.486,
-      "getiri_rel_t2_pct": -1.913
+      "getiri_rel_t2_pct": -1.913,
+      "getiri_t3_pct": -6.798,
+      "piyasa_t3_pct": -4.099,
+      "getiri_rel_t3_pct": -2.699,
+      "olcum_surumu": 2
     },
     {
       "sembol": "TOASO",
@@ -16512,6 +16520,27 @@
       "p3_htf": 0,
       "p3_yari_boyut": 0,
       "p3_entry_score": 31,
+      "seans_fazi": "SABAH"
+    },
+    {
+      "sembol": "PGSUS",
+      "sinyal": "P3_RADAR",
+      "tarih": "2026-11-25",
+      "zaman_utc": "2026-11-25T08:15:20.056Z",
+      "sinyal_fiyat": 156.5,
+      "yon_beklentisi": "YUKARI",
+      "dogrulama_durumu": "BEKLIYOR",
+      "kategori": "IZLEME",
+      "donusum_durumu": "BEKLIYOR",
+      "skor": 24.06,
+      "kgs": 60.0,
+      "rejim": 0.0,
+      "relvol": 0.61,
+      "p3_skor_tabani": 32,
+      "p3_dna_defensive": 0,
+      "p3_htf": 1,
+      "p3_yari_boyut": 0,
+      "p3_entry_score": 46,
       "seans_fazi": "SABAH"
     }
   ],
@@ -16582,65 +16611,65 @@
     },
     "P2_ADAY": {
       "t1": {
-        "n": 89,
-        "ort_getiri_pct": -0.365,
-        "dogrulanan_pct": 43.8,
+        "n": 90,
+        "ort_getiri_pct": -0.374,
+        "dogrulanan_pct": 43.3,
         "gun_ozet": {
-          "n_gun": 37,
-          "gun_ort_pct": -0.539,
-          "gun_std_pct": 2.64
+          "n_gun": 38,
+          "gun_ort_pct": -0.556,
+          "gun_std_pct": 2.607
         }
       },
       "t2": {
-        "n": 89,
-        "ort_getiri_pct": -0.416,
-        "dogrulanan_pct": 42.7,
+        "n": 90,
+        "ort_getiri_pct": -0.449,
+        "dogrulanan_pct": 42.2,
         "gun_ozet": {
-          "n_gun": 37,
-          "gun_ort_pct": -0.658,
-          "gun_std_pct": 4.093
+          "n_gun": 38,
+          "gun_ort_pct": -0.73,
+          "gun_std_pct": 4.062
         }
       },
       "t3": {
-        "n": 89,
-        "ort_getiri_pct": -0.791,
-        "dogrulanan_pct": 42.7,
+        "n": 90,
+        "ort_getiri_pct": -0.858,
+        "dogrulanan_pct": 42.2,
         "gun_ozet": {
-          "n_gun": 37,
-          "gun_ort_pct": -0.941,
-          "gun_std_pct": 4.988
+          "n_gun": 38,
+          "gun_ort_pct": -1.095,
+          "gun_std_pct": 5.01
         }
       }
     },
-    "STOP_KIRILDI": {
+    "P3_RADAR": {
       "t1": {
-        "n": 2,
-        "ort_getiri_pct": -0.091,
-        "dogrulanan_pct": 50.0,
+        "n": 191,
+        "ort_getiri_pct": -0.555,
+        "dogrulanan_pct": 39.8,
         "gun_ozet": {
-          "n_gun": 2,
-          "gun_ort_pct": -0.091,
-          "gun_std_pct": 0.364
+          "n_gun": 51,
+          "gun_ort_pct": -0.648,
+          "gun_std_pct": 1.994
         }
       },
       "t2": {
-        "n": 2,
-        "ort_getiri_pct": -0.273,
-        "dogrulanan_pct": 100.0,
+        "n": 191,
+        "ort_getiri_pct": -1.033,
+        "dogrulanan_pct": 35.6,
         "gun_ozet": {
-          "n_gun": 2,
-          "gun_ort_pct": -0.273,
-          "gun_std_pct": 0.273
+          "n_gun": 51,
+          "gun_ort_pct": -0.95,
+          "gun_std_pct": 2.963
         }
       },
       "t3": {
-        "n": 2,
-        "ort_getiri_pct": 0.774,
-        "dogrulanan_pct": 50.0,
+        "n": 191,
+        "ort_getiri_pct": -1.423,
+        "dogrulanan_pct": 32.5,
         "gun_ozet": {
-          "n_gun": 2,
-          "gun_ort_pct": 0.774,
-          "gun_std_pct": 0.865
+          "n_gun": 51,
+          "gun_ort_pct": -1.522,
+          "gun_std_pct": 3.508
         }
       }
     },
@@ -16676,35 +16705,35 @@
         }
       }
     },
-    "P3_RADAR": {
+    "STOP_KIRILDI": {
       "t1": {
-        "n": 190,
-        "ort_getiri_pct": -0.554,
-        "dogrulanan_pct": 40.0,
+        "n": 2,
+        "ort_getiri_pct": -0.091,
+        "dogrulanan_pct": 50.0,
         "gun_ozet": {
-          "n_gun": 50,
-          "gun_ort_pct": -0.643,
-          "gun_std_pct": 2.013
+          "n_gun": 2,
+          "gun_ort_pct": -0.091,
+          "gun_std_pct": 0.364
         }
       },
       "t2": {
-        "n": 190,
-        "ort_getiri_pct": -1.019,
-        "dogrulanan_pct": 35.8,
+        "n": 2,
+        "ort_getiri_pct": -0.273,
+        "dogrulanan_pct": 100.0,
         "gun_ozet": {
-          "n_gun": 50,
-          "gun_ort_pct": -0.897,
-          "gun_std_pct": 2.969
+          "n_gun": 2,
+          "gun_ort_pct": -0.273,
+          "gun_std_pct": 0.273
         }
       },
       "t3": {
-        "n": 190,
-        "ort_getiri_pct": -1.382,
-        "dogrulanan_pct": 32.6,
+        "n": 2,
+        "ort_getiri_pct": 0.774,
+        "dogrulanan_pct": 50.0,
         "gun_ozet": {
-          "n_gun": 50,
-          "gun_ort_pct": -1.371,
-          "gun_std_pct": 3.375
+          "n_gun": 2,
+          "gun_ort_pct": 0.774,
+          "gun_std_pct": 0.865
         }
       }
     },
@@ -16741,9 +16770,9 @@
       }
     }
   },
-  "son_guncelleme_utc": "2026-11-24T23:57:09.049378+00:00",
-  "toplam_kayit": 655,
-  "dogrulanmis_kayit": 651,
+  "son_guncelleme_utc": "2026-11-25T15:21:33.406696+00:00",
+  "toplam_kayit": 656,
+  "dogrulanmis_kayit": 653,
   "tip_ozet_goreli": {
     "P3_SKOR_AL": {
       "t1": {
@@ -16811,65 +16840,65 @@
     },
     "P2_ADAY": {
       "t1": {
-        "n": 89,
-        "ort_getiri_pct": -0.085,
-        "dogrulanan_pct": 50.6,
+        "n": 90,
+        "ort_getiri_pct": -0.094,
+        "dogrulanan_pct": 50.0,
         "gun_ozet": {
-          "n_gun": 37,
-          "gun_ort_pct": -0.135,
-          "gun_std_pct": 1.731
+          "n_gun": 38,
+          "gun_ort_pct": -0.156,
+          "gun_std_pct": 1.713
         }
       },
       "t2": {
-        "n": 89,
-        "ort_getiri_pct": 0.141,
-        "dogrulanan_pct": 51.7,
+        "n": 90,
+        "ort_getiri_pct": 0.118,
+        "dogrulanan_pct": 51.1,
         "gun_ozet": {
-          "n_gun": 37,
-          "gun_ort_pct": 0.027,
-          "gun_std_pct": 2.89
+          "n_gun": 38,
+          "gun_ort_pct": -0.024,
+          "gun_std_pct": 2.869
         }
       },
       "t3": {
-        "n": 85,
-        "ort_getiri_pct": -0.079,
-        "dogrulanan_pct": 49.4,
+        "n": 86,
+        "ort_getiri_pct": -0.11,
+        "dogrulanan_pct": 48.8,
         "gun_ozet": {
-          "n_gun": 35,
-          "gun_ort_pct": -0.255,
-          "gun_std_pct": 3.245
+          "n_gun": 36,
+          "gun_ort_pct": -0.322,
+          "gun_std_pct": 3.225
         }
       }
     },
-    "STOP_KIRILDI": {
+    "P3_RADAR": {
       "t1": {
-        "n": 2,
-        "ort_getiri_pct": -0.137,
-        "dogrulanan_pct": 50.0,
+        "n": 191,
+        "ort_getiri_pct": -0.314,
+        "dogrulanan_pct": 42.4,
         "gun_ozet": {
-          "n_gun": 2,
-          "gun_ort_pct": -0.137,
-          "gun_std_pct": 0.551
+          "n_gun": 51,
+          "gun_ort_pct": -0.295,
+          "gun_std_pct": 1.485
         }
       },
       "t2": {
-        "n": 2,
-        "ort_getiri_pct": -0.047,
-        "dogrulanan_pct": 50.0,
+        "n": 191,
+        "ort_getiri_pct": -0.376,
+        "dogrulanan_pct": 40.8,
         "gun_ozet": {
-          "n_gun": 2,
-          "gun_ort_pct": -0.047,
-          "gun_std_pct": 0.592
+          "n_gun": 51,
+          "gun_ort_pct": -0.245,
+          "gun_std_pct": 1.897
         }
       },
       "t3": {
-        "n": 2,
-        "ort_getiri_pct": -0.085,
-        "dogrulanan_pct": 50.0,
+        "n": 189,
+        "ort_getiri_pct": -0.305,
+        "dogrulanan_pct": 43.9,
         "gun_ozet": {
-          "n_gun": 2,
-          "gun_ort_pct": -0.085,
-          "gun_std_pct": 0.676
+          "n_gun": 49,
+          "gun_ort_pct": -0.431,
+          "gun_std_pct": 2.38
         }
       }
     },
@@ -16905,35 +16934,35 @@
         }
       }
     },
-    "P3_RADAR": {
+    "STOP_KIRILDI": {
       "t1": {
-        "n": 190,
-        "ort_getiri_pct": -0.313,
-        "dogrulanan_pct": 42.6,
+        "n": 2,
+        "ort_getiri_pct": -0.137,
+        "dogrulanan_pct": 50.0,
         "gun_ozet": {
-          "n_gun": 50,
-          "gun_ort_pct": -0.289,
-          "gun_std_pct": 1.499
+          "n_gun": 2,
+          "gun_ort_pct": -0.137,
+          "gun_std_pct": 0.551
         }
       },
       "t2": {
-        "n": 190,
-        "ort_getiri_pct": -0.367,
-        "dogrulanan_pct": 41.1,
+        "n": 2,
+        "ort_getiri_pct": -0.047,
+        "dogrulanan_pct": 50.0,
         "gun_ozet": {
-          "n_gun": 50,
-          "gun_ort_pct": -0.207,
-          "gun_std_pct": 1.897
+          "n_gun": 2,
+          "gun_ort_pct": -0.047,
+          "gun_std_pct": 0.592
         }
       },
       "t3": {
-        "n": 188,
-        "ort_getiri_pct": -0.28,
-        "dogrulanan_pct": 44.1,
+        "n": 2,
+        "ort_getiri_pct": -0.085,
+        "dogrulanan_pct": 50.0,
         "gun_ozet": {
-          "n_gun": 48,
-          "gun_ort_pct": -0.336,
-          "gun_std_pct": 2.311
+          "n_gun": 2,
+          "gun_ort_pct": -0.085,
+          "gun_std_pct": 0.676
         }
       }
     },
@@ -16986,17 +17015,17 @@
     "donusturen_sinyal": "DONUSTU ise, hangi AL_SINYALLERI turune donustu."
   },
   "izleme_donusum_ozet": {
-    "P3_RADAR": {
-      "karar_verilmis": 186,
-      "donusen": 114,
-      "donusum_orani_pct": 61.3,
-      "ort_donusum_gun": 1.0
-    },
     "P2_ADAY": {
       "karar_verilmis": 89,
       "donusen": 54,
       "donusum_orani_pct": 60.7,
       "ort_donusum_gun": 0.7
+    },
+    "P3_RADAR": {
+      "karar_verilmis": 188,
+      "donusen": 114,
+      "donusum_orani_pct": 60.6,
+      "ort_donusum_gun": 1.0
     }
   }
 }
