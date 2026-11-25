@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-25 08:43
+# Kurum taramasi - 2026-11-25 12:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 1 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-25 | 58 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-25 | 62 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -32,6 +32,10 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- 25.11.2026 10:22:43 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702207) Hak Kullanım İşlemleri
+- 25.11.2026 09:00:41 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702151) Hak Kullanımı
+- 25.11.2026 08:58:49 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702150) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
+- 25.11.2026 08:58:42 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702149) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
 - **[KRITIK]** 24.11.2026 18:31:58 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702073) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 - **[KRITIK]** 24.11.2026 18:31:17 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702070) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 - **[KRITIK]** 24.11.2026 18:30:40 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702065) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
@@ -68,10 +72,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 20.11.2026 17:53:58 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700768) Fon Portföyünden Karşılık Ayrılan Borçlanma Araçlarına İlişkin Ödeme Bildirimi
 - **[KRITIK]** 20.11.2026 17:34:32 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1700750) BAP İşlem İptali
 - 20.11.2026 17:13:59 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700733) DÖNÜŞÜM
-- 20.11.2026 08:52:32 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700478) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
-- 20.11.2026 08:51:04 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700470) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
-- 20.11.2026 00:32:05 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1700462) SPK BÜLTENİ
-- **[KRITIK]** 19.11.2026 23:33:44 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700461) SPK İşlem Yasağı Nedeniyle Pay Duyurusu
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
@@ -83,6 +83,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izleme listesi eslesmeleri
 
+- 25.11.2026 08:58:42 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702149) eslesen: KTLEV
 - 24.11.2026 18:31:58 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702073) eslesen: ODINE
 - 24.11.2026 11:35:40 BORSA İSTANBUL A.Ş. - [Endekslerde Kullanılan Fiili Dolaşımdaki Pay Oranı Değişiklikleri](https://www.kap.org.tr/tr/Bildirim/1701746) eslesen: fiili dolaşım, IEYHO
 - 23.11.2026 19:09:00 GÜNDOĞDU GIDA SÜT ÜRÜNLERİ SANAYİ V - [Hak Kullanım Süreç İptal Bildirimi](https://www.kap.org.tr/tr/Bildirim/1701554) eslesen: GUNDG
@@ -102,7 +103,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 20.11.2026 19:38:05 DESTEK FİNANS FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700873) eslesen: kayyım, DSTKF
 - 20.11.2026 19:18:24 PEKER GAYRİMENKUL YATIRIM ORTAKLIĞI - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700864) eslesen: PEKGY
 - 20.11.2026 19:03:00 TERA YATIRIM TEKNOLOJİ HOLDİNG A.Ş. - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700857) eslesen: TEHOL
-- 20.11.2026 18:40:50 IŞIKLAR ENERJİ VE YAPI HOLDİNG A.Ş. - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700840) eslesen: IEYHO
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
@@ -114,7 +114,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - ODINE: 11-18: 4, 11-20: 2, 11-23: 1, 11-24: 2
 - OZATD: 11-20: 1
 - PEKGY: 11-20: 1
-- SELEC: 11-20: 1, 11-23: 1
+- SELEC: 11-20: 1, 11-23: 1, 11-25: 2
 - TEHOL: 11-23: 3, 11-24: 1
 - VSNMD: 11-18: 2, 11-19: 1, 11-23: 1
 
