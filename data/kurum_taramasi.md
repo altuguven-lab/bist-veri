@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-26 20:43
+# Kurum taramasi - 2026-11-27 00:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -7,10 +7,10 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-25 | 4 |
-| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 1 |
+| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 0 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-26 | 69 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-26 | 63 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -20,13 +20,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-20 [Bülten No : 2026/82 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6aff68a68f95db1a509dd7ff/2026-82.pdf)
 - Son bulten 2026/85: karar turleri {'islem_yasagi': 7, 'tedbir': 12, 'suc_duyurusu': 17, 'idari_para_cezasi': 3, 'tasfiye': 1, 'ilke_karari': 9, 'halka_arz_onayi': 1}; gecen kodlar KUYAS, SMRVA, SVGYO
   - Karar turune gore kodlar: suc_duyurusu: KUYAS, SMRVA, SVGYO; islem_yasagi+tedbir: KUYAS; izin_iptali: KUYAS, SMRVA, SVGYO
-
-## takasbank (son 7 gun)
-
-- 2026-11-19 [VİOP Sicil Bazında Pozisyon Limitleri Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2180-8660b2f2-ebf0-4e15-bbef-c4c43a81f66a.pdf)
-  - PDF konu: Bankalar ve Aracı Kurumlar Merkezi karşı taraf hizmeti verdiğimiz Vadeli İşlem ve Opsiyon Piyasası'nda sicil bazında pozisyon limitine konu dayanak varlık sayısı limitleri piyasa koşulları da gözetilerek güncellenmiştir.
-  - PDF yururluk: 20.11.2026 tarihi itibarıyla geçerli olacak limit tablosu ekte yer almaktadır.
-  - Evren kodlari: AKBNK 13,300,000, YKBNK 20,600,000, GARAN 5,042,000, ISCTR 29,000,000, SAHOL 7,040,000, KCHOL 3,250,000, THYAO 3,850,000, TAVHL 700,000, EREGL 10,748,000, ASELS 1,970,000, ASTOR 1,021,000, MGROS 200,000
 
 ## tspb (son 7 gun)
 
@@ -82,7 +75,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 23.11.2026 12:37:28 CREDITWEST FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1701130) Altınbaş Holding AŞ'ye Kayyım Görevlendirilmesi Hakkında
 - 23.11.2026 09:52:56 METROPAL KURUMSAL HİZMETLER A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1700939) Tasfiye Kapsamındaki Yatırım Fonlarından Şirketimiz Paylarının Borsa Dışında Ger
 - 20.11.2026 19:38:05 DESTEK FİNANS FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700873) Destek Holding AŞ'ye Kayyım Görevlendirilmesi Hakkında
-- 19.11.2026 16:05:59 DÜNYA VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700275) KAYYIM ATANMASI HAKKINDA
 
 ## Izleme listesi eslesmeleri
 
@@ -113,13 +105,13 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - DSTKF: 11-20: 1, 11-26: 1
 - GUNDG: 11-20: 1
 - IEYHO: 11-20: 1, 11-23: 2
-- KTLEV: 11-19: 1, 11-23: 2, 11-24: 1
+- KTLEV: 11-23: 2, 11-24: 1
 - ODINE: 11-20: 2, 11-23: 1, 11-24: 2, 11-25: 2
 - OZATD: 11-20: 1
 - PEKGY: 11-20: 1
 - SELEC: 11-20: 1, 11-23: 1, 11-25: 2
 - TEHOL: 11-23: 3, 11-24: 1
-- VSNMD: 11-19: 1, 11-23: 1
+- VSNMD: 11-23: 1
 
 ## Takvim (bugun-1 .. +14 gun)
 
