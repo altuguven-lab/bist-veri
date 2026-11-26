@@ -65,7 +65,10 @@ GURULTU = re.compile(r"Devre Kesici Bildirimi|Günlük Bülten|Pay Alım Satım 
 PORTFOY = re.compile(r"PORTFÖY YÖNETİMİ|PORTFOY YONETIMI|GİRİŞİM SERMAYESİ PORTFÖY", re.I)
 
 # Kaynak -> sayfadaki en son kaydin yasi bu kadar gunu asarsa BAYAT (sayfa degismis/donmus olabilir)
-BAYAT_GUN = {"spk_bulten": 10, "takasbank": 21, "tspb": 45, "bist": 21}
+# 26.11 (paket60): borsaistanbul.com/duyurular sayfasi 04.11'den beri yeni duyuru gostermiyor (sayfa dogru
+# ayristiriliyor; gecmiste de 17-25 gunluk sessiz donemler var). Islem/pazar duyurulari KAP'tan izleniyor.
+# Bu yuzden bist icin esik 45 gun; daha uzun sessizlik gercekten BAYAT sayilir.
+BAYAT_GUN = {"spk_bulten": 10, "takasbank": 21, "tspb": 45, "bist": 45}
 
 
 # ---------------------------------------------------------------- yardimcilar
@@ -276,6 +279,56 @@ KARAR_TURLERI = [("islem_yasagi", r"işlem yasağı|islem yasagi"), ("tedbir", r
                  ("kayyum_tmsf", r"kayyum|kayyım|TMSF")]
 
 
+def bilinen_kodlar(gun=90):
+    """Son ~90 gunun KAP arsivinde stockCodes/relatedStocks olarak gecmis borsa kodlari."""
+    kod = set()
+    for yol in sorted(glob.glob("data/arsiv/kap/*/*/*.json.gz"))[-gun:]:
+        try:
+            for b in json.load(gzip.open(yol)).get("bildirimler", []):
+                for alan in ("stockCodes", "relatedStocks"):
+                    kod |= {k.strip() for k in (b.get(alan) or "").split(",") if k.strip()}
+        except Exception:
+            continue
+    return kod
+
+
+BASLIK_NUMARA = re.compile(r"^\s*(?:[A-HIİ]\.|[IVX]+\.|\d+(?:\.\d+)*\.?|[a-h]\))\s+")
+
+
+def karar_kod_eslestir(satirli, kod_re, bilinen):
+    """26.11 (paket60, bagimsiz inceleme): Yalniz SATIR BASINDAKI numarali basliklar (ör. "C. İŞLEM YASAKLARI",
+    "2. İdari Para Cezalari") ya da tamamen buyuk harfli kisa satirlar bolum baslatir. Baslik birden fazla karar
+    turu iceriyorsa (ör. "SUÇ DUYURUSU, İDARİ PARA CEZASI İLE TEDBİR...") bolum BELIRSIZ sayilir ve kod
+    atanmaz. Satir ici "(TASFİYE HALİNDE)" gibi ifadeler baslik sayilmaz. Emin olunamayan durumda bos doner."""
+    sonuc, aktif = {}, None
+    for satir in satirli.splitlines():
+        s = satir.strip()
+        if not s:
+            continue
+        numarali = bool(BASLIK_NUMARA.match(s))
+        harfler = [c for c in s if c.isalpha()]
+        buyuk = harfler and sum(c.isupper() for c in harfler) / len(harfler) > 0.9
+        if len(s) <= 110 and (numarali or buyuk) and not re.search(kod_re, s):
+            turler = {ad for ad, desen in BOLUM_BASLIKLARI if re.search(desen, s, re.I)}
+            if turler or numarali:
+                aktif = next(iter(turler)) if len(turler) == 1 else None
+                continue
+        if aktif:
+            for a, b in re.findall(kod_re, s):
+                k = a or b
+                if k in bilinen:
+                    sonuc.setdefault(aktif, set()).add(k)
+    return sonuc
+
+
+BOLUM_BASLIKLARI = [("islem_yasagi", r"[İIi]şlem yasa[ğgk]|[İI]ŞLEM YASA[ĞGK]"), ("tedbir", r"tedb[iİI]r"),
+                    ("suc_duyurusu", r"su[çc] duyuru"), ("idari_para_cezasi", r"[İIi]dar[iİI] para ceza"),
+                    ("izin_iptali", r"[İIi]z[iİI]n(?:[iİI]n)? [İIi]ptal|faal[iİI]yet [İIi]zn"),
+                    ("tasfiye", r"tasf[iİI]ye"), ("ilke_karari", r"[İIi]lke karar"),
+                    ("halka_arz_onayi", r"halka arz|[İIi]hra[çc] belge|sat[ıIi][şs]a [İIi]l[iİI][şs]k[iİI]n"),
+                    ("kayyum_tmsf", r"kayyum|kayy[ıI]m|TMSF")]
+
+
 def spk_pdf_ozet(kayit):
     """En son bultenin PDF'ini indirip karar turlerini ve gecen borsa kodlarini cikarir (ayrinti yerine sayim)."""
     url = kayit["url"]
@@ -284,13 +337,43 @@ def spk_pdf_ozet(kayit):
     try:
         from pypdf import PdfReader
         ham = getir(url, zaman=60)
-        yazi = " ".join((p.extract_text() or "") for p in PdfReader(io.BytesIO(ham)).pages)
-        yazi = " ".join(yazi.split())
+        sayfa_sayisi = 0
+        adaylar = []
+        try:
+            rd = PdfReader(io.BytesIO(ham))
+            sayfa_sayisi = len(rd.pages)
+            adaylar.append("\n".join((p.extract_text() or "") for p in rd.pages))
+        except Exception as e:
+            print(f"UYARI: SPK pypdf: {e}", file=sys.stderr)
+        # 26.11 (paket60): pypdf 2026/84 icin yalniz 1.658 karakter cikardi (tablolar kayboluyor olabilir);
+        # pdfplumber da denenir, en uzun metin kullanilir.
+        try:
+            import pdfplumber
+            with pdfplumber.open(io.BytesIO(ham)) as pdf:
+                sayfa_sayisi = sayfa_sayisi or len(pdf.pages)
+                adaylar.append("\n".join((p.extract_text() or "") for p in pdf.pages))
+        except Exception as e:
+            print(f"UYARI: SPK pdfplumber: {e}", file=sys.stderr)
+        satirli = max(adaylar, key=lambda a: len(a.split()), default="")
+        yazi = " ".join(satirli.split())
         turler = {ad: len(re.findall(desen, yazi, flags=re.I)) for ad, desen in KARAR_TURLERI}
-        kodlar = sorted(set(re.findall(r"\(([A-ZÇĞİÖŞÜ0-9]{4,6})\)", yazi)) |
-                        set(re.findall(r"\b([A-Z]{4,5})\.E\b", yazi)))
+        # 26.11 (paket60, bagimsiz inceleme): "(2026)", "(TMSF)", "(BIST)" kod sanilmasin: en az 4 harf ve KAP
+        # arsivinde gecmis gercek bir borsa kodu olmali.
+        bilinen = bilinen_kodlar()
+        kod_re = r"\(([A-ZÇĞİÖŞÜ]{4,6})\)|\b([A-Z]{4,5})\.E\b"
+        kodlar = sorted({a or b for a, b in re.findall(kod_re, yazi)} & bilinen)
+        karar_kodlari = karar_kod_eslestir(satirli, kod_re, bilinen)
+        try:
+            evren_kod = {l.strip() for l in open("config/bist100_uyeler.txt", encoding="utf-8")
+                         if l.strip() and not l.startswith("#")}
+        except OSError:
+            evren_kod = set()
         return {"durum": "OK", "bulten_no": kayit.get("bulten_no"), "sayfa_karakter": len(yazi),
+                "sayfa_sayisi": sayfa_sayisi,
+                "metin_yetersiz": bool(sayfa_sayisi and len(yazi) / max(sayfa_sayisi, 1) < 400),
                 "karar_turleri": {k: v for k, v in turler.items() if v},
+                "karar_kodlari": {k: sorted(v)[:40] for k, v in karar_kodlari.items()},
+                "bist100_gecen": sorted(set(kodlar) & evren_kod),
                 "gecen_kodlar": kodlar[:60],
                 "not": "Sayimlar metinde gecen ifadelerdir; karar ayrintisi icin PDF okunmalidir. "
                        "Bultende adi gecmek ilgili sirket hakkinda hukum degildir."}
@@ -584,6 +667,13 @@ def md_yaz(r):
         if oz and oz.get("durum") == "OK":
             L.append(f"- Son bulten {oz.get('bulten_no')}: karar turleri {oz['karar_turleri'] or '-'}; "
                      f"gecen kodlar {', '.join(oz['gecen_kodlar']) or '-'}")
+            if oz.get("karar_kodlari"):
+                L.append("  - Karar turune gore kodlar: " + "; ".join(f"{a}: {', '.join(b)}" for a, b in oz["karar_kodlari"].items()))
+            if oz.get("bist100_gecen"):
+                L.append(f"  - BIST 100'den gecen: {', '.join(oz['bist100_gecen'])} (adi gecmek hukum degildir)")
+            if oz.get("metin_yetersiz"):
+                L.append(f"  - UYARI: PDF'ten sayfa basina az metin cikti ({oz['sayfa_karakter']} karakter / {oz.get('sayfa_sayisi')} sayfa); "
+                         "tablolar goruntu olabilir")
     L += ["", "## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)", ""]
     for x in kap["kurum_bildirimleri"][:40]:
         L.append(f"- {'**[KRITIK]** ' if x['kritik'] else ''}{x['zaman']} {x['kurum'][:30]} - "
