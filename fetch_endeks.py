@@ -43,6 +43,28 @@ GOSTERGELER = {
 }
 
 
+def arsiv_onceki(yahoo_kod, son_bar_tarihi):
+    """data/arsiv/gunluk/YYYY/MM/DD.json.gz icinde SON BARIN tarihinden onceki en son kapanis. (deger, tarih, kaynak)
+    Bugun yerine son bar tarihi kullanilir: hafta sonu/tatil calismasinda son bar Cuma ise onceki kapanis Persembe olur
+    (aksi halde Cuma kapanisi kendisiyle kiyaslanip %0 gorunurdu)."""
+    import glob
+    import gzip
+    import json
+    sembol = yahoo_kod.replace(".IS", "")
+    sinir = son_bar_tarihi.isoformat()
+    for yol in sorted(glob.glob("data/arsiv/gunluk/*/*/*.json.gz"), reverse=True)[:10]:
+        try:
+            d = json.load(gzip.open(yol))
+        except Exception:
+            continue
+        if d.get("tarih", "9") >= sinir:
+            continue
+        v = (d.get("veri") or {}).get(sembol)
+        if v and v[3]:
+            return float(v[3]), datetime.date.fromisoformat(d["tarih"]), "depo_gunluk_arsiv"
+    return None, None, None
+
+
 def cek(ad, kod, yedek):
     for k in [kod] + ([yedek] if yedek else []):
         try:
@@ -68,6 +90,12 @@ def cek(ad, kod, yedek):
                 pc = float(pc) if pc and not math.isnan(float(pc)) else None
             except Exception:
                 pc = None
+            if not pc and not onceki:
+                # 26.11 (paket60): XHOLD icin Yahoo ne gunluk seri ne previous_close veriyor; brifing her gun
+                # "degisim hesaplanamadi" yaziyordu. Depodaki gunluk veri arsivinin son kapanisi kullanilir.
+                ix = kaynak.index[-1]
+                son_bar_tr = (ix.tz_convert("Europe/Istanbul") if ix.tzinfo else ix).date()
+                onceki, onceki_tarih, onceki_kaynak = arsiv_onceki(k, son_bar_tr)
             if pc:
                 if onceki and abs(pc / onceki - 1) > 0.005:
                     uyari = (f"gunluk seri onceki kapanisi ({round(onceki, 4)}, {onceki_tarih}) ile Yahoo "
