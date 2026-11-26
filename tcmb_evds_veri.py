@@ -26,6 +26,11 @@ USD_TRY_SERI = "TP.DK.USD.A.YTL"
 # ADIM 3 ciktisi) - Turkiye MB politika faizi, BIS karsilastirma
 # serisinin ICINDE.
 POLITIKA_FAIZ_SERI = "TP.BISPOLFAIZ.TUR"
+# 26.11 (paket60): brifing TCMB today.xml'e erisemiyor (ag gecidi 403) ve sabah "gosterge kur" diye ALIS
+# serisini veriyordu, ogle SATIS serisiyle duzeltiyordu. Dort gosterge kur (USD/EUR alis-satis) ayni gunluk
+# frekansta tek istekte cekilir ve etiketli yazilir; brifing kuru buradan (✅) okur.
+DOVIZ_SERILERI = {"TP.DK.USD.A.YTL": "USD_alis", "TP.DK.USD.S.YTL": "USD_satis",
+                  "TP.DK.EUR.A.YTL": "EUR_alis", "TP.DK.EUR.S.YTL": "EUR_satis"}
 # EVDS coklu-seri destegi: seriler "-" ile AYRILARAK TEK istekte cekilir
 # (resmi belgede dogrulandi: "TP.DK.USD.S-TP.DK.EUR.S" ornegi).
 TUM_SERILER = f"{USD_TRY_SERI}-{POLITIKA_FAIZ_SERI}"
@@ -108,6 +113,21 @@ def main():
         print(f"HATA: politika faizi cekilemedi -> {e}", file=sys.stderr)
         faiz_kayitlar = []
 
+    try:
+        dv = evds_veri_cek("-".join(DOVIZ_SERILERI), baslangic, bitis_sorgu, anahtar)
+        doviz_kayitlar = []
+        for k in dv.get("items", []):
+            satir = {"Tarih": k.get("Tarih")}
+            for seri, ad in DOVIZ_SERILERI.items():
+                v = k.get(seri, k.get(seri.replace(".", "_")))
+                satir[ad] = float(v) if v not in (None, "") else None
+            if any(satir[a] is not None for a in DOVIZ_SERILERI.values()):
+                doviz_kayitlar.append(satir)
+        print(f"{len(doviz_kayitlar)} doviz (alis/satis) kaydi cekildi")
+    except Exception as e:
+        print(f"UYARI: doviz alis/satis cekilemedi -> {e}", file=sys.stderr)
+        doviz_kayitlar = []
+
     if not usd_kayitlar and not faiz_kayitlar:
         print("HATA: HICBIR seri icin veri gelmedi", file=sys.stderr)
         sys.exit(1)
@@ -130,6 +150,9 @@ def main():
         "cekim_tarihi": str(bugun),
         "usd_try_seri_kodu": USD_TRY_SERI, "usd_try_kayitlar": usd_kayitlar,
         "politika_faiz_seri_kodu": POLITIKA_FAIZ_SERI, "politika_faiz_kayitlar": faiz_kayitlar,
+        "doviz_seri_kodlari": DOVIZ_SERILERI, "doviz_kayitlar": doviz_kayitlar,
+        "doviz_not": "TCMB gosterge (doviz) kurlari, alis ve satis ayri. 'Tarih' EVDS kayit tarihidir; "
+                     "brifingde hangi serinin (alis/satis) verildigi yazilmalidir.",
         # geriye-uyum: eski "kayitlar" alanini USD/TRY ile DOLDUR (makro_
         # guncel_durum.py hala BU alani okuyor - Faz sonraki adimda
         # o script de GUNCELLENMELI, simdilik BOZULMAMASI icin).
