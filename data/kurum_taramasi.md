@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-26 08:43
+# Kurum taramasi - 2026-11-26 12:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 1 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **BAYAT** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-26 | 60 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-26 | 65 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -33,6 +33,11 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- 26.11.2026 09:17:20 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702843) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
+- 26.11.2026 09:13:31 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702840) Hak Kullanımı
+- 26.11.2026 09:12:13 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702838) Varant Sıralarının Geçici Olarak İşleme Kapatılması
+- 26.11.2026 09:10:30 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702836) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
+- **[KRITIK]** 26.11.2026 09:08:23 KAMUYU AYDINLATMA PLATFORMU - [Sermaye Piyasası Kurulu Tedbir Kararı](https://www.kap.org.tr/tr/Bildirim/1702832) Sermaye Piyasası Kurulu Tedbir Kararı
 - 26.11.2026 00:16:33 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1702820) SPK BÜLTENİ
 - **[KRITIK]** 25.11.2026 18:37:37 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702711) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 - **[KRITIK]** 25.11.2026 18:36:31 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702710) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
@@ -68,11 +73,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 23.11.2026 17:24:04 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701402) DÖNÜŞÜM
 - 23.11.2026 15:26:44 BORSA İSTANBUL A.Ş. - [Endeks Şirketlerinde Değişiklik](https://www.kap.org.tr/tr/Bildirim/1701292) 
 - 23.11.2026 12:22:22 BORSA İSTANBUL A.Ş. - [Yabancı Yatırımcı İşlemleri](https://www.kap.org.tr/tr/Bildirim/1701122) Yabancı Yatırımcı İşlemleri
-- **[KRITIK]** 23.11.2026 09:50:34 BORSA İSTANBUL A.Ş. - [Pay İşlem Sırası Kapatma / Açma](https://www.kap.org.tr/tr/Bildirim/1700936) Pay Sırasının İşleme Açılması
-- **[KRITIK]** 23.11.2026 09:37:32 BORSA İSTANBUL A.Ş. - [Pay İşlem Sırası Kapatma / Açma](https://www.kap.org.tr/tr/Bildirim/1700929) Pay Sırasının İşleme Kapatılması
-- 23.11.2026 09:12:43 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700922) Hak Kullanımı
-- 23.11.2026 09:11:35 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700921) İşleme Açılan Varantlar
-- 23.11.2026 08:55:50 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700908) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
@@ -107,7 +107,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
-- ANELE: 11-20: 3, 11-23: 2
+- ANELE: 11-20: 3, 11-23: 2, 11-26: 1
 - DSTKF: 11-20: 1
 - GUNDG: 11-20: 1
 - IEYHO: 11-20: 1, 11-23: 2
