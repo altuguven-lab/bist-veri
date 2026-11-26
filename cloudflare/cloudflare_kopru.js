@@ -278,6 +278,7 @@ export const ZAMANLI = {
   "05:20": ["kuresel_asya", "arastirma_tetikle", "tcmb_yayin_tetikle"],   // 08:20 TR, sabah brifinginden once
   "05:30": ["bilanco_tetikle"],                                             // 08:30 TR
   "06:00": ["sabah_veri_tetikle"],                                          // 09:00 TR (sektor + VIOP)
+  "06:02": ["kap_pdf_tetikle"],                                            // 09:02 TR (26.11 paket60: KAP PDF ozetleri, sabah brifinginden once)
   "06:04": ["risk_saglik_tetikle"],                                         // 09:04 TR, seans oncesi
   "06:10": ["h6_golge_tetikle"],                                            // 09:10 TR
   "06:16": ["aciga_satis_tetikle"],                                         // 09:16 TR, onceki gun yakalama
@@ -287,6 +288,7 @@ export const ZAMANLI = {
   "07:20": ["tcmb_yayin_tetikle", "yabanci_oran_tetikle"],                  // 10:20 TR, TCMB 10:00 yayinlari
   "09:20": ["kuresel_avrupa"],                                              // 12:20 TR (24.11 paket58: acilistan >1 saat sonra; Yahoo ilk dakikalarda bos)
   "09:50": ["arastirma_tetikle"],                                           // 12:50 TR, ogle brifinginden once
+  "09:56": ["kap_pdf_tetikle"],                                            // 12:56 TR, ogle brifinginden once
   "10:18": ["tv_arsiv_tetikle"],                                            // 13:18 TR
   "11:36": ["risk_saglik_tetikle"],                                         // 14:36 TR
   "11:50": ["tcmb_yayin_tetikle"],                                          // 14:50 TR, TCMB 14:30 yayinlari
@@ -298,6 +300,7 @@ export const ZAMANLI = {
   "15:30": ["kopru_sessizlik_tetikle"],                                     // 18:30 TR
   "15:44": ["risk_saglik_tetikle"],                                         // 18:44 TR, ertesi gunun gun-basi referansi
   "15:50": ["arastirma_tetikle"],                                           // 18:50 TR
+  "15:56": ["kap_pdf_tetikle"],                                            // 18:56 TR, aksam kurum taramasindan sonra
   "16:18": ["tv_arsiv_tetikle"],                                            // 19:18 TR
   "16:20": ["veri_arsivi_tetikle"],                                         // 19:20 TR
   "16:30": ["bist_resmi_tetikle", "ip8_arsiv_tetikle"],                     // 19:30 TR, kesinlesmis kapanis
