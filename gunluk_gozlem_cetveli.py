@@ -55,7 +55,9 @@ def main():
     for bolge in ("asya", "avrupa", "amerika"):
         if bolge in kuresel:
             b = kuresel[bolge]
-            kuresel_ozet.append(f"{bolge}: {b.get('ozet_yon', '-')} ({b.get('ozet_ortalama_yuzde', '-')}%)")
+            # 26.11 (paket60): asya kosusu onceki gunun avrupa/amerika bolumunu artik silmiyor, "onceki_gun" isaretliyor
+            ek = " [onceki gun]" if b.get("onceki_gun") else ""
+            kuresel_ozet.append(f"{bolge}: {b.get('ozet_yon', '-')} ({b.get('ozet_ortalama_yuzde', '-')}%){ek}")
 
     satirlar = []
     for s in konsolide.get("semboller", []):
