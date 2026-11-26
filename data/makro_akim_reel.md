@@ -1,17 +1,16 @@
 # Makro akim ve reel faiz
 
-Kaynak: TCMB EVDS. Son gozlemler - yabanci_hisse_net_mn_usd: 13-11-2026, yabanci_dibs_net_mn_usd: 13-11-2026, yabanci_hisse_stok_mn_usd: 13-11-2026, tufe_beklenti_12ay_pct: 2026-11, tufe_beklenti_gelecek_yil_sonu_pct: 2026-11, politika_faizi_beklenti_12ay_pct: 2026-11, fonlama_maliyeti_pct: 25-11-2026, tlref_pct: 24-11-2026, politika_faizi_bis_pct: 2026-10, tcmb_brut_rezerv_mn_usd: 13-11-2026, reel_efektif_kur_tufe: 2026-10, reel_kesim_guven_MA: 2026-11, rkge_toplam_siparis_MA: 2026-11, rkge_ihracat_siparis_3ay_MA: 2026-11, rkge_yatirim_harcamasi_MA: 2026-11, rkge_genel_gidisat_MA: 2026-11, kko_imalat_MA: 2026-11, tuketici_guven: 2026-11, oncu_gosterge_12ay_degisim: 2026-10, enf_bek_12ay_reel_sektor: 2026-11, enf_bek_12ay_hanehalki: 2026-11, uyp_net_mn_usd: 2026-Q3, uyp_yabanci_hisse_yukumluluk_mn_usd: 2026-Q3, kredi_standartlari_isletme_gecen3ay: 2026-Q3, kredi_talebi_isletme_gecen3ay: 2026-Q3, kredi_standartlari_isletme_gelecek3ay: 2026-Q3.
+Kaynak: TCMB EVDS. Son gozlemler - yabanci_hisse_net_mn_usd: 20-11-2026, yabanci_dibs_net_mn_usd: 20-11-2026, yabanci_hisse_stok_mn_usd: 20-11-2026, tufe_beklenti_12ay_pct: 2026-11, tufe_beklenti_gelecek_yil_sonu_pct: 2026-11, politika_faizi_beklenti_12ay_pct: 2026-11, fonlama_maliyeti_pct: 25-11-2026, tlref_pct: 25-11-2026, politika_faizi_bis_pct: 2026-10, tcmb_brut_rezerv_mn_usd: 20-11-2026, reel_efektif_kur_tufe: 2026-10, reel_kesim_guven_MA: 2026-11, rkge_toplam_siparis_MA: 2026-11, rkge_ihracat_siparis_3ay_MA: 2026-11, rkge_yatirim_harcamasi_MA: 2026-11, rkge_genel_gidisat_MA: 2026-11, kko_imalat_MA: 2026-11, tuketici_guven: 2026-11, oncu_gosterge_12ay_degisim: 2026-10, enf_bek_12ay_reel_sektor: 2026-11, enf_bek_12ay_hanehalki: 2026-11, uyp_net_mn_usd: 2026-Q3, uyp_yabanci_hisse_yukumluluk_mn_usd: 2026-Q3, kredi_standartlari_isletme_gecen3ay: 2026-Q3, kredi_talebi_isletme_gecen3ay: 2026-Q3, kredi_standartlari_isletme_gelecek3ay: 2026-Q3.
 Salt olcum, tavsiye degildir.
 
 ## Yurt disi yerlesikler - hisse senedi (net, milyon USD)
 
-- Son hafta (13-11-2026): 246.75
-- Son 4 hafta: 447.7 | son 13 hafta: 278.8 | yilbasindan: 1857.0
-- Ardisik: 2 hafta giris
+- Son hafta (20-11-2026): -48.37
+- Son 4 hafta: 499.3 | son 13 hafta: 80.3 | yilbasindan: 1808.6
+- Ardisik: 1 hafta cikis
 
 | Hafta | Hisse net | DIBS net |
 |---|---|---|
-| 25-09-2026 | 358.63 | -409.93 |
 | 02-10-2026 | -189.9 | -484.73 |
 | 09-10-2026 | -248.2 | 451.12 |
 | 16-10-2026 | -88.75 | -41.34 |
@@ -19,18 +18,19 @@ Salt olcum, tavsiye degildir.
 | 30-10-2026 | -66.27 | -750.39 |
 | 06-11-2026 | 367.18 | 36.93 |
 | 13-11-2026 | 246.75 | 97.58 |
+| 20-11-2026 | -48.37 | -463.07 |
 
 ## Reel faiz
 
 - TCMB agirlikli ortalama fonlama maliyeti: %36.0 (25-11-2026)
-- BIST TLREF: %35.9527 (24-11-2026)
+- BIST TLREF: %37.3017 (25-11-2026)
 - 12 ay sonrasi TUFE beklentisi: %24.04 (2026-11)
 - Ex-ante reel faiz: **11.96 puan**
 - 12 ay sonrasi politika faizi beklentisi: %28.9 (ima edilen degisim -7.1 puan)
 
 ## TCMB brut rezervleri (milyon USD)
 
-- 13-11-2026: 158950 | haftalik degisim -2113.4 | 4 hafta -10146.4
+- 20-11-2026: 141972 | haftalik degisim -16977.9 | 4 hafta -20218.8
 
 ## Reel efektif kur (TUFE bazli, 2025=100)
 
