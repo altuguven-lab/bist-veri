@@ -201,8 +201,16 @@ def main():
         g = json.load(open(yol, encoding="utf-8")) if os.path.exists(yol) else {}
         okuma_tr = tr.strftime("%Y-%m-%d %H:%M")
         if seans == "kapanis_sonrasi" or vt not in g:
+            eski = g.get(vt) or {}
             g[vt] = {k: {"son": v["son"], "degisim_yuzde": v["degisim_yuzde"] if seans == "kapanis_sonrasi" else None,
                          "hacim_tl": v.get("hacim_tl"), "kaynak_okuma": seans, "okuma_tr": okuma_tr} for k, v in endeks.items()}
+            # 26.11 (paket60, aksam denetimi 25.11): ayni gunun ikinci kapanis okumasinda (19:30) ilk okuma
+            # (18:20), degerler ayni olsa da 'ilk_okuma' alaninda saklanir.
+            for k, yeni in g[vt].items():
+                e = eski.get(k)
+                if e and e.get("okuma_tr") and e.get("okuma_tr") != okuma_tr:
+                    yeni["ilk_okuma"] = e.get("ilk_okuma") or {"son": e.get("son"), "degisim_yuzde": e.get("degisim_yuzde"),
+                                                             "hacim_tl": e.get("hacim_tl"), "okuma_tr": e.get("okuma_tr")}
         else:
             # 23.11 (paket55, kurul 21.11): 18:20 okumasi kesin kapanis olmayabiliyor (20.11: 18:21'de 11.122,32,
             # sonraki okumada 11.131,32). Hafta sonu / seans oncesi okumasi ayni veri gununu farkli bir degerle
