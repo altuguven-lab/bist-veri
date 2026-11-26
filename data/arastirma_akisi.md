@@ -7,10 +7,10 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | Kaynak | Durum | Adet |
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
-| hedeffiyat | OK | 15 |
-| haber | OK | 38 |
-| kurum_yayin_sayfalari | OK | 44 |
-| kuresel_gorunum | OK | 14 |
+| hedeffiyat | OK | 16 |
+| haber | OK | 35 |
+| kurum_yayin_sayfalari | OK | 46 |
+| kuresel_gorunum | OK | 17 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -35,6 +35,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 | Tarih | Sembol | Kurum (kademe) | Hedef TL | Tavsiye | Revizyon | Kaynak |
 |---|---|---|---|---|---|---|
+| 2026-11-26 | HTTBT | Gedik Yatırım (B) | 29.0 | Tavsiye Yok | YENI_KAYIT | ✅ (toplayıcı) |
 | 2026-11-26 | AVPGY | İş Yatırım (A) | 97.52 | AL | AYNI | ✅ (toplayıcı) |
 | 2026-11-24 | GRSEL | İş Yatırım (A) | 399.33 | AL | YENI_KAYIT | ✅ (toplayıcı) |
 | 2026-11-23 | BRSAN | İş Yatırım (A) | 952.0 | AL | YENI_KAYIT | ✅ (toplayıcı) |
@@ -42,6 +43,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
+- 2026-11-26 [İş Varant Raporu: İş Varant 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/is-varant-raporu-is-varant-26-11-2026/) (diger)
 - 2026-11-26 [AVPGY.IS: Avrupakent GYO Toplantı Notları](https://arastirma.isyatirim.com.tr/2026/11/26/avpgy-is-avrupakent-gyo-toplanti-notlari-2/) (diger)
 - 2026-11-26 [FX Teknik Analiz Raporu 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/fx-teknik-analiz-raporu-26-11-2026/) (diger)
 - 2026-11-26 [ELÜS Günlük Bülteni 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/elus-gunluk-bulteni-26-11-2026/) (diger)
@@ -61,7 +63,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-25 [Piyasalarda Bugün 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/piyasalarda-bugun-25-11-2026/) (diger)
 - 2026-11-25 [Sermaye Artırımları/Azaltımları ve Temettü Ödemeleri 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/sermaye-artirimlari-azaltimlari-ve-temettu-odemeleri-25-11-2026/) (diger)
 - 2026-11-25 [Pay Geri Alımları 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/pay-geri-alimlari-25-11-2026/) (diger)
-- 2026-11-25 [Teknik Bülten 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/teknik-bulten-25-11-2026/) (diger)
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
@@ -108,7 +109,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 - 2026-11-25 **JPMorgan**: [J.P. Morgan's 2027 Outlook: A Year of Moderation — The AI Boom Meets the Reality of Higher Rates - The Dark Side Of The Boom](https://news.google.com/rss/articles/CBMigwFBVV95cUxNTl9sS01HdnZ0ak5SOHJOWC1fZkdXX0VZLWFjVmt3TlBmc1BOX3lrWkpHTjRaRmJybzliak95aTBxVEtWNTlHRTZvSVRNelZJUk00R3Q1eGtNamM0SGo4cGdZdEdGY19pWjNLTVBkcWduRHlJUi1xbTdLcVB1U2JVSDhQNA?oc=5)
 - 2026-11-25 **JPMorgan**: [JPMorgan'dan 2027 küresel otomotiv raporu! Çin'in pazar payı için dikkat çeken tahmin - İstanbul Ticaret Gazetesi](https://news.google.com/rss/articles/CBMiugFBVV95cUxPZVg5M09VaHNBWi1FQUljWUEwR1hOYXdOdjcweG9aNk5PZEZZcHVMWGRjX3B3d0oyMmJ3aFRTOXVhQWtqYjEyT2tNWGtBM3hoUkR0TkQ0aS1lV0N5cS1HVmZXeWV5ZUpRWndvV2VjRjhHamdhTDIwUVdRMDRFaUhRUDlMbE03OG0wQnZhWEI5eWFkQzFEdEZJUzhVUzBDQnB0MFdBNk04eGc0RUhRTy1LbWxZUzJFSkFoSGc?oc=5)
-- 2026-11-23 **Invesco**: [Invesco Mortgage Capital Stock Price Forecast. Should You Buy IVR? - StockInvest.us](https://news.google.com/rss/articles/CBMiR0FVX3lxTE5id2dELUcyZHNoMDdRakNqTW5HMEd0QUNGWHBiYjFtcHp0ZDNkLVJPSTYwbjZpRWYyLThlMWM1emhJYmllZmZR?oc=5)
+- 2026-11-24 **Invesco**: [Invesco Mortgage Capital Stock Price Forecast. Should You Buy IVR? - StockInvest.us](https://news.google.com/rss/articles/CBMiR0FVX3lxTE5id2dELUcyZHNoMDdRakNqTW5HMEd0QUNGWHBiYjFtcHp0ZDNkLVJPSTYwbjZpRWYyLThlMWM1emhJYmllZmZR?oc=5)
 - 2026-11-23 **HSBC**: [Why Is HSBC’s US Dollar Outlook Strong Into 2027? - www.tmgm.com](https://news.google.com/rss/articles/CBMirAFBVV95cUxPQUZHRlQ4blQ4eUNiMGxTZ1M4NGJEQ2VGRE55LThib01Rd1RBbF9Ock1PMTdnVExuRmlLaHlDZnNHTjA1Ylo0ck5rYkpOZWJDSW9TcEotN09PaUpTOVpjY21zN21PcG9rc3JtOGRFbjlmWWhUVy15YkQwV2kyNWg5VzlYek1LWUJWaFNvMVFnVFFTdk5nZjE4YXVWbGRZZExHa1dpVTJJcmRQaEhx?oc=5)
 - 2026-11-23 **Goldman Sachs**: [Will gold go back up? What Goldman Sachs, Morgan Stanley and UBS now forecast after the sell-off - Nacionale](https://news.google.com/rss/articles/CBMirwFBVV95cUxNc1pEM2NKcC05RUJnd1FBdEtiWXl6c3ZfRVRsNmpBeDlURDFOZTI3Y2NHQVlnUzdGQzNJanVyOVhEWjNGNjVFUGEtOWw1cWtBWXpQd2JqMWFzamY4UUJJTmZkRDk1VkxZME11WVY4TV9qSVBhQkNaU01EcmVoMEtJUlQyclRGcFZtTXlzWEZkaFlXUmZudFc4OU9RVFdkQVZuUllfcVJEUWhYODhxOTYw?oc=5)
 - 2026-11-23 **Goldman Sachs**: [Goldman Sachs and Morgan Stanley’s 2027 stock market outlook - Finimize](https://news.google.com/rss/articles/CBMilwFBVV95cUxPOENFWURlQlhzV0F2NU1HOVBURUV4N1VYY0lFQXBKWk9XTGxXNFZoTW1YWWlDRWFLTlRaN2VhaWZoekhLM3pJem5jWW9xY1ZMUlBnMFhUSmk4UmhsWVgzS1RrVHRjSnJ0VkxBYTB1TVZOYTZ2emRxWUpscHNZdkhFUG8wTl9zNE1pcTdqUGRfVWlBNTJ3cjNz?oc=5)
@@ -118,14 +119,14 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **Goldman Sachs**: [Goldman Sachs: AI layoff wave delayed, not cancelled, in 2027 outlook - CASRAI](https://news.google.com/rss/articles/CBMihAFBVV95cUxPYkZsWDRoTll1N0FOTXJidkVkZjhmdWxIWXgyWldyOG5LMTZBN2lEclJfWGVSQjk3NlBDUEVJbFkxdWJjZ21SRDM5aVpmM0FnbzgxamRFQWRRemxHZHlvSWFYWWNtSEU0X0RCZkEySVp2UGw5d3ZyRFhVOUZ2eFBVZWZKQ2E?oc=5)
 - 2026-11-20 **Bank of America**: [Gümüş fiyatlarında yeni dönem! Bank of America 2027 için 75 dolar tahminini açıkladı - Haberton](https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMjBkdlU2Umo3U1k3em1MeW5BMXBPUWgzMnN0ZlhBcVJSc2NVRllFWmRPWi16ZERVXzlCNWFsTkw5cUVWM2UzR3BaYWk2cjlvTGg5eXZHbGFYNDlaS0xaTkw1ZzFPZHBNdzRaT1FkNXU1X0NpUXdxOFBtRnNlUUJWaDN6dzVrQnI2ZFZFUU14VHo2WFFxNTRJSEQxYjBXQXFyd3l4MTdiM1U?oc=5)
 - 2026-11-19 **UBS**: [UBS 2027 Outlook: S&P 500 Base Case at 8,200; AI Capex Stall Could Drag It to 5,500 - BigGo Finance](https://news.google.com/rss/articles/CBMidkFVX3lxTE9KU21ROUM0T0Y2bW91bU43VDNYNERBYmpHYlpkWEkxSlRFcnJNUUd3TWdnUmtieWtBaWQ3bWNhME9OWFllZ0ptNExUeG52M2RXOUR2eUNVN0FGY0RQZHkwdXdIQ1JXWm1DLU5HS3BaSXlJRGhGZkE?oc=5)
+- 2026-11-26 **ING**: [Published 13:55 Minutes of ECB's October meeting confirm tightening bias ECB minutes suggest that a December rate hike is almost a done deal](https://think.ing.com/articles/minutes-of-ecbs-october-meeting-confirm-tightening-bias/)
+- 2026-11-26 **ING**: [Spain Today, 09:22 How Spain's parties plan to raise incomes as low earners gain ground Ahead of the election, the political parties are offering various ways to increase pay](https://think.ing.com/articles/how-spain-political-parties-plan-to-raise-incomes-as-low-earners-gain-ground/)
+- 2026-11-26 **ING**: [Commodities daily Today, 08:04 The Commodities Feed: Oil extends rally as copper rebounds Oil extends gains on Middle East supply risks](https://think.ing.com/articles/the-commodities-feed-gold-slumps-below-3500-oz/)
+- 2026-11-26 **ING**: [Today, 08:00 FX Daily: Korean won stands out in a harsh EM environment Markets stabilise for Thanksgiving; the Korean won is in focus](https://think.ing.com/articles/fx-daily-korean-won-stands-out-in-a-harsh-em-environment/)
+- 2026-11-26 **ING**: [France 24 November France’s golden rule won’t fix its budget problem Macron’s golden rule may reassure markets, but it cannot replace a credible fiscal plan. The immediate test is France’s 2027 budget](https://think.ing.com/articles/frances-golden-rule-wont-fix-its-budget-problem/)
+- 2026-11-26 **ING**: [Belgium 24 November Belgium’s government faces year-end deadline for budget deal This paper gives another update on crucial budget negotiations](https://think.ing.com/articles/belgium-a-clear-deadline-for-a-budget-deal/)
 - 2026-11-26 **ING**: [Commodities daily Published 08:04 The Commodities Feed: Oil extends rally as copper rebounds Oil extends gains on Middle East supply risks](https://think.ing.com/articles/the-commodities-feed-gold-slumps-below-3500-oz/)
 - 2026-11-26 **ING**: [Published 08:00 FX Daily: Korean won stands out in a harsh EM environment Markets stabilise for Thanksgiving; the Korean won is in focus](https://think.ing.com/articles/fx-daily-korean-won-stands-out-in-a-harsh-em-environment/)
-- 2026-11-26 **ING**: [Commodities daily 24 November The Commodities Feed: Oil extends losses while copper gives back Nvidia bounce Nvidia-led rally lifts copper](https://think.ing.com/articles/the-commodities-feed-nvidia-led-rally-lifts-gold-and-copper/)
-- 2026-11-26 **ING**: [FX 24 November FX Daily: Dollar may be heading into overshoot territory We think the dollar is starting to head into overshoot territory and would be careful about expecting more strength just yet](https://think.ing.com/articles/fx-daily-surprise-dollar-strength/)
-- 2026-11-26 **ING**: [Rates Spark Yesterday, 18:22 Rates Spark: No risk appetite for Thanksgiving dinner Equities failed to recover losses heading into Thanksgiving as risk-off sentiment continues to linger](https://think.ing.com/articles/rates-spark-no-risk-appetite-for-thanksgiving-dinner/)
-- 2026-11-26 **ING**: [United States Yesterday, 14:15 Strong growth and elevated inflation signal more Fed tightening The economy remains in decent shape, but relief is coming on the inflation front](https://think.ing.com/articles/strong-growth-and-elevated-inflation-signal-more-fed-tightening/)
-- 2026-11-26 **ING**: [Trade Yesterday, 08:30 The US tariff wall keeps changing, but it isn't coming down The US is preparing new tariffs targeting structural overcapacity](https://think.ing.com/articles/the-us-tariff-wall-keeps-changing-but-it-isnt-coming-down/)
-- 2026-11-26 **ING**: [Commodities daily Yesterday, 08:00 The Commodities Feed: Oil shrugs off rising Middle East tensions Oil slips as improving supply outweighs disruption risks](https://think.ing.com/articles/the-commodities-feed-aluminium-squeeze-eases-after-lme-intervention/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
@@ -138,6 +139,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-22 : [Türkiye'deki fon gelişmeleri kredi notunu etkileyecek mi? - Odakgazetesi](https://news.google.com/rss/articles/CBMijAFBVV95cUxNTjlyZHRRWEV0dTNLRWhHMmxmWlpXVGd3dDBtZVZOcW80a0F3NnA1M0I5d1NueTZHMWR5ZUlyN3ZlOHZJbi1SM01nNnkzTDhzcndzOGk2OXJKLVZVNXliWkVrZk5lNWJKS2hMaWlCUVgxd1M2RDhuR0NOZGJKaWgyOXBSYWI1NWM0UnZIVA?oc=5)
 - 2026-11-21 : [Fon soruşturması Türkiye’nin kredi notunu etkiler mi? - Rudaw](https://news.google.com/rss/articles/CBMiaEFVX3lxTFBZZmhUZnViLUpPdlFuVmJ3T1p4U2VZVDFDNFA2NktKekphdTZ1d2dGSi10M1ljOTZQNXdFLTZKVGRHaDN5NFdzaVJpcHVDdzdFU0NKOWJtMDlNSjd1S0t1VmdCTGtSZ2Jk?oc=5)
 - 2026-11-20 : [OTKAR Hisse Hedef Fiyat: 2 Kurumdan Yükseliş Beklentisi - Finans Hattı](https://news.google.com/rss/articles/CBMijgFBVV95cUxQV1doQnZwUFFqOHZZN0l1el9BcVNmb1VsN2hfYVR4OXNDWmlDck9OblBJYWpibmlXdHh1cWw4QTFCTzZWcXlCckN5bzg2UERLUVQySmIzOVhSQWNaaWlVS09IQUNZQ2xJZEV1QWxPczFUSGRDWnQyLVlCWEFybWNyU2VySFdabWoySjUyMUJR?oc=5)
+- 2026-11-19 : [Astor Enerji (ASTOR) Hedef Fiyatları 2026 - Güncel Liste - Rota Borsa](https://news.google.com/rss/articles/CBMiaEFVX3lxTE0yVUx1QXJOcjhYak51Z3hYWWZFeC1FY3VENXBGZVZwb3pZNFRGTWY4RHZzWHluczU5eFZzeFI1NGhwSkg5a1ZiTFZGNjFrUVFSOVM4a3hhUXRwejBCaU5PZjNWU3dXQVZL?oc=5)
 - 2026-11-19 : [Astor Enerji Hisseleri İçin Aracı Kurumların Güncel Hedef Fiyatları Neler Olacak ? - İşçi Haber](https://news.google.com/rss/articles/CBMivgFBVV95cUxNTFNJcU16Zm0wVUJBbHhIcWZsSmplTllZM1huQVMtTi0wOGplWG9xbTVYQUlxcGJsTmhPY1VZd2E1bDR1aEk0eDJKeWU5QmRxTVUxaXJfbVRaTmliOGt1OF9FaVZuS2hCOXd3Q2dHR201UHFoWTdCSElhNVlFOFZWNG1WLUhTeUhlTEFQWkNpTmVvTVI2b2ZSa3h1NFdwbURUQVZBWDVLOGtZZW1haTFad1dZc1oweTlSZC1zTERn?oc=5)
 - 2026-11-19 ÜNLÜ & Co: [Ünlü & Co’nun banka tercihi değişti: Akbank gitti, Vakıfbank geldi - Paratic Haber](https://news.google.com/rss/articles/CBMiigFBVV95cUxNQnJZa2dzY1ptdWk5dS1wTGxJY0d1TkhJb2tpTFFjdFo4cTRSOWcxWTJJSEZCYUJLdjRqOVFsSS1YRFIybjJ3bS11bExjTmFRS24wZTdUVGJPcWJ4VTJCNm13UFV6MWt2d0xKSlI2TEpheDRpYWk2UElGV3ktX0ZBazhVMHJBdjZNTFE?oc=5)
 - 2026-11-19 ÜNLÜ & Co: [Ünlü Menkul model portföye Vakıfbank’ı ekledi, Akbank’ı çıkardı - Borsatek](https://news.google.com/rss/articles/CBMieEFVX3lxTE1SWUJXcGpEMkF6R2RYZFJNR2s5SmNKeEI3NEI5N2hPVVJCVkVET0RXdTVna3ZxV015UDJRRVFGZFdlRmluVjZCcF9ETDN0SkVOcHhyTnJQdGo2aGxjV0NaVEJKazJtNFVydXhuamJwOTZCRGdUY0x0bg?oc=5)
