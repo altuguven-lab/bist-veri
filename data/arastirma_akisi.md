@@ -8,9 +8,9 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
 | hedeffiyat | OK | 16 |
-| haber | OK | 35 |
+| haber | OK | 34 |
 | kurum_yayin_sayfalari | OK | 46 |
-| kuresel_gorunum | OK | 17 |
+| kuresel_gorunum | OK | 16 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
