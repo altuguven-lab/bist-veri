@@ -149,11 +149,15 @@ def main():
     # aksam calistirdiginda AYNI GUNUN avrupa/amerika verisi de siliniyordu. Artik yalniz kaydin
     # UTC tarihi bugunden eskiyse silinir.
     if bolum == "asya":
-        bugun = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+        # 26.11 (paket60, aksam denetimi 25.11): onceki gunun avrupa/amerika bolumleri artik SILINMEZ; seans
+        # tarihleri bugunden eskiyse "onceki_gun": true isaretlenir. Brifing dunku ABD kapanisini boylece gorur
+        # ve bugunun verisi sanmaz (Avrupa 12:20, ABD 17:50 okumasiyla isaret kalkar).
+        bugun_tr = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=3)).date().isoformat()
         for k in ("avrupa", "amerika"):
-            z = (mevcut.get(k) or {}).get("guncelleme_zamani_utc") or ""
-            if z[:10] < bugun:
-                mevcut.pop(k, None)
+            b = mevcut.get(k)
+            if isinstance(b, dict):
+                st = [x for x in (b.get("seans_tarihleri") or []) if x] or [(b.get("guncelleme_zamani_utc") or "")[:10]]
+                b["onceki_gun"] = max(st) < bugun_tr
 
     os.makedirs("data", exist_ok=True)
     with open(DOSYA, "w", encoding="utf-8") as f:
