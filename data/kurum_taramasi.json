@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-26T13:43:39.809565+00:00",
- "uretim_tr": "2026-11-26 16:43",
+ "uretim_utc": "2026-11-26T13:55:10.532442+00:00",
+ "uretim_tr": "2026-11-26 16:55",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -10,7 +10,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-25",
-   "kontrol_tr": "2026-11-26 16:43",
+   "kontrol_tr": "2026-11-26 16:54",
    "son_7_gun": [
     {
      "tarih": "2026-11-25",
@@ -41,6 +41,8 @@
     "durum": "OK",
     "bulten_no": "2026/85",
     "sayfa_karakter": 33151,
+    "sayfa_sayisi": 13,
+    "metin_yetersiz": false,
     "karar_turleri": {
      "islem_yasagi": 7,
      "tedbir": 12,
@@ -50,6 +52,14 @@
      "ilke_karari": 9,
      "halka_arz_onayi": 1
     },
+    "karar_kodlari": {
+     "suc_duyurusu": [
+      "KUYAS",
+      "SMRVA",
+      "SVGYO"
+     ]
+    },
+    "bist100_gecen": [],
     "gecen_kodlar": [
      "KUYAS",
      "SMRVA",
@@ -64,7 +74,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-19",
-   "kontrol_tr": "2026-11-26 16:43",
+   "kontrol_tr": "2026-11-26 16:55",
    "son_7_gun": [
     {
      "tarih": "2026-11-19",
@@ -124,7 +134,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-24",
-   "kontrol_tr": "2026-11-26 16:43",
+   "kontrol_tr": "2026-11-26 16:55",
    "son_7_gun": [
     {
      "tarih": "2026-11-24",
@@ -136,10 +146,10 @@
   {
    "kaynak": "bist",
    "url": "https://www.borsaistanbul.com/duyurular",
-   "durum": "BAYAT",
+   "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-04",
-   "kontrol_tr": "2026-11-26 16:43",
+   "kontrol_tr": "2026-11-26 16:55",
    "son_7_gun": []
   }
  ],
@@ -876,6 +886,17 @@
   ],
   "portfoy_sirketleri": [
    {
+    "gun": "2026-11-26",
+    "zaman": "26.11.2026 15:26:47",
+    "kurum": "EMAA BLUE PORTFÖY YÖNETİMİ A.Ş.",
+    "konu": "Finansal Tablo ve-veya Dipnot Değişikliği",
+    "ozet": "Emaa Blue Portföy 30.09.2026 Ara Dönemine Ait Finansal Raporlar Revizesi",
+    "kod": "EBP",
+    "ilgili": "",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1702961"
+   },
+   {
     "gun": "2026-11-24",
     "zaman": "24.11.2026 18:31:23",
     "kurum": "YAPI KREDİ PORTFÖY YÖNETİMİ A.Ş.",
@@ -957,8 +978,8 @@
   ],
   "rutin_sayim": {
    "Pay Alım Satım Bildirimi": 88,
+   "Takasbank Para Piyasası Günlük Bülten": 6,
    "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 5,
-   "Takasbank Para Piyasası Günlük Bülten": 5,
    "Takasbank Ödünç Pay Piyasası Günlük Bülten": 5,
    "Hak Kullanımı": 5,
    "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 4,
@@ -1447,7 +1468,8 @@
     "2026-11-26": 1
    },
    "DSTKF": {
-    "2026-11-20": 1
+    "2026-11-20": 1,
+    "2026-11-26": 1
    },
    "GUNDG": {
     "2026-11-20": 1
@@ -1586,7 +1608,6 @@
   "uyari": null
  },
  "kontrol_edilemeyenler": [
-  "bist: BAYAT, en son kayit 2026-11-04",
   "takvim: 2026-11-30 MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) - birincil kaynakla teyit edilmedi",
   "takvim: 2026-12-03 TUIK TUFE (tahmini tarih) - birincil kaynakla teyit edilmedi"
  ]

@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-26 16:43
+# Kurum taramasi - 2026-11-26 16:55
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -9,7 +9,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-25 | 4 |
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 1 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
-| [bist](https://www.borsaistanbul.com/duyurular) | **BAYAT** | 2026-11-04 | 0 |
+| [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
 | KAP arsivi | **OK** | 2026-11-26 | 66 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
@@ -19,6 +19,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-20 [Bülten No : 2026/83 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6b00990e8f95db2500151a4f/2026-83.pdf)
 - 2026-11-20 [Bülten No : 2026/82 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6aff68a68f95db1a509dd7ff/2026-82.pdf)
 - Son bulten 2026/85: karar turleri {'islem_yasagi': 7, 'tedbir': 12, 'suc_duyurusu': 17, 'idari_para_cezasi': 3, 'tasfiye': 1, 'ilke_karari': 9, 'halka_arz_onayi': 1}; gecen kodlar KUYAS, SMRVA, SVGYO
+  - Karar turune gore kodlar: suc_duyurusu: KUYAS, SMRVA, SVGYO
 
 ## takasbank (son 7 gun)
 
@@ -108,7 +109,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
 - ANELE: 11-20: 3, 11-23: 2, 11-26: 1
-- DSTKF: 11-20: 1
+- DSTKF: 11-20: 1, 11-26: 1
 - GUNDG: 11-20: 1
 - IEYHO: 11-20: 1, 11-23: 2
 - KTLEV: 11-19: 1, 11-23: 2, 11-24: 1
@@ -133,7 +134,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Kontrol edilemeyenler
 
-- bist: BAYAT, en son kayit 2026-11-04
 - takvim: 2026-11-30 MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) - birincil kaynakla teyit edilmedi
 - takvim: 2026-12-03 TUIK TUFE (tahmini tarih) - birincil kaynakla teyit edilmedi
 
