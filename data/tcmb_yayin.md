@@ -9,13 +9,15 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 | Basin Duyurulari | OK | 20 |
 | PPK Kararlari | OK | 21 |
 | Baskanin Konusmalari | OK | 30 |
-| Veri Yayimlama Takvimi | OK | 31 |
+| Veri Yayimlama Takvimi | OK | 21 |
 
 ## Son 7 gün yayımlananlar
 
+- 2026-11-26 18:27 [Basin Duyurulari] [Türk Lirası Likidite Yönetimine İlişkin Basın Duyurusu (2026-51)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/duyurular/basin/2026/duy2026-51)
 - 2026-11-26 17:00 [Veriler] [Haftalık Akım Faiz ve Kâr Payı İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/faiz+istatistikleri/haftalik)
 - 2026-11-26 14:30 [Veriler] [Menkul Kıymet İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/menkul+kiymet+istatistikleri)
 - 2026-11-26 14:30 [Veriler] [Haftalık Para ve Banka İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/haftalik+para+ve+banka+istatistikleri)
+- 2026-11-26 00:00 [Basin Duyurulari] [Makroihtiyati Çerçeveye İlişkin Basın Duyurusu (2026-52)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/duyurular/basin/2026/duy2026-52)
 - 2026-11-24 14:30 [Veriler] [Finansal Kesim Dışındaki Firmaların Döviz Varlık ve Yükümlülükleri (Eylül 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/finansal+kesim+disindaki+firmalarin+doviz+varlik+ve+yukumlulukleri)
 - 2026-11-23 10:00 [Veriler] [Sektörel Enflasyon Beklentileri (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/sektorel+enflasyon+beklentileri)
 - 2026-11-23 10:00 [Veriler] [Hanehalkı Beklenti Anketi (Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/hanehalki+beklenti+anketi)
@@ -25,20 +27,9 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 - 2026-11-20 10:00 [Veriler] [Yatırım Eğilimi İstatistikleri (2026 Güz Dönemi)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/yatirim+egilimi+istatistikleri)
 - 2026-11-20 10:00 [Veriler] [Uluslararası Yatırım Pozisyonu (Eylül 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/uluslararasi+yatirim+pozisyonu)
 - 2026-11-20 10:00 [Veriler] [Türkiye Dış Borç İstatistikleri (2026 III. Çeyrek)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/dis+borc)
-- 2026-11-19 10:00 [Veriler] [Kısa Vadeli Dış Borç İstatistikleri (Eylül 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/kisa+vadeli+dis+borc+istatistiklerii)
 
 ## Önümüzdeki 14 gün (Veri Yayımlama Takvimi)
 
-- 2026-11-26 14:30 Banka ve Kredi Kartı Sektörel Harcama İstatistikleri (47. Hafta 2026) (RİP)
-- 2026-11-26 14:30 Haftalık Para ve Banka İstatistikleri (47. Hafta 2026) (RİP)
-- 2026-11-26 14:30 Menkul Kıymet İstatistikleri (47. Hafta 2026) (RİP)
-- 2026-11-26 14:30 Uluslararası Rezervler ve Döviz Likiditesi (Haftalık) (47. Hafta 2026) (RİP)
-- 2026-11-26 15:30 Zorunlu Karşılığa Tabi Katılım Fonları (46. Hafta 2026) (RİP)
-- 2026-11-26 15:30 Zorunlu Karşılığa Tabi Mevduatlar (46. Hafta 2026) (RİP)
-- 2026-11-26 17:00 Katılma  Hesabı  Kâr Oranları  (Haftalık Akım, Ağırlıklı Ortalama) (47. Hafta 2026) (RİP)
-- 2026-11-26 17:00 Kredi Faiz Oranları (Haftalık Akım, Ağırlıklı Ortalama) (47. Hafta 2026) (RİP)
-- 2026-11-26 17:00 Kredi Kâr Oranları (Haftalık Akım, Ağırlıklı Ortalama) (47. Hafta 2026) (RİP)
-- 2026-11-26 17:00 Mevduat Faiz Oranları (Haftalık Akım, Ağırlıklı Ortalama) (47. Hafta 2026) (RİP)
 - 2026-11-30 14:30 Aylık Para ve Banka İstatistikleri (Ekim 2026) (RİP)
 - 2026-12-02 14:30 Bankalarca Mevduatlara Fiilen Uygulanan Azami Faiz Oranları (Stok Veri %) (Aylık) (Ekim 2026) (RİP)
 - 2026-12-02 14:30 Bankalarca İşletme Kredilerine Fiilen Uygulanan Azami Faiz Oranları (Aylık) (Ekim 2026) (RİP)
