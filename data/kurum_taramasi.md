@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-26 16:55
+# Kurum taramasi - 2026-11-26 20:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 1 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-26 | 66 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-26 | 69 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -19,7 +19,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-20 [Bülten No : 2026/83 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6b00990e8f95db2500151a4f/2026-83.pdf)
 - 2026-11-20 [Bülten No : 2026/82 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6aff68a68f95db1a509dd7ff/2026-82.pdf)
 - Son bulten 2026/85: karar turleri {'islem_yasagi': 7, 'tedbir': 12, 'suc_duyurusu': 17, 'idari_para_cezasi': 3, 'tasfiye': 1, 'ilke_karari': 9, 'halka_arz_onayi': 1}; gecen kodlar KUYAS, SMRVA, SVGYO
-  - Karar turune gore kodlar: suc_duyurusu: KUYAS, SMRVA, SVGYO
+  - Karar turune gore kodlar: suc_duyurusu: KUYAS, SMRVA, SVGYO; islem_yasagi+tedbir: KUYAS; izin_iptali: KUYAS, SMRVA, SVGYO
 
 ## takasbank (son 7 gun)
 
@@ -34,6 +34,9 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- **[KRITIK]** 26.11.2026 17:51:17 MERKEZİ KAYIT KURULUŞU A.Ş. - [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703037) SPK İşlem Yasağı Nedeniyle Pay Duyurusu
+- **[KRITIK]** 26.11.2026 17:49:26 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1703035) BAP İşlem İptali
+- 26.11.2026 17:24:13 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703016) DÖNÜŞÜM
 - 26.11.2026 11:43:40 KAMUYU AYDINLATMA PLATFORMU - [Finansal Rapor Ek Süre Taleplerine İlişkin SPK Değerlendirmesi](https://www.kap.org.tr/tr/Bildirim/1702910) Finansal Rapor Ek Süre Taleplerine İlişkin SPK Değerlendirmesi
 - 26.11.2026 09:17:20 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702843) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 - 26.11.2026 09:13:31 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702840) Hak Kullanımı
@@ -71,12 +74,10 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 23.11.2026 18:16:51 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701482) Pazar Değişikliği
 - 23.11.2026 18:11:46 BORSA İSTANBUL A.Ş. - [Borsa İstanbul A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701467) Borçlanma Araçlarının Gözaltı Pazarı'na Alınması / Kottan Çıkarılması
 - 23.11.2026 17:49:01 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701433) Gerçekleşmeyen İtfa/Kupon/Getiri Ödemesi
-- **[KRITIK]** 23.11.2026 17:37:23 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1701412) BAP İşlem İptali
-- 23.11.2026 17:24:04 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701402) DÖNÜŞÜM
-- 23.11.2026 15:26:44 BORSA İSTANBUL A.Ş. - [Endeks Şirketlerinde Değişiklik](https://www.kap.org.tr/tr/Bildirim/1701292) 
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
+- 26.11.2026 16:48:40 GOLDEN GLOBAL YATIRIM BANKASI A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1702988) Tasfiye Bildirimi
 - 25.11.2026 19:07:05 SÜMER VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1702730) KAYYIM ATANMASI HAKKINDA
 - 23.11.2026 12:37:28 CREDITWEST FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1701130) Altınbaş Holding AŞ'ye Kayyım Görevlendirilmesi Hakkında
 - 23.11.2026 09:52:56 METROPAL KURUMSAL HİZMETLER A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1700939) Tasfiye Kapsamındaki Yatırım Fonlarından Şirketimiz Paylarının Borsa Dışında Ger
@@ -125,7 +126,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 2026-11-26 16:30 ABD haftalik issizlik basvurulari (kurala gore)
 - 2026-11-27 saat ? H14 ilk resmi karar mumkun haftasi (ic takvim) (teyitli)
 - 2026-11-27 saat ? TCMB Finansal Istikrar Raporu (teyitli)
-- 2026-11-30 saat ? MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) (TEYITSIZ)
+- 2026-11-30 saat ? MSCI Kasim 2026 endeks incelemesi degisiklikleri kapanista yururluk (SAHOL ve ASTOR MSCI Turkey'den Small Cap'e; Small Cap'ten 18 hisse cikiyor) (teyitli)
 - 2026-12-03 10:00 TUIK TUFE (tahmini tarih) (TEYITSIZ)
 - 2026-12-03 16:30 ABD haftalik issizlik basvurulari (kurala gore)
 - 2026-12-09 21:00 Fed FOMC faiz karari (teyitli)
@@ -134,7 +135,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Kontrol edilemeyenler
 
-- takvim: 2026-11-30 MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) - birincil kaynakla teyit edilmedi
 - takvim: 2026-12-03 TUIK TUFE (tahmini tarih) - birincil kaynakla teyit edilmedi
 
 Gozlem amaclidir, tavsiye degildir.

@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-26T13:55:10.532442+00:00",
- "uretim_tr": "2026-11-26 16:55",
+ "uretim_utc": "2026-11-26T17:43:42.269695+00:00",
+ "uretim_tr": "2026-11-26 20:43",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -10,7 +10,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-25",
-   "kontrol_tr": "2026-11-26 16:54",
+   "kontrol_tr": "2026-11-26 20:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-25",
@@ -57,6 +57,14 @@
       "KUYAS",
       "SMRVA",
       "SVGYO"
+     ],
+     "islem_yasagi+tedbir": [
+      "KUYAS"
+     ],
+     "izin_iptali": [
+      "KUYAS",
+      "SMRVA",
+      "SVGYO"
      ]
     },
     "bist100_gecen": [],
@@ -74,7 +82,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-19",
-   "kontrol_tr": "2026-11-26 16:55",
+   "kontrol_tr": "2026-11-26 20:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-19",
@@ -134,7 +142,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-24",
-   "kontrol_tr": "2026-11-26 16:55",
+   "kontrol_tr": "2026-11-26 20:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-24",
@@ -149,7 +157,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-04",
-   "kontrol_tr": "2026-11-26 16:55",
+   "kontrol_tr": "2026-11-26 20:43",
    "son_7_gun": []
   }
  ],
@@ -157,6 +165,39 @@
   "arsiv_son_gun": "2026-11-26",
   "arsiv_durum": "OK",
   "kurum_bildirimleri": [
+   {
+    "gun": "2026-11-26",
+    "zaman": "26.11.2026 17:51:17",
+    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
+    "konu": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
+    "ozet": "SPK İşlem Yasağı Nedeniyle Pay Duyurusu",
+    "kod": "",
+    "ilgili": "BLUME, EUKYO, MERKO, QUAGR, THYAO",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703037"
+   },
+   {
+    "gun": "2026-11-26",
+    "zaman": "26.11.2026 17:49:26",
+    "kurum": "BORSA İSTANBUL A.Ş.",
+    "konu": "İşlem İptali",
+    "ozet": "BAP İşlem İptali",
+    "kod": "",
+    "ilgili": "",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703035"
+   },
+   {
+    "gun": "2026-11-26",
+    "zaman": "26.11.2026 17:24:13",
+    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
+    "konu": "Borsada İşlem Gören Tipe Dönüşüm Duyurusu",
+    "ozet": "DÖNÜŞÜM",
+    "kod": "",
+    "ilgili": "CEMZY",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703016"
+   },
    {
     "gun": "2026-11-26",
     "zaman": "26.11.2026 11:43:40",
@@ -921,6 +962,17 @@
   ],
   "tasfiye_tedbir_diger": [
    {
+    "gun": "2026-11-26",
+    "zaman": "26.11.2026 16:48:40",
+    "kurum": "GOLDEN GLOBAL YATIRIM BANKASI A.Ş.",
+    "konu": "Özel Durum Açıklaması (Genel)",
+    "ozet": "Tasfiye Bildirimi",
+    "kod": "GGI",
+    "ilgili": "",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1702988"
+   },
+   {
     "gun": "2026-11-25",
     "zaman": "25.11.2026 19:07:05",
     "kurum": "SÜMER VARLIK YÖNETİM A.Ş.",
@@ -978,13 +1030,13 @@
   ],
   "rutin_sayim": {
    "Pay Alım Satım Bildirimi": 88,
+   "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 6,
+   "Takasbank Ödünç Pay Piyasası Günlük Bülten": 6,
+   "Hak Kullanımı": 6,
    "Takasbank Para Piyasası Günlük Bülten": 6,
-   "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 5,
-   "Takasbank Ödünç Pay Piyasası Günlük Bülten": 5,
-   "Hak Kullanımı": 5,
-   "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 4,
-   "Varantların veya Sertifikaların İşlem Görmeye Başlaması": 3,
-   "Pay Mali Hak Kullanım İşlemi - Nakit Ödeme": 2
+   "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 5,
+   "Pay Mali Hak Kullanım İşlemi - Nakit Ödeme": 3,
+   "Varantların veya Sertifikaların İşlem Görmeye Başlaması": 3
   }
  },
  "izleme": {
@@ -1513,7 +1565,7 @@
  },
  "takvim": {
   "durum": "OK",
-  "dosya_guncelleme": "2026-11-19",
+  "dosya_guncelleme": "2026-11-26",
   "olaylar": [
    {
     "tarih": "2026-11-26",
@@ -1541,10 +1593,10 @@
    {
     "tarih": "2026-11-30",
     "saat_tr": null,
-    "olay": "MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege)",
-    "teyit": "bekliyor",
-    "kaynak": null,
-    "aciklama": "MSCI duyurusunun baglantisi eklenince birincil yapilacak"
+    "olay": "MSCI Kasim 2026 endeks incelemesi degisiklikleri kapanista yururluk (SAHOL ve ASTOR MSCI Turkey'den Small Cap'e; Small Cap'ten 18 hisse cikiyor)",
+    "teyit": "birincil",
+    "kaynak": "https://www.msci.com/downloads/web/msci-com/indexes/quarterly-index-review/insights-from-msci-november-2026-index-review.pdf",
+    "aciklama": "MSCI: 'implemented ... as of the close of November 30, 2026' (birincil). Turkiye freeze bu incelemede ilk kez uygulandi. Hisse bazli ayrinti (SAHOL, ASTOR, 18 cikarma) ◐ CNBC-e 12.11.2026: https://www.cnbce.com/borsa/mscidan-turkiye-karari-sabanci-holding-ve-astorun-endeksi-degisti-18-hisse-cikarildi-h41619 ."
    },
    {
     "tarih": "2026-12-03",
@@ -1589,14 +1641,6 @@
   ],
   "teyitsiz": [
    {
-    "tarih": "2026-11-30",
-    "saat_tr": null,
-    "olay": "MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege)",
-    "teyit": "bekliyor",
-    "kaynak": null,
-    "aciklama": "MSCI duyurusunun baglantisi eklenince birincil yapilacak"
-   },
-   {
     "tarih": "2026-12-03",
     "saat_tr": "10:00",
     "olay": "TUIK TUFE (tahmini tarih)",
@@ -1608,7 +1652,6 @@
   "uyari": null
  },
  "kontrol_edilemeyenler": [
-  "takvim: 2026-11-30 MSCI endeks degisiklikleri kapanista yururluk (SAHOL, ASTOR kucuk olcege) - birincil kaynakla teyit edilmedi",
   "takvim: 2026-12-03 TUIK TUFE (tahmini tarih) - birincil kaynakla teyit edilmedi"
  ]
 }
