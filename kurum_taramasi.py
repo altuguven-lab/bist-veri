@@ -311,7 +311,10 @@ def karar_kod_eslestir(satirli, kod_re, bilinen):
         if len(s) <= 110 and (numarali or buyuk) and not re.search(kod_re, s):
             turler = {ad for ad, desen in BOLUM_BASLIKLARI if re.search(desen, s, re.I)}
             if turler or numarali:
-                aktif = next(iter(turler)) if len(turler) == 1 else None
+                # 26.11 (paket60b): birden fazla karar turu sayan baslik (ör. "Diğer Yaptırım, Tedbir ve İşlem
+                # Yasakları") birlesik etiket alir ("islem_yasagi+tedbir"): kod o bolumde gecti, ama hangi ture
+                # ait oldugu ayrilamaz. Hicbir ture uymayan numarali baslik bolumu kapatir.
+                aktif = "+".join(sorted(turler)) if turler else None
                 continue
         if aktif:
             for a, b in re.findall(kod_re, s):
@@ -323,7 +326,7 @@ def karar_kod_eslestir(satirli, kod_re, bilinen):
 
 BOLUM_BASLIKLARI = [("islem_yasagi", r"[İIi]şlem yasa[ğgk]|[İI]ŞLEM YASA[ĞGK]"), ("tedbir", r"tedb[iİI]r"),
                     ("suc_duyurusu", r"su[çc] duyuru"), ("idari_para_cezasi", r"[İIi]dar[iİI] para ceza"),
-                    ("izin_iptali", r"[İIi]z[iİI]n(?:[iİI]n)? [İIi]ptal|faal[iİI]yet [İIi]zn"),
+                    ("izin_iptali", r"[İIi]z[iİI]n(?:[iİI]n)? [İIi]ptal|faal[iİI]yet [İIi]zn|l[iİI]sans.{0,40}[İIi]ptal"),
                     ("tasfiye", r"tasf[iİI]ye"), ("ilke_karari", r"[İIi]lke karar"),
                     ("halka_arz_onayi", r"halka arz|[İIi]hra[çc] belge|sat[ıIi][şs]a [İIi]l[iİI][şs]k[iİI]n"),
                     ("kayyum_tmsf", r"kayyum|kayy[ıI]m|TMSF")]
