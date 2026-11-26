@@ -7,10 +7,10 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | Kaynak | Durum | Adet |
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
-| hedeffiyat | OK | 13 |
-| haber | OK | 41 |
+| hedeffiyat | OK | 15 |
+| haber | OK | 38 |
 | kurum_yayin_sayfalari | OK | 44 |
-| kuresel_gorunum | OK | 17 |
+| kuresel_gorunum | OK | 14 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -19,6 +19,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 | Tarih | Sembol | Kurum (kademe) | Hedef TL | Tavsiye | Revizyon | Kaynak |
 |---|---|---|---|---|---|---|
+| 2026-11-26 | PGSUS | Deniz Yatırım (B) | 260.0 | AL | ASAGI (305.5 → -14.9%) | ✅ (toplayıcı) |
 | 2026-11-25 | ALARK | ÜNLÜ & Co (A-) | 174.0 | AL | YUKARI (146.6 → 18.7%) | ✅ (toplayıcı) |
 | 2026-11-20 | VAKBN | Phillip Capital (B) | 48.7 | Endeks Üstü Getiri | YUKARI (47.5 → 2.5%) | ✅ (toplayıcı) |
 | 2026-11-20 | ISCTR | Phillip Capital (B) | 21.0 | Endeks Üstü Getiri | YUKARI (20.2 → 4.0%) | ✅ (toplayıcı) |
@@ -34,12 +35,22 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 | Tarih | Sembol | Kurum (kademe) | Hedef TL | Tavsiye | Revizyon | Kaynak |
 |---|---|---|---|---|---|---|
+| 2026-11-26 | AVPGY | İş Yatırım (A) | 97.52 | AL | AYNI | ✅ (toplayıcı) |
 | 2026-11-24 | GRSEL | İş Yatırım (A) | 399.33 | AL | YENI_KAYIT | ✅ (toplayıcı) |
 | 2026-11-23 | BRSAN | İş Yatırım (A) | 952.0 | AL | YENI_KAYIT | ✅ (toplayıcı) |
 | 2026-11-20 | TSKB | Phillip Capital (B) | 18.4 | Endeks Üstü Getiri | AYNI | ✅ (toplayıcı) |
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
+- 2026-11-26 [AVPGY.IS: Avrupakent GYO Toplantı Notları](https://arastirma.isyatirim.com.tr/2026/11/26/avpgy-is-avrupakent-gyo-toplanti-notlari-2/) (diger)
+- 2026-11-26 [FX Teknik Analiz Raporu 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/fx-teknik-analiz-raporu-26-11-2026/) (diger)
+- 2026-11-26 [ELÜS Günlük Bülteni 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/elus-gunluk-bulteni-26-11-2026/) (diger)
+- 2026-11-26 [Piyasalarda Bugün 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/piyasalarda-bugun-26-11-2026/) (diger)
+- 2026-11-26 [İş Varant | İtfalar 26.11.2026](https://arastirma.isyatirim.com.tr/2026/11/26/is-varant-itfalar-26-11-2026/) (diger)
+- 2026-11-26 [Sermaye Artırımları/Azaltımları ve Temettü Ödemeleri 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/sermaye-artirimlari-azaltimlari-ve-temettu-odemeleri-26-11-2026/) (diger)
+- 2026-11-26 [Pay Geri Alımları 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/pay-geri-alimlari-26-11-2026/) (diger)
+- 2026-11-26 [Günlük Yabancı Oranları 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/gunluk-yabanci-oranlari-26-11-2026/) (diger)
+- 2026-11-26 [Teknik Bülten 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/teknik-bulten-26-11-2026/) (diger)
 - 2026-11-26 [Günlük Açığa Satış Bilgileri 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/gunluk-aciga-satis-bilgileri-26-11-2026/) (diger)
 - 2026-11-25 [Uluslararası Piyasalar Kapanış Raporu – 25.11.2026](https://arastirma.isyatirim.com.tr/2026/11/26/uluslararasi-piyasalar-kapanis-raporu-25-11-2026-2/) (diger)
 - 2026-11-25 [En Çok Önerilenler Listesinde Değişiklikler](https://arastirma.isyatirim.com.tr/2026/11/25/en-cok-onerilenler-listesinde-degisiklikler-50/) (diger)
@@ -51,8 +62,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-25 [Sermaye Artırımları/Azaltımları ve Temettü Ödemeleri 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/sermaye-artirimlari-azaltimlari-ve-temettu-odemeleri-25-11-2026/) (diger)
 - 2026-11-25 [Pay Geri Alımları 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/pay-geri-alimlari-25-11-2026/) (diger)
 - 2026-11-25 [Teknik Bülten 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/teknik-bulten-25-11-2026/) (diger)
-- 2026-11-25 [Günlük Açığa Satış Bilgileri 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/gunluk-aciga-satis-bilgileri-25-11-2026/) (diger)
-- 2026-11-25 [Günlük Yabancı Oranları 25/11/2026](https://arastirma.isyatirim.com.tr/2026/11/25/gunluk-yabanci-oranlari-25-11-2026/) (diger)
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
@@ -109,14 +118,14 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-20 **Goldman Sachs**: [Goldman Sachs: AI layoff wave delayed, not cancelled, in 2027 outlook - CASRAI](https://news.google.com/rss/articles/CBMihAFBVV95cUxPYkZsWDRoTll1N0FOTXJidkVkZjhmdWxIWXgyWldyOG5LMTZBN2lEclJfWGVSQjk3NlBDUEVJbFkxdWJjZ21SRDM5aVpmM0FnbzgxamRFQWRRemxHZHlvSWFYWWNtSEU0X0RCZkEySVp2UGw5d3ZyRFhVOUZ2eFBVZWZKQ2E?oc=5)
 - 2026-11-20 **Bank of America**: [Gümüş fiyatlarında yeni dönem! Bank of America 2027 için 75 dolar tahminini açıkladı - Haberton](https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMjBkdlU2Umo3U1k3em1MeW5BMXBPUWgzMnN0ZlhBcVJSc2NVRllFWmRPWi16ZERVXzlCNWFsTkw5cUVWM2UzR3BaYWk2cjlvTGg5eXZHbGFYNDlaS0xaTkw1ZzFPZHBNdzRaT1FkNXU1X0NpUXdxOFBtRnNlUUJWaDN6dzVrQnI2ZFZFUU14VHo2WFFxNTRJSEQxYjBXQXFyd3l4MTdiM1U?oc=5)
 - 2026-11-19 **UBS**: [UBS 2027 Outlook: S&P 500 Base Case at 8,200; AI Capex Stall Could Drag It to 5,500 - BigGo Finance](https://news.google.com/rss/articles/CBMidkFVX3lxTE9KU21ROUM0T0Y2bW91bU43VDNYNERBYmpHYlpkWEkxSlRFcnJNUUd3TWdnUmtieWtBaWQ3bWNhME9OWFllZ0ptNExUeG52M2RXOUR2eUNVN0FGY0RQZHkwdXdIQ1JXWm1DLU5HS3BaSXlJRGhGZkE?oc=5)
+- 2026-11-26 **ING**: [Commodities daily Published 08:04 The Commodities Feed: Oil extends rally as copper rebounds Oil extends gains on Middle East supply risks](https://think.ing.com/articles/the-commodities-feed-gold-slumps-below-3500-oz/)
+- 2026-11-26 **ING**: [Published 08:00 FX Daily: Korean won stands out in a harsh EM environment Markets stabilise for Thanksgiving; the Korean won is in focus](https://think.ing.com/articles/fx-daily-korean-won-stands-out-in-a-harsh-em-environment/)
+- 2026-11-26 **ING**: [Commodities daily 24 November The Commodities Feed: Oil extends losses while copper gives back Nvidia bounce Nvidia-led rally lifts copper](https://think.ing.com/articles/the-commodities-feed-nvidia-led-rally-lifts-gold-and-copper/)
+- 2026-11-26 **ING**: [FX 24 November FX Daily: Dollar may be heading into overshoot territory We think the dollar is starting to head into overshoot territory and would be careful about expecting more strength just yet](https://think.ing.com/articles/fx-daily-surprise-dollar-strength/)
 - 2026-11-26 **ING**: [Rates Spark Yesterday, 18:22 Rates Spark: No risk appetite for Thanksgiving dinner Equities failed to recover losses heading into Thanksgiving as risk-off sentiment continues to linger](https://think.ing.com/articles/rates-spark-no-risk-appetite-for-thanksgiving-dinner/)
 - 2026-11-26 **ING**: [United States Yesterday, 14:15 Strong growth and elevated inflation signal more Fed tightening The economy remains in decent shape, but relief is coming on the inflation front](https://think.ing.com/articles/strong-growth-and-elevated-inflation-signal-more-fed-tightening/)
 - 2026-11-26 **ING**: [Trade Yesterday, 08:30 The US tariff wall keeps changing, but it isn't coming down The US is preparing new tariffs targeting structural overcapacity](https://think.ing.com/articles/the-us-tariff-wall-keeps-changing-but-it-isnt-coming-down/)
 - 2026-11-26 **ING**: [Commodities daily Yesterday, 08:00 The Commodities Feed: Oil shrugs off rising Middle East tensions Oil slips as improving supply outweighs disruption risks](https://think.ing.com/articles/the-commodities-feed-aluminium-squeeze-eases-after-lme-intervention/)
-- 2026-11-26 **ING**: [Yesterday, 07:40 FX Daily: Full EMFX unwind underway The hostile investment environment is keeping emerging market FX under pressure and the dollar bid](https://think.ing.com/articles/fx-daily-full-emfx-unwind-underway/)
-- 2026-11-25 **ING**: [Rates Spark Published 18:22 Rates Spark: No risk appetite for Thanksgiving dinner Equities failed to recover losses heading into Thanksgiving as risk-off sentiment continues to linger](https://think.ing.com/articles/rates-spark-no-risk-appetite-for-thanksgiving-dinner/)
-- 2026-11-25 **ING**: [United States Today, 14:15 Strong growth and elevated inflation signal more Fed tightening The economy remains in decent shape, but relief is coming on the inflation front](https://think.ing.com/articles/strong-growth-and-elevated-inflation-signal-more-fed-tightening/)
-- 2026-11-25 **ING**: [Rates Spark 23 November Rates Spark: Jensen who? The Treasury market effectively said - "We see your 6% Nasdaq rally, but we're not for moving"](https://think.ing.com/articles/rates-spark-nvidia-back-up/)
 
 ## Yabancı aracı kurum takas haberleri (son 7 gün, ◐; araştırma değil, işlem akışı)
 
