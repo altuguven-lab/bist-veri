@@ -1,38 +1,64 @@
 {
-  "son_guncelleme_utc": "2026-11-25T15:11:59.332Z",
+  "son_guncelleme_utc": "2026-11-26T07:15:21.361Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
-  "sinyal_sayisi": 200,
+  "sinyal_sayisi": 201,
   "ay_sayac": {
     "ay": "2026-11",
-    "adet": 1972
+    "adet": 1973
   },
   "son_sinyal": {
-    "zaman_utc": "2026-11-25T15:11:07.005Z",
-    "sembol": "ENKAI",
+    "zaman_utc": "2026-11-26T07:15:19.716Z",
+    "sembol": "FROTO",
     "interval": "15",
-    "fiyat": "75.55",
-    "skor": "14.52",
-    "kgs": "24",
-    "stop": "76.95",
+    "fiyat": "64.95",
+    "skor": "23.87",
+    "kgs": "51",
+    "stop": "71.15",
     "rejim": "0",
-    "relvol": "1.09",
-    "v112n": "142",
+    "relvol": "3.78",
+    "v112n": "137",
     "v112wr": "?",
-    "p3ozet": "32",
+    "p3ozet": "3800032",
     "pozsebep": "0",
     "schemaVersion": "v163.2",
     "carrierLagBars": "1",
-    "skor0": "14.17",
-    "kgs0": "25",
-    "relvol0": "1.22",
+    "skor0": "7.96",
+    "kgs0": "0",
+    "relvol0": "2.5",
     "manuel_poz": "0",
     "poz_kaynak": "NONE",
     "karar": "PAS GEC",
-    "faktor": "RS",
-    "sinyal": "GUNLUK_OZET",
-    "eventId": "ENKAI|15|GUNLUK_OZET|2026-11-25T15:00:00Z"
+    "faktor": "SECTOR",
+    "sinyal": "ACIL_CIK",
+    "eventId": "FROTO|15|ACIL_CIK|2026-11-26T07:00:00Z"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-11-26T07:15:19.716Z",
+      "sembol": "FROTO",
+      "interval": "15",
+      "fiyat": "64.95",
+      "skor": "23.87",
+      "kgs": "51",
+      "stop": "71.15",
+      "rejim": "0",
+      "relvol": "3.78",
+      "v112n": "137",
+      "v112wr": "?",
+      "p3ozet": "3800032",
+      "pozsebep": "0",
+      "schemaVersion": "v163.2",
+      "carrierLagBars": "1",
+      "skor0": "7.96",
+      "kgs0": "0",
+      "relvol0": "2.5",
+      "manuel_poz": "0",
+      "poz_kaynak": "NONE",
+      "karar": "PAS GEC",
+      "faktor": "SECTOR",
+      "sinyal": "ACIL_CIK",
+      "eventId": "FROTO|15|ACIL_CIK|2026-11-26T07:00:00Z"
+    },
     {
       "zaman_utc": "2026-11-25T15:11:07.005Z",
       "sembol": "ENKAI",
@@ -5233,9 +5259,5 @@
       "sinyal": "P4_HAZIRLIK",
       "eventId": "THYAO|15|P4_HAZIRLIK|2026-11-24T08:30:00Z"
     }
-  ],
-  "inbox_kurtarma": {
-    "son_kosu_kurtarilan": 66,
-    "inbox_dosya_sayisi": 66
-  }
+  ]
 }
