@@ -1,11 +1,13 @@
 # KAP bildirim PDF özetleri
 
-Üretim: 2026-11-26 16:52 TR · durum OK · seçilen 33 · yeni 33 · hata 0
+Üretim: 2026-11-26 18:57 TR · durum OK · seçilen 35 · yeni 2 · hata 0
 
 Salt veri, tavsiye değildir. Kişi adları maskelenir.
 
 | Zaman | Kod | Konu | Özet / alanlar | Durum |
 |---|---|---|---|---|
+| 26.11.2026 17:56:13 | TCKRC | [Yeni İş İlişkisi](https://www.kap.org.tr/tr/Bildirim/1703038) | tur=bedelli_sermaye_artirimi · Şirketimiz Bulgaristan'da oluşturduğu konsorsiyum ile bugün (26.11.2026) KDV hariç toplam 32.125.000 EUR bedelli yol güvenliği sözleşmesi imzalamıştır. Sözleşme, Bulgaristan'ın Kuzeybatı ve | OK |
+| 26.11.2026 17:51:17 | BLUME,EUKYO,MERKO,QUAGR,THYAO | [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703037) | Kisi bilgisi icerebilecegi icin metin saklanmadi; yalniz kod ve karar sozcugu sayimi. | OK |
 | 26.11.2026 09:13:31 | FROTO | [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702840) | brut_kar_payi_tl=3,07, baz_fiyat_tl=63,83, tur=kar_payi · FROTO.E Pay Başına Brüt Temettü: 3,07 TL Teorik Fiyat: 63,83 TL (Teorik fiyat, fiyat adımına yuvarlanmamıştır.) BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu | OK |
 | 26.11.2026 09:12:13 | BNPPI,GSIPD,INFO,ISMEN,IYF,IYM,TBY,UNS | [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702838) | Bu konu turunde kisi bilgisi olabilecegi icin metin saklanmadi; esas metin icin url. | OK |
 | 26.11.2026 09:10:30 | MAVI,METRO,SKTAS | [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702836) | Kisi bilgisi icerebilecegi icin metin saklanmadi; yalniz kod ve karar sozcugu sayimi. | OK |
