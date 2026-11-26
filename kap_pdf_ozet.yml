@@ -1,0 +1,40 @@
+# KAP BILDIRIM PDF OZETLERI - is gunu 09:02, 12:56, 18:56 TR (Cloudflare zamanli tetik). SALT VERI, TAVSIYE DEGILDIR.
+# 26.11 (paket60): Brifing ortami KAP PDF'lerine erisemiyor; ozetler burada cikarilip depoya yazilir.
+name: KAP PDF Ozet
+on:
+  schedule:
+    - cron: "2 6 * * 1-5"      # yedek (GitHub schedule gecikebilir)
+  repository_dispatch:
+    types: [kap_pdf_tetikle]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: kap-pdf-ozet
+  cancel-in-progress: false
+jobs:
+  ozet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pypdf==7.1.1 pdfplumber==0.11.4 pyyaml
+      - name: Ozetle
+        run: python kap_pdf_ozet.py
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "kap-pdf-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/kap_pdf_ozet.json data/kap_pdf_ozet.md 2>/dev/null || true
+          git diff --staged --quiet && exit 0
+          git commit -m "KAP PDF ozet $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            sleep $(( (RANDOM % 8) + 3 ))
+            git pull --rebase -X theirs origin main || git rebase --abort
+          done
+          exit 1
