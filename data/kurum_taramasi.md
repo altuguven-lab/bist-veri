@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-26 12:43
+# Kurum taramasi - 2026-11-26 16:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 1 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **BAYAT** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-26 | 65 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-26 | 66 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -33,6 +33,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- 26.11.2026 11:43:40 KAMUYU AYDINLATMA PLATFORMU - [Finansal Rapor Ek Süre Taleplerine İlişkin SPK Değerlendirmesi](https://www.kap.org.tr/tr/Bildirim/1702910) Finansal Rapor Ek Süre Taleplerine İlişkin SPK Değerlendirmesi
 - 26.11.2026 09:17:20 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702843) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 - 26.11.2026 09:13:31 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702840) Hak Kullanımı
 - 26.11.2026 09:12:13 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702838) Varant Sıralarının Geçici Olarak İşleme Kapatılması
@@ -72,7 +73,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - **[KRITIK]** 23.11.2026 17:37:23 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1701412) BAP İşlem İptali
 - 23.11.2026 17:24:04 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701402) DÖNÜŞÜM
 - 23.11.2026 15:26:44 BORSA İSTANBUL A.Ş. - [Endeks Şirketlerinde Değişiklik](https://www.kap.org.tr/tr/Bildirim/1701292) 
-- 23.11.2026 12:22:22 BORSA İSTANBUL A.Ş. - [Yabancı Yatırımcı İşlemleri](https://www.kap.org.tr/tr/Bildirim/1701122) Yabancı Yatırımcı İşlemleri
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
