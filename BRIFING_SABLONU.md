@@ -1,8 +1,9 @@
-# Brifing şablonu (18.11.2026; 19.11 güncellemeleri)
+# Brifing şablonu (18.11.2026; 19.11, 20.11 ve 26.11 güncellemeleri)
 
 **Neden:**
 - **18.11:** Açılmamış kaynaklar için "yeni duyuru görmedim" yazıldı.
 - **19.11:** Öğle brifinginde depoda hazır duran veri ("BIST öğle seviyesi") ve açılabilecek bir PDF (Takasbank pozisyon limitleri) için "kontrol edilemedi" yazıldı.
+- **26.11:** "Teyit edilemeyenler" bölümü her gün aynı 8-10 maddeyle doluyordu. Çoğu, brifing ortamının erişemediği ama depoda artık özeti bulunan kaynaklardı (KAP PDF, SPK bülteni, TCMB kuru), saati gelmemiş veriye yazılan ✖'lerdi ya da kısa geçmişli klon yüzünden yanlış "commit yok" tespitleriydi.
 
 Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmasını ve denenmemiş bir şeyin "kontrol edilemedi" diye yazılmasını.
 
@@ -14,10 +15,17 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
 | ◐ | İkincil kaynak (haber sitesi) | Sitenin adı. Birincil teyit bekleniyor. |
 | ⛔ | Erişim kuralı gereği açılamıyor (robots.txt, site izni, oturum gerekiyor) | Neden yazılır. İkincil kaynak aranır, bulunursa ◐ ile verilir. Bulunamazsa "panelden bakılmalı" yazılır. |
 | ✖ | Açılmaya **çalışıldı** ama açılamadı (zaman aşımı, hata, bayat sayfa) | **Neden zorunludur** ("açılamadı: zaman aşımı"). "Açmadım" bir ✖ gerekçesi değildir. |
-| 🕒 | Henüz yayımlanmadı | "Henüz yayımlanmadı, beklenen saat ..." (saat `takvim.json`'dan). Bu bir boşluk sayılmaz. |
+| 🕒 | Henüz yayımlanmadı ya da depodaki okumanın saati gelmedi | "Henüz yayımlanmadı, beklenen saat ..." (saat `takvim.json`'dan; depo okumaları için `cloudflare/cloudflare_kopru.js` ZAMANLI tablosundan). Bu bir boşluk sayılmaz, "Teyit edilemeyenler"e yazılmaz. |
 
 **Kurallar:**
 - Bir maddeye ✖ yazılmadan önce açılması mutlaka denenir.
+- **Önce depo (26.11):** Depoda özeti olan kaynak için web'e gidilmez; depo dosyası ✅ ile verilir. Brifing ortamından erişilemeyen şu kaynaklar artık YALNIZ depodan okunur ve doğrudan denenmez:
+  - KAP bildirim PDF'leri → `data/kap_pdf_ozet.json` / `.md` (GitHub Actions, robots.txt'e uyar). Bildirim listede yoksa ya da durumu OK değilse "KAP özeti yok (durum)" yazılır; PDF elle denenmez.
+  - SPK bülteni PDF → `data/kurum_taramasi.json` → `son_bulten_ozet` (karar_turleri, karar_kodlari, bist100_gecen).
+  - TCMB gösterge kuru → `data/tcmb_evds_veri.json` → `doviz_kayitlar` (USD/EUR alış ve satış ayrı). Hangi seri verildiği yazılır ("TCMB gösterge, USD satış"). `today.xml` denenmez.
+- **Commit ve iş akışı sayımı:** Depo kısa geçmişle klonlanmışsa commit sayılmaz; sayım GitHub API'den yapılır (`https://api.github.com/repos/altuguven-lab/bist-veri/commits?since=...` ve `/actions/runs`). Köprü commit adları: `TV sinyal: <SEMBOL> <TÜR>` (Pipedream hattı), `TV sinyal: CF <n> kayit` (Cloudflare yalnız Pipedream'in kaçırdığı kayıtları yazar; 0 olması normaldir) ve `Piyasa gunluk: CF <tarih>` (TL tahvil, ~18:12).
+- **Önceki gün işareti:** `kuresel_gosterge.json` içinde `onceki_gun: true` olan bölüm "dünkü kapanış" diye verilir, bugünün verisi gibi sunulmaz. `endeks_intraday.json` içinde `uyari` ya da `onceki_kapanis_kaynak` alanı varsa yazılır.
+- **Hak kullanımı günü:** `kap_pdf_ozet.json`'da bugün hak kullanımı (temettü, bedelsiz, bedelli) olan hissede gün içi düşüş ve o hissedeki çıkış alarmları "fiyat düzeltmesi kaynaklı olabilir (teorik fiyat X TL)" notuyla verilir.
 - Hafızadan tarih, saat ya da sayı yazılmaz.
 - Takvim bilgisi `data/takvim.json` (olaylar ve kurallar) ile `data/makro_takvim.json`'dan alınır.
 - "Kurala göre" ve "teyitli" olaylar saatiyle yazılır. Diğerleri "teyitsiz" diye yazılır.
@@ -29,7 +37,9 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
    | Dosya | İçerik |
    |---|---|
    | `data/kurum_kumesi.json` | Son 14 günde 5 ve daha fazla hisseyi kapsayan kurum kümeleri |
-   | `data/kurum_taramasi.json` / `.md` | Kaynak durum tablosu; Takasbank'ın bütün PDF özetleri; KAP kurum bildirimleri; izleme listesi ve devre kesici sayımı; takvim |
+   | `data/kurum_taramasi.json` / `.md` | Kaynak durum tablosu; Takasbank'ın bütün PDF özetleri; SPK bülteninin karar türleri ve karar bölümüne göre kodları; KAP kurum bildirimleri; izleme listesi ve devre kesici sayımı; takvim |
+   | `data/kap_pdf_ozet.json` / `.md` | KAP bildirim PDF özetleri (09:02, 12:56, 18:56): BIST 100'ün önemli bildirimleri ve kurum duyuruları; hak kullanımı türü, temettü, teorik fiyat, kredi notu alanları. Kişi içerebilecek konularda metin yoktur, yalnız kod |
+   | `data/tcmb_evds_veri.json` | TCMB gösterge kurları (USD/EUR alış-satış, `doviz_kayitlar`), politika faizi |
    | `data/endeks_intraday.json` | XU100, XU030, XBANK, XHOLD, XUSIN, USDTRY, EURTRY, Brent, S&P/Nasdaq vadelileri, ABD 10 yıllık, dolar endeksi, altın (15 dk, Yahoo, gecikmeli) |
    | `data/piyasa_gunluk.json` | TL tahvil getirileri TR02Y, TR05Y, TR10Y (günlük, TradingView TVC → köprü; seans sonu son değer). Bugünün tarihi yoksa 🕒 (seans bitmedi) ya da ✖ (alarm/köprü sorunu) |
    | `data/bist_resmi.json` / `bist_resmi_gecmis.json` | borsaistanbul.com ana sayfasından XU100, XU030, XBANK vb. gün sonu değerleri (18:20 TR). Durum OK değilse ✖ + neden |
@@ -51,16 +61,20 @@ Bu şablon iki şeyi önler: kontrol edilmemiş bir şeyin "yok" diye yazılmas�
 2. **Kurum taraması:**
    - Kaynak durum tablosu olduğu gibi verilir. OK olmayan kaynak elle açılmaya çalışılır.
    - Takasbank PDF özeti eksikse PDF elle açılır.
-   - KAP bildirim eki robots.txt nedeniyle açılamıyorsa ⛔ yazılır. `kap.org.tr/tr/api/BildirimPdf/<id>` adresi denenir; bildirimin kapak bilgisi buradan okunabilir.
+   - KAP bildirim içeriği `data/kap_pdf_ozet.json`'dan okunur (✅). Özet yoksa nedeniyle yazılır; brifing ortamından PDF denenmez.
    - Bir listede adı geçmek, ilgili şirket hakkında bir hüküm değildir.
-3. **Sistem kontrolleri:** Kapsama, köprü ("TV sinyal: CF" commit'leri), başarısız iş akışları, H14, V195 ve IP-8.
+3. **Sistem kontrolleri:** Kapsama, köprü ("TV sinyal: ..." ve "Piyasa gunluk: CF" commit'leri, GitHub API ile sayılır; bkz. kurallar), başarısız iş akışları, H14, V195 ve IP-8.
 4. **Türkiye 5 yıllık CDS (her brifingte):** Güncel değer, tarihi ve kaynağıyla yazılır. Sırası şöyle: (a) kullanıcının panelinden paylaştığı değer ✅ (panel esastır); (b) toplayıcı kurulunca `data/cds_gunluk.json` (kaynağına göre ✅ ya da ◐); (c) o gün tarihli bir haber ◐ (kaynak S&P Global, Bloomberg, LSEG vb. yazılır). Bugüne ait değer bulunamazsa ✖ yazılır ve "son bilinen: değer, tarih, kaynak" verilir. Tarihi belli olmayan sayfalardaki değer kullanılmaz.
 5. **Piyasa:** Endeks ve kur için önce `endeks_intraday.json` kullanılır ("Yahoo, gecikmeli" diye belirtilir). Resmi kapanış için önce `data/bist_resmi.json` (borsaistanbul.com, ✅), sonra TCMB; haber siteleri ◐.
 6. **Makro ve siyasi:** Her veri için ✅ ya da ◐ kullanılır. Bugün açıklanan TCMB/TÜİK verileri `data/tcmb_yayin.md` ve `data/makro_akim_reel.md`'den "son · önceki · yön" biçiminde verilir. Henüz açıklanmamış veri için 🕒 ve beklenen saat (`data/tcmb_yayin.md` takviminden) yazılır.
 6b. **Kurum raporları:** `data/arastirma_akisi.md`'den takip setindeki hedef/tavsiye değişiklikleri (revizyon yönüyle), yabancı kurum ve kredi notu haberleri (◐, tarihli). Rapor metni aktarılmaz. Tek bir rapor sinyal sayılmaz; revizyon genişliğiyle (`data/analist_hedef/revizyon.md`) birlikte okunur.
 7. **Savaş ve jeopolitik:** Haberin tarihi yazılır. Bugünden eski haber "son bilinen" diye işaretlenir.
 8. **İzlenecekler:** Yalnızca takvimden alınır, saatleriyle.
-9. **Teyit edilemeyenler:** Bu başlık her zaman bulunur. Her ✖, ⛔ ve ◐ maddesi burada nedeniyle birlikte tekrar edilir ve her birine aynı gün için bir kontrol saati verilir.
+9. **Teyit edilemeyenler (26.11 biçimi):** Bu başlık her zaman bulunur ve üç alt başlıktan oluşur:
+   - **(i) Teyitsiz:** Yalnız gerçekten açık kalanlar: denenip açılamayan (✖ + neden), kaynaklar arasında çelişen rakam (iki değer, iki kaynak) ve karara etkisi olabilecek önemli ◐ iddialar. Her birine aynı gün için kontrol saati. Boşsa "(yok)".
+   - **(ii) İkincil kaynaklı:** Doğası gereği haber olan maddeler (VİOP açılışı, jeopolitik, yabancı kurum haberleri) tek satırda, kaynak adlarıyla. Bunlar eksiklik sayılmaz.
+   - **(iii) Kalıcı kapsam dışı:** Tek sabit satır: "⛔ Garanti BBVA (üye girişi), YKY/Ziraat PDF (robots.txt), yabancı banka raporları (müşteriye özel); CDS için ücretsiz birincil kaynak yok (kurul K5)." Her gün madde madde tekrarlanmaz. CDS değeri yine bölüm 4'teki sırayla aranır.
+   - 🕒 maddeleri bu bölüme yazılmaz.
 10. Kaynaklar (markdown bağlantı) ve "Gözlem amaçlıdır, tavsiye değildir".
 
 ## Çelişki kuralları (20.11.2026)
