@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-27 20:43
+# Kurum taramasi - 2026-11-28 00:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -6,20 +6,19 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
-| [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-25 | 4 |
+| [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-27 | 3 |
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-27 | 2 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-27 | 80 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-27 | 67 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
+- 2026-11-27 [Bülten No : 2026/86 Yayımlanma : 27 Kasım 2026 Cuma](https://spk.gov.tr/data/6b09e5fe8f95db29b4c8c2c9/2026-86.pdf)
 - 2026-11-25 [Bülten No : 2026/85 Yayımlanma : 25 Kasım 2026 Çarşamba](https://spk.gov.tr/data/6b074a0b8f95db1270c37ee7/2026-85.pdf)
 - 2026-11-23 [Bülten No : 2026/84 Yayımlanma : 23 Kasım 2026 Pazartesi](https://spk.gov.tr/data/6b0473e08f95db1db01008e7/2026-84.pdf)
-- 2026-11-20 [Bülten No : 2026/83 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6b00990e8f95db2500151a4f/2026-83.pdf)
-- 2026-11-20 [Bülten No : 2026/82 Yayımlanma : 20 Kasım 2026 Cuma](https://spk.gov.tr/data/6aff68a68f95db1a509dd7ff/2026-82.pdf)
-- Son bulten 2026/85: karar turleri {'islem_yasagi': 7, 'tedbir': 12, 'suc_duyurusu': 17, 'idari_para_cezasi': 3, 'tasfiye': 1, 'ilke_karari': 9, 'halka_arz_onayi': 1}; gecen kodlar KUYAS, SMRVA, SVGYO
-  - Karar turune gore kodlar: suc_duyurusu: KUYAS, SMRVA, SVGYO; islem_yasagi+tedbir: KUYAS; izin_iptali: KUYAS, SMRVA, SVGYO
+- Son bulten 2026/86: karar turleri {'islem_yasagi': 10, 'tedbir': 17, 'suc_duyurusu': 29, 'idari_para_cezasi': 9, 'izin_iptali': 1, 'ilke_karari': 7, 'halka_arz_onayi': 4}; gecen kodlar BIGEN, PASEU, PEKGY, SKYLP, TERA
+  - Karar turune gore kodlar: suc_duyurusu: BIGEN, PASEU, PEKGY, SKYLP, TERA; islem_yasagi+tedbir: SKYLP; izin_iptali: BIGEN, PASEU, PEKGY, SKYLP, TERA
 
 ## takasbank (son 7 gun)
 
@@ -81,6 +80,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
+- 27.11.2026 20:12:00 AK FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703457) Şirketimize Kayyım Atanması Hakkında
 - 27.11.2026 19:10:20 SÜMER FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703441) Şirketimize Kayyım Atanması Hakkında
 - 27.11.2026 18:13:18 BİRİKİM VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703384) KAYYIM ATANMASI HAKKINDA
 - 27.11.2026 09:37:14 HUN YENİLENEBİLİR ENERJİ ÜRETİM A.Ş - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703139) Yönetim Kurulu Başkanımız Hakkındaki Malvarlığı Tedbirlerinin Kaldırılması
@@ -89,10 +89,14 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 25.11.2026 19:07:05 SÜMER VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1702730) KAYYIM ATANMASI HAKKINDA
 - 23.11.2026 12:37:28 CREDITWEST FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1701130) Altınbaş Holding AŞ'ye Kayyım Görevlendirilmesi Hakkında
 - 23.11.2026 09:52:56 METROPAL KURUMSAL HİZMETLER A.Ş. - [Payların Geri Alınmasına İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1700939) Tasfiye Kapsamındaki Yatırım Fonlarından Şirketimiz Paylarının Borsa Dışında Ger
-- 20.11.2026 19:38:05 DESTEK FİNANS FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1700873) Destek Holding AŞ'ye Kayyım Görevlendirilmesi Hakkında
 
 ## Izleme listesi eslesmeleri
 
+- 27.11.2026 20:47:44 ÖZATA DENİZCİLİK SANAYİ VE TİCARET  - [Hak Kullanım Süreç İptal Bildirimi](https://www.kap.org.tr/tr/Bildirim/1703461) eslesen: OZATD
+- 27.11.2026 20:46:01 ÖZATA DENİZCİLİK SANAYİ VE TİCARET  - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703460) eslesen: OZATD
+- 27.11.2026 20:12:00 AK FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703457) eslesen: kayyım
+- 27.11.2026 20:11:26 DESTEK FİNANS FAKTORİNG A.Ş. - [Şirket Genel Bilgi Formu](https://www.kap.org.tr/tr/Bildirim/1703456) eslesen: DSTKF
+- 27.11.2026 20:09:27 DESTEK FİNANS FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703454) eslesen: DSTKF
 - 27.11.2026 19:10:20 SÜMER FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703441) eslesen: kayyım
 - 27.11.2026 18:23:17 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703408) eslesen: TEHOL, OZATD
 - 27.11.2026 18:13:18 BİRİKİM VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703384) eslesen: kayyım
@@ -108,29 +112,21 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 23.11.2026 19:05:44 GÜNDOĞDU GIDA SÜT ÜRÜNLERİ SANAYİ V - [Hak Kullanım Süreç İptal Bildirimi](https://www.kap.org.tr/tr/Bildirim/1701552) eslesen: GUNDG
 - 23.11.2026 18:18:21 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701486) eslesen: PEKGY
 - 23.11.2026 18:16:51 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701482) eslesen: GUNDG
-- 23.11.2026 15:26:44 BORSA İSTANBUL A.Ş. - [Endeks Şirketlerinde Değişiklik](https://www.kap.org.tr/tr/Bildirim/1701292) eslesen: GUNDG, PEKGY
-- 23.11.2026 12:37:28 CREDITWEST FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1701130) eslesen: kayyım
-- 23.11.2026 09:50:34 BORSA İSTANBUL A.Ş. - [Pay İşlem Sırası Kapatma / Açma](https://www.kap.org.tr/tr/Bildirim/1700936) eslesen: TRHOL
-- 23.11.2026 09:42:00 TERA FİNANSAL YATIRIMLAR HOLDİNG A. - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700932) eslesen: TRHOL
-- 23.11.2026 09:37:32 BORSA İSTANBUL A.Ş. - [Pay İşlem Sırası Kapatma / Açma](https://www.kap.org.tr/tr/Bildirim/1700929) eslesen: TRHOL
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
-- ANELE: 11-20: 3, 11-23: 2, 11-26: 1, 11-27: 2
-- DSTKF: 11-20: 1, 11-26: 1, 11-27: 2
-- GUNDG: 11-20: 1
-- IEYHO: 11-20: 1, 11-23: 2, 11-27: 2
+- ANELE: 11-23: 2, 11-26: 1, 11-27: 2
+- DSTKF: 11-26: 1, 11-27: 2
+- IEYHO: 11-23: 2, 11-27: 2
 - KTLEV: 11-23: 2, 11-24: 1, 11-27: 3
-- ODINE: 11-20: 2, 11-23: 1, 11-24: 2, 11-25: 2, 11-27: 1
-- OZATD: 11-20: 1, 11-27: 2
-- PEKGY: 11-20: 1
-- SELEC: 11-20: 1, 11-23: 1, 11-25: 2, 11-27: 1
+- ODINE: 11-23: 1, 11-24: 2, 11-25: 2, 11-27: 1
+- OZATD: 11-27: 2
+- SELEC: 11-23: 1, 11-25: 2, 11-27: 1
 - TEHOL: 11-23: 3, 11-24: 1, 11-27: 5
 - VSNMD: 11-23: 1
 
 ## Takvim (bugun-1 .. +14 gun)
 
-- 2026-11-26 16:30 ABD haftalik issizlik basvurulari (kurala gore)
 - 2026-11-27 saat ? H14 ilk resmi karar mumkun haftasi (ic takvim) (teyitli)
 - 2026-11-27 saat ? TCMB Finansal Istikrar Raporu (teyitli)
 - 2026-11-30 saat ? MSCI Kasim 2026 endeks incelemesi degisiklikleri kapanista yururluk (SAHOL ve ASTOR MSCI Turkey'den Small Cap'e; Small Cap'ten 18 hisse cikiyor) (teyitli)

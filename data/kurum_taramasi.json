@@ -1,6 +1,6 @@
 {
- "uretim_utc": "2026-11-27T17:43:58.027647+00:00",
- "uretim_tr": "2026-11-27 20:43",
+ "uretim_utc": "2026-11-27T21:43:45.055122+00:00",
+ "uretim_tr": "2026-11-28 00:43",
  "pencere_gun": 7,
  "not": "Salt veri toplama; tavsiye degildir. Brifing bu dosyayi kurum_kumesi.json ile birlikte okur. Durumu OK olmayan kaynak icin 'yok' denmez.",
  "kaynaklar": [
@@ -9,9 +9,15 @@
    "url": "https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri",
    "durum": "OK",
    "hata": null,
-   "en_son_kayit": "2026-11-25",
-   "kontrol_tr": "2026-11-27 20:43",
+   "en_son_kayit": "2026-11-27",
+   "kontrol_tr": "2026-11-28 00:43",
    "son_7_gun": [
+    {
+     "tarih": "2026-11-27",
+     "baslik": "Bülten No : 2026/86 Yayımlanma : 27 Kasım 2026 Cuma",
+     "url": "https://spk.gov.tr/data/6b09e5fe8f95db29b4c8c2c9/2026-86.pdf",
+     "bulten_no": "2026/86"
+    },
     {
      "tarih": "2026-11-25",
      "baslik": "Bülten No : 2026/85 Yayımlanma : 25 Kasım 2026 Çarşamba",
@@ -23,55 +29,49 @@
      "baslik": "Bülten No : 2026/84 Yayımlanma : 23 Kasım 2026 Pazartesi",
      "url": "https://spk.gov.tr/data/6b0473e08f95db1db01008e7/2026-84.pdf",
      "bulten_no": "2026/84"
-    },
-    {
-     "tarih": "2026-11-20",
-     "baslik": "Bülten No : 2026/83 Yayımlanma : 20 Kasım 2026 Cuma",
-     "url": "https://spk.gov.tr/data/6b00990e8f95db2500151a4f/2026-83.pdf",
-     "bulten_no": "2026/83"
-    },
-    {
-     "tarih": "2026-11-20",
-     "baslik": "Bülten No : 2026/82 Yayımlanma : 20 Kasım 2026 Cuma",
-     "url": "https://spk.gov.tr/data/6aff68a68f95db1a509dd7ff/2026-82.pdf",
-     "bulten_no": "2026/82"
     }
    ],
    "son_bulten_ozet": {
     "durum": "OK",
-    "bulten_no": "2026/85",
-    "sayfa_karakter": 33151,
-    "sayfa_sayisi": 13,
+    "bulten_no": "2026/86",
+    "sayfa_karakter": 46864,
+    "sayfa_sayisi": 19,
     "metin_yetersiz": false,
     "karar_turleri": {
-     "islem_yasagi": 7,
-     "tedbir": 12,
-     "suc_duyurusu": 17,
-     "idari_para_cezasi": 3,
-     "tasfiye": 1,
-     "ilke_karari": 9,
-     "halka_arz_onayi": 1
+     "islem_yasagi": 10,
+     "tedbir": 17,
+     "suc_duyurusu": 29,
+     "idari_para_cezasi": 9,
+     "izin_iptali": 1,
+     "ilke_karari": 7,
+     "halka_arz_onayi": 4
     },
     "karar_kodlari": {
      "suc_duyurusu": [
-      "KUYAS",
-      "SMRVA",
-      "SVGYO"
+      "BIGEN",
+      "PASEU",
+      "PEKGY",
+      "SKYLP",
+      "TERA"
      ],
      "islem_yasagi+tedbir": [
-      "KUYAS"
+      "SKYLP"
      ],
      "izin_iptali": [
-      "KUYAS",
-      "SMRVA",
-      "SVGYO"
+      "BIGEN",
+      "PASEU",
+      "PEKGY",
+      "SKYLP",
+      "TERA"
      ]
     },
     "bist100_gecen": [],
     "gecen_kodlar": [
-     "KUYAS",
-     "SMRVA",
-     "SVGYO"
+     "BIGEN",
+     "PASEU",
+     "PEKGY",
+     "SKYLP",
+     "TERA"
     ],
     "not": "Sayimlar metinde gecen ifadelerdir; karar ayrintisi icin PDF okunmalidir. Bultende adi gecmek ilgili sirket hakkinda hukum degildir."
    }
@@ -82,7 +82,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-27",
-   "kontrol_tr": "2026-11-27 20:43",
+   "kontrol_tr": "2026-11-28 00:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-27",
@@ -166,7 +166,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-24",
-   "kontrol_tr": "2026-11-27 20:43",
+   "kontrol_tr": "2026-11-28 00:43",
    "son_7_gun": [
     {
      "tarih": "2026-11-24",
@@ -181,7 +181,7 @@
    "durum": "OK",
    "hata": null,
    "en_son_kayit": "2026-11-04",
-   "kontrol_tr": "2026-11-27 20:43",
+   "kontrol_tr": "2026-11-28 00:43",
    "son_7_gun": []
   }
  ],
@@ -925,149 +925,6 @@
     "ilgili": "BAHKM, DHS, EYGYO, GSIPD, HATEK, HDH, HEDEF, IEYHO, PETKM, SAHOL, TRALT, TRMET",
     "kritik": false,
     "url": "https://www.kap.org.tr/tr/Bildirim/1700907"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 22:34:27",
-    "kurum": "KAMUYU AYDINLATMA PLATFORMU",
-    "konu": "Sermaye Piyasası Kurulu Tedbir Kararı",
-    "ozet": "Sermaye Piyasası Kurulu Tedbir Kararı",
-    "kod": "",
-    "ilgili": "BTCIM",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700895"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 22:07:24",
-    "kurum": "SERMAYE PİYASASI KURULU",
-    "konu": "SPK Bülteni",
-    "ozet": "SPK BÜLTENİ",
-    "kod": "",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700893"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 19:08:59",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "Borsa İstanbul A.Ş. Duyurusu",
-    "ozet": "Borçlanma Araçlarının Gözaltı Pazarı'na Alınması/Kottan Çıkarılması",
-    "kod": "",
-    "ilgili": "TEVKS, TMKS, TRBNK",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700859"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:39:33",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
-    "ozet": "Pay Piyasasında Volatilite Bazlı Tedbir Sistemi",
-    "kod": "",
-    "ilgili": "IDGYO",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700839"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:38:34",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
-    "ozet": "Pay Piyasasında Volatilite Bazlı Tedbir Sistemi",
-    "kod": "",
-    "ilgili": "ALKLC, IEYHO, OZATD, SEGYO, TEHOL",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700838"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:14:52",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "Pazar Değişikliği",
-    "ozet": "Payların Yakın İzleme Pazarına Alınması",
-    "kod": "",
-    "ilgili": "GUNDG",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700798"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:13:13",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "Pazar Değişikliği",
-    "ozet": "Payların Yakın İzleme Pazarına Alınması",
-    "kod": "",
-    "ilgili": "PEKGY",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700794"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 17:53:58",
-    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
-    "konu": "Merkezi Kayıt Kuruluşu A.Ş. Duyurusu",
-    "ozet": "Fon Portföyünden Karşılık Ayrılan Borçlanma Araçlarına İlişkin Ödeme Bildirimi",
-    "kod": "",
-    "ilgili": "HAR",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700768"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 17:34:32",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "İşlem İptali",
-    "ozet": "BAP İşlem İptali",
-    "kod": "",
-    "ilgili": "",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700750"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 17:13:59",
-    "kurum": "MERKEZİ KAYIT KURULUŞU A.Ş.",
-    "konu": "Borsada İşlem Gören Tipe Dönüşüm Duyurusu",
-    "ozet": "DÖNÜŞÜM",
-    "kod": "",
-    "ilgili": "REEDR, USHOL",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700733"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 08:52:32",
-    "kurum": "KAMUYU AYDINLATMA PLATFORMU",
-    "konu": "Kamuyu Aydınlatma Platformu Duyurusu",
-    "ozet": "Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama",
-    "kod": "",
-    "ilgili": "BLUME, DUNYH, HDH, HEDEF, SEKUR",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700478"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 08:51:04",
-    "kurum": "KAMUYU AYDINLATMA PLATFORMU",
-    "konu": "Kamuyu Aydınlatma Platformu Duyurusu",
-    "ozet": "Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama",
-    "kod": "",
-    "ilgili": "BVD, DAP, DOL, FS5, GLC, GO1, KSK, LKT, ODG, VKV",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700470"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 00:32:05",
-    "kurum": "SERMAYE PİYASASI KURULU",
-    "konu": "SPK Bülteni",
-    "ozet": "SPK BÜLTENİ",
-    "kod": "",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700462"
    }
   ],
   "portfoy_sirketleri": [
@@ -1106,6 +963,17 @@
    }
   ],
   "tasfiye_tedbir_diger": [
+   {
+    "gun": "2026-11-27",
+    "zaman": "27.11.2026 20:12:00",
+    "kurum": "AK FAKTORİNG A.Ş.",
+    "konu": "Özel Durum Açıklaması (Genel)",
+    "ozet": "Şirketimize Kayyım Atanması Hakkında",
+    "kod": "AKSFA",
+    "ilgili": "",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703457"
+   },
    {
     "gun": "2026-11-27",
     "zaman": "27.11.2026 19:10:20",
@@ -1193,34 +1061,93 @@
     "ilgili": "",
     "kritik": true,
     "url": "https://www.kap.org.tr/tr/Bildirim/1700939"
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 19:38:05",
-    "kurum": "DESTEK FİNANS FAKTORİNG A.Ş.",
-    "konu": "Özel Durum Açıklaması (Genel)",
-    "ozet": "Destek Holding AŞ'ye Kayyım Görevlendirilmesi Hakkında",
-    "kod": "DSTKF",
-    "ilgili": "",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700873"
    }
   ],
   "rutin_sayim": {
-   "Pay Alım Satım Bildirimi": 94,
-   "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 6,
-   "Takasbank Ödünç Pay Piyasası Günlük Bülten": 6,
-   "Hak Kullanımı": 6,
-   "Takasbank Para Piyasası Günlük Bülten": 6,
-   "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 5,
-   "Pay Mali Hak Kullanım İşlemi - Nakit Ödeme": 3,
-   "Varantların veya Sertifikaların İşlem Görmeye Başlaması": 3
+   "Pay Alım Satım Bildirimi": 80,
+   "Borçlanma Araçları, Yatırım Fonları ve Varant İtfa/Kupon/Getiri/ Nakdi Uzlaşı Ödeme İşlemleri": 5,
+   "Takasbank Ödünç Pay Piyasası Günlük Bülten": 5,
+   "Hak Kullanımı": 5,
+   "Takasbank Para Piyasası Günlük Bülten": 5,
+   "Borçlanma Araçlarının / Kira Sertifikalarının İşlem Görmeye Başlaması": 4,
+   "Pay Mali Hak Kullanım İşlemi - Nakit Ödeme": 2,
+   "Varantların veya Sertifikaların İşlem Görmeye Başlaması": 2
   }
  },
  "izleme": {
   "terim_sayisi": 20,
   "kod_sayisi": 13,
   "eslesmeler": [
+   {
+    "gun": "2026-11-27",
+    "zaman": "27.11.2026 20:47:44",
+    "kurum": "ÖZATA DENİZCİLİK SANAYİ VE TİCARET A.Ş.",
+    "konu": "Hak Kullanım Süreç İptal Bildirimi",
+    "ozet": "",
+    "kod": "OZATD",
+    "ilgili": "",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703461",
+    "eslesen": [
+     "OZATD"
+    ]
+   },
+   {
+    "gun": "2026-11-27",
+    "zaman": "27.11.2026 20:46:01",
+    "kurum": "ÖZATA DENİZCİLİK SANAYİ VE TİCARET A.Ş.",
+    "konu": "Özel Durum Açıklaması (Genel)",
+    "ozet": "BİRLEŞME İŞLEMİNDEN VAZGEÇİLMESİ HK.",
+    "kod": "OZATD",
+    "ilgili": "",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703460",
+    "eslesen": [
+     "OZATD"
+    ]
+   },
+   {
+    "gun": "2026-11-27",
+    "zaman": "27.11.2026 20:12:00",
+    "kurum": "AK FAKTORİNG A.Ş.",
+    "konu": "Özel Durum Açıklaması (Genel)",
+    "ozet": "Şirketimize Kayyım Atanması Hakkında",
+    "kod": "AKSFA",
+    "ilgili": "",
+    "kritik": true,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703457",
+    "eslesen": [
+     "kayyım"
+    ]
+   },
+   {
+    "gun": "2026-11-27",
+    "zaman": "27.11.2026 20:11:26",
+    "kurum": "DESTEK FİNANS FAKTORİNG A.Ş.",
+    "konu": "Şirket Genel Bilgi Formu",
+    "ozet": "",
+    "kod": "DSTKF",
+    "ilgili": "",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703456",
+    "eslesen": [
+     "DSTKF"
+    ]
+   },
+   {
+    "gun": "2026-11-27",
+    "zaman": "27.11.2026 20:09:27",
+    "kurum": "DESTEK FİNANS FAKTORİNG A.Ş.",
+    "konu": "Özel Durum Açıklaması (Genel)",
+    "ozet": "Genel Müdür Yardımcısı Hakkında",
+    "kod": "DSTKF",
+    "ilgili": "",
+    "kritik": false,
+    "url": "https://www.kap.org.tr/tr/Bildirim/1703454",
+    "eslesen": [
+     "DSTKF"
+    ]
+   },
    {
     "gun": "2026-11-27",
     "zaman": "27.11.2026 19:10:20",
@@ -1545,168 +1472,19 @@
     "eslesen": [
      "OZATD"
     ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 19:43:05",
-    "kurum": "DESTEK FİNANS FAKTORİNG A.Ş.",
-    "konu": "Olağan Dışı Fiyat ve Miktar Hareketleri",
-    "ozet": "Olağandışı Fiyat ve Miktar Hareketi hk.",
-    "kod": "DSTKF",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700877",
-    "eslesen": [
-     "DSTKF"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 19:38:05",
-    "kurum": "DESTEK FİNANS FAKTORİNG A.Ş.",
-    "konu": "Özel Durum Açıklaması (Genel)",
-    "ozet": "Destek Holding AŞ'ye Kayyım Görevlendirilmesi Hakkında",
-    "kod": "DSTKF",
-    "ilgili": "",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700873",
-    "eslesen": [
-     "kayyım",
-     "DSTKF"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 19:18:24",
-    "kurum": "PEKER GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
-    "konu": "Olağan Dışı Fiyat ve Miktar Hareketleri",
-    "ozet": "Olağan Dışı Fiyat ve Miktar Hareketleri",
-    "kod": "PEKGY",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700864",
-    "eslesen": [
-     "PEKGY"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 19:03:00",
-    "kurum": "TERA YATIRIM TEKNOLOJİ HOLDİNG A.Ş.",
-    "konu": "Olağan Dışı Fiyat ve Miktar Hareketleri",
-    "ozet": "Olağan Dışı Fiyat ve Miktar Hareketleri",
-    "kod": "TEHOL",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700857",
-    "eslesen": [
-     "TEHOL"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:40:50",
-    "kurum": "IŞIKLAR ENERJİ VE YAPI HOLDİNG A.Ş.",
-    "konu": "Olağan Dışı Fiyat ve Miktar Hareketleri",
-    "ozet": "Olağandışı Fiyat ve Miktar Hareketleri Hk.da",
-    "kod": "IEYHO",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700840",
-    "eslesen": [
-     "IEYHO"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:38:34",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu",
-    "ozet": "Pay Piyasasında Volatilite Bazlı Tedbir Sistemi",
-    "kod": "",
-    "ilgili": "ALKLC, IEYHO, OZATD, SEGYO, TEHOL",
-    "kritik": true,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700838",
-    "eslesen": [
-     "TEHOL",
-     "OZATD",
-     "IEYHO"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:14:52",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "Pazar Değişikliği",
-    "ozet": "Payların Yakın İzleme Pazarına Alınması",
-    "kod": "",
-    "ilgili": "GUNDG",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700798",
-    "eslesen": [
-     "GUNDG"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:13:13",
-    "kurum": "BORSA İSTANBUL A.Ş.",
-    "konu": "Pazar Değişikliği",
-    "ozet": "Payların Yakın İzleme Pazarına Alınması",
-    "kod": "",
-    "ilgili": "PEKGY",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700794",
-    "eslesen": [
-     "PEKGY"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 18:12:27",
-    "kurum": "ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş.",
-    "konu": "Birleşme İşlemlerine İlişkin Bildirim",
-    "ozet": "Şirketimiz ile bağlı ortaklıkları Anel Net Teknik Hizmetleri Limited Şirketi, Anelyapı Gayrimenkul A.Ş. ve Anel Holding A.Ş 'nin devralma yoluyla kolaylaştırılmış usulde birleşmesi hk.",
-    "kod": "ANELE",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700792",
-    "eslesen": [
-     "ANELE"
-    ]
-   },
-   {
-    "gun": "2026-11-20",
-    "zaman": "20.11.2026 17:30:20",
-    "kurum": "GÜNDOĞDU GIDA SÜT ÜRÜNLERİ SANAYİ VE DIŞ TİCARET A.Ş.",
-    "konu": "Olağan Dışı Fiyat ve Miktar Hareketleri",
-    "ozet": "Olağan Dışı Fiyat ve Miktar Hareketleri",
-    "kod": "GUNDG",
-    "ilgili": "",
-    "kritik": false,
-    "url": "https://www.kap.org.tr/tr/Bildirim/1700743",
-    "eslesen": [
-     "GUNDG"
-    ]
    }
   ],
   "devre_kesici_sayim": {
    "ANELE": {
-    "2026-11-20": 3,
     "2026-11-23": 2,
     "2026-11-26": 1,
     "2026-11-27": 2
    },
    "DSTKF": {
-    "2026-11-20": 1,
     "2026-11-26": 1,
     "2026-11-27": 2
    },
-   "GUNDG": {
-    "2026-11-20": 1
-   },
    "IEYHO": {
-    "2026-11-20": 1,
     "2026-11-23": 2,
     "2026-11-27": 2
    },
@@ -1716,21 +1494,15 @@
     "2026-11-27": 3
    },
    "ODINE": {
-    "2026-11-20": 2,
     "2026-11-23": 1,
     "2026-11-24": 2,
     "2026-11-25": 2,
     "2026-11-27": 1
    },
    "OZATD": {
-    "2026-11-20": 1,
     "2026-11-27": 2
    },
-   "PEKGY": {
-    "2026-11-20": 1
-   },
    "SELEC": {
-    "2026-11-20": 1,
     "2026-11-23": 1,
     "2026-11-25": 2,
     "2026-11-27": 1
@@ -1750,14 +1522,6 @@
   "durum": "OK",
   "dosya_guncelleme": "2026-11-26",
   "olaylar": [
-   {
-    "tarih": "2026-11-26",
-    "saat_tr": "16:30",
-    "olay": "ABD haftalik issizlik basvurulari",
-    "teyit": "kural",
-    "kaynak": "https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/ui-claims/20261561.pdf",
-    "aciklama": "DOL bulteni: 'EMBARGOED UNTIL 8:30 A.M. (Eastern) Thursday' (19.11 goruldu). Resmi tatil haftalarinda gun kayabilir."
-   },
    {
     "tarih": "2026-11-27",
     "saat_tr": null,
