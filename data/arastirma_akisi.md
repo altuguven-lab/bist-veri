@@ -7,10 +7,10 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 | Kaynak | Durum | Adet |
 |---|---|---|
 | is_yatirim_rss | OK | 10 |
-| hedeffiyat | OK | 20 |
-| haber | OK | 45 |
+| hedeffiyat | OK | 11 |
+| haber | OK | 40 |
 | kurum_yayin_sayfalari | OK | 47 |
-| kuresel_gorunum | OK | 20 |
+| kuresel_gorunum | OK | 17 |
 | Garanti BBVA Yatırım raporları | ⛔ üye girişi | - |
 | YKY / Ziraat PDF | ⛔ robots.txt | - |
 | Yabancı banka raporları | ⛔ müşteriye özel; yalnız haber ◐ | - |
@@ -47,6 +47,7 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 
 ## İş Yatırım yayınları (son 24 saat, birincil)
 
+- 2026-11-27 [Uluslararası Piyasalar Kapanış Raporu – 27.11.2026](https://arastirma.isyatirim.com.tr/2026/11/28/uluslararasi-piyasalar-kapanis-raporu-27-11-2026/) (diger)
 - 2026-11-27 [İş Varant Raporu: İş Varant 27/11/2026](https://arastirma.isyatirim.com.tr/2026/11/27/is-varant-raporu-is-varant-27-11-2026/) (diger)
 - 2026-11-27 [Eurotahvil Piyasasında Neler Oluyor 27/11/2026](https://arastirma.isyatirim.com.tr/2026/11/27/eurotahvil-piyasasinda-neler-oluyor-27-11-2026/) (diger)
 - 2026-11-27 [FX Teknik Analiz Raporu 27/11/2026](https://arastirma.isyatirim.com.tr/2026/11/27/fx-teknik-analiz-raporu-27-11-2026/) (diger)
@@ -66,7 +67,6 @@ Salt veri, tavsiye değildir. Rapor metni kopyalanmaz; yalnız kurum, sembol, he
 - 2026-11-26 [İş Varant | İtfalar 26.11.2026](https://arastirma.isyatirim.com.tr/2026/11/26/is-varant-itfalar-26-11-2026/) (diger)
 - 2026-11-26 [Sermaye Artırımları/Azaltımları ve Temettü Ödemeleri 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/sermaye-artirimlari-azaltimlari-ve-temettu-odemeleri-26-11-2026/) (diger)
 - 2026-11-26 [Pay Geri Alımları 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/pay-geri-alimlari-26-11-2026/) (diger)
-- 2026-11-26 [Günlük Yabancı Oranları 26/11/2026](https://arastirma.isyatirim.com.tr/2026/11/26/gunluk-yabanci-oranlari-26-11-2026/) (diger)
 
 ## Yabancı kurum ve kredi notu haberleri (son 7 gün, ◐)
 
