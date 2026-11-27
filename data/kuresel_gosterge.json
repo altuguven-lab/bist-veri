@@ -81,34 +81,41 @@
     "ozet_ortalama_yuzde": 0.09
   },
   "amerika": {
-    "guncelleme_zamani_utc": "2026-11-26T22:32:53.372917+00:00",
-    "seans_tarihleri": [],
+    "guncelleme_zamani_utc": "2026-11-27T14:51:21.346161+00:00",
+    "seans_tarihleri": [
+      "2026-11-27"
+    ],
     "uyari": null,
     "endeksler": [
       {
         "isim": "S&P 500",
         "kod": "^GSPC",
         "bolge": "ABD",
-        "seans_tarihi": "2026-11-25",
-        "hata": "bugun bar yok/yetersiz (0); son seans 25.11 - seans acilmamis olabilir"
+        "seans_tarihi": "2026-11-27",
+        "bar_sayisi": 5,
+        "son_bar_utc": "14:50",
+        "degisim_yuzde": -0.21
       },
       {
         "isim": "Dow Jones",
         "kod": "^DJI",
         "bolge": "ABD",
-        "seans_tarihi": "2026-11-25",
-        "hata": "bugun bar yok/yetersiz (0); son seans 25.11 - seans acilmamis olabilir"
+        "seans_tarihi": "2026-11-27",
+        "bar_sayisi": 5,
+        "son_bar_utc": "14:50",
+        "degisim_yuzde": -0.21
       },
       {
         "isim": "Nasdaq",
         "kod": "^IXIC",
         "bolge": "ABD",
-        "seans_tarihi": "2026-11-25",
-        "hata": "bugun bar yok/yetersiz (0); son seans 25.11 - seans acilmamis olabilir"
+        "seans_tarihi": "2026-11-27",
+        "bar_sayisi": 5,
+        "son_bar_utc": "14:50",
+        "degisim_yuzde": -0.24
       }
     ],
-    "ozet_yon": null,
-    "ozet_ortalama_yuzde": null,
-    "onceki_gun": true
+    "ozet_yon": "NOTR",
+    "ozet_ortalama_yuzde": -0.22
   }
 }
