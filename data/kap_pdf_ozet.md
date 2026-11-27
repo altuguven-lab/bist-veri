@@ -1,11 +1,19 @@
 # KAP bildirim PDF özetleri
 
-Üretim: 2026-11-27 12:57 TR · durum OK · seçilen 26 · yeni 0 · hata 0
+Üretim: 2026-11-27 18:57 TR · durum OK · seçilen 34 · yeni 8 · hata 0
 
 Salt veri, tavsiye değildir. Kişi adları maskelenir.
 
 | Zaman | Kod | Konu | Özet / alanlar | Durum |
 |---|---|---|---|---|
+| 27.11.2026 18:27:44 | GARAN,TGB | [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703415) | Bu konu turunde kisi bilgisi olabilecegi icin metin saklanmadi; esas metin icin url. | OK |
+| 27.11.2026 18:23:39 | GSDHO,GARAN,TGB | [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703409) | Bu konu turunde kisi bilgisi olabilecegi icin metin saklanmadi; esas metin icin url. | OK |
+| 27.11.2026 18:17:27 | KCAER | [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703398) | Kisi bilgisi icerebilecegi icin metin saklanmadi; yalniz kod ve karar sozcugu sayimi. | OK |
+| 27.11.2026 18:17:19 | KRDMA,KRDMB,KRDMD | [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703396) | Kisi bilgisi icerebilecegi icin metin saklanmadi; yalniz kod ve karar sozcugu sayimi. | OK |
+| 27.11.2026 18:16:29 | JCRAV,SOKM | [Kredi Derecelendirmesi](https://www.kap.org.tr/tr/Bildirim/1703391) | [kişi] Avrasya Derecelendirme Anonim Şirketi tarafından değerlendirilmiştir. Ayrıntılı bilgilere ekteki PDF dosyasından ulaşabilirsiniz. Kredi Derecelendirmesi | OK |
+| 27.11.2026 18:16:12 | KCAER | [Finansal Duran Varlık Edinimi](https://www.kap.org.tr/tr/Bildirim/1703389) | Şirketimizin 17.06.2026 tarihli özel durum açıklamasında sivil havacılık, otomotiv yan sanayi, dijital ve robotik teknolojiler, yapay zekâ ve diğer ileri teknolojiler alanlarında faaliyet göstermek üzere bir şirket kurul | OK |
+| 27.11.2026 16:10:38 | AKSEN | [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703336) | Bu konu turunde kisi bilgisi olabilecegi icin metin saklanmadi; esas metin icin url. | OK |
+| 27.11.2026 15:31:36 | FENER | [Kar Payı Dağıtım İşlemlerine İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1703315) | tur=bedelsiz_sermaye_artirimi · Yönetim Kurulumuz'un 20.08.2026 tarih ve 329 sayılı kararı ile; Şirketin, 01.06.2025 – 31.05.2026 tarihli özel hesap dönemini kapsayan 2025 faaliyet yılının; Sermaye Piyasası Kurulu mevzua | OK |
 | 26.11.2026 18:58:00 | BTCIM | [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703085) | Kisi bilgisi icerebilecegi icin metin saklanmadi; yalniz kod ve karar sozcugu sayimi. | OK |
 | 26.11.2026 17:56:13 | TCKRC | [Yeni İş İlişkisi](https://www.kap.org.tr/tr/Bildirim/1703038) | tur=bedelli_sermaye_artirimi · Şirketimiz Bulgaristan'da oluşturduğu konsorsiyum ile bugün (26.11.2026) KDV hariç toplam 32.125.000 EUR bedelli yol güvenliği sözleşmesi imzalamıştır. Sözleşme, Bulgaristan'ın Kuzeybatı ve | OK |
 | 26.11.2026 17:51:17 | BLUME,EUKYO,MERKO,QUAGR,THYAO | [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703037) | Kisi bilgisi icerebilecegi icin metin saklanmadi; yalniz kod ve karar sozcugu sayimi. | OK |
