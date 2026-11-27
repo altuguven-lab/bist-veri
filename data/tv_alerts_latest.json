@@ -1,38 +1,64 @@
 {
-  "son_guncelleme_utc": "2026-11-26T15:12:06.101Z",
+  "son_guncelleme_utc": "2026-11-27T07:00:34.609Z",
   "kaynak": "TradingView Webhook (Pipedream uzerinden)",
-  "sinyal_sayisi": 200,
+  "sinyal_sayisi": 201,
   "ay_sayac": {
     "ay": "2026-11",
-    "adet": 2126
+    "adet": 2127
   },
   "son_sinyal": {
-    "zaman_utc": "2026-11-26T15:11:07.519Z",
-    "sembol": "TTKOM",
+    "zaman_utc": "2026-11-27T07:00:33.203Z",
+    "sembol": "ENKAI",
     "interval": "15",
-    "fiyat": "44.76",
-    "skor": "10.63",
-    "kgs": "22",
-    "stop": "45.44",
+    "fiyat": "76.80",
+    "skor": "10.56",
+    "kgs": "14",
+    "stop": "77.4",
     "rejim": "0",
-    "relvol": "0.89",
-    "v112n": "179",
+    "relvol": "0.21",
+    "v112n": "156",
     "v112wr": "?",
-    "p3ozet": "32",
+    "p3ozet": "1032",
     "pozsebep": "0",
     "schemaVersion": "v163.2",
     "carrierLagBars": "1",
-    "skor0": "10.21",
-    "kgs0": "15",
-    "relvol0": "0.54",
+    "skor0": "10.19",
+    "kgs0": "43",
+    "relvol0": "0.53",
     "manuel_poz": "0",
     "poz_kaynak": "NONE",
     "karar": "PAS GEC",
-    "faktor": "SECTOR",
-    "sinyal": "GUNLUK_OZET",
-    "eventId": "TTKOM|15|GUNLUK_OZET|2026-11-26T15:00:00Z"
+    "faktor": "RS",
+    "sinyal": "SEKTOR_ROTASYONU",
+    "eventId": "ENKAI|15|SEKTOR_ROTASYONU|2026-11-27T06:45:00Z"
   },
   "sinyal_gecmisi": [
+    {
+      "zaman_utc": "2026-11-27T07:00:33.203Z",
+      "sembol": "ENKAI",
+      "interval": "15",
+      "fiyat": "76.80",
+      "skor": "10.56",
+      "kgs": "14",
+      "stop": "77.4",
+      "rejim": "0",
+      "relvol": "0.21",
+      "v112n": "156",
+      "v112wr": "?",
+      "p3ozet": "1032",
+      "pozsebep": "0",
+      "schemaVersion": "v163.2",
+      "carrierLagBars": "1",
+      "skor0": "10.19",
+      "kgs0": "43",
+      "relvol0": "0.53",
+      "manuel_poz": "0",
+      "poz_kaynak": "NONE",
+      "karar": "PAS GEC",
+      "faktor": "RS",
+      "sinyal": "SEKTOR_ROTASYONU",
+      "eventId": "ENKAI|15|SEKTOR_ROTASYONU|2026-11-27T06:45:00Z"
+    },
     {
       "zaman_utc": "2026-11-26T15:11:07.519Z",
       "sembol": "TTKOM",
@@ -5233,9 +5259,5 @@
       "sinyal": "SEKTOR_ROTASYONU",
       "eventId": "EKGYO|15|SEKTOR_ROTASYONU|2026-11-25T13:30:00Z"
     }
-  ],
-  "inbox_kurtarma": {
-    "son_kosu_kurtarilan": 66,
-    "inbox_dosya_sayisi": 66
-  }
+  ]
 }
