@@ -1,50 +1,46 @@
 {
   "asya": {
-    "guncelleme_zamani_utc": "2026-11-26T17:17:43.854229+00:00",
+    "guncelleme_zamani_utc": "2026-11-27T05:21:21.937300+00:00",
     "seans_tarihleri": [
-      "2026-11-25"
+      "2026-11-27"
     ],
-    "uyari": "bolumdeki bazi endeksler bugunun seansi degil",
+    "uyari": null,
     "endeksler": [
       {
         "isim": "Nikkei 225",
         "kod": "^N225",
         "bolge": "Japonya",
-        "seans_tarihi": "2026-11-25",
-        "onceki_seans_tarihi": "2026-11-24",
-        "uyari": "bugun_degil: son kapanis 25.11 (tatil ya da veri gecikmesi)",
-        "degisim_yuzde": -2.78
+        "seans_tarihi": "2026-11-27",
+        "onceki_seans_tarihi": "2026-11-26",
+        "degisim_yuzde": 2.05
       },
       {
         "isim": "Kospi",
         "kod": "^KS11",
         "bolge": "G.Kore",
-        "seans_tarihi": "2026-11-25",
-        "onceki_seans_tarihi": "2026-11-24",
-        "uyari": "bugun_degil: son kapanis 25.11 (tatil ya da veri gecikmesi)",
-        "degisim_yuzde": -6.16
+        "seans_tarihi": "2026-11-27",
+        "onceki_seans_tarihi": "2026-11-26",
+        "degisim_yuzde": 3.64
       },
       {
         "isim": "Sanghay Bilesik",
         "kod": "000001.SS",
         "bolge": "Cin",
-        "seans_tarihi": "2026-11-25",
-        "onceki_seans_tarihi": "2026-11-24",
-        "uyari": "bugun_degil: son kapanis 25.11 (tatil ya da veri gecikmesi)",
-        "degisim_yuzde": -2.03
+        "seans_tarihi": "2026-11-27",
+        "onceki_seans_tarihi": "2026-11-26",
+        "degisim_yuzde": 1.75
       },
       {
         "isim": "Hang Seng",
         "kod": "^HSI",
         "bolge": "H.Kong",
-        "seans_tarihi": "2026-11-25",
-        "onceki_seans_tarihi": "2026-11-24",
-        "uyari": "bugun_degil: son kapanis 25.11 (tatil ya da veri gecikmesi)",
-        "degisim_yuzde": -1.14
+        "seans_tarihi": "2026-11-27",
+        "onceki_seans_tarihi": "2026-11-26",
+        "degisim_yuzde": 1.77
       }
     ],
-    "ozet_yon": "RISK-OFF",
-    "ozet_ortalama_yuzde": -3.03
+    "ozet_yon": "RISK-ON",
+    "ozet_ortalama_yuzde": 2.3
   },
   "avrupa": {
     "guncelleme_zamani_utc": "2026-11-26T18:23:44.126689+00:00",
@@ -82,7 +78,8 @@
       }
     ],
     "ozet_yon": "RISK-ON",
-    "ozet_ortalama_yuzde": 0.42
+    "ozet_ortalama_yuzde": 0.42,
+    "onceki_gun": true
   },
   "amerika": {
     "guncelleme_zamani_utc": "2026-11-26T22:32:53.372917+00:00",
@@ -112,6 +109,7 @@
       }
     ],
     "ozet_yon": null,
-    "ozet_ortalama_yuzde": null
+    "ozet_ortalama_yuzde": null,
+    "onceki_gun": true
   }
 }
