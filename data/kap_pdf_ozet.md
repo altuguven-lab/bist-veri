@@ -1,11 +1,12 @@
 # KAP bildirim PDF özetleri
 
-Üretim: 2026-11-26 18:57 TR · durum OK · seçilen 35 · yeni 2 · hata 0
+Üretim: 2026-11-27 09:03 TR · durum OK · seçilen 26 · yeni 1 · hata 0
 
 Salt veri, tavsiye değildir. Kişi adları maskelenir.
 
 | Zaman | Kod | Konu | Özet / alanlar | Durum |
 |---|---|---|---|---|
+| 26.11.2026 18:58:00 | BTCIM | [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703085) | Kisi bilgisi icerebilecegi icin metin saklanmadi; yalniz kod ve karar sozcugu sayimi. | OK |
 | 26.11.2026 17:56:13 | TCKRC | [Yeni İş İlişkisi](https://www.kap.org.tr/tr/Bildirim/1703038) | tur=bedelli_sermaye_artirimi · Şirketimiz Bulgaristan'da oluşturduğu konsorsiyum ile bugün (26.11.2026) KDV hariç toplam 32.125.000 EUR bedelli yol güvenliği sözleşmesi imzalamıştır. Sözleşme, Bulgaristan'ın Kuzeybatı ve | OK |
 | 26.11.2026 17:51:17 | BLUME,EUKYO,MERKO,QUAGR,THYAO | [SPK İşlem Yasağı Nedeniyle Pay Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703037) | Kisi bilgisi icerebilecegi icin metin saklanmadi; yalniz kod ve karar sozcugu sayimi. | OK |
 | 26.11.2026 09:13:31 | FROTO | [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702840) | brut_kar_payi_tl=3,07, baz_fiyat_tl=63,83, tur=kar_payi · FROTO.E Pay Başına Brüt Temettü: 3,07 TL Teorik Fiyat: 63,83 TL (Teorik fiyat, fiyat adımına yuvarlanmamıştır.) BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu | OK |
