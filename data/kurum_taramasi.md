@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-27 12:44
+# Kurum taramasi - 2026-11-27 16:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 0 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-27 | 68 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-27 | 72 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -27,6 +27,10 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- **[KRITIK]** 27.11.2026 15:03:20 İSTANBUL TAKAS VE SAKLAMA BANK - [Temerrüt İşlemi](https://www.kap.org.tr/tr/Bildirim/1703301) Temerrüt İşleminin Tamamlanması
+- **[KRITIK]** 27.11.2026 14:31:41 İSTANBUL TAKAS VE SAKLAMA BANK - [Temerrüt İşlemi](https://www.kap.org.tr/tr/Bildirim/1703292) Temerrüt İşleminin Tamamlanması
+- **[KRITIK]** 27.11.2026 12:26:20 İSTANBUL TAKAS VE SAKLAMA BANK - [Temerrüt İşlemi](https://www.kap.org.tr/tr/Bildirim/1703266) İşleme Açılan Temerrüt Sırası
+- **[KRITIK]** 27.11.2026 12:25:25 İSTANBUL TAKAS VE SAKLAMA BANK - [Temerrüt İşlemi](https://www.kap.org.tr/tr/Bildirim/1703265) İşleme Açılan Temerrüt Sırası
 - 27.11.2026 09:17:01 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703136) İşleme Açılan Varantlar
 - 27.11.2026 09:16:05 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703134) İşleme Açılan Varantlar
 - 27.11.2026 09:15:12 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703132) Hak Kullanımı
@@ -63,10 +67,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 24.11.2026 11:35:40 BORSA İSTANBUL A.Ş. - [Endekslerde Kullanılan Fiili Dolaşımdaki Pay Oranı Değişiklikleri](https://www.kap.org.tr/tr/Bildirim/1701746) 
 - 24.11.2026 09:10:40 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701638) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 - 24.11.2026 09:10:01 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701637) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
-- 24.11.2026 09:06:06 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701632) Hak Kullanımı
-- **[KRITIK]** 23.11.2026 20:48:15 KAMUYU AYDINLATMA PLATFORMU - [Sermaye Piyasası Kurulu Tedbir Kararı](https://www.kap.org.tr/tr/Bildirim/1701581) Sermaye Piyasası Kurulu Tedbir Kararı
-- 23.11.2026 20:25:02 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1701576) SPK BÜLTENİ
-- **[KRITIK]** 23.11.2026 18:29:56 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701502) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
@@ -103,16 +103,16 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
-- ANELE: 11-20: 3, 11-23: 2, 11-26: 1, 11-27: 1
-- DSTKF: 11-20: 1, 11-26: 1, 11-27: 1
+- ANELE: 11-20: 3, 11-23: 2, 11-26: 1, 11-27: 2
+- DSTKF: 11-20: 1, 11-26: 1, 11-27: 2
 - GUNDG: 11-20: 1
-- IEYHO: 11-20: 1, 11-23: 2, 11-27: 1
-- KTLEV: 11-23: 2, 11-24: 1, 11-27: 1
-- ODINE: 11-20: 2, 11-23: 1, 11-24: 2, 11-25: 2
-- OZATD: 11-20: 1, 11-27: 1
+- IEYHO: 11-20: 1, 11-23: 2, 11-27: 2
+- KTLEV: 11-23: 2, 11-24: 1, 11-27: 3
+- ODINE: 11-20: 2, 11-23: 1, 11-24: 2, 11-25: 2, 11-27: 1
+- OZATD: 11-20: 1, 11-27: 2
 - PEKGY: 11-20: 1
-- SELEC: 11-20: 1, 11-23: 1, 11-25: 2
-- TEHOL: 11-23: 3, 11-24: 1, 11-27: 1
+- SELEC: 11-20: 1, 11-23: 1, 11-25: 2, 11-27: 1
+- TEHOL: 11-23: 3, 11-24: 1, 11-27: 5
 - VSNMD: 11-23: 1
 
 ## Takvim (bugun-1 .. +14 gun)
