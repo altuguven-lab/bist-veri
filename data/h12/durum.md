@@ -1,15 +1,15 @@
 # H12 Yuksek hacimli P4_HAZIRLIK - ileriye donuk
 
-Uretim 2026-11-26T05:08 UTC | on kayit `350ebacca31eca52` | durum **ARA_RAPOR**
+Uretim 2026-11-27T05:05 UTC | on kayit `350ebacca31eca52` | durum **ARA_RAPOR**
 
 Salt olcum, tavsiye degildir. Ara raporlar hukum degildir.
 
-Ilerleme: ana grupta T+3 hesaplanmis olay 34 / 100 (bitis en gec 2027-04-30)
+Ilerleme: ana grupta T+3 hesaplanmis olay 39 / 100 (bitis en gec 2027-04-30)
 
 | Grup | n | Net T+3 ort % | t (gun kumelenmis) |
 |---|---|---|---|
-| relvol >= 1 (ana) | 34 | -0.657 | -1.55 |
-| relvol < 1 (karsilastirma) | 124 | -0.281 | -1.3 |
+| relvol >= 1 (ana) | 39 | -0.918 | -2.06 |
+| relvol < 1 (karsilastirma) | 132 | -0.32 | -1.56 |
 | Plasebo (63 gun once, yalniz nihai hukumde) | 0 | None | None |
 
-Ek: {"sektore_gore_T3": {"n": 31, "ort": -0.421, "t": -0.63, "gun": 10}, "net_T5": {"n": 26, "ort": -0.331, "t": -0.62, "gun": 8}, "aylik_ort": {"2026-11": -0.657}, "en_buyuk_5": [{"sembol": "THYAO", "gun": "2026-11-17", "net_T3": 6.39}, {"sembol": "HALKB", "gun": "2026-11-11", "net_T3": -6.16}, {"sembol": "HALKB", "gun": "2026-11-12", "net_T3": -5.66}, {"sembol": "HALKB", "gun": "2026-11-06", "net_T3": 3.17}, {"sembol": "TRMET", "gun": "2026-11-10", "net_T3": -3.05}]}
+Ek: {"sektore_gore_T3": {"n": 35, "ort": -0.31, "t": -0.51, "gun": 11}, "net_T5": {"n": 30, "ort": -0.675, "t": -1.2, "gun": 9}, "aylik_ort": {"2026-11": -0.918}, "en_buyuk_5": [{"sembol": "THYAO", "gun": "2026-11-17", "net_T3": 6.39}, {"sembol": "HALKB", "gun": "2026-11-11", "net_T3": -6.16}, {"sembol": "HALKB", "gun": "2026-11-12", "net_T3": -5.66}, {"sembol": "TRALT", "gun": "2026-11-20", "net_T3": -5.04}, {"sembol": "AEFES", "gun": "2026-11-20", "net_T3": -4.83}]}
