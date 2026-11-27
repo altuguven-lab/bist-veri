@@ -1,9 +1,10 @@
 # Kurum kumesi dedektoru
 
-Uretim 2026-11-27T19:43 UTC, son 14 gun. Salt isaretleme; tavsiye degildir.
+Uretim 2026-11-27T21:43 UTC, son 14 gun. Salt isaretleme; tavsiye degildir.
 
 | Tarih | Kurum | Konu | Hisse | BIST100 | Neden | Ornek hisseler |
 |---|---|---|---|---|---|---|
+| 2026-11-28 | KAMUYU AYDINLATMA PLATFORMU | Sermaye Piyasası Kurulu Tedbir Kararı | 6 | 0 | KRITIK_KONU; NADIR (son 1 yilda gunlerin %0.8'inde) | BIGEN, PASEU, PEKGY, SKYLP, TERA, TRA |
 | 2026-11-27 | TÜRKİYE HAYAT VE EMEKLİLİK A.Ş. | Pay Alım Satım Bildirimi | 5 | 0 | NADIR (son 1 yilda gunlerin %0.5'inde) | BIGCH, HHY, TJY, TML, TYJ |
 | 2026-11-26 | MERKEZİ KAYIT KURULUŞU A.Ş. | SPK İşlem Yasağı Nedeniyle Pay Duyurusu | 5 | 1 | KRITIK_KONU | BLUME, EUKYO, MERKO, QUAGR, THYAO |
 | 2026-11-26 | KAMUYU AYDINLATMA PLATFORMU | Sermaye Piyasası Kurulu Tedbir Kararı | 8 | 0 | KRITIK_KONU; NADIR (son 1 yilda gunlerin %0.5'inde) | IHEVA, KUYAS, PA1, SKP, SMRVA, SVGYO, TAE, TRBNK |
