@@ -13,6 +13,7 @@ Kaynak: tcmb.gov.tr (birincil ✅). Salt veri, tavsiye değildir.
 
 ## Son 7 gün yayımlananlar
 
+- 2026-11-27 10:30 [Yayinlar] [Finansal İstikrar Raporu (Sayı:43, Kasım 2026)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/yayinlar/raporlar/finansal+istikrar+raporu/2026/sayi+43)
 - 2026-11-26 18:27 [Basin Duyurulari] [Türk Lirası Likidite Yönetimine İlişkin Basın Duyurusu (2026-51)](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/duyurular/basin/2026/duy2026-51)
 - 2026-11-26 17:00 [Veriler] [Haftalık Akım Faiz ve Kâr Payı İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/faiz+istatistikleri/haftalik)
 - 2026-11-26 14:30 [Veriler] [Menkul Kıymet İstatistikleri](http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/parasal+ve+finansal+istatistikler/menkul+kiymet+istatistikleri)
