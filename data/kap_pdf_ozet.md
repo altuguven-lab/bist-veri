@@ -1,6 +1,6 @@
 # KAP bildirim PDF özetleri
 
-Üretim: 2026-11-27 18:57 TR · durum OK · seçilen 34 · yeni 8 · hata 0
+Üretim: 2026-11-27 19:30 TR · durum OK · seçilen 34 · yeni 0 · hata 0
 
 Salt veri, tavsiye değildir. Kişi adları maskelenir.
 
