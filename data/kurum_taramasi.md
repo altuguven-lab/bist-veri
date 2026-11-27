@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-27 16:43
+# Kurum taramasi - 2026-11-27 20:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -7,10 +7,10 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | Kaynak | Durum | En son kayit | Son 7 gun |
 |---|---|---|---|
 | [spk_bulten](https://spk.gov.tr/spk-bultenleri/2026-yili-spk-bultenleri) | **OK** | 2026-11-25 | 4 |
-| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-19 | 0 |
+| [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-27 | 2 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-27 | 72 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-27 | 80 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -21,12 +21,31 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - Son bulten 2026/85: karar turleri {'islem_yasagi': 7, 'tedbir': 12, 'suc_duyurusu': 17, 'idari_para_cezasi': 3, 'tasfiye': 1, 'ilke_karari': 9, 'halka_arz_onayi': 1}; gecen kodlar KUYAS, SMRVA, SVGYO
   - Karar turune gore kodlar: suc_duyurusu: KUYAS, SMRVA, SVGYO; islem_yasagi+tedbir: KUYAS; izin_iptali: KUYAS, SMRVA, SVGYO
 
+## takasbank (son 7 gun)
+
+- 2026-11-27 [Takasbank Para Piyasası Prosedürü’nde Yapılan Değişiklikler Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2182-ce294ceb-d28c-438f-b3d9-8fcddce79333.pdf)
+  - PDF konu: Takasbank Para Piyasası Prosedürü’nde Yapılan Değişiklikler Hk.
+  - PDF yururluk: Aracı Kurumlar Bankalar Finansal Kurumlar Sigorta, Hayat ve Emeklilik Şirketleri Varlık Yönetim Şirketleri İpotek Finansmanı Kuruluşları Sayın Genel Müdür, Bildiğiniz üzere, Ülkemizdeki organize para piyasalarından biri 
+- 2026-11-27 [Risk Parametrelerinin Güncellenmesi Hk.](https://www.takasbank.com.tr/documents/file/Takasbank_Announcement/2181-75616061-6bee-444a-893b-22d4a59fbc33.pdf)
+  - PDF konu: Risk Parametrelerinin Güncellenmesi Hk.
+  - PDF degisen: BAP-BISTECH NAKİT AKIM TEMİNATLANDIRMA YÖNTEMİ TEMEL BİLEŞEN PARAMETRE TABLOSU TL DIBS ÜRÜN GRUBU (TL GOVERNMENT DEBT SECURITIES) ENFLASYONA ENDEKSLİ TL DIBS ÜRÜN GRUBU(INFLATION - INDEXED TL GOVERNME
+  - PDF yururluk: 01.12.2026 Salı günü, gün içi ilk risk hesaplama anından itibaren geçerli olacak değişen risk parametreleri ile merkezi karşı taraf ve teminat yönetimi hizmeti verilen piyasalarda risk hesaplamasında kullanılan tüm değer
+  - Evren kodlari: AKBNK 15.7, YKBNK 16.1, GARAN 14.4, ISCTR 13.5, SAHOL 13.2, KCHOL 13.1, THYAO 13.8, TAVHL 15.3, EREGL 14.0, ASELS 15.8, ASTOR 16.1, MGROS 14.1
+
 ## tspb (son 7 gun)
 
 - 2026-11-24 [Pamir Karagöz, TSPB Yönetim Kurulu Başkanlığına Yeniden Seçildi Türkiye Sermaye Piyasaları Birliği (TSPB) 26. Olağan Genel Kurul toplantısı, üyelerin geniş katılımı ile İstanbul’da gerçekleştirildi. Yeni yönetim kurulunu](https://tspb.org.tr/bilgi/pamir-karagoz-tspb-yonetim-kurulu-baskanligina-yeniden-secildi/)
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- 27.11.2026 18:59:26 BORSA İSTANBUL A.Ş. - [Pazar Değişikliği](https://www.kap.org.tr/tr/Bildirim/1703440) Payların Yakın İzleme Pazarına Alınması
+- 27.11.2026 18:58:55 BORSA İSTANBUL A.Ş. - [Pazar Değişikliği](https://www.kap.org.tr/tr/Bildirim/1703438) Payların Yakın İzleme Pazarı'na Alınması
+- 27.11.2026 18:58:33 BORSA İSTANBUL A.Ş. - [Pazar Değişikliği](https://www.kap.org.tr/tr/Bildirim/1703437) Payların Yakın İzleme Pazarına Alınması
+- **[KRITIK]** 27.11.2026 18:23:17 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703408) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
+- **[KRITIK]** 27.11.2026 18:22:01 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703405) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
+- **[KRITIK]** 27.11.2026 17:48:20 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1703369) BAP İşlem İptali
+- 27.11.2026 17:41:03 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703365) Gerçekleşmeyen İtfa/Kupon/Getiri Ödemesi
+- 27.11.2026 17:23:32 MERKEZİ KAYIT KURULUŞU A.Ş. - [Borsada İşlem Gören Tipe Dönüşüm Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703359) DÖNÜŞÜM
 - **[KRITIK]** 27.11.2026 15:03:20 İSTANBUL TAKAS VE SAKLAMA BANK - [Temerrüt İşlemi](https://www.kap.org.tr/tr/Bildirim/1703301) Temerrüt İşleminin Tamamlanması
 - **[KRITIK]** 27.11.2026 14:31:41 İSTANBUL TAKAS VE SAKLAMA BANK - [Temerrüt İşlemi](https://www.kap.org.tr/tr/Bildirim/1703292) Temerrüt İşleminin Tamamlanması
 - **[KRITIK]** 27.11.2026 12:26:20 İSTANBUL TAKAS VE SAKLAMA BANK - [Temerrüt İşlemi](https://www.kap.org.tr/tr/Bildirim/1703266) İşleme Açılan Temerrüt Sırası
@@ -59,17 +78,11 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 25.11.2026 10:22:43 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702207) Hak Kullanım İşlemleri
 - 25.11.2026 09:00:41 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702151) Hak Kullanımı
 - 25.11.2026 08:58:49 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702150) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
-- 25.11.2026 08:58:42 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702149) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
-- **[KRITIK]** 24.11.2026 18:31:58 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702073) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
-- **[KRITIK]** 24.11.2026 18:31:17 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702070) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
-- **[KRITIK]** 24.11.2026 18:30:40 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702065) Pay Piyasasında Volatilite Bazlı Tedbir Sistemi
-- **[KRITIK]** 24.11.2026 17:38:20 BORSA İSTANBUL A.Ş. - [İşlem İptali](https://www.kap.org.tr/tr/Bildirim/1702021) BAP İşlem İptali
-- 24.11.2026 11:35:40 BORSA İSTANBUL A.Ş. - [Endekslerde Kullanılan Fiili Dolaşımdaki Pay Oranı Değişiklikleri](https://www.kap.org.tr/tr/Bildirim/1701746) 
-- 24.11.2026 09:10:40 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701638) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
-- 24.11.2026 09:10:01 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701637) Özel Durumlar Tebliği'nin 12-(4). maddesi gereğince yapılan açıklama
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
+- 27.11.2026 19:10:20 SÜMER FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703441) Şirketimize Kayyım Atanması Hakkında
+- 27.11.2026 18:13:18 BİRİKİM VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703384) KAYYIM ATANMASI HAKKINDA
 - 27.11.2026 09:37:14 HUN YENİLENEBİLİR ENERJİ ÜRETİM A.Ş - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703139) Yönetim Kurulu Başkanımız Hakkındaki Malvarlığı Tedbirlerinin Kaldırılması
 - 27.11.2026 09:34:13 KORAY GAYRİMENKUL YATIRIM ORTAKLIĞI - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703138) Yönetim Kurulu Başkanımız Hakkındaki Malvarlığı Tedbirlerinin Kaldırılması
 - 26.11.2026 16:48:40 GOLDEN GLOBAL YATIRIM BANKASI A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1702988) Tasfiye Bildirimi
@@ -80,6 +93,9 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izleme listesi eslesmeleri
 
+- 27.11.2026 19:10:20 SÜMER FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703441) eslesen: kayyım
+- 27.11.2026 18:23:17 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1703408) eslesen: TEHOL, OZATD
+- 27.11.2026 18:13:18 BİRİKİM VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703384) eslesen: kayyım
 - 25.11.2026 22:25:04 ANEL ELEKTRİK PROJE TAAHHÜT VE TİCA - [Birleşme İşlemlerine İlişkin Bildirim](https://www.kap.org.tr/tr/Bildirim/1702814) eslesen: ANELE
 - 25.11.2026 19:13:11 IŞIKLAR ENERJİ VE YAPI HOLDİNG A.Ş. - [İlişkili Taraf İşlemleri](https://www.kap.org.tr/tr/Bildirim/1702733) eslesen: IEYHO
 - 25.11.2026 19:07:05 SÜMER VARLIK YÖNETİM A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1702730) eslesen: kayyım
@@ -97,9 +113,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 23.11.2026 09:50:34 BORSA İSTANBUL A.Ş. - [Pay İşlem Sırası Kapatma / Açma](https://www.kap.org.tr/tr/Bildirim/1700936) eslesen: TRHOL
 - 23.11.2026 09:42:00 TERA FİNANSAL YATIRIMLAR HOLDİNG A. - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700932) eslesen: TRHOL
 - 23.11.2026 09:37:32 BORSA İSTANBUL A.Ş. - [Pay İşlem Sırası Kapatma / Açma](https://www.kap.org.tr/tr/Bildirim/1700929) eslesen: TRHOL
-- 23.11.2026 08:55:37 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1700907) eslesen: IEYHO
-- 23.11.2026 08:46:18 ODİNE SOLUTİONS TEKNOLOJİ TİCARET V - [Yatırımcı Raporu](https://www.kap.org.tr/tr/Bildirim/1700902) eslesen: ODINE
-- 21.11.2026 16:45:27 ÖZATA DENİZCİLİK SANAYİ VE TİCARET  - [Olağan Dışı Fiyat ve Miktar Hareketleri](https://www.kap.org.tr/tr/Bildirim/1700899) eslesen: OZATD
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
