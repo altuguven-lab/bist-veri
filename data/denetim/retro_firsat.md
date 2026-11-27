@@ -1,10 +1,10 @@
-# Retro Firsat Envanteri (2026-06-01 -> 2026-11-20)
-Evren: 32 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 340 (haftada ort. 13.8)
+# Retro Firsat Envanteri (2026-06-01 -> 2026-11-27)
+Evren: 32 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 346 (haftada ort. 13.5)
 
 ## Donem karsilastirmasi (taban orani)
 - Kulucka ONCESI (5 hafta): 75 firsat | kova: {'5-8%': 30, '8%+': 9, '3-5%': 36}
-- KULUCKA donemi: 265 firsat | kova: {'3-5%': 134, '8%+': 46, '5-8%': 85}
-- Kuluckada SINYALSIZ kacan: 265 / 265
+- KULUCKA donemi: 271 firsat | kova: {'3-5%': 139, '8%+': 46, '5-8%': 86}
+- Kuluckada SINYALSIZ kacan: 271 / 271
 
 ## Haftalik dagilim
 - 2026-W23: 19 firsat
@@ -30,9 +30,11 @@ Evren: 32 sembol | Esik: T->T+3 >= +3% | Toplam pencere: 340 (haftada ort. 13.8)
 - 2026-W44: 29 firsat
 - 2026-W45: 21 firsat
 - 2026-W46: 5 firsat
+- 2026-W47: 2 firsat
+- 2026-W48: 4 firsat
 
 ## Kaçan Fırsat: Olay-Tabanlı (bilanço) vs Teknik ayrımı (05.08 EKI)
-- Toplam kacan: 265 | Bilancoya yakin (+/-3 gun): 0 (%0.0) | Teknik/aciklanamayan: 265 (%100.0)
+- Toplam kacan: 271 | Bilancoya yakin (+/-3 gun): 0 (%0.0) | Teknik/aciklanamayan: 271 (%100.0)
 
 ## Kuluckada kacan pencereler (buyukten kucuge, [BILANCO] etiketli olanlar bilancoya yakin)
 - HALKB | 2026-08-31 | +17.2%
