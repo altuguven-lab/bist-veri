@@ -1,4 +1,4 @@
-# Kurum taramasi - 2026-11-28 00:43
+# Kurum taramasi - 2026-11-28 04:43
 
 Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** olan kaynak icin brifing "yok" demez, "kontrol edilemedi" der.
 
@@ -10,7 +10,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 | [takasbank](https://www.takasbank.com.tr/tr/duyurular) | **OK** | 2026-11-27 | 2 |
 | [tspb](https://www.tspb.org.tr/duyurular/) | **OK** | 2026-11-24 | 1 |
 | [bist](https://www.borsaistanbul.com/duyurular) | **OK** | 2026-11-04 | 0 |
-| KAP arsivi | **OK** | 2026-11-27 | 67 kurum bildirimi |
+| KAP arsivi | **OK** | 2026-11-28 | 69 kurum bildirimi |
 
 ## spk_bulten (son 7 gun)
 
@@ -37,6 +37,8 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## KAP: kurum bildirimleri (SPK, BIST, Takasbank, MKK, KAP)
 
+- **[KRITIK]** 28.11.2026 00:32:02 KAMUYU AYDINLATMA PLATFORMU - [Sermaye Piyasası Kurulu Tedbir Kararı](https://www.kap.org.tr/tr/Bildirim/1703474) Sermaye Piyasası Kurulu Tedbir Kararı
+- 28.11.2026 00:00:41 SERMAYE PİYASASI KURULU - [SPK Bülteni](https://www.kap.org.tr/tr/Bildirim/1703473) SPK BÜLTENİ
 - 27.11.2026 18:59:26 BORSA İSTANBUL A.Ş. - [Pazar Değişikliği](https://www.kap.org.tr/tr/Bildirim/1703440) Payların Yakın İzleme Pazarına Alınması
 - 27.11.2026 18:58:55 BORSA İSTANBUL A.Ş. - [Pazar Değişikliği](https://www.kap.org.tr/tr/Bildirim/1703438) Payların Yakın İzleme Pazarı'na Alınması
 - 27.11.2026 18:58:33 BORSA İSTANBUL A.Ş. - [Pazar Değişikliği](https://www.kap.org.tr/tr/Bildirim/1703437) Payların Yakın İzleme Pazarına Alınması
@@ -75,8 +77,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 25.11.2026 15:57:13 KAMUYU AYDINLATMA PLATFORMU - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1702465) Özel Durum Açıklaması (Genel)
 - **[KRITIK]** 25.11.2026 13:54:54 BORSA İSTANBUL A.Ş. - [VİOP İşlem İptali Duyuruları](https://www.kap.org.tr/tr/Bildirim/1702335) VİOP İşlem İptali Duyuruları
 - 25.11.2026 10:22:43 MERKEZİ KAYIT KURULUŞU A.Ş. - [Merkezi Kayıt Kuruluşu A.Ş. Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702207) Hak Kullanım İşlemleri
-- 25.11.2026 09:00:41 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702151) Hak Kullanımı
-- 25.11.2026 08:58:49 KAMUYU AYDINLATMA PLATFORMU - [Kamuyu Aydınlatma Platformu Duyurusu](https://www.kap.org.tr/tr/Bildirim/1702150) Yatırım Fonlarına İlişkin Rehberin 9.8. maddesi gereğince yapılan açıklama
 
 ## KAP: tasfiye / tedbir / kayyum gecen diger bildirimler
 
@@ -92,6 +92,7 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 
 ## Izleme listesi eslesmeleri
 
+- 28.11.2026 00:32:02 KAMUYU AYDINLATMA PLATFORMU - [Sermaye Piyasası Kurulu Tedbir Kararı](https://www.kap.org.tr/tr/Bildirim/1703474) eslesen: PEKGY
 - 27.11.2026 20:47:44 ÖZATA DENİZCİLİK SANAYİ VE TİCARET  - [Hak Kullanım Süreç İptal Bildirimi](https://www.kap.org.tr/tr/Bildirim/1703461) eslesen: OZATD
 - 27.11.2026 20:46:01 ÖZATA DENİZCİLİK SANAYİ VE TİCARET  - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703460) eslesen: OZATD
 - 27.11.2026 20:12:00 AK FAKTORİNG A.Ş. - [Özel Durum Açıklaması (Genel)](https://www.kap.org.tr/tr/Bildirim/1703457) eslesen: kayyım
@@ -111,7 +112,6 @@ Salt veri toplama; tavsiye degildir. **ERISILEMEDI / BAYAT / KAYIT_BULUNAMADI** 
 - 23.11.2026 19:06:39 DESTEK FİNANS FAKTORİNG A.Ş. - [Halka Arz Fiyatının Belirlenmesinde Esas Alınan Varsayımlara İlişkin Değerlendirme Raporu](https://www.kap.org.tr/tr/Bildirim/1701553) eslesen: DSTKF
 - 23.11.2026 19:05:44 GÜNDOĞDU GIDA SÜT ÜRÜNLERİ SANAYİ V - [Hak Kullanım Süreç İptal Bildirimi](https://www.kap.org.tr/tr/Bildirim/1701552) eslesen: GUNDG
 - 23.11.2026 18:18:21 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701486) eslesen: PEKGY
-- 23.11.2026 18:16:51 BORSA İSTANBUL A.Ş. - [BISTECH Pay Piyasası Alım Satım Sistemi Duyurusu](https://www.kap.org.tr/tr/Bildirim/1701482) eslesen: GUNDG
 
 ## Izlenen kodlarda pay bazli devre kesici (gun: adet)
 
